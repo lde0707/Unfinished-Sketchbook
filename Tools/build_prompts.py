@@ -64,10 +64,17 @@ PALETTE_WORDS = {1: "toned-down warm gray paper, graphite gray, dark ink gray", 
 TYPE = {
     'TERRAIN': ("large terrain fill texture sheet, 2048x2048, flat front view, no perspective, no lighting direction, "
                 "fills the whole image, NO visible repeating motif, strokes and hatching vary in density, length and placement everywhere, "
-                "irregular organic variation like one big hand-drawn surface, edges wrap seamlessly only so the sheet can stretch over large areas"),
-    'EDGE': ("long horizontal strip of a hand-drawn terrain edge on transparent background, 4096x512, "
-             "one continuous wobbly organic contour line with the material texture fading into it, "
-             "no straight ruler line, no repeating bumps, natural irregular rhythm, soft anti-aliased edge"),
+                "irregular organic variation like one big hand-drawn surface, "
+                "big-mass variation is required: darker denser patches and lighter sparse patches, one or two faint strata lines, "
+                "a few areas left half-hatched with paper showing through, a few small embedded material bits (pebbles and crumbs of the drawing material), "
+                "paper grain texture (not canvas, not fabric weave), never one flat even gray, "
+                "edges wrap seamlessly only so the sheet can stretch over large areas"),
+    'EDGE': ("long horizontal strip of a hand-drawn terrain edge on transparent background, 4096x512, built in three zones: "
+             "(1) a thick bold dark hand-drawn contour with an irregular rhythm of large bumps and small wobbles, a few chips, dents and one or two slight breaks, "
+             "the contour rises and falls by about a quarter of the strip height, never a ruler line, never an even sine wave; "
+             "(2) a dense darker surface band just inside the contour, about one fifth of the strip deep, with small details; "
+             "(3) the interior beyond it gets lighter and sparser with a faint strata line and some half-hatched paper showing; "
+             "paper grain texture (not canvas or fabric weave), same value and texture family as the matching floor or ceiling piece, soft anti-aliased edge"),
     'CORNER': ("single organic rounded corner piece of terrain on transparent background, soft natural anti-aliased edge, "
                "imperfect hand-drawn curve, matches a continuous edge strip"),
     'PLATFORM': ("single long one-way platform plank on transparent background, side view, thick hand-drawn line on top, "
@@ -75,9 +82,13 @@ TYPE = {
     'SPECIAL': ("single tall special terrain block on transparent background, side view, soft natural edges, "
                 "drawn as one unique hand-drawn object, not a repeating tile"),
     'BG_FAR': ("very distant background layer, extremely faint unfinished sketch, only outlines, barely visible against the paper, "
-               "low contrast (5-10% darker than paper), wide panoramic 32:9, one panel of one long continuous world panorama, its edges continue into the neighboring area panels, same horizon height everywhere, no repeated landmarks"),
+               "low contrast (5-10% darker than paper), far layer only, wide panoramic 32:9, one panel of one long continuous world panorama, its edges continue into the neighboring area panels, same horizon height everywhere, no repeated landmarks, "
+               "content fills the panel from the left edge to the right edge, asymmetric composition, no centered clearing, no stage-like framing, "
+               "no birds or flying shapes in the sky, every tree and landmark a different shape, a few half-erased unfinished strokes"),
     'BG_MID': ("middle-distance background layer, simple shapes of landmarks, thin lines, low saturation, 15-20% darker than paper, "
-               "no ground plane in the lower 30%, wide panoramic 32:9, one panel of one long continuous world panorama, its edges continue into the neighboring area panels, same horizon height everywhere, every landmark different, no repeated shapes"),
+               "middle layer only, no ground plane and no grass in the lower 35%, wide panoramic 32:9, one panel of one long continuous world panorama, its edges continue into the neighboring area panels, same horizon height everywhere, every landmark different, no repeated shapes, "
+               "content fills the panel from the left edge to the right edge, asymmetric composition, no centered clearing, no stage-like framing, "
+               "no birds or flying shapes in the sky, a few half-erased unfinished strokes"),
     'BG_FORE': ("foreground overlay elements only at the bottom fifth of the image, sparse, soft and slightly faded, transparent background"),
     'DECOR': ("decoration overlay for one room on a fully transparent background, the provided layout shows where terrain is, "
               "do NOT draw the terrain itself, do NOT fill walls, floors or air, everything except the decorations stays transparent, "
@@ -120,6 +131,9 @@ NEG_COMMON = ("pixel art, pixelated, 8-bit, 16-bit, retro game sprite, dot art, 
               "saturated rainbow colors, dark horror atmosphere, gore, text, letters, numbers, logo, watermark, signature, UI, frame border, "
               "blurry, jpeg artifacts, perspective view, isometric, top-down")
 NEG_ENV = "characters, people, animals, creatures, faces"
+NEG_BG = (", birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, "
+          "empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave")
+NEG_TERRAIN = ", canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour"
 NEG_DECOR = ", solid ground fill, filled walls, full scene, paper background, opaque background, platforms, terrain blocks, sky"
 NEG_CHAR = ("background scenery, multiple characters, cropped body, extra limbs, detailed facial features, mouth, nose, "
             "clothing details, armor ornaments, motion blur")
@@ -139,7 +153,8 @@ def add(id, cat, ch, typ, subject, file, ref_extra='', control='', neg='', note=
 # 0. 골든 이미지 (가장 먼저)
 add('G1', '0 골든', 1, 'KEY', "wide game screenshot-like scene, a small chalk-white child figure standing on pencil-hatched rock ledges "
     "in a half-drawn pencil forest cave, platforms at different heights, breathing room of empty toned paper, mid-key brightness", 'golden/G1_scene.png', ar='16:9', note='전체 분위기 기준')
-add('G2', '0 골든', 1, 'TERRAIN', "solid ground made of pencil hatching that varies naturally everywhere, with an organic wobbly top edge", 'golden/G2_ground.png', ar='1:1', neg=NEG_ENV, note='지형 질감 기준 (반복 없음)')
+add('G2', '0 골든', 1, 'TERRAIN', "solid ground made of pencil hatching: a bold irregular top contour, a dense dark surface band with pebbles and graphite flecks just below it, "
+    "and a lighter sparser interior with a faint strata line and half-hatched paper patches", 'golden/G2_ground.png', ar='1:1', neg=NEG_ENV + NEG_TERRAIN, note='지형 질감 기준 (반복 없음)')
 add('G3', '0 골든', 0, 'CHAR', "character sheet of the protagonist: " + CHAR_LOCK + ", standing pose, three views of the same side pose redrawn by hand",
     'golden/G3_player_sheet.png', ar='16:9', neg=NEG_CHAR, note='캐릭터 선 굵기 기준', lock=True)
 add('G4', '0 골든', 1, 'CHAR', "a small graphite worm creature made of segmented pencil-lead pieces, one pointed tip at the front", 'golden/G4_enemy.png', ar='1:1', neg=NEG_CHAR, note='적 형태 언어 기준')
@@ -157,9 +172,12 @@ TERRAIN_SET = [
     ('fill_b', 'TERRAIN', "interior of solid ground, hatching only, variation B with a few faint eraser smudges"),
     ('fill_c', 'TERRAIN', "interior of solid ground, hatching only, variation C with sparse material flecks"),
     ('fill_d', 'TERRAIN', "interior of solid ground, hatching only, variation D slightly denser near one side"),
-    ('edge_top', 'EDGE', "top surface edge of ground, thick wobbly contour line on top, material texture below"),
-    ('edge_bottom', 'EDGE', "bottom edge of a ceiling, thick wobbly contour line on the bottom, material texture above"),
-    ('edge_side', 'EDGE', "vertical wall edge (drawn horizontally, will be rotated), thick wobbly contour line, material texture on one side"),
+    ('edge_top', 'EDGE', "walkable top surface edge of ground, the boldest contour on top so the floor reads instantly, "
+                         "surface band with small pebbles, material crumbs, a few tiny grass tufts and a chipped spot, material texture below"),
+    ('edge_bottom', 'EDGE', "bottom edge of a ceiling, bold contour on the bottom with a few sagging lumps and two or three short stalactite stubs, "
+                            "surface band with cracks, hanging roots and short drips, material texture above"),
+    ('edge_side', 'EDGE', "vertical wall edge (drawn horizontally, will be rotated), bold contour with chips, cracks and small ledges, "
+                          "surface band with scratches and material crumbs, material texture on one side"),
     ('corner_out', 'CORNER', "outer convex corner of ground, rounded"),
     ('corner_in', 'CORNER', "inner concave corner where floor meets wall, soft curve"),
     ('platform_a', 'PLATFORM', "one-way plank platform, variation A"),
@@ -189,7 +207,7 @@ CH_SPECIAL = {
 AR = {'TERRAIN': '1:1', 'EDGE': '8:1', 'CORNER': '1:1', 'PLATFORM': '4:1', 'SPECIAL': '1:3'}
 for ch in (1, 2):
     for key, typ, subj in TERRAIN_SET + CH_SPECIAL[ch]:
-        add(f'T{ch}-{key}', '1 지형', ch, typ, subj, f'ch{ch}/terrain/ch{ch}_{key}.png', ar=AR[typ], neg=NEG_ENV,
+        add(f'T{ch}-{key}', '1 지형', ch, typ, subj, f'ch{ch}/terrain/ch{ch}_{key}.png', ar=AR[typ], neg=NEG_ENV + (NEG_TERRAIN if typ in ('TERRAIN', 'EDGE') else ''),
             note='반복 금지: 같은 종류는 변형 여러 장을 섞어 씀' if typ in ('TERRAIN', 'PLATFORM') else '')
 
 # 2. 배경 (구역마다 먼 배경·중경)
@@ -204,8 +222,8 @@ ZONES = {
     'H': (2, "knight's tower", "tall crayon tower with banners drawn in crayon, wax walls and a training yard"),
 }
 for z, (ch, name, subj) in ZONES.items():
-    add(f'B{ch}-{z}-far', '2 배경', ch, 'BG_FAR', subj, f'ch{ch}/bg/ch{ch}_bg_{z}_far.png', ar='32:9', neg=NEG_ENV, note=name)
-    add(f'B{ch}-{z}-mid', '2 배경', ch, 'BG_MID', subj, f'ch{ch}/bg/ch{ch}_bg_{z}_mid.png', ar='32:9', neg=NEG_ENV, note=name)
+    add(f'B{ch}-{z}-far', '2 배경', ch, 'BG_FAR', subj, f'ch{ch}/bg/ch{ch}_bg_{z}_far.png', ar='32:9', neg=NEG_ENV + NEG_BG, note=name)
+    add(f'B{ch}-{z}-mid', '2 배경', ch, 'BG_MID', subj, f'ch{ch}/bg/ch{ch}_bg_{z}_mid.png', ar='32:9', neg=NEG_ENV + NEG_BG, note=name)
 # 이음 패널: 지도에서 실제로 맞닿은 구역 쌍만 (Art/bg_links.json = python Tools/seam_check.py links)
 _lp = os.path.join(ROOT, 'bg_links.json')
 if not os.path.exists(_lp):
@@ -218,7 +236,7 @@ for l in LINKS:
     for lay in ('far', 'mid'):
         add(f'BL-{z1}{z2}-{lay}', '2 배경', c2, 'BG_LINK' if d == 'h' else 'BG_LINK_V',
             f"{lay} layer: {s1} " + side.format(s2) + (", " + MAT[c1] + " gradually becoming " + MAT[c2] if c1 != c2 else ''),
-            f'link/bg_{z1}{z2}_{lay}.png', ref_extra=f'B{c1}-{z1}-{lay} B{c2}-{z2}-{lay}', ar='32:9', neg=NEG_ENV,
+            f'link/bg_{z1}{z2}_{lay}.png', ref_extra=f'B{c1}-{z1}-{lay} B{c2}-{z2}-{lay}', ar='32:9', neg=NEG_ENV + NEG_BG,
             note=f"{n1} → {n2} 이음 패널 ({'가로: 왼→오' if d == 'h' else '세로: 위→아래'}, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py")
 add('B1-fore', '2 배경', 1, 'BG_FORE', "pencil-drawn grass blades and small paper scraps", 'ch1/bg/ch1_bg_fore.png', ar='32:9', neg=NEG_ENV)
 add('B2-fore', '2 배경', 2, 'BG_FORE', "crayon grass tufts and tiny wax drips", 'ch2/bg/ch2_bg_fore.png', ar='32:9', neg=NEG_ENV)
@@ -256,7 +274,7 @@ for key, typ, subj in [('fill_a', 'TERRAIN', "interior of solid ground, variatio
                        ('edge_top', 'EDGE', "top surface edge of ground, thick wobbly contour line on top"),
                        ('edge_bottom', 'EDGE', "bottom edge of a ceiling, thick wobbly contour line on the bottom")]:
     add(f'T12-{key}', '1 지형', 2, typ, subj + ", transition: " + MAT[1] + " on the left gradually overpainted by " + MAT[2] + " toward the right",
-        f'border/terrain_12_{key}.png', ref_extra='T1-fill_a T2-fill_a', ar=AR[typ], neg=NEG_ENV, note='1→2장 전환 구간 전용 (2~3화면 폭)')
+        f'border/terrain_12_{key}.png', ref_extra='T1-fill_a T2-fill_a', ar=AR[typ], neg=NEG_ENV + NEG_TERRAIN, note='1→2장 전환 구간 전용 (2~3화면 폭)')
 
 # 4. 소품 · 구조물
 PROPS = [
@@ -420,8 +438,8 @@ def main():
     A.sort(key=lambda a: int(a['cat'].split()[0]))   # 분류 순서대로 (안정 정렬)
     for a in A:
         p, n = assemble(a); rows.append(dict(a, prompt=p, negative=n))
-    json.dump(dict(version='MSB v3 · UNIFY v3 · MAT v1 · 지형 구조 v3 (이어진 바탕 + 방 장식) · 미드키 게임 그림체', blocks=dict(MSB=MSB, UNIFY=UNIFY, MAT=MAT, TYPE=TYPE, CHAR_LOCK=CHAR_LOCK,
-              NEG_COMMON=NEG_COMMON, NEG_ENV=NEG_ENV, NEG_DECOR=NEG_DECOR, NEG_CHAR=NEG_CHAR, NEG_POSE=NEG_POSE), assets=A),
+    json.dump(dict(version='MSB v3 · UNIFY v3 · MAT v1 · 지형 구조 v3.1 (3단 가장자리) · 미드키 게임 그림체', blocks=dict(MSB=MSB, UNIFY=UNIFY, MAT=MAT, TYPE=TYPE, CHAR_LOCK=CHAR_LOCK,
+              NEG_COMMON=NEG_COMMON, NEG_ENV=NEG_ENV, NEG_BG=NEG_BG, NEG_TERRAIN=NEG_TERRAIN, NEG_DECOR=NEG_DECOR, NEG_CHAR=NEG_CHAR, NEG_POSE=NEG_POSE), assets=A),
               open(os.path.join(ROOT, 'asset_catalog.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     with open(os.path.join(ROOT, 'prompts_full.csv'), 'w', encoding='utf-8-sig', newline='') as f:
         w = csv.writer(f); w.writerow(['ID', '분류', '장', '종류', '파일', '비율', '레퍼런스', '컨트롤 이미지', '메모', '프롬프트', '네거티브'])

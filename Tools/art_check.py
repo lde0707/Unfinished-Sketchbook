@@ -42,6 +42,7 @@ import unify_pass, seam_check
 
 # ───────────────────────── 기준 ─────────────────────────
 ALPHA_TYPES = {'EDGE', 'CORNER', 'PLATFORM', 'SPECIAL', 'DECOR', 'PROP', 'CHAR', 'POSE', 'FX', 'UI', 'BG_FORE'}
+MONO_TYPES = {'TERRAIN', 'EDGE', 'SPECIAL'}
 REPEAT_TYPES = {'TERRAIN', 'EDGE', 'DECOR', 'BG_FAR', 'BG_MID', 'BG_LINK', 'BG_LINK_V', 'KEY', 'SPECIAL'}
 MIN_LONG = {'TERRAIN': 2048, 'EDGE': 4096, 'BG_FAR': 3840, 'BG_MID': 3840, 'BG_LINK': 3840, 'BG_LINK_V': 3840,
             'BG_FORE': 3840, 'DECOR': 3840, 'KEY': 3840}          # 목표 (16 문서 §14: 화면의 2배로 그림)
@@ -49,7 +50,7 @@ MIN_LONG_DEFAULT = 1024
 # 미드키 밝기 대역 (평균 밝기 0~1, 통일 후처리 뒤 기준) — 16 문서 §4-6
 VALUE_BAND = {'BG_FAR': (0.55, 0.82), 'BG_LINK': (0.45, 0.82), 'BG_LINK_V': (0.45, 0.82), 'BG_MID': (0.45, 0.80),
               'TERRAIN': (0.25, 0.70), 'KEY': (0.35, 0.78)}
-LIM = dict(white=0.03, aspect=0.04, nn_err=1.5, levels=0.35, hard=0.50, hard_warn=0.35, alpha_soft=0.15,
+LIM = dict(white=0.03, mono=3.0, mono_warn=5.0, relief=0.03, relief_warn=0.05, rhythm=0.55, surface=4.0, aspect=0.04, nn_err=1.5, levels=0.35, hard=0.50, hard_warn=0.35, alpha_soft=0.15,
            repeat=0.45, repeat_warn=0.30, sat_over=0.02, black=12)
 
 
@@ -136,13 +137,24 @@ def chk_alpha(arr, a):
     r = (inner & band).sum() / max(band.sum(), 1)
     return ('투명 가장자리', 'fail' if r < LIM['alpha_soft'] else 'ok', f'가장자리 반투명 픽셀 {r * 100:.0f}% (0에 가까우면 계단)')
 
+def _small_L(arr, n=512):
+    """긴 변 n으로 줄인 밝기 + 불투명 마스크 (투명한 곳은 불투명 평균 밝기로 채워서 '경계선'이 무늬로 잡히지 않게)"""
+    im = Image.fromarray(arr.astype(np.uint8)); s = n / max(im.size)
+    sm = np.asarray(im.resize((max(8, int(im.width * s)), max(8, int(im.height * s))), Image.BILINEAR), dtype=np.float64)
+    L = lum(sm); m = sm[..., 3] > 200 if sm.shape[-1] == 4 else np.ones(L.shape, bool)
+    if m.any(): L = np.where(m, L, L[m].mean())
+    return L, m, s
+
 def chk_repeat(arr, a):
-    """반복 무늬: 중간 크기 무늬의 자기상관에서 '0이 아닌 위치'에 큰 봉우리가 있으면 같은 무늬가 되풀이된 것"""
+    """반복 무늬(복사): 중간 크기 무늬의 자기상관에서 '0이 아닌 위치'에 날카롭고 큰 봉우리가 있으면 같은 무늬가 되풀이된 것"""
     if a['type'] not in REPEAT_TYPES: return None
-    im = Image.fromarray(arr[..., :3].astype(np.uint8)); s = 512 / max(im.size)
-    L = lum(np.asarray(im.resize((max(8, int(im.width * s)), max(8, int(im.height * s))), Image.BILINEAR), dtype=np.float64))
+    L, m, s = _small_L(arr)
     band = gaussian_filter(L, 2) - gaussian_filter(L, 16)          # 해칭 같은 아주 잔 무늬는 빼고 '모티프' 크기만
-    band -= band.mean(); v = (band ** 2).sum()
+    band = np.where(m, band, 0); band -= band[m].mean() if m.any() else 0; band[~m] = 0
+    cnt_r = np.maximum(m.sum(1, keepdims=True), 1); cnt_c = np.maximum(m.sum(0, keepdims=True), 1)
+    band = np.where(m, band - band.sum(1, keepdims=True) / cnt_r, 0)        # 가로로 긴 지층 줄·윤곽선은 '반복'이 아님 → 행 평균 빼기
+    band = np.where(m, band - band.sum(0, keepdims=True) / cnt_c, 0)        # 세로 줄도 마찬가지
+    v = (band ** 2).sum()
     if v < 1e-6: return ('반복 무늬', 'ok', '무늬 없음')
     F = np.fft.rfft2(band, s=(band.shape[0] * 2, band.shape[1] * 2))
     ac = np.fft.irfft2(F * np.conj(F))[:band.shape[0], :band.shape[1]] / v
@@ -153,6 +165,55 @@ def chk_repeat(arr, a):
     pk = float(ac.max()); y, x = np.unravel_index(ac.argmax(), ac.shape)
     st = 'fail' if pk > LIM['repeat'] else 'warn' if pk > LIM['repeat_warn'] else 'ok'
     return ('반복 무늬', st, f'되풀이 강도 {pk:.2f} (간격 {x / s:.0f}, {y / s:.0f}px)')
+
+def chk_monotone(arr, a):
+    """단조로운 질감: 큰 덩어리 명암 변화(지층·진한 곳·덜 칠한 곳)가 거의 없으면 '회색 천'처럼 보임"""
+    if a['type'] not in MONO_TYPES: return None
+    L, m, s = _small_L(arr)
+    if m.sum() < 500: return None
+    big = gaussian_filter(L, max(L.shape) * 0.02)
+    from scipy.ndimage import binary_erosion
+    core = binary_erosion(m, iterations=int(max(L.shape) * 0.04))  # 윤곽선 근처는 빼고 속만
+    if core.sum() < 300: core = m
+    sd = float(big[core].std())
+    st = 'fail' if sd < LIM['mono'] else 'warn' if sd < LIM['mono_warn'] else 'ok'
+    return ('질감 단조로움', st, f'큰 덩어리 명암 변화 {sd:.1f} (지층·진한 띠·덜 칠한 곳이 있으면 커짐)')
+
+def _contour(arr):
+    """가장자리 띠의 윤곽선 높이(열마다). 바닥(불투명이 아래) = 위쪽 경계, 천장(불투명이 위) = 아래쪽 경계"""
+    al = arr[..., 3] > 127; h = al.shape[0]
+    floor = al[h // 2:].mean() > al[:h // 2].mean()
+    cols = np.where(al.any(0))[0]
+    if len(cols) < 50: return None, floor
+    y = np.array([np.argmax(al[:, c]) if floor else h - 1 - np.argmax(al[::-1, c]) for c in cols], dtype=float)
+    return y, floor
+
+def chk_edge(arr, a):
+    """가장자리 띠: ① 윤곽 높낮이가 충분한지 ② 물결이 일정한 간격으로 반복되는지 ③ 윤곽 안쪽에 진한 '표면 띠'가 있는지"""
+    if a['type'] != 'EDGE' or arr.shape[-1] != 4: return []
+    y, floor = _contour(arr)
+    if y is None: return []
+    h = arr.shape[0]; out = []
+    relief = (np.percentile(y, 97) - np.percentile(y, 3)) / h
+    out.append(('윤곽 높낮이', 'fail' if relief < LIM['relief'] else 'warn' if relief < LIM['relief_warn'] else 'ok',
+                f'높낮이 {relief * 100:.1f}% (띠 높이 대비, 너무 평평하면 자로 그은 선처럼 보임)'))
+    d = y - gaussian_filter(y, len(y) * 0.08); d -= d.mean()
+    if d.std() > 0.5:
+        ac = np.correlate(d, d, 'full')[len(d) - 1:] / (d ** 2).sum()
+        neg = np.where(ac < 0)[0]; lo = int(neg[0]) if len(neg) else len(d)      # 첫 '0 아래' 이후부터 = 다음 물결과 비교
+        per = float(ac[lo:len(d) // 3].max()) if len(d) // 3 > lo + 2 else 0
+        out.append(('물결 리듬', 'fail' if per > LIM['rhythm'] else 'ok', f'같은 간격 반복 정도 {per:.2f} (일정한 물결이면 높음)'))
+    L = lum(arr[..., :3].astype(np.float64)); al = arr[..., 3] > 200
+    bandv, inner = [], []
+    for i, c in enumerate(np.where(arr[..., 3].any(0) if False else (arr[..., 3] > 127).any(0))[0][::8]):
+        y0 = int(y[min(i * 8, len(y) - 1)]); sgn = 1 if floor else -1
+        a1 = [y0 + sgn * k for k in range(int(0.03 * h), int(0.12 * h))]; a2 = [y0 + sgn * k for k in range(int(0.25 * h), int(0.45 * h))]
+        a1 = [r for r in a1 if 0 <= r < h and al[r, c]]; a2 = [r for r in a2 if 0 <= r < h and al[r, c]]
+        if a1 and a2: bandv.append(L[a1, c].mean()); inner.append(L[a2, c].mean())
+    if bandv:
+        diff = float(np.mean(inner) - np.mean(bandv))
+        out.append(('표면 띠', 'ok' if diff >= LIM['surface'] else 'warn', f'윤곽 바로 안쪽이 속보다 {diff:.1f} 진함 (표면 띠가 있으면 커짐)'))
+    return out
 
 def chk_color(arr, a):
     ch = a['ch'] or 1; smax = unify_pass.CH[ch][2]
@@ -180,8 +241,9 @@ def inspect(arr, im, a, stage='raw'):
     res = []
     if stage in ('raw', 'audit'):
         for r in (chk_aspect(im, a), chk_size(im, a), chk_nearest(arr), chk_colors(arr), chk_hard_edges(arr),
-                  chk_alpha(arr, a), chk_repeat(arr, a)):
+                  chk_alpha(arr, a), chk_repeat(arr, a), chk_monotone(arr, a)):
             if r: res.append(r)
+        res += chk_edge(arr, a)
     if stage in ('final', 'audit'):
         res += chk_color(arr, a)
     return res
@@ -361,7 +423,9 @@ def demo():
         ph = (xx + yy + warp) % 11
         stroke = np.clip(1 - np.abs(ph - 5) / (1.2 + 1.5 * dens), 0, 1)
         stroke *= gaussian_filter(rng.random((n, n)), 3) > 0.45
-        L = 236 - 120 * gaussian_filter(stroke, 0.8) * (0.4 + 0.6 * dens)
+        big = gaussian_filter(rng.normal(0, 1, (n, n)), n * 0.12); big = big / np.abs(big).max()   # 큰 덩어리 (진한 곳·덜 칠한 곳)
+        strata = np.exp(-((yy - n * 0.62 - 40 * np.sin(xx / 170)) / (n * 0.03)) ** 2)                  # 희미한 지층 줄 1개
+        L = 236 - 120 * gaussian_filter(stroke, 0.8) * (0.4 + 0.6 * dens) + 22 * big - 18 * strata
         L += rng.normal(0, 3, (n, n))
         return np.clip(np.stack([L, L, L * 0.97], -1), 0, 255).astype(np.uint8)
     good = hand_terrain()
@@ -382,7 +446,7 @@ def demo():
     def rgba(alpha):
         c = np.zeros((1024, 1024, 4), np.uint8); c[..., :3] = good; c[..., 3] = alpha; return c
     prop_soft, prop_hard = rgba((soft * 255).astype(np.uint8)), rgba((blob * 255).astype(np.uint8))
-    cases = [('손그림 지형 · 반복 없음', 'T1-fill_a', good), ('같은 조각 4×4 반복', 'T1-fill_b', tiled),
+    cases = [('손그림 지형 · 큰 변화 있음', 'T1-fill_a', good), ('같은 조각 4×4 반복', 'T1-fill_b', tiled),
              ('도트 그림을 키운 것', 'T1-fill_c', pixel), ('부드러운 선 (안티앨리어싱)', 'G1', lines(4)),
              ('계단 선 (안티앨리어싱 없음)', 'G1', lines(1)), ('소품 · 부드러운 투명 가장자리', 'P-save_statue-1', prop_soft),
              ('소품 · 계단 투명 가장자리', 'P-save_statue-1', prop_hard), ('소품 · 배경 안 지움', 'P-save_statue-1', good)]

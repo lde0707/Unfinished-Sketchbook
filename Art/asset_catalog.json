@@ -1,5 +1,5 @@
 {
- "version": "MSB v3 · UNIFY v3 · MAT v1 · 지형 구조 v3 (이어진 바탕 + 방 장식) · 미드키 게임 그림체",
+ "version": "MSB v3 · UNIFY v3 · MAT v1 · 지형 구조 v3.1 (3단 가장자리) · 미드키 게임 그림체",
  "blocks": {
   "MSB": "stylized hand-drawn 2D side-scrolling game art, looks like a screen from a polished indie metroidvania game, drawn on a page of a child's sketchbook, simplified readable game shapes, not realistic, not photographic, muted warm gray-beige paper toned down like a page seen under a dim desk lamp, mid-key overall brightness (neither bright nor dark), visible paper grain and a very faint square grid, muted art-supply colors with low saturation, soft dark ink-gray outlines (not pure black), outline weight thick and consistent on gameplay objects, thinner on background, slightly wobbly hand-drawn lines, a few intentionally unfinished strokes and eraser marks, matte paper look, flat lighting, shading done with drawing-material texture (not gradients), calm melancholic mood with a quiet tension of adventure and combat, clear readable silhouettes, orthographic side view, quiet composition with breathing room, high-resolution smooth hand-drawn illustration (not pixel art), soft natural anti-aliased edges, organic irregular contours, every wall and floor surface drawn uniquely by hand with no repeating pattern",
   "UNIFY": "UNIFIED LOOK: identical flat ambient light from the front for every asset, no directional light, no cast shadows, no highlights, no rim light, only a soft faint contact shadow under grounded objects; the same fine paper grain pattern visible through every surface; all shading uses the same 45-degree diagonal hatching direction (top-right to bottom-left); every outline uses the same ink-gray and the same wobble; same line weight for the same layer; same muted color temperature; looks like part of one continuous hand-drawn game; MID-KEY VALUES: the page paper sits around 70 percent brightness, far background slightly darker than the paper, middle background darker again, terrain mid-dark, outlines dark ink-gray, the protagonist is the lightest shape on screen, no large pure white areas, no crushed pure black areas, moderate contrast that keeps combat easy to read; GAME LOOK: stylized and simplified like game art, details grouped into big simple masses, shapes read at a glance, no realistic micro-detail, no painterly realism; SMOOTH AND ORGANIC: soft natural edges everywhere, rounded imperfect corners, no hard square tile edges, no repeated stamps or copy-pasted texture, hatching density and stroke placement vary naturally across every surface",
@@ -11,13 +11,13 @@
    "5": "drawn with dip pen and spreading black-violet ink, ink blots seeping into paper, fragments of pencil, crayon, watercolor and colored paper half-sunk in ink, faint remaining colors glowing softly through the ink"
   },
   "TYPE": {
-   "TERRAIN": "large terrain fill texture sheet, 2048x2048, flat front view, no perspective, no lighting direction, fills the whole image, NO visible repeating motif, strokes and hatching vary in density, length and placement everywhere, irregular organic variation like one big hand-drawn surface, edges wrap seamlessly only so the sheet can stretch over large areas",
-   "EDGE": "long horizontal strip of a hand-drawn terrain edge on transparent background, 4096x512, one continuous wobbly organic contour line with the material texture fading into it, no straight ruler line, no repeating bumps, natural irregular rhythm, soft anti-aliased edge",
+   "TERRAIN": "large terrain fill texture sheet, 2048x2048, flat front view, no perspective, no lighting direction, fills the whole image, NO visible repeating motif, strokes and hatching vary in density, length and placement everywhere, irregular organic variation like one big hand-drawn surface, big-mass variation is required: darker denser patches and lighter sparse patches, one or two faint strata lines, a few areas left half-hatched with paper showing through, a few small embedded material bits (pebbles and crumbs of the drawing material), paper grain texture (not canvas, not fabric weave), never one flat even gray, edges wrap seamlessly only so the sheet can stretch over large areas",
+   "EDGE": "long horizontal strip of a hand-drawn terrain edge on transparent background, 4096x512, built in three zones: (1) a thick bold dark hand-drawn contour with an irregular rhythm of large bumps and small wobbles, a few chips, dents and one or two slight breaks, the contour rises and falls by about a quarter of the strip height, never a ruler line, never an even sine wave; (2) a dense darker surface band just inside the contour, about one fifth of the strip deep, with small details; (3) the interior beyond it gets lighter and sparser with a faint strata line and some half-hatched paper showing; paper grain texture (not canvas or fabric weave), same value and texture family as the matching floor or ceiling piece, soft anti-aliased edge",
    "CORNER": "single organic rounded corner piece of terrain on transparent background, soft natural anti-aliased edge, imperfect hand-drawn curve, matches a continuous edge strip",
    "PLATFORM": "single long one-way platform plank on transparent background, side view, thick hand-drawn line on top, soft natural edges, irregular hand-drawn shape, no two planks identical",
    "SPECIAL": "single tall special terrain block on transparent background, side view, soft natural edges, drawn as one unique hand-drawn object, not a repeating tile",
-   "BG_FAR": "very distant background layer, extremely faint unfinished sketch, only outlines, barely visible against the paper, low contrast (5-10% darker than paper), wide panoramic 32:9, one panel of one long continuous world panorama, its edges continue into the neighboring area panels, same horizon height everywhere, no repeated landmarks",
-   "BG_MID": "middle-distance background layer, simple shapes of landmarks, thin lines, low saturation, 15-20% darker than paper, no ground plane in the lower 30%, wide panoramic 32:9, one panel of one long continuous world panorama, its edges continue into the neighboring area panels, same horizon height everywhere, every landmark different, no repeated shapes",
+   "BG_FAR": "very distant background layer, extremely faint unfinished sketch, only outlines, barely visible against the paper, low contrast (5-10% darker than paper), far layer only, wide panoramic 32:9, one panel of one long continuous world panorama, its edges continue into the neighboring area panels, same horizon height everywhere, no repeated landmarks, content fills the panel from the left edge to the right edge, asymmetric composition, no centered clearing, no stage-like framing, no birds or flying shapes in the sky, every tree and landmark a different shape, a few half-erased unfinished strokes",
+   "BG_MID": "middle-distance background layer, simple shapes of landmarks, thin lines, low saturation, 15-20% darker than paper, middle layer only, no ground plane and no grass in the lower 35%, wide panoramic 32:9, one panel of one long continuous world panorama, its edges continue into the neighboring area panels, same horizon height everywhere, every landmark different, no repeated shapes, content fills the panel from the left edge to the right edge, asymmetric composition, no centered clearing, no stage-like framing, no birds or flying shapes in the sky, a few half-erased unfinished strokes",
    "BG_FORE": "foreground overlay elements only at the bottom fifth of the image, sparse, soft and slightly faded, transparent background",
    "DECOR": "decoration overlay for one room on a fully transparent background, the provided layout shows where terrain is, do NOT draw the terrain itself, do NOT fill walls, floors or air, everything except the decorations stays transparent, place a few unique small details hugging the terrain surfaces: cracks, eraser marks, half-erased lines, little scribbles, roots, vines, small landmark objects that give this room its own character, decorations sit on or just inside terrain edges, keep walkable air and every platform top completely clear, soft natural anti-aliased edges, sparse, no repeated motif, 16:9",
    "BG_LINK_V": "vertical transition panel of a continuous background, the top part continues the upper area panel exactly (outpainting downward from its bottom edge), the lower part gradually becomes the area below, shapes flow through without a visible horizontal seam, same layer brightness, 32:9",
@@ -32,6 +32,8 @@
   "CHAR_LOCK": "the same tiny protagonist in every image: round head about 45% of total height, rounded-rectangle body, very short thin stick-like arms and legs drawn as single thick lines, one small dot eye, no mouth, no nose, chalk-white body (the lightest value on screen) with soft dark ink-gray outline, no colors, no clothes, no accessories, exact same proportions and line weight as the reference character sheet",
   "NEG_COMMON": "pixel art, pixelated, 8-bit, 16-bit, retro game sprite, dot art, dithering, aliased jagged edges, stair-step edges, blocky, low resolution, mosaic, grid of square tiles, repeating tile pattern, tiled texture, copy-pasted stamps, identical repeated bricks, photorealistic, realistic painting, hyper-detailed, intricate realistic texture, realistic rendering, matte painting, realistic lighting, 3D render, CGI, voxel, vector clean flat corporate style, anime cel shading, glossy, shiny, metallic, chrome, neon, glow, bloom, lens flare, light rays, rim light, specular highlight, directional shadows, cast shadow, smooth digital gradient, airbrush, heavy drop shadow, pure black outline, high contrast HDR, overexposed, high-key, washed out, bright white paper, blown-out highlights, pitch black, crushed shadows, low-key noir, saturated rainbow colors, dark horror atmosphere, gore, text, letters, numbers, logo, watermark, signature, UI, frame border, blurry, jpeg artifacts, perspective view, isometric, top-down",
   "NEG_ENV": "characters, people, animals, creatures, faces",
+  "NEG_BG": ", birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
+  "NEG_TERRAIN": ", canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
   "NEG_DECOR": ", solid ground fill, filled walls, full scene, paper background, opaque background, platforms, terrain blocks, sky",
   "NEG_CHAR": "background scenery, multiple characters, cropped body, extra limbs, detailed facial features, mouth, nose, clothing details, armor ornaments, motion blur",
   "NEG_POSE": "background scenery, multiple characters, cropped body, extra limbs, detailed facial features, mouth, nose, clothing details, armor ornaments, motion blur, overlapping duplicate poses, different proportions, longer limbs, realistic anatomy, muscles, finger details, stiff straight pose"
@@ -56,11 +58,11 @@
    "cat": "0 골든",
    "ch": 1,
    "type": "TERRAIN",
-   "subject": "solid ground made of pencil hatching that varies naturally everywhere, with an organic wobbly top edge",
+   "subject": "solid ground made of pencil hatching: a bold irregular top contour, a dense dark surface band with pebbles and graphite flecks just below it, and a lighter sparser interior with a faint strata line and half-hatched paper patches",
    "file": "golden/G2_ground.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "지형 질감 기준 (반복 없음)",
    "ar": "1:1",
    "char_lock": false
@@ -172,7 +174,7 @@
    "file": "ch1/terrain/ch1_fill_a.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "반복 금지: 같은 종류는 변형 여러 장을 섞어 씀",
    "ar": "1:1",
    "char_lock": false
@@ -186,7 +188,7 @@
    "file": "ch1/terrain/ch1_fill_b.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "반복 금지: 같은 종류는 변형 여러 장을 섞어 씀",
    "ar": "1:1",
    "char_lock": false
@@ -200,7 +202,7 @@
    "file": "ch1/terrain/ch1_fill_c.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "반복 금지: 같은 종류는 변형 여러 장을 섞어 씀",
    "ar": "1:1",
    "char_lock": false
@@ -214,7 +216,7 @@
    "file": "ch1/terrain/ch1_fill_d.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "반복 금지: 같은 종류는 변형 여러 장을 섞어 씀",
    "ar": "1:1",
    "char_lock": false
@@ -224,11 +226,11 @@
    "cat": "1 지형",
    "ch": 1,
    "type": "EDGE",
-   "subject": "top surface edge of ground, thick wobbly contour line on top, material texture below",
+   "subject": "walkable top surface edge of ground, the boldest contour on top so the floor reads instantly, surface band with small pebbles, material crumbs, a few tiny grass tufts and a chipped spot, material texture below",
    "file": "ch1/terrain/ch1_edge_top.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "",
    "ar": "8:1",
    "char_lock": false
@@ -238,11 +240,11 @@
    "cat": "1 지형",
    "ch": 1,
    "type": "EDGE",
-   "subject": "bottom edge of a ceiling, thick wobbly contour line on the bottom, material texture above",
+   "subject": "bottom edge of a ceiling, bold contour on the bottom with a few sagging lumps and two or three short stalactite stubs, surface band with cracks, hanging roots and short drips, material texture above",
    "file": "ch1/terrain/ch1_edge_bottom.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "",
    "ar": "8:1",
    "char_lock": false
@@ -252,11 +254,11 @@
    "cat": "1 지형",
    "ch": 1,
    "type": "EDGE",
-   "subject": "vertical wall edge (drawn horizontally, will be rotated), thick wobbly contour line, material texture on one side",
+   "subject": "vertical wall edge (drawn horizontally, will be rotated), bold contour with chips, cracks and small ledges, surface band with scratches and material crumbs, material texture on one side",
    "file": "ch1/terrain/ch1_edge_side.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "",
    "ar": "8:1",
    "char_lock": false
@@ -354,7 +356,7 @@
    "file": "ch1/terrain/ch1_ink_hazard.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "",
    "ar": "8:1",
    "char_lock": false
@@ -368,7 +370,7 @@
    "file": "ch1/terrain/ch1_ink_water.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "반복 금지: 같은 종류는 변형 여러 장을 섞어 씀",
    "ar": "1:1",
    "char_lock": false
@@ -466,7 +468,7 @@
    "file": "ch2/terrain/ch2_fill_a.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "반복 금지: 같은 종류는 변형 여러 장을 섞어 씀",
    "ar": "1:1",
    "char_lock": false
@@ -480,7 +482,7 @@
    "file": "ch2/terrain/ch2_fill_b.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "반복 금지: 같은 종류는 변형 여러 장을 섞어 씀",
    "ar": "1:1",
    "char_lock": false
@@ -494,7 +496,7 @@
    "file": "ch2/terrain/ch2_fill_c.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "반복 금지: 같은 종류는 변형 여러 장을 섞어 씀",
    "ar": "1:1",
    "char_lock": false
@@ -508,7 +510,7 @@
    "file": "ch2/terrain/ch2_fill_d.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "반복 금지: 같은 종류는 변형 여러 장을 섞어 씀",
    "ar": "1:1",
    "char_lock": false
@@ -518,11 +520,11 @@
    "cat": "1 지형",
    "ch": 2,
    "type": "EDGE",
-   "subject": "top surface edge of ground, thick wobbly contour line on top, material texture below",
+   "subject": "walkable top surface edge of ground, the boldest contour on top so the floor reads instantly, surface band with small pebbles, material crumbs, a few tiny grass tufts and a chipped spot, material texture below",
    "file": "ch2/terrain/ch2_edge_top.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "",
    "ar": "8:1",
    "char_lock": false
@@ -532,11 +534,11 @@
    "cat": "1 지형",
    "ch": 2,
    "type": "EDGE",
-   "subject": "bottom edge of a ceiling, thick wobbly contour line on the bottom, material texture above",
+   "subject": "bottom edge of a ceiling, bold contour on the bottom with a few sagging lumps and two or three short stalactite stubs, surface band with cracks, hanging roots and short drips, material texture above",
    "file": "ch2/terrain/ch2_edge_bottom.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "",
    "ar": "8:1",
    "char_lock": false
@@ -546,11 +548,11 @@
    "cat": "1 지형",
    "ch": 2,
    "type": "EDGE",
-   "subject": "vertical wall edge (drawn horizontally, will be rotated), thick wobbly contour line, material texture on one side",
+   "subject": "vertical wall edge (drawn horizontally, will be rotated), bold contour with chips, cracks and small ledges, surface band with scratches and material crumbs, material texture on one side",
    "file": "ch2/terrain/ch2_edge_side.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "",
    "ar": "8:1",
    "char_lock": false
@@ -648,7 +650,7 @@
    "file": "ch2/terrain/ch2_crayon_swamp.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "",
    "ar": "8:1",
    "char_lock": false
@@ -662,7 +664,7 @@
    "file": "ch2/terrain/ch2_wax_puddle.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "",
    "ar": "8:1",
    "char_lock": false
@@ -676,7 +678,7 @@
    "file": "ch2/terrain/ch2_paint_water.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "반복 금지: 같은 종류는 변형 여러 장을 섞어 씀",
    "ar": "1:1",
    "char_lock": false
@@ -760,7 +762,7 @@
    "file": "border/terrain_12_fill_a.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 T1-fill_a T2-fill_a",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "1→2장 전환 구간 전용 (2~3화면 폭)",
    "ar": "1:1",
    "char_lock": false
@@ -774,7 +776,7 @@
    "file": "border/terrain_12_fill_b.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 T1-fill_a T2-fill_a",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "1→2장 전환 구간 전용 (2~3화면 폭)",
    "ar": "1:1",
    "char_lock": false
@@ -788,7 +790,7 @@
    "file": "border/terrain_12_edge_top.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 T1-fill_a T2-fill_a",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "1→2장 전환 구간 전용 (2~3화면 폭)",
    "ar": "8:1",
    "char_lock": false
@@ -802,7 +804,7 @@
    "file": "border/terrain_12_edge_bottom.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 T1-fill_a T2-fill_a",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour",
    "note": "1→2장 전환 구간 전용 (2~3화면 폭)",
    "ar": "8:1",
    "char_lock": false
@@ -816,7 +818,7 @@
    "file": "ch1/bg/ch1_bg_A_far.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "blank-paper fields",
    "ar": "32:9",
    "char_lock": false
@@ -830,7 +832,7 @@
    "file": "ch1/bg/ch1_bg_A_mid.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "blank-paper fields",
    "ar": "32:9",
    "char_lock": false
@@ -844,7 +846,7 @@
    "file": "ch1/bg/ch1_bg_B_far.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "graphite mine",
    "ar": "32:9",
    "char_lock": false
@@ -858,7 +860,7 @@
    "file": "ch1/bg/ch1_bg_B_mid.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "graphite mine",
    "ar": "32:9",
    "char_lock": false
@@ -872,7 +874,7 @@
    "file": "ch1/bg/ch1_bg_C_far.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sketch tree",
    "ar": "32:9",
    "char_lock": false
@@ -886,7 +888,7 @@
    "file": "ch1/bg/ch1_bg_C_mid.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sketch tree",
    "ar": "32:9",
    "char_lock": false
@@ -900,7 +902,7 @@
    "file": "ch1/bg/ch1_bg_D_far.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "tangled forest depths",
    "ar": "32:9",
    "char_lock": false
@@ -914,7 +916,7 @@
    "file": "ch1/bg/ch1_bg_D_mid.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "tangled forest depths",
    "ar": "32:9",
    "char_lock": false
@@ -928,7 +930,7 @@
    "file": "ch2/bg/ch2_bg_E_far.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sunset ridges",
    "ar": "32:9",
    "char_lock": false
@@ -942,7 +944,7 @@
    "file": "ch2/bg/ch2_bg_E_mid.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sunset ridges",
    "ar": "32:9",
    "char_lock": false
@@ -956,7 +958,7 @@
    "file": "ch2/bg/ch2_bg_F_far.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "wax workshop",
    "ar": "32:9",
    "char_lock": false
@@ -970,7 +972,7 @@
    "file": "ch2/bg/ch2_bg_F_mid.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "wax workshop",
    "ar": "32:9",
    "char_lock": false
@@ -984,7 +986,7 @@
    "file": "ch2/bg/ch2_bg_G_far.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "painted canyon",
    "ar": "32:9",
    "char_lock": false
@@ -998,7 +1000,7 @@
    "file": "ch2/bg/ch2_bg_G_mid.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "painted canyon",
    "ar": "32:9",
    "char_lock": false
@@ -1012,7 +1014,7 @@
    "file": "ch2/bg/ch2_bg_H_far.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "knight's tower",
    "ar": "32:9",
    "char_lock": false
@@ -1026,7 +1028,7 @@
    "file": "ch2/bg/ch2_bg_H_mid.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "knight's tower",
    "ar": "32:9",
    "char_lock": false
@@ -1040,7 +1042,7 @@
    "file": "link/bg_AB_far.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2 B1-A-far B1-B-far",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "blank-paper fields → graphite mine 이음 패널 (세로: 위→아래, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1054,7 +1056,7 @@
    "file": "link/bg_AB_mid.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2 B1-A-mid B1-B-mid",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "blank-paper fields → graphite mine 이음 패널 (세로: 위→아래, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1068,7 +1070,7 @@
    "file": "link/bg_CA_far.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2 B1-C-far B1-A-far",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sketch tree → blank-paper fields 이음 패널 (가로: 왼→오, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1082,7 +1084,7 @@
    "file": "link/bg_CA_mid.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2 B1-C-mid B1-A-mid",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sketch tree → blank-paper fields 이음 패널 (가로: 왼→오, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1096,7 +1098,7 @@
    "file": "link/bg_CD_far.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2 B1-C-far B1-D-far",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sketch tree → tangled forest depths 이음 패널 (가로: 왼→오, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1110,7 +1112,7 @@
    "file": "link/bg_CD_mid.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2 B1-C-mid B1-D-mid",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sketch tree → tangled forest depths 이음 패널 (가로: 왼→오, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1124,7 +1126,7 @@
    "file": "link/bg_DA_far.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2 B1-D-far B1-A-far",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "tangled forest depths → blank-paper fields 이음 패널 (세로: 위→아래, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1138,7 +1140,7 @@
    "file": "link/bg_DA_mid.png",
    "ref": "G1 G2 G3 G4 G5 C1-G1 C1-G2 B1-D-mid B1-A-mid",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "tangled forest depths → blank-paper fields 이음 패널 (세로: 위→아래, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1152,7 +1154,7 @@
    "file": "link/bg_DE_far.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 B1-D-far B2-E-far",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "tangled forest depths → sunset ridges 이음 패널 (가로: 왼→오, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1166,7 +1168,7 @@
    "file": "link/bg_DE_mid.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 B1-D-mid B2-E-mid",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "tangled forest depths → sunset ridges 이음 패널 (가로: 왼→오, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1180,7 +1182,7 @@
    "file": "link/bg_EF_far.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 B2-E-far B2-F-far",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sunset ridges → wax workshop 이음 패널 (세로: 위→아래, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1194,7 +1196,7 @@
    "file": "link/bg_EF_mid.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 B2-E-mid B2-F-mid",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sunset ridges → wax workshop 이음 패널 (세로: 위→아래, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1208,7 +1210,7 @@
    "file": "link/bg_EG_far.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 B2-E-far B2-G-far",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sunset ridges → painted canyon 이음 패널 (세로: 위→아래, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1222,7 +1224,7 @@
    "file": "link/bg_EG_mid.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 B2-E-mid B2-G-mid",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sunset ridges → painted canyon 이음 패널 (세로: 위→아래, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1236,7 +1238,7 @@
    "file": "link/bg_EH_far.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 B2-E-far B2-H-far",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sunset ridges → knight's tower 이음 패널 (가로: 왼→오, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
@@ -1250,7 +1252,7 @@
    "file": "link/bg_EH_mid.png",
    "ref": "G1 G2 G3 G4 G5 C2-G1 C2-G2 B2-E-mid B2-H-mid",
    "control": "",
-   "neg_extra": "characters, people, animals, creatures, faces",
+   "neg_extra": "characters, people, animals, creatures, faces, birds, flying creatures, flying shapes, foreground grass, ground plane, grass tufts at the bottom, centered symmetrical composition, empty left and right edges, vignette framing, mixed foreground and background layers, identical trees, canvas texture, fabric weave",
    "note": "sunset ridges → knight's tower 이음 패널 (가로: 왼→오, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py",
    "ar": "32:9",
    "char_lock": false
