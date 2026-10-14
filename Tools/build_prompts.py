@@ -13,19 +13,21 @@ Unfin 에셋 목록 + 완성 프롬프트 생성기
 
 ⚠️ 블록 문구를 바꾸면 버전을 올리고 17 문서 변경 이력에 적기.
 """
-import json, csv, os
+import sys, json, csv, os
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'Art')
 
 # ───────────────────────── 블록 ─────────────────────────
-MSB = ("hand-drawn 2D side-scrolling game art, drawn on a page of a child's sketchbook, "
-       "off-white warm paper with visible paper grain and a very faint square grid, "
-       "muted art-supply colors with low saturation, soft ink-gray outlines (not pure black), "
+MSB = ("stylized hand-drawn 2D side-scrolling game art, looks like a screen from a polished indie metroidvania game, "
+       "drawn on a page of a child's sketchbook, simplified readable game shapes, not realistic, not photographic, "
+       "muted warm gray-beige paper toned down like a page seen under a dim desk lamp, mid-key overall brightness (neither bright nor dark), "
+       "visible paper grain and a very faint square grid, "
+       "muted art-supply colors with low saturation, soft dark ink-gray outlines (not pure black), "
        "outline weight thick and consistent on gameplay objects, thinner on background, "
        "slightly wobbly hand-drawn lines, a few intentionally unfinished strokes and eraser marks, "
        "matte paper look, flat lighting, shading done with drawing-material texture (not gradients), "
-       "calm melancholic and gentle mood, clear readable silhouettes, orthographic side view, "
-       "quiet composition with generous empty paper space, "
+       "calm melancholic mood with a quiet tension of adventure and combat, clear readable silhouettes, orthographic side view, "
+       "quiet composition with breathing room, "
        "high-resolution smooth hand-drawn illustration (not pixel art), soft natural anti-aliased edges, "
        "organic irregular contours, every wall and floor surface drawn uniquely by hand with no repeating pattern")
 
@@ -35,6 +37,11 @@ UNIFY = ("UNIFIED LOOK: identical flat ambient light from the front for every as
          "45-degree diagonal hatching direction (top-right to bottom-left); every outline uses the same ink-gray "
          "and the same wobble; same line weight for the same layer; same muted color temperature; "
          "looks like part of one continuous hand-drawn game; "
+         "MID-KEY VALUES: the page paper sits around 70 percent brightness, far background slightly darker than the paper, "
+         "middle background darker again, terrain mid-dark, outlines dark ink-gray, the protagonist is the lightest shape on screen, "
+         "no large pure white areas, no crushed pure black areas, moderate contrast that keeps combat easy to read; "
+         "GAME LOOK: stylized and simplified like game art, details grouped into big simple masses, shapes read at a glance, "
+         "no realistic micro-detail, no painterly realism; "
          "SMOOTH AND ORGANIC: soft natural edges everywhere, rounded imperfect corners, no hard square tile edges, "
          "no repeated stamps or copy-pasted texture, hatching density and stroke placement vary naturally across every surface")
 
@@ -50,9 +57,9 @@ MAT = {
     5: ("drawn with dip pen and spreading black-violet ink, ink blots seeping into paper, fragments of pencil, crayon, "
         "watercolor and colored paper half-sunk in ink, faint remaining colors glowing softly through the ink"),
 }
-PALETTE_WORDS = {1: "warm light gray paper, graphite gray, ink gray", 2: "muted sunset orange, wax beige, brown-gray",
-                 3: "misty pale blue, gray-blue, dusty pink", 4: "muted red, mustard, sage, slate blue on off-white",
-                 5: "black-violet ink, faded paper, faint colored fragments"}
+PALETTE_WORDS = {1: "toned-down warm gray paper, graphite gray, dark ink gray", 2: "dusky muted sunset orange, wax beige, brown-gray on toned-down beige paper",
+                 3: "misty gray-blue, muted blue, dusty pink on toned-down blue-gray paper", 4: "muted red, mustard, sage, slate blue on toned-down cream paper",
+                 5: "black-violet ink, dim faded paper, faint colored fragments"}
 
 TYPE = {
     'TERRAIN': ("large terrain fill texture sheet, 2048x2048, flat front view, no perspective, no lighting direction, "
@@ -78,6 +85,9 @@ TYPE = {
               "roots, vines, small landmark objects that give this room its own character, "
               "decorations sit on or just inside terrain edges, keep walkable air and every platform top completely clear, "
               "soft natural anti-aliased edges, sparse, no repeated motif, 16:9"),
+    'BG_LINK_V': ("vertical transition panel of a continuous background, the top part continues the upper area panel exactly "
+                  "(outpainting downward from its bottom edge), the lower part gradually becomes the area below, "
+                  "shapes flow through without a visible horizontal seam, same layer brightness, 32:9"),
     'BG_LINK': ("transition panel of a continuous panoramic background, the left half continues the previous area panel exactly "
                 "(outpainting from its right edge), the right half gradually becomes the next area, landmarks and ridgelines flow through "
                 "without a visible seam, same horizon height, same layer brightness, 32:9"),
@@ -89,22 +99,24 @@ TYPE = {
              "body weight clearly readable, line of action is a smooth curve"),
     'FX': ("hand-drawn 2D game effect, single frame, transparent background, no glow, no light, no bloom, "
            "made of drawing-material pieces"),
-    'UI': ("hand-drawn game UI element looking like a small paper note or doodle on a sketchbook, semi-transparent off-white paper, "
+    'UI': ("hand-drawn game UI element looking like a small paper note or doodle on a sketchbook, semi-transparent cream paper slightly lighter than the page, "
            "wobbly hand-drawn border, transparent background, no text"),
-    'KEY': ("illustration page from the same sketchbook, slightly more detailed than gameplay art but same materials, outline and lighting, "
+    'KEY': ("illustration page from the same sketchbook, slightly more detailed than gameplay art but still stylized game art, same materials, outline, lighting and mid-key values, "
             "flat lighting, 16:9"),
 }
 
 CHAR_LOCK = ("the same tiny protagonist in every image: round head about 45% of total height, rounded-rectangle body, "
              "very short thin stick-like arms and legs drawn as single thick lines, one small dot eye, no mouth, no nose, "
-             "paper-white body with soft ink-gray outline, no colors, no clothes, no accessories, "
+             "chalk-white body (the lightest value on screen) with soft dark ink-gray outline, no colors, no clothes, no accessories, "
              "exact same proportions and line weight as the reference character sheet")
 
 NEG_COMMON = ("pixel art, pixelated, 8-bit, 16-bit, retro game sprite, dot art, dithering, aliased jagged edges, stair-step edges, blocky, "
               "low resolution, mosaic, grid of square tiles, repeating tile pattern, tiled texture, copy-pasted stamps, identical repeated bricks, "
-              "photorealistic, realistic lighting, 3D render, CGI, voxel, vector clean flat corporate style, anime cel shading, "
+              "photorealistic, realistic painting, hyper-detailed, intricate realistic texture, realistic rendering, matte painting, "
+              "realistic lighting, 3D render, CGI, voxel, vector clean flat corporate style, anime cel shading, "
               "glossy, shiny, metallic, chrome, neon, glow, bloom, lens flare, light rays, rim light, specular highlight, "
               "directional shadows, cast shadow, smooth digital gradient, airbrush, heavy drop shadow, pure black outline, high contrast HDR, "
+              "overexposed, high-key, washed out, bright white paper, blown-out highlights, pitch black, crushed shadows, low-key noir, "
               "saturated rainbow colors, dark horror atmosphere, gore, text, letters, numbers, logo, watermark, signature, UI, frame border, "
               "blurry, jpeg artifacts, perspective view, isometric, top-down")
 NEG_ENV = "characters, people, animals, creatures, faces"
@@ -125,8 +137,8 @@ def add(id, cat, ch, typ, subject, file, ref_extra='', control='', neg='', note=
                   control=control, neg_extra=neg, note=note, ar=ar, char_lock=lock))
 
 # 0. 골든 이미지 (가장 먼저)
-add('G1', '0 골든', 1, 'KEY', "wide game screenshot-like scene, a small paper-white child figure standing on pencil-hatched rock ledges "
-    "in a half-drawn pencil forest cave, platforms at different heights, lots of empty paper air", 'golden/G1_scene.png', ar='16:9', note='전체 분위기 기준')
+add('G1', '0 골든', 1, 'KEY', "wide game screenshot-like scene, a small chalk-white child figure standing on pencil-hatched rock ledges "
+    "in a half-drawn pencil forest cave, platforms at different heights, breathing room of empty toned paper, mid-key brightness", 'golden/G1_scene.png', ar='16:9', note='전체 분위기 기준')
 add('G2', '0 골든', 1, 'TERRAIN', "solid ground made of pencil hatching that varies naturally everywhere, with an organic wobbly top edge", 'golden/G2_ground.png', ar='1:1', neg=NEG_ENV, note='지형 질감 기준 (반복 없음)')
 add('G3', '0 골든', 0, 'CHAR', "character sheet of the protagonist: " + CHAR_LOCK + ", standing pose, three views of the same side pose redrawn by hand",
     'golden/G3_player_sheet.png', ar='16:9', neg=NEG_CHAR, note='캐릭터 선 굵기 기준', lock=True)
@@ -194,14 +206,20 @@ ZONES = {
 for z, (ch, name, subj) in ZONES.items():
     add(f'B{ch}-{z}-far', '2 배경', ch, 'BG_FAR', subj, f'ch{ch}/bg/ch{ch}_bg_{z}_far.png', ar='32:9', neg=NEG_ENV, note=name)
     add(f'B{ch}-{z}-mid', '2 배경', ch, 'BG_MID', subj, f'ch{ch}/bg/ch{ch}_bg_{z}_mid.png', ar='32:9', neg=NEG_ENV, note=name)
-ZORDER = list(ZONES)   # 지도 왼쪽→오른쪽 이어 그리기 순서 (실제로 맞닿은 구역 쌍 기준으로 조정 가능)
-for z1, z2 in zip(ZORDER, ZORDER[1:]):
+# 이음 패널: 지도에서 실제로 맞닿은 구역 쌍만 (Art/bg_links.json = python Tools/seam_check.py links)
+_lp = os.path.join(ROOT, 'bg_links.json')
+if not os.path.exists(_lp):
+    sys.exit('Art/bg_links.json 없음 → 먼저 python Tools/seam_check.py links 실행')
+LINKS = json.load(open(_lp, encoding='utf-8'))['links']
+for l in LINKS:
+    z1, z2, d = l['first'], l['second'], l['dir']
     c1, n1, s1 = ZONES[z1]; c2, n2, s2 = ZONES[z2]
+    side = ("on the left, gradually becoming {} on the right" if d == 'h' else "at the top, gradually becoming {} toward the bottom")
     for lay in ('far', 'mid'):
-        add(f'BL-{z1}{z2}-{lay}', '2 배경', c2, 'BG_LINK', f"{lay} layer: {s1} on the left, gradually becoming {s2} on the right"
-            + (", " + MAT[c1] + " gradually becoming " + MAT[c2] if c1 != c2 else ''),
+        add(f'BL-{z1}{z2}-{lay}', '2 배경', c2, 'BG_LINK' if d == 'h' else 'BG_LINK_V',
+            f"{lay} layer: {s1} " + side.format(s2) + (", " + MAT[c1] + " gradually becoming " + MAT[c2] if c1 != c2 else ''),
             f'link/bg_{z1}{z2}_{lay}.png', ref_extra=f'B{c1}-{z1}-{lay} B{c2}-{z2}-{lay}', ar='32:9', neg=NEG_ENV,
-            note=f'{n1} → {n2} 이음 패널 (양쪽 패널을 레퍼런스로, 아웃페인팅)')
+            note=f"{n1} → {n2} 이음 패널 ({'가로: 왼→오' if d == 'h' else '세로: 위→아래'}, 양쪽 패널을 레퍼런스로 아웃페인팅) · 검사: seam_check.py")
 add('B1-fore', '2 배경', 1, 'BG_FORE', "pencil-drawn grass blades and small paper scraps", 'ch1/bg/ch1_bg_fore.png', ar='32:9', neg=NEG_ENV)
 add('B2-fore', '2 배경', 2, 'BG_FORE', "crayon grass tufts and tiny wax drips", 'ch2/bg/ch2_bg_fore.png', ar='32:9', neg=NEG_ENV)
 
@@ -249,7 +267,7 @@ PROPS = [
     (0, 'ribbon_knot', "a standing bookmark ribbon tied with a black knot in the middle, pale blue-gray"),
     (1, 'sketch_dog_unfinished', "a dog drawn in a clumsy child's drawing style, body and head finished, its four legs missing and shown only as faint dashed lines"),
     (1, 'sketch_dog_finished', "the same clumsy child-drawn dog now with four short legs drawn, happy, tail up"),
-    (2, 'sketch_sun_unfinished', "a sun drawn in a clumsy child's drawing style, round face with dot eyes and a flat mouth, uncolored paper-white, eight rays as faint dashed lines"),
+    (2, 'sketch_sun_unfinished', "a sun drawn in a clumsy child's drawing style, round face with dot eyes and a flat mouth, uncolored chalk-white, eight rays as faint dashed lines"),
     (2, 'sketch_sun_finished', "the same child-drawn sun colored with orange crayon, smiling, eight solid crayon rays"),
     (0, 'orb_heal', "small floating orb of muted rose paint in a tiny jar"),
     (0, 'orb_shield', "small folded paper shield charm"),
@@ -402,7 +420,7 @@ def main():
     A.sort(key=lambda a: int(a['cat'].split()[0]))   # 분류 순서대로 (안정 정렬)
     for a in A:
         p, n = assemble(a); rows.append(dict(a, prompt=p, negative=n))
-    json.dump(dict(version='MSB v2 · UNIFY v2 · MAT v1 · 지형 구조 v3 (이어진 바탕 + 방 장식)', blocks=dict(MSB=MSB, UNIFY=UNIFY, MAT=MAT, TYPE=TYPE, CHAR_LOCK=CHAR_LOCK,
+    json.dump(dict(version='MSB v3 · UNIFY v3 · MAT v1 · 지형 구조 v3 (이어진 바탕 + 방 장식) · 미드키 게임 그림체', blocks=dict(MSB=MSB, UNIFY=UNIFY, MAT=MAT, TYPE=TYPE, CHAR_LOCK=CHAR_LOCK,
               NEG_COMMON=NEG_COMMON, NEG_ENV=NEG_ENV, NEG_DECOR=NEG_DECOR, NEG_CHAR=NEG_CHAR, NEG_POSE=NEG_POSE), assets=A),
               open(os.path.join(ROOT, 'asset_catalog.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     with open(os.path.join(ROOT, 'prompts_full.csv'), 'w', encoding='utf-8-sig', newline='') as f:

@@ -107,3 +107,10 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Unfin 아트 파이프라인 (원본·작업 폴더는 올리지 않음)
+Art/inbox/
+Art/raw/
+Art/rejected/
+Art/_tmp_unify/
+__pycache__/

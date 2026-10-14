@@ -1,0 +1,117 @@
+{
+ "note": "seam_check.py links 로 자동 생성. h = first가 왼쪽, v = first가 위쪽",
+ "links": [
+  {
+   "first": "A",
+   "second": "B",
+   "dir": "v",
+   "contact_tiles": 5,
+   "at": [
+    170,
+    107
+   ],
+   "first_name": "백지 들판",
+   "second_name": "흑연 광산",
+   "chapter_border": false,
+   "meaning": "위 A → 아래 B"
+  },
+  {
+   "first": "C",
+   "second": "A",
+   "dir": "h",
+   "contact_tiles": 4,
+   "at": [
+    125,
+    96
+   ],
+   "first_name": "스케치 나무",
+   "second_name": "백지 들판",
+   "chapter_border": false,
+   "meaning": "왼쪽 C → 오른쪽 A"
+  },
+  {
+   "first": "C",
+   "second": "D",
+   "dir": "h",
+   "contact_tiles": 4,
+   "at": [
+    177,
+    8
+   ],
+   "first_name": "스케치 나무",
+   "second_name": "엉킨 숲 심부",
+   "chapter_border": false,
+   "meaning": "왼쪽 C → 오른쪽 D"
+  },
+  {
+   "first": "D",
+   "second": "A",
+   "dir": "v",
+   "contact_tiles": 5,
+   "at": [
+    250,
+    69
+   ],
+   "first_name": "엉킨 숲 심부",
+   "second_name": "백지 들판",
+   "chapter_border": false,
+   "meaning": "위 D → 아래 A"
+  },
+  {
+   "first": "D",
+   "second": "E",
+   "dir": "h",
+   "contact_tiles": 4,
+   "at": [
+    279,
+    26
+   ],
+   "first_name": "엉킨 숲 심부",
+   "second_name": "노을 능선",
+   "chapter_border": true,
+   "meaning": "왼쪽 D → 오른쪽 E"
+  },
+  {
+   "first": "E",
+   "second": "F",
+   "dir": "v",
+   "contact_tiles": 10,
+   "at": [
+    376,
+    33
+   ],
+   "first_name": "노을 능선",
+   "second_name": "밀랍 공방",
+   "chapter_border": false,
+   "meaning": "위 E → 아래 F"
+  },
+  {
+   "first": "E",
+   "second": "G",
+   "dir": "v",
+   "contact_tiles": 6,
+   "at": [
+    426,
+    35
+   ],
+   "first_name": "노을 능선",
+   "second_name": "색칠 협곡",
+   "chapter_border": false,
+   "meaning": "위 E → 아래 G"
+  },
+  {
+   "first": "E",
+   "second": "H",
+   "dir": "h",
+   "contact_tiles": 6,
+   "at": [
+    447,
+    30
+   ],
+   "first_name": "노을 능선",
+   "second_name": "기사의 탑",
+   "chapter_border": false,
+   "meaning": "왼쪽 E → 오른쪽 H"
+  }
+ ]
+}

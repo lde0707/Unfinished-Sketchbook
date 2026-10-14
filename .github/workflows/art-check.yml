@@ -1,0 +1,38 @@
+# 아트 자동 검증: Art/out 에 그림이 푸시되면 전부 다시 검사 (픽셀·계단·반복·투명·색·배경 이음새)
+# 결과: Actions 요약 화면 + 'art-check-report' 다운로드 (보고서·이음새 미리보기)
+name: Art check
+
+on:
+  push:
+    paths: ['Art/out/**', 'Art/asset_catalog.json', 'Art/bg_links.json', 'Tools/**', '.github/workflows/art-check.yml']
+  pull_request:
+    paths: ['Art/out/**', 'Art/asset_catalog.json', 'Art/bg_links.json', 'Tools/**']
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 패키지 설치
+        run: pip install numpy pillow scipy
+      - name: 전체 재검사
+        run: python Tools/art_check.py audit
+      - name: 결과 요약
+        if: always()
+        run: |
+          [ -f Art/check_report.md ] && cat Art/check_report.md >> "$GITHUB_STEP_SUMMARY"
+          [ -f Art/seam_report.md ] && cat Art/seam_report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: 보고서 올리기
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: art-check-report
+          path: |
+            Art/check_report.md
+            Art/seam_report.md
+            Art/seam_preview/
+          if-no-files-found: ignore
