@@ -215,6 +215,7 @@ flowchart LR
       <button id="btnReset">처음부터</button>
       <button id="btnCut" aria-pressed="false">연필 깎기 해금 (QA)</button>
       <button id="btnDash" aria-pressed="false">대시 해금 (QA)</button>
+      <button id="btnWJ" aria-pressed="false">벽 점프 (QA)</button>
       <button id="btnFly" aria-pressed="false">비행 모드 (QA · F키)</button>
       <button id="btnItems" aria-pressed="false">아이템 3종 지급 (QA)</button>
       <button id="btnFold" aria-pressed="false">3타 접기 베기 (4장 QA)</button>
@@ -398,9 +399,9 @@ const T=16, W=280, H=140, VW=480, VH=270;
 const ZONES={A:{name:'백지 들판',tint:'#F3F1E7',dot:'#C9C3A8'},B:{name:'흑연 광산',tint:'#E6E6EB',dot:'#8F909C'},C:{name:'스케치 나무',tint:'#E4ECE3',dot:'#8DA58A'},D:{name:'엉킨 숲 심부',tint:'#F0E6E4',dot:'#B9928D'}};
 const ROOMS=[
  {n:1,z:'A',name:'시작의 백지길',x:230,y:122,w:30,h:9,stairs:'L',info:'시작 · 세이브. 위쪽 굴은 아직 닫힌 일방통행 문'},
- {n:2,z:'A',name:'바람 든 풀밭',x:196,y:118,w:30,h:10,stairs:'R',info:'근거리 + 원거리 + 비행 첫 조합'},
+ {n:2,z:'A',name:'바람 든 풀밭',x:196,y:118,w:30,h:10,stairs:'R',info:'근거리 + 원거리 + 비행 첫 조합 · 서쪽 끝에서 ✋ 또렷해진 손(벽 점프) 획득 → 위쪽 바람 굴뚝을 벽 점프로 올라감 (튜토리얼)'},
  {n:3,z:'A',name:'종이 언덕',x:200,y:100,w:24,h:10,info:'세이브 · 바람 굴뚝으로 올라옴 · 구겨진 종이공 첫 등장 (혼자)'},
- {n:4,z:'A',name:'풀 그림자 굴',x:262,y:110,w:14,h:20,stairs:'R',info:'곁가지 탐험 · 흑연 조각'},
+ {n:4,z:'A',name:'풀 그림자 굴',x:262,y:110,w:14,h:20,stairs:'R',info:'곁가지 탐험 · 천장의 좁은 굴뚝(폭 3칸, 발판 없음)을 벽 점프로 올라가면 숨은 선반에 흑연 조각'},
  {n:5,z:'A',name:'갈림길 숲',x:140,y:96,w:44,h:12,stairs:'L',info:'허브 · 세이브. 서쪽 위 흑연 덩굴 (연필 깎기 필요)'},
  {n:6,z:'A',name:'갈림 숲 다락',x:155,y:84,w:26,h:8,noHills:true,info:'포탑 + 과녁 · 서쪽 끝 노란 문 (재방문: 패링)'},
  {n:7,z:'B',name:'광산 입구',x:150,y:122,w:30,h:10,info:'세이브 · 흑연 두더지 첫 등장 (혼자) · 동쪽 끝 덩굴 너머 창고'},
@@ -425,9 +426,11 @@ const ROOMS=[
  {n:26,z:'C',name:'밀랍 둥지',x:80,y:40,w:11,h:5,noHills:true,revisit:'벽타기 · 2장',info:'🔁 재방문 · 14번 탑 아래 밀랍 수직굴을 벽타기로 → 흑연 조각'},
  {n:27,z:'B',name:'잠긴 수로 끝',x:98,y:134,w:9,h:4,noHills:true,revisit:'물감 헤엄 · 3장',info:'🔁 재방문 · 9번 잉크 물속 수로를 헤엄쳐서 → 흑연 조각'},
  {n:28,z:'D',name:'구름 선반',x:263,y:7,w:16,h:7,noHills:true,revisit:'활공 · 4장',info:'🔁 재방문 · 19번 동쪽 잉크 웅덩이(13타일)를 활공으로 → 흑연 조각 + 2지역 하늘길'},
+ {n:29,z:'B',name:'그리다 만 강아지 굴',x:20,y:122,w:14,h:6,noHills:true,hidden:true,info:'🎨 숨은 그림 친구 · 10번 서쪽 아래 흑연 덩굴 뒤 (연필 깎기) → 다리가 덜 그려진 강아지에게 W 길게로 다리를 그려줌'},
+ {n:30,z:'B',name:'찢긴 페이지 굴',x:6,y:131,w:40,h:7,noHills:true,hidden:true,info:'🔖 비밀 리본 · 2장 22 탑 꼭대기의 파란 리본으로만 오는 봉인된 굴. 18칸 잉크 물 건너편 🎒 물감 탄 (헤엄 · 3장)'},
 ];
 const PASS=[
- {z:'A',x:226,y:124,w:4,h:4},{z:'A',x:259,y:127,w:4,h:4},{z:'A',x:183,y:104,w:18,h:4,name:'들판 오솔길'},
+ {z:'A',x:226,y:121,w:5,h:7,name:'풀밭 입구'},{z:'A',x:259,y:127,w:4,h:4},{z:'A',x:183,y:104,w:18,h:4,name:'들판 오솔길'},
  {z:'A',x:126,y:96,w:15,h:4,name:'덩굴 길'},{z:'A',x:177,y:88,w:6,h:9},
  {z:'B',x:180,y:128,w:4,h:4},{z:'B',x:28,y:115,w:9,h:4},
  {z:'C',x:95,y:32,w:6,h:4},{z:'C',x:121,y:32,w:6,h:4},{z:'C',x:160,y:8,w:20,h:4,name:'가지 다리'},
@@ -454,7 +457,7 @@ const SPAWNS=[
  ['ball',210,110],
  ['ball',266,130],['ball',271,130],['fly',268,116],
  ['walker',164,108],['ball',168,108],['range',177,108],
- ['range',168,92],
+ ['range',168,92,{keeper:'target'}],
  // 흑연 광산: 두더지 소개 → 구덩이 주변 혼합 → 무너지는 발판 위 나방 2 + 포탑
  ['mole',160,132],
  ['walker',108,132],['mole',120,132],['fly',124,128],['range',140,132],['ball',146,132],
@@ -477,12 +480,25 @@ const PICKS=[
  ['save',236,131],['save',156,108],['save',50,128],['save',140,14],['save',222,42],
  ['save',220,110],['save',176,132],['save',106,60],['save',181,16],['save',224,70],
  ['item_heal',190,132],['heart',275,34],
- ['shard',273,130],['shard',88,36],['shard',158,92],['shard',62,132],['shard',145,36],['shard',245,14],
+ ['shard',275,98],['shard',88,36],['shard',158,92],['shard',62,132],['shard',145,36],['shard',245,14],
  ['lever',258,70],
  ['item_shield',149,92],['shard',85,45],['shard',103,138],['shard',268,14],
  ['target',165,92],['hatch',272,14],
+ ['sketch',26,128,{who:'dog',need:'cut',w:36,h:22}],
+ ['wj',198,128],
+ ['item_paint',41,138],
+ ['station',250,131,{sid:'r1a',sname:'시작의 백지길',w:16,h:30}],['station',40,128,{sid:'r1b',sname:'광부의 쉼터',w:16,h:30}],['station',124,13,{sid:'r1c',sname:'꼭대기 가지',w:16,h:30}],['station',232,41,{sid:'r1d',sname:'둥지 앞 쉼터',w:16,h:30}],['station',10,138,{sid:'r1s',sname:'찢긴 페이지 굴',w:16,h:30}],
 ];
 const START={tx:244,floor:131};
+const REGION_ID='r1',REGION_NAME='1장 연필 숲';
+const FILES={r1:'unfin_prototype.html',r2:'unfin_region2.html'};
+const RIBBONS={
+ r1a:{to:'r1b',col:'#8F909C'},r1b:{to:'r1a',col:'#8F909C'},
+ r1d:{to:'r2b',col:'#B5585A'},r2b:{to:'r1d',col:'#B5585A'},
+ r2a:{to:'r2c',col:'#D9823F'},r2c:{to:'r2a',col:'#D9823F'},
+ r2d:{to:'r1s',col:'#5D7FA8',secret:true},r1s:{to:'r2d',col:'#5D7FA8',secret:true,hidden:true},
+ r1c:{to:'r3a',col:'#7FA7B8'},r2e:{to:'r3b',col:'#7FA7B8'},
+};
 function buildMap(){
  const g=new Uint8Array(W*H).fill(1);
  const set=(x,y,v)=>{if(x>0&&y>0&&x<W-1&&y<H-1)g[y*W+x]=v;};
@@ -496,10 +512,10 @@ function buildMap(){
   if(snap[j*W+i]!==1)continue;
   const open=snap[j*W+i-1]===0||snap[j*W+i+1]===0||snap[(j-1)*W+i]===0||snap[(j+1)*W+i]===0;
   if(snap[(j-1)*W+i]===0)continue; // 바닥 표면은 그대로 둠
-  if(open&&hash(i,j)<27)g[j*W+i]=0;
+  if(open&&hash(i,j)<0/*벽·천장 울퉁불퉁 끔 (평평하게)*/)g[j*W+i]=0;
  }
  for(let j=2;j<H-5;j++)for(let i=2;i<W-2;i++){
-  if(get(i,j)===0&&get(i,j-1)===1&&get(i,j+1)===0&&get(i,j+2)===0&&get(i,j+3)===0&&get(i,j+4)===0&&hash(i*3,j*7)<9)set(i,j,1);
+  if(get(i,j)===0&&get(i,j-1)===1&&get(i,j+1)===0&&get(i,j+2)===0&&get(i,j+3)===0&&get(i,j+4)===0&&hash(i*3,j*7)<0/*종유석 끔*/)set(i,j,1);
  }
  // 방 계단식 발판 (3타일 간격)
  ROOMS.filter(r=>r.stairs).forEach(r=>{const f=r.y+r.h;for(let k=1;;k++){const row=f-3*k;if(row<r.y+2)break;
@@ -508,6 +524,11 @@ function buildMap(){
   for(let i=xs;i<xs+5;i++)if(get(i,row)===0)set(i,row,v);}});
  // 수직굴 양옆 번갈아 발판
  SHAFTS.filter(s=>!s.noLedges).forEach(s=>{for(let k=1;;k++){const row=s.base-3*k;if(row<s.y+1)break;const xs=k%2?s.x:s.x+s.w-2;for(let i=xs;i<xs+2;i++)if(get(i,row)===0)set(i,row,4);}});
+ // 벽 점프 튜토리얼: 바람 굴뚝 아래 두 발판을 빼서 벽 점프로만 오르게
+ for(const r of [113,116])for(let i=212;i<=216;i++)if(get(i,r)===4)set(i,r,0);
+ // 첫 비밀: 4 풀 그림자 굴 천장 → 폭 3칸 발판 없는 좁은 굴뚝 (벽 점프 전용) → 꼭대기 숨은 선반
+ for(let j=98;j<=109;j++)for(let i=268;i<=270;i++)set(i,j,0);
+ for(let j=94;j<=97;j++)for(let i=264;i<=276;i++)set(i,j,0);
  // 손으로 둔 발판
  [[176,105,4],[180,102,4],[176,99,4],[180,96,3],[177,93,2],[114,36,4],[252,31,4],[265,31,4],[258,28,5]].forEach(p=>{for(let i=p[0];i<p[0]+p[2];i++)if(get(i,p[1])===0)set(i,p[1],4);});
  // 계단식 언덕: 4칸 단위 블록, 이웃 블록과 높이 차 최대 1
@@ -534,7 +555,13 @@ function buildMap(){
  for(let j=96;j<=99;j++){set(130,j,5);set(131,j,5);}
  for(let j=128;j<=131;j++){set(181,j,5);set(182,j,5);}
  for(let j=32;j<=35;j++){set(96,j,5);set(97,j,5);}
- // 낙서 벽 (대시로 지움)
+ // 숨은 그림 친구: 강아지 굴 입구 흑연 덩굴 (연필 깎기)
+ for(let j=124;j<=127;j++){set(34,j,5);set(35,j,5);}
+ for(let j=120;j<=123;j++){set(34,j,1);set(35,j,1);}
+ // 찢긴 페이지 굴: 18칸 잉크 물 (헤엄 필요)
+ for(let j=134;j<=137;j++)for(let i=16;i<=33;i++)set(i,j,9);
+ for(let j=131;j<=133;j++)for(let i=14;i<=35;i++)set(i,j,0); // 물 위 천장 매끈하게 (벽 점프로 못 건너게)
+// 낙서 벽 (대시로 지움)
  for(let j=26;j<=29;j++){set(274,j,2);set(275,j,2);}
  for(let j=31;j<=33;j++){set(269,j,2);set(270,j,2);}
  for(let i=271;i<=278;i++)set(i,30,1); // 출구 통로 바닥 = 비밀 방 천장
@@ -543,6 +570,8 @@ function buildMap(){
  // ---- 재방문 기믹
  // 패링: 과녁 문 (6번 다락 서쪽)
  for(let j=83;j<=91;j++){set(153,j,j<86?1:13);set(154,j,j<86?1:13);} // 문 위까지 막아서 침식 틈 차단
+ // 밀랍 둥지 입구: 밀랍 수직굴 꼭대기 서쪽 (평평한 벽으로 바뀌며 막히지 않게)
+ for(let j=40;j<=44;j++)set(91,j,0);
  // 벽타기: 밀랍 수직굴 양쪽 벽 (벽 점프 불가)
  for(let j=45;j<=59;j++)set(91,j,8);
  for(let j=40;j<=55;j++)set(97,j,8);
@@ -561,6 +590,20 @@ function buildMap(){
  // 몬스터·아이템 발밑 보정
  SPAWNS.concat(PICKS).forEach(s=>{if(s[0]!=='fly'&&s[0]!=='spider'){if(!g[s[2]*W+s[1]])set(s[1],s[2],1);set(s[1],s[2]-1,0);}});
  for(let i=0;i<W;i++){g[i]=1;g[(H-1)*W+i]=1;} for(let j=0;j<H;j++){g[j*W]=1;g[j*W+W-1]=1;}
+ // 좁은 굴뚝 입구 밑 매달린 턱 제거
+ for(let j=110;j<=111;j++)for(let i=267;i<=271;i++)if(get(i,j)===1)set(i,j,0);
+ // 지형 다듬기 (1·2장 통합 지도와 같은 규칙): 1~2칸 홈 메움 · 1칸 폭 턱 깎음 (새 길이 생기면 안 깎음)
+ {const occ=new Set();PICKS.concat(SPAWNS).forEach(p=>{for(let dy=1;dy<=2;dy++)occ.add((p[2]-dy)*W+p[1]);});
+  const wall=t=>t===1||t===8,open=t=>t===0||t===3||t===4||t===6||t===9||t===15||t===16;let ch=true;
+  const fill1=()=>{ch=true;while(ch){ch=false;for(let y=1;y<H-1;y++)for(let x=1;x<W-1;x++){const i=y*W+x;if(g[i]!==0||occ.has(i))continue;
+   const n=(wall(g[i-1])?1:0)+(wall(g[i+1])?1:0)+(wall(g[i-W])?1:0)+(wall(g[i+W])?1:0);if(n>=3){g[i]=1;ch=true;}}}};
+  fill1();
+  for(let pass=0;pass<2;pass++){for(let y=1;y<H-1;y++)for(let x=1;x<W-2;x++){const i=y*W+x;if(g[i]!==0||g[i+1]!==0||occ.has(i)||occ.has(i+1))continue;if(!wall(g[i-1])||!wall(g[i+2]))continue;
+   if((wall(g[i+W])&&wall(g[i+W+1]))||(wall(g[i-W])&&wall(g[i-W+1]))){g[i]=1;g[i+1]=1;}}fill1();}
+  const lab=new Int32Array(W*H).fill(-1);let nl=0;
+  for(let i=0;i<W*H;i++){if(lab[i]>=0||!open(g[i]))continue;const st=[i];lab[i]=nl;while(st.length){const c=st.pop();for(const d of[-1,1,-W,W]){const n=c+d;if(n<0||n>=W*H||lab[n]>=0||!open(g[n]))continue;if((d===1&&n%W===0)||(d===-1&&c%W===0))continue;lab[n]=nl;st.push(n);}}nl++;}
+  ch=true;while(ch){ch=false;for(let y=1;y<H-1;y++)for(let x=1;x<W-1;x++){const i=y*W+x;if(g[i]!==1)continue;const nb=[i-1,i+1,i-W,i+W];if(nb.filter(n=>g[n]===0).length<3)continue;
+   const ls=new Set(nb.filter(n=>open(g[n])).map(n=>lab[n]));if(ls.size!==1)continue;g[i]=0;lab[i]=[...ls][0];ch=true;}}}
  return g;
 }
 /* MAPBUILD-END */
@@ -601,15 +644,16 @@ const SHARDS=PICKS.filter(p=>p[0]==='shard').length,HEARTS=PICKS.filter(p=>p[0]=
 function reset(){
  grid=buildMap();crumbles=new Map();
  P={x:START.tx*T+2,y:START.floor*T-22,w:12,h:22,vx:0,vy:0,face:1,hp:5,max:5,inv:0,ground:false,coyote:0,jbuf:0,lock:0,atk:0,atkCd:0,dash:0,dashCd:0,
-    hasDash:flags.dash,hasCut:flags.cut,items:flags.items?['paint','heal','shield']:[],itemSel:0,charges:{},itemCd:0,healT:0,shieldT:0,parryT:0,parryRec:0,pOk:0,pTry:0,hit:new Set(),cp:null,safe:null,shards:0,time:0,ended:false,hint:0};
+    hasDash:flags.dash,hasCut:flags.cut,hasWJ:!!flags.wj,items:flags.items?['paint','heal','shield']:[],itemSel:0,charges:{},itemCd:0,healT:0,shieldT:0,parryT:0,parryRec:0,pOk:0,pTry:0,hit:new Set(),cp:null,safe:null,shards:0,time:0,ended:false,hint:0};
  P.cp={x:P.x,y:P.y};P.safe={x:P.x,y:P.y};
- ents=SPAWNS.map(s=>{const z=SIZE[s[0]],o=s[3]||{};const k=KS[s[0]]||1;const e={type:s[0],w:Math.round(z[0]*k),h:Math.round(z[1]*k),bw:z[0],bh:z[1],k,hp:o.hp||z[2],max:o.hp||z[2],name:o.name,drop:o.drop,spd:o.spd||190,vx:0,vy:0,dir:-1,t:Math.random()*1.5,st:'idle',flash:0,kb:0,dead:false};
+ ents=SPAWNS.map(s=>{const z=SIZE[s[0]],o=s[3]||{};const k=KS[s[0]]||1;const e={type:s[0],w:Math.round(z[0]*k),h:Math.round(z[1]*k),bw:z[0],bh:z[1],k,hp:o.hp||z[2],max:o.hp||z[2],name:o.name,drop:o.drop,keeper:o.keeper,spd:o.spd||190,vx:0,vy:0,dir:-1,t:Math.random()*1.5,st:'idle',flash:0,kb:0,dead:false};
   e.x=s[1]*T+(T-e.w)/2;e.y=(s[0]==='fly'||s[0]==='spider')?s[2]*T:s[2]*T-e.h;e.hx=e.x;e.hy=e.y;
   if(o.red){e.red=true;e.hp=e.max=6;}
   if(e.type==='mole'){e.st='hidden';e.hidden=true;}
   if(e.type==='spider'){e.ay=e.y;let d=1;while(d<=7&&!isSolid(get(s[1],s[2]+d)))d++;e.len=Math.max(1,d-2)*T;e.top=e.y;let u=s[2];while(u>0&&!isSolid(get(s[1],u-1)))u--;e.top=u*T;}
   return e;});
  picks=PICKS.map(p=>{const big=p[0]==='save'||p[0]==='lever'||p[0]==='target';return {type:p[0],x:p[1]*T+2,y:p[2]*T-(big?24:12),w:12,h:big?24:12,got:false};});
+ PICKS.forEach((q,i)=>{const o=q[3];if(o&&picks[i]){Object.assign(picks[i],o);if(o.w){picks[i].x=q[1]*T+8-o.w/2;picks[i].y=q[2]*T-o.h;}}});
  refillItems();shots=[];parts=[];puddles=[];rings=[];hitstop=0;cam={x:P.x-VW/2,y:P.y-VH/2};toast={text:'1지역 · 연필 숲 · 백지 들판',t:2.6};room=null;bossOn=false;
  drawMiniStatic();
 }
@@ -633,6 +677,7 @@ document.querySelectorAll('#touch button').forEach(b=>{
 const tg=(id,key,cb)=>{const b=document.getElementById(id);b.addEventListener('click',()=>{flags[key]=!flags[key];b.setAttribute('aria-pressed',flags[key]);if(cb)cb();cv.focus();});};
 tg('btnCut','cut',()=>{if(flags.cut){P.hasCut=true;say('연필 깎기 해금 (QA)');}});
 tg('btnDash','dash',()=>{if(flags.dash){P.hasDash=true;say('지우개 대시 해금 (QA)');}});
+tg('btnWJ','wj',()=>{P.hasWJ=!!flags.wj;say(flags.wj?'벽 점프 해금 (QA)':'벽 점프 잠금',1.6);});
 tg('btnFly','fly',()=>{if(!flags.fly){let inWall=false;for(let ty=Math.floor(P.y/T);ty<=Math.floor((P.y+P.h-0.01)/T);ty++)if(rowCol(ty,P.x,P.w))inWall=true;if(inWall){flags.fly=true;document.getElementById('btnFly').setAttribute('aria-pressed',true);say('벽 속이야 · 빈 곳으로 나와서 꺼줘',1.8);return;}}P.vx=P.vy=0;P.dash=0;say(flags.fly?'비행 모드 켜짐 · 방향키로 날기, 벽 통과':'비행 모드 꺼짐',1.8);});tg('btnClimb','climb',()=>say(flags.climb?'벽타기 · 밀랍 벽 쪽 방향키를 누르면 오름':'벽타기 잠금',1.8));tg('btnSwim','swim',()=>say(flags.swim?'물감 헤엄 · 잉크 물속에서 ↑↓로 헤엄':'물감 헤엄 잠금',1.8));tg('btnGlide','glide',()=>say(flags.glide?'활공 · 공중에서 점프 키를 누르고 있으면 천천히 내려옴':'활공 잠금',1.8));
 tg('btnFold','fold',()=>say(flags.fold?'3타 해금 · 땅에서 X 세 번':'3타 잠금',1.6));tg('btnCharge','charge',()=>say(flags.charge?'덧칠 일격 · 땅에서 X를 1초 꾹 눌렀다 떼기':'덧칠 일격 잠금',1.8));
 tg('btnItems','items',()=>{P.items=flags.items?['paint','heal','shield']:[];P.itemSel=0;refillItems();say(flags.items?'아이템 지급 · Q로 바꾸고 L로 사용':'아이템 회수',1.8);});
@@ -669,6 +714,7 @@ function cutVines(hb){
 }
 function update(dt){
  P.time+=dt;P.hint-=dt;
+ if(TP.update(dt)){for(const k in pressed)delete pressed[k];return;}
  const ix=(keys.right?1:0)-(keys.left?1:0);
  if(flags.fly){const iy=(keys.down?1:0)-((keys.up||keys.jump)?1:0),sp=keys.dash?520:260;
   P.vx=ix*sp;P.vy=iy*sp;if(ix)P.face=ix;P.x=Math.max(T,Math.min((W-1)*T-P.w,P.x+P.vx*dt));P.y=Math.max(T,Math.min((H-1)*T-P.h,P.y+P.vy*dt));
@@ -681,7 +727,7 @@ function update(dt){
   let wall=0;if(!P.ground){if(colCol(Math.floor((P.x+P.w+1)/T),P.y+3,P.h-6))wall=1;else if(colCol(Math.floor((P.x-1)/T),P.y+3,P.h-6))wall=-1;}
   const waxR=waxAt(Math.floor((P.x+P.w+1)/T)),waxL=waxAt(Math.floor((P.x-1)/T));
   if((wall===1&&waxR)||(wall===-1&&waxL))wall=0; // 밀랍 벽은 미끄러워서 벽 점프 불가
-  if(wall&&ix===wall&&P.vy>60)P.vy=60;
+  if(wall&&P.hasWJ&&ix===wall&&P.vy>60)P.vy=60;
   const wx=waxR?1:waxL?-1:0;
   if(flags.climb&&wx&&ix===wx){P.vy=-115;P.climbing=0.18;}
   else if(P.climbing>0){P.climbing-=dt;if(ix&&!wx){P.vy=-250;P.climbing=0;}}
@@ -691,7 +737,7 @@ function update(dt){
    if(P.ground){const ty=Math.floor((P.y+P.h+1)/T);if(platRow(ty,P.x,P.w)&&!rowCol(ty,P.x,P.w)){P.dropT=0.22;P.y+=2;P.ground=false;P.coyote=0;}}}
   if(P.jbuf>0){
    if(P.coyote>0){P.vy=-425;if(keys.up)P.vx=0;else if(ix)P.vx=ix*155;P.jbuf=0;P.coyote=0;}
-   else if(wall){P.vy=-420;P.vx=-wall*175;P.lock=0.17;P.face=-wall;P.jbuf=0;}
+   else if(wall&&P.hasWJ){P.vy=-420;P.vx=-wall*175;P.lock=0.17;P.face=-wall;P.jbuf=0;}
   }
   if(prev.jump&&!keys.jump&&P.vy<0)P.vy*=0.45;
   if(P.vy>430)P.vy=430;
@@ -753,6 +799,7 @@ function update(dt){
  ents.forEach(e=>{if(e.dead)return;
   const dx=pcx-(e.x+e.w/2),dy=pcy-(e.y+e.h/2),dist=Math.hypot(dx,dy);
   if(dist>520&&e.type!=='boss')return; // 화면 밖 멀리 있는 적은 쉼
+  e.gT=(e.gT||0)-dt;if(e.hp<e.max&&guarded(e)){e.hp=e.max;guardFx(e);}
   e.flash-=dt;e.t+=dt;e.cue=(e.cue||0)-dt;e.tg=null;e.squash=(e.squash||0)-dt;e.alertT=(e.alertT||0)-dt;
   if(!e.alerted&&dist<170&&Math.abs(dy)<70&&!e.hidden&&e.type!=='boss'){e.alerted=true;e.alertT=0.45;if(['walker','range','ball','blob'].includes(e.type)&&e.vy===0&&!e.stag)e.vy=-150;}
   else if(e.alerted&&dist>340)e.alerted=false;
@@ -860,10 +907,15 @@ function update(dt){
  shots=shots.filter(s=>!s.dead);
  puddles.forEach(q=>{q.t-=dt;if(ov(P,q))hurt(1,q.x+16);});puddles=puddles.filter(q=>q.t>0);
  // 줍기
- picks.forEach(p=>{if(p.got||!ov(P,p))return;
+ picks.forEach(p=>{if(p.type!=='sketch'||p.done)return;p.near=ov(P,{x:p.x-10,y:p.y-4,w:p.w+20,h:p.h+4});
+  if(p.near&&P.ground&&skCan(p)&&keys.up&&!keys.jump&&!(P.atk>0)){P.vx*=0.5;p.fill=(p.fill||0)+dt;if(Math.random()<0.5)puff(p.x+Math.random()*p.w,p.y+p.h*0.3+Math.random()*p.h*0.7,p.who==='sun'?'#F0AE5C':'#26282D',1);
+   if(p.fill>=1.2){p.done=true;rings.push({x:p.x+p.w/2,y:p.y+p.h/2,t:0});puff(p.x+p.w/2,p.y+p.h/2,p.who==='sun'?'#F0AE5C':'#FBFBF9',16);sfx('parry');hitstop=Math.max(hitstop,0.08);}}
+  else p.fill=Math.max(0,(p.fill||0)-dt*1.5);});
+ picks.forEach(p=>{if(p.got||p.type==='sketch'||p.type==='station'||!ov(P,p))return;
   if(p.type==='save'){refillItems();if(!p.on||P.hp<P.max){P.cp={x:p.x-2,y:p.y+p.h-P.h};P.hp=P.max;if(!p.on)say('연필꽂이 석상 · 기록 완료',1.6);picks.forEach(q=>q.on=false);p.on=true;}}
   else if(p.type==='heart'){p.got=true;P.max+=0.5;P.hp=P.max;say('체력 조각 · 최대 체력 +½',2.2);}
   else if(p.type.startsWith('item_')){p.got=true;const k=p.type.slice(5);if(!P.items.includes(k))P.items.push(k);P.itemSel=P.items.indexOf(k);P.charges[k]=ITEMS[k].max;rings.push({x:p.x+6,y:p.y+6,t:0});sfx('parry');say('🎒 '+ITEMS[k].name+' · L로 사용',2.6);}
+  else if(p.type==='wj'){p.got=true;P.hasWJ=true;flags.wj=true;const b=document.getElementById('btnWJ');if(b)b.setAttribute('aria-pressed',true);rings.push({x:p.x+6,y:p.y+6,t:0});sfx('parry');say('또렷해진 손 · 공중에서 벽에 붙어 Space로 벽 점프',3.6);}
   else if(p.type==='shard'){p.got=true;P.shards++;say('흑연 조각 '+P.shards+' / '+SHARDS,1.8);}
   else if(p.type==='cut'){p.got=true;P.hasCut=true;say('연필 깎기 획득! 공격으로 흑연 덩굴을 자를 수 있어',3.4);}
   else if(p.type==='dash'){p.got=true;P.hasDash=true;say('지우개 대시 획득! Shift로 낙서 벽을 부숴봐',3.4);}
@@ -933,6 +985,8 @@ function draw(){
  // 줍기
  const tnow=performance.now()/300;
  picks.forEach(p=>{if(p.got)return;ctx.strokeStyle=C.edge;ctx.lineWidth=1.2;
+  if(p.type==='sketch'){drawSketch(p);return;}
+  if(p.type==='station'){TP.drawStation(p);return;}
   if(p.type==='save'){ctx.fillStyle=p.on?'#D9CFA8':C.sheet;ctx.fillRect(p.x,p.y+8,12,16);ctx.strokeRect(p.x,p.y+8,12,16);
    ctx.fillStyle='#8E9198';ctx.fillRect(p.x+2,p.y,2,9);ctx.fillRect(p.x+5,p.y-3,2,12);ctx.fillRect(p.x+8,p.y+1,2,8);}
   else if(p.type==='hatch'){if(!p.on){ctx.fillStyle='rgba(122,106,85,.85)';ctx.beginPath();ctx.moveTo(p.x+2,p.y+4);ctx.lineTo(p.x+10,p.y+4);ctx.lineTo(p.x+6,p.y+10);ctx.closePath();ctx.fill();}}
@@ -941,11 +995,12 @@ function draw(){
    ctx.fillStyle=C.sheet;ctx.beginPath();ctx.arc(p.x+(p.on?13:-1),p.y+6,2.5,0,Math.PI*2);ctx.fill();ctx.stroke();}
   else if(p.type==='shard'){const by=p.y+Math.sin(tnow)*2;ctx.fillStyle=C.shard;ctx.beginPath();ctx.moveTo(p.x+6,by);ctx.lineTo(p.x+11,by+6);ctx.lineTo(p.x+6,by+12);ctx.lineTo(p.x+1,by+6);ctx.closePath();ctx.fill();ctx.stroke();}
   else if(p.type.startsWith('item_')){const it=ITEMS[p.type.slice(5)],by=p.y+Math.sin(tnow)*2;ctx.strokeStyle=C.edge;ctx.lineWidth=1.2;ctx.fillStyle=C.sheet;ctx.fillRect(p.x-1,by-1,14,14);ctx.strokeRect(p.x-1,by-1,14,14);ctx.fillStyle=it.col;ctx.beginPath();ctx.arc(p.x+6,by+6,4,0,Math.PI*2);ctx.fill();ctx.stroke();}
-  else{const by=p.y+Math.sin(tnow)*2;ctx.fillStyle=p.type==='heart'?C.heart:p.type==='cut'?'#C9B98F':'#C9B9C2';
+  else{const by=p.y+Math.sin(tnow)*2;ctx.fillStyle=p.type==='heart'?C.heart:p.type==='cut'?'#C9B98F':p.type==='wj'?'#A8B4C8':'#C9B9C2';
    ctx.beginPath();ctx.arc(p.x+6,by+6,5.5,0,Math.PI*2);ctx.fill();ctx.stroke();}});
  // 적
  ents.forEach(e=>{if(e.dead)return;if(e.x+e.w<ox-40||e.x>ox+VW+40||e.y+e.h<oy-40||e.y>oy+VH+40)return;
   const f=e.flash>0;
+  if(guarded(e)){const p=picks.find(q=>q.type===e.keeper),a=0.35+0.15*Math.sin(tnow*3);ctx.save();ctx.globalAlpha=a;ctx.strokeStyle='#D9A930';ctx.lineWidth=1;ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(e.x+e.w/2,e.y+e.h/2);ctx.lineTo(p.x+6,p.y+12);ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=a+0.2;ctx.beginPath();ctx.ellipse(e.x+e.w/2,e.y+e.h/2,e.w*0.8,e.h*0.75,0,0,Math.PI*2);ctx.stroke();ctx.restore();}
   const air=e.type==='fly'||e.type==='spider';
   if(!air&&!(e.type==='mole'&&e.hidden)){ctx.fillStyle='rgba(0,0,0,.13)';ctx.beginPath();ctx.ellipse(e.x+e.w/2,e.y+e.h+0.5,e.w*0.55,2.2,0,0,Math.PI*2);ctx.fill();}
   if(e.type==='spider'){ctx.strokeStyle='rgba(37,39,44,.55)';ctx.lineWidth=0.8;ctx.beginPath();ctx.moveTo(e.x+e.w/2,e.top);ctx.lineTo(e.x+e.w/2,e.y+2);ctx.stroke();}
@@ -982,6 +1037,7 @@ function draw(){
  drawShots();drawRings();
  parts.forEach(q=>{ctx.fillStyle=q.c;ctx.fillRect(q.x,q.y,2,2);});
  // 플레이어
+ ctx.save();TP.clipPlayer();
  if(!(P.inv>0&&Math.floor(P.inv*14)%2)){
   ctx.fillStyle=C.sheet;ctx.strokeStyle=C.edge;ctx.lineWidth=1.3;
   ctx.beginPath();ctx.arc(P.x+6,P.y+6,5.5,0,Math.PI*2);ctx.fill();ctx.stroke();
@@ -989,6 +1045,7 @@ function draw(){
   ctx.fillStyle=C.edge;ctx.fillRect(P.x+6+P.face*2.2-0.8,P.y+4.5,1.7,2.2);
   if(P.dash>0){ctx.strokeStyle='rgba(38,40,45,.35)';ctx.beginPath();for(let k=1;k<4;k++){ctx.moveTo(P.x+6-P.face*k*6,P.y+8+k*3);ctx.lineTo(P.x+6-P.face*(k*6+8),P.y+8+k*3);}ctx.stroke();}
  }
+ ctx.restore();
  if(P.parryT>0||P.parryRec>0){const on=P.parryT>0,cx=P.x+6,cy=P.y+12;ctx.strokeStyle=on?'rgba(226,185,59,.95)':'rgba(94,97,104,.35)';ctx.lineWidth=on?3:1.5;ctx.beginPath();
   if(P.face>0)ctx.arc(cx,cy,12,-1.2,1.2);else ctx.arc(cx,cy,12,Math.PI-1.2,Math.PI+1.2);ctx.stroke();}
  if(P.shieldT>0){const a=P.shieldT<1.5?0.4+0.4*Math.sin(performance.now()/60):0.8;ctx.strokeStyle='rgba(210,168,110,'+a+')';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(P.x+P.w/2,P.y+P.h/2,13,16,0,0,Math.PI*2);ctx.stroke();}
@@ -1004,6 +1061,7 @@ function draw(){
   else if(k==='counter')arc(25,-1.2,1.2,'rgba(226,185,59,.95)',3.5,'rgba(242,208,107,.25)');
   else if(k==='charge')arc(34,-1.6,1.6,'rgba(42,36,56,.9)',4,'rgba(42,36,56,.22)');
   else if(k==='dash'){ctx.strokeStyle='rgba(38,40,45,.6)';ctx.lineWidth=1.6;ctx.beginPath();for(let i=0;i<3;i++){const y=P.y+6+i*5;ctx.moveTo(P.x+6-f*(10+i*4),y);ctx.lineTo(P.x+6+f*(18-i*2),y);}ctx.stroke();}}
+ TP.drawWorld();
  if(flags.box){ctx.strokeStyle='#2E86C1';ctx.lineWidth=0.8;ctx.strokeRect(P.x,P.y,P.w,P.h);if(P.atk>0&&P.atkK){const h=hbOf(P.atkK);ctx.strokeStyle='#C0392B';ctx.strokeRect(h.x,h.y,h.w,h.h);}}
  ctx.restore();
  // HUD
@@ -1013,7 +1071,7 @@ function draw(){
   const fill=Math.max(0,Math.min(1,P.hp-i));if(fill>0){ctx.save();ctx.beginPath();ctx.rect(hx-3,0,fill>=1?16:8,20);ctx.clip();heart();ctx.fillStyle=C.heart;ctx.fill();ctx.restore();}
   heart();ctx.strokeStyle=C.edge;ctx.lineWidth=1.2;ctx.stroke();ctx.restore();}
  ctx.font='600 8px "IBM Plex Sans KR",sans-serif';ctx.textAlign='left';ctx.fillStyle=C.text;
- ctx.fillText('연필 깎기 '+(P.hasCut?'○':'×')+'   지우개 대시 '+(P.hasDash?'○':'×')+'   흑연 조각 '+P.shards+'/'+SHARDS,10,28);
+ ctx.fillText('벽 점프 '+(P.hasWJ?'○':'×')+'   연필 깎기 '+(P.hasCut?'○':'×')+'   지우개 대시 '+(P.hasDash?'○':'×')+'   흑연 조각 '+P.shards+'/'+SHARDS,10,28);
  if(P.items.length){const k=P.items[P.itemSel],it=ITEMS[k],bx=10,by=VH-30;ctx.fillStyle='rgba(251,251,249,.9)';ctx.fillRect(bx,by,92,22);ctx.strokeStyle=C.edge;ctx.lineWidth=1;ctx.strokeRect(bx,by,92,22);
   ctx.fillStyle=it.col;ctx.beginPath();ctx.arc(bx+11,by+11,6,0,Math.PI*2);ctx.fill();ctx.stroke();
   ctx.fillStyle=C.text;ctx.textAlign='left';ctx.font='600 8px "IBM Plex Sans KR",sans-serif';ctx.fillText(it.name,bx+21,by+10);ctx.font='600 7px "IBM Plex Mono",monospace';ctx.fillText(P.charges[k]+' / '+it.max+'   Q · L',bx+21,by+19);}
@@ -1022,6 +1080,7 @@ function draw(){
  const boss=ents.find(e=>e.type==='boss');
  if(bossOn&&boss&&!boss.dead){ctx.fillStyle='rgba(38,40,45,.75)';ctx.fillRect(110,VH-18,260,8);ctx.fillStyle=C.boss;ctx.fillRect(111,VH-17,258*boss.hp/boss.max,6);
   ctx.textAlign='center';ctx.font='600 8px "IBM Plex Sans KR",sans-serif';ctx.fillStyle=C.text;ctx.fillText('엉킨 낙서 덩어리',VW/2,VH-22);}
+ {const skp=picks.find(p=>p.type==='sketch');if(skp){ctx.textAlign='right';ctx.font='600 8px "IBM Plex Sans KR",sans-serif';ctx.fillStyle=C.text;ctx.fillText('그림 친구 '+(skp.done?'●':'○'),VW-10,28);}}
  if(toast.t>0){ctx.globalAlpha=Math.min(1,toast.t*2);ctx.font='700 11px "IBM Plex Sans KR",sans-serif';ctx.textAlign='center';
   const w=ctx.measureText(toast.text).width+20;ctx.fillStyle='rgba(250,250,248,.92)';ctx.fillRect(VW/2-w/2,10,w,20);ctx.strokeStyle=C.edge;ctx.lineWidth=1;ctx.strokeRect(VW/2-w/2,10,w,20);
   ctx.fillStyle=C.text;ctx.fillText(toast.text,VW/2,24);ctx.globalAlpha=1;}
@@ -1074,7 +1133,79 @@ function parryMelee(e){
  P.inv=Math.max(P.inv,0.35);P.vx=(e.x+e.w/2<P.x+P.w/2?1:-1)*80;
  parrySuccess(e.x+e.w/2<P.x+P.w/2?P.x-2:P.x+P.w+2,P.y+10);
 }
+/* ---------- 책갈피 리본 (정해진 곳끼리 잇는 텔레포트) ---------- */
+const TP={unlocked:new Set(),menu:null,a:null,upT:0,
+ stations(){return picks.filter(p=>p.type==='station');},
+ rib(sid){return RIBBONS[sid]||{};},
+ partner(sid){return this.rib(sid).to;},
+ regionOf(sid){return sid.slice(0,2);},
+ usable(p){const to=this.partner(p.sid);if(!to||!FILES[this.regionOf(to)])return false;return this.rib(p.sid).secret||this.unlocked.has(to);},
+ near(){return this.stations().find(p=>ov(P,{x:p.x-6,y:p.y,w:p.w+12,h:p.h}));},
+ update(dt){
+  if(this.a){const a=this.a;a.t+=dt;a.k=Math.min(1,a.t/0.42);
+   if(Math.random()<0.7)puff(P.x+Math.random()*P.w,P.y+P.h*a.k,a.ph===0?'#F1EFE6':'#26282D',1);
+   if(a.t>=0.42){if(a.ph===0){if(a.go){const g=a.go;a.go=null;g();return true;}P.x=a.tx;P.y=a.ty;P.vx=P.vy=0;cam.x=P.x-VW/2;cam.y=P.y-VH/2;bossOn=false;a.ph=1;a.t=0;a.k=0;sfx('parry');}else this.a=null;}
+   return true;}
+  const st=this.near();if(st&&!this.unlocked.has(st.sid)){this.unlocked.add(st.sid);rings.push({x:st.x+st.w/2,y:st.y+st.h/2,t:0});sfx('parry');}
+  if(st&&this.usable(st)&&P.ground&&keys.up&&!keys.jump&&!bossOn){this.upT+=dt;if(this.upT>0.3){this.upT=0;this.go(st);}}else this.upT=0;
+  return false;},
+ input(){this.menu=null;},drawMenu(){},
+ go(st){const to=this.partner(st.sid),reg=this.regionOf(to);
+  if(reg!==REGION_ID){const fl=(REGION_ID==='r1'?['cut','dash']:['cut','dash','parry','climb']).filter(f=>flags[f]||(f==='cut'&&P.hasCut)||(f==='dash'&&P.hasDash));
+   const u=[...this.unlocked,to,...(REGION_ID==='r2'?Object.keys(RIBBONS).filter(s=>s.startsWith('r1')&&!RIBBONS[s].secret&&!RIBBONS[s].hidden):[])];
+   this.a={ph:0,t:0,k:0,go:()=>{location.href=FILES[reg]+'#tp='+to+'&f='+fl.join(',')+'&u='+u.join(',');}};return;}
+  const d=this.stations().find(p=>p.sid===to);if(!d)return;this.unlocked.add(to);
+  this.a={ph:0,t:0,k:0,tx:d.x+d.w/2-P.w/2,ty:d.y+d.h-P.h};},
+ fromHash(){const h=new URLSearchParams((location.hash||'').slice(1));const sid=h.get('tp');if(!sid)return;
+  (h.get('u')||'').split(',').filter(Boolean).forEach(s=>this.unlocked.add(s));
+  const ids={cut:'btnCut',dash:'btnDash',parry:'btnParry',climb:'btnClimb',items:'btnItems'};
+  (h.get('f')||'').split(',').filter(Boolean).forEach(f=>{if(!flags[f]&&ids[f]){const b=document.getElementById(ids[f]);if(b)b.click();}if(f==='cut')P.hasCut=true;if(f==='dash')P.hasDash=true;});
+  const st=this.stations().find(p=>p.sid===sid);if(st){this.unlocked.add(sid);P.x=st.x+st.w/2-P.w/2;P.y=st.y+st.h-P.h;cam.x=P.x-VW/2;cam.y=P.y-VH/2;this.a={ph:1,t:0,k:0};say(REGION_NAME+' · '+st.sname,2);}
+  try{history.replaceState(null,'',location.pathname+location.search);}catch(_){}
+  setTimeout(()=>{cv.focus();},50);},
+ drawStation(p){const R=this.rib(p.sid),on=this.unlocked.has(p.sid),ok=this.usable(p),t=performance.now()/1000,cx=p.x+p.w/2,fl=p.y+p.h,col=R.col||'#B5585A';
+  ctx.save();ctx.strokeStyle=C.edge;ctx.lineWidth=1.2;
+  if(R.secret){ctx.fillStyle='rgba(251,251,249,.9)';ctx.beginPath();ctx.moveTo(cx-9,fl);ctx.lineTo(cx-7,fl-p.h+2);ctx.lineTo(cx-2,fl-p.h+5);ctx.lineTo(cx+3,fl-p.h);ctx.lineTo(cx+9,fl-p.h+4);ctx.lineTo(cx+8,fl);ctx.closePath();ctx.fill();ctx.stroke();}
+  ctx.fillStyle='#E9E3D6';ctx.fillRect(cx-7,fl-4,14,4);ctx.strokeRect(cx-7,fl-4,14,4);
+  const sw=Math.sin(t*2)*(ok?1.5:0.4);ctx.fillStyle=on||R.secret?col:'#D8D2C6';ctx.globalAlpha=ok||on?1:0.75;
+  ctx.beginPath();ctx.moveTo(cx-4,fl-4);ctx.lineTo(cx-4+sw,fl-p.h+4);ctx.lineTo(cx+sw,fl-p.h+8);ctx.lineTo(cx+4+sw,fl-p.h+4);ctx.lineTo(cx+4,fl-4);ctx.closePath();ctx.fill();ctx.stroke();ctx.globalAlpha=1;
+  if(!ok){const ky=fl-p.h*0.55;ctx.fillStyle=C.edge;ctx.beginPath();ctx.ellipse(cx+sw*0.6,ky,4.2,2.6,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle=C.edge;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(cx-1,ky+2);ctx.lineTo(cx-4,ky+7);ctx.moveTo(cx+1,ky+2);ctx.lineTo(cx+4,ky+7);ctx.stroke();}
+  else{ctx.strokeStyle='rgba(255,255,255,.55)';ctx.beginPath();ctx.moveTo(cx-1.5+sw*0.5,fl-8);ctx.lineTo(cx-1.5+sw,fl-p.h+8);ctx.stroke();
+   if(this.near()===p){const by=p.y-8+Math.sin(t*5)*2;ctx.strokeStyle=C.edge;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(cx-4,by+3);ctx.lineTo(cx,by-1);ctx.lineTo(cx+4,by+3);ctx.stroke();}}
+  ctx.restore();},
+ drawWorld(){if(this.a){const a=this.a,y=P.y+P.h*a.k;ctx.save();ctx.strokeStyle=a.ph===0?'rgba(214,170,110,.9)':'rgba(38,40,45,.9)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(P.x-4,y);ctx.lineTo(P.x+P.w+4,y);ctx.stroke();ctx.restore();}},
+ clipPlayer(){if(!this.a)return;const a=this.a;ctx.beginPath();if(a.ph===0)ctx.rect(P.x-30,P.y+P.h*a.k,P.w+60,80);else ctx.rect(P.x-30,P.y-60,P.w+60,60+P.h*a.k);ctx.clip();}
+};
+function skCan(p){return p.need==='cut'?P.hasCut:p.need==='climb'?flags.climb:true;}
+function drawSketch(p){const cx=p.x+p.w/2,fl=p.y+p.h,t=performance.now()/1000,f=p.done?1:Math.min(1,(p.fill||0)/1.2);
+ ctx.save();ctx.lineWidth=1.2;ctx.strokeStyle=C.edge;ctx.lineCap='round';
+ const dashed=(fn)=>{ctx.save();ctx.setLineDash([2,2]);ctx.globalAlpha=0.3+0.15*Math.sin(t*3);fn();ctx.restore();};
+ if(p.who==='dog'){const hop=p.done?Math.abs(Math.sin(t*4))*3:0,by=fl-10-hop;
+  [-8,-4,4,8].forEach((lx,i)=>{const k=Math.max(0,Math.min(1,f*4-i));
+   if(k<1)dashed(()=>{ctx.beginPath();ctx.moveTo(cx+lx,by+3);ctx.lineTo(cx+lx,fl);ctx.stroke();});
+   if(k>0){ctx.save();ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(cx+lx,by+3);ctx.lineTo(cx+lx,by+3+(fl-hop-by-3)*k);ctx.stroke();ctx.restore();}});
+  ctx.fillStyle='#FBFBF9';ctx.beginPath();ctx.ellipse(cx,by,11,5.5,0,0,Math.PI*2);ctx.fill();ctx.stroke();
+  ctx.beginPath();ctx.arc(cx+12,by-5,5,0,Math.PI*2);ctx.fill();ctx.stroke();
+  ctx.fillStyle=C.edge;ctx.beginPath();ctx.ellipse(cx+10,by-7.5,1.8,3.6,0.5,0,Math.PI*2);ctx.fill();ctx.fillRect(cx+13.5,by-6.5,1.6,1.6);
+  const wag=p.done?Math.sin(t*14)*3:0;ctx.beginPath();ctx.moveTo(cx-10,by-2);ctx.quadraticCurveTo(cx-15,by-7,cx-13+wag,by-11);ctx.stroke();}
+ else if(p.who==='sun'){const cy=fl-14,r=9,rot=p.done?t*0.5:0;
+  if(f>0){const g=ctx.createRadialGradient(cx,cy,2,cx,cy,22+30*f);g.addColorStop(0,'rgba(246,190,110,'+(0.45*f)+')');g.addColorStop(1,'rgba(246,190,110,0)');ctx.fillStyle=g;ctx.fillRect(cx-60,cy-60,120,120);}
+  for(let i=0;i<8;i++){const a=rot+i*Math.PI/4,k=Math.max(0,Math.min(1,f*8-i)),x1=cx+Math.cos(a)*(r+3),y1=cy+Math.sin(a)*(r+3),x2=cx+Math.cos(a)*(r+8),y2=cy+Math.sin(a)*(r+8);
+   if(k<=0)dashed(()=>{ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();});
+   else{ctx.save();ctx.strokeStyle='#D9823F';ctx.lineWidth=2.2;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x1+(x2-x1)*k,y1+(y2-y1)*k);ctx.stroke();ctx.restore();}}
+  ctx.fillStyle='#FBFBF9';ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fill();
+  if(f>0){ctx.save();ctx.beginPath();ctx.rect(cx-r-1,cy+r-2*r*f,2*r+2,2*r*f+1);ctx.clip();ctx.fillStyle='#F0AE5C';ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fill();
+   ctx.strokeStyle='rgba(200,110,50,.5)';ctx.lineWidth=1;ctx.beginPath();for(let k=-2;k<=2;k++){ctx.moveTo(cx-r,cy+k*4+3);ctx.lineTo(cx+r,cy+k*4-1);}ctx.stroke();ctx.restore();}
+  ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();
+  ctx.fillStyle=C.edge;ctx.fillRect(cx-4,cy-3,1.8,1.8);ctx.fillRect(cx+2.4,cy-3,1.8,1.8);
+  ctx.beginPath();if(p.done)ctx.arc(cx,cy+1,3.5,0.2,Math.PI-0.2);else{ctx.moveTo(cx-3,cy+4);ctx.lineTo(cx+3,cy+4);}ctx.stroke();}
+ if(p.near&&!p.done&&skCan(p)){const bx=cx,by=p.y-10+Math.sin(t*5)*2;ctx.translate(bx,by);ctx.rotate(0.7);ctx.fillStyle=p.who==='sun'?'#F0AE5C':'#E8DDB8';ctx.fillRect(-2,-7,4,10);ctx.strokeRect(-2,-7,4,10);
+  ctx.fillStyle=C.edge;ctx.beginPath();ctx.moveTo(-2,3);ctx.lineTo(2,3);ctx.lineTo(0,7);ctx.closePath();ctx.fill();}
+ ctx.restore();}
+function guarded(e){if(!e.keeper)return false;const p=picks.find(q=>q.type===e.keeper);return !!p&&!p.on;}
+function guardFx(e){if(e.gT>0)return;e.gT=0.3;rings.push({x:e.x+e.w/2,y:e.y+e.h/2,t:0});puff(e.x+e.w/2,e.y+e.h/2,'#F2D06B',6);}
 function killEnemy(e){
+ if(guarded(e)){e.hp=e.max;guardFx(e);return;}
  e.dead=true;puff(e.x+e.w/2,e.y+e.h/2,TCOL[e.type]||C.melee,14);puff(e.x+e.w/2,e.y+e.h/2,'#F1EFE6',8);
  if(e.drop)picks.push({type:e.drop,x:e.x+e.w/2-6,y:e.y+e.h-14,w:12,h:12,got:false});
  if(e.type==='elite')say(e.name+'을(를) 쓰러뜨렸다!',2.4);
@@ -1230,11 +1361,12 @@ document.getElementById('specs').innerHTML=[
  ['4 타일','통로 높이'],['5 타일','수직굴 폭 (벽 점프 가능)'],['280 × 140 타일','지역 크기 ≈ 화면 9.3 × 8.3개'],['28 + 7','방 + 수직굴 (재방문 4곳 포함)'],['10','세이브 석상'],['2 + 2','체력 조각(+0.5칸) + 아이템'],
  ['7종 + 강화 1종','일반 몬스터 · 방마다 2~3마리 조합'],['12~15분','목표 클리어 (그레이박스)'],
 ].map(s=>`<div class="spec"><div class="v">${s[0]}</div><div class="k">${s[1]}</div></div>`).join('');
-reset();
+reset();TP.fromHash();
 let last=performance.now();
 function loop(now){const dt=Math.min(1/30,(now-last)/1000);last=now;
  if(trans){trans.t+=dt;drawFlip();}
  else if(chapter){chapter.t+=dt;chapterInput();drawChapter();}
+ else if(TP.menu){TP.input(dt);draw();if(TP.menu)TP.drawMenu();}
  else{if(focused||touchMode){if(hitstop>0)hitstop-=dt;else update(dt);}draw();}
  drawMini();requestAnimationFrame(loop);}
 requestAnimationFrame(loop);

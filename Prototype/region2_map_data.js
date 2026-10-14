@@ -29,6 +29,7 @@ const ROOMS=[
  R(23,'C','폭포 뒤 틈',272,106,6,4,{noHills:true,revisit:'벽타기 · 2장 보스 후',info:'🔁 홀 동쪽 밀랍 벽 22칸을 벽타기로 → 🎒 회복 물감 병 (+1회)'}),
  R(24,'B','잠긴 물웅덩이 동굴',12,108,30,6,{noHills:true,revisit:'물감 헤엄 · 3장',info:'🔁 밀랍 저장고 아래 물속 → 흑연 조각'}),
  R(25,'C','바람 언덕',234,88,36,8,{noHills:true,revisit:'활공 · 4장',info:'🔁 막대 다리 동쪽 14타일 늪 건너 → 흑연 조각'}),
+ R(26,'D','해님 다락',236,20,24,6,{noHills:true,hidden:true,info:'🎨 숨은 그림 친구 · 크레파스 탑 서쪽 밀랍 벽 구멍 (벽타기) → 색칠 안 된 해님에게 W 길게로 크레파스 색칠'}),
 ];
 const PASS=[
  {z:'A',x:26,y:32,w:4,h:4},{z:'A',x:70,y:30,w:4,h:4},{z:'A',x:120,y:32,w:4,h:4},
@@ -64,8 +65,8 @@ const SPAWNS=[
  ['turtle',104,94,{name:'깎인 크레파스 거북',drop:'parry'}],
  // C 색칠 협곡
  ['bat',140,80],['bat',165,80],['soldier',170,88],['thrower',174,88],
- ['thrower',197,88],
- ['range',140,124],['soldier',160,124],['drip',176,124],['bat',186,114],['soldier',150,124],['thrower',192,124,{red:true}],
+ ['thrower',197,88,{keeper:'bar'}],
+ ['range',140,124,{keeper:'target'}],['soldier',160,124],['drip',176,124],['bat',186,114],['soldier',150,124],['thrower',192,124,{red:true}],
  // D
  ['soldier',184,36,{red:true}],['bat',190,31],
  ['soldier',210,124],['bat',216,114],['drip',232,124],['thrower',234,124],
@@ -80,8 +81,19 @@ const PICKS=[
  ['sw_r',66,94],['sw_b',84,12],['sw_y',210,88],
  ['shard',245,100],['healup',274,106],['npc',186,124],['diary',190,124],['brazier',219,124],
  ['bar',187,88],['target',134,124],['brazier',70,70],['brazier',85,70],
+ ['sketch',250,20,{who:'sun',need:'climb',w:30,h:30}],
+ ['station',14,35,{sid:'r2a',sname:'물감 번진 관문',w:16,h:30}],['station',136,34,{sid:'r2b',sname:'삼색 광장',w:16,h:30}],['station',193,124,{sid:'r2c',sname:'협곡 바닥',w:16,h:30}],['station',240,12,{sid:'r2d',sname:'탑 꼭대기',w:16,h:30}],['station',38,108,{sid:'r2e',sname:'잠긴 물웅덩이 동굴',w:16,h:30}],
 ];
 const START={tx:8,floor:36};
+const REGION_ID='r2',REGION_NAME='2장 크레파스 언덕';
+const FILES={r1:'unfin_prototype.html',r2:'unfin_region2.html'};
+const RIBBONS={
+ r1a:{to:'r1b',col:'#8F909C'},r1b:{to:'r1a',col:'#8F909C'},
+ r1d:{to:'r2b',col:'#B5585A'},r2b:{to:'r1d',col:'#B5585A'},
+ r2a:{to:'r2c',col:'#D9823F'},r2c:{to:'r2a',col:'#D9823F'},
+ r2d:{to:'r1s',col:'#5D7FA8',secret:true},r1s:{to:'r2d',col:'#5D7FA8',secret:true,hidden:true},
+ r1c:{to:'r3a',col:'#7FA7B8'},r2e:{to:'r3b',col:'#7FA7B8'},
+};
 function buildMap(){
  const g=new Uint8Array(W*H).fill(1);
  const set=(x,y,v)=>{if(x>0&&y>0&&x<W-1&&y<H-1)g[y*W+x]=v;};
@@ -91,7 +103,7 @@ function buildMap(){
  const hash=(x,y)=>((Math.imul(x,73856093)^Math.imul(y,19349663))>>>0)%100;
  const snap=g.slice();
  for(let j=2;j<H-2;j++)for(let i=2;i<W-2;i++){if(snap[j*W+i]!==1)continue;if(snap[(j-1)*W+i]===0)continue;
-  const open=snap[j*W+i-1]===0||snap[j*W+i+1]===0||snap[(j-1)*W+i]===0||snap[(j+1)*W+i]===0;if(open&&hash(i,j)<27)g[j*W+i]=0;}
+  const open=snap[j*W+i-1]===0||snap[j*W+i+1]===0||snap[(j-1)*W+i]===0||snap[(j+1)*W+i]===0;if(open&&hash(i,j)<0/*벽·천장 울퉁불퉁 끔 (평평하게)*/)g[j*W+i]=0;}
  ROOMS.filter(r=>r.stairs).forEach(r=>{const f=r.y+r.h;for(let k=1;;k++){const row=f-3*k;if(row<r.y+2)break;
   const xs=r.stairs==='L'?(k%2?r.x:r.x+5):(k%2?r.x+r.w-5:r.x+r.w-10);for(let i=xs;i<xs+5;i++)if(get(i,row)===0)set(i,row,4);}});
  SHAFTS.filter(s=>!s.noLedges).forEach(s=>{for(let k=1;;k++){const row=s.base-3*k;if(row<s.y+1)break;const xs=k%2?s.x:s.x+s.w-2;for(let i=xs;i<xs+2;i++)if(get(i,row)===0)set(i,row,4);}});
@@ -117,11 +129,14 @@ function buildMap(){
  // 과녁 문 (13): 협곡 바닥 서쪽
  for(let j=118;j<=123;j++){set(124,j,13);set(125,j,13);set(126,j,13);set(127,j,13);}
  for(let j=114;j<=117;j++)for(let i=124;i<=127;i++)set(i,j,1);
+ for(let i=128;i<=141;i++)if(get(i,123)===1)set(i,123,0); // 과녁 사선: 튕긴 탄이 막히지 않게 평평하게
  // 물감 문 (18): 삼색 광장 동쪽 → 보스
  for(let j=30;j<=35;j++){set(168,j,18);set(169,j,18);}
  // 크레파스 탑: 양쪽 밀랍 벽 (8)
  for(let j=12;j<=49;j++){if(get(261,j)!==0||j<44)set(261,j,8);if(!(j>=20&&j<=23))set(269,j,8);}
  for(let j=44;j<=49;j++)set(261,j,0);
+ for(let j=20;j<=23;j++)set(269,j,0); // 21 탑 옆 틈새 입구
+ for(let j=16;j<=19;j++){set(260,j,0);set(261,j,0);} // 해님 다락 입구 (탑 서쪽 벽 구멍)
  // 낭떠러지 아래·늪 바닥
  for(let i=219;i<=233;i++){set(i,88,3);set(i,89,1);}
  // 물속 동굴 (9): 저장고 아래 연결 통로 + 동굴
