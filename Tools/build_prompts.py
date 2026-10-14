@@ -68,13 +68,19 @@ TYPE = {
                 "big-mass variation is required: darker denser patches and lighter sparse patches, one or two faint strata lines, "
                 "a few areas left half-hatched with paper showing through, a few small embedded material bits (pebbles and crumbs of the drawing material), "
                 "paper grain texture (not canvas, not fabric weave), never one flat even gray, "
-                "edges wrap seamlessly only so the sheet can stretch over large areas"),
+                "seamless tileable texture in all four directions: the left edge continues exactly into the right edge and the top edge continues exactly into the bottom edge, no border, no frame, no vignette, no edge darkening, "
+                "all variations share the same outer border band so any variation can sit beside or above any other without a seam"),
     'EDGE': ("long horizontal strip of a hand-drawn terrain edge on transparent background, 4096x512, built in three zones: "
              "(1) a thick bold dark hand-drawn contour with an irregular rhythm of large bumps and small wobbles, a few chips, dents and one or two slight breaks, "
              "the contour rises and falls by about a quarter of the strip height, never a ruler line, never an even sine wave; "
              "(2) a dense darker surface band just inside the contour, about one fifth of the strip deep, with small details; "
              "(3) the interior beyond it gets lighter and sparser with a faint strata line and some half-hatched paper showing; "
-             "paper grain texture (not canvas or fabric weave), same value and texture family as the matching floor or ceiling piece, soft anti-aliased edge"),
+             "paper grain texture (not canvas or fabric weave), same value and texture family as the matching floor or ceiling piece, soft anti-aliased edge, "
+             "the left end continues exactly into the right end (same contour height, same band depth, same texture) so the strip repeats along any length without a seam"),
+    'TERRAIN_LINK': ("transition sheet of solid terrain fill between two neighboring zones of the same chapter, 2048x2048, flat front view, "
+                     "same drawing material and value family on both sides, the first-zone side matches that zone's fill border band exactly, "
+                     "the second-zone side matches the other zone's fill border band exactly, the zone details change gradually in between, "
+                     "the two remaining edges continue into each other so it repeats along the whole boundary, paper grain texture, no seam, no border"),
     'CORNER': ("single organic rounded corner piece of terrain on transparent background, soft natural anti-aliased edge, "
                "imperfect hand-drawn curve, matches a continuous edge strip"),
     'PLATFORM': ("single long one-way platform plank on transparent background, side view, thick hand-drawn line on top, "
@@ -82,10 +88,11 @@ TYPE = {
     'SPECIAL': ("single tall special terrain block on transparent background, side view, soft natural edges, "
                 "drawn as one unique hand-drawn object, not a repeating tile"),
     'BG_WALL': ("back wall of an enclosed interior space inside the sketchbook world, seen flat and straight on, fills the whole frame edge to edge, "
-                "NO sky, NO horizon, NO ground, NO outdoor landscape, no up or down direction so it can be rotated, mirrored and stacked to fill tall shafts and wide halls, "
+                "NO sky, NO horizon, NO ground, NO outdoor landscape, no up or down direction, it is repeated sideways and stacked upward to fill wide halls and tall shafts, "
                 "large soft value variation (a few darker hollows and lighter worn patches), very low contrast, 5-12% darker than the page paper, "
                 "faint hatching and a few faint drawn cracks or marks, far-distance layer so details are soft and sparse, "
-                "no focal point, no objects, no repeating motif, square 2048x2048, edges wrap seamlessly"),
+                "no focal point, no objects, no repeating motif, square 2048x2048, seamless tileable texture in all four directions: the left edge continues exactly into the right edge and the top edge continues exactly into the bottom edge, no border, no frame, no vignette, no edge darkening, "
+                "all variations of the same area share the same outer border band so any variation can sit beside or above any other without a seam"),
     'BG_SET': ("single background set piece for an enclosed interior, isolated on transparent background, sits in the middle-distance layer behind the gameplay, "
                "simple readable silhouette, thin lines, low contrast, 15-20% darker than the page paper and lighter than the gameplay terrain, "
                "it will be placed in front of the back wall, so it must never look like it floats in the air: "
@@ -94,10 +101,12 @@ TYPE = {
                "soft natural anti-aliased edges, a few unfinished strokes"),
     'BG_WALL_TALL': ("tall back wall for one very high interior room or shaft, one single continuous image, flat straight-on view, fills the frame edge to edge, "
                      "NO sky, NO horizon, NO ground, the wall slowly changes from bottom to top to show progress while climbing, "
-                     "left and right edges wrap seamlessly so it can be placed next to the normal square back walls, "
+                     "seamless on all four sides: the left edge continues exactly into the right edge, "
+                     "and the top and bottom border bands match the area's square back wall border band so it stacks above and below the square walls without a seam, "
                      "very low contrast, 5-12% darker than the page paper, faint hatching, no objects, no repeating motif"),
     'BG_FORE': ("foreground frame piece of an enclosed interior on transparent background (hanging roots or rock lumps that frame the screen edge), "
-                "dark soft silhouette, slightly faded, sparse, must not cover the middle of the screen"),
+                "dark soft silhouette, slightly faded, sparse, must not cover the middle of the screen, "
+                "the left edge continues exactly into the right edge so it repeats sideways without a seam"),
     'DECOR': ("decoration overlay for one room on a fully transparent background, the provided layout shows where terrain is, "
               "do NOT draw the terrain itself, do NOT fill walls, floors or air, everything except the decorations stays transparent, "
               "place a few unique small details hugging the terrain surfaces: cracks, eraser marks, half-erased lines, little scribbles, "
@@ -106,6 +115,8 @@ TYPE = {
               "soft natural anti-aliased edges, sparse, no repeated motif, 16:9"),
     'BG_WALL_LINK': ("transition sheet between the back walls of two neighboring interior areas, same rules as a back wall (no sky, no horizon, no objects, very low contrast), "
                      "one side matches the first area's wall texture exactly and it gradually becomes the second area's wall texture toward the other side, "
+                     "the first-area side matches that area's wall border band exactly, the second-area side matches the other area's wall border band exactly, "
+                     "the two remaining edges continue into each other so the transition can be repeated along the whole boundary, "
                      "no visible seam, same brightness, square 2048x2048"),
     'PROP': ("single game prop, isolated on transparent background, centered, entire object visible, side view, "
              "same outline weight as gameplay objects"),
@@ -138,7 +149,7 @@ NEG_COMMON = ("pixel art, pixelated, 8-bit, 16-bit, retro game sprite, dot art, 
 NEG_ENV = "characters, people, animals, creatures, faces"
 NEG_BG = (", sky, horizon, open landscape, meadow, outdoor scenery, sunlight, clouds, birds, flying creatures, flying shapes, foreground grass, ground plane, "
           "centered symmetrical composition, empty edges, vignette framing, mixed foreground and background layers, identical repeated shapes, "
-          "brick grid, tiled stones, canvas texture, fabric weave, high contrast, sharp detailed rendering, "
+          "brick grid, tiled stones, canvas texture, fabric weave, high contrast, sharp detailed rendering, visible seams, mismatched edges, border frame, edge darkening, "
           "floating objects with a visible bottom, flat platform-like ledges, horizontal planks, bridges that look walkable")
 NEG_BG_GLIMPSE = NEG_BG.replace('sky, horizon, open landscape, meadow, outdoor scenery, sunlight, clouds, ', '')
 NEG_TERRAIN = ", canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour"
@@ -176,16 +187,6 @@ add('C2-G2', '0 골든', 2, 'TERRAIN', "ground texture of overpainted crayon ear
 #    이 재료가 월드 전체를 한 줄로 잇는 '바탕 지형'(Unity Sprite Shape)이 됨 → 방 경계에서 끊기지 않음.
 #    방 개성은 '3 방 장식'(투명 배경 오버레이)이 담당
 TERRAIN_SET = [
-    ('fill_a', 'TERRAIN', "interior of solid ground, hatching only, variation A"),
-    ('fill_b', 'TERRAIN', "interior of solid ground, hatching only, variation B with a few faint eraser smudges"),
-    ('fill_c', 'TERRAIN', "interior of solid ground, hatching only, variation C with sparse material flecks"),
-    ('fill_d', 'TERRAIN', "interior of solid ground, hatching only, variation D slightly denser near one side"),
-    ('edge_top', 'EDGE', "walkable top surface edge of ground, the boldest contour on top so the floor reads instantly, "
-                         "surface band with small pebbles, material crumbs, a few tiny grass tufts and a chipped spot, material texture below"),
-    ('edge_bottom', 'EDGE', "bottom edge of a ceiling, bold contour on the bottom with a few sagging lumps and two or three short stalactite stubs, "
-                            "surface band with cracks, hanging roots and short drips, material texture above"),
-    ('edge_side', 'EDGE', "vertical wall edge (drawn horizontally, will be rotated), bold contour with chips, cracks and small ledges, "
-                          "surface band with scratches and material crumbs, material texture on one side"),
     ('corner_out', 'CORNER', "outer convex corner of ground, rounded"),
     ('corner_in', 'CORNER', "inner concave corner where floor meets wall, soft curve"),
     ('platform_a', 'PLATFORM', "one-way plank platform, variation A"),
@@ -213,10 +214,43 @@ CH_SPECIAL = {
         ('target_door', 'SPECIAL', "a tall door panel painted muted yellow with a small target symbol, crayon texture")],
 }
 AR = {'TERRAIN': '1:1', 'EDGE': '8:1', 'CORNER': '1:1', 'PLATFORM': '4:1', 'SPECIAL': '1:3'}
+# 구역별 지형: 장 재료는 같고(한 지역), 구역마다 바닥·천장·벽의 디테일과 아주 옅은 색 기운이 다름
+ZONE_TINT = {'A': "a faint warm cream-gray tint", 'B': "a faint cool blue-gray graphite tint", 'C': "a faint sage green-gray tint",
+             'D': "a faint dusty rose-gray tint", 'E': "a faint warm orange-beige tint", 'F': "a faint wax-beige tint",
+             'G': "a faint blue-violet gray tint", 'H': "a faint brick-rose gray tint"}
+ZONE_TERRAIN = {  # 구역: (장, 한국어, 속 채움 특징, 바닥 윗면 디테일, 천장 아랫면 디테일, 벽 옆면 디테일)
+    'A': (1, '구겨진 종이굴', "layered creased paper sheets pressed together, soft paper pulp patches",
+          "creased paper folds, torn paper flakes and a few pencil grass roots poking out", "peeling paper layers and dangling grass roots", "folded paper layer edges and small tears"),
+    'B': (1, '흑연 광산', "dense graphite rock hatching with matte ore seams and chisel marks",
+          "graphite chunks, pickaxe chips and a few old rail spikes", "jagged graphite lumps and short graphite stalactite stubs", "pickaxe scars and ore seams"),
+    'C': (1, '스케치 나무 속', "curved wood grain and growth-ring hatching, small knots",
+          "wood grain ridges, bark flakes and small root nubs", "hanging bark strips and knot bumps", "wood grain lines and split cracks"),
+    'D': (1, '엉킨 뿌리 심부', "knotted tangled root fibers and scribble hatching",
+          "tangled root fibers, small thorn scribbles and crushed leaves", "hanging tangled root hair and thorny knots", "twisting root strands"),
+    'E': (2, '노을 크레파스 굴', "thick layered crayon earth with crossing strokes",
+          "crayon crumbs and thin cracks lined with muted sunset orange", "melted crayon drips and orange-lined cracks", "layered crayon strata and smears"),
+    'F': (2, '밀랍 공방', "smooth wax-beige plaster with drawn drip stains and soot smudges",
+          "worn smooth wax edges, old wax drips and soot smudges", "hanging wax drips and soot stains", "plaster cracks and wax runs"),
+    'G': (2, '색칠 지하 협곡', "uneven paint strata bands in muted blue, red and yellow",
+          "dried paint flakes and paint drips at the edge", "dripping paint and strata ends", "colored strata bands and paint runs"),
+    'H': (2, '기사의 탑', "uneven hand-drawn crayon stones, every stone a different shape, no grid",
+          "chipped crayon stones with scratched mortar lines and a few small rubble bits", "worn stone undersides with crumbling mortar", "irregular stone faces with chips"),
+}
+for z, (ch, kname, fill, top, bottom, side) in ZONE_TERRAIN.items():
+    tint = ZONE_TINT[z]
+    for v in 'abc':
+        add(f'TZ{ch}-{z}-fill_{v}', '1 지형', ch, 'TERRAIN', f"interior of solid ground in the {kname} zone: {fill}, {tint}, variation {v.upper()}",
+            f'ch{ch}/terrain/{z}/ch{ch}_{z}_fill_{v}.png', ar='1:1', neg=NEG_ENV + NEG_TERRAIN,
+            note=f'{z} {kname} · 속 채움 · 4방향 이어짐 · ' + ('테두리 원본 (먼저 만들기)' if v == 'a' else 'A의 테두리 띠 + 안쪽만 새로'))
+    for key, subj in (('edge_top', f"walkable top surface edge of ground, the boldest contour on top so the floor reads instantly, surface band with {top}, material texture below"),
+                      ('edge_bottom', f"bottom edge of a ceiling, bold contour on the bottom with a few sagging lumps, surface band with {bottom}, material texture above"),
+                      ('edge_side', f"vertical wall edge (drawn horizontally, will be rotated), bold contour with chips and small ledges, surface band with {side}, material texture on one side")):
+        add(f'TZ{ch}-{z}-{key}', '1 지형', ch, 'EDGE', f"{subj}, in the {kname} zone, {tint}", f'ch{ch}/terrain/{z}/ch{ch}_{z}_{key}.png',
+            ar='8:1', neg=NEG_ENV + NEG_TERRAIN, note=f'{z} {kname} · 가장자리 띠 · 양 끝 이어짐')
 for ch in (1, 2):
     for key, typ, subj in TERRAIN_SET + CH_SPECIAL[ch]:
         add(f'T{ch}-{key}', '1 지형', ch, typ, subj, f'ch{ch}/terrain/ch{ch}_{key}.png', ar=AR[typ], neg=NEG_ENV + (NEG_TERRAIN if typ in ('TERRAIN', 'EDGE') else ''),
-            note='반복 금지: 같은 종류는 변형 여러 장을 섞어 씀' if typ in ('TERRAIN', 'PLATFORM') else '')
+            note=('4방향 이어짐 · 변형끼리 같은 테두리 띠 (fill_a가 테두리 원본)' if typ == 'TERRAIN' else '반복 금지: 같은 종류는 변형 여러 장을 섞어 씀' if typ == 'PLATFORM' else ''))
 
 # 2. 배경 — 실내형 v6: 구역(8) → 배경 구획(22) → 방(56)
 #    ① 구획마다 뒷벽 변형 3장 (하늘·지평선 없음, 위아래 방향 없음 → 수직굴도 채움)
@@ -359,7 +393,7 @@ TALL = {(1, 4), (1, 14), (2, 18), (2, 11)}
 ANCHOR_TXT = {   # 세트 조각이 공중에 떠 보이지 않게: 어디에 붙어 있는지
     'hang': "hanging from above: its top edge is cut off by the top of the image as if it continues past the ceiling",
     'rise': "rising from below: its base fades softly into the dark back wall, no visible bottom and no ground line",
-    'span': "floor-to-ceiling: both the top and the bottom are cut off by the image edges",
+    'span': "floor-to-ceiling: both the top and the bottom are cut off by the image edges, and the top edge continues exactly into the bottom edge so it can be stacked to any height without a seam",
     'wall': "drawn flat on the back wall itself, needs no ground or support",
 }
 ANCHOR_KO = {'hang': '⬇️ 매달림', 'rise': '⬆️ 솟음', 'span': '↕️ 바닥~천장', 'wall': '🧱 벽에 붙음'}
@@ -403,8 +437,8 @@ GLIMPSE = ('opening', 'window', 'knot_hole')
 for aid, (z, kname, rooms, wall) in AREAS.items():
     ch, zname, _ = ZONES[z]
     for v in 'abc':
-        add(f'B{ch}-{aid}-wall_{v}', '2 배경', ch, 'BG_WALL', f"{wall}, in the {zname}, variation {v.upper()}", f'ch{ch}/bg/ch{ch}_bg_{aid}_wall_{v}.png',
-            ar='1:1', neg=NEG_ENV + NEG_BG, note=f'{z} 구역 · {kname} (방 {", ".join(map(str, rooms))}) · 뒷벽 변형 {v.upper()} (섞고·돌리고·뒤집어 깔기)')
+        add(f'B{ch}-{aid}-wall_{v}', '2 배경', ch, 'BG_WALL', f"{wall}, in the {zname}, {ZONE_TINT[z]}, variation {v.upper()}", f'ch{ch}/bg/ch{ch}_bg_{aid}_wall_{v}.png',
+            ar='1:1', neg=NEG_ENV + NEG_BG, note=f'{z} 구역 · {kname} (방 {", ".join(map(str, rooms))}) · 뒷벽 변형 {v.upper()} · 4방향 이어짐 · ' + ('테두리 원본 (먼저 만들기)' if v == 'a' else 'A의 테두리 띠 그대로 + 안쪽만 새로 그리기'))
 for z, (ch, zname, sets) in ZONES.items():
     for key, ar, subj in sets:
         an = SET_ANCHOR[z][key]
@@ -426,7 +460,7 @@ for ch, rooms in ROOM_BG.items():
 for aid, key, kname, ar, subj in TALL_WALLS:
     z = AREAS[aid][0]; ch, zname, _ = ZONES[z]
     add(f'BT{ch}-{aid}-{key}', '2 배경', ch, 'BG_WALL_TALL', f"{subj}, in the {zname}", f'ch{ch}/bg/tall/ch{ch}_bg_{aid}_{key}.png',
-        ar=ar, neg=NEG_ENV + NEG_BG, note=f'세로 전용 뒷벽 · {kname} · 아래→위로 바뀜')
+        ar=ar, neg=NEG_ENV + NEG_BG, note=f'세로 전용 뒷벽 · {kname} · 아래→위로 바뀜 · 좌우 이어짐 + 위아래 띠 = 구획 뒷벽 A 테두리')
 # Art/bg_areas.json 쓰고 → 맞닿은 구획 쌍 다시 계산 (seam_check.find_links) → 뒷벽 이음
 json.dump({k: dict(zone=v[0], chapter=ZONES[v[0]][0], name=v[1], rooms=v[2]) for k, v in AREAS.items()},
           open(os.path.join(ROOT, 'bg_areas.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
@@ -474,12 +508,24 @@ for n, s in ROOMS2.items():
     add(f'R2-{n:02d}', '3 방 장식', 2, 'DECOR', 'decorations for: ' + s, f'ch2/decor/ch2_decor_{n:02d}.png', control=f'Art/control/r2_{n:02d}.png', neg=NEG_ENV + NEG_DECOR, ar='16:9')
 add('R-border-1-2', '3 방 장식', 2, 'DECOR', "decorations for the transition zone: pencil scribbles on the left, crayon strokes slowly painted over them toward the right",
     'border/border_1_2_decor.png', control='Art/control/border_1_2.png', neg=NEG_ENV + NEG_DECOR, ar='16:9', note='경계 장식')
-# 1↔2장 전환 지형 (바탕 지형이 끊기지 않게 재료가 서서히 바뀌는 재료 세트)
-for key, typ, subj in [('fill_a', 'TERRAIN', "interior of solid ground, variation A"), ('fill_b', 'TERRAIN', "interior of solid ground, variation B"),
-                       ('edge_top', 'EDGE', "top surface edge of ground, thick wobbly contour line on top"),
-                       ('edge_bottom', 'EDGE', "bottom edge of a ceiling, thick wobbly contour line on the bottom")]:
-    add(f'T12-{key}', '1 지형', 2, typ, subj + ", transition: " + MAT[1] + " on the left gradually overpainted by " + MAT[2] + " toward the right",
-        f'border/terrain_12_{key}.png', ref_extra='T1-fill_a T2-fill_a', ar=AR[typ], neg=NEG_ENV + NEG_TERRAIN, note='1→2장 전환 구간 전용 (2~3화면 폭)')
+# 구역 사이 지형 이음 (같은 지역 안 구역끼리 + 1↔2장 경계 D→E): 맞닿은 구획 쌍 중 구역이 다른 것
+ZPAIRS = {}
+for l in LINKS:
+    z1, z2 = AREAS[l['first']][0], AREAS[l['second']][0]
+    if z1 != z2 and (z1, z2) not in ZPAIRS and (z2, z1) not in ZPAIRS: ZPAIRS[(z1, z2)] = l['dir']
+for (z1, z2), d in ZPAIRS.items():
+    c1, k1 = ZONE_TERRAIN[z1][0], ZONE_TERRAIN[z1][1]; c2, k2 = ZONE_TERRAIN[z2][0], ZONE_TERRAIN[z2][1]
+    mat = (", " + MAT[c1] + " gradually overpainted by " + MAT[c2]) if c1 != c2 else ''
+    side = "left side = {}, right side = {}" if d == 'h' else "top side = {}, bottom side = {}"
+    add(f'TL-{z1}{z2}-fill', '1 지형', c2, 'TERRAIN_LINK', "terrain fill transition: " + side.format(ZONE_TERRAIN[z1][2], ZONE_TERRAIN[z2][2]) + mat,
+        f'ch{c2}/terrain/link/ch{c2}_{z1}{z2}_fill.png', ref_extra=f'TZ{c1}-{z1}-fill_a TZ{c2}-{z2}-fill_a', ar='1:1', neg=NEG_ENV + NEG_TERRAIN,
+        note=f"{k1} → {k2} 지형 속 이음 · 경계: {'가로(왼→오)' if d == 'h' else '세로(위→아래)'}" + (' · ⭐ 장 경계' if c1 != c2 else ''))
+    edges = (('edge_top', 3), ('edge_bottom', 4)) if d == 'h' else (('edge_side', 5),)
+    for key, i in edges:
+        add(f'TL-{z1}{z2}-{key}', '1 지형', c2, 'EDGE', f"{key.replace('_', ' ')} strip transition: the left end matches the {k1} strip ({ZONE_TERRAIN[z1][i]}), "
+            f"the right end matches the {k2} strip ({ZONE_TERRAIN[z2][i]}), the details change gradually along the strip" + mat,
+            f'ch{c2}/terrain/link/ch{c2}_{z1}{z2}_{key}.png', ref_extra=f'TZ{c1}-{z1}-{key} TZ{c2}-{z2}-{key}', ar='8:1', neg=NEG_ENV + NEG_TERRAIN,
+            note=f'{k1} → {k2} 가장자리 이음 (양 끝이 각 구역 띠와 맞물림)' + (' · ⭐ 장 경계' if c1 != c2 else ''))
 
 # 4. 소품 · 구조물
 PROPS = [
@@ -643,7 +689,7 @@ def main():
     A.sort(key=lambda a: int(a['cat'].split()[0]))   # 분류 순서대로 (안정 정렬)
     for a in A:
         p, n = assemble(a); rows.append(dict(a, prompt=p, negative=n))
-    json.dump(dict(version='MSB v3 · UNIFY v3 · MAT v1 · 지형 구조 v3.1 (3단 가장자리) · 배경 v6.1 실내형 (구획 뒷벽 + 세로 뒷벽 + 공용 조각 + 방 대표 조각 · 붙는 곳) · 미드키 게임 그림체', blocks=dict(MSB=MSB, UNIFY=UNIFY, MAT=MAT, TYPE=TYPE, CHAR_LOCK=CHAR_LOCK,
+    json.dump(dict(version='MSB v3 · UNIFY v3 · MAT v1 · 지형 구조 v4 (구역별 지형 + 구역 이음, 3단 가장자리) · 배경 v6.2 실내형 · 4방향 이어짐 (구획 뒷벽 + 세로 뒷벽 + 공용 조각 + 방 대표 조각 · 붙는 곳) · 미드키 게임 그림체', blocks=dict(MSB=MSB, UNIFY=UNIFY, MAT=MAT, TYPE=TYPE, CHAR_LOCK=CHAR_LOCK,
               NEG_COMMON=NEG_COMMON, NEG_ENV=NEG_ENV, NEG_BG=NEG_BG, NEG_BG_GLIMPSE=NEG_BG_GLIMPSE, NEG_TERRAIN=NEG_TERRAIN, NEG_DECOR=NEG_DECOR, NEG_CHAR=NEG_CHAR, NEG_POSE=NEG_POSE), assets=A),
               open(os.path.join(ROOT, 'asset_catalog.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     with open(os.path.join(ROOT, 'prompts_full.csv'), 'w', encoding='utf-8-sig', newline='') as f:

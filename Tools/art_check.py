@@ -2,7 +2,7 @@
 아트 자동 검증 파이프라인 (art_check) — AI가 뽑은 그림을 넣기만 하면 자동으로 검사·후처리·분류
 
 흐름
-  Art/inbox/ 에 그림을 넣음 (파일 이름 = 에셋 ID, 예: R1-09.png, B1-A-far_v2.png, T1-fill_a 3.png)
+  Art/inbox/ 에 그림을 넣음 (파일 이름 = 에셋 ID, 예: R1-09.png, B1-A1-wall_a_v2.png, TZ1-B-fill_a 3.png)
      │
      ├─ ① 이름으로 에셋 찾기 (Art/asset_catalog.json)
      ├─ ② 원본 보관 → Art/raw/<ID>/
@@ -38,19 +38,19 @@ sys.path.insert(0, HERE)
 for _s in (sys.stdout, sys.stderr):
     try: _s.reconfigure(encoding='utf-8')          # Windows 콘솔에서 이모지·한글 깨짐 방지
     except Exception: pass
-import unify_pass, seam_check
+import unify_pass, seam_check, tile_kit
 
 # ───────────────────────── 기준 ─────────────────────────
 ALPHA_TYPES = {'EDGE', 'CORNER', 'PLATFORM', 'SPECIAL', 'DECOR', 'PROP', 'CHAR', 'POSE', 'FX', 'UI', 'BG_FORE', 'BG_SET'}
-MONO_TYPES = {'TERRAIN', 'EDGE', 'SPECIAL'}
-REPEAT_TYPES = {'TERRAIN', 'EDGE', 'DECOR', 'BG_WALL', 'BG_WALL_LINK', 'BG_WALL_TALL', 'KEY', 'SPECIAL'}
-MIN_LONG = {'TERRAIN': 2048, 'EDGE': 4096, 'BG_WALL': 2048, 'BG_WALL_LINK': 2048, 'BG_WALL_TALL': 4096, 'BG_SET': 1536,
+MONO_TYPES = {'TERRAIN', 'TERRAIN_LINK', 'EDGE', 'SPECIAL'}
+REPEAT_TYPES = {'TERRAIN', 'TERRAIN_LINK', 'EDGE', 'DECOR', 'BG_WALL', 'BG_WALL_LINK', 'BG_WALL_TALL', 'KEY', 'SPECIAL'}
+MIN_LONG = {'TERRAIN': 2048, 'TERRAIN_LINK': 2048, 'EDGE': 4096, 'BG_WALL': 2048, 'BG_WALL_LINK': 2048, 'BG_WALL_TALL': 4096, 'BG_SET': 1536,
             'BG_FORE': 3840, 'DECOR': 3840, 'KEY': 3840}          # 목표 (16 문서 §14: 화면의 2배로 그림)
 MIN_LONG_DEFAULT = 1024
 # 미드키 밝기 대역 (평균 밝기 0~1, 통일 후처리 뒤 기준) — 16 문서 §4-6
 VALUE_BAND = {'BG_WALL': (0.55, 0.80), 'BG_WALL_LINK': (0.55, 0.80), 'BG_WALL_TALL': (0.55, 0.80),
-              'TERRAIN': (0.25, 0.70), 'KEY': (0.35, 0.78)}
-LIM = dict(white=0.03, mono=3.0, mono_warn=5.0, relief=0.03, relief_warn=0.05, rhythm=0.55, surface=4.0, aspect=0.04, nn_err=1.5, levels=0.35, hard=0.50, hard_warn=0.35, alpha_soft=0.15,
+              'TERRAIN': (0.25, 0.70), 'TERRAIN_LINK': (0.25, 0.70), 'KEY': (0.35, 0.78)}
+LIM = dict(wrap=2.0, white=0.03, mono=3.0, mono_warn=5.0, relief=0.03, relief_warn=0.05, rhythm=0.55, surface=4.0, aspect=0.04, nn_err=1.5, levels=0.35, hard=0.50, hard_warn=0.35, alpha_soft=0.15,
            repeat=0.45, repeat_warn=0.30, sat_over=0.02, black=12)
 
 
@@ -83,20 +83,24 @@ def chk_size(im, a):
     return ('해상도', st, f'긴 변 {got}px (목표 {want}px 이상{"" if st == "ok" else " → 일러스트용 업스케일러로 키우기"})')
 
 def chk_nearest(arr):
-    """도트 그림을 최근접 확대한 그림인지: k×k 블록 안은 같은 색인데 블록끼리는 색이 다르면 도트"""
+    """도트 그림을 최근접 확대한 그림인지: k×k 블록 격자에 '딱 맞춘 위치'에서만 블록 안이 같은 색이고,
+    격자를 반 칸 비켜 잡으면 차이가 확 커짐. (아주 부드러운 그림은 어디서 잡아도 비슷해서 걸리지 않음)"""
     c = center_crop(arr, 512).astype(np.float64)
     if c.shape[-1] == 4: c = c[..., :3] * (c[..., 3:] / 255)          # 투명한 곳은 검게 → 빈 곳이 '블록'으로 잡히지 않게
     c = c[..., :3]
     for k in range(2, 9):
+        ws = []
         for oy in range(k):
             for ox in range(k):
                 sub = c[oy:, ox:]; hh, ww = (sub.shape[0] // k) * k, (sub.shape[1] // k) * k
                 if hh < 8 * k or ww < 8 * k: continue
                 blk = sub[:hh, :ww].reshape(hh // k, k, ww // k, k, 3)
-                within = np.abs(blk - blk[:, :1, :, :1]).mean()
-                means = blk.mean((1, 3)); between = np.abs(np.diff(means, axis=1)).mean() + np.abs(np.diff(means, axis=0)).mean()
-                if within < LIM['nn_err'] and between > 3 * max(within, 0.3):
-                    return ('도트 확대', 'fail', f'{k}×{k} 블록 안은 같은 색, 블록끼리는 다름 (도트 그림을 키운 것)')
+                ws.append((np.abs(blk - blk[:, :1, :, :1]).mean(), blk))
+        if not ws: continue
+        within, blk = min(ws, key=lambda t: t[0]); typical = float(np.median([w for w, _ in ws]))
+        means = blk.mean((1, 3)); between = np.abs(np.diff(means, axis=1)).mean() + np.abs(np.diff(means, axis=0)).mean()
+        if within < LIM['nn_err'] and typical > 4 * max(within, 0.25) and between > 3 * max(within, 0.3):
+            return ('도트 확대', 'fail', f'{k}×{k} 블록 안은 같은 색, 블록끼리는 다름 (도트 그림을 키운 것)')
     return ('도트 확대', 'ok', '블록 패턴 없음')
 
 def chk_colors(arr):
@@ -215,6 +219,29 @@ def chk_edge(arr, a):
         out.append(('표면 띠', 'ok' if diff >= LIM['surface'] else 'warn', f'윤곽 바로 안쪽이 속보다 {diff:.1f} 진함 (표면 띠가 있으면 커짐)'))
     return out
 
+def chk_wrap(arr, a):
+    """4방향 이어짐: 오른쪽 끝 → 왼쪽 끝, 아래 끝 → 위 끝이 끊김 없이 이어지는지 (뒷벽·지형 채움·세로 뒷벽·이음·전경·바닥~천장 조각)"""
+    t = a['type']; dirs = []
+    if t in ('BG_WALL', 'TERRAIN'): dirs = ['h', 'v']
+    elif t in ('BG_WALL_TALL', 'BG_FORE', 'EDGE'): dirs = ['h']
+    elif t == 'TERRAIN_LINK': dirs = ['v'] if '가로' in a.get('note', '') else ['h']
+    if t == 'EDGE' and a['id'].startswith('TL-'): dirs = []          # 구역 이음 띠는 양 끝이 서로 다른 구역이라 스스로 이어지지 않음
+    elif t == 'BG_SET' and '↕️' in a.get('note', ''): dirs = ['v']
+    elif t == 'BG_WALL_LINK':
+        lp = os.path.join(ART, 'bg_links.json')
+        if os.path.exists(lp):
+            for l in json.load(open(lp, encoding='utf-8'))['links']:
+                if a['id'] == f"BL-{l['first']}{l['second']}-wall": dirs = ['v' if l['dir'] == 'h' else 'h']
+    out = []
+    rgb = arr[..., :3].astype(np.float64)
+    if arr.shape[-1] == 4:                                           # 투명 배경 띠는 회색 위에 얹어서 비교 (윤곽 높이까지 맞아야 이어짐)
+        al = arr[..., 3:].astype(np.float64) / 255; rgb = rgb * al + 128 * (1 - al)
+    for d in dirs:
+        sc = tile_kit.wrap_score(rgb, d)
+        out.append(('이어짐 ' + ('좌↔우' if d == 'h' else '위↔아래'), 'ok' if sc <= LIM['wrap'] else 'fail',
+                    f'끝과 끝의 차이 {sc:.2f} (2.0 이하 = 이어짐, 넘으면 붙였을 때 이음새가 보임)'))
+    return out
+
 def chk_color(arr, a):
     ch = a['ch'] or 1; smax = unify_pass.CH[ch][2]
     rgb = arr[..., :3].astype(np.float64) / 255
@@ -243,7 +270,7 @@ def inspect(arr, im, a, stage='raw'):
         for r in (chk_aspect(im, a), chk_size(im, a), chk_nearest(arr), chk_colors(arr), chk_hard_edges(arr),
                   chk_alpha(arr, a), chk_repeat(arr, a), chk_monotone(arr, a)):
             if r: res.append(r)
-        res += chk_edge(arr, a)
+        res += chk_edge(arr, a) + chk_wrap(arr, a)
     if stage in ('final', 'audit'):
         res += chk_color(arr, a)
     return res
@@ -259,7 +286,7 @@ def catalog():
 def match_id(name, cat):
     stem = os.path.splitext(os.path.basename(name))[0]
     best = None
-    for i in cat:      # 가장 긴 ID부터 맞춤: 'T1-fill_a_v2.png' → T1-fill_a
+    for i in cat:      # 가장 긴 ID부터 맞춤: 'TZ1-B-fill_a_v2.png' → TZ1-B-fill_a
         if (stem == i or (stem.startswith(i) and stem[len(i)] in '_ .(')) and (best is None or len(i) > len(best)):
             best = i
     return best
@@ -446,14 +473,14 @@ def demo():
     def rgba(alpha):
         c = np.zeros((1024, 1024, 4), np.uint8); c[..., :3] = good; c[..., 3] = alpha; return c
     prop_soft, prop_hard = rgba((soft * 255).astype(np.uint8)), rgba((blob * 255).astype(np.uint8))
-    cases = [('손그림 지형 · 큰 변화 있음', 'T1-fill_a', good), ('같은 조각 4×4 반복', 'T1-fill_b', tiled),
-             ('도트 그림을 키운 것', 'T1-fill_c', pixel), ('부드러운 선 (안티앨리어싱)', 'G1', lines(4)),
+    cases = [('손그림 지형 · 큰 변화 있음', 'TZ1-A-fill_a', good), ('같은 조각 4×4 반복', 'TZ1-A-fill_b', tiled),
+             ('도트 그림을 키운 것', 'TZ1-A-fill_c', pixel), ('부드러운 선 (안티앨리어싱)', 'G1', lines(4)),
              ('계단 선 (안티앨리어싱 없음)', 'G1', lines(1)), ('소품 · 부드러운 투명 가장자리', 'P-save_statue-1', prop_soft),
              ('소품 · 계단 투명 가장자리', 'P-save_statue-1', prop_hard), ('소품 · 배경 안 지움', 'P-save_statue-1', good)]
     tiles = []; f = seam_check._font(18)
     for name, aid, arr in cases:
         a = dict(cat[aid]); im = Image.fromarray(arr)
-        res = [r for r in inspect(arr, im, a, 'raw') if r[0] not in ('해상도', '비율')]
+        res = [r for r in inspect(arr, im, a, 'raw') if r[0] not in ('해상도', '비율') and not r[0].startswith('이어짐')]
         v = verdict(res); print(f'{ICON[v]} {name} [{aid}]'); [print(f'    {ICON[s]} {n}: {m}') for n, s, m in res if s != 'ok' or n in ('반복 무늬', '계단 가장자리', '투명 가장자리')]
         th = Image.new('RGB', (300, 380), (250, 248, 242)); bg = Image.new('RGBA', im.size, (250, 248, 242, 255))
         shown = Image.alpha_composite(bg, im.convert('RGBA')) if arr.shape[-1] == 4 else im

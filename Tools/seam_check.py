@@ -224,7 +224,7 @@ def check_all(layer):
     lp = os.path.join(ART, 'bg_links.json')
     links = json.load(open(lp, encoding='utf-8'))['links'] if os.path.exists(lp) else find_links()
     layers = ['wall']          # v5 실내형 배경: 뒷벽만 이어짐 검사 (세트 조각은 방마다 따로 놓는 그림이라 이음 없음)
-    md = ['# 배경 이음새 검사 결과 (seam_check.py 자동 생성)', '', '> 뒷벽 변형 A 패널 + 뒷벽 이음 + 이웃 구역 뒷벽 변형 A', '',
+    md = ['# 배경 이음새 검사 결과 (seam_check.py 자동 생성)', '', '> 구획 사이: 앞 구획 뒷벽 A + 뒷벽 이음 + 뒤 구획 뒷벽 A · 구획 안: 변형끼리 그대로 붙이기 (공통 테두리 띠라 섞지 않아도 이어져야 함)', '',
           '| 이음 | 층 | 방향 | 앞 → 이음 | 이음 → 뒤 | 판정 |', '|---|---|---|---|---|---|']
     nok = nbad = nmiss = 0; warns = []
     for l in links:
@@ -240,18 +240,45 @@ def check_all(layer):
             r1, r2 = check_pair(pa, pl, pb, d, out, f"{a}{b} {lay} · {l['first_name']} → {l['second_name']}")
             ok = r1['ok'] and r2['ok']; nok += ok; nbad += not ok
             md.append(f"| {a}{b} | {lay} | {d} | {fmt(r1)} | {fmt(r2)} | {'✅' if ok else '❌ ' + ', '.join(sorted(set(r1['fails'] + r2['fails'])))} |")
-    # 같은 구획 뒷벽 변형끼리 쌓기 (높은 방): 12% 겹쳐 부드럽게 섞은 결과를 위아래·좌우로 검사
+    # 구역 사이 지형 속 이음: 앞 구역 fill_a + 이음 + 뒤 구역 fill_a
+    cp = os.path.join(ART, 'asset_catalog.json')
+    if os.path.exists(cp):
+        cat = {x['id']: x for x in json.load(open(cp, encoding='utf-8'))['assets']}
+        rows = []
+        for i, x in cat.items():
+            if not (i.startswith('TL-') and i.endswith('-fill')): continue
+            z1, z2 = i[3], i[4]; d = 'h' if '가로' in x['note'] else 'v'
+            f1 = next((cat[k]['file'] for k in cat if k.endswith(f'-{z1}-fill_a') and k.startswith('TZ')), None)
+            f2 = next((cat[k]['file'] for k in cat if k.endswith(f'-{z2}-fill_a') and k.startswith('TZ')), None)
+            paths = [os.path.join(ART, 'out', f) for f in (f1, x['file'], f2)]
+            if not all(os.path.exists(q) for q in paths):
+                rows.append(f"| {z1}{z2} | {d} | — | — | ⏳ 파일 없음 |"); nmiss += 1; continue
+            r1, r2 = check_pair(*paths, d, os.path.join(ART, 'seam_preview', f'terrain_{z1}{z2}.png'), f'지형 {z1}{z2}')
+            ok = r1['ok'] and r2['ok']; nok += ok; nbad += not ok
+            rows.append(f"| {z1}{z2} | {d} | {fmt(r1)} | {fmt(r2)} | {'✅' if ok else '❌ ' + ', '.join(sorted(set(r1['fails'] + r2['fails'])))} |")
+        if rows:
+            md += ['', '## 구역 사이 지형 이음 (앞 구역 속 채움 A + 이음 + 뒤 구역 속 채움 A)', '', '| 구역 | 방향 | 앞 → 이음 | 이음 → 뒤 | 판정 |', '|---|---|---|---|---|'] + rows
+    # 같은 구획 뒷벽 변형끼리 그대로 붙이기 (섞기 없이 딱 맞아야 함 — 공통 테두리 띠) + 세로 전용 뒷벽 ↔ 구획 뒷벽 A
     ap = os.path.join(ART, 'bg_areas.json')
     if os.path.exists(ap):
-        md += ['', '## 뒷벽 쌓기 (같은 구획 변형끼리, 12% 겹쳐 섞기)', '', '| 구획 | 조합 | 방향 | 결과 | 판정 |', '|---|---|---|---|---|']
+        md += ['', '## 뒷벽 붙이기 (같은 구획 변형끼리 · 섞지 않고 그대로)', '', '| 구획 | 조합 | 방향 | 결과 | 판정 |', '|---|---|---|---|---|']
+        import glob
         for aid, v in json.load(open(ap, encoding='utf-8')).items():
             c = v['chapter']; fs = {k: os.path.join(ART, 'out', f'ch{c}', 'bg', f'ch{c}_bg_{aid}_wall_{k}.png') for k in 'abc'}
             have = [k for k in 'abc' if os.path.exists(fs[k])]
-            for i in range(len(have) - 1):
-                A, B = load(fs[have[i]]), load(fs[have[i + 1]])
-                for d in ('v', 'h'):
-                    r = seam(*blend_split(A, B, d), d); nok += r['ok']; nbad += not r['ok']
-                    md.append(f"| {aid} | {have[i]} + {have[i + 1]} | {'위아래' if d == 'v' else '좌우'} | {fmt(r)} | {'✅' if r['ok'] else '❌ ' + ', '.join(r['fails'])} |")
+            combos = [(x, y) for x in have for y in have if x != y]
+            for x, y in combos:
+                A, B = load(fs[x]), load(fs[y])
+                for d in ('h', 'v'):
+                    r = seam(A, B, d); nok += r['ok']; nbad += not r['ok']
+                    md.append(f"| {aid} | {x} {'→' if d == 'h' else '↓'} {y} | {'좌우' if d == 'h' else '위아래'} | {fmt(r)} | {'✅' if r['ok'] else '❌ ' + ', '.join(r['fails'])} |")
+            tall = glob.glob(os.path.join(ART, 'out', f'ch{c}', 'bg', 'tall', f'ch{c}_bg_{aid}_*.png'))
+            if 'a' in have:
+                for tp in tall:
+                    T, A = load(tp), load(fs['a'])
+                    for nm, (U, D) in (('세로 뒷벽 위에 A', (A, T)), ('A 위에 세로 뒷벽', (T, A))):
+                        r = seam(U, D, 'v'); nok += r['ok']; nbad += not r['ok']
+                        md.append(f"| {aid} | {nm} ({os.path.basename(tp)}) | 위아래 | {fmt(r)} | {'✅' if r['ok'] else '❌ ' + ', '.join(r['fails'])} |")
     md += ['', f'통과 {nok} · 탈락 {nbad} · 파일 없음 {nmiss}', ''] + sorted(set(warns))
     md += ['', '미리보기: `Art/seam_preview/` (점선 = 이음새, 초록 = 통과, 빨강 = 탈락)']
     open(os.path.join(ART, 'seam_report.md'), 'w', encoding='utf-8').write('\n'.join(md))
