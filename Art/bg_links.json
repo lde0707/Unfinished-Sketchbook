@@ -2,116 +2,312 @@
  "note": "seam_check.py links 로 자동 생성. h = first가 왼쪽, v = first가 위쪽",
  "links": [
   {
-   "first": "A",
-   "second": "B",
+   "first": "A2",
+   "second": "A1",
+   "dir": "h",
+   "contact_tiles": 4,
+   "at": [
+    191,
+    104
+   ],
+   "first_name": "풀뿌리 갈림굴",
+   "second_name": "종이 틈 입구",
+   "chapter_border": false,
+   "meaning": "왼쪽 A2 → 오른쪽 A1"
+  },
+  {
+   "first": "A2",
+   "second": "B1",
    "dir": "v",
    "contact_tiles": 5,
    "at": [
     170,
-    107
+    114
    ],
-   "first_name": "백지 들판",
-   "second_name": "흑연 광산",
+   "first_name": "풀뿌리 갈림굴",
+   "second_name": "광산 입구·갱도",
    "chapter_border": false,
-   "meaning": "위 A → 아래 B"
+   "meaning": "위 A2 → 아래 B1"
   },
   {
-   "first": "C",
-   "second": "A",
+   "first": "B2",
+   "second": "B1",
    "dir": "h",
-   "contact_tiles": 4,
+   "contact_tiles": 8,
+   "at": [
+    99,
+    126
+   ],
+   "first_name": "깊은 채굴장",
+   "second_name": "광산 입구·갱도",
+   "chapter_border": false,
+   "meaning": "왼쪽 B2 → 오른쪽 B1"
+  },
+  {
+   "first": "C1",
+   "second": "A2",
+   "dir": "v",
+   "contact_tiles": 5,
    "at": [
     125,
-    96
+    84
    ],
-   "first_name": "스케치 나무",
-   "second_name": "백지 들판",
+   "first_name": "나무 밑동 속",
+   "second_name": "풀뿌리 갈림굴",
    "chapter_border": false,
-   "meaning": "왼쪽 C → 오른쪽 A"
+   "meaning": "위 C1 → 아래 A2"
   },
   {
-   "first": "C",
-   "second": "D",
+   "first": "C2",
+   "second": "C1",
+   "dir": "v",
+   "contact_tiles": 18,
+   "at": [
+    104,
+    49
+   ],
+   "first_name": "속 빈 줄기",
+   "second_name": "나무 밑동 속",
+   "chapter_border": false,
+   "meaning": "위 C2 → 아래 C1"
+  },
+  {
+   "first": "C3",
+   "second": "C2",
+   "dir": "v",
+   "contact_tiles": 22,
+   "at": [
+    100,
+    13
+   ],
+   "first_name": "가지 속·둥지",
+   "second_name": "속 빈 줄기",
+   "chapter_border": false,
+   "meaning": "위 C3 → 아래 C2"
+  },
+  {
+   "first": "C3",
+   "second": "D1",
    "dir": "h",
    "contact_tiles": 4,
    "at": [
-    177,
+    168,
     8
    ],
-   "first_name": "스케치 나무",
-   "second_name": "엉킨 숲 심부",
+   "first_name": "가지 속·둥지",
+   "second_name": "덩굴 다리 위층",
    "chapter_border": false,
-   "meaning": "왼쪽 C → 오른쪽 D"
+   "meaning": "왼쪽 C3 → 오른쪽 D1"
   },
   {
-   "first": "D",
-   "second": "A",
+   "first": "D1",
+   "second": "D2",
+   "dir": "v",
+   "contact_tiles": 5,
+   "at": [
+    212,
+    22
+   ],
+   "first_name": "덩굴 다리 위층",
+   "second_name": "사냥꾼의 굴",
+   "chapter_border": false,
+   "meaning": "위 D1 → 아래 D2"
+  },
+  {
+   "first": "D1",
+   "second": "D3",
+   "dir": "v",
+   "contact_tiles": 2,
+   "at": [
+    276,
+    20
+   ],
+   "first_name": "덩굴 다리 위층",
+   "second_name": "낙서 둥지",
+   "chapter_border": false,
+   "meaning": "위 D1 → 아래 D3"
+  },
+  {
+   "first": "D2",
+   "second": "A1",
    "dir": "v",
    "contact_tiles": 5,
    "at": [
     250,
-    69
+    95
    ],
-   "first_name": "엉킨 숲 심부",
-   "second_name": "백지 들판",
+   "first_name": "사냥꾼의 굴",
+   "second_name": "종이 틈 입구",
    "chapter_border": false,
-   "meaning": "위 D → 아래 A"
+   "meaning": "위 D2 → 아래 A1"
   },
   {
-   "first": "D",
-   "second": "E",
+   "first": "D2",
+   "second": "D3",
    "dir": "h",
    "contact_tiles": 4,
    "at": [
-    279,
-    26
+    241,
+    30
    ],
-   "first_name": "엉킨 숲 심부",
-   "second_name": "노을 능선",
-   "chapter_border": true,
-   "meaning": "왼쪽 D → 오른쪽 E"
+   "first_name": "사냥꾼의 굴",
+   "second_name": "낙서 둥지",
+   "chapter_border": false,
+   "meaning": "왼쪽 D2 → 오른쪽 D3"
   },
   {
-   "first": "E",
-   "second": "F",
+   "first": "D3",
+   "second": "E1",
+   "dir": "h",
+   "contact_tiles": 8,
+   "at": [
+    277,
+    22
+   ],
+   "first_name": "낙서 둥지",
+   "second_name": "물감 번진 관문",
+   "chapter_border": true,
+   "meaning": "왼쪽 D3 → 오른쪽 E1"
+  },
+  {
+   "first": "E1",
+   "second": "E2",
+   "dir": "h",
+   "contact_tiles": 4,
+   "at": [
+    307,
+    32
+   ],
+   "first_name": "물감 번진 관문",
+   "second_name": "노을빛 굴",
+   "chapter_border": false,
+   "meaning": "왼쪽 E1 → 오른쪽 E2"
+  },
+  {
+   "first": "E2",
+   "second": "E3",
+   "dir": "h",
+   "contact_tiles": 4,
+   "at": [
+    401,
+    32
+   ],
+   "first_name": "노을빛 굴",
+   "second_name": "삼색 광장",
+   "chapter_border": false,
+   "meaning": "왼쪽 E2 → 오른쪽 E3"
+  },
+  {
+   "first": "E2",
+   "second": "F1",
    "dir": "v",
    "contact_tiles": 10,
    "at": [
     376,
-    33
+    44
    ],
-   "first_name": "노을 능선",
-   "second_name": "밀랍 공방",
+   "first_name": "노을빛 굴",
+   "second_name": "공방 작업장",
    "chapter_border": false,
-   "meaning": "위 E → 아래 F"
+   "meaning": "위 E2 → 아래 F1"
   },
   {
-   "first": "E",
-   "second": "G",
+   "first": "E3",
+   "second": "G1",
    "dir": "v",
    "contact_tiles": 6,
    "at": [
     426,
-    35
+    56
    ],
-   "first_name": "노을 능선",
-   "second_name": "색칠 협곡",
+   "first_name": "삼색 광장",
+   "second_name": "협곡 중턱",
    "chapter_border": false,
-   "meaning": "위 E → 아래 G"
+   "meaning": "위 E3 → 아래 G1"
   },
   {
-   "first": "E",
-   "second": "H",
+   "first": "E3",
+   "second": "H1",
    "dir": "h",
    "contact_tiles": 6,
    "at": [
-    447,
+    463,
     30
    ],
-   "first_name": "노을 능선",
-   "second_name": "기사의 탑",
+   "first_name": "삼색 광장",
+   "second_name": "탑 아래층",
    "chapter_border": false,
-   "meaning": "왼쪽 E → 오른쪽 H"
+   "meaning": "왼쪽 E3 → 오른쪽 H1"
+  },
+  {
+   "first": "F1",
+   "second": "F2",
+   "dir": "v",
+   "contact_tiles": 5,
+   "at": [
+    310,
+    73
+   ],
+   "first_name": "공방 작업장",
+   "second_name": "밀랍 저장고",
+   "chapter_border": false,
+   "meaning": "위 F1 → 아래 F2"
+  },
+  {
+   "first": "F2",
+   "second": "F3",
+   "dir": "h",
+   "contact_tiles": 4,
+   "at": [
+    361,
+    90
+   ],
+   "first_name": "밀랍 저장고",
+   "second_name": "물 고인 아래층",
+   "chapter_border": false,
+   "meaning": "왼쪽 F2 → 오른쪽 F3"
+  },
+  {
+   "first": "G1",
+   "second": "G2",
+   "dir": "v",
+   "contact_tiles": 16,
+   "at": [
+    463,
+    96
+   ],
+   "first_name": "협곡 중턱",
+   "second_name": "협곡 바닥",
+   "chapter_border": false,
+   "meaning": "위 G1 → 아래 G2"
+  },
+  {
+   "first": "G2",
+   "second": "G3",
+   "dir": "h",
+   "contact_tiles": 6,
+   "at": [
+    516,
+    118
+   ],
+   "first_name": "협곡 바닥",
+   "second_name": "물감 폭포 홀",
+   "chapter_border": false,
+   "meaning": "왼쪽 G2 → 오른쪽 G3"
+  },
+  {
+   "first": "H2",
+   "second": "H1",
+   "dir": "h",
+   "contact_tiles": 15,
+   "at": [
+    548,
+    17
+   ],
+   "first_name": "탑 위층",
+   "second_name": "탑 아래층",
+   "chapter_border": false,
+   "meaning": "왼쪽 H2 → 오른쪽 H1"
   }
  ]
 }

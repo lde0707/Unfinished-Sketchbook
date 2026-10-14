@@ -33,7 +33,8 @@ ZONE_CH = {'A': 1, 'B': 1, 'C': 1, 'D': 1, 'E': 2, 'F': 2, 'G': 2, 'H': 2}
 
 
 # ───────────────────────── 1. 맞닿은 구역 쌍 ─────────────────────────
-def find_links():
+def find_links(quiet=False):
+    """Art/bg_areas.json(배경 구획: 방 묶음)이 있으면 구획 단위, 없으면 구역 단위로 맞닿은 쌍을 찾음"""
     src = open(os.path.join(BASE, 'Prototype', 'world_map_data.js'), encoding='utf-8').read()
     W = int(re.search(r'W=(\d+)', src).group(1)); H = int(re.search(r'H=(\d+)', src).group(1))
     g = []
@@ -41,13 +42,20 @@ def find_links():
         v, n = t.split('.'); g += [int(v, 36)] * int(n, 36)
     g = np.array(g).reshape(H, W)
     zones = json.loads(re.search(r'const ZONES=(\{.*?\});\n', src, re.S).group(1))
+    ap = os.path.join(ART, 'bg_areas.json')
+    areas = json.load(open(ap, encoding='utf-8')) if os.path.exists(ap) else None
+    room_area = {(v['chapter'], n): k for k, v in areas.items() for n in v['rooms']} if areas else {}
+    names = {k: v['name'] for k, v in areas.items()} if areas else {k: v['name'] for k, v in zones.items()}
     lab = np.full((H, W), '', dtype=object); q = deque()
-    for k in ('ROOMS', 'PASS', 'SHAFTS'):           # 방·통로·수직굴에 구역 이름을 칠하고
+    kinds = ('ROOMS',) if areas else ('ROOMS', 'PASS', 'SHAFTS')   # 구획 모드: 방만 칠하고 통로·수직굴은 번지게
+    for k in kinds:                                  # 방(·통로·수직굴)에 구역/구획 이름을 칠하고
         for r in json.loads(re.search(r'const ' + k + r'=(\[.*?\]);\n', src, re.S).group(1)):
+            tag = room_area.get((ZONE_CH[r['z']], r['n'])) if areas else r['z']
+            if not tag: continue
             for y in range(r['y'], r['y'] + r['h']):
                 for x in range(r['x'], r['x'] + r['w']):
                     if 0 <= x < W and 0 <= y < H and g[y, x] != 1 and not lab[y, x]:
-                        lab[y, x] = r['z']; q.append((y, x))
+                        lab[y, x] = tag; q.append((y, x))
     while q:                                         # 나머지 빈 공간은 가까운 구역으로 번지게
         y, x = q.popleft()
         for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
@@ -64,16 +72,22 @@ def find_links():
                 if ny < H and nx < W and lab[ny, nx] and lab[ny, nx] != a:
                     key = (a, lab[ny, nx], 'h' if dx else 'v')
                     pairs[key] += 1; where.setdefault(key, (x, y))
+    best = {}                                        # 같은 두 구획은 한 쌍으로 (가장 많이 맞닿은 방향)
+    for (a, b, d), n in pairs.items():
+        if n < 2: continue                           # 한 칸만 닿은 건 번짐 오차 → 무시
+        k = tuple(sorted((a, b)))
+        if k not in best or n > best[k][1]: best[k] = ((a, b, d), n)
     links = []
-    for (a, b, d), n in sorted(pairs.items(), key=lambda kv: (ZONE_CH[kv[0][0]], kv[0])):
+    for (a, b, d), n in sorted(best.values(), key=lambda kv: (ZONE_CH[kv[0][0][0]], kv[0])):
         links.append(dict(first=a, second=b, dir=d, contact_tiles=n, at=list(where[(a, b, d)]),
-                          first_name=zones[a]['name'], second_name=zones[b]['name'],
-                          chapter_border=ZONE_CH[a] != ZONE_CH[b],
+                          first_name=names[a], second_name=names[b],
+                          chapter_border=ZONE_CH[a[0]] != ZONE_CH[b[0]],
                           meaning=('왼쪽 ' if d == 'h' else '위 ') + a + ' → ' + ('오른쪽 ' if d == 'h' else '아래 ') + b))
     out = os.path.join(ART, 'bg_links.json')
     json.dump(dict(note='seam_check.py links 로 자동 생성. h = first가 왼쪽, v = first가 위쪽', links=links),
               open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-    print(f'맞닿은 구역 쌍 {len(links)}개 → {os.path.relpath(out, BASE)}')
+    if quiet: return links
+    print(f'맞닿은 {"구획" if areas else "구역"} 쌍 {len(links)}개 → {os.path.relpath(out, BASE)}')
     for l in links:
         print(f"  {l['first']}{l['second']} ({l['dir']}) {l['first_name']} ↔ {l['second_name']}  접촉 {l['contact_tiles']}칸"
               + ('  [장 경계]' if l['chapter_border'] else ''))
@@ -146,6 +160,16 @@ def seam(A, B, d):
     r['fails'] = fails; r['ok'] = not fails
     return r
 
+def blend_split(A, B, d, ov=0.12):
+    """A 다음에 B를 ov만큼 겹쳐 부드럽게 섞어 붙인 뒤(엔진에서 하는 방식), 겹친 곳 한가운데서 둘로 나눔"""
+    A, B = to_h(A, d), to_h(B, d)
+    h = min(A.shape[0], B.shape[0]); A, B = A[:h], B[:h]
+    o = int(min(A.shape[1], B.shape[1]) * ov); t = np.linspace(0, 1, o)[None, :, None]
+    mid = A[:, -o:] * (1 - t) + B[:, :o] * t
+    C = np.concatenate([A[:, :-o], mid, B[:, o:]], 1); cut = A.shape[1] - o + o // 2
+    L, R = C[:, :cut], C[:, cut:]
+    return (L, R) if d == 'h' else (L.transpose(1, 0, 2), R.transpose(1, 0, 2))
+
 def fmt(r):
     s = f"밝기 {r['dL']:.1f} · 색 ΔE {r['dE']:.1f} · 밀도비 {r['dens']:.2f} · 튐 {r['jump']:.2f}"
     s += f" · 상관 {r['corr']:.2f}" if r['corr'] is not None else ' · 상관 -'
@@ -199,15 +223,16 @@ def check_pair(pa, pl, pb, d, out=None, title=''):
 def check_all(layer):
     lp = os.path.join(ART, 'bg_links.json')
     links = json.load(open(lp, encoding='utf-8'))['links'] if os.path.exists(lp) else find_links()
-    layers = ['far', 'mid'] if layer == 'all' else [layer]
-    md = ['# 배경 이음새 검사 결과 (seam_check.py 자동 생성)', '', '| 이음 | 층 | 방향 | 앞 → 이음 | 이음 → 뒤 | 판정 |', '|---|---|---|---|---|---|']
+    layers = ['wall']          # v5 실내형 배경: 뒷벽만 이어짐 검사 (세트 조각은 방마다 따로 놓는 그림이라 이음 없음)
+    md = ['# 배경 이음새 검사 결과 (seam_check.py 자동 생성)', '', '> 뒷벽 변형 A 패널 + 뒷벽 이음 + 이웃 구역 뒷벽 변형 A', '',
+          '| 이음 | 층 | 방향 | 앞 → 이음 | 이음 → 뒤 | 판정 |', '|---|---|---|---|---|---|']
     nok = nbad = nmiss = 0; warns = []
     for l in links:
         a, b, d = l['first'], l['second'], l['dir']
         for lay in layers:
-            pa = os.path.join(ART, 'out', f'ch{ZONE_CH[a]}', 'bg', f'ch{ZONE_CH[a]}_bg_{a}_{lay}.png')
-            pb = os.path.join(ART, 'out', f'ch{ZONE_CH[b]}', 'bg', f'ch{ZONE_CH[b]}_bg_{b}_{lay}.png')
-            pl = os.path.join(ART, 'out', 'link', f'bg_{a}{b}_{lay}.png')
+            pa = os.path.join(ART, 'out', f'ch{ZONE_CH[a[0]]}', 'bg', f'ch{ZONE_CH[a[0]]}_bg_{a}_wall_a.png')
+            pb = os.path.join(ART, 'out', f'ch{ZONE_CH[b[0]]}', 'bg', f'ch{ZONE_CH[b[0]]}_bg_{b}_wall_a.png')
+            pl = os.path.join(ART, 'out', 'link', f'bg_{a}{b}_wall.png')
             miss = [os.path.relpath(p, ART) for p in (pa, pl, pb) if not os.path.exists(p)]
             if miss:
                 nmiss += 1; md.append(f"| {a}{b} | {lay} | {d} | — | — | ⏳ 파일 없음: {', '.join('`' + m + '`' for m in miss)} |"); continue
@@ -215,10 +240,18 @@ def check_all(layer):
             r1, r2 = check_pair(pa, pl, pb, d, out, f"{a}{b} {lay} · {l['first_name']} → {l['second_name']}")
             ok = r1['ok'] and r2['ok']; nok += ok; nbad += not ok
             md.append(f"| {a}{b} | {lay} | {d} | {fmt(r1)} | {fmt(r2)} | {'✅' if ok else '❌ ' + ', '.join(sorted(set(r1['fails'] + r2['fails'])))} |")
-            if d == 'h':
-                for p in (pa, pb):
-                    s = skyline(lum(load(p)))
-                    if abs(s - HORIZON) > 0.05: warns.append(f'- ⚠️ `{os.path.relpath(p, ART)}` 스카이라인 {s * 100:.0f}% (목표 62%)')
+    # 같은 구획 뒷벽 변형끼리 쌓기 (높은 방): 12% 겹쳐 부드럽게 섞은 결과를 위아래·좌우로 검사
+    ap = os.path.join(ART, 'bg_areas.json')
+    if os.path.exists(ap):
+        md += ['', '## 뒷벽 쌓기 (같은 구획 변형끼리, 12% 겹쳐 섞기)', '', '| 구획 | 조합 | 방향 | 결과 | 판정 |', '|---|---|---|---|---|']
+        for aid, v in json.load(open(ap, encoding='utf-8')).items():
+            c = v['chapter']; fs = {k: os.path.join(ART, 'out', f'ch{c}', 'bg', f'ch{c}_bg_{aid}_wall_{k}.png') for k in 'abc'}
+            have = [k for k in 'abc' if os.path.exists(fs[k])]
+            for i in range(len(have) - 1):
+                A, B = load(fs[have[i]]), load(fs[have[i + 1]])
+                for d in ('v', 'h'):
+                    r = seam(*blend_split(A, B, d), d); nok += r['ok']; nbad += not r['ok']
+                    md.append(f"| {aid} | {have[i]} + {have[i + 1]} | {'위아래' if d == 'v' else '좌우'} | {fmt(r)} | {'✅' if r['ok'] else '❌ ' + ', '.join(r['fails'])} |")
     md += ['', f'통과 {nok} · 탈락 {nbad} · 파일 없음 {nmiss}', ''] + sorted(set(warns))
     md += ['', '미리보기: `Art/seam_preview/` (점선 = 이음새, 초록 = 통과, 빨강 = 탈락)']
     open(os.path.join(ART, 'seam_report.md'), 'w', encoding='utf-8').write('\n'.join(md))
@@ -267,7 +300,7 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='배경 이음새 검사')
     sp = ap.add_subparsers(dest='cmd', required=True)
     sp.add_parser('links')
-    c = sp.add_parser('check'); c.add_argument('--layer', default='all', choices=['far', 'mid', 'all'])
+    c = sp.add_parser('check'); c.add_argument('--layer', default='all', help='(v5부터 뒷벽만 검사, 호환용)')
     p = sp.add_parser('pair'); p.add_argument('a'); p.add_argument('link'); p.add_argument('b')
     p.add_argument('--dir', default='h', choices=['h', 'v']); p.add_argument('--out', default='seam_pair_preview.png')
     sp.add_parser('demo')

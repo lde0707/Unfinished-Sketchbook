@@ -1,0 +1,212 @@
+{
+ "A1": {
+  "zone": "A",
+  "chapter": 1,
+  "name": "종이 틈 입구",
+  "rooms": [
+   1,
+   2,
+   3
+  ]
+ },
+ "A2": {
+  "zone": "A",
+  "chapter": 1,
+  "name": "풀뿌리 갈림굴",
+  "rooms": [
+   4,
+   5,
+   6,
+   25
+  ]
+ },
+ "B1": {
+  "zone": "B",
+  "chapter": 1,
+  "name": "광산 입구·갱도",
+  "rooms": [
+   7,
+   8,
+   12,
+   27
+  ]
+ },
+ "B2": {
+  "zone": "B",
+  "chapter": 1,
+  "name": "깊은 채굴장",
+  "rooms": [
+   9,
+   10,
+   11,
+   29
+  ]
+ },
+ "B3": {
+  "zone": "B",
+  "chapter": 1,
+  "name": "찢긴 페이지 굴",
+  "rooms": [
+   30
+  ]
+ },
+ "C1": {
+  "zone": "C",
+  "chapter": 1,
+  "name": "나무 밑동 속",
+  "rooms": [
+   13,
+   26
+  ]
+ },
+ "C2": {
+  "zone": "C",
+  "chapter": 1,
+  "name": "속 빈 줄기",
+  "rooms": [
+   14
+  ]
+ },
+ "C3": {
+  "zone": "C",
+  "chapter": 1,
+  "name": "가지 속·둥지",
+  "rooms": [
+   15,
+   16,
+   17
+  ]
+ },
+ "D1": {
+  "zone": "D",
+  "chapter": 1,
+  "name": "덩굴 다리 위층",
+  "rooms": [
+   18,
+   19,
+   28
+  ]
+ },
+ "D2": {
+  "zone": "D",
+  "chapter": 1,
+  "name": "사냥꾼의 굴",
+  "rooms": [
+   20,
+   21,
+   23
+  ]
+ },
+ "D3": {
+  "zone": "D",
+  "chapter": 1,
+  "name": "낙서 둥지",
+  "rooms": [
+   22,
+   24
+  ]
+ },
+ "E1": {
+  "zone": "E",
+  "chapter": 2,
+  "name": "물감 번진 관문",
+  "rooms": [
+   1
+  ]
+ },
+ "E2": {
+  "zone": "E",
+  "chapter": 2,
+  "name": "노을빛 굴",
+  "rooms": [
+   2,
+   3,
+   11
+  ]
+ },
+ "E3": {
+  "zone": "E",
+  "chapter": 2,
+  "name": "삼색 광장",
+  "rooms": [
+   4
+  ]
+ },
+ "F1": {
+  "zone": "F",
+  "chapter": 2,
+  "name": "공방 작업장",
+  "rooms": [
+   5,
+   6
+  ]
+ },
+ "F2": {
+  "zone": "F",
+  "chapter": 2,
+  "name": "밀랍 저장고",
+  "rooms": [
+   7,
+   8,
+   9
+  ]
+ },
+ "F3": {
+  "zone": "F",
+  "chapter": 2,
+  "name": "물 고인 아래층",
+  "rooms": [
+   10,
+   24
+  ]
+ },
+ "G1": {
+  "zone": "G",
+  "chapter": 2,
+  "name": "협곡 중턱",
+  "rooms": [
+   12,
+   13,
+   14,
+   25
+  ]
+ },
+ "G2": {
+  "zone": "G",
+  "chapter": 2,
+  "name": "협곡 바닥",
+  "rooms": [
+   15,
+   16,
+   17
+  ]
+ },
+ "G3": {
+  "zone": "G",
+  "chapter": 2,
+  "name": "물감 폭포 홀",
+  "rooms": [
+   18,
+   23
+  ]
+ },
+ "H1": {
+  "zone": "H",
+  "chapter": 2,
+  "name": "탑 아래층",
+  "rooms": [
+   19,
+   20,
+   21
+  ]
+ },
+ "H2": {
+  "zone": "H",
+  "chapter": 2,
+  "name": "탑 위층",
+  "rooms": [
+   22,
+   26
+  ]
+ }
+}

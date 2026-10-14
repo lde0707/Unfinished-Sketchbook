@@ -41,14 +41,14 @@ for _s in (sys.stdout, sys.stderr):
 import unify_pass, seam_check
 
 # ───────────────────────── 기준 ─────────────────────────
-ALPHA_TYPES = {'EDGE', 'CORNER', 'PLATFORM', 'SPECIAL', 'DECOR', 'PROP', 'CHAR', 'POSE', 'FX', 'UI', 'BG_FORE'}
+ALPHA_TYPES = {'EDGE', 'CORNER', 'PLATFORM', 'SPECIAL', 'DECOR', 'PROP', 'CHAR', 'POSE', 'FX', 'UI', 'BG_FORE', 'BG_SET'}
 MONO_TYPES = {'TERRAIN', 'EDGE', 'SPECIAL'}
-REPEAT_TYPES = {'TERRAIN', 'EDGE', 'DECOR', 'BG_FAR', 'BG_MID', 'BG_LINK', 'BG_LINK_V', 'KEY', 'SPECIAL'}
-MIN_LONG = {'TERRAIN': 2048, 'EDGE': 4096, 'BG_FAR': 3840, 'BG_MID': 3840, 'BG_LINK': 3840, 'BG_LINK_V': 3840,
+REPEAT_TYPES = {'TERRAIN', 'EDGE', 'DECOR', 'BG_WALL', 'BG_WALL_LINK', 'BG_WALL_TALL', 'KEY', 'SPECIAL'}
+MIN_LONG = {'TERRAIN': 2048, 'EDGE': 4096, 'BG_WALL': 2048, 'BG_WALL_LINK': 2048, 'BG_WALL_TALL': 4096, 'BG_SET': 1536,
             'BG_FORE': 3840, 'DECOR': 3840, 'KEY': 3840}          # 목표 (16 문서 §14: 화면의 2배로 그림)
 MIN_LONG_DEFAULT = 1024
 # 미드키 밝기 대역 (평균 밝기 0~1, 통일 후처리 뒤 기준) — 16 문서 §4-6
-VALUE_BAND = {'BG_FAR': (0.55, 0.82), 'BG_LINK': (0.45, 0.82), 'BG_LINK_V': (0.45, 0.82), 'BG_MID': (0.45, 0.80),
+VALUE_BAND = {'BG_WALL': (0.55, 0.80), 'BG_WALL_LINK': (0.55, 0.80), 'BG_WALL_TALL': (0.55, 0.80),
               'TERRAIN': (0.25, 0.70), 'KEY': (0.35, 0.78)}
 LIM = dict(white=0.03, mono=3.0, mono_warn=5.0, relief=0.03, relief_warn=0.05, rhythm=0.55, surface=4.0, aspect=0.04, nn_err=1.5, levels=0.35, hard=0.50, hard_warn=0.35, alpha_soft=0.15,
            repeat=0.45, repeat_warn=0.30, sat_over=0.02, black=12)
@@ -56,8 +56,8 @@ LIM = dict(white=0.03, mono=3.0, mono_warn=5.0, relief=0.03, relief_warn=0.05, r
 
 def layer_of(a):
     t = a['type']
-    if t == 'BG_FAR' or (t.startswith('BG_LINK') and a['id'].endswith('-far')): return 'far'
-    if t in ('BG_MID',) or t.startswith('BG_LINK'): return 'mid'
+    if t in ('BG_WALL', 'BG_WALL_LINK', 'BG_WALL_TALL'): return 'far'
+    if t == 'BG_SET': return 'mid'
     if t == 'BG_FORE': return 'fore'
     if t == 'UI': return 'ui'
     if t in ('CHAR', 'POSE', 'PROP', 'FX'): return 'char'      # 분필 흰색까지 허용 (주인공이 화면에서 가장 밝게)
@@ -314,7 +314,7 @@ def process_file(path, cat, st, unify=True):
     print(f"{ICON[v]} {aid} ({name}) → {'rejected' if v == 'fail' else 'out/' + a['file']}")
     for n, s, m in res:
         if s != 'ok': print(f'    {ICON[s]} {n}: {m}')
-    if v != 'fail' and a['type'].startswith('BG_') and a['type'] != 'BG_FORE':
+    if v != 'fail' and a['type'] in ('BG_WALL', 'BG_WALL_LINK'):
         seam_for(aid, a, st)
 
 def seam_for(aid, a, st):
@@ -323,8 +323,8 @@ def seam_for(aid, a, st):
     if not os.path.exists(lp): return
     for l in json.load(open(lp, encoding='utf-8'))['links']:
         x, y, d = l['first'], l['second'], l['dir']
-        for lay in ('far', 'mid'):
-            ids = (f'B{seam_check.ZONE_CH[x]}-{x}-{lay}', f'BL-{x}{y}-{lay}', f'B{seam_check.ZONE_CH[y]}-{y}-{lay}')
+        for lay in ('wall',):
+            ids = (f'B{seam_check.ZONE_CH[x[0]]}-{x}-wall_a', f'BL-{x}{y}-wall', f'B{seam_check.ZONE_CH[y[0]]}-{y}-wall_a')
             if aid not in ids: continue
             cat = catalog(); paths = [os.path.join(OUT, cat[i]['file']) for i in ids]
             if not all(os.path.exists(p) for p in paths):
