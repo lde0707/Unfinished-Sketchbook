@@ -1,0 +1,15 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const root = path.resolve(__dirname, '..');
+const source = fs.readFileSync(path.join(root, 'Prototype/unfin_prototype.html'), 'utf8');
+const start = source.indexOf('const T=16, W=280');
+const end = source.indexOf('/* MAPBUILD-END */', start);
+if (start < 0 || end < 0) throw Error('Prototype map markers missing');
+const map = vm.runInNewContext(source.slice(start, end) + '\nJSON.stringify({width:W,height:H,spawnX:START.tx,spawnFloor:START.floor,tiles:Array.from(buildMap()),rooms:ROOMS})', {}, {timeout:10000});
+const data = JSON.parse(map);
+if (data.tiles.length !== data.width * data.height) throw Error('Invalid map size');
+const dir = path.join(root, 'Unfin/Assets/Unfin/Chapter1');
+fs.mkdirSync(dir, {recursive:true});
+fs.writeFileSync(path.join(dir, 'map.json'), map);
+console.log(`Exported actual buildMap(): ${data.width}x${data.height}, ${data.rooms.length} rooms, ${data.tiles.filter(t=>t===1).length} solid cells`);
