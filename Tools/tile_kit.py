@@ -14,8 +14,8 @@
         인페인팅 마스크 (흰색 = 새로 그릴 안쪽, 검정 = 그대로 둘 테두리 띠) → Art/tile/mask_<w>x<h>.png
   python Tools/tile_kit.py variant-base A.png [--band 0.1]
         변형 B·C용 밑그림: A의 테두리 띠는 그대로, 안쪽은 A를 반 칸 밀어 둔 것 (인페인팅 시작점) → A_base.png
-  python Tools/tile_kit.py tall-base A.png --ratio 3
-        세로 전용 뒷벽 밑그림: A를 세로로 ratio장 이어 붙임 (위·아래 띠가 A와 같음) → A_tall3.png + 마스크
+  python Tools/tile_kit.py tall-base A.png --ratio 2
+        세로 전용 뒷벽 밑그림: A를 세로로 ratio장 이어 붙임 (위·아래 띠가 A와 같음) → A_tall2.png + 마스크
   python Tools/tile_kit.py link-base A.png B.png --dir h|v
         구획 이음 밑그림: A → B로 서서히 섞은 그림 (h = 왼쪽 A·오른쪽 B, v = 위 A·아래 B) → link_base.png
   python Tools/tile_kit.py offset 그림.png
@@ -141,7 +141,7 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='이어지는 배경 만들기 도구'); sp = ap.add_subparsers(dest='cmd', required=True)
     m = sp.add_parser('mask'); m.add_argument('--w', type=int, default=2048); m.add_argument('--h', type=int, default=2048); m.add_argument('--band', type=float, default=0.1)
     v = sp.add_parser('variant-base'); v.add_argument('a'); v.add_argument('--band', type=float, default=0.1)
-    t = sp.add_parser('tall-base'); t.add_argument('a'); t.add_argument('--ratio', type=int, default=3); t.add_argument('--band', type=float, default=0.1)
+    t = sp.add_parser('tall-base'); t.add_argument('a'); t.add_argument('--ratio', type=int, default=2); t.add_argument('--band', type=float, default=0.1)
     l = sp.add_parser('link-base'); l.add_argument('a'); l.add_argument('b'); l.add_argument('--dir', default='h', choices=['h', 'v']); l.add_argument('--out', default='link_base.png')
     o = sp.add_parser('offset'); o.add_argument('img')
     p = sp.add_parser('preview'); p.add_argument('imgs', nargs='+'); p.add_argument('--cols', type=int, default=4); p.add_argument('--rows', type=int, default=3); p.add_argument('--out', default='tile_preview.png')

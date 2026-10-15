@@ -473,7 +473,7 @@ def demo():
     def rgba(alpha):
         c = np.zeros((1024, 1024, 4), np.uint8); c[..., :3] = good; c[..., 3] = alpha; return c
     prop_soft, prop_hard = rgba((soft * 255).astype(np.uint8)), rgba((blob * 255).astype(np.uint8))
-    cases = [('손그림 지형 · 큰 변화 있음', 'TZ1-A-fill_a', good), ('같은 조각 4×4 반복', 'TZ1-A-fill_b', tiled),
+    cases = [('무늬 있는 지형 · 큰 변화 있음', 'TZ1-A-fill_a', good), ('같은 조각 4×4 반복', 'TZ1-A-fill_b', tiled),
              ('도트 그림을 키운 것', 'TZ1-A-fill_c', pixel), ('부드러운 선 (안티앨리어싱)', 'G1', lines(4)),
              ('계단 선 (안티앨리어싱 없음)', 'G1', lines(1)), ('소품 · 부드러운 투명 가장자리', 'P-save_statue-1', prop_soft),
              ('소품 · 계단 투명 가장자리', 'P-save_statue-1', prop_hard), ('소품 · 배경 안 지움', 'P-save_statue-1', good)]

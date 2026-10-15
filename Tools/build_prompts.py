@@ -18,44 +18,45 @@ import sys, json, csv, os
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'Art')
 
 # ───────────────────────── 블록 ─────────────────────────
-MSB = ("stylized hand-drawn 2D side-scrolling game art, looks like a screen from a polished indie metroidvania game, "
-       "drawn on a page of a child's sketchbook, simplified readable game shapes, not realistic, not photographic, "
-       "muted warm gray-beige paper toned down like a page seen under a dim desk lamp, mid-key overall brightness (neither bright nor dark), "
-       "visible paper grain and a very faint square grid, "
-       "muted art-supply colors with low saturation, soft dark ink-gray outlines (not pure black), "
+MSB = ("stylized 2D side-scrolling game art with a soft graphic design look, looks like a screen from a polished indie metroidvania game, "
+       "set inside a sketchbook world, clean confident outlines with crisp smooth curves and consistent line weight, no wobble, no sketchy or rough lines, "
+       "soft rounded shapes, flat color fills with one soft shade tone and one soft light tone, gentle subtle gradients allowed only inside shapes, "
+       "simplified readable game shapes, not realistic, not photographic, "
+       "muted warm gray-beige page tone like a page seen under a dim desk lamp, mid-key overall brightness (neither bright nor dark), "
+       "a very subtle uniform paper texture and a very faint square grid, "
+       "muted art-supply colors with low saturation, dark ink-gray outlines (not pure black), "
        "outline weight thick and consistent on gameplay objects, thinner on background, "
-       "slightly wobbly hand-drawn lines, a few intentionally unfinished strokes and eraser marks, "
-       "matte paper look, flat lighting, shading done with drawing-material texture (not gradients), "
-       "calm melancholic mood with a quiet tension of adventure and combat, clear readable silhouettes, orthographic side view, "
-       "quiet composition with breathing room, "
-       "high-resolution smooth hand-drawn illustration (not pixel art), soft natural anti-aliased edges, "
-       "organic irregular contours, every wall and floor surface drawn uniquely by hand with no repeating pattern")
+       "matte, flat lighting, calm melancholic mood with a quiet tension of adventure and combat, clear readable silhouettes, orthographic side view, "
+       "quiet composition with breathing room, the unfinished theme is shown with clean dashed outlines and unfilled outline-only areas, never with messy strokes, "
+       "high-resolution clean illustration (not pixel art), smooth anti-aliased edges, "
+       "every wall and floor surface designed uniquely with no repeating pattern")
 
 UNIFY = ("UNIFIED LOOK: identical flat ambient light from the front for every asset, no directional light, "
-         "no cast shadows, no highlights, no rim light, only a soft faint contact shadow under grounded objects; "
-         "the same fine paper grain pattern visible through every surface; all shading uses the same "
-         "45-degree diagonal hatching direction (top-right to bottom-left); every outline uses the same ink-gray "
-         "and the same wobble; same line weight for the same layer; same muted color temperature; "
-         "looks like part of one continuous hand-drawn game; "
+         "no cast shadows, no glossy highlights, no rim light, only a soft faint contact shadow under grounded objects; "
+         "every outline uses the same dark ink-gray, the same crisp clean stroke with rounded line caps, and the same line weight for the same layer; "
+         "the same corner rounding on all shapes; shading is always one soft shade tone and one soft light tone inside each shape, "
+         "the shade tone always on the lower-right side of a shape; surface patterns are clean parallel lines at 45 degrees (top-right to bottom-left) "
+         "or clean simple motifs, never sketchy pencil hatching; the same very subtle paper texture over everything; same muted color temperature; "
+         "looks like part of one continuous designed game; "
          "MID-KEY VALUES: the page paper sits around 70 percent brightness, far background slightly darker than the paper, "
          "middle background darker again, terrain mid-dark, outlines dark ink-gray, the protagonist is the lightest shape on screen, "
          "no large pure white areas, no crushed pure black areas, moderate contrast that keeps combat easy to read; "
          "GAME LOOK: stylized and simplified like game art, details grouped into big simple masses, shapes read at a glance, "
          "no realistic micro-detail, no painterly realism; "
-         "SMOOTH AND ORGANIC: soft natural edges everywhere, rounded imperfect corners, no hard square tile edges, "
-         "no repeated stamps or copy-pasted texture, hatching density and stroke placement vary naturally across every surface")
+         "CLEAN AND SMOOTH: crisp smooth outlines, soft rounded corners, no hard square tile edges, "
+         "no repeated stamps or copy-pasted texture, pattern density and placement vary naturally across every surface")
 
 MAT = {
-    1: ("drawn with graphite pencil, 45-degree pencil hatching for solid shapes, soft eraser smudges and half-erased lines, "
-        "almost monochrome warm gray, tiny pinkish eraser crumbs, half-drawn sketchy trees"),
-    2: ("drawn with thick wax crayons, heavy layered overpainted strokes in crossing directions, paper grain showing through, "
-        "waxy texture, warm sunset palette of muted orange, beige and dusty red, brown-tinted outlines, drips of melted crayon wax"),
-    3: ("painted with transparent watercolor, soft bleeding edges, dried water-ring outlines, layered pale washes, "
-        "misty pale blue, gray-blue and dusty pink, slightly wrinkled wet paper"),
-    4: ("made of cut and folded colored paper, flat single-color shapes, one crisp fold line, one-step soft paper shadow, "
-        "straight ruler-drawn lines, muted red, mustard yellow, sage green and slate blue"),
-    5: ("drawn with dip pen and spreading black-violet ink, ink blots seeping into paper, fragments of pencil, crayon, "
-        "watercolor and colored paper half-sunk in ink, faint remaining colors glowing softly through the ink"),
+    1: ("pencil-themed world: graphite-gray near-monochrome palette with warm grays, shapes inspired by pencils, erasers and graphite, "
+        "clean diagonal stripe patterns that echo clean diagonal pencil-stripe pattern, small pinkish eraser-crumb dots, trees as simple clean pencil-line shapes"),
+    2: ("crayon-themed world: warm muted palette of orange, beige and dusty red with brown-tinted outlines, chunky rounded crayon-like shapes, "
+        "clean wavy stripe motifs that echo crayon stripe motifs, smooth wax-drip blob shapes"),
+    3: ("watercolor-themed world: misty pale blue, gray-blue and dusty pink, soft smooth gradient washes inside clean shapes, "
+        "round water-drop and ring motifs"),
+    4: ("colored-paper-themed world: flat single-color paper layers with one soft offset shadow, crisp fold lines, "
+        "muted red, mustard yellow, sage green and slate blue"),
+    5: ("ink-themed world: deep black-violet smooth ink-blot silhouettes, clean ink drip shapes, "
+        "small fragments of the earlier chapters' colors glowing softly through"),
 }
 PALETTE_WORDS = {1: "toned-down warm gray paper, graphite gray, dark ink gray", 2: "dusky muted sunset orange, wax beige, brown-gray on toned-down beige paper",
                  3: "misty gray-blue, muted blue, dusty pink on toned-down blue-gray paper", 4: "muted red, mustard, sage, slate blue on toned-down cream paper",
@@ -63,34 +64,34 @@ PALETTE_WORDS = {1: "toned-down warm gray paper, graphite gray, dark ink gray", 
 
 TYPE = {
     'TERRAIN': ("large terrain fill texture sheet for the floors, ceilings and walls of an enclosed interior, square, flat front view, no perspective, no lighting direction, "
-                "fills the whole image, NO visible repeating motif, strokes and hatching vary in density, length and placement everywhere, "
-                "irregular organic variation like one big hand-drawn surface, "
+                "fills the whole image, NO visible repeating motif, pattern lines vary in density, length and placement everywhere, "
+                "irregular organic variation like one big designed surface, "
                 "big-mass variation is required: darker denser patches and lighter sparse patches, one or two faint strata lines, "
-                "a few areas left half-hatched with paper showing through, a few small embedded material bits (pebbles and crumbs of the drawing material), "
-                "paper grain texture (not canvas, not fabric weave), never one flat even gray, "
+                "a few areas left half-filled with paper showing through, a few small embedded material bits (pebbles and crumbs of the drawing material), "
+                "very subtle uniform paper texture (not canvas, not fabric weave), never one flat even gray, "
                 "seamless tileable texture in all four directions: the left edge continues exactly into the right edge and the top edge continues exactly into the bottom edge, no border, no frame, no vignette, no edge darkening, "
                 "all variations share the same outer border band so any variation can sit beside or above any other without a seam"),
-    'EDGE': ("long horizontal strip of a hand-drawn terrain edge on transparent background, very wide 4:1 strip, built in three zones: "
-             "(1) a thick bold dark hand-drawn contour with an irregular rhythm of large bumps and small wobbles, a few chips, dents and one or two slight breaks, "
+    'EDGE': ("long horizontal strip of a clean terrain edge on transparent background, very wide 4:1 strip, built in three zones: "
+             "(1) a thick bold dark clean contour with an irregular rhythm of large bumps and small bends, a few chips, dents and one or two slight breaks, "
              "the contour rises and falls by about a quarter of the strip height, never a ruler line, never an even sine wave; "
              "(2) a dense darker surface band just inside the contour, about one fifth of the strip deep, with small details; "
-             "(3) the interior beyond it gets lighter and sparser with a faint strata line and some half-hatched paper showing; "
-             "paper grain texture (not canvas or fabric weave), same value and texture family as the matching floor or ceiling piece, soft anti-aliased edge, "
+             "(3) the interior beyond it gets lighter and sparser with a faint strata line and some half-filled paper showing; "
+             "very subtle uniform paper texture (not canvas or fabric weave), same value and texture family as the matching floor or ceiling piece, soft anti-aliased edge, "
              "the left end continues exactly into the right end (same contour height, same band depth, same texture) so the strip repeats along any length without a seam"),
     'TERRAIN_LINK': ("transition sheet of solid terrain fill between two neighboring zones of the same chapter, square, flat front view, "
                      "same drawing material and value family on both sides, the first-zone side matches that zone's fill border band exactly, "
                      "the second-zone side matches the other zone's fill border band exactly, the zone details change gradually in between, "
-                     "the two remaining edges continue into each other so it repeats along the whole boundary, paper grain texture, no seam, no border"),
+                     "the two remaining edges continue into each other so it repeats along the whole boundary, very subtle uniform paper texture, no seam, no border"),
     'CORNER': ("single organic rounded corner piece of terrain on transparent background, soft natural anti-aliased edge, "
-               "imperfect hand-drawn curve, matches a continuous edge strip"),
-    'PLATFORM': ("single long one-way platform plank on transparent background, side view, thick hand-drawn line on top, "
-                 "soft natural edges, irregular hand-drawn shape, no two planks identical"),
+               "smooth clean curve, matches a continuous edge strip"),
+    'PLATFORM': ("single long one-way platform plank on transparent background, side view, thick clean line on top, "
+                 "soft natural edges, organic clean shape, no two planks identical"),
     'SPECIAL': ("single tall special terrain block on transparent background, side view, soft natural edges, "
-                "drawn as one unique hand-drawn object, not a repeating tile"),
+                "designed as one unique object, not a repeating tile"),
     'BG_WALL': ("back wall of an enclosed interior space inside the sketchbook world, seen flat and straight on, fills the whole frame edge to edge, "
                 "NO sky, NO horizon, NO ground, NO outdoor landscape, no up or down direction, it is repeated sideways and stacked upward to fill wide halls and tall shafts, "
                 "large soft value variation (a few darker hollows and lighter worn patches), very low contrast, 5-12% darker than the page paper, "
-                "faint hatching and a few faint drawn cracks or marks, far-distance layer so details are soft and sparse, "
+                "faint stripe pattern and a few faint drawn cracks or marks, far-distance layer so details are soft and sparse, "
                 "no focal point, no objects, no repeating motif, square, seamless tileable texture in all four directions: the left edge continues exactly into the right edge and the top edge continues exactly into the bottom edge, no border, no frame, no vignette, no edge darkening, "
                 "all variations of the same area share the same outer border band so any variation can sit beside or above any other without a seam"),
     'BG_SET': ("single background set piece for an enclosed interior, isolated on transparent background, sits in the middle-distance layer behind the gameplay, "
@@ -98,18 +99,18 @@ TYPE = {
                "it will be placed in front of the back wall, so it must never look like it floats in the air: "
                "its ends are either cut off by the image edges or fade softly into the dark back wall, "
                "no flat horizontal tops that could look like walkable platforms (tops are rounded, slanted or ragged), "
-               "soft natural anti-aliased edges, a few unfinished strokes"),
+               "soft natural anti-aliased edges, a few outline-only unfilled details"),
     'BG_WALL_TALL': ("tall back wall for one very high interior room or shaft, one single continuous image, flat straight-on view, fills the frame edge to edge, "
                      "NO sky, NO horizon, NO ground, the wall slowly changes from bottom to top to show progress while climbing, "
                      "seamless on all four sides: the left edge continues exactly into the right edge, "
                      "and the top and bottom border bands match the area's square back wall border band so it stacks above and below the square walls without a seam, "
-                     "very low contrast, 5-12% darker than the page paper, faint hatching, no objects, no repeating motif"),
+                     "very low contrast, 5-12% darker than the page paper, faint stripe pattern, no objects, no repeating motif"),
     'BG_FORE': ("foreground frame piece of an enclosed interior on transparent background (hanging roots or rock lumps that frame the screen edge), "
                 "dark soft silhouette, slightly faded, sparse, must not cover the middle of the screen, "
                 "the left edge continues exactly into the right edge so it repeats sideways without a seam"),
     'DECOR': ("decoration overlay for one room on a fully transparent background, the provided layout shows where terrain is, "
               "do NOT draw the terrain itself, do NOT fill walls, floors or air, everything except the decorations stays transparent, "
-              "place a few unique small details hugging the terrain surfaces: cracks, eraser marks, half-erased lines, little scribbles, "
+              "place a few unique small details hugging the terrain surfaces: cracks, faded outline-only marks, little clean scribble motifs, "
               "roots, vines, small landmark objects that give this room its own character, "
               "decorations sit on or just inside terrain edges, keep walkable air and every platform top completely clear, "
               "soft natural anti-aliased edges, sparse, no repeated motif, 16:9"),
@@ -121,13 +122,13 @@ TYPE = {
     'PROP': ("single game prop, isolated on transparent background, centered, entire object visible, side view, "
              "same outline weight as gameplay objects"),
     'CHAR': ("single 2D game sprite, side view facing right, full body visible, isolated on transparent background, "
-             "simple readable silhouette, thick consistent outline, minimal interior detail, designed for hand-drawn frame animation"),
+             "simple readable silhouette, thick consistent outline, minimal interior detail, designed for smooth frame animation"),
     'POSE': ("single animation key pose, side view facing right, full body, isolated on transparent background, "
              "body weight clearly readable, line of action is a smooth curve"),
-    'FX': ("hand-drawn 2D game effect, single frame, transparent background, no glow, no light, no bloom, "
+    'FX': ("clean 2D game effect, single frame, transparent background, no glow, no light, no bloom, "
            "made of drawing-material pieces"),
-    'UI': ("hand-drawn game UI element looking like a small paper note or doodle on a sketchbook, semi-transparent cream paper slightly lighter than the page, "
-           "wobbly hand-drawn border, transparent background, no text"),
+    'UI': ("clean graphic game UI element looking like a small paper note or doodle on a sketchbook, semi-transparent cream paper slightly lighter than the page, "
+           "clean rounded border, transparent background, no text"),
     'KEY': ("illustration page from the same sketchbook, slightly more detailed than gameplay art but still stylized game art, same materials, outline, lighting and mid-key values, "
             "flat lighting, 16:9"),
 }
@@ -139,10 +140,11 @@ CHAR_LOCK = ("the same tiny protagonist in every image: round head about 45% of 
 
 NEG_COMMON = ("pixel art, pixelated, 8-bit, 16-bit, retro game sprite, dot art, dithering, aliased jagged edges, stair-step edges, blocky, "
               "low resolution, mosaic, grid of square tiles, repeating tile pattern, tiled texture, copy-pasted stamps, identical repeated bricks, "
+              "sketchy lines, rough pencil strokes, wobbly lines, messy hatching, scribbly texture, charcoal smudges, painterly brush strokes, rough texture, "
               "photorealistic, realistic painting, hyper-detailed, intricate realistic texture, realistic rendering, matte painting, "
-              "realistic lighting, 3D render, CGI, voxel, vector clean flat corporate style, anime cel shading, "
+              "realistic lighting, 3D render, CGI, voxel, generic corporate flat icons, clip art, stock vector illustration, anime cel shading, "
               "glossy, shiny, metallic, chrome, neon, glow, bloom, lens flare, light rays, rim light, specular highlight, "
-              "directional shadows, cast shadow, smooth digital gradient, airbrush, heavy drop shadow, pure black outline, high contrast HDR, "
+              "directional shadows, cast shadow, strong rainbow gradients, airbrush glow, heavy drop shadow, pure black outline, high contrast HDR, "
               "overexposed, high-key, washed out, bright white paper, blown-out highlights, pitch black, crushed shadows, low-key noir, "
               "saturated rainbow colors, dark horror atmosphere, gore, text, letters, numbers, logo, watermark, signature, UI, frame border, "
               "blurry, jpeg artifacts, perspective view, isometric, top-down")
@@ -152,7 +154,7 @@ NEG_BG = (", sky, horizon, open landscape, meadow, outdoor scenery, sunlight, cl
           "brick grid, tiled stones, canvas texture, fabric weave, high contrast, sharp detailed rendering, visible seams, mismatched edges, border frame, edge darkening, "
           "floating objects with a visible bottom, flat platform-like ledges, horizontal planks, bridges that look walkable")
 NEG_BG_GLIMPSE = NEG_BG.replace('sky, horizon, open landscape, meadow, outdoor scenery, sunlight, clouds, ', '')
-NEG_TERRAIN = ", canvas texture, fabric weave, flat even gray, uniform texture, perfectly even hatching, ruler-straight edge, even sine wave edge, thin faint contour"
+NEG_TERRAIN = ", canvas texture, fabric weave, flat even gray, uniform texture, perfectly even stripe pattern, ruler-straight edge, even sine wave edge, thin faint contour"
 NEG_DECOR = ", solid ground fill, filled walls, full scene, paper background, opaque background, platforms, terrain blocks, sky"
 NEG_CHAR = ("background scenery, multiple characters, cropped body, extra limbs, detailed facial features, mouth, nose, "
             "clothing details, armor ornaments, motion blur")
@@ -196,16 +198,16 @@ def add(id, cat, ch, typ, subject, file, ref_extra='', control='', neg='', note=
 # 0. 골든 이미지 (가장 먼저)
 add('G1', '0 골든', 1, 'KEY', "wide game screenshot-like scene, a small chalk-white child figure standing on pencil-hatched rock ledges "
     "in a half-drawn pencil forest cave with a ceiling above, a faint hatched back wall behind (no sky), platforms at different heights, breathing room of empty toned paper, mid-key brightness", 'golden/G1_scene.png', ar='16:9', note='전체 분위기 기준')
-add('G2', '0 골든', 1, 'TERRAIN', "solid ground made of pencil hatching: a bold irregular top contour, a dense dark surface band with pebbles and graphite flecks just below it, "
-    "and a lighter sparser interior with a faint strata line and half-hatched paper patches", 'golden/G2_ground.png', ar='1:1', neg=NEG_ENV + NEG_TERRAIN, note='지형 질감 기준 (반복 없음)')
+add('G2', '0 골든', 1, 'TERRAIN', "solid ground made of clean diagonal pencil-stripe pattern: a bold irregular top contour, a dense dark surface band with pebbles and graphite flecks just below it, "
+    "and a lighter sparser interior with a faint strata line and half-filled paper patches", 'golden/G2_ground.png', ar='1:1', neg=NEG_ENV + NEG_TERRAIN, note='지형 질감 기준 (반복 없음)')
 add('G3', '0 골든', 0, 'CHAR', "character sheet of the protagonist: " + CHAR_LOCK + ", standing pose, three views of the same side pose redrawn by hand",
     'golden/G3_player_sheet.png', ar='16:9', neg=NEG_CHAR, note='캐릭터 선 굵기 기준', lock=True)
 add('G4', '0 골든', 1, 'CHAR', "a small graphite worm creature made of segmented pencil-lead pieces, one pointed tip at the front", 'golden/G4_enemy.png', ar='1:1', neg=NEG_CHAR, note='적 형태 언어 기준')
 add('G5', '0 골든', 1, 'PROP', "a pencil-holder shaped stone statue holding three pencils, used as a save point", 'golden/G5_prop.png', ar='1:1', neg=NEG_ENV, note='소품 기준')
 add('C1-G1', '0 골든', 1, 'KEY', "pencil forest mine tunnel scene with graphite deposits, plank platforms and a pool of ink", 'golden/C1_G1_scene.png', ar='16:9', neg=NEG_ENV)
-add('C1-G2', '0 골든', 1, 'TERRAIN', "ground texture of a graphite mine wall, dense hatching with graphite flecks", 'golden/C1_G2_ground.png', ar='1:1', neg=NEG_ENV)
+add('C1-G2', '0 골든', 1, 'TERRAIN', "ground texture of a graphite mine wall, dense stripe pattern with graphite flecks", 'golden/C1_G2_ground.png', ar='1:1', neg=NEG_ENV)
 add('C2-G1', '0 골든', 2, 'KEY', "crayon cavern under the sunset hills, thick crayon-painted rock, cracks lined with muted sunset orange, melting orange crayon platforms, wax puddles", 'golden/C2_G1_scene.png', ar='16:9', neg=NEG_ENV)
-add('C2-G2', '0 골든', 2, 'TERRAIN', "ground texture of overpainted crayon earth, layered crossing crayon strokes", 'golden/C2_G2_ground.png', ar='1:1', neg=NEG_ENV)
+add('C2-G2', '0 골든', 2, 'TERRAIN', "ground texture of overpainted crayon earth, layered crossing crayon stripe motifs", 'golden/C2_G2_ground.png', ar='1:1', neg=NEG_ENV)
 
 # 1. 지형 (반복 타일 대신: 큰 질감 원본 + 가장자리 띠 + 둥근 모서리 + 각각 다른 발판·특수 블록)
 #    이 재료가 월드 전체를 한 줄로 잇는 '바탕 지형'(Unity Sprite Shape)이 됨 → 방 경계에서 끊기지 않음.
@@ -223,7 +225,7 @@ CH_SPECIAL = {
         ('ink_water', 'TERRAIN', "deep ink water body, semi-transparent black-violet, faint uneven surface lines"),
         ('scribble_wall', 'SPECIAL', "a tall wall made of angry chaotic scribbles in dusty red-gray"),
         ('graphite_vine', 'SPECIAL', "tall tangled graphite vines in sage gray-green"),
-        ('wax_wall', 'SPECIAL', "tall smooth wax wall with vertical sheen stripes drawn with lines, beige, slippery looking"),
+        ('wax_wall', 'SPECIAL', "tall smooth wax wall with vertical sheen stripes shown as clean lines, beige, slippery looking"),
         ('target_door', 'SPECIAL', "a tall door panel painted muted yellow with a small target symbol"),
         ('oneway_gate', 'SPECIAL', "wooden one-way gate plank with a drawn downward arrow"),
         ('hatch', 'PLATFORM', "a wooden trapdoor hatch lying flat, hinge on one side")],
@@ -233,7 +235,7 @@ CH_SPECIAL = {
         ('paint_water', 'TERRAIN', "pool of muted blue paint water, semi-transparent, faint uneven surface lines"),
         ('scribble_wall', 'SPECIAL', "a tall wall of chaotic scribbles drawn over with orange crayon, dusty red-gray"),
         ('graphite_vine', 'SPECIAL', "tall tangled graphite vines with crayon smudges, sage gray-green"),
-        ('wax_wall', 'SPECIAL', "tall smooth beige wax wall with vertical sheen stripes drawn with lines, slippery looking"),
+        ('wax_wall', 'SPECIAL', "tall smooth beige wax wall with vertical sheen stripes shown as clean lines, slippery looking"),
         ('paint_door', 'SPECIAL', "tall door painted muted purple with three vertical stripe slots for red, blue and yellow paint"),
         ('target_door', 'SPECIAL', "a tall door panel painted muted yellow with a small target symbol, crayon texture")],
 }
@@ -242,34 +244,36 @@ AR = {'TERRAIN': '1:1', 'EDGE': '8:1', 'CORNER': '1:1', 'PLATFORM': '4:1', 'SPEC
 ZONE_TINT = {'A': "a faint warm cream-gray tint", 'B': "a faint cool blue-gray graphite tint", 'C': "a faint sage green-gray tint",
              'D': "a faint dusty rose-gray tint", 'E': "a faint warm orange-beige tint", 'F': "a faint wax-beige tint",
              'G': "a faint blue-violet gray tint", 'H': "a faint brick-rose gray tint"}
+ZONE_EN = {'A': 'crumpled paper burrow', 'B': 'graphite mine', 'C': 'sketch tree interior', 'D': 'tangled root depths',
+           'E': 'sunset crayon caverns', 'F': 'wax workshop', 'G': 'underground painted gorge', 'H': "knight's tower"}
 ZONE_TERRAIN = {  # 구역: (장, 한국어, 속 채움 특징, 바닥 윗면 디테일, 천장 아랫면 디테일, 벽 옆면 디테일)
     'A': (1, '구겨진 종이굴', "layered creased paper sheets pressed together, soft paper pulp patches",
           "creased paper folds, torn paper flakes and a few pencil grass roots poking out", "peeling paper layers and dangling grass roots", "folded paper layer edges and small tears"),
-    'B': (1, '흑연 광산', "dense graphite rock hatching with matte ore seams and chisel marks",
+    'B': (1, '흑연 광산', "dense graphite rock stripe pattern with matte ore seams and chisel marks",
           "graphite chunks, pickaxe chips and a few old rail spikes", "jagged graphite lumps and short graphite stalactite stubs", "pickaxe scars and ore seams"),
-    'C': (1, '스케치 나무 속', "curved wood grain and growth-ring hatching, small knots",
+    'C': (1, '스케치 나무 속', "curved wood grain and growth-ring stripe pattern, small knots",
           "wood grain ridges, bark flakes and small root nubs", "hanging bark strips and knot bumps", "wood grain lines and split cracks"),
-    'D': (1, '엉킨 뿌리 심부', "knotted tangled root fibers and scribble hatching",
+    'D': (1, '엉킨 뿌리 심부', "knotted tangled root fibers and scribble stripe pattern",
           "tangled root fibers, small thorn scribbles and crushed leaves", "hanging tangled root hair and thorny knots", "twisting root strands"),
-    'E': (2, '노을 크레파스 굴', "thick layered crayon earth with crossing strokes",
+    'E': (2, '노을 크레파스 굴', "thick layered crayon earth with crossing stripe motifs",
           "crayon crumbs and thin cracks lined with muted sunset orange", "melted crayon drips and orange-lined cracks", "layered crayon strata and smears"),
     'F': (2, '밀랍 공방', "smooth wax-beige plaster with drawn drip stains and soot smudges",
           "worn smooth wax edges, old wax drips and soot smudges", "hanging wax drips and soot stains", "plaster cracks and wax runs"),
     'G': (2, '색칠 지하 협곡', "uneven paint strata bands in muted blue, red and yellow",
           "dried paint flakes and paint drips at the edge", "dripping paint and strata ends", "colored strata bands and paint runs"),
-    'H': (2, '기사의 탑', "uneven hand-drawn crayon stones, every stone a different shape, no grid",
+    'H': (2, '기사의 탑', "uneven clean crayon stones, every stone a different shape, no grid",
           "chipped crayon stones with scratched mortar lines and a few small rubble bits", "worn stone undersides with crumbling mortar", "irregular stone faces with chips"),
 }
 for z, (ch, kname, fill, top, bottom, side) in ZONE_TERRAIN.items():
     tint = ZONE_TINT[z]
     for v in 'abc':
-        add(f'TZ{ch}-{z}-fill_{v}', '1 지형', ch, 'TERRAIN', f"interior of solid ground in the {kname} zone: {fill}, {tint}, variation {v.upper()}",
+        add(f'TZ{ch}-{z}-fill_{v}', '1 지형', ch, 'TERRAIN', f"interior of solid ground in the {ZONE_EN[z]}: {fill}, {tint}, variation {v.upper()}",
             f'ch{ch}/terrain/{z}/ch{ch}_{z}_fill_{v}.png', ar='1:1', neg=NEG_ENV + NEG_TERRAIN,
             note=f'{z} {kname} · 속 채움 · 4방향 이어짐 · ' + ('테두리 원본 (먼저 만들기)' if v == 'a' else 'A의 테두리 띠 + 안쪽만 새로'))
     for key, subj in (('edge_top', f"walkable top surface edge of ground, the boldest contour on top so the floor reads instantly, surface band with {top}, material texture below"),
                       ('edge_bottom', f"bottom edge of a ceiling, bold contour on the bottom with a few sagging lumps, surface band with {bottom}, material texture above"),
                       ('edge_side', f"vertical wall edge (drawn horizontally, will be rotated), bold contour with chips and small ledges, surface band with {side}, material texture on one side")):
-        add(f'TZ{ch}-{z}-{key}', '1 지형', ch, 'EDGE', f"{subj}, in the {kname} zone, {tint}", f'ch{ch}/terrain/{z}/ch{ch}_{z}_{key}.png',
+        add(f'TZ{ch}-{z}-{key}', '1 지형', ch, 'EDGE', f"{subj}, in the {ZONE_EN[z]}, {tint}", f'ch{ch}/terrain/{z}/ch{ch}_{z}_{key}.png',
             ar='8:1', neg=NEG_ENV + NEG_TERRAIN, note=f'{z} {kname} · 가장자리 띠 · 양 끝 이어짐')
 for ch in (1, 2):
     for key, typ, subj in TERRAIN_SET + CH_SPECIAL[ch]:
@@ -335,7 +339,7 @@ AREAS = {   # 배경 구획: (구역, 한국어 이름, 방 번호들, 뒷벽 �
     'A1': ('A', '종이 틈 입구', [1, 2, 3], "the entrance of a paper burrow: layered creased paper sheets with thin bright cracks where the page above is torn, slightly lighter than deeper areas, faint pencil grass roots here and there"),
     'A2': ('A', '풀뿌리 갈림굴', [4, 5, 6, 25], "a deeper paper burrow: soft paper pulp walls densely threaded with dangling pencil grass roots and faint pencil arrow scribbles"),
     'B1': ('B', '광산 입구·갱도', [7, 8, 12, 27], "a timbered graphite mine tunnel wall: dark graphite rock with faint pickaxe marks and old rail scratches"),
-    'B2': ('B', '깊은 채굴장', [9, 10, 11, 29], "a deep quarry wall: huge matte graphite veins, cracked and collapsed rock, heavy hatching"),
+    'B2': ('B', '깊은 채굴장', [9, 10, 11, 29], "a deep quarry wall: huge matte graphite veins, cracked and collapsed rock, heavy stripe pattern"),
     'B3': ('B', '찢긴 페이지 굴', [30], "a sealed cave where the rock turns into torn page layers with faint ruled lines and ink seeping through"),
     'C1': ('C', '나무 밑동 속', [13, 26], "the base inside a giant hollow tree: wide curved growth rings, knots and thick root bases"),
     'C2': ('C', '속 빈 줄기', [14], "the inside of a tall hollow trunk: long vertical wood grain lines and stacked growth rings, no up or down feeling"),
@@ -343,16 +347,16 @@ AREAS = {   # 배경 구획: (구역, 한국어 이름, 방 번호들, 뒷벽 �
     'D1': ('D', '덩굴 다리 위층', [18, 19, 28], "an upper root ceiling layer: loose hanging vines and airy tangled root gaps"),
     'D2': ('D', '사냥꾼의 굴', [20, 21, 23], "a dense dark wall of tangled scribbled roots with old snares"),
     'D3': ('D', '낙서 둥지', [22, 24], "a wall of angry chaotic scribbles coiling in every direction, the most aggressive lines of chapter one"),
-    'E1': ('E', '물감 번진 관문', [1], "a wall where pencil hatching is being overpainted by thick crayon smears"),
-    'E2': ('E', '노을빛 굴', [2, 3, 11], "thick layered crayon earth with crossing strokes and thin cracks lined with muted sunset-orange crayon"),
+    'E1': ('E', '물감 번진 관문', [1], "a wall where clean diagonal pencil-stripe pattern is being overpainted by thick crayon smears"),
+    'E2': ('E', '노을빛 굴', [2, 3, 11], "thick layered crayon earth with crossing stripe motifs and thin cracks lined with muted sunset-orange crayon"),
     'E3': ('E', '삼색 광장', [4], "a huge cavern wall of crayon earth with faint vertical paint drips in muted red, blue and yellow"),
-    'F1': ('F', '공방 작업장', [5, 6], "workshop back wall of plastered wax-beige panels with soot marks near a furnace, uneven hand-drawn panels, no brick grid"),
+    'F1': ('F', '공방 작업장', [5, 6], "workshop back wall of plastered wax-beige panels with soot marks near a furnace, uneven clean panels, no brick grid"),
     'F2': ('F', '밀랍 저장고', [7, 8, 9], "storage room wall of stacked wax blocks drawn unevenly, sticky drip stains"),
     'F3': ('F', '물 고인 아래층', [10, 24], "a damp lower cave of wax and crayon earth with water rings and soft rounded hollows"),
     'G1': ('G', '협곡 중턱', [12, 13, 14, 25], "an underground gorge wall of uneven layered paint strata in muted blue, red and yellow bands"),
     'G2': ('G', '협곡 바닥', [15, 16, 17], "the deep gorge floor wall: dark paint strata with dull melted crayon veins"),
     'G3': ('G', '물감 폭포 홀', [18, 23], "a wet paint-misted cavern wall with long vertical paint streaks"),
-    'H1': ('H', '탑 아래층', [19, 20, 21], "tower hall interior wall of hand-drawn uneven crayon stones, every stone a different shape, no grid pattern"),
+    'H1': ('H', '탑 아래층', [19, 20, 21], "tower hall interior wall of clean uneven crayon stones, every stone a different shape, no grid pattern"),
     'H2': ('H', '탑 위층', [22, 26], "upper tower interior wall of worn crayon stones with warm light patches from windows, every stone different"),
 }
 ROOM_BG = {  # 방마다 대표 배경 조각 (그 방에만 있음). TALL = 세로로 긴 방
@@ -360,7 +364,7 @@ ROOM_BG = {  # 방마다 대표 배경 조각 (그 방에만 있음). TALL = 세
         2: "a narrow wind crack in the paper wall with paper scraps fluttering up toward a chimney",
         3: "crumpled paper slopes stacked behind like folded hills inside the burrow",
         4: "dangling pencil grass roots forming a dim curtain beside a tall narrow chimney",
-        5: "a crossroads signpost drawn in pencil standing far back, three blank arrow boards",
+        5: "a crossroads signpost in pencil-gray standing far back, three blank arrow boards",
         6: "sharpened pencil stubs stuck in the wall like little turret nests",
         7: "a mine entrance frame of wooden beams with a blank warning board",
         8: "a long receding row of timber supports along the tunnel",
@@ -371,7 +375,7 @@ ROOM_BG = {  # 방마다 대표 배경 조각 (그 방에만 있음). TALL = 세
         13: "a large tree knot shaped like a closed eye in the wood",
         14: "a spiral of growth rings and step marks rising up the hollow trunk",
         15: "small pencil leaf shadows pressed against the bark of a branch tunnel",
-        16: "a half-erased bird nest outline fading on the wood",
+        16: "a faded outline-only bird nest outline fading on the wood",
         17: "a woven bird nest with scattered pencil feathers",
         18: "long vine bridges sagging in the far darkness",
         19: "a fork of two root tunnels with a faint ink puddle gleam",
@@ -393,7 +397,7 @@ ROOM_BG = {  # 방마다 대표 배경 조각 (그 방에만 있음). TALL = 세
         5: "a big brazier furnace with a chimney far behind",
         6: "a workshop door frame with a crayon-shaped blank sign",
         7: "tall shelves of wax blocks with sticky drips",
-        8: "stacked half-erased canvases leaning against the wall",
+        8: "stacked faded outline-only canvases leaning against the wall",
         9: "a giant red paint bucket tipped over far behind",
         10: "a rounded den wall marked with a large shell-shaped scrape",
         11: "a ventilation shaft with a pinwheel fan turning high up",
@@ -507,15 +511,15 @@ add('B2-fore', '2 배경', 2, 'BG_FORE', "hanging crayon wax drips and crayon ro
 ROOMS1 = {1: "start path in a paper burrow, a few pencil grass roots poking from the ceiling, gentle beginning",
     2: "windy paper crack passage, paper scraps and grass roots bending in the draft, a narrow chimney opening in the ceiling",
     3: "crumpled paper slope inside the burrow with folded paper ledges", 4: "shadowy grass-root cave, side exploration, narrow chimney in the ceiling",
-    5: "crossroads hub cave, signpost drawn in pencil, many exits", 6: "loft above the crossroads with sharpened pencil turret nests and a target door",
+    5: "crossroads hub cave, signpost in pencil-gray, many exits", 6: "loft above the crossroads with sharpened pencil turret nests and a target door",
     7: "mine entrance with wooden frame and minecart tracks", 8: "long graphite tunnel with ink pits",
     9: "collapsed mine shaft, cracked walls, ink pool at the bottom, crumbling planks", 10: "miners' rest area, lantern and bench, calm",
     11: "foreman's quarry, piles of graphite, eraser shavings everywhere", 12: "small storage behind vines with crates",
     13: "knot room inside the sketch tree", 14: "tall hollow tree tower with crumbling step planks",
-    15: "branch tunnel inside the tree high up, bark walls", 16: "erased nest, faint half-erased bird nest", 17: "bird nest room with feathers",
+    15: "branch tunnel inside the tree high up, bark walls", 16: "erased nest, faint faded outline-only bird nest", 17: "bird nest room with feathers",
     18: "vine bridge across a gap, hanging vines", 19: "upper fork with ink puddle to the east", 20: "hunter's den with tangled vines and bones of scribbles",
-    21: "rest area before the boss nest, quiet", 22: "round boss arena nest made of tangled angry scribbles", 23: "root slope descending, roots drawn in pencil, a lever",
-    24: "tiny secret room behind scribbles", 25: "small study behind a target door with books drawn in pencil", 26: "wax nest at the top of a wax shaft",
+    21: "rest area before the boss nest, quiet", 22: "round boss arena nest made of tangled angry scribbles", 23: "root slope descending, roots in pencil-gray, a lever",
+    24: "tiny secret room behind scribbles", 25: "small study behind a target door with books in pencil-gray", 26: "wax nest at the top of a wax shaft",
     27: "flooded tunnel end under ink water", 28: "cotton-dust shelf high in the root ceiling", 29: "hidden den with an unfinished dog drawing", 30: "sealed torn-page cave with a long ink pool"}
 ROOMS2 = {1: "paint-smeared gate where pencil turns into crayon", 2: "first crayon slope cave with melting crayon platforms", 3: "large sunset-glow crayon cavern",
     4: "three-color plaza hub cavern with a big paint door", 5: "brazier workshop with melting platforms over swamp", 6: "workshop entrance",
@@ -530,7 +534,7 @@ for n, s in ROOMS1.items():
     add(f'R1-{n:02d}', '3 방 장식', 1, 'DECOR', 'decorations for: ' + s, f'ch1/decor/ch1_decor_{n:02d}.png', control=f'Art/control/r1_{n:02d}.png', neg=NEG_ENV + NEG_DECOR, ar='16:9')
 for n, s in ROOMS2.items():
     add(f'R2-{n:02d}', '3 방 장식', 2, 'DECOR', 'decorations for: ' + s, f'ch2/decor/ch2_decor_{n:02d}.png', control=f'Art/control/r2_{n:02d}.png', neg=NEG_ENV + NEG_DECOR, ar='16:9')
-add('R-border-1-2', '3 방 장식', 2, 'DECOR', "decorations for the transition zone: pencil scribbles on the left, crayon strokes slowly painted over them toward the right",
+add('R-border-1-2', '3 방 장식', 2, 'DECOR', "decorations for the transition zone: pencil-gray scribble motifs on the left, crayon stripe motifs slowly painted over them toward the right",
     'border/border_1_2_decor.png', control='Art/control/border_1_2.png', neg=NEG_ENV + NEG_DECOR, ar='16:9', note='경계 장식')
 # 구역 사이 지형 이음 (같은 지역 안 구역끼리 + 1↔2장 경계 D→E): 맞닿은 구획 쌍 중 구역이 다른 것
 ZPAIRS = {}
@@ -546,8 +550,8 @@ for (z1, z2), d in ZPAIRS.items():
         note=f"{k1} → {k2} 지형 속 이음 · 경계: {'가로(왼→오)' if d == 'h' else '세로(위→아래)'}" + (' · ⭐ 장 경계' if c1 != c2 else ''))
     edges = (('edge_top', 3), ('edge_bottom', 4)) if d == 'h' else (('edge_side', 5),)
     for key, i in edges:
-        add(f'TL-{z1}{z2}-{key}', '1 지형', c2, 'EDGE', f"{key.replace('_', ' ')} strip transition: the left end matches the {k1} strip ({ZONE_TERRAIN[z1][i]}), "
-            f"the right end matches the {k2} strip ({ZONE_TERRAIN[z2][i]}), the details change gradually along the strip" + mat,
+        add(f'TL-{z1}{z2}-{key}', '1 지형', c2, 'EDGE', f"{key.replace('_', ' ')} strip transition: the left end matches the {ZONE_EN[z1]} strip ({ZONE_TERRAIN[z1][i]}), "
+            f"the right end matches the {ZONE_EN[z2]} strip ({ZONE_TERRAIN[z2][i]}), the details change gradually along the strip" + mat,
             f'ch{c2}/terrain/link/ch{c2}_{z1}{z2}_{key}.png', ref_extra=f'TZ{c1}-{z1}-{key} TZ{c2}-{z2}-{key}', ar='8:1', neg=NEG_ENV + NEG_TERRAIN,
             note=f'{k1} → {k2} 가장자리 이음 (양 끝이 각 구역 띠와 맞물림)' + (' · ⭐ 장 경계' if c1 != c2 else ''))
 
@@ -558,18 +562,18 @@ PROPS = [
     (0, 'ribbon_end', "a standing bookmark ribbon stuck in the ground, muted red, notched top, gently curving"),
     (0, 'ribbon_secret', "a torn paper scrap with a slate-blue bookmark ribbon stuck in the ground"),
     (0, 'ribbon_knot', "a standing bookmark ribbon tied with a black knot in the middle, pale blue-gray"),
-    (1, 'sketch_dog_unfinished', "a dog drawn in a clumsy child's drawing style, body and head finished, its four legs missing and shown only as faint dashed lines"),
-    (1, 'sketch_dog_finished', "the same clumsy child-drawn dog now with four short legs drawn, happy, tail up"),
-    (2, 'sketch_sun_unfinished', "a sun drawn in a clumsy child's drawing style, round face with dot eyes and a flat mouth, uncolored chalk-white, eight rays as faint dashed lines"),
+    (1, 'sketch_dog_unfinished', "a dog in a simple childlike style with clean lines, body and head finished, its four legs missing and shown only as faint dashed lines"),
+    (1, 'sketch_dog_finished', "the same childlike dog now with four short legs drawn, happy, tail up"),
+    (2, 'sketch_sun_unfinished', "a sun in a simple childlike style with clean lines, round face with dot eyes and a flat mouth, uncolored chalk-white, eight rays as faint dashed lines"),
     (2, 'sketch_sun_finished', "the same child-drawn sun colored with orange crayon, smiling, eight solid crayon rays"),
     (0, 'orb_heal', "small floating orb of muted rose paint in a tiny jar"),
     (0, 'orb_shield', "small folded paper shield charm"),
     (0, 'orb_paint', "small jar of muted blue paint droplets"),
     (2, 'healup_bottle', "a small bottle of rose healing paint with a cork"),
-    (0, 'heart_piece', "half of a hand-drawn heart cut from paper, muted rose"),
+    (0, 'heart_piece', "half of a clean heart cut from paper, muted rose"),
     (0, 'graphite_shard', "a small shard of graphite, diamond shaped, dark gray"),
     (0, 'ability_orb', "a softly floating paper orb with a pencil swirl inside, ability pickup"),
-    (1, 'lever', "a wooden lever drawn in pencil, standing on a base"),
+    (1, 'lever', "a wooden lever in pencil-gray, standing on a base"),
     (1, 'target', "a round target on a short stick, yellow and white rings"),
     (2, 'brazier_lit', "a small crayon-drawn brazier bowl with an orange crayon flame"),
     (2, 'brazier_off', "the same brazier bowl, flame out, a thin wisp of scribbled smoke"),
@@ -644,7 +648,7 @@ ENEMIES = [
     (1, 'range_ink_shooter', "small pencil sharpener turret variant with a crayon-stained base (appears in chapter 2 too)"),
 ]
 ELITES = [
-    (1, 'foreman_eraser', "big rectangular eraser foreman with a worn corner and a helmet lamp drawn in pencil, charges forward", "one worn rounded corner"),
+    (1, 'foreman_eraser', "big rectangular eraser foreman with a worn corner and a helmet lamp in pencil-gray, charges forward", "one worn rounded corner"),
     (1, 'vine_hunter', "tall hunter made of tangled graphite vines with a vine whip arm", "a whip arm of vines"),
     (2, 'sharpened_turtle', "turtle with a shell made of a sharpened crayon stub, the front of the shell blocks attacks, soft back", "a sharpened crayon-stub shell"),
 ]
@@ -669,9 +673,9 @@ for ch, key, subj, feat in BOSSES:
 
 # 7. 이펙트
 FX = [(0, 'paper_scraps', "small torn paper scraps flying"), (0, 'pencil_ring', "a thin pencil-drawn circle expanding"),
-      (0, 'hit_spark', "short crossed pencil strokes marking an impact"), (0, 'smear_swing', "a curved streak of pencil strokes for a fast eraser swing"),
-      (0, 'parry_flash', "a small golden-yellow star burst drawn with crayon lines"), (0, 'eraser_crumbs', "pinkish gray eraser crumbs scattering"),
-      (0, 'erase_wipe', "a band of eraser marks wiping across"), (0, 'redraw_line', "a single pencil line being drawn"),
+      (0, 'hit_spark', "short crossed clean pencil-line shapes marking an impact"), (0, 'smear_swing', "a curved streak of clean pencil-line shapes for a fast eraser swing"),
+      (0, 'parry_flash', "a small golden-yellow star burst made of clean crayon-colored shapes"), (0, 'eraser_crumbs', "pinkish gray eraser crumbs scattering"),
+      (0, 'erase_wipe', "a clean band wiping across like an eraser"), (0, 'redraw_line', "a single pencil line being drawn"),
       (0, 'dust_land', "small puff of paper dust on landing"), (1, 'graphite_dust', "graphite powder puff"), (1, 'ink_splash', "black-violet ink splash and drops"),
       (2, 'crayon_crumbs', "crumbs of orange and beige crayon"), (2, 'wax_drip', "drops of melted wax falling"), (2, 'crayon_flame', "small orange crayon-drawn flame"),
       (2, 'scribble_smoke', "a wisp of scribbled gray smoke")]
@@ -679,13 +683,13 @@ for ch, key, subj in FX:
     add(f'FX-{key}', '9 이펙트', ch or 1, 'FX', subj, f'{"common" if ch==0 else f"ch{ch}"}/fx/{key}.png', neg=NEG_ENV, ar='1:1')
 
 # 8. UI
-UI = [('heart_full', "a hand-drawn heart icon filled with muted rose"), ('heart_half', "a hand-drawn heart icon half filled with muted rose"),
-      ('heart_empty', "an empty hand-drawn heart outline"), ('item_note', "a small paper note taped on the corner, for an item slot"),
+UI = [('heart_full', "a clean heart icon filled with muted rose"), ('heart_half', "a clean heart icon half filled with muted rose"),
+      ('heart_empty', "an empty clean heart outline"), ('item_note', "a small paper note taped on the corner, for an item slot"),
       ('ability_wj', "small doodle icon of a hand gripping a wall"), ('ability_cut', "small doodle icon of a sharpened pencil"),
       ('ability_dash', "small doodle icon of an eraser with speed lines"), ('ability_parry', "small doodle icon of a deflected wax ball"),
       ('ability_climb', "small doodle icon of a crayon climbing a wall"), ('map_page', "a sketchbook page used as the map screen background"),
-      ('title_underline', "a single hand-drawn crayon underline stroke"), ('pencil_hint', "a tiny pencil icon pointing down"),
-      ('up_hint', "a tiny hand-drawn caret arrow pointing up")]
+      ('title_underline', "a single clean crayon underline stroke"), ('pencil_hint', "a tiny pencil icon pointing down"),
+      ('up_hint', "a tiny clean caret arrow pointing up")]
 for key, subj in UI:
     add(f'UI-{key}', '10 UI', 1, 'UI', subj, f'common/ui/{key}.png', neg=NEG_ENV, ar='1:1', note='글자는 엔진에서 폰트로')
 
@@ -713,7 +717,7 @@ def main():
     A.sort(key=lambda a: int(a['cat'].split()[0]))   # 분류 순서대로 (안정 정렬)
     for a in A:
         p, n = assemble(a); rows.append(dict(a, prompt=p, negative=n))
-    json.dump(dict(version='MSB v3 · UNIFY v3 · MAT v1 · 지형 구조 v4 (구역별 지형 + 구역 이음, 3단 가장자리) · 배경 v6.2 실내형 · 4방향 이어짐 (구획 뒷벽 + 세로 뒷벽 + 공용 조각 + 방 대표 조각 · 붙는 곳) · 미드키 게임 그림체', blocks=dict(MSB=MSB, UNIFY=UNIFY, MAT=MAT, TYPE=TYPE, CHAR_LOCK=CHAR_LOCK,
+    json.dump(dict(version='MSB v4 · UNIFY v4 · MAT v2 (부드러운 그래픽 디자인 · 선명한 선) · 지형 구조 v4 (구역별 지형 + 구역 이음, 3단 가장자리) · 배경 v6.2 실내형 · 4방향 이어짐 (구획 뒷벽 + 세로 뒷벽 + 공용 조각 + 방 대표 조각 · 붙는 곳) · 미드키 게임 그림체', blocks=dict(MSB=MSB, UNIFY=UNIFY, MAT=MAT, TYPE=TYPE, CHAR_LOCK=CHAR_LOCK,
               NEG_COMMON=NEG_COMMON, NEG_ENV=NEG_ENV, NEG_BG=NEG_BG, NEG_BG_GLIMPSE=NEG_BG_GLIMPSE, NEG_TERRAIN=NEG_TERRAIN, NEG_DECOR=NEG_DECOR, NEG_CHAR=NEG_CHAR, NEG_POSE=NEG_POSE), assets=A),
               open(os.path.join(ROOT, 'asset_catalog.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     with open(os.path.join(ROOT, 'prompts_full.csv'), 'w', encoding='utf-8-sig', newline='') as f:
@@ -731,5 +735,6 @@ def main():
     from collections import Counter
     c = Counter(r['cat'] for r in rows)
     print('에셋', len(rows), dict(c))
+    import bg_manifest; bg_manifest.build()          # 방마다 깔 배경 → Art/bg_unity_manifest.json (유니티가 읽음)
 
 if __name__ == '__main__': main()

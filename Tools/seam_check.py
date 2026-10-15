@@ -33,8 +33,9 @@ ZONE_CH = {'A': 1, 'B': 1, 'C': 1, 'D': 1, 'E': 2, 'F': 2, 'G': 2, 'H': 2}
 
 
 # ───────────────────────── 1. 맞닿은 구역 쌍 ─────────────────────────
-def find_links(quiet=False):
-    """Art/bg_areas.json(배경 구획: 방 묶음)이 있으면 구획 단위, 없으면 구역 단위로 맞닿은 쌍을 찾음"""
+def label_map():
+    """지도 칸마다 구획(없으면 구역) 이름을 칠한 격자. bg_manifest.py도 같이 씀
+    → (lab, rooms, shafts, areas, names, W, H)"""
     src = open(os.path.join(BASE, 'Prototype', 'world_map_data.js'), encoding='utf-8').read()
     W = int(re.search(r'W=(\d+)', src).group(1)); H = int(re.search(r'H=(\d+)', src).group(1))
     g = []
@@ -46,10 +47,11 @@ def find_links(quiet=False):
     areas = json.load(open(ap, encoding='utf-8')) if os.path.exists(ap) else None
     room_area = {(v['chapter'], n): k for k, v in areas.items() for n in v['rooms']} if areas else {}
     names = {k: v['name'] for k, v in areas.items()} if areas else {k: v['name'] for k, v in zones.items()}
+    lists = {k: json.loads(re.search(r'const ' + k + r'=(\[.*?\]);\n', src, re.S).group(1)) for k in ('ROOMS', 'PASS', 'SHAFTS')}
     lab = np.full((H, W), '', dtype=object); q = deque()
     kinds = ('ROOMS',) if areas else ('ROOMS', 'PASS', 'SHAFTS')   # 구획 모드: 방만 칠하고 통로·수직굴은 번지게
     for k in kinds:                                  # 방(·통로·수직굴)에 구역/구획 이름을 칠하고
-        for r in json.loads(re.search(r'const ' + k + r'=(\[.*?\]);\n', src, re.S).group(1)):
+        for r in lists[k]:
             tag = room_area.get((ZONE_CH[r['z']], r['n'])) if areas else r['z']
             if not tag: continue
             for y in range(r['y'], r['y'] + r['h']):
@@ -62,6 +64,12 @@ def find_links(quiet=False):
             ny, nx = y + dy, x + dx
             if 0 <= ny < H and 0 <= nx < W and g[ny, nx] != 1 and not lab[ny, nx]:
                 lab[ny, nx] = lab[y, x]; q.append((ny, nx))
+    return lab, lists['ROOMS'], lists['SHAFTS'], areas, names, W, H
+
+
+def find_links(quiet=False):
+    """Art/bg_areas.json(배경 구획: 방 묶음)이 있으면 구획 단위, 없으면 구역 단위로 맞닿은 쌍을 찾음"""
+    lab, _, _, areas, names, W, H = label_map()
     pairs = Counter(); where = {}
     for y in range(H):
         for x in range(W):

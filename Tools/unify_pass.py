@@ -69,7 +69,7 @@ def process(path, ch, layer, out):
     # 6. 하이라이트 평탄화 (종이색보다 밝은 곳은 종이색으로)
     if layer != 'ui': rgb = np.minimum(rgb, light)
     # 5. 종이 결 곱하기 (모든 에셋 같은 텍스처, 세기 고정)
-    gr = grain(im.size)[..., None]; rgb = rgb * (0.94 + 0.06 * gr / gr.mean())
+    gr = grain(im.size)[..., None]; rgb = rgb * (0.97 + 0.03 * gr / gr.mean())   # v4: 아주 옅은 종이 결 (깔끔한 그래픽 위에 은은하게)
     o = np.concatenate([np.clip(rgb, 0, 1), al], -1)
     os.makedirs(out, exist_ok=True)
     Image.fromarray((o * 255).astype(np.uint8)).save(os.path.join(out, os.path.basename(path)))

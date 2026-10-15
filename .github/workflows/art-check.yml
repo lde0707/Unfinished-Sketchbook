@@ -21,11 +21,18 @@ jobs:
         run: pip install numpy pillow scipy
       - name: 전체 재검사
         run: python Tools/art_check.py audit
+      - name: 방별 배경 준비 상태 (유니티 넣기 전)
+        if: always()
+        run: |
+          python Tools/bg_manifest.py build
+          python Tools/bg_manifest.py check || true
+          python Tools/bg_manifest.py preview all
       - name: 결과 요약
         if: always()
         run: |
           [ -f Art/check_report.md ] && cat Art/check_report.md >> "$GITHUB_STEP_SUMMARY"
           [ -f Art/seam_report.md ] && cat Art/seam_report.md >> "$GITHUB_STEP_SUMMARY"
+          [ -f Art/bg_room_report.md ] && head -12 Art/bg_room_report.md >> "$GITHUB_STEP_SUMMARY"
       - name: 보고서 올리기
         if: always()
         uses: actions/upload-artifact@v4
@@ -35,4 +42,7 @@ jobs:
             Art/check_report.md
             Art/seam_report.md
             Art/seam_preview/
+            Art/bg_room_report.md
+            Art/bg_unity_manifest.json
+            Art/bg_preview/
           if-no-files-found: ignore
