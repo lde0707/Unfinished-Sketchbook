@@ -678,7 +678,7 @@ function update(dt){
  parts.forEach(q=>{q.t-=dt;q.vy+=600*dt;q.x+=q.vx*dt;q.y+=q.vy*dt;});parts=parts.filter(q=>q.t>0);
  const tx=Math.floor(pcx/T),ty=Math.floor(pcy/T);
  const hit=[...ROOMS,...PASS.filter(p=>p.name),...SHAFTS].find(r=>tx>=r.x&&tx<r.x+r.w&&ty>=r.y&&ty<r.y+r.h);
- if(hit&&hit!==room){const prevZ=room&&room.z;room=hit;say((hit.z!==prevZ?ZONES[hit.z].name+' · ':'')+(hit.n?hit.n+' ':'')+hit.name,1.8);}
+ if(hit&&hit!==room){const prevZ=room&&room.z;room=hit;if(prevZ&&hit.z!==prevZ)say(ZONES[hit.z].name,1.8);} // 방 이름은 안 띄움, 구역이 바뀔 때만 구역 이름
  if(tx>=202)P.armed=true;
  if(tx<=197&&ty<=10&&P.armed!==false){P.armed=false;if(!P.ended){P.ended=true;P.endTime=P.time;}startFlip();}
  toast.t-=dt;
@@ -699,11 +699,7 @@ function draw(){
  for(let x=x0;x<=x1+1;x++){ctx.moveTo(x*T,y0*T);ctx.lineTo(x*T,(y1+1)*T);}
  for(let y=y0;y<=y1+1;y++){ctx.moveTo(x0*T,y*T);ctx.lineTo((x1+1)*T,y*T);}
  ctx.stroke();
- ctx.font='700 7px "IBM Plex Sans KR",sans-serif';ctx.textAlign='center';
- SHAFTS.forEach(s=>{const lx=(s.x+s.w/2)*T,ly=(s.y+s.h-1)*T;
-  const txt=s.kind==='turn'?'↱ 90° 전환 · '+s.name:s.kind==='oneway'?'⇣ 일방통행 · '+s.name:s.kind==='climb'?'🔁 벽타기 · '+s.name:'↑ 위층 · '+s.name;
-  ctx.fillStyle='rgba(86,112,138,0.16)';ctx.fillRect(lx-50,ly-9,100,13);ctx.fillStyle='#45607A';ctx.fillText(txt,lx,ly);});
- ctx.fillStyle='#45607A';ctx.fillText('← 3지역 수채화 호수',203*T,5.4*T);
+ // 지도 위 이름표·화살표 글자 없음 (구역·장 이름만 화면에 나옴)
  // 타일
  for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){const t=grid[y*W+x];if(!t)continue;
   if(t===1){ctx.fillStyle=C.solid;ctx.fillRect(x*T,y*T,T,T);}

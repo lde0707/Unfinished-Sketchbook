@@ -417,7 +417,7 @@ ROOM_BG = {  # 방마다 대표 배경 조각 (그 방에만 있음). TALL = 세
         25: "paper streamers blowing in a windy gorge passage",
         26: "a small attic wall with an uncolored sun drawing pinned on it"},
 }
-TALL = {(1, 4), (1, 14), (2, 18), (2, 11)}
+TALL = {(1, 4), (1, 14), (2, 18), (2, 11)}  # 대표 조각을 세로 1:2로 (좁고 높은 방)
 ANCHOR_TXT = {   # 세트 조각이 공중에 떠 보이지 않게: 어디에 붙어 있는지
     'hang': "hanging from above: its top edge is cut off by the top of the image as if it continues past the ceiling",
     'rise': "rising from below: its base fades softly into the dark back wall, no visible bottom and no ground line",
@@ -443,9 +443,14 @@ ROOM_ANCHOR = {  # 방 대표 조각
         13: 'hang', 14: 'rise', 15: 'rise', 16: 'wall', 17: 'wall', 18: 'span', 19: 'rise', 20: 'rise', 21: 'wall', 22: 'wall', 23: 'wall',
         24: 'wall', 25: 'hang', 26: 'wall'},
 }
-ROOM_BG_EXTRA = {  # 한 화면보다 높은 방: 높이마다 볼거리 (b = 중간·위, c = 맨 위)
+ROOM_BG_EXTRA = {  # 한 화면보다 높은 방: 높이마다 볼거리 (b = 중간·위, c = 맨 위) · 1장 천장 높이기(v34)로 큰 홀 5·7·10·11·18 추가
     (1, 4): [('b', 'hang', '1:1', "a narrow chimney mouth high up with paper scraps caught in it (upper part of the room)")],
+    (1, 5): [('b', 'hang', '3:2', "tangled pencil roots and paper strips hanging from far above the crossroads, a faint signpost arrow caught in them (upper part of the hall)")],
+    (1, 7): [('b', 'hang', '1:1', "an old mine hoist frame with a dangling empty bucket high above the entrance (upper part of the hall)")],
     (1, 9): [('b', 'wall', '3:2', "a broken pulley wheel and a snapped rope high on the wall (upper part of the room)")],
+    (1, 10): [('b', 'wall', '1:1', "a high wooden shelf with rolled maps and a second unlit lantern (upper part of the room)")],
+    (1, 11): [('b', 'hang', '3:2', "graphite stalactites and a hanging rail track high above the quarry (upper part of the hall)")],
+    (1, 18): [('b', 'hang', '3:2', "more vine bridges crossing high in the dark, one snapped and dangling (upper part of the hall)")],
     (1, 14): [('b', 'wall', '1:1', "a row of small holes halfway up the trunk with faint light inside (middle of the tower)"),
               ('c', 'wall', '3:2', "branch gaps at the very top letting in soft paper light (top of the tower)")],
     (1, 22): [('b', 'hang', '1:1', "a scribble cocoon hanging high above the arena (upper part of the room)")],
@@ -454,8 +459,8 @@ ROOM_BG_EXTRA = {  # 한 화면보다 높은 방: 높이마다 볼거리 (b = �
     (2, 20): [('b', 'wall', '3:2', "high wall slits with faint warm light and a hanging chain (upper part of the hall)")],
 }
 TALL_WALLS = [  # 1.5화면 이상 높은 곳: 위아래로 바뀌는 세로 전용 뒷벽 한 장 (구획, 키, 이름, 비율, 아래→위 변화)
-    ('C2', 'tower', '나무 속 탑 (방 14, 2.7화면)', '1:3', "inside a tall hollow trunk: bottom thick root bases and dark dense rings, middle long vertical grain and growth rings, top thinner wood with soft light patches from branch gaps"),
-    ('A2', 'root_shaft', '일방통행 뿌리굴 (수직굴, 3.2화면)', '1:3', "a deep paper burrow shaft: bottom dense paper pulp with tangled grass roots, middle thinning roots, top torn paper layers with thin bright cracks"),
+    ('C2', 'tower', '나무 속 탑 (방 14, 3.5화면)', '1:3', "inside a tall hollow trunk: bottom thick root bases and dark dense rings, middle long vertical grain and growth rings, top thinner wood with soft light patches from branch gaps"),
+    ('A2', 'root_shaft', '일방통행 뿌리굴 (수직굴, 5.1화면)', '1:3', "a deep paper burrow shaft: bottom dense paper pulp with tangled grass roots, middle thinning roots, top torn paper layers with thin bright cracks"),
     ('C1', 'vine_shaft', '덩굴 수직굴 (수직굴, 2.4화면)', '1:3', "a vine shaft inside the tree: bottom root base hollow, middle hanging vines getting thicker, top knotty wood"),
     ('G3', 'hall', '물감 폭포 홀 (방 18, 1.7화면)', '1:2', "a paint waterfall cavern: bottom wet dark paint stains and mist marks, top drier layered strata near the crack where the waterfall begins"),
     ('G1', 'cliff_shaft', '협곡 낭떠러지 (수직굴, 2.5화면)', '1:3', "an underground gorge drop: bottom dark deep strata with dull melted crayon veins, middle banded strata, top lighter worn strata"),
