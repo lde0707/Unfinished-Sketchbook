@@ -75,12 +75,12 @@ def chk_aspect(im, a):
     if not a.get('ar'): return None
     p, q = map(float, a['ar'].split(':')); want = p / q; got = im.width / im.height
     err = abs(got / want - 1)
-    return ('비율', 'fail' if err > LIM['aspect'] else 'ok', f'{im.width}×{im.height} (목표 {a["ar"]}, 오차 {err * 100:.1f}%)')
+    return ('비율', 'fail' if err > LIM['aspect'] else 'ok', f'{im.width}×{im.height} (최종 {a["ar"]}, 오차 {err * 100:.1f}%' + ('' if err <= LIM['aspect'] else f' → AI가 {a.get("gen_ar", a["ar"])}로 뽑은 그대로면 python Tools/tile_kit.py prep 그림 --id {a["id"]} 로 잘라 맞추기') + ')')
 
 def chk_size(im, a):
-    want = MIN_LONG.get(a['type'], MIN_LONG_DEFAULT); got = max(im.size)
+    want = a.get('final_long') or MIN_LONG.get(a['type'], MIN_LONG_DEFAULT); got = max(im.size)
     st = 'ok' if got >= want else ('warn' if got >= want / 2 else 'fail')
-    return ('해상도', st, f'긴 변 {got}px (목표 {want}px 이상{"" if st == "ok" else " → 일러스트용 업스케일러로 키우기"})')
+    return ('해상도', st, f'긴 변 {got}px (최종 {a.get("final", str(want) + "px")}{"" if st == "ok" else " → 일러스트용 업스케일러로 키우거나 python Tools/tile_kit.py prep 그림 --id " + a["id"]})')
 
 def chk_nearest(arr):
     """도트 그림을 최근접 확대한 그림인지: k×k 블록 격자에 '딱 맞춘 위치'에서만 블록 안이 같은 색이고,

@@ -62,7 +62,7 @@ PALETTE_WORDS = {1: "toned-down warm gray paper, graphite gray, dark ink gray", 
                  5: "black-violet ink, dim faded paper, faint colored fragments"}
 
 TYPE = {
-    'TERRAIN': ("large terrain fill texture sheet for the floors, ceilings and walls of an enclosed interior, 2048x2048, flat front view, no perspective, no lighting direction, "
+    'TERRAIN': ("large terrain fill texture sheet for the floors, ceilings and walls of an enclosed interior, square, flat front view, no perspective, no lighting direction, "
                 "fills the whole image, NO visible repeating motif, strokes and hatching vary in density, length and placement everywhere, "
                 "irregular organic variation like one big hand-drawn surface, "
                 "big-mass variation is required: darker denser patches and lighter sparse patches, one or two faint strata lines, "
@@ -70,14 +70,14 @@ TYPE = {
                 "paper grain texture (not canvas, not fabric weave), never one flat even gray, "
                 "seamless tileable texture in all four directions: the left edge continues exactly into the right edge and the top edge continues exactly into the bottom edge, no border, no frame, no vignette, no edge darkening, "
                 "all variations share the same outer border band so any variation can sit beside or above any other without a seam"),
-    'EDGE': ("long horizontal strip of a hand-drawn terrain edge on transparent background, 4096x512, built in three zones: "
+    'EDGE': ("long horizontal strip of a hand-drawn terrain edge on transparent background, very wide 4:1 strip, built in three zones: "
              "(1) a thick bold dark hand-drawn contour with an irregular rhythm of large bumps and small wobbles, a few chips, dents and one or two slight breaks, "
              "the contour rises and falls by about a quarter of the strip height, never a ruler line, never an even sine wave; "
              "(2) a dense darker surface band just inside the contour, about one fifth of the strip deep, with small details; "
              "(3) the interior beyond it gets lighter and sparser with a faint strata line and some half-hatched paper showing; "
              "paper grain texture (not canvas or fabric weave), same value and texture family as the matching floor or ceiling piece, soft anti-aliased edge, "
              "the left end continues exactly into the right end (same contour height, same band depth, same texture) so the strip repeats along any length without a seam"),
-    'TERRAIN_LINK': ("transition sheet of solid terrain fill between two neighboring zones of the same chapter, 2048x2048, flat front view, "
+    'TERRAIN_LINK': ("transition sheet of solid terrain fill between two neighboring zones of the same chapter, square, flat front view, "
                      "same drawing material and value family on both sides, the first-zone side matches that zone's fill border band exactly, "
                      "the second-zone side matches the other zone's fill border band exactly, the zone details change gradually in between, "
                      "the two remaining edges continue into each other so it repeats along the whole boundary, paper grain texture, no seam, no border"),
@@ -91,7 +91,7 @@ TYPE = {
                 "NO sky, NO horizon, NO ground, NO outdoor landscape, no up or down direction, it is repeated sideways and stacked upward to fill wide halls and tall shafts, "
                 "large soft value variation (a few darker hollows and lighter worn patches), very low contrast, 5-12% darker than the page paper, "
                 "faint hatching and a few faint drawn cracks or marks, far-distance layer so details are soft and sparse, "
-                "no focal point, no objects, no repeating motif, square 2048x2048, seamless tileable texture in all four directions: the left edge continues exactly into the right edge and the top edge continues exactly into the bottom edge, no border, no frame, no vignette, no edge darkening, "
+                "no focal point, no objects, no repeating motif, square, seamless tileable texture in all four directions: the left edge continues exactly into the right edge and the top edge continues exactly into the bottom edge, no border, no frame, no vignette, no edge darkening, "
                 "all variations of the same area share the same outer border band so any variation can sit beside or above any other without a seam"),
     'BG_SET': ("single background set piece for an enclosed interior, isolated on transparent background, sits in the middle-distance layer behind the gameplay, "
                "simple readable silhouette, thin lines, low contrast, 15-20% darker than the page paper and lighter than the gameplay terrain, "
@@ -117,7 +117,7 @@ TYPE = {
                      "one side matches the first area's wall texture exactly and it gradually becomes the second area's wall texture toward the other side, "
                      "the first-area side matches that area's wall border band exactly, the second-area side matches the other area's wall border band exactly, "
                      "the two remaining edges continue into each other so the transition can be repeated along the whole boundary, "
-                     "no visible seam, same brightness, square 2048x2048"),
+                     "no visible seam, same brightness, square"),
     'PROP': ("single game prop, isolated on transparent background, centered, entire object visible, side view, "
              "same outline weight as gameplay objects"),
     'CHAR': ("single 2D game sprite, side view facing right, full body visible, isolated on transparent background, "
@@ -164,10 +164,34 @@ def refs(ch, extra=''):
     return (r + ' ' + extra).strip()
 
 # ───────────────────────── 에셋 목록 ─────────────────────────
+# AI가 실제로 뽑을 수 있는 크기와 최종 크기를 나눔 (대부분의 이미지 AI는 한 변 1024~1536px, 비율 1:1·3:2·2:3·16:9 정도만 됨)
+AR_FIX = {'1:3': '1:2', '3:1': '2:1', '4:3': '3:2', '8:1': '4:1', '32:9': '2:1'}   # 최종 비율을 만들기 쉬운 값으로
+GEN = {  # 최종 비율: (AI에 요청할 비율, 보통 나오는 크기, 최종 비율로 만드는 법)
+    '1:1': ('1:1', '1024×1024', '그대로'),
+    '3:2': ('3:2', '1536×1024', '그대로'),
+    '2:3': ('2:3', '1024×1536', '그대로'),
+    '16:9': ('16:9 (안 되면 3:2)', '1792×1024 또는 1536×1024', '3:2로 나왔으면 위아래를 잘라 16:9'),
+    '1:2': ('2:3', '1024×1536', '좌우를 잘라 1:2 (768×1536)'),
+    '2:1': ('3:2', '1536×1024', '위아래를 잘라 2:1 (1536×768)'),
+    '4:1': ('3:2', '1536×1024', '가운데 가로 띠를 잘라 4:1 (1536×384)'),
+}
+FINAL_LONG = {'TERRAIN': 2048, 'TERRAIN_LINK': 2048, 'EDGE': 2048, 'CORNER': 1024, 'PLATFORM': 2048, 'SPECIAL': 2048,
+              'BG_WALL': 2048, 'BG_WALL_LINK': 2048, 'BG_WALL_TALL': 4096, 'BG_SET': 2048, 'BG_FORE': 2048,
+              'DECOR': 3840, 'KEY': 3840, 'PROP': 1024, 'CHAR': 1024, 'POSE': 1024, 'FX': 1024, 'UI': 512}
+def final_size(ar, long):
+    p, q = map(int, ar.split(':'))
+    return (long, round(long * q / p)) if p >= q else (round(long * p / q), long)
 A = []
 def add(id, cat, ch, typ, subject, file, ref_extra='', control='', neg='', note='', ar='', lock=False):
+    ar = AR_FIX.get(ar, ar)
+    g = GEN.get(ar, (ar, '', '그대로'))
+    fl = FINAL_LONG.get(typ, 1024); fw, fh = final_size(ar, fl) if ar else (fl, fl)
+    how = g[2] + (f' → 일러스트용 업스케일러로 {fw}×{fh}' if typ not in ('BG_WALL_TALL',) else '')
+    if typ == 'BG_WALL_TALL':
+        how = '한 번에 못 뽑음 → tile_kit.py tall-base로 구획 뒷벽 A를 세로로 이은 밑그림(2048×4096)을 만들고, 1024 크기 조각씩 인페인팅해서 아래→위 변화를 그림'
     A.append(dict(id=id, cat=cat, ch=ch, type=typ, subject=subject, file=file, ref=refs(ch, ref_extra),
-                  control=control, neg_extra=neg, note=note, ar=ar, char_lock=lock))
+                  control=control, neg_extra=neg, note=note, ar=ar, char_lock=lock,
+                  gen_ar=g[0], gen_size=g[1], final=f'{fw}×{fh}', final_long=fl, how=how))
 
 # 0. 골든 이미지 (가장 먼저)
 add('G1', '0 골든', 1, 'KEY', "wide game screenshot-like scene, a small chalk-white child figure standing on pencil-hatched rock ledges "
@@ -666,8 +690,8 @@ for key, subj in UI:
     add(f'UI-{key}', '10 UI', 1, 'UI', subj, f'common/ui/{key}.png', neg=NEG_ENV, ar='1:1', note='글자는 엔진에서 폰트로')
 
 # 9. 키 아트
-add('K-cover', '11 키 아트', 1, 'KEY', "the sketchbook cover with an empty title area, worn edges, a small paper figure sitting on it", 'common/key/cover.png', ar='16:9', note='제목 Unfin은 손글씨로 합성')
-add('K-ch1', '11 키 아트', 1, 'KEY', "chapter one title page: pencil forest drawn in graphite, a tiny paper figure at the edge", 'ch1/key/ch1_title.png', ar='16:9')
+add('K-cover', '11 키 아트', 1, 'KEY', "the sketchbook cover with an empty title area, worn edges, a small chalk-white figure sitting on it", 'common/key/cover.png', ar='16:9', note='제목 Unfin은 손글씨로 합성')
+add('K-ch1', '11 키 아트', 1, 'KEY', "chapter one title page: pencil forest drawn in graphite, a tiny chalk-white figure at the edge", 'ch1/key/ch1_title.png', ar='16:9')
 add('K-ch2', '11 키 아트', 2, 'KEY', "chapter two title page: crayon hills at sunset, the broken crayon knight far away", 'ch2/key/ch2_title.png', ar='16:9')
 
 # ───────────────────────── 조립 ─────────────────────────
@@ -693,14 +717,15 @@ def main():
               NEG_COMMON=NEG_COMMON, NEG_ENV=NEG_ENV, NEG_BG=NEG_BG, NEG_BG_GLIMPSE=NEG_BG_GLIMPSE, NEG_TERRAIN=NEG_TERRAIN, NEG_DECOR=NEG_DECOR, NEG_CHAR=NEG_CHAR, NEG_POSE=NEG_POSE), assets=A),
               open(os.path.join(ROOT, 'asset_catalog.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     with open(os.path.join(ROOT, 'prompts_full.csv'), 'w', encoding='utf-8-sig', newline='') as f:
-        w = csv.writer(f); w.writerow(['ID', '분류', '장', '종류', '파일', '비율', '레퍼런스', '컨트롤 이미지', '메모', '프롬프트', '네거티브'])
-        for r in rows: w.writerow([r['id'], r['cat'], r['ch'], r['type'], 'Art/out/' + r['file'], r['ar'], r['ref'], r['control'], r['note'], r['prompt'], r['negative']])
+        w = csv.writer(f); w.writerow(['ID', '분류', '장', '종류', '파일', '최종 비율', 'AI에 요청할 비율', 'AI가 보통 뽑는 크기', '최종 크기', '최종으로 만드는 법', '레퍼런스', '컨트롤 이미지', '메모', '프롬프트', '네거티브'])
+        for r in rows: w.writerow([r['id'], r['cat'], r['ch'], r['type'], 'Art/out/' + r['file'], r['ar'], r['gen_ar'], r['gen_size'], r['final'], r['how'], r['ref'], r['control'], r['note'], r['prompt'], r['negative']])
     md = ['# Unfin 완성 프롬프트 (자동 생성 · 직접 고치지 말 것)', '', '> `python Tools/build_prompts.py`로 다시 만들어. 규칙은 Docs/19 문서.', '']
     cat = None
     for r in rows:
         if r['cat'] != cat:
             cat = r['cat']; md += ['', f'## {cat}', '']
-        md += [f"### {r['id']} · `{r['file']}`", f"- 레퍼런스: {r['ref']}" + (f" · 컨트롤: `{r['control']}`" if r['control'] else '') + (f" · 비율 {r['ar']}" if r['ar'] else '') + (f" · {r['note']}" if r['note'] else ''),
+        md += [f"### {r['id']} · `{r['file']}`", f"- 레퍼런스: {r['ref']}" + (f" · 컨트롤: `{r['control']}`" if r['control'] else '') + (f" · {r['note']}" if r['note'] else ''),
+               f"- 📐 AI에 요청: **{r['gen_ar']}** (보통 {r['gen_size']}) → {r['how']} · 최종 **{r['final']}**",
                '```', r['prompt'], '```', '네거티브:', '```', r['negative'], '```', '']
     open(os.path.join(ROOT, 'ALL_PROMPTS.md'), 'w', encoding='utf-8').write('\n'.join(md))
     from collections import Counter

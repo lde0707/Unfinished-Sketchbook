@@ -22,6 +22,12 @@
         반 칸씩 밀어 보기 (가운데 십자에 이음새가 보이면 안 이어지는 그림) → 그림_offset.png
   python Tools/tile_kit.py preview a.png b.png c.png [--cols 4 --rows 3]
         변형을 무작위로 섞어 깐 미리보기 (실제 게임처럼) → tile_preview.png
+  python Tools/tile_kit.py prep 그림.png --id TZ1-A-edge_top [--seamless] [--out 결과.png]
+        AI가 뽑은 그림(1024~1536px, 1:1·3:2·2:3·16:9)을 목록의 최종 비율로 잘라 최종 크기로 키움 (+ 이어지게)
+        ※ 키우기는 Lanczos라 임시용. 최종은 일러스트용 AI 업스케일러가 더 깨끗함 (17 문서 §9)
+  python Tools/tile_kit.py seamless 그림.png [--dir hv|h|v]
+        타일링 옵션이 없는 AI(예: 대화형 AI의 그림 생성)로 뽑은 그림을 4방향(또는 한 방향)으로 이어지게 만듦
+        (반 칸 민 그림과 가운데만 부드럽게 섞음 → 그다음 이음 자리를 인페인팅으로 다듬으면 더 좋음)
   python Tools/tile_kit.py check 그림.png [다른 변형.png ...]
         스스로 4방향 이어지는지 + 변형끼리 테두리가 같은지 숫자로 판정
 """
@@ -75,7 +81,7 @@ def wrap_score(A, d):
     L = A @ np.array([0.299, 0.587, 0.114])
     if d == 'v': L = L.T
     inner = np.mean([np.abs(L[:, k] - L[:, k + 1]).mean() for k in range(5, L.shape[1] - 5, max(1, L.shape[1] // 40))])
-    return float(np.abs(L[:, -1] - L[:, 0]).mean() / max(inner, 0.3))
+    return float(np.abs(L[:, -1] - L[:, 0]).mean() / max(inner, 1.0))   # 1단계 미만 차이는 눈에 안 보임
 
 
 def border_diff(A, B, band=0.1):
@@ -96,6 +102,41 @@ def preview(files, cols, rows, size=512):
     return out
 
 
+def make_seamless(A, d='hv'):
+    """반 칸 민 그림(B)의 끝은 원래 그림의 가운데라서 서로 이어짐. 가운데는 원본, 끝으로 갈수록 B를 보이게 섞음"""
+    h, w = A.shape[:2]; B = A.copy()
+    yy, xx = np.mgrid[0:h, 0:w]
+    wx = np.ones((h, w)); wy = np.ones((h, w))
+    if 'h' in d:
+        B = np.roll(B, w // 2, 1); wx = np.clip(1 - np.abs(xx - w / 2) / (w / 2), 0, 1)
+    if 'v' in d:
+        B = np.roll(B, h // 2, 0); wy = np.clip(1 - np.abs(yy - h / 2) / (h / 2), 0, 1)
+    wgt = np.clip(np.minimum(wx, wy) * 2.2, 0, 1)[..., None]                 # 가운데 넓게 원본, 끝 쪽만 B
+    return A * wgt + B * (1 - wgt)
+
+
+def prep(path, aid, seamless=False, out=None):
+    import json
+    cat = {x['id']: x for x in json.load(open(os.path.join(BASE, 'Art', 'asset_catalog.json'), encoding='utf-8'))['assets']}
+    a = cat[aid]; im = Image.open(path); im.load()
+    p, q = map(int, a['ar'].split(':')); want = p / q; W, H = im.size
+    if W / H > want: nw = round(H * want); box = ((W - nw) // 2, 0, (W - nw) // 2 + nw, H)       # 너무 넓으면 좌우 자르기
+    else: nh = round(W / want); top = (H - nh) // 2; box = (0, top, W, top + nh)                    # 너무 높으면 위아래(띠는 가운데) 자르기
+    im = im.crop(box)
+    fw, fh = map(int, a['final'].replace('×', 'x').split('x'))
+    im = im.resize((fw, fh), Image.LANCZOS)
+    if seamless:
+        d = 'hv' if a['type'] in ('BG_WALL', 'TERRAIN') else 'h' if a['type'] in ('BG_WALL_TALL', 'BG_FORE', 'EDGE') else 'v' if '↕️' in a.get('note', '') else ''
+        if d:
+            arr = np.asarray(im.convert('RGBA'), dtype=np.float64)
+            rgb = make_seamless(arr[..., :3], d); al = make_seamless(arr[..., 3:].repeat(3, -1), d)[..., :1]
+            im = Image.fromarray(np.clip(np.concatenate([rgb, al], -1), 0, 255).astype(np.uint8), 'RGBA')
+            if a['type'] not in ('EDGE', 'BG_FORE', 'BG_SET'): im = im.convert('RGB')
+    out = out or os.path.join(os.path.dirname(os.path.abspath(path)), f'{aid}.png')
+    im.save(out); print(f'→ {out} ({fw}×{fh}, 최종 비율 {a["ar"]}' + (', 이어지게 처리' if seamless else '') + ')')
+    return out
+
+
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='이어지는 배경 만들기 도구'); sp = ap.add_subparsers(dest='cmd', required=True)
     m = sp.add_parser('mask'); m.add_argument('--w', type=int, default=2048); m.add_argument('--h', type=int, default=2048); m.add_argument('--band', type=float, default=0.1)
@@ -105,6 +146,8 @@ if __name__ == '__main__':
     o = sp.add_parser('offset'); o.add_argument('img')
     p = sp.add_parser('preview'); p.add_argument('imgs', nargs='+'); p.add_argument('--cols', type=int, default=4); p.add_argument('--rows', type=int, default=3); p.add_argument('--out', default='tile_preview.png')
     c = sp.add_parser('check'); c.add_argument('imgs', nargs='+')
+    pr = sp.add_parser('prep'); pr.add_argument('img'); pr.add_argument('--id', required=True); pr.add_argument('--seamless', action='store_true'); pr.add_argument('--out', default=None)
+    sm = sp.add_parser('seamless'); sm.add_argument('img'); sm.add_argument('--dir', default='hv', choices=['hv', 'h', 'v'])
     a = ap.parse_args()
     if a.cmd == 'mask':
         d = os.path.join(BASE, 'Art', 'tile'); os.makedirs(d, exist_ok=True)
@@ -120,6 +163,10 @@ if __name__ == '__main__':
         A = load(a.img); save(np.roll(np.roll(A, A.shape[0] // 2, 0), A.shape[1] // 2, 1), stem(a.img, 'offset'))
     elif a.cmd == 'preview':
         preview(a.imgs, a.cols, a.rows).save(a.out); print('→', a.out)
+    elif a.cmd == 'prep':
+        prep(a.img, a.id, a.seamless, a.out)
+    elif a.cmd == 'seamless':
+        save(make_seamless(load(a.img), a.dir), stem(a.img, 'seamless'))
     elif a.cmd == 'check':
         ok = True; As = [load(f) for f in a.imgs]
         for f, A in zip(a.imgs, As):
