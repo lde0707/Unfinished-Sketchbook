@@ -13,5 +13,7 @@
     }
   ],
   "animationMethod": "Original 60fps Unity AnimationClips drive mesh deformation of six AI-generated paper artwork parts (collar retained as optional source part). Timing authored for this prototype, not measured from the linked packs.",
-  "scope": "18 clips. Locomotion integrated with existing GridMotor. J previews 3 unarmed attack poses. Hurt/Death are authored preview clips, no health/combat implementation."
+  "scope": "18 clips. Locomotion integrated with existing GridMotor. J previews 3 unarmed attack poses. Hurt/Death are authored preview clips, no health/combat implementation.",
+  "status": "Rejected by user: both appearance and movement. Technical validation does not imply visual approval.",
+  "nextStudy": "Art/animations/player-c-v2/preview.html"
 }

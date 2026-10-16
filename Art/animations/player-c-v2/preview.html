@@ -1,0 +1,18 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C 캐릭터 · 외형과 달리기 재작업</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#171b21;color:#e5e1d7;font:15px/1.6 system-ui,sans-serif}main{max-width:1040px;margin:auto;padding:28px}h1{font-size:26px;font-weight:550;margin:0 0 4px}p{color:#acb0b9}.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}.label{margin:0 0 8px;font-size:16px}canvas{display:block;width:100%;background:#090c10;border-radius:12px}.old{opacity:.8}.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}button,select{background:#2a303a;color:#ece7dc;border:1px solid #525a66;border-radius:7px;padding:9px 14px;font:inherit;cursor:pointer}small{color:#999faa}a{color:#d8ccb0}@media(max-width:600px){.pair{grid-template-columns:1fr}main{padding:20px}.old{order:2}}</style>
+<main><h1>C 캐릭터 · 달리기 재작업</h1><p>넓고 긴 종이 망토, 짧은 팔다리, 앞으로 기울어 발로 밀어내는 자세.</p>
+<div class="pair"><section class="old"><div class="label">이전 시안</div><canvas id="old" width="420" height="420"></canvas></section><section><div class="label">수정 시안</div><canvas id="new" width="420" height="420"></canvas></section></div>
+<div class="controls"><button id="play">일시 정지</button><select id="speed" aria-label="재생 속도"><option value="1">정상 속도</option><option value="0.5">0.5배속</option><option value="0.25">0.25배속</option></select><button id="flip">좌우 반전</button><button id="next">다음 프레임</button></div>
+<p id="status"></p><small>새 시안은 12장의 전신 자세를 연결한 달리기 검토본입니다. 프레임 사이의 망토 모양과 발 접지는 추가로 다듬어야 합니다. Unity 및 웹 게임에는 아직 교체 적용하지 않았습니다.</small>
+<p><a href="run-source.png">새 원화 시트</a> · <a href="run-aligned.png">정렬한 투명 프레임 시트</a></p>
+</main><script>
+const newer=new Image(),older=new Image();newer.src='run-aligned.png';older.src='../player-c-v1/sheets/Run.png';
+const ctxNew=document.getElementById('new').getContext('2d'),ctxOld=document.getElementById('old').getContext('2d');
+let t=0,last=performance.now(),playing=true,flipped=false;
+document.getElementById('play').onclick=e=>{playing=!playing;e.target.textContent=playing?'일시 정지':'재생'};
+document.getElementById('flip').onclick=()=>flipped=!flipped;
+document.getElementById('next').onclick=()=>{playing=false;document.getElementById('play').textContent='재생';t=(Math.floor(t*24)+1)/24+.00001};
+function sprite(ctx,img,frame,size,columns){ctx.clearRect(0,0,420,420);if(!img.complete||!img.naturalWidth)return;ctx.save();if(flipped){ctx.translate(420,0);ctx.scale(-1,1)}ctx.drawImage(img,frame%columns*size,Math.floor(frame/columns)*size,size,size,0,0,420,420);ctx.restore()}
+function tick(now){if(playing)t+=Math.min((now-last)/1000,.1)*Number(document.getElementById('speed').value);last=now;let f=Math.floor(t*24)%12;sprite(ctxNew,newer,f,420,4);sprite(ctxOld,older,Math.floor(t*60)%48,192,8);document.getElementById('status').textContent='수정 시안 · '+(f+1)+' / 12';requestAnimationFrame(tick)}requestAnimationFrame(tick);
+</script></html>
