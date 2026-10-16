@@ -1,0 +1,160 @@
+{
+  "status": "passed",
+  "previewCount": 5,
+  "renderSize": [
+    1920,
+    1080
+  ],
+  "rawSourceFilesUnchanged": true,
+  "hardEdgeSeamless": false,
+  "connection": "256px overlapping large sprites with smooth normalized weights",
+  "unityApplied": false,
+  "results": [
+    {
+      "file": "01-A-with-ground.png",
+      "zones": [
+        "A"
+      ],
+      "backgroundTileInstances": 12,
+      "backgroundMeanLuminance": 40.64157947185509,
+      "terrainEdgeMeanLuminance": 121.46225739597385,
+      "seams": [
+        {
+          "axis": "x",
+          "position": 531,
+          "maxAdjacentChannelDifference": 14,
+          "meanAdjacentChannelDifference": 0.4352795798578931
+        },
+        {
+          "axis": "x",
+          "position": 1299,
+          "maxAdjacentChannelDifference": 18,
+          "meanAdjacentChannelDifference": 0.39666357738646896
+        },
+        {
+          "axis": "y",
+          "position": 595,
+          "maxAdjacentChannelDifference": 22,
+          "meanAdjacentChannelDifference": 1.2030571478200451
+        }
+      ]
+    },
+    {
+      "file": "02-B-with-ground.png",
+      "zones": [
+        "B"
+      ],
+      "backgroundTileInstances": 12,
+      "backgroundMeanLuminance": 35.691663126080215,
+      "terrainEdgeMeanLuminance": 98.52840797929244,
+      "seams": [
+        {
+          "axis": "x",
+          "position": 531,
+          "maxAdjacentChannelDifference": 10,
+          "meanAdjacentChannelDifference": 0.28575841828853876
+        },
+        {
+          "axis": "x",
+          "position": 1299,
+          "maxAdjacentChannelDifference": 15,
+          "meanAdjacentChannelDifference": 0.40129749768303985
+        },
+        {
+          "axis": "y",
+          "position": 595,
+          "maxAdjacentChannelDifference": 20,
+          "meanAdjacentChannelDifference": 0.36598923050199755
+        }
+      ]
+    },
+    {
+      "file": "03-C-with-ground.png",
+      "zones": [
+        "C"
+      ],
+      "backgroundTileInstances": 12,
+      "backgroundMeanLuminance": 35.853537016819274,
+      "terrainEdgeMeanLuminance": 86.76745111633304,
+      "seams": [
+        {
+          "axis": "x",
+          "position": 531,
+          "maxAdjacentChannelDifference": 7,
+          "meanAdjacentChannelDifference": 0.4402224281742354
+        },
+        {
+          "axis": "x",
+          "position": 1299,
+          "maxAdjacentChannelDifference": 7,
+          "meanAdjacentChannelDifference": 0.39202965708989806
+        },
+        {
+          "axis": "y",
+          "position": 595,
+          "maxAdjacentChannelDifference": 10,
+          "meanAdjacentChannelDifference": 0.4570088587806149
+        }
+      ]
+    },
+    {
+      "file": "04-D-with-ground.png",
+      "zones": [
+        "D"
+      ],
+      "backgroundTileInstances": 12,
+      "backgroundMeanLuminance": 34.367625449681896,
+      "terrainEdgeMeanLuminance": 85.54362734304745,
+      "seams": [
+        {
+          "axis": "x",
+          "position": 531,
+          "maxAdjacentChannelDifference": 6,
+          "meanAdjacentChannelDifference": 0.4825455668829163
+        },
+        {
+          "axis": "x",
+          "position": 1299,
+          "maxAdjacentChannelDifference": 8,
+          "meanAdjacentChannelDifference": 0.4025332097621254
+        },
+        {
+          "axis": "y",
+          "position": 595,
+          "maxAdjacentChannelDifference": 9,
+          "meanAdjacentChannelDifference": 0.47959006426958484
+        }
+      ]
+    },
+    {
+      "file": "05-C-D-with-ground.png",
+      "zones": [
+        "C",
+        "D"
+      ],
+      "backgroundTileInstances": 12,
+      "backgroundMeanLuminance": 35.23463704184436,
+      "terrainEdgeMeanLuminance": 109.78992015561685,
+      "seams": [
+        {
+          "axis": "x",
+          "position": 531,
+          "maxAdjacentChannelDifference": 7,
+          "meanAdjacentChannelDifference": 0.4402224281742354
+        },
+        {
+          "axis": "x",
+          "position": 1299,
+          "maxAdjacentChannelDifference": 8,
+          "meanAdjacentChannelDifference": 0.4127278344145814
+        },
+        {
+          "axis": "y",
+          "position": 595,
+          "maxAdjacentChannelDifference": 9,
+          "meanAdjacentChannelDifference": 0.4359909675178044
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "terrainOffsetY": 328
+  },
+  "background": {
+    "zones": [
+      "A"
+    ],
+    "tileSize": 1024,
+    "overlap": 256,
+    "viewOffset": [
+      237,
+      173
+    ],
+    "placements": [
+      {
+        "col": -1,
+        "row": -1,
+        "x": -768,
+        "y": -768,
+        "flipX": true,
+        "flipY": false
+      },
+      {
+        "col": 0,
+        "row": -1,
+        "x": 0,
+        "y": -768,
+        "flipX": false,
+        "flipY": false
+      },
+      {
+        "col": 1,
+        "row": -1,
+        "x": 768,
+        "y": -768,
+        "flipX": true,
+        "flipY": true
+      },
+      {
+        "col": 2,
+        "row": -1,
+        "x": 1536,
+        "y": -768,
+        "flipX": true,
+        "flipY": false
+      },
+      {
+        "col": -1,
+        "row": 0,
+        "x": -768,
+        "y": 0,
+        "flipX": true,
+        "flipY": true
+      },
+      {
+        "col": 0,
+        "row": 0,
+        "x": 0,
+        "y": 0,
+        "flipX": false,
+        "flipY": true
+      },
+      {
+        "col": 1,
+        "row": 0,
+        "x": 768,
+        "y": 0,
+        "flipX": true,
+        "flipY": false
+      },
+      {
+        "col": 2,
+        "row": 0,
+        "x": 1536,
+        "y": 0,
+        "flipX": true,
+        "flipY": true
+      },
+      {
+        "col": -1,
+        "row": 1,
+        "x": -768,
+        "y": 768,
+        "flipX": true,
+        "flipY": true
+      },
+      {
+        "col": 0,
+        "row": 1,
+        "x": 0,
+        "y": 768,
+        "flipX": false,
+        "flipY": true
+      },
+      {
+        "col": 1,
+        "row": 1,
+        "x": 768,
+        "y": 768,
+        "flipX": true,
+        "flipY": true
+      },
+      {
+        "col": 2,
+        "row": 1,
+        "x": 1536,
+        "y": 768,
+        "flipX": true,
+        "flipY": false
+      }
+    ]
+  },
+  "foreground": {
+    "layout": "straight",
+    "cropX": 512,
+    "source": [
+      "01-paper-cavern"
+    ]
+  },
+  "transition": null
+}

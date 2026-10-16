@@ -1,0 +1,115 @@
+{
+  "version": 2,
+  "generator": "built-in image_gen",
+  "status": "Preview tile renderer; not installed into Unity",
+  "background": {
+    "sourceSize": 1254,
+    "renderTileSize": 1024,
+    "stride": 768,
+    "overlap": 256,
+    "airColor": [
+      22,
+      25,
+      29
+    ],
+    "opacity": 0.74,
+    "detail": "broad flat graphic shapes; dark background",
+    "sampling": "original PNGs preserved; tile sprites mirrored per cell and blended over 256px overlap, not hard-edge seamless textures"
+  },
+  "terrain": {
+    "tileSize": 128,
+    "source": "../region1-tiles-v8",
+    "unchanged": true
+  },
+  "regions": [
+    {
+      "id": "A",
+      "name": "종이굴",
+      "file": "A-paper-wall.png",
+      "material": "Warm ash taupe / gray-brown palette (#252522 deep air, #36342e broad body, #4a453b quiet lit plane). Broad bent paper-like folds and simplified rounded paper layers intermixed with a few very broad graphite bands. Paper appears as restrained graphic arcs and overlapping shapes; do not add drawings, letters, fragments of handwriting, realistic torn paper fibers or angular paper-cut triangles.",
+      "terrainFolder": "01-paper-cavern",
+      "prompt": "Create ONE square seamless repeating BACK-WALL TILE for a stylized 2D metroidvania game, requested 1536x1536 square PNG. This is a reusable background texture, not a full landscape or a cave scenic painting. Huge simple softly rounded overlapping shapes, crisp intentional graphic shapes, TWO or THREE broad flat tones with only a little soft cel shading. Approximately 30/100 texture detail. Dark, low contrast, quiet distant background sitting well behind the playable ground. Flat graphic illustration suitable for a high quality indie game, NOT photorealism, NOT 3D-rendered geology, NOT realistic rock, NOT detailed painterly texture. No fine cracks, tiny granules, fine pencil hatching, scratchy brush strokes, photographs, material scan, gritty surface, noise. No physical floor, ceiling, tunnels, archway opening, vanishing point, perspective, sky, horizon, characters, recognizable landmarks, text, border or spotlight. Evenly distributed wall material extends in every direction. Left/right edges and top/bottom edges must connect seamlessly when tiled in a grid; shapes crossing one edge continue at the opposite edge; uniform low luminance across tile, NO vignette. Large asymmetrical rounded shapes of varied size, no central emblem, no visible rectangular blocks or regular brick pattern. Restrained desaturated color; average background luminance about 15 percent, brightest shade below 28 percent. Enough value distinction to read broad shapes without competing with terrain. Preserve generous flat dark negative space between material contours.\nWarm ash taupe / gray-brown palette (#252522 deep air, #36342e broad body, #4a453b quiet lit plane). Broad bent paper-like folds and simplified rounded paper layers intermixed with a few very broad graphite bands. Paper appears as restrained graphic arcs and overlapping shapes; do not add drawings, letters, fragments of handwriting, realistic torn paper fibers or angular paper-cut triangles."
+    },
+    {
+      "id": "B",
+      "name": "흑연 광산",
+      "file": "B-graphite-wall.png",
+      "material": "Cold desaturated blue-gray palette (#1a252c deep air, #293943 broad body, #3c4d58 quiet lit plane). Broad rounded compressed graphite strata with a few extremely broad shallow carved marks. Soft blunt mineral masses, matte flat shading, no crystals or spikes, no beams, no lanterns. The material is a quiet blue-gray graphic rear wall rather than detailed rocky scenery.",
+      "terrainFolder": "02-graphite-mine",
+      "prompt": "Create ONE square seamless repeating BACK-WALL TILE for a stylized 2D metroidvania game, requested 1536x1536 square PNG. This is a reusable background texture, not a full landscape or a cave scenic painting. Huge simple softly rounded overlapping shapes, crisp intentional graphic shapes, TWO or THREE broad flat tones with only a little soft cel shading. Approximately 30/100 texture detail. Dark, low contrast, quiet distant background sitting well behind the playable ground. Flat graphic illustration suitable for a high quality indie game, NOT photorealism, NOT 3D-rendered geology, NOT realistic rock, NOT detailed painterly texture. No fine cracks, tiny granules, fine pencil hatching, scratchy brush strokes, photographs, material scan, gritty surface, noise. No physical floor, ceiling, tunnels, archway opening, vanishing point, perspective, sky, horizon, characters, recognizable landmarks, text, border or spotlight. Evenly distributed wall material extends in every direction. Left/right edges and top/bottom edges must connect seamlessly when tiled in a grid; shapes crossing one edge continue at the opposite edge; uniform low luminance across tile, NO vignette. Large asymmetrical rounded shapes of varied size, no central emblem, no visible rectangular blocks or regular brick pattern. Restrained desaturated color; average background luminance about 15 percent, brightest shade below 28 percent. Enough value distinction to read broad shapes without competing with terrain. Preserve generous flat dark negative space between material contours.\nCold desaturated blue-gray palette (#1a252c deep air, #293943 broad body, #3c4d58 quiet lit plane). Broad rounded compressed graphite strata with a few extremely broad shallow carved marks. Soft blunt mineral masses, matte flat shading, no crystals or spikes, no beams, no lanterns. The material is a quiet blue-gray graphic rear wall rather than detailed rocky scenery."
+    },
+    {
+      "id": "C",
+      "name": "나무 속",
+      "file": "C-wood-wall.png",
+      "material": "Muted walnut brown palette (#29231f deep air, #3c3027 broad body, #514034 quiet lit plane). Broad flowing bands of stylized pencil-wood grain; sparse rounded elongated knot swirls, roughly three large groupings per tile. Wood grain means wide flat bands, NOT tiny wood fibers. No realistic bark, no holes or tunnel arches, no roots that resemble walkable branches.",
+      "terrainFolder": "03-sketch-tree",
+      "prompt": "Create ONE square seamless repeating BACK-WALL TILE for a stylized 2D metroidvania game, requested 1536x1536 square PNG. This is a reusable background texture, not a full landscape or a cave scenic painting. Huge simple softly rounded overlapping shapes, crisp intentional graphic shapes, TWO or THREE broad flat tones with only a little soft cel shading. Approximately 30/100 texture detail. Dark, low contrast, quiet distant background sitting well behind the playable ground. Flat graphic illustration suitable for a high quality indie game, NOT photorealism, NOT 3D-rendered geology, NOT realistic rock, NOT detailed painterly texture. No fine cracks, tiny granules, fine pencil hatching, scratchy brush strokes, photographs, material scan, gritty surface, noise. No physical floor, ceiling, tunnels, archway opening, vanishing point, perspective, sky, horizon, characters, recognizable landmarks, text, border or spotlight. Evenly distributed wall material extends in every direction. Left/right edges and top/bottom edges must connect seamlessly when tiled in a grid; shapes crossing one edge continue at the opposite edge; uniform low luminance across tile, NO vignette. Large asymmetrical rounded shapes of varied size, no central emblem, no visible rectangular blocks or regular brick pattern. Restrained desaturated color; average background luminance about 15 percent, brightest shade below 28 percent. Enough value distinction to read broad shapes without competing with terrain. Preserve generous flat dark negative space between material contours.\nMuted walnut brown palette (#29231f deep air, #3c3027 broad body, #514034 quiet lit plane). Broad flowing bands of stylized pencil-wood grain; sparse rounded elongated knot swirls, roughly three large groupings per tile. Wood grain means wide flat bands, NOT tiny wood fibers. No realistic bark, no holes or tunnel arches, no roots that resemble walkable branches."
+    },
+    {
+      "id": "D",
+      "name": "뿌리 심부",
+      "file": "D-root-wall.png",
+      "material": "Muted olive gray-green palette (#202820 deep air, #303c2f broad body, #465141 quiet lit plane). Large soft interwoven root ribbons embedded in stylized earth, broad rounded contours and quiet gaps. Roots remain flat low-contrast graphic shapes. No tiny moss leaves, realistic bark, fine veins, spiderwebs, nests, tentacles or thorns. No large central knot.",
+      "terrainFolder": "04-tangled-root-depths",
+      "prompt": "Create ONE square seamless repeating BACK-WALL TILE for a stylized 2D metroidvania game, requested 1536x1536 square PNG. This is a reusable background texture, not a full landscape or a cave scenic painting. Huge simple softly rounded overlapping shapes, crisp intentional graphic shapes, TWO or THREE broad flat tones with only a little soft cel shading. Approximately 30/100 texture detail. Dark, low contrast, quiet distant background sitting well behind the playable ground. Flat graphic illustration suitable for a high quality indie game, NOT photorealism, NOT 3D-rendered geology, NOT realistic rock, NOT detailed painterly texture. No fine cracks, tiny granules, fine pencil hatching, scratchy brush strokes, photographs, material scan, gritty surface, noise. No physical floor, ceiling, tunnels, archway opening, vanishing point, perspective, sky, horizon, characters, recognizable landmarks, text, border or spotlight. Evenly distributed wall material extends in every direction. Left/right edges and top/bottom edges must connect seamlessly when tiled in a grid; shapes crossing one edge continue at the opposite edge; uniform low luminance across tile, NO vignette. Large asymmetrical rounded shapes of varied size, no central emblem, no visible rectangular blocks or regular brick pattern. Restrained desaturated color; average background luminance about 15 percent, brightest shade below 28 percent. Enough value distinction to read broad shapes without competing with terrain. Preserve generous flat dark negative space between material contours.\nMuted olive gray-green palette (#202820 deep air, #303c2f broad body, #465141 quiet lit plane). Large soft interwoven root ribbons embedded in stylized earth, broad rounded contours and quiet gaps. Roots remain flat low-contrast graphic shapes. No tiny moss leaves, realistic bark, fine veins, spiderwebs, nests, tentacles or thorns. No large central knot."
+    }
+  ],
+  "previews": [
+    {
+      "id": "01",
+      "name": "구겨진 종이굴",
+      "zones": [
+        "A"
+      ],
+      "layout": "straight",
+      "cropX": 512
+    },
+    {
+      "id": "02",
+      "name": "흑연 광산",
+      "zones": [
+        "B"
+      ],
+      "layout": "steps",
+      "cropX": 768
+    },
+    {
+      "id": "03",
+      "name": "스케치 나무 속",
+      "zones": [
+        "C"
+      ],
+      "layout": "steps",
+      "cropX": 1024
+    },
+    {
+      "id": "04",
+      "name": "엉킨 뿌리 심부",
+      "zones": [
+        "D"
+      ],
+      "layout": "steps",
+      "cropX": 1152
+    },
+    {
+      "id": "05",
+      "name": "나무에서 뿌리로 이어지는 구간",
+      "zones": [
+        "C",
+        "D"
+      ],
+      "layout": "straight",
+      "cropX": 512
+    }
+  ],
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "terrainOffsetY": 328
+  },
+  "transition": {
+    "startX": 576,
+    "endX": 1344
+  }
+}
