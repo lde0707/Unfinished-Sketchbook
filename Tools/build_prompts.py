@@ -18,33 +18,9 @@ import sys, json, csv, os
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'Art')
 
 # ───────────────────────── 블록 ─────────────────────────
-MSB = ("stylized 2D side-scrolling game art with a soft graphic design look, looks like a screen from a polished indie metroidvania game, "
-       "set inside a sketchbook world, clean confident outlines with crisp smooth curves and consistent line weight, no wobble, no sketchy or rough lines, "
-       "soft rounded shapes, flat color fills with one soft shade tone and one soft light tone, gentle subtle gradients allowed only inside shapes, "
-       "simplified readable game shapes, not realistic, not photographic, "
-       "muted warm gray-beige page tone like a page seen under a dim desk lamp, mid-key overall brightness (neither bright nor dark), "
-       "a very subtle uniform paper texture and a very faint square grid, "
-       "muted art-supply colors with low saturation, dark ink-gray outlines (not pure black), "
-       "outline weight thick and consistent on gameplay objects, thinner on background, "
-       "matte, flat lighting, calm melancholic mood with a quiet tension of adventure and combat, clear readable silhouettes, orthographic side view, "
-       "quiet composition with breathing room, the unfinished theme is shown with clean dashed outlines and unfilled outline-only areas, never with messy strokes, "
-       "high-resolution clean illustration (not pixel art), smooth anti-aliased edges, "
-       "every wall and floor surface designed uniquely with no repeating pattern")
+MSB = 'high-resolution illustrated 2D side-scrolling metroidvania game art, atmospheric subterranean fantasy inside an original unfinished sketchbook world, clean confident contours and smooth anti-aliased curves, strong readable silhouettes, simplified expressive characters, broad quiet shapes, restrained surface detail, layered caverns and architectural depth, desaturated region-specific colors with selective warm accents, calm melancholy and mysterious exploration, crisp gameplay plane against soft low-contrast distant layers, darker foreground framing, a small chalk-white protagonist clearly separated from the environment, environmental storytelling through abandoned art-supply structures, unfinished areas shown as deliberate clean missing shapes or dashed contours, no rough sketch treatment, no visible pixel-art grid, no repeated texture stamps; scene illustrations use restrained localized pools of light and atmospheric haze, while reusable tiles and isolated sprites use neutral lighting so room lighting can be composed separately'
 
-UNIFY = ("UNIFIED LOOK: identical flat ambient light from the front for every asset, no directional light, "
-         "no cast shadows, no glossy highlights, no rim light, only a soft faint contact shadow under grounded objects; "
-         "every outline uses the same dark ink-gray, the same crisp clean stroke with rounded line caps, and the same line weight for the same layer; "
-         "the same corner rounding on all shapes; shading is always one soft shade tone and one soft light tone inside each shape, "
-         "the shade tone always on the lower-right side of a shape; surface patterns are clean parallel lines at 45 degrees (top-right to bottom-left) "
-         "or clean simple motifs, never sketchy pencil hatching; the same very subtle paper texture over everything; same muted color temperature; "
-         "looks like part of one continuous designed game; "
-         "MID-KEY VALUES: the page paper sits around 70 percent brightness, far background slightly darker than the paper, "
-         "middle background darker again, terrain mid-dark, outlines dark ink-gray, the protagonist is the lightest shape on screen, "
-         "no large pure white areas, no crushed pure black areas, moderate contrast that keeps combat easy to read; "
-         "GAME LOOK: stylized and simplified like game art, details grouped into big simple masses, shapes read at a glance, "
-         "no realistic micro-detail, no painterly realism; "
-         "CLEAN AND SMOOTH: crisp smooth outlines, soft rounded corners, no hard square tile edges, "
-         "no repeated stamps or copy-pasted texture, pattern density and placement vary naturally across every surface")
+UNIFY = 'UNIFIED LOOK: consistent clean ink-gray contour language, smooth filled shapes, line weight strongest on gameplay silhouettes and quieter in the background, controlled two-tone local shading, sparse motifs inspired by each region material rather than all-over hatching, paper grain optional and almost invisible, no mandatory graph-paper overlay; DEPTH AND LIGHT: distant layers lose detail and contrast into the room atmosphere, middle-distance forms establish scale, foreground silhouettes frame rather than hide the route, local scene lights guide attention without washing out hazards, subtle haze and rim separation allowed in the scene pass, never bake a repeated spotlight or cast shadow into tiling material; VALUES: use a room-specific low-to-mid-key palette with readable floor edges, enemies and projectiles, the protagonist remains a clear light focal point, no universal paper brightness target, preserve detail in shadows and avoid blown-out highlights; original characters and art-supply architecture, smooth high-resolution illustration, no low-resolution enlargement, no messy strokes, no decorative noise competing with combat'
 
 MAT = {
     1: ("pencil-themed world: graphite-gray near-monochrome palette with warm grays, shapes inspired by pencils, erasers and graphite, "
@@ -90,12 +66,12 @@ TYPE = {
                 "designed as one unique object, not a repeating tile"),
     'BG_WALL': ("back wall of an enclosed interior space inside the sketchbook world, seen flat and straight on, fills the whole frame edge to edge, "
                 "NO sky, NO horizon, NO ground, NO outdoor landscape, no up or down direction, it is repeated sideways and stacked upward to fill wide halls and tall shafts, "
-                "large soft value variation (a few darker hollows and lighter worn patches), very low contrast, 5-12% darker than the page paper, "
+                "large soft value variation (a few darker hollows and lighter worn patches), very low contrast, receding into the room atmosphere, lower contrast than the gameplay plane, "
                 "faint stripe pattern and a few faint drawn cracks or marks, far-distance layer so details are soft and sparse, "
                 "no focal point, no objects, no repeating motif, square, seamless tileable texture in all four directions: the left edge continues exactly into the right edge and the top edge continues exactly into the bottom edge, no border, no frame, no vignette, no edge darkening, "
                 "all variations of the same area share the same outer border band so any variation can sit beside or above any other without a seam"),
     'BG_SET': ("single background set piece for an enclosed interior, isolated on transparent background, sits in the middle-distance layer behind the gameplay, "
-               "simple readable silhouette, thin lines, low contrast, 15-20% darker than the page paper and lighter than the gameplay terrain, "
+               "simple readable silhouette, thin lines, low contrast, a distinct middle-distance value band, quieter than the gameplay silhouettes, "
                "it will be placed in front of the back wall, so it must never look like it floats in the air: "
                "its ends are either cut off by the image edges or fade softly into the dark back wall, "
                "no flat horizontal tops that could look like walkable platforms (tops are rounded, slanted or ragged), "
@@ -104,7 +80,7 @@ TYPE = {
                      "NO sky, NO horizon, NO ground, the wall slowly changes from bottom to top to show progress while climbing, "
                      "seamless on all four sides: the left edge continues exactly into the right edge, "
                      "and the top and bottom border bands match the area's square back wall border band so it stacks above and below the square walls without a seam, "
-                     "very low contrast, 5-12% darker than the page paper, faint stripe pattern, no objects, no repeating motif"),
+                     "very low contrast, receding into the room atmosphere, lower contrast than the gameplay plane, faint stripe pattern, no objects, no repeating motif"),
     'BG_FORE': ("foreground frame piece of an enclosed interior on transparent background (hanging roots or rock lumps that frame the screen edge), "
                 "dark soft silhouette, slightly faded, sparse, must not cover the middle of the screen, "
                 "the left edge continues exactly into the right edge so it repeats sideways without a seam"),
@@ -129,8 +105,8 @@ TYPE = {
            "made of drawing-material pieces"),
     'UI': ("clean graphic game UI element looking like a small paper note or doodle on a sketchbook, semi-transparent cream paper slightly lighter than the page, "
            "clean rounded border, transparent background, no text"),
-    'KEY': ("illustration page from the same sketchbook, slightly more detailed than gameplay art but still stylized game art, same materials, outline, lighting and mid-key values, "
-            "flat lighting, 16:9"),
+    'KEY': ("illustration page from the same sketchbook, slightly more detailed than gameplay art but still stylized game art, same materials and contour language, room-specific low-to-mid-key values and atmospheric depth, "
+            "restrained localized scene lighting and subtle haze, 16:9"),
 }
 
 CHAR_LOCK = ("the same tiny protagonist in every image: round head about 45% of total height, rounded-rectangle body, "
@@ -143,10 +119,10 @@ NEG_COMMON = ("pixel art, pixelated, 8-bit, 16-bit, retro game sprite, dot art, 
               "sketchy lines, rough pencil strokes, wobbly lines, messy hatching, scribbly texture, charcoal smudges, painterly brush strokes, rough texture, "
               "photorealistic, realistic painting, hyper-detailed, intricate realistic texture, realistic rendering, matte painting, "
               "realistic lighting, 3D render, CGI, voxel, generic corporate flat icons, clip art, stock vector illustration, anime cel shading, "
-              "glossy, shiny, metallic, chrome, neon, glow, bloom, lens flare, light rays, rim light, specular highlight, "
-              "directional shadows, cast shadow, strong rainbow gradients, airbrush glow, heavy drop shadow, pure black outline, high contrast HDR, "
-              "overexposed, high-key, washed out, bright white paper, blown-out highlights, pitch black, crushed shadows, low-key noir, "
-              "saturated rainbow colors, dark horror atmosphere, gore, text, letters, numbers, logo, watermark, signature, UI, frame border, "
+              "glossy, shiny, metallic, chrome, neon overload, excessive bloom, lens flare, glossy specular highlight, "
+              "inconsistent baked lighting between neighboring tiles, strong rainbow gradients, heavy drop shadow, pure black outline, high contrast HDR, "
+              "overexposed, high-key, washed out, bright white paper, blown-out highlights, unreadable crushed shadows, "
+              "saturated rainbow colors, gore, text, letters, numbers, logo, watermark, signature, UI, frame border, "
               "blurry, jpeg artifacts, perspective view, isometric, top-down")
 NEG_ENV = "characters, people, animals, creatures, faces"
 NEG_BG = (", sky, horizon, open landscape, meadow, outdoor scenery, sunlight, clouds, birds, flying creatures, flying shapes, foreground grass, ground plane, "
@@ -196,8 +172,8 @@ def add(id, cat, ch, typ, subject, file, ref_extra='', control='', neg='', note=
                   gen_ar=g[0], gen_size=g[1], final=f'{fw}×{fh}', final_long=fl, how=how))
 
 # 0. 골든 이미지 (가장 먼저)
-add('G1', '0 골든', 1, 'KEY', "wide game screenshot-like scene, a small chalk-white child figure standing on pencil-hatched rock ledges "
-    "in a half-drawn pencil forest cave with a ceiling above, a faint hatched back wall behind (no sky), platforms at different heights, breathing room of empty toned paper, mid-key brightness", 'golden/G1_scene.png', ar='16:9', note='전체 분위기 기준')
+add('G1', '0 골든', 1, 'KEY', "wide game screenshot-like scene, a small chalk-white child figure standing on smooth graphite-themed rock ledges "
+    "in a half-drawn pencil forest cave with a ceiling above, a soft low-contrast back wall behind (no sky), platforms at different heights, quiet negative space, layered cavern depth and a restrained local light accent", 'golden/G1_scene.png', ar='16:9', note='전체 분위기 기준')
 add('G2', '0 골든', 1, 'TERRAIN', "solid ground made of clean diagonal pencil-stripe pattern: a bold irregular top contour, a dense dark surface band with pebbles and graphite flecks just below it, "
     "and a lighter sparser interior with a faint strata line and half-filled paper patches", 'golden/G2_ground.png', ar='1:1', neg=NEG_ENV + NEG_TERRAIN, note='지형 질감 기준 (반복 없음)')
 add('G3', '0 골든', 0, 'CHAR', "character sheet of the protagonist: " + CHAR_LOCK + ", standing pose, three views of the same side pose redrawn by hand",
@@ -210,7 +186,7 @@ add('C2-G1', '0 골든', 2, 'KEY', "crayon cavern under the sunset hills, thick 
 add('C2-G2', '0 골든', 2, 'TERRAIN', "ground texture of overpainted crayon earth, layered crossing crayon stripe motifs", 'golden/C2_G2_ground.png', ar='1:1', neg=NEG_ENV)
 
 # 1. 지형 (반복 타일 대신: 큰 질감 원본 + 가장자리 띠 + 둥근 모서리 + 각각 다른 발판·특수 블록)
-#    이 재료가 월드 전체를 한 줄로 잇는 '바탕 지형'(Unity Sprite Shape)이 됨 → 방 경계에서 끊기지 않음.
+#    이 재료가 월드 전체를 한 줄로 잇는 '바탕 지형'(고해상도 Tilemap, Sprite Shape는 선택 보조)이 됨 → 방 경계에서 끊기지 않음.
 #    방 개성은 '3 방 장식'(투명 배경 오버레이)이 담당
 TERRAIN_SET = [
     ('corner_out', 'CORNER', "outer convex corner of ground, rounded"),
@@ -700,7 +676,7 @@ for key, subj in UI:
 
 # 9. 키 아트
 add('K-cover', '11 키 아트', 1, 'KEY', "the sketchbook cover with an empty title area, worn edges, a small chalk-white figure sitting on it", 'common/key/cover.png', ar='16:9', note='제목 Unfin은 손글씨로 합성')
-add('K-ch1', '11 키 아트', 1, 'KEY', "chapter one title page: pencil forest drawn in graphite, a tiny chalk-white figure at the edge", 'ch1/key/ch1_title.png', ar='16:9')
+add('K-ch1', '11 키 아트', 1, 'KEY', "chapter one title page: pencil forest built from smooth graphite-themed forms, a tiny chalk-white figure at the edge", 'ch1/key/ch1_title.png', ar='16:9')
 add('K-ch2', '11 키 아트', 2, 'KEY', "chapter two title page: crayon hills at sunset, the broken crayon knight far away", 'ch2/key/ch2_title.png', ar='16:9')
 
 # ───────────────────────── 조립 ─────────────────────────
@@ -716,19 +692,21 @@ def assemble(a):
     neg = NEG_COMMON + (', ' + a['neg_extra'] if a['neg_extra'] else '')
     return prompt, neg
 
+RESOLUTION_NOTE = '> **해상도 기준:** [21 고해상도 타일맵 규격](../Docs/21_고해상도_타일맵_규격.md). 지형 셀 256×256px·PPU 256, 큰 배경/방 오버레이 PPU 128. 아래 최종 크기는 큰 제작 원본 크기이며 한 칸의 해상도가 아니다. 16×16 도트 원본 확대 금지. 최종 타일 분할과 캐릭터 192×352px 정규화는 별도 내보내기 단계다.'
+
 def main():
     os.makedirs(ROOT, exist_ok=True)
     rows = []
     A.sort(key=lambda a: int(a['cat'].split()[0]))   # 분류 순서대로 (안정 정렬)
     for a in A:
         p, n = assemble(a); rows.append(dict(a, prompt=p, negative=n))
-    json.dump(dict(version='MSB v4 · UNIFY v4 · MAT v2 (부드러운 그래픽 디자인 · 선명한 선) · 지형 구조 v4 (구역별 지형 + 구역 이음, 3단 가장자리) · 배경 v6.2 실내형 · 4방향 이어짐 (구획 뒷벽 + 세로 뒷벽 + 공용 조각 + 방 대표 조각 · 붙는 곳) · 미드키 게임 그림체', blocks=dict(MSB=MSB, UNIFY=UNIFY, MAT=MAT, TYPE=TYPE, CHAR_LOCK=CHAR_LOCK,
+    json.dump(dict(version='MSB v5 · UNIFY v5 · MAT v2 (분위기 중심의 선명한 2D 메트로배니아) · 지형 구조 v4 (구역별 지형 + 구역 이음, 3단 가장자리) · 배경 v6.2 실내형 · 4방향 이어짐 (구획 뒷벽 + 세로 뒷벽 + 공용 조각 + 방 대표 조각 · 붙는 곳) · 미드키 게임 그림체', blocks=dict(MSB=MSB, UNIFY=UNIFY, MAT=MAT, TYPE=TYPE, CHAR_LOCK=CHAR_LOCK,
               NEG_COMMON=NEG_COMMON, NEG_ENV=NEG_ENV, NEG_BG=NEG_BG, NEG_BG_GLIMPSE=NEG_BG_GLIMPSE, NEG_TERRAIN=NEG_TERRAIN, NEG_DECOR=NEG_DECOR, NEG_CHAR=NEG_CHAR, NEG_POSE=NEG_POSE), assets=A),
               open(os.path.join(ROOT, 'asset_catalog.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     with open(os.path.join(ROOT, 'prompts_full.csv'), 'w', encoding='utf-8-sig', newline='') as f:
-        w = csv.writer(f); w.writerow(['ID', '분류', '장', '종류', '파일', '최종 비율', 'AI에 요청할 비율', 'AI가 보통 뽑는 크기', '최종 크기', '최종으로 만드는 법', '레퍼런스', '컨트롤 이미지', '메모', '프롬프트', '네거티브'])
+        w = csv.writer(f, lineterminator="\n"); w.writerow(['ID', '분류', '장', '종류', '파일', '최종 비율', 'AI에 요청할 비율', 'AI가 보통 뽑는 크기', '최종 크기', '최종으로 만드는 법', '레퍼런스', '컨트롤 이미지', '메모', '프롬프트', '네거티브'])
         for r in rows: w.writerow([r['id'], r['cat'], r['ch'], r['type'], 'Art/out/' + r['file'], r['ar'], r['gen_ar'], r['gen_size'], r['final'], r['how'], r['ref'], r['control'], r['note'], r['prompt'], r['negative']])
-    md = ['# Unfin 완성 프롬프트 (자동 생성 · 직접 고치지 말 것)', '', '> `python Tools/build_prompts.py`로 다시 만들어. 규칙은 Docs/19 문서.', '']
+    md = ['# Unfin 완성 프롬프트 (자동 생성 · 직접 고치지 말 것)', '', '> `python Tools/build_prompts.py`로 다시 만들어. 규칙은 Docs/19 문서.', '', RESOLUTION_NOTE, '']
     cat = None
     for r in rows:
         if r['cat'] != cat:

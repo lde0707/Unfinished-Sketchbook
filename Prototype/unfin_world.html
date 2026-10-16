@@ -192,6 +192,7 @@ button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
   <p class="note">방 번호는 장마다 따로 매겨져 있어 (연필 숲 1~30, 크레파스 언덕 1~26). 구역 이름으로 어느 장인지 구분돼. 맵 데이터는 Docs/04 · 13 문서와 같아.</p>
 </section>
 </div>
+<script src="terrain_layers.js"></script>
 <script>
 const T=16,W=560,H=215,VW=480,VH=270;
 const ZONES={"A":{"name":"구겨진 종이굴","tint":"#F3F1E7","dot":"#C9C3A8"},"B":{"name":"흑연 광산","tint":"#E6E6EB","dot":"#8F909C"},"C":{"name":"스케치 나무 속","tint":"#E4ECE3","dot":"#8DA58A"},"D":{"name":"엉킨 뿌리 심부","tint":"#F0E6E4","dot":"#B9928D"},"E":{"name":"노을 크레파스 굴","tint":"#F6EBDD","dot":"#DE9E68"},"F":{"name":"밀랍 공방","tint":"#F0E9E0","dot":"#CCB280"},"G":{"name":"색칠 지하 협곡","tint":"#E9EAF2","dot":"#8496C4"},"H":{"name":"기사의 탑","tint":"#F3E6E2","dot":"#C47668"}};
@@ -213,6 +214,7 @@ function buildMap(){const g=new Uint8Array(W*H);let i=0;for(const s of MAPRLE.sp
 (function(){
 const cv=document.getElementById('game'), ctx=cv.getContext('2d');
 const S=3; cv.width=VW*S; cv.height=VH*S;
+const terrain=createTerrainLayers({tileSize:T,width:W,height:H,scale:S,rooms:ROOMS,zones:ZONES,regionX:REGION_X});
 const C={paper:'#EDEDE8',grid:'rgba(70,74,84,0.07)',solid:'#5E6168',ledge:'#80848C',crumble:'#A4977F',hatch:'rgba(255,255,255,0.13)',edge:'#25272C',
  ink:'#2A2438',scrib:'#9A5B58',vine:'#56634F',gate:'#7A6A55',sheet:'#FBFBF9',text:'#26282D',sub:'#5E616A',
  melee:'#B07B73',range:'#6F8DA8',fly:'#7FA08B',elite:'#B89B60',boss:'#7A6F95',heart:'#B07B73',shard:'#4A4D55'};
@@ -243,7 +245,7 @@ const SIZE={soldier:[12,14,5],thrower:[12,14,4],bat:[12,10,3],drip:[12,8,3],turt
 const KS={soldier:1.35,thrower:1.3,bat:1.35,drip:1.3,turtle:1.1,knight:1.1,walker:1.35,range:1.3,fly:1.35,ball:1.35,mole:1.3,spider:1.35,blob:1.3,elite:1.1,boss:1.1};
 const SHARDS=PICKS.filter(p=>p[0]==='shard').length,HEARTS=PICKS.filter(p=>p[0]==='heart').length+SPAWNS.filter(s=>s[3]&&s[3].drop==='heart').length;
 function reset(){
- grid=buildMap();crumbles=new Map();
+ grid=buildMap();terrain.setGrid(grid);crumbles=new Map();
  P={x:START.tx*T+2,y:START.floor*T-22,w:12,h:22,vx:0,vy:0,face:1,hp:5,max:5,healBonus:0,paint:{r:0,y:0,b:0},slowT:0,onWax:false,inv:0,ground:false,coyote:0,jbuf:0,lock:0,atk:0,atkCd:0,dash:0,dashCd:0,
     hasDash:flags.dash,hasCut:flags.cut,hasWJ:!!flags.wj,items:flags.items?['paint','heal','shield']:[],itemSel:0,charges:{},itemCd:0,healT:0,shieldT:0,parryT:0,parryRec:0,pOk:0,pTry:0,hit:new Set(),cp:null,safe:null,shards:0,time:0,ended:false,hint:0};
  P.cp={x:P.x,y:P.y};P.safe={x:P.x,y:P.y};
@@ -564,9 +566,11 @@ function draw(){
  for(let y=y0;y<=y1+1;y++){ctx.moveTo(x0*T,y*T);ctx.lineTo((x1+1)*T,y*T);}
  ctx.stroke();
  // 지도 위 이름표·화살표 글자 없음 (구역·장 이름만 화면에 나옴)
- // 타일
+ // 격자 충돌과 분리된 채움·무늬·가장자리 타일 레이어
+ terrain.draw(ctx,ox,oy,VW,VH);
+ // 상호작용 타일
  for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){const t=grid[y*W+x];if(!t)continue;
-  if(t===1){ctx.fillStyle=C.solid;ctx.fillRect(x*T,y*T,T,T);}
+  if(t===1){continue;}
   else if(t===4){ctx.fillStyle=C.ledge;ctx.fillRect(x*T,y*T,T,T);}
   else if(t===6){const c=crumbles.get(y*W+x),sh=c&&!c.gone?(Math.random()-.5)*1.6:0;ctx.fillStyle=C.crumble;ctx.fillRect(x*T+sh,y*T,T,T);
    ctx.strokeStyle='rgba(37,39,44,.45)';ctx.lineWidth=0.8;ctx.beginPath();ctx.moveTo(x*T+4+sh,y*T);ctx.lineTo(x*T+7+sh,y*T+8);ctx.lineTo(x*T+5+sh,y*T+T);ctx.moveTo(x*T+11+sh,y*T+3);ctx.lineTo(x*T+13+sh,y*T+10);ctx.stroke();}
@@ -585,14 +589,11 @@ function draw(){
    cols.forEach((c,k)=>{ctx.fillStyle=c;ctx.fillRect(x*T+1+k*5,y*T+2,4,T-4);});}
   else if(t===7){ctx.fillStyle=C.gate;ctx.fillRect(x*T,y*T,T,T);ctx.fillStyle='#4A3F31';ctx.fillRect(x*T+3,y*T,2,T);ctx.fillRect(x*T+10,y*T,2,T);}
  }
- ctx.strokeStyle=C.hatch;ctx.lineWidth=1;ctx.beginPath();
- for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){if(grid[y*W+x]!==1)continue;const o=(hashf(x,y)*6)|0;ctx.moveTo(x*T+o,y*T+T);ctx.lineTo(x*T+o+8,y*T);ctx.moveTo(x*T+o+7,y*T+T);ctx.lineTo(x*T+T,y*T+o+3);}
- ctx.stroke();
  ctx.strokeStyle=C.scrib;ctx.lineWidth=1.2;ctx.beginPath();
  for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){if(grid[y*W+x]!==2)continue;for(let k=0;k<3;k++){const a=hashf(x+k,y*3),b=hashf(y+k,x*5);ctx.moveTo(x*T+2+a*4,y*T+2+b*12);ctx.bezierCurveTo(x*T+16,y*T+b*16,x*T,y*T+16-a*10,x*T+14,y*T+14-b*8);}}
  ctx.stroke();
  ctx.strokeStyle=C.edge;ctx.lineWidth=1.8;ctx.lineCap='round';ctx.beginPath();
- for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){const t=grid[y*W+x];if(t!==1&&t!==4)continue;
+ for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){const t=grid[y*W+x];if(t!==4)continue;
   const e=v=>v===0||v===2||v===5||v===9||v===13;
   if(e(get(x,y-1))){ctx.moveTo(x*T,y*T);ctx.lineTo(x*T+T,y*T);}
   if(e(get(x,y+1))){ctx.moveTo(x*T,y*T+T);ctx.lineTo(x*T+T,y*T+T);}

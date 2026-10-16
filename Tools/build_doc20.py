@@ -29,9 +29,13 @@ HOW = dict(BG_WALL='A = 타일링 옵션으로 생성 → B·C = `variant-base` 
            CORNER='투명 낱개', PLATFORM='투명 낱개', SPECIAL='투명 낱개', DECOR='ControlNet(방 윤곽) 0.4~0.6, 투명')
 
 
-def units(final):
+TERRAIN_PPU = 256
+TERRAIN_TYPES = {'TERRAIN', 'EDGE', 'TERRAIN_LINK', 'CORNER', 'PLATFORM', 'SPECIAL'}
+
+
+def units(final, ppu=PPU):
     w, h = map(int, final.replace('×', 'x').split('x'))
-    return f'{round(w / PPU, 2):g} × {round(h / PPU, 2):g}'
+    return f'{round(w / ppu, 2):g} × {round(h / ppu, 2):g}'
 
 
 def size_table():
@@ -40,7 +44,7 @@ def size_table():
         xs = [a for a in cat.values() if a['type'] == t]
         if not xs: continue
         combos = sorted({(a['gen_ar'], a['gen_size'], a['final']) for a in xs}, key=lambda c: -sum(1 for a in xs if (a['gen_ar'], a['gen_size'], a['final']) == c))
-        gen = '<br>'.join(f"{g} · {s}" for g, s, _ in combos); fin = '<br>'.join(f for _, _, f in combos); uu = '<br>'.join(units(f) for _, _, f in combos)
+        gen = '<br>'.join(f"{g} · {s}" for g, s, _ in combos); fin = '<br>'.join(f for _, _, f in combos); uu = '<br>'.join(units(f, TERRAIN_PPU if t in TERRAIN_TYPES else PPU) for _, _, f in combos)
         rows.append(f"| {LAYER[t]} | {TYPE_KO[t]} | {len(xs)} | {gen} | **{fin}** | {uu} | {HOW[t]} |")
     return rows
 
@@ -94,7 +98,8 @@ md = f"""# 20. 배경 제작 파이프라인 — 해상도 → 제작 → 연결
 
 > 배경(뒷벽·세트 조각·전경)과 그 앞의 지형을 **한 줄로** 만드는 법. 프롬프트 문장은 [17](17_AI_아트_프롬프트.md) · 에셋별 완성 프롬프트는 [19](19_에셋_목록_프롬프트.md) / `Art/ALL_PROMPTS.md`, 이 문서는 **크기·순서·이어 붙이기·유니티 배치·검사**만 다뤄.
 > 표는 `python Tools/build_doc20.py`로 자동 생성 (손으로 고치지 말고 `build_prompts.py` → 이 스크립트).
-> 그림체: **부드러운 그래픽 디자인 · 선명한 선** (손그림 ❌, 흔들리는 선·해칭 ❌) · 미드키 · 게임 그림체 — MSB v4 / UNIFY v4.
+> 그림체: **분위기 중심의 선명한 2D 일러스트 · 강한 실루엣 · 깊은 공간** — MSB v5 / UNIFY v5. 할로우 나이트를 분위기 레퍼런스로 삼되 Unfin의 화구 세계를 표현한다.
+> **v5 적용 상태:** 아래 자동화의 평균 밝기 검사·종이색 후처리는 이전 v3/v4 기준이다. 새 골든 장면에 맞게 프로파일을 재조정한 뒤 자동 채택을 사용한다. 현재 문서/프롬프트 개정만으로 검사 도구의 스타일 기준이 바뀐 것은 아니다.
 
 ---
 
@@ -120,26 +125,31 @@ md = f"""# 20. 배경 제작 파이프라인 — 해상도 → 제작 → 연결
 
 ## 1. 해상도 📐
 
-### 1-1. 기준 숫자 (전부 여기서 나옴)
+### 1-1. 기준 숫자
+
+> [21 고해상도 타일맵 규격](21_고해상도_타일맵_규격.md)이 공통 기준이다. 지형·캐릭터 PPU 256, 기존 큰 배경·방 전체 장식 PPU 128을 구분한다. 표의 큰 지형 원본은 최종 256px 셀로 잘라 쓰거나 여러 칸을 덮는 그림으로 사용한다.
 
 | 항목 | 값 | 설명 |
 |---|---|---|
-| 지도 1칸 | 논리 16px = **유니티 1유닛** | 프로토타입 지도 좌표 그대로 |
-| 화면 | 480×270 논리 → **30 × 16.875 유닛** → 실제 1920×1080 | 카메라 Orthographic Size **8.4375** |
-| 그림 배율 | **128px = 1유닛 (PPU 128)** = 화면의 2배로 그림 | 1080p에선 ½로 줄여 보여서 가장자리가 부드러움 |
+| 지도 1칸 | **유니티 1유닛** = HTML 16 논리 단위 (이미지 픽셀 아님) | 프로토타입 지도 좌표 그대로 |
+| 화면 | 시야 **30×16.875유닛** → 1080p·1440p·4K 직접 렌더링 | 카메라 Orthographic Size **8.4375** |
+| 지형·캐릭터 | **256px/유닛, PPU 256** · 단일 타일 256×256px | 1080p에서 1/4, 4K에서 1/2로 축소 |
+| 큰 배경·방 오버레이 | **PPU 128** 유지 | 지형 타일과 별도 크기; 2배 고밀도 교체 시 이미지와 PPU를 함께 2배 |
 | 뒷벽 한 장 | 2048² = **16 × 16 유닛** (화면 반 장 조금 넘음) | 뒷벽은 0.2배로 움직여서 한 방에 보통 2~6장 |
 | 세로 뒷벽 | 2048×4096 = **16 × 32 유닛** | 2.7화면 높이 방도 위아래는 뒷벽 A로 이어 채움 |
 | 방 장식 | 3840×2160 = **30 × 16.875 유닛 = 화면 한 장** | |
 
-### 1-2. 종류별 크기 (AI 요청 → 최종 → 유니티)
+### 1-2. 종류별 원본 크기 (AI 요청 → 최종 원본 → 유니티)
 
-> 이미지 AI는 **한 변 1024~1536px · 비율 1:1 / 3:2 / 2:3 / 16:9**만 됨 → **AI 크기로 뽑고 → 자르고 → 키워서 최종**.
+> L3 지형 원본은 PPU 256, 나머지 큰 배경과 방 장식은 PPU 128로 환산한다. 모서리·발판·특수 원본의 표기 크기는 자르기 전 전체 캔버스다. 실제 배치 칸 수에 맞게 자르고 256px/유닛으로 내보내며, 원본 전체를 무조건 한 칸에 축소하지 않는다.
+
+> 프로젝트 기본 생성 예시는 **한 변 약 1024~1536px · 비율 1:1 / 3:2 / 2:3 / 16:9**다. 실제 지원 크기는 도구별로 확인하고, 최종 크기로 직접 생성할 수 있으면 불필요한 업스케일을 생략한다.
 > 자르기·키우기: `python Tools/tile_kit.py prep 뽑은그림.png --id <에셋ID> [--seamless]` (Lanczos = 임시, 최종은 **일러스트용 AI 업스케일러** ×2 권장)
 
 """ + '\n'.join(size_table()) + """
 
-- ⚠️ 2048이 안 나오는 AI라도 **1024로 뽑아 ×2 업스케일**이 기본. 1024 그대로 유니티에 넣으면 PPU 64로 맞춰야 해서 선이 흐려져 → 금지
-- ⚠️ 업스케일 후 **선 굵기 확인** (최종 PNG = 화면의 2배라 1080p 굵기 × 2): 뒷벽 2~3px · 세트 조각 3px · 지형·발판 5~6px ([16](16_아트_컨셉.md) §2-2)
+- 최종 원본 크기에 못 미치는 생성물은 제작용 중간 결과다. 원래 배치 크기를 맞추려고 PPU만 낮추면 화질이 부족해질 수 있다. 고해상도 재생성 또는 일러스트용 업스케일·선 보정 후 최종 크기와 실제 화면 품질을 함께 검수한다. 낮은 해상도 도트를 크게 늘리는 방식은 금지한다.
+- ⚠️ 업스케일 후 **선 굵기 확인** (지형 원본은 1080p 굵기 ×4, 기존 배경은 ×2): 뒷벽 2~3px · 세트 조각 3px · 지형·발판 10~12px @ PPU 256 ([16](16_아트_컨셉.md) §2-2)
 - ⚠️ 이어지는 그림(뒷벽·채움·띠·이음·전경·↕️ 조각)은 **업스케일 뒤에 다시 이어짐 검사** — 업스케일러가 가장자리를 바꿀 수 있음
 
 ---
@@ -151,7 +161,7 @@ md = f"""# 20. 배경 제작 파이프라인 — 해상도 → 제작 → 연결
 | L0 | 종이 바탕 | 카메라 배경색 (`BgPaperColor`) | 화면 고정 | 장 종이색 (1장 `#BDBCB5`, 2장 `#C7BBA8`) |
 | L1 | **구획 뒷벽** | `BG_Wall` | **0.2, 0.6** | 뒷벽 A·B·C · 세로 뒷벽 · 구획 이음 |
 | L2 | **세트 조각** | `BG_Set` | **0.5, 0.8** | 방 대표 조각 · 공용 조각 |
-| L3 | 플레이 | `Terrain` < `Decor` < `Actors` < `Fx` | 1, 1 | 지형(Sprite Shape) · 방 장식 · 캐릭터 |
+| L3 | 플레이 | `Terrain` < `Decor` < `Actors` < `Fx` | 1, 1 | 지형(고해상도 다중 Tilemap) · 방 장식 · 캐릭터 |
 | L4 | 전경 테두리 | `Fore` | **1.3, 0** (세로는 화면 고정) | 위·아래 가장자리 매달린 덩어리, 투명도 40% |
 
 **패럴랙스 식 (방 가운데 기준)** — `Tools/unity/Runtime/BgParallax.cs`
@@ -184,7 +194,7 @@ f = 플레이 층이 1 움직일 때 이 층이 화면에서 움직이는 양 (0
 ### 3-2. 그림마다 한 장 만드는 흐름 (공통)
 
 ```
-① 프롬프트 복사       Art/ALL_PROMPTS.md 에서 에셋 ID 찾기 (MSB v4 + TYPE + MAT + UNIFY v4 + 네거티브가 이미 조립돼 있음)
+① 프롬프트 복사       Art/ALL_PROMPTS.md 에서 에셋 ID 찾기 (MSB v5 + TYPE + MAT + UNIFY v5 + 네거티브가 이미 조립돼 있음)
 ② AI에 요청          📐 줄의 비율로 (예: 뒷벽 1:1 · 세로 뒷벽 2:3 · 띠 3:2) + 레퍼런스 = 골든 + 같은 구획 A
 ③ 자르고 키우기       python Tools/tile_kit.py prep 뽑은.png --id B1-A1-wall_a --seamless
 ④ 넣기               Art/inbox/B1-A1-wall_a.png  (파일 이름 = 에셋 ID)
@@ -255,14 +265,16 @@ python Tools/tile_kit.py link-base B1-A2-wall_a.png B1-A1-wall_a.png --dir h --o
 | `Tools/unity/Runtime/*.cs` | `Assets/Scripts/Unfin/Background/` | `BgParallax` · `BgSetPiece` · `BgPaperColor` |
 | `Tools/unity/Editor/*.cs` | `Assets/Scripts/Unfin/Background/Editor/` | `UnfinArtImporter` · `BgRoomBuilder` (**Editor 폴더 안에**) |
 
-### 5-1. 가져오기 설정 (자동: `UnfinArtImporter`)
+### 5-1. 가져오기 목표 설정
+
+> **구현 상태:** 현재 `UnfinArtImporter`는 모든 이미지에 PPU 128을 적용한다. 아래 지형·캐릭터 PPU 256 분기는 아직 미구현이다. Unity 적용 전에 타입별 분기를 반영해야 하며, 배경 매니페스트 PPU 128은 유지한다. 문서 수정만으로 자동 가져오기가 바뀌지는 않는다.
 
 | 항목 | 값 | 이유 |
 |---|---|---|
-| Texture Type / Mode | Sprite (2D and UI) / Single | |
-| Pixels Per Unit | **128** | 1유닛 = 128px (§1-1) |
+| Texture Type / Mode | Sprite (2D and UI); 타일 시트 Multiple, 낱개 Single | 타일 내용 256×256px, 여백 별도 |
+| Pixels Per Unit | **지형·캐릭터 256 / 큰 배경·방 전체 오버레이 128** | 256px 지형 셀 = 1유닛. 배경의 기존 월드 크기 보존 |
 | Filter | **Trilinear** + **Generate Mip Maps** | 🚫 Point·Pixel Perfect 금지 (픽셀 아트 아님) |
-| Wrap Mode | 뒷벽·이음·세트 = **Clamp** / 지형 채움·띠 = **Repeat** | Sprite Shape 채움은 Repeat이어야 반복됨 |
+| Wrap Mode | 타일 아틀라스·뒷벽·세트 = **Clamp** / 독립 반복 재료만 **Repeat** | 아틀라스 셀 밖 색상 확장 여백 최소 4px, 밉 단계에 따라 증가 |
 | Mesh Type | 배경·지형 = **Full Rect** / 나머지 Tight | Draw Mode Tiled는 Full Rect만 |
 | Alpha | 뒷벽·채움 = 없음 (불투명) / 나머지 = 투명 | |
 | Max Size | 2048 (세로 뒷벽·방 장식·골든 4096) | |
@@ -272,8 +284,8 @@ python Tools/tile_kit.py link-base B1-A2-wall_a.png B1-A1-wall_a.png --dir h --o
 ### 5-2. 정렬 레이어 · 카메라
 
 - 메뉴 **Unfin ▸ 배경 ▸ 정렬 레이어 만들기** → `BG_Paper < BG_Wall < BG_Set < Terrain < Decor < Actors < Fx < Fore`
-- 카메라: Orthographic, Size **8.4375**, Clear = Solid Color (방마다 `BgPaperColor`가 장 종이색으로)
-- URP 2D면 배경 층(L1·L2)은 **2D 조명 영향 최소** (Sprite-Unlit 또는 전역 빛 1.0) — 명도는 그림이 이미 미드키
+- 카메라: Orthographic, Size **8.4375**, Clear = Solid Color. 출력 해상도에서 직접 렌더링하며 480×270 저해상도 화면 확대·픽셀 스냅은 사용하지 않는다.
+- URP 2D면 반복 배경 재료는 중립 조명으로 유지하고, 방 단위의 국소광·공기색·안개 레이어를 별도로 합성한다. 플레이어·적·탄의 가독성은 최종 장면에서 확인한다
 
 ### 5-3. 방 배경 자동 배치 (`BgRoomBuilder`)
 
@@ -302,15 +314,16 @@ python Tools/build_prompts.py           (자동으로 bg_manifest.py build 까�
 - 기본 자리는 **카메라가 맨 아래(바닥이 보일 때)·맨 위(천장이 보일 때)** 기준 → 그대로 두면 바닥·천장에 맞음
 - 방마다 대표 조각 1개(높은 방은 2~3개) + 공용 1~3개, **플레이 동선 뒤에 큰 덩어리를 두지 않기** (지형과 겹쳐 읽힘)
 
-### 5-5. 지형 (L3, Sprite Shape)
+### 5-5. 지형 (L3, 고해상도 다중 Tilemap)
 
-| 할 일 | 설정 |
-|---|---|
-| 구역마다 Sprite Shape Profile 1개 | Fill = `TZ<장>-<구역>-fill_a`, 가장자리: 위 0~45° `edge_top` · 아래 `edge_bottom` · 옆 `edge_side` |
-| Fill Pixels Per Unit | **128** · Stretch UV 끔 · World Space UV 켬 (없는 버전이면 지형 오브젝트 위치를 16유닛 배수로) → 채움 무늬가 16유닛 격자에 맞아 이음 그림과 맞물림 |
-| 변형 섞기 | 긴 지형은 **16유닛 격자 선에서 끊어** 조각마다 fill_a/b/c (테두리 띠 공유라 이음새 없음) |
-| 구역이 바뀌는 곳 | 경계 16유닛 폭을 따로 떼서 Fill = `TL-<앞><뒤>-fill`, 띠 = `TL-…-edge_*` (§6-3) |
-| 모서리·발판·특수 | 투명 낱개 스프라이트 (Sorting `Terrain`, 순서 +1) |
+- **Grid:** Cell Size 1×1유닛. 충돌 Tilemap은 숨기고 이미지와 분리한다.
+- **Terrain Fill:** 구역별 A~C 재료 세트, 256px/칸. 2048² 큰 채움 원본은 8×8유닛 영역에 사용한다.
+- **Terrain Detail:** 최소 4가지 무늬 계열, 인접 반복 금지·고정 시드. 여러 칸을 덮는 장식으로 일정한 격자감을 없앤다.
+- **Terrain Edge:** 바닥·벽·천장·안팎 모서리를 Rule Tile 또는 같은 이웃 판정으로 선택한다. 아틀라스의 셀 내용 256px와 여백을 구분한다.
+- **Decor:** 방 고유 장식·재료 조각을 추가한다. 방 전체 오버레이는 별도 PPU 128이다.
+- **전환:** 구역 경계는 TL- 재료로 연결한다. 2048px 전환 원본의 기본 폭은 8유닛이며, 더 넓은 전환은 여러 조각으로 연결한다.
+- **Sprite Shape:** 긴 곡선 구간에만 선택 사용. 지형 재료 PPU 256과 월드 UV 정렬을 Tilemap 쪽과 맞춘다.
+- **검수:** 실제 발 딛는 높이와 벽 접촉은 충돌에 맞추고, 이미지 해상도 변경 때문에 통로·점프 거리를 바꾸지 않는다.
 
 ### 5-6. 방이 바뀔 때
 
@@ -334,7 +347,7 @@ python Tools/build_prompts.py           (자동으로 bg_manifest.py build 까�
 """ + '\n'.join(link_table()) + """
 
 ### 6-3. 구역 사이 지형 — 지형 이음
-- 구역이 바뀌는 구획 이음 자리엔 지형도 바뀜 → **경계 16유닛 폭**에 `TL-<앞><뒤>-fill` (속) + 띠 이음 (가로 경계 = `edge_top`·`edge_bottom`, 세로 경계 = `edge_side`)
+- 구역이 바뀌는 구획 이음 자리엔 지형도 바뀜 → **채움 원본 1장 기준 경계 8유닛 폭**에 `TL-<앞><뒤>-fill` (속) + 띠 이음 (가로 경계 = `edge_top`·`edge_bottom`, 세로 경계 = `edge_side`)
 - 띠 이음 양 끝 = 각 구역 띠 → 바닥 선이 구역 경계를 지나도 끊기지 않음
 - ⭐ **장 경계 D→E** (`TL-DE-*`, `BL-D?E?`): 연필 → 크레파스 재료가 섞이는 유일한 곳. 명도는 같게, 재료만 서서히
 
@@ -348,7 +361,7 @@ python Tools/build_prompts.py           (자동으로 bg_manifest.py build 까�
 
 | 단계 | 언제 | 명령 | 통과 기준 | 실패하면 |
 |---|---|---|---|---|
-| ① 그림 한 장 | inbox에 넣을 때마다 (자동) | `python Tools/art_check.py run` (또는 `art_watch.bat` 감시) | 크기·비율 = 최종 · 이어짐 ≤ 2.0 · 명도 띠 (뒷벽 55~80% / 지형 25~70%) · 순백 ≤ 3% · 반복·단색·딱딱한 가장자리 없음 | `Art/rejected/<ID>/이유.txt` 보고 다시 뽑기 |
+| ① 그림 한 장 | inbox에 넣을 때마다 (자동) | `python Tools/art_check.py run` (또는 `art_watch.bat` 감시) | 크기·비율 = 최종 · 이어짐 ≤ 2.0 · 기존 명도 띠는 v5 스타일 판정에서 제외·재조정 필요 · 순백 ≤ 3% · 반복·단색·딱딱한 가장자리 없음 | `Art/rejected/<ID>/이유.txt` 보고 다시 뽑기 |
 | ② 같은 구획 묶음 | B·C 만든 뒤 | `python Tools/tile_kit.py check A.png B.png C.png` · `preview A B C` | 이어짐 ≤ 2.0 · 테두리 차이 ≤ 4 · 미리보기에 격자 선 없음 | 마스크 밖이 바뀜 → 다시 인페인팅 |
 | ③ 이음새 | 이음·세로 뒷벽·지형 이음 넣은 뒤 | `python Tools/seam_check.py check` | 쌍마다 밝기 차 ≤ 6 · 색 차 ≤ 5 · 선 밀도 0.70~1.43배 · 윤곽 튐 ≤ 2 → `Art/seam_report.md` + `Art/seam_preview/` | 미리보기 빨간 쌍 → 이음 다시 |
 | ④ 방 단위 | 유니티 넣기 전 | `python Tools/bg_manifest.py check` · `preview <방ID>` | 방에 필요한 그림 전부 ✅ → `Art/bg_room_report.md` · 주황 상자(카메라 네 구석 화면)가 전부 그림 안 | 빠진 그림부터 만들기 |
@@ -365,9 +378,9 @@ python Tools/build_prompts.py           (자동으로 bg_manifest.py build 까�
 - [ ] 구획 경계 방: 문 앞에서 다음 구획 재료가 보이기 시작하고, 옆 방이 그 재료로 시작
 - [ ] 세트 조각 밑동·윗동이 **지형 뒤로 숨음** (점프·낙하 중에도 공중에 뜬 순간 없음)
 - [ ] 세트 조각 위가 **발판처럼 안 보임**, 플레이어(분필 흰색)가 화면에서 가장 밝음
-- [ ] 명도: 종이 ~70% · 뒷벽은 종이보다 5~12 어둡게 · 세트 조각 15~20 어둡게 · 지형이 가장 진하고 또렷
+- [ ] 명도: 방별 분위기·먼 배경의 낮은 대비·전경 실루엣·선명한 접촉 면. 종이 70% 고정 금지; 주인공·적·탄이 읽히는지 확인
 - [ ] 전경이 플레이를 가리지 않음 (가운데 비어 있음)
-- [ ] 1920×1080·1280×720 두 해상도에서 선이 뭉개지거나 계단지지 않음
+- [ ] 1920×1080·2560×1440·3840×2160 세 해상도에서 선이 뭉개지거나 계단지지 않음
 
 ---
 
@@ -376,7 +389,7 @@ python Tools/build_prompts.py           (자동으로 bg_manifest.py build 까�
 **8-1. 이미지 생성 AI** (그림 한 장)
 ```
 너는 Unfin 게임의 배경 그림을 만든다. 그림체는 부드러운 그래픽 디자인: 선명하고 일정한 굵기의 외곽선, 평평한 색 + 부드러운 2단 음영,
-손그림·흔들리는 선·해칭·사실적 질감 금지, 미드키(너무 밝지도 어둡지도 않게), 게임 그림체.
+거친 선·해칭·사실적 미세 질감 금지. 강한 실루엣, 층별 공간 깊이, 방별 낮은~중간 명도, 장면의 국소광과 얇은 안개. 타일 원본에는 광원을 굽지 않는다.
 아래 프롬프트와 네거티브를 그대로 쓰고, 비율은 📐 줄의 'AI에 요청' 비율로 만든다. 이어지는 그림이면 타일링(이어지는 질감) 옵션을 켠다.
 하늘·지평선·바닥선·사람·글자를 넣지 않는다. 가장자리를 어둡게 하거나 테두리를 그리지 않는다.
 [Art/ALL_PROMPTS.md 에서 해당 에셋 블록(### <ID> 부터 네거티브까지)을 붙여넣기]
@@ -400,9 +413,9 @@ Unfin 유니티 프로젝트에 배경을 넣는다. Docs/20 §5를 따른다.
 - Tools/unity/Runtime/*.cs → Assets/Scripts/Unfin/Background/, Tools/unity/Editor/*.cs → 같은 폴더의 Editor/ 하위.
 - Art/out/** → Assets/Art/** (경로 유지), Art/bg_unity_manifest.json → Assets/Art/.
 - 메뉴 Unfin ▸ 배경 ▸ 정렬 레이어 만들기 → 방 배경 만들기(모든 방).
-- 카메라 Orthographic Size 8.4375, PPU 128, 필터 Trilinear + 밉맵 (Point/Pixel Perfect 금지).
+- 카메라 Orthographic Size 8.4375, 지형·캐릭터 PPU 256 / 큰 배경·방 오버레이 PPU 128. 먼저 기존 공통 PPU 128 가져오기 코드를 타입별로 분리한다. 필터 Trilinear + 밉맵 (Point/Pixel Perfect 금지).
 - 패럴랙스는 BgParallax의 방 가운데 기준 식만 쓴다 (뒷벽 0.2/0.6, 세트 0.5/0.8, 전경 1.3/0). 뒷벽 칸 배치는 매니페스트 그대로, 임의로 돌리기·뒤집기 금지.
-- 지형은 구역별 Sprite Shape Profile (Fill PPU 128, World Space UV), 구역 경계 16유닛 폭은 TL- 이음 그림.
+- 지형은 256px/칸 Tilemap/Rule Tile, 채움·무늬·가장자리·장식 레이어를 분리한다. 2048px 채움 원본은 8유닛 주기, 구역 경계에는 TL- 이음 그림. Sprite Shape는 필요한 긴 곡선에만 선택 사용.
 - 끝나면 §7 ⑤ 체크리스트를 방마다 확인하고, 이상한 방 ID와 스크린샷을 보고한다.
 ```
 
@@ -417,14 +430,15 @@ Unfin 유니티 프로젝트에 배경을 넣는다. Docs/20 §5를 따른다.
 | 화면 끝에 종이색 | 매니페스트가 오래됨 (방 크기 바뀜) | `build_prompts.py` 다시 → 매니페스트 복사 → 방 다시 만들기 |
 | 세트 조각이 떠 보임 | 묻는 깊이 부족 / 방 가운데 기준이 아님 | 빨간 선까지 지형 뒤로, `roomCenter` 확인 |
 | 구획 경계에서 뚝 바뀜 | 이음 칸이 그 방에 없음 / 이음 그림 없음 | `bg_room_report.md` 이음 칸 확인, `seam_check links`가 쌍을 찾았는지 |
-| 지형 무늬가 경계에서 어긋남 | Fill PPU·UV 기준이 다름 | Fill PPU 128, World Space UV, 경계를 16유닛 격자에 |
-| 전체가 너무 밝음/어두움 | unify_pass 안 거침 / 2D 조명 | inbox로 다시 넣기 (자동 unify), 배경 층 조명 끄기 |
+| 지형 무늬가 경계에서 어긋남 | Fill PPU·UV 기준이 다름 | 지형 PPU 256, 256px 셀과 8유닛 큰 채움 원본의 정렬 확인 |
+| 전체가 너무 밝음/어두움 | unify_pass 안 거침 / 2D 조명 | 최종 방 조명·안개·노출 확인; 이전 종이색 후처리를 무조건 적용하지 않기 |
 
 ---
 
 ### 변경 기록
 | 날짜 | 내용 |
 |---|---|
+| 2026-10-15 | 고해상도 타일맵 개정: 지형 256px/칸·PPU 256, 큰 배경 128 분리, 지형 원본 유닛 재계산, Tilemap/Rule Tile 기본, 기존 가져오기 도구의 미반영 상태 명시. [21 공통 규격](21_고해상도_타일맵_규격.md) |
 | 2026-10-15 | 처음 작성 — 해상도(AI 요청 → 최종 → 유니티 유닛), 제작 순서·종류별 방법, 구역·구획별 이미지 표, 유니티 가져오기 설정·정렬 레이어·방 가운데 패럴랙스, `bg_manifest.py`(방별 뒷벽 칸 자동 배치·준비 상태·미리보기), `Tools/unity/`(BgParallax·BgSetPiece·BgPaperColor·UnfinArtImporter·BgRoomBuilder), 이음 칸을 문 쪽 화면 끝에 맞추는 격자 밀기, 세트 조각 묻는 깊이 식, 전경 세로 화면 고정, 검증 7단계, 다른 AI용 지시문 3종 |
 """
 open(OUT, 'w', encoding='utf-8').write(md)

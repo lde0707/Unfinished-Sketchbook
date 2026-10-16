@@ -1,0 +1,72 @@
+[
+  {
+    "file": "01-graphite-floor.png",
+    "width": 256,
+    "height": 256,
+    "floorSurfaceHeight": 4,
+    "deepInteriorMeanLuma": 9.14
+  },
+  {
+    "file": "01-graphite-wall.png",
+    "width": 256,
+    "height": 256,
+    "floorSurfaceHeight": null,
+    "deepInteriorMeanLuma": 10.01
+  },
+  {
+    "file": "02-crayon-floor.png",
+    "width": 256,
+    "height": 256,
+    "floorSurfaceHeight": 4,
+    "deepInteriorMeanLuma": 8.35
+  },
+  {
+    "file": "02-crayon-wall.png",
+    "width": 256,
+    "height": 256,
+    "floorSurfaceHeight": null,
+    "deepInteriorMeanLuma": 9.71
+  },
+  {
+    "file": "03-watercolor-floor.png",
+    "width": 256,
+    "height": 256,
+    "floorSurfaceHeight": 4,
+    "deepInteriorMeanLuma": 7.14
+  },
+  {
+    "file": "03-watercolor-wall.png",
+    "width": 256,
+    "height": 256,
+    "floorSurfaceHeight": null,
+    "deepInteriorMeanLuma": 11.16
+  },
+  {
+    "file": "04-paper-floor.png",
+    "width": 256,
+    "height": 256,
+    "floorSurfaceHeight": 4,
+    "deepInteriorMeanLuma": 11.09
+  },
+  {
+    "file": "04-paper-wall.png",
+    "width": 256,
+    "height": 256,
+    "floorSurfaceHeight": null,
+    "deepInteriorMeanLuma": 11.28
+  },
+  {
+    "file": "05-ink-floor.png",
+    "width": 256,
+    "height": 256,
+    "floorSurfaceHeight": 4,
+    "deepInteriorMeanLuma": 12.58
+  },
+  {
+    "file": "05-ink-wall.png",
+    "width": 256,
+    "height": 256,
+    "floorSurfaceHeight": null,
+    "deepInteriorMeanLuma": 11.19
+  }
+]

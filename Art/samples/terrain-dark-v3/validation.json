@@ -1,0 +1,32 @@
+[
+  {
+    "file": "01-graphite-roots-floor.png",
+    "width": 256,
+    "height": 256,
+    "deepInteriorMeanRgbLuma": 8.72
+  },
+  {
+    "file": "02-crayon-strata-floor.png",
+    "width": 256,
+    "height": 256,
+    "deepInteriorMeanRgbLuma": 8.99
+  },
+  {
+    "file": "03-watercolor-erosion-ceiling.png",
+    "width": 256,
+    "height": 256,
+    "deepInteriorMeanRgbLuma": 7.7
+  },
+  {
+    "file": "04-paper-ruins-wall-left.png",
+    "width": 256,
+    "height": 256,
+    "deepInteriorMeanRgbLuma": 8.26
+  },
+  {
+    "file": "05-ink-sediment-wall-right.png",
+    "width": 256,
+    "height": 256,
+    "deepInteriorMeanRgbLuma": 8.96
+  }
+]
