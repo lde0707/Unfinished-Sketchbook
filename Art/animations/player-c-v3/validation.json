@@ -1,0 +1,11 @@
+{
+  "maxBoneLengthError": 6.039613253960852e-14,
+  "groundError": 0,
+  "frameCount": 36,
+  "fps": 60,
+  "duration": 0.6,
+  "loopPositionError": 0,
+  "maxBoundaryVelocityDifference": 0.0013014578393018691,
+  "controls": "Pause, speed, scrub, wraparound next frame, flip, ground and comparison period checked.",
+  "scope": "Numerical and browser checks only; not visual approval or Unity locomotion validation."
+}

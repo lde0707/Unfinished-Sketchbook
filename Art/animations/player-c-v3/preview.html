@@ -1,0 +1,25 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C 캐릭터 · 부드러운 달리기 v3</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#171b21;color:#e5e1d7;font:15px/1.6 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:24px}h1{font-size:25px;font-weight:550;margin:0}p{color:#acb0b9}.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}canvas{display:block;width:100%;background:#090c10;border-radius:12px}.label{margin-bottom:8px}.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px}button,select{background:#2a303a;color:#ece7dc;border:1px solid #525a66;border-radius:7px;padding:9px 12px;font:inherit;cursor:pointer}small{color:#999faa}a{color:#d8ccb0}input[type=range]{width:100%;accent-color:#d6c8a5}label{cursor:pointer}@media(max-width:600px){.pair{grid-template-columns:1fr}.old{order:2}main{padding:18px}}</style>
+<main><h1>C 캐릭터 · 달리기 v3</h1><p>짧은 다리의 발 구르기와 회수를 연결한 36프레임 시안.</p>
+<div class="pair"><section class="old"><div class="label">이전 · 12프레임</div><canvas id="old" width="420" height="420"></canvas></section><section><div class="label">수정 · 36프레임</div><canvas id="new" width="420" height="420"></canvas></section></div>
+<div class="controls"><button id="play">일시 정지</button><select id="speed" aria-label="재생 속도"><option value="1">정상 속도</option><option value="0.5">0.5배속</option><option value="0.25">0.25배속</option></select><button id="flip">좌우 반전</button><button id="next">다음 프레임</button><label><input id="ground" type="checkbox" checked> 바닥선</label><label><input id="sync" type="checkbox" checked> 같은 주기로 비교</label></div>
+<p id="status" role="status">이미지를 불러오는 중…</p><input id="scrub" type="range" min="0" max="35" value="0" aria-label="프레임 위치">
+<small>수정본은 생성한 그림 파츠의 관절 동작을 60fps로 렌더링한 시안입니다. 36장의 개별 손그림은 아닙니다. 기본 비교 주기는 양쪽 모두 0.6초이며, 체크를 끄면 이전 시안은 원래의 0.5초로 재생합니다. Unity·웹 게임에는 아직 교체하지 않았습니다.</small>
+<p><a href="run-aligned.png">36프레임 투명 시트</a> · <a href="design.json">제작 기록</a> · <a href="https://n3cloud.itch.io/2d-pixel-art-character-template-platformer-metroidvania">참고 애니메이션</a></p>
+</main><script type="module">
+import {ready,render,FRAME_COUNT,FPS,DURATION,pose,solveLeg} from './rig.js';
+const older=new Image();older.src='../player-c-v2/run-aligned.png';
+const el=id=>document.getElementById(id),ctxNew=el('new').getContext('2d'),ctxOld=el('old').getContext('2d');
+let t=0,last=performance.now(),playing=true,flipped=false,loaded=false;
+ready.then(()=>loaded=true).catch(e=>{el('status').textContent='이미지를 불러오지 못했습니다.';console.error(e)});
+el('play').onclick=()=>{playing=!playing;el('play').textContent=playing?'일시 정지':'재생'};
+el('flip').onclick=()=>flipped=!flipped;
+function seek(f){playing=false;el('play').textContent='재생';t=f/FPS+.000001}
+el('next').onclick=()=>seek((Math.floor(t*FPS)+1)%FRAME_COUNT);el('scrub').oninput=e=>seek(Number(e.target.value));
+function oldFrame(frame){ctxOld.clearRect(0,0,420,420);if(!older.complete||!older.naturalWidth)return;ctxOld.save();if(flipped){ctxOld.translate(420,0);ctxOld.scale(-1,1)}ctxOld.drawImage(older,frame%4*420,Math.floor(frame/4)*420,420,420,0,0,420,420);ctxOld.restore()}
+function tick(now){if(playing)t+=Math.min((now-last)/1000,.1)*Number(el('speed').value);last=now;if(loaded){let f=Math.floor(t*FPS)%FRAME_COUNT;render(ctxNew,f/FRAME_COUNT,{flip:flipped,ground:el('ground').checked});oldFrame(Math.floor(t/(el('sync').checked?DURATION:.5)*12)%12);el('status').textContent=`수정 시안 · ${f+1} / ${FRAME_COUNT} · 60fps · 한 주기 0.6초`;el('scrub').value=f}requestAnimationFrame(tick)}requestAnimationFrame(tick);
+// Deterministic local export/test interface; never drives an external website.
+window.exportRunFrame=async n=>{await ready;const c=document.createElement('canvas');c.width=c.height=420;render(c.getContext('2d'),n/FRAME_COUNT);return c.toDataURL('image/png')};
+window.checkRun=()=>{let maxError=0,groundError=0;for(let i=0;i<360;i++){let p=pose(i/360);for(let foot of[p.near,p.far]){let leg=solveLeg(p.hip,foot);maxError=Math.max(maxError,Math.abs(Math.hypot(leg.knee.x-leg.hip.x,leg.knee.y-leg.hip.y)-30),Math.abs(Math.hypot(leg.ankle.x-leg.knee.x,leg.ankle.y-leg.knee.y)-29));if(foot.grounded)groundError=Math.max(groundError,Math.abs(leg.ankle.y+9-330))}}return{maxBoneLengthError:maxError,groundError,frameCount:FRAME_COUNT,fps:FPS,duration:DURATION}};
+</script></html>
