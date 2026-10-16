@@ -1,0 +1,10 @@
+{
+  "generator": "built-in image_gen",
+  "file": "02-five-backgrounds.png",
+  "status": "Generated visual fit study; not a Unity screenshot",
+  "references": [
+    "Art/samples/player-v2/01-character-study.png",
+    "Art/samples/player-v1/02-five-backgrounds.png"
+  ],
+  "prompt": "Use case: compositing. EDIT IMAGE 2 (the five-environment comparison board). IMAGE 1 is the approved NEW lean player character identity and proportions reference. Replace ONLY the five old stout characters in image 2 with the same new slimmer character from image 1. Preserve the existing five panels, composition, camera crops, charcoal gutters, paper cavern top left, blue-gray graphite top right, walnut wood middle left, olive roots middle right, wide wood-to-roots transition bottom. Keep all existing background materials, foreground top edges, terrain shapes, lighting, dark palette and texture fidelity unchanged as closely as possible. Exactly ONE character in each of the five panels, at the same floor contact locations as the old characters, facing right, full body. Preserve the old approximate total character HEIGHT of 85 to 90 pixels in this 1254x1254 board, but change its relative proportions to match image 1: smaller round head about 40 percent of total height, slim gently tapered torso with no bulbous belly, visibly longer slender legs and arms, small hands and feet. Do NOT reuse the chunky short-legged silhouette from image 2. Keep exactly one small dark dot eye, no mouth, nose, ears, hair, clothes, scarf, cape, weapons, armor or accessories. Identical monochrome chalk ivory paper body and subtle matte paper relief in every region. Soft dark charcoal contour, brighter than the environments without glow or halo. Each character should use a lightly poised idle or a restrained walking stance with readable leg separation, not an exaggerated action pose. Same design and scale across all panels. Tiny grounded contact shadow. Do not add any other characters, text, labels, UI, frames, watermarks or effects. Output a square comparison board at the same aspect as image 2; this is a concept composite, not a new terrain design."
+}
