@@ -1,7 +1,7 @@
 {
   "version": 3,
   "generator": "built-in image_gen",
-  "status": "Preview tile renderer; not installed into Unity",
+  "status": "Installed in Unity World12Prototype: world-anchored overlapping background panels",
   "background": {
     "sourceSize": 1254,
     "renderTileSize": 1024,

@@ -135,6 +135,7 @@ namespace Unfin.Editor
             MakeMarkers("Item and device placement", data.pickups, false, markerSprite);
             MakeAreas("Rooms", data.rooms); MakeAreas("Passages", data.passages); MakeAreas("Shafts", data.shafts);
             controller.overview = Overview();
+            Region1BackgroundImporter.Apply(data);
             PlayerSettings.defaultScreenWidth = 1920; PlayerSettings.defaultScreenHeight = 1080;
             PlayerSettings.fullScreenMode = FullScreenMode.FullScreenWindow;
             PlayerSettings.runInBackground = true;

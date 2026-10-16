@@ -1,0 +1,23 @@
+{
+  "A-B": {
+    "cameraMoveUnits": 1,
+    "meanAlignedPixelDifference": 0,
+    "maxAlignedPixelDifference": 0
+  },
+  "C-A": {
+    "cameraMoveUnits": 1,
+    "meanAlignedPixelDifference": 0,
+    "maxAlignedPixelDifference": 0
+  },
+  "C-D": {
+    "cameraMoveUnits": 1,
+    "meanAlignedPixelDifference": 0,
+    "maxAlignedPixelDifference": 0
+  },
+  "D-A": {
+    "cameraMoveUnits": 1,
+    "meanAlignedPixelDifference": 0,
+    "maxAlignedPixelDifference": 0
+  },
+  "world2Unchanged": true
+}

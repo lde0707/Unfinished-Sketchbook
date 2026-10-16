@@ -6,14 +6,14 @@
     1080
   ],
   "compression": "Brotli with JavaScript fallback",
-  "totalDownloadBytes": 28418008,
+  "totalDownloadBytes": 30006022,
   "files": [
     {
-      "name": "bc03893333327ee9156757d9a11d2768.data.unityweb",
+      "name": "2b03fd926d9b144500a80aa6d0e91018.data.unityweb",
       "kind": "data",
-      "bytes": 21499260,
-      "unpackedBytes": 36122602,
-      "sha256": "c6e08810b6feb1e632bb2b216a26b3e65feeebb9d028d6ab8926e1d58bfa3750"
+      "bytes": 23087274,
+      "unpackedBytes": 37680220,
+      "sha256": "04d9878af23f4180669aee3f5a811df7891b21557bf29f296d095f5750c080a2"
     },
     {
       "name": "9dc5fe56697bd658494b666675a9b12b.framework.js.unityweb",

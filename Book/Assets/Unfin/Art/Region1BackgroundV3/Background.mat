@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Background
+  m_Shader: {fileID: 4800000, guid: 8bb9cd9c58c62024ea1a50af559428ca, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Graphite:
+        m_Texture: {fileID: 2800000, guid: 6bc99890d45ad444dbf67229cfcf422b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Paper:
+        m_Texture: {fileID: 2800000, guid: 7fab9f463117b0748a4388c0b1cc7808, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Root:
+        m_Texture: {fileID: 2800000, guid: 893d36dbf95583940b9b7240091bc6bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Wood:
+        m_Texture: {fileID: 2800000, guid: 7327683f03500954fa1af82297a8ba52, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Zones:
+        m_Texture: {fileID: 2800000, guid: f8a5253cf84c67a4aa5d10812bb66c5b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Opacity: 0.52
+    m_Colors:
+    - _Bounds: {r: 280, g: 140, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
