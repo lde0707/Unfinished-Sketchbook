@@ -1,0 +1,13 @@
+{
+  "version": 4,
+  "status": "Unfinished whole-body drawing study. User redirected costume work to a three-view reference in Art/samples/player-v8; do not treat these keys as a completed or approved animation.",
+  "method": "Whole-body image_gen drawings, no segmented joints.",
+  "costumeReference": "costume-reference.png",
+  "sources": [
+    "sources/keys-a.png",
+    "sources/keys-b.png"
+  ],
+  "frameCountCompleted": 8,
+  "plannedFrameCount": 24,
+  "unityIntegrated": false
+}
