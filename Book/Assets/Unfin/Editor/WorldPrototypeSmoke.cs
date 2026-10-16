@@ -92,12 +92,24 @@ namespace Unfin.Editor
             world.Respawn(gateIndex % world.Data.width - 1, gateIndex / world.Data.width + 1);
             yield return Press(Key.E);
             Check(world.Motor.cells[gateIndex] == 0, "QA gate opens");
+            var patterns = TerrainPatterns.Create(world.Data.width, world.Data.height);
+            int gateX = gateIndex % world.Data.width, gateY = gateIndex / world.Data.width;
+            int checkedTerrain = 0;
+            for (int ty = gateY-3; ty <= gateY+3; ty++) for (int tx = gateX-3; tx <= gateX+3; tx++)
+            {
+                if (tx<0 || ty<0 || tx>=world.Data.width || ty>=world.Data.height || world.Motor.Get(tx,ty)!=1) continue;
+                var tile = world.maps[tx>=world.Data.regionX?3:0].GetTile<PrototypeTile>(WorldData.Cell(tx,ty));
+                Check(tile != null && tile.exposedEdges == TerrainTopology.Mask(world.Motor.Get,tx,ty), "Gate refresh corner shape");
+                Check(tile.patternVariant == patterns[ty*world.Data.width+tx], "Gate refresh retains pattern");
+                checkedTerrain++;
+            }
+            Check(checkedTerrain > 0, "Gate terrain fixture covered");
             yield return Press(Key.R);
             yield return new WaitForSeconds(.25f);
             world = UnityEngine.Object.FindAnyObjectByType<WorldPrototype>();
             Check(world.Motor.cells[gateIndex] != 0 && !world.flying, "Reset restores map");
             Check(Mathf.Abs(world.Motor.x / 16 - world.Data.startX) < 1, "Reset restores spawn");
-            WorldPrototypeSmoke.Finish(true, "Scene initialization; grounded spawn; keyboard move/jump; World 2 warp; flight; gate opening; scene reset.");
+            WorldPrototypeSmoke.Finish(true, "Scene initialization; grounded spawn; keyboard move/jump; World 2 warp; flight; gate opening; refreshed corners and stable A/B/C patterns; scene reset.");
         }
     }
 }

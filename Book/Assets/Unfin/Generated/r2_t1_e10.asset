@@ -37,3 +37,4 @@ MonoBehaviour:
   htmlType: 1
   region: 2
   exposedEdges: 10
+  patternVariant: 0

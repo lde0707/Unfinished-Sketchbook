@@ -14,7 +14,7 @@ namespace Unfin.Editor
         static void Check(bool value, string message) { if (!value) throw new Exception("Terrain corners: " + message); }
         public static void Validate(WorldPrototype world)
         {
-            Check(world.terrainTiles.Length == 94, "47 variants per region");
+            Check(world.terrainTiles.Length == 282, "47 shapes x 3 patterns per region");
             var observed = new HashSet<int>();
             // Exhaust all possible 8-neighbor arrangements, not just today's level.
             var offsets = new[] {new Vector2Int(0,-1),new Vector2Int(1,0),new Vector2Int(0,1),new Vector2Int(-1,0),
@@ -27,15 +27,16 @@ namespace Unfin.Editor
                 Check((mask & 15) == (raw & 15), "Every cardinal exposure survives");
                 Check(TerrainTopology.IsCanonical(mask), "Valid diagonal combination");
                 observed.Add(mask);
-                foreach (int region in new[] {1,2}) Check(world.terrainTiles.Any(t => t.region == region && t.exposedEdges == mask), "Missing corner asset");
+                foreach (int region in new[] {1,2}) for (int variant=0;variant<3;variant++)
+                    Check(world.terrainTiles.Any(t => t.region == region && t.patternVariant == variant && t.exposedEdges == mask), "Missing corner asset");
             }
             Check(observed.Count == 47, "Canonical combination count");
             Check(TerrainTopology.Mask((x,y) => x==0&&y==0?0:1, 1, 1) == 16, "Isolated inner top-left corner");
             int surfaces = 0, notches = 0;
             for (int region = 1; region <= 2; region++)
             {
-                var tiles = world.terrainTiles.Where(t => t.region == region).OrderBy(t => t.exposedEdges).ToArray();
-                var atlas = new Texture2D(8*136, 6*136, TextureFormat.RGBA32, false);
+                var tiles = world.terrainTiles.Where(t => t.region == region).OrderBy(t => t.patternVariant).ThenBy(t => t.exposedEdges).ToArray();
+                var atlas = new Texture2D(8*136, 18*136, TextureFormat.RGBA32, false);
                 atlas.SetPixels(Enumerable.Repeat(new Color(.105f,.115f,.14f), atlas.width*atlas.height).ToArray());
                 for (int i = 0; i < tiles.Length; i++)
                 {
@@ -62,15 +63,81 @@ namespace Unfin.Editor
                             light += texture.GetPixel(corner==1||corner==2?127-dx:dx, corner<2?127-dy:dy).grayscale;
                         Check(light/49 > .04f, $"Uncovered inner corner {region}/{mask}/{corner}"); notches++;
                     }
-                    atlas.SetPixels((i%8)*136+4, (5-i/8)*136+4, 128, 128, texture.GetPixels());
+                    atlas.SetPixels((i%47%8)*136+4, (17-i/47*6-i%47/8)*136+4, 128, 128, texture.GetPixels());
                     UnityEngine.Object.DestroyImmediate(texture);
                 }
                 atlas.Apply(); File.WriteAllBytes($"Validation/world{region}-corner-tiles.png", atlas.EncodeToPNG());
                 UnityEngine.Object.DestroyImmediate(atlas);
             }
-            File.WriteAllText("Validation/terrain-corners.json", $"{{\n  \"neighborConfigurations\": 256,\n  \"variantsPerRegion\": 47,\n  \"regions\": 2,\n  \"exposedFacesChecked\": {surfaces},\n  \"innerCornersChecked\": {notches},\n  \"surfaceCapPixels\": 2,\n  \"status\": \"passed\"\n}}\n");
-            Debug.Log($"UNFIN_CORNERS_OK variants=94 faces={surfaces} innerCorners={notches}");
+            File.WriteAllText("Validation/terrain-corners.json", $"{{\n  \"neighborConfigurations\": 256,\n  \"shapesPerPattern\": 47,\n  \"patternsPerRegion\": 3,\n  \"variantsPerRegion\": 141,\n  \"regions\": 2,\n  \"exposedFacesChecked\": {surfaces},\n  \"innerCornersChecked\": {notches},\n  \"maximumRimRecessPixels\": 3,\n  \"status\": \"passed\"\n}}\n");
+            ValidatePatterns(world);
+            Debug.Log($"UNFIN_CORNERS_OK variants=282 faces={surfaces} innerCorners={notches}");
         }
+
+        static void ValidatePatterns(WorldPrototype world)
+        {
+            var data = JsonUtility.FromJson<WorldData>(world.mapJson.text);
+            var patterns = TerrainPatterns.Create(data.width, data.height);
+            var again = TerrainPatterns.Create(data.width, data.height);
+            Check(patterns.SequenceEqual(again), "Deterministic patterns");
+            var counts = new int[3];
+            for (int y=0;y<data.height;y++) for (int x=0;x<data.width;x++)
+            {
+                int p=patterns[y*data.width+x]; counts[p]++;
+                Check(x==0 || p!=patterns[y*data.width+x-1], "Horizontal pattern repetition");
+                Check(y==0 || p!=patterns[(y-1)*data.width+x], "Vertical pattern repetition");
+            }
+            float maximumSeamError=0;
+            for (int region=1;region<=2;region++)
+            {
+                var floors = new Texture2D[3];
+                var walls = new Texture2D[3];
+                for (int v=0;v<3;v++)
+                {
+                    floors[v]=Load(1); walls[v]=Load(2);
+                    Texture2D Load(int mask)
+                    {
+                        var tile=world.terrainTiles.Single(t=>t.region==region&&t.patternVariant==v&&t.exposedEdges==mask);
+                        var image=new Texture2D(2,2); image.LoadImage(File.ReadAllBytes(AssetDatabase.GetAssetPath(tile.sprite)));
+                        return image;
+                    }
+                    int minRim=128,maxRim=0;
+                    for(int x=8;x<120;x++)
+                    {
+                        int depth=0; while(depth<8&&floors[v].GetPixel(x,127-depth).a<.5f)depth++;
+                        minRim=Math.Min(minRim,depth);maxRim=Math.Max(maxRim,depth);
+                    }
+                    Check(maxRim-minRim>=1 && maxRim<=3,"Shallow irregular walkable rim");
+                    float previous=1;
+                    for(int band=0;band<8;band++)
+                    {
+                        float sum=0;
+                        for(int d=band*16;d<(band+1)*16;d++)for(int x=12;x<116;x++)sum+=floors[v].GetPixel(x,127-d).grayscale;
+                        float mean=sum/(16*104);
+                        Check(mean<previous,"Gradual full-depth shading"); previous=mean;
+                    }
+                }
+                for(int a=0;a<3;a++)for(int b=0;b<3;b++)for(int d=0;d<128;d++)
+                {
+                    maximumSeamError=Math.Max(maximumSeamError, Error(floors[a].GetPixel(127,d),floors[b].GetPixel(0,d)));
+                    maximumSeamError=Math.Max(maximumSeamError, Error(walls[a].GetPixel(d,127),walls[b].GetPixel(d,0)));
+                }
+                Check(maximumSeamError<.025f,"A/B/C seam value discontinuity");
+                for(int v=1;v<3;v++) Check(!floors[0].GetPixels32().SequenceEqual(floors[v].GetPixels32()),"Distinct pattern artwork");
+                var preview=new Texture2D(768,256,TextureFormat.RGBA32,false);
+                int[] order={0,1,2,0,2,1};
+                for(int i=0;i<order.Length;i++)
+                {
+                    preview.SetPixels(i*128,128,128,128,floors[order[i]].GetPixels());
+                    preview.SetPixels(i*128,0,128,128,walls[order[i]].GetPixels());
+                }
+                preview.Apply();File.WriteAllBytes($"Validation/world{region}-patterns-abc.png",preview.EncodeToPNG());
+                UnityEngine.Object.DestroyImmediate(preview);
+                foreach(var texture in floors.Concat(walls))UnityEngine.Object.DestroyImmediate(texture);
+            }
+            File.WriteAllText("Validation/terrain-patterns.json",$"{{\n  \"patternsPerRegion\": 3,\n  \"totalTerrainTiles\": 282,\n  \"patternCellCounts\": [{counts[0]}, {counts[1]}, {counts[2]}],\n  \"adjacentRepeats\": 0,\n  \"maximumSeamError\": {maximumSeamError.ToString(System.Globalization.CultureInfo.InvariantCulture)},\n  \"maximumRimRecessPixels\": 3,\n  \"depthBandValidation\": \"passed\"\n}}\n");
+        }
+        static float Error(Color a, Color b) => Mathf.Max(Mathf.Abs(a.r-b.r),Mathf.Abs(a.g-b.g),Mathf.Abs(a.b-b.b),Mathf.Abs(a.a-b.a));
 
         public static void Render()
         {
@@ -100,10 +167,11 @@ namespace Unfin.Editor
                 var go = new GameObject("Terrain"); go.transform.SetParent(grid.transform);
                 var map = go.AddComponent<Tilemap>(); go.AddComponent<TilemapRenderer>();
                 int Get(int x,int y) => x<0||y<0||x>=15||y>=9 ? 0 : rows[y][x]-'0';
+                var patterns = TerrainPatterns.Create(15,9);
                 for (int y = 0; y < 9; y++) for (int x = 0; x < 15; x++) if (Get(x,y)==1)
                 {
                     int mask = TerrainTopology.Mask(Get,x,y);
-                    var tile = tiles.First(t => t.region==region&&t.exposedEdges==mask);
+                    var tile = tiles.First(t => t.region==region&&t.exposedEdges==mask&&t.patternVariant==patterns[y*15+x]);
                     Check(tile != null, "Fixture tile asset unloaded");
                     map.SetTile(WorldData.Cell(x,y), tile);
                 }

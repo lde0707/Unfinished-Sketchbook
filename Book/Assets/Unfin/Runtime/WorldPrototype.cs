@@ -9,7 +9,8 @@ namespace Unfin
     {
         public TextAsset mapJson;
         public Tilemap[] maps; // region * 3 + walls / one-way platforms / water
-        public PrototypeTile[] terrainTiles; // 47 eight-neighbor variants per region
+        public PrototypeTile[] terrainTiles; // 47 shapes x 3 patterns per region
+        byte[] terrainPatterns;
         public Camera worldCamera;
         public Transform player;
         public Texture2D overview;
@@ -31,7 +32,9 @@ namespace Unfin
         {
             Data = JsonUtility.FromJson<WorldData>(mapJson.text);
             Motor = new GridMotor(Data, Data.Decode());
-            foreach (var tile in terrainTiles) terrainLookup[(tile.region - 1) * 256 + tile.exposedEdges] = tile;
+            terrainPatterns = TerrainPatterns.Create(Data.width, Data.height);
+            foreach (var tile in terrainTiles)
+                terrainLookup[TerrainPatterns.Key(tile.region - 1, tile.patternVariant, tile.exposedEdges)] = tile;
             Respawn(Data.startX, Data.startFloor);
             worldCamera.orthographicSize = Data.orthographicSize;
         }
@@ -174,7 +177,7 @@ namespace Unfin
             {
                 if (x < 0 || y < 0 || x >= Data.width || y >= Data.height || Motor.Get(x, y) != 1) continue;
                 int mask = TerrainTopology.Mask(Motor.Get, x, y);
-                int key = (x >= Data.regionX ? 256 : 0) + mask;
+                int key = TerrainPatterns.Key(x >= Data.regionX ? 1 : 0, terrainPatterns[y * Data.width + x], mask);
                 Map(x, 1).SetTile(WorldData.Cell(x, y), terrainLookup[key]);
             }
         }

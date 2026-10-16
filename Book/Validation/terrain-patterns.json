@@ -1,0 +1,9 @@
+{
+  "patternsPerRegion": 3,
+  "totalTerrainTiles": 282,
+  "patternCellCounts": [40165, 40017, 40218],
+  "adjacentRepeats": 0,
+  "maximumSeamError": 0,
+  "maximumRimRecessPixels": 3,
+  "depthBandValidation": "passed"
+}

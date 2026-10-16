@@ -17,8 +17,9 @@ namespace Unfin.Editor
         public const string ScenePath = "Assets/Scenes/World12Prototype.unity";
         static WorldData data;
         static byte[] cells;
+        static byte[] patterns;
         static readonly Dictionary<string, PrototypeTile> tileCache = new Dictionary<string, PrototypeTile>();
-        static CpuImage[,] art;
+        static CpuImage[,,] art;
         sealed class CpuImage
         {
             readonly Color[] pixels;
@@ -39,25 +40,28 @@ namespace Unfin.Editor
             AssetDatabase.Refresh();
             var json = AssetDatabase.LoadAssetAtPath<TextAsset>(Root + "/Data/world12.json");
             data = JsonUtility.FromJson<WorldData>(json.text); cells = data.Decode();
+            patterns = TerrainPatterns.Create(data.width, data.height);
             Require(data.htmlTileSize == 16 && data.tilePixels == 128 && data.pixelsPerUnit == 128, "Tile scale");
             Directory.CreateDirectory(Root + "/Generated"); Directory.CreateDirectory("Assets/Scenes");
             tileCache.Clear();
-            art = new CpuImage[2, 2];
+            art = new CpuImage[2, 3, 2];
             for (int region = 0; region < 2; region++)
+            for (int variant = 0; variant < 3; variant++)
             for (int side = 0; side < 2; side++)
             {
                 var texture = new Texture2D(2, 2);
-                string name = (region == 0 ? "01-graphite" : "02-crayon") + (side == 0 ? "-floor.png" : "-wall.png");
-                texture.LoadImage(File.ReadAllBytes(Path.Combine(Application.dataPath, "../../Art/samples/regional-pairs-v5-soft", name)));
-                art[region, side] = new CpuImage(texture);
+                string name = (region == 0 ? "01-graphite" : "02-crayon") + "-" + (char)('a' + variant) + (side == 0 ? "-floor.png" : "-wall.png");
+                texture.LoadImage(File.ReadAllBytes(Path.Combine(Application.dataPath, "../../Art/samples/regional-variants-v6", name)));
+                art[region, variant, side] = new CpuImage(texture);
                 UnityEngine.Object.DestroyImmediate(texture);
             }
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             // Export every valid blob combination, including shapes absent from today's map.
             var terrainCatalog = new List<PrototypeTile>();
             for (int region = 0; region < 2; region++)
+            for (int variant = 0; variant < 3; variant++)
             for (int mask = 0; mask < 256; mask++)
-                if (TerrainTopology.IsCanonical(mask)) terrainCatalog.Add(Tile(region, 1, mask));
+                if (TerrainTopology.IsCanonical(mask)) terrainCatalog.Add(Tile(region, 1, mask, variant));
             var grid = new GameObject("World 1 + 2 — HTML coordinates").AddComponent<Grid>();
             grid.cellSize = Vector3.one;
             var controller = new GameObject("World Prototype").AddComponent<WorldPrototype>();
@@ -82,7 +86,7 @@ namespace Unfin.Editor
                         int type = Get(x, y);
                         if (type == 0 || WorldPrototype.Layer(type) != layer) continue;
                         int mask = type == 1 ? Mask(x, y) : 15;
-                        tiles[(data.height - y - 1) * width + x - x0] = Tile(region, type, mask);
+                        tiles[(data.height - y - 1) * width + x - x0] = Tile(region, type, mask, type == 1 ? patterns[y * data.width + x] : 0);
                     }
                     map.SetTilesBlock(bounds, tiles);
                     if (layer < 2)
@@ -143,9 +147,10 @@ namespace Unfin.Editor
             14 => new Color(.62f,.54f,.36f), 15 => new Color(.78f,.41f,.2f), 16 => new Color(.55f,.44f,.23f),
             18 => new Color(.5f,.32f,.5f), _ => new Color(.44f,.46f,.5f)
         };
-        static PrototypeTile Tile(int region, int type, int mask)
+        static PrototypeTile Tile(int region, int type, int mask, int variant = 0)
         {
             string key = $"r{region + 1}_t{type}_e{mask}";
+            if (variant != 0) key += $"_v{variant}";
             if (tileCache.TryGetValue(key, out var cached)) return cached;
             var texture = new Texture2D(128, 128, TextureFormat.RGBA32, false);
             var pixels = new Color[128 * 128];
@@ -155,7 +160,7 @@ namespace Unfin.Editor
                 Color color;
                 if (type == 1)
                 {
-                    color = TerrainSurface.Pixel(mask, x, y, art[region, 0].GetPixelBilinear, art[region, 1].GetPixelBilinear);
+                    color = TerrainSurface.Pixel(mask, x, y, art[region, variant, 0].GetPixelBilinear, art[region, variant, 1].GetPixelBilinear);
                 }
                 else
                 {
@@ -185,6 +190,7 @@ namespace Unfin.Editor
             var tile = AssetDatabase.LoadAssetAtPath<PrototypeTile>(asset);
             if (tile == null) { tile = ScriptableObject.CreateInstance<PrototypeTile>(); AssetDatabase.CreateAsset(tile, asset); }
             tile.sprite = sprite; tile.htmlType = type; tile.region = region + 1; tile.exposedEdges = mask;
+            tile.patternVariant = variant;
             tile.colliderType = type == 9 ? UnityEngine.Tilemaps.Tile.ColliderType.None : UnityEngine.Tilemaps.Tile.ColliderType.Grid;
             EditorUtility.SetDirty(tile); tileCache[key] = tile;
             return tile;
@@ -266,6 +272,7 @@ namespace Unfin.Editor
             EditorSceneManager.OpenScene(ScenePath);
             var world = UnityEngine.Object.FindAnyObjectByType<WorldPrototype>();
             data = JsonUtility.FromJson<WorldData>(world.mapJson.text); cells = data.Decode();
+            patterns = TerrainPatterns.Create(data.width, data.height);
             Require(EditorBuildSettings.scenes.Length == 1 && EditorBuildSettings.scenes[0].path == ScenePath &&
                 EditorBuildSettings.scenes[0].guid.ToString() == AssetDatabase.AssetPathToGUID(ScenePath), "Build scene reference");
             string hash;
@@ -283,6 +290,7 @@ namespace Unfin.Editor
                     Require(layer == (x >= data.regionX ? 3 : 0) + WorldPrototype.Layer(type), "Tile layer");
                     Require(tile.sprite.texture.width == 128 && tile.sprite.texture.height == 128 && tile.sprite.pixelsPerUnit == 128, "Sprite scale");
                     if (type == 1) Require(tile.exposedEdges == Mask(x, y), $"Terrain neighbors at {x},{y}");
+                    if (type == 1) Require(tile.patternVariant == patterns[y * data.width + x], $"Terrain pattern at {x},{y}");
                 }
                 Require(seen == (type == 0 ? 0 : 1), $"Cell coverage at {x},{y}");
                 if (type != 0) occupied++;

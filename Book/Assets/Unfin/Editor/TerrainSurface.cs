@@ -8,8 +8,7 @@ namespace Unfin.Editor
     public static class TerrainSurface
     {
         public static readonly Color Interior = new Color(.016f, .017f, .023f, 1);
-        public const float SurfaceDepth = 96;
-        public const float CapPixels = 2;
+        public const float SurfaceDepth = 128;
         static readonly Vector2Int[] Neighbors = {
             new Vector2Int(0,1), new Vector2Int(1,0), new Vector2Int(0,-1), new Vector2Int(-1,0),
             new Vector2Int(-1,1), new Vector2Int(1,1), new Vector2Int(1,-1), new Vector2Int(-1,-1)
@@ -34,15 +33,12 @@ namespace Unfin.Editor
             // Opposite faces can cancel on thin platforms; blend both material axes there.
             float wallWeight = horizontal + vertical < .001f ? .5f : horizontal / (horizontal + vertical);
             Color surface = Color.Lerp(Periodic(floor, px, nearest, false), Periodic(wall, py, nearest, true), wallWeight);
-            float fade = 1 - Mathf.SmoothStep(0, 1, Mathf.Clamp01((nearest - 32) / (SurfaceDepth - 32)));
+            // Masters already shade gradually across their whole depth. Only join the
+            // final eight pixels into the interior, instead of blacking out mid-tile.
+            float fade = 1 - Mathf.SmoothStep(0, 1, Mathf.Clamp01((nearest - 120) / 8));
             Color result = Color.Lerp(Interior, surface, fade);
-            // A consistent 2 px cap on all exposed faces; no perspective-dependent width.
-            if (nearest < CapPixels)
-            {
-                Color cap = Color.Lerp(Periodic(floor, px, .5f, false), Periodic(wall, py, .5f, true), wallWeight);
-                result = Color.Lerp(result, cap, .65f * (1 - nearest / CapPixels));
-            }
-            result.a = RoundedAlpha(mask, px, py);
+            // Artwork supplies a shallow irregular rim; no ruler-straight cap overlay.
+            result.a = surface.a * RoundedAlpha(mask, px, py);
             return result;
         }
         static Vector2 Delta(float x, float y, Vector2Int neighbor)
@@ -53,11 +49,7 @@ namespace Unfin.Editor
         static Color Periodic(Func<float,float,Color> sample, float tangent, float depth, bool wall)
         {
             float t = tangent / 128, d = 1 - depth / 128;
-            Color color = wall ? sample(d, t) : sample(t, d);
-            float seam = Mathf.Min(tangent, 128 - tangent);
-            if (seam >= 16) return color;
-            Color common = wall ? (sample(d, 0) + sample(d, 1)) * .5f : (sample(0, d) + sample(1, d)) * .5f;
-            return Color.Lerp(common, color, Mathf.SmoothStep(0, 1, seam / 16));
+            return wall ? sample(d, t) : sample(t, d);
         }
         static float RoundedAlpha(int mask, float x, float y)
         {

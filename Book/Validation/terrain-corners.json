@@ -1,9 +1,11 @@
 {
   "neighborConfigurations": 256,
-  "variantsPerRegion": 47,
+  "shapesPerPattern": 47,
+  "patternsPerRegion": 3,
+  "variantsPerRegion": 141,
   "regions": 2,
-  "exposedFacesChecked": 104,
-  "innerCornersChecked": 104,
-  "surfaceCapPixels": 2,
+  "exposedFacesChecked": 312,
+  "innerCornersChecked": 312,
+  "maximumRimRecessPixels": 3,
   "status": "passed"
 }

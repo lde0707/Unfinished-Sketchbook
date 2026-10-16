@@ -7,5 +7,6 @@ namespace Unfin
         public int htmlType;
         public int region;
         public int exposedEdges;
+        public int patternVariant;
     }
 }
