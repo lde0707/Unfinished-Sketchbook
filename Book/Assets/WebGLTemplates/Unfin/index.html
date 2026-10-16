@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <title>Unfinished Sketchbook · World 1 + 2</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#101114;color:#dedbd3;font:14px/1.6 system-ui,sans-serif}
+    main{max-width:min(1600px,calc((100dvh - 190px) * 16 / 9 + 48px));margin:auto;padding:20px 24px}header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+    h1{font-size:19px;letter-spacing:.04em;margin:0;font-weight:550}header p{margin:1px 0;color:#96958f;font-size:12px}
+    button{border:1px solid #65645c;background:#262725;border-radius:5px;color:#f2eee4;padding:9px 16px;cursor:pointer;font:inherit}button:hover{background:#363832}button:disabled{opacity:.4;cursor:wait}
+    #stage{position:relative;aspect-ratio:16/9;width:100%;background:#0b0c0f;overflow:hidden;border:1px solid #30312f}
+    canvas{display:block;width:100%;height:100%;outline:0}#stage:fullscreen{display:flex;align-items:center;justify-content:center;border:0;background:#050607}
+    #stage:fullscreen canvas{width:min(100vw,177.7778vh);height:min(100vh,56.25vw)}
+    #loading{position:absolute;inset:0;display:grid;place-content:center;text-align:center;background:#101114;gap:14px;padding:24px}
+    #loading[hidden]{display:none}#loading p{margin:0;color:#a8aaa3}progress{width:min(360px,70vw);height:5px;accent-color:#a9b89f;margin:auto}
+    #error{white-space:pre-wrap;color:#e4a9a5!important;max-width:600px}#hint{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);background:#101114d9;padding:7px 15px;border-radius:4px;pointer-events:none;white-space:nowrap;color:#c7c8bd}
+    footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:#aaa99f;margin-top:12px}footer p{margin:0}kbd{color:#eee9df;font:inherit}small{display:block;color:#777c7c;margin-top:7px}
+    @media(max-width:650px){main{padding:12px;max-width:100%}h1{font-size:15px}header p{font-size:11px}button{padding:7px 10px}footer{font-size:12px}}
+  </style>
+</head>
+<body>
+<main>
+  <header><div><h1>UNFINISHED SKETCHBOOK</h1><p>World 1 + 2 · Unity 맵 프로토타입</p></div><button id="fullscreen" disabled>전체 화면</button></header>
+  <div id="stage">
+    <canvas id="unity-canvas" width="1920" height="1080" tabindex="0" aria-label="World 1과 World 2 게임 화면"></canvas>
+    <div id="loading" role="status" aria-live="polite"><strong id="status">월드를 불러오는 중</strong><progress id="progress" max="1" value="0"></progress><p id="percent">0%</p><p id="error" hidden></p></div>
+    <div id="hint" hidden>화면을 클릭한 후 키보드로 플레이하세요</div>
+  </div>
+  <footer><p><kbd>A D / ← →</kbd> 이동 · <kbd>Space</kbd> 점프 · <kbd>Shift</kbd> 대시 · <kbd>S + Space</kbd> 발판 내려가기</p><p><kbd>1 / 2</kbd> 지역 이동 · <kbd>M</kbd> 지도 · <kbd>F</kbd> 비행 · <kbd>E</kbd> 게이트 열기 · <kbd>R</kbd> 초기화</p></footer>
+  <small>PC 키보드 조작 · 16:9 시야 유지 · 적과 아이템은 배치 확인용 표식이며 전투·저장은 아직 구현되지 않았습니다.</small>
+</main>
+<script>
+  const canvas=document.querySelector('#unity-canvas'),stage=document.querySelector('#stage'),loading=document.querySelector('#loading'),hint=document.querySelector('#hint');
+  const full=document.querySelector('#fullscreen'),bar=document.querySelector('#progress'),percent=document.querySelector('#percent');
+  function fail(message){loading.hidden=false;document.querySelector('#status').textContent='게임을 불러오지 못했습니다';bar.hidden=true;percent.hidden=true;const e=document.querySelector('#error');e.hidden=false;e.textContent=message+'\n새로고침 후 다시 시도해 주세요.';}
+  const config={
+    dataUrl:'Build/{{{ DATA_FILENAME }}}',frameworkUrl:'Build/{{{ FRAMEWORK_FILENAME }}}',codeUrl:'Build/{{{ CODE_FILENAME }}}',
+    streamingAssetsUrl:'StreamingAssets',companyName:'Unfinished Sketchbook',productName:'Unfinished Sketchbook',productVersion:'{{{ PRODUCT_VERSION }}}',
+    matchWebGLToCanvasSize:false,
+    showBanner:(message,type)=>{if(type==='error')fail(message);else console.warn(message);}
+  };
+  const loader=document.createElement('script');loader.src='Build/{{{ LOADER_FILENAME }}}';loader.onerror=()=>fail('실행 파일을 내려받지 못했습니다.');
+  loader.onload=()=>createUnityInstance(canvas,config,p=>{bar.value=p;percent.textContent=Math.round(p*100)+'%';}).then(instance=>{
+    window.unityInstance=instance;loading.hidden=true;full.disabled=false;hint.hidden=false;canvas.focus({preventScroll:true});
+    canvas.addEventListener('pointerdown',()=>{canvas.focus({preventScroll:true});hint.hidden=true;});
+    full.onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await stage.requestFullscreen();canvas.focus({preventScroll:true});}catch(e){console.warn(e);}};
+    document.addEventListener('fullscreenchange',()=>{full.textContent=document.fullscreenElement?'전체 화면 종료':'전체 화면';});
+  }).catch(e=>fail(String(e)));
+  document.body.appendChild(loader);
+  canvas.addEventListener('keydown',e=>{if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','F1','F2'].includes(e.code))e.preventDefault();});
+</script>
+</body>
+</html>

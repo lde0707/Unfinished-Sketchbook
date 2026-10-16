@@ -2,6 +2,24 @@
 
 Unity **6000.5.3f1**에서 이 `Book` 폴더를 열고 `Assets/Scenes/World12Prototype.unity`를 열어 Play한다. Game 뷰를 **1920×1080**으로 설정한다. 에디터 패널의 Fit 축소율은 실제 게임 출력 해상도와 별개다.
 
+## 웹 플레이와 빌드
+
+[웹에서 플레이](https://unfinished-sketchbook-unity.creamykrill16.chatgpt.site) — 소유자 본인의 ChatGPT 계정으로 로그인하는 비공개 배포다. PC 키보드로 조작한다.
+
+실제 Unity 씬을 WebAssembly/WebGL로 컴파일한다. HTML 프로토타입을 대신 실행하는 방식이 아니다. 웹에서도 같은 World 1·2, 128px 타일, 둥근 연결부, A/B/C 재질과 격자 충돌을 사용한다.
+
+- Unity Hub의 **6000.5.3f1 → Add Modules → Web Build Support**가 필요하다.
+- 저장소 루트에서 `powershell -ExecutionPolicy Bypass -File Tools/build_webgl.ps1`을 실행한다. 다른 에디터 경로는 `-Unity "경로/Unity.exe"`로 지정한다.
+- 빌드는 `Builds/UnityWebGLProject`에 Assets/Packages/ProjectSettings만 복사해 진행하므로 열려 있는 `Book` 에디터를 닫을 필요가 없다. 이 전용 복사본의 세 소스 폴더는 매번 원본과 동기화된다. 직접 작업하는 폴더로 사용하지 않는다.
+- 결과는 `Builds/WebGLSite/dist`, 로그는 `Builds/webgl-build.log`다. 첫 빌드는 패키지 임포트와 WebAssembly 컴파일 때문에 더 오래 걸린다.
+- `node Tools/verify_webgl.cjs`로 로더/스크립트 문법, gzip 무결성, WebAssembly 유효성을 검사하고 `Validation/webgl-build.json`에 크기와 해시를 기록한다.
+- `node Tools/serve_webgl.cjs`를 실행한 뒤 `http://127.0.0.1:8080`에서 플레이한다. 종료는 터미널의 Ctrl+C. `file://` 더블클릭 실행은 지원하지 않는다.
+- 에디터 메뉴 **Unfin → Build Web Player**도 제공한다. 현재 프로젝트에서 직접 빌드할 때 사용하며 웹 빌드 설정이 저장된다.
+
+웹 화면은 내부 **1920×1080**, 표시 비율 **16:9**를 유지한다. 화면 크기가 달라도 같은 범위가 보이고 전체 화면에서는 남는 공간을 검게 채운다. PC 키보드 조작을 제공하며 터치 조작은 아직 없다. 브라우저 기능과 겹칠 수 있는 F1/F2 대신 숫자 **1/2**로 지역을 이동할 수 있다.
+
+gzip + Decompression Fallback을 사용해 별도 압축 헤더 설정이 없는 정적 호스팅에서도 실행한다. 배포할 때는 `dist` 전체를 함께 올린다. 빌드 산출물과 빌드용 Library는 GitHub에 포함하지 않고 소스와 재현 도구를 관리한다. Sites 배포의 프로젝트 식별자/정적 경로는 `../Tools/webgl-hosting.json`에 보존하며, 이를 빌드 폴더의 `.openai/hosting.json`으로 복사한다. 인증 토큰은 저장하지 않는다.
+
 타일 이미지는 **128×128px**, PPU **128**, Grid Cell Size **1×1**이다. 카메라는 Orthographic Size **4.21875**이며 1920×1080에서 타일 한 칸이 **128×128 화면 픽셀**이다. 화면에 가로 15칸, 세로 8.4375칸이 들어온다. 다른 출력 해상도에서는 같은 세로 시야를 유지한다.
 
 ## 원본과 구조
@@ -39,7 +57,7 @@ Unity **6000.5.3f1**에서 이 `Book` 폴더를 열고 `Assets/Scenes/World12Pro
 - Shift: 대시. 이동 능력은 맵 검증을 위해 처음부터 활성화되어 있다.
 - F: 충돌을 무시하는 자유 비행. WASD/방향키로 이동한다.
 - E: 가까운 연결된 게이트 하나를 여는 QA 조작.
-- F1/F2: 1지역 시작점 / 2지역 첫 세이브 위치로 이동.
+- 1/2 또는 F1/F2: 1지역 시작점 / 2지역 첫 세이브 위치로 이동. 웹에서는 1/2를 권장한다.
 - M: 전체 지도. 빈칸을 클릭하면 자유 비행으로 해당 위치를 확인한다.
 - R: 씬을 다시 불러와 변경된 지형과 플레이어를 초기화한다.
 

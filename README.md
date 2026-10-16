@@ -8,3 +8,4 @@
 - `Book/Assets`, `Book/Packages`, `Book/ProjectSettings`는 Git으로 관리합니다. `Library`, `Logs`, `UserSettings` 등은 로컬에서 다시 생성되는 파일이므로 제외합니다.
 - Unity에서 `Book/Assets/Scenes/World12Prototype.unity`를 열고 Play하면 HTML World 1·2의 통합 맵을 탐색할 수 있습니다. **1920×1080에서 한 칸 128px**, 카메라 Orthographic Size **4.21875**입니다.
 - [Unity 프로토타입 실행·조작·검증 방법](Book/README.md). 적·아이템은 원본 위치의 표식이며, 전투·진행 시스템은 아직 이식하지 않았습니다.
+- [Unity 웹 플레이](https://unfinished-sketchbook-unity.creamykrill16.chatgpt.site): 본인 ChatGPT 계정으로 로그인하는 비공개 WebGL 배포. PC 키보드로 이동·점프·지역 전환을 할 수 있습니다.

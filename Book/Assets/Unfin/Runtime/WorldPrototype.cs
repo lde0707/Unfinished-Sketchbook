@@ -50,8 +50,8 @@ namespace Unfin
             if (k.mKey.wasPressedThisFrame) showMap = !showMap;
             if (k.fKey.wasPressedThisFrame) { flying = !flying; Motor.vx = Motor.vy = 0; }
             if (k.rKey.wasPressedThisFrame) RestoreWorld();
-            if (k.f1Key.wasPressedThisFrame) Respawn(Data.startX, Data.startFloor);
-            if (k.f2Key.wasPressedThisFrame)
+            if (k.f1Key.wasPressedThisFrame || k.digit1Key.wasPressedThisFrame) Respawn(Data.startX, Data.startFloor);
+            if (k.f2Key.wasPressedThisFrame || k.digit2Key.wasPressedThisFrame)
                 foreach (var p in Data.pickups) if (p.type == "save" && p.tx >= Data.regionX) { Respawn(p.tx, p.floor); break; }
             if (k.eKey.wasPressedThisFrame) OpenNearbyGate();
             if (k.spaceKey.wasPressedThisFrame) jumpBuffer = .12f;
@@ -201,7 +201,7 @@ namespace Unfin
         void OnGUI()
         {
             if (Data == null) return;
-            GUI.Box(new Rect(12, 12, 620, 76), "WORLD 1 + 2  |  128 px / tile at 1920 x 1080\nA/D: move   Space: jump / wall jump   S+Space: drop   Shift: dash\nF: free flight   E: open nearby gate (QA)   F1/F2: region   M: map   R: reset");
+            GUI.Box(new Rect(12, 12, 620, 76), "WORLD 1 + 2  |  128 px / tile at 1920 x 1080\nA/D: move   Space: jump / wall jump   S+Space: drop   Shift: dash\nF: free flight   E: open nearby gate (QA)   1/2: region   M: map   R: reset");
             GUI.Label(new Rect(24, 91, 700, 28), $"{(Motor.x / 16 < Data.regionX ? "World 1" : "World 2")}   tile ({Motor.x / 16:F1}, {Motor.y / 16:F1})   {(flying ? "FLIGHT" : "WALK")}   Enemies / items: placement markers");
             if (!showMap) return;
             float width = Mathf.Min(Screen.width - 40, 1120), height = width * Data.height / Data.width;

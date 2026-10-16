@@ -1,0 +1,40 @@
+{
+  "unity": "6000.5.3f1",
+  "scene": "World12Prototype",
+  "renderSize": [
+    1920,
+    1080
+  ],
+  "compression": "gzip with JavaScript fallback",
+  "totalDownloadBytes": 20142499,
+  "files": [
+    {
+      "name": "21fa410771fd3868c1b535b30e3649dd.data.unityweb",
+      "kind": "data",
+      "bytes": 10732183,
+      "unpackedBytes": 17788761,
+      "sha256": "ca9dc88ad0bf6fcd5001c5b34b5919200ed9613c90e7143079929af472121629"
+    },
+    {
+      "name": "9dc5fe56697bd658494b666675a9b12b.framework.js.unityweb",
+      "kind": "framework",
+      "bytes": 82054,
+      "unpackedBytes": 394437,
+      "sha256": "c747fe8884a1948f883a5105ead2cdfe0c4952e45c1274ce219f3c8f10cc71e6"
+    },
+    {
+      "name": "e15f66293b046669671ae278b50eca44.wasm.unityweb",
+      "kind": "wasm",
+      "bytes": 9280396,
+      "unpackedBytes": 33424531,
+      "sha256": "a5696c1c79321b5b59a092bdea3f8a74133409fd95c207bf453e80235b3f10a3"
+    },
+    {
+      "name": "b4439e48638454be75f7c6cf50dde2dc.loader.js",
+      "kind": "loader",
+      "bytes": 47866,
+      "unpackedBytes": 47866,
+      "sha256": "ae5f1a9776ebf3f9c50875b825f2da018fb9f4b7f51e6d8613420fca82eab84c"
+    }
+  ]
+}
