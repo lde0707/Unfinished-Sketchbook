@@ -6,35 +6,35 @@
     1080
   ],
   "compression": "gzip with JavaScript fallback",
-  "totalDownloadBytes": 20125497,
+  "totalDownloadBytes": 35398063,
   "files": [
     {
-      "name": "1ddb89d3454a216a89ab840b2fad0013.data.unityweb",
+      "name": "af2f4631dc12008585c786e182b5d075.data.unityweb",
       "kind": "data",
-      "bytes": 10715181,
-      "unpackedBytes": 17645549,
-      "sha256": "e71180914b55d459fd25b617fb1f89e74eae28f5a1b652cc340f7755a8005007"
+      "bytes": 25986201,
+      "unpackedBytes": 35163602,
+      "sha256": "bc688e527ec095566986fb6ebe2bb65fc235f035fb2529f7c45d4c2883be328e"
     },
     {
       "name": "9dc5fe56697bd658494b666675a9b12b.framework.js.unityweb",
       "kind": "framework",
       "bytes": 82054,
       "unpackedBytes": 394437,
-      "sha256": "c747fe8884a1948f883a5105ead2cdfe0c4952e45c1274ce219f3c8f10cc71e6"
+      "sha256": "b5808002f2a1ca709aa3ceb7ed7a3b7b814908d79f735344f05da1eeed84938d"
     },
     {
-      "name": "e15f66293b046669671ae278b50eca44.wasm.unityweb",
+      "name": "13c6044926cb159ea61229b03adc700f.wasm.unityweb",
       "kind": "wasm",
-      "bytes": 9280396,
-      "unpackedBytes": 33424531,
-      "sha256": "a5696c1c79321b5b59a092bdea3f8a74133409fd95c207bf453e80235b3f10a3"
+      "bytes": 9281942,
+      "unpackedBytes": 33424903,
+      "sha256": "454c8cb5c18a3e8a59226b3e395e4d2ff2a81b7797dc300d2c8bdb2edf23ff0b"
     },
     {
-      "name": "b4439e48638454be75f7c6cf50dde2dc.loader.js",
+      "name": "000c35ca0654094d98f0f7c21a8bd0d3.loader.js",
       "kind": "loader",
       "bytes": 47866,
       "unpackedBytes": 47866,
-      "sha256": "ae5f1a9776ebf3f9c50875b825f2da018fb9f4b7f51e6d8613420fca82eab84c"
+      "sha256": "7b2db8cbf83fbba197471a0f946be351085b16d9f583bd77b98a670e39bd7df3"
     }
   ]
 }
