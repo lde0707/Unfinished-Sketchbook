@@ -131,6 +131,7 @@ namespace Unfin.Editor
             player.transform.localScale = new Vector3(.75f, 1.375f, 1);
             player.transform.position = new Vector3(data.startX + .5f, -data.startFloor + .6875f, 0);
             controller.player = player.transform;
+            PaperPlayerImporter.Attach(controller);
             MakeMarkers("Enemy placement (no AI)", data.enemies, true, markerSprite);
             MakeMarkers("Item and device placement", data.pickups, false, markerSprite);
             MakeAreas("Rooms", data.rooms); MakeAreas("Passages", data.passages); MakeAreas("Shafts", data.shafts);

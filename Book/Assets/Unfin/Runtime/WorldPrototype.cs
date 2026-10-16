@@ -23,6 +23,8 @@ namespace Unfin
         bool showMap, previousJump;
         float jumpBuffer, coyote, wallLock, dashTime, dashCooldown, accumulator;
         int facing = 1;
+        public int Facing => facing;
+        public bool IsDashing => dashTime > 0;
         Vector2 safe;
         readonly Dictionary<int, Change> changes = new Dictionary<int, Change>();
         readonly List<int> changeKeys = new List<int>();
@@ -212,7 +214,7 @@ namespace Unfin
         {
             if (Data == null) return;
             GUI.Box(new Rect(12, 12, 620, 76), "WORLD 1 + 2  |  128 px / tile at 1920 x 1080\nA/D: move   Space: jump / wall jump   S+Space: drop   Shift: dash\nF: free flight   E: open nearby gate (QA)   1/2: region   M: map   R: reset");
-            GUI.Label(new Rect(24, 91, 700, 28), $"{(Motor.x / 16 < Data.regionX ? "World 1" : "World 2")}   tile ({Motor.x / 16:F1}, {Motor.y / 16:F1})   {(flying ? "FLIGHT" : "WALK")}   Enemies / items: placement markers");
+            GUI.Label(new Rect(24, 91, 900, 28), $"{(Motor.x / 16 < Data.regionX ? "World 1" : "World 2")}   tile ({Motor.x / 16:F1}, {Motor.y / 16:F1})   {(flying ? "FLIGHT" : "WALK")}   J: attack animation preview   Enemies / items: placement markers");
             if (!showMap) return;
             float width = Mathf.Min(Screen.width - 40, 1120), height = width * Data.height / Data.width;
             var rect = new Rect((Screen.width - width) / 2, (Screen.height - height) / 2, width, height);

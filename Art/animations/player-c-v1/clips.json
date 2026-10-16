@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Idle",
+    "label": "대기",
+    "frames": 120,
+    "fps": 60,
+    "loop": true,
+    "file": "sheets/Idle.png"
+  },
+  {
+    "name": "Walk",
+    "label": "걷기",
+    "frames": 60,
+    "fps": 60,
+    "loop": true,
+    "file": "sheets/Walk.png"
+  },
+  {
+    "name": "Run",
+    "label": "달리기",
+    "frames": 48,
+    "fps": 60,
+    "loop": true,
+    "file": "sheets/Run.png"
+  },
+  {
+    "name": "RunStart",
+    "label": "달리기 시작",
+    "frames": 12,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/RunStart.png"
+  },
+  {
+    "name": "RunStop",
+    "label": "멈추기",
+    "frames": 18,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/RunStop.png"
+  },
+  {
+    "name": "Jump",
+    "label": "점프 시작",
+    "frames": 10,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/Jump.png"
+  },
+  {
+    "name": "AirRise",
+    "label": "상승",
+    "frames": 30,
+    "fps": 60,
+    "loop": true,
+    "file": "sheets/AirRise.png"
+  },
+  {
+    "name": "AirApex",
+    "label": "정점",
+    "frames": 24,
+    "fps": 60,
+    "loop": true,
+    "file": "sheets/AirApex.png"
+  },
+  {
+    "name": "AirFall",
+    "label": "낙하",
+    "frames": 48,
+    "fps": 60,
+    "loop": true,
+    "file": "sheets/AirFall.png"
+  },
+  {
+    "name": "Land",
+    "label": "착지",
+    "frames": 18,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/Land.png"
+  },
+  {
+    "name": "Dash",
+    "label": "대시",
+    "frames": 12,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/Dash.png"
+  },
+  {
+    "name": "WallSlide",
+    "label": "벽 미끄러짐",
+    "frames": 60,
+    "fps": 60,
+    "loop": true,
+    "file": "sheets/WallSlide.png"
+  },
+  {
+    "name": "Turn",
+    "label": "방향 전환",
+    "frames": 12,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/Turn.png"
+  },
+  {
+    "name": "Attack1",
+    "label": "공격 1",
+    "frames": 30,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/Attack1.png"
+  },
+  {
+    "name": "Attack2",
+    "label": "공격 2",
+    "frames": 34,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/Attack2.png"
+  },
+  {
+    "name": "Attack3",
+    "label": "공격 3",
+    "frames": 40,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/Attack3.png"
+  },
+  {
+    "name": "Hurt",
+    "label": "피격",
+    "frames": 24,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/Hurt.png"
+  },
+  {
+    "name": "Death",
+    "label": "쓰러짐",
+    "frames": 75,
+    "fps": 60,
+    "loop": false,
+    "file": "sheets/Death.png"
+  }
+]
