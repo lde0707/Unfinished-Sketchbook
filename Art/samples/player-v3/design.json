@@ -1,0 +1,25 @@
+{
+  "version": 3,
+  "generator": "built-in image_gen",
+  "status": "Paper cape concept; not integrated into Unity",
+  "userChange": "Add a paper cape; this explicitly supersedes the older no-clothes character rule for this concept.",
+  "files": [
+    {
+      "file": "01-character-study.png",
+      "reference": "Art/samples/player-v2/01-character-study.png",
+      "prompt": "Use case: identity-preserve. Edit this approved lean paper protagonist character sheet by adding a PAPER CAPE to the same character in ALL THREE poses. Preserve precisely the existing lean anatomy, small round head, one dark dot eye, no mouth or nose, long slender limbs, chalk ivory body, tactile matte paper texture, clean graphite contours, charcoal backdrop, three-pose sheet layout and restrained 2D game illustration style. Large three-quarter idle left, small side idle upper right, dynamic run lower right. Cape design: a short lightweight mantle fashioned from a single folded sheet of aged off-white drawing paper, monochrome ivory and pale warm gray, slightly darker than the body for readable separation. Small folded shoulder yoke, open front leaving chest, arms and legs visible. Cape hangs behind from shoulders to upper thigh, with two or three broad paper folds and a gently uneven torn-paper hem with rounded worn corners. A faint crease near collar is enough attachment detail; no jewelry or metallic clasp. No hood, no scarf, no sleeves, no armor, no extra garments. Cape looks like flexible PAPER with planar folds and subtle fibers matching the hero, not cloth, leather, feathers, leaves or rigid cardboard armor. Quietly hangs backward in idle with a little lifted corner. In the running pose it flares backward in a graceful broad folded arc, suggesting speed while leaving the slim running silhouette clear. Do not increase the body's width or shorten the legs. Keep cape compact, not a huge fantasy cloak or giant wings. Preserve existing soft broad surface relief, clean curved silhouettes, and mysterious calm personality. No colored accents, printed letters, symbols, patterns, glow, accessories, weapons, extra eyes, horns, hair, text or labels. Same cape construction and proportions in every pose. Landscape output, same composition and margins as the reference."
+    },
+    {
+      "file": "02-five-backgrounds.png",
+      "references": [
+        "Art/samples/player-v3/01-character-study.png",
+        "Art/samples/player-v2/02-five-backgrounds.png"
+      ],
+      "prompt": "Use case: compositing. IMAGE 1 is the approved slim protagonist now wearing a short folded PAPER CAPE. IMAGE 2 is the existing five-background comparison board to EDIT. Add the exact paper cape from image 1 onto EACH of the five lean characters in image 2. Keep all five characters' identities, one dot eye, small round head, slim torso and long slender legs, chalk ivory body and same screen size and floor contact. The only character design addition is the small pale ivory paper cape with folded shoulder yoke, open front, two or three broad planar paper folds and gently uneven torn hem, hanging backward to upper thigh with slight flutter. Same cape construction and size on all five characters. Arms and long legs remain visible. No hoods, scarves, cloth texture, new clothing, jewelry, weapons or colored accents. Preserve image 2's EXACT five-panel layout and approximate environment imagery: paper cavern upper left, graphite mine upper right, walnut wood middle left, olive roots middle right, wide wood-to-root transition bottom. Preserve the dark background texture, brighter irregular ground edges, terrain placement, narrow charcoal gutters, colors and lighting. One hero per panel, facing right. Keep heroes small, about 90px total height at the reference board's 1254px square size; cape must not turn them into large blobs or obscure agile silhouettes. Match image 1's matte paper material, with the cape slightly darker than the body. No glow, no spotlights. Do not redesign backgrounds or make new caves. No text, labels, UI, logos or extra figures. Square output, same layout as image 2. Concept comparison composite."
+    }
+  ],
+  "notes": [
+    "Preserve lean monochrome body and paper texture.",
+    "Five-background board is a generated concept composite, not a Unity screenshot."
+  ]
+}
