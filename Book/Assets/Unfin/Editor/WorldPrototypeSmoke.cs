@@ -28,8 +28,18 @@ namespace Unfin.Editor
         public static void Run()
         {
             WorldPrototypeBuilder.Validate();
-            SessionState.SetBool(ActiveKey, true);
-            EditorApplication.EnterPlaymode();
+            // Let editor startup (including Search indexing) finish before the
+            // play-mode domain reload. Entering immediately can race its callbacks.
+            double readyAt = EditorApplication.timeSinceStartup + 5;
+            void StartWhenReady()
+            {
+                if (EditorApplication.isCompiling || EditorApplication.isUpdating ||
+                    EditorApplication.timeSinceStartup < readyAt) return;
+                EditorApplication.update -= StartWhenReady;
+                SessionState.SetBool(ActiveKey, true);
+                EditorApplication.EnterPlaymode();
+            }
+            EditorApplication.update += StartWhenReady;
         }
         public static void Finish(bool success, string message)
         {

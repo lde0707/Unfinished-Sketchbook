@@ -1,0 +1,198 @@
+{
+  "restoredFrom": "8aba87351ba585d9e59b941e08154c40cb984dc3",
+  "dimensions": [
+    560,
+    140
+  ],
+  "gridSha256": "bca3e0e1cd97d055a037fc1027785e1d78213ed5d4a238e65ae1d37186cdf6c0",
+  "historicalGridExactMatch": true,
+  "world2RelativeCellDifferences": 0,
+  "world2OffsetRemoved": 24,
+  "start": {
+    "tx": 244,
+    "floor": 131
+  },
+  "roomHeights": [
+    {
+      "n": 1,
+      "name": "시작의 백지길",
+      "before": 18,
+      "after": 9
+    },
+    {
+      "n": 2,
+      "name": "바람 드는 종이 틈",
+      "before": 18,
+      "after": 10
+    },
+    {
+      "n": 3,
+      "name": "구겨진 종이 비탈",
+      "before": 18,
+      "after": 10
+    },
+    {
+      "n": 4,
+      "name": "풀 그림자 굴",
+      "before": 32,
+      "after": 20
+    },
+    {
+      "n": 5,
+      "name": "갈림길 굴",
+      "before": 33,
+      "after": 12
+    },
+    {
+      "n": 6,
+      "name": "갈림굴 다락",
+      "before": 18,
+      "after": 8
+    },
+    {
+      "n": 7,
+      "name": "광산 입구",
+      "before": 33,
+      "after": 10
+    },
+    {
+      "n": 8,
+      "name": "흑연 갱도",
+      "before": 18,
+      "after": 6
+    },
+    {
+      "n": 9,
+      "name": "무너진 갱도",
+      "before": 40,
+      "after": 20
+    },
+    {
+      "n": 10,
+      "name": "광부의 쉼터",
+      "before": 30,
+      "after": 16
+    },
+    {
+      "n": 11,
+      "name": "감독의 채굴장",
+      "before": 34,
+      "after": 16
+    },
+    {
+      "n": 12,
+      "name": "덩굴 뒤 창고",
+      "before": 4,
+      "after": 4
+    },
+    {
+      "n": 13,
+      "name": "옹이 방",
+      "before": 18,
+      "after": 10
+    },
+    {
+      "n": 14,
+      "name": "나무 속 탑",
+      "before": 69,
+      "after": 46
+    },
+    {
+      "n": 15,
+      "name": "가지 속 통로",
+      "before": 19,
+      "after": 9
+    },
+    {
+      "n": 16,
+      "name": "지워진 둥지",
+      "before": 16,
+      "after": 6
+    },
+    {
+      "n": 17,
+      "name": "새 둥지",
+      "before": 18,
+      "after": 8
+    },
+    {
+      "n": 18,
+      "name": "덩굴 다리",
+      "before": 32,
+      "after": 10
+    },
+    {
+      "n": 19,
+      "name": "위쪽 갈림",
+      "before": 18,
+      "after": 8
+    },
+    {
+      "n": 20,
+      "name": "사냥꾼의 굴",
+      "before": 29,
+      "after": 10
+    },
+    {
+      "n": 21,
+      "name": "둥지 앞 쉼터",
+      "before": 18,
+      "after": 8
+    },
+    {
+      "n": 22,
+      "name": "낙서 덩어리의 둥지",
+      "before": 33,
+      "after": 19
+    },
+    {
+      "n": 23,
+      "name": "뿌리 내리막",
+      "before": 18,
+      "after": 10
+    },
+    {
+      "n": 24,
+      "name": "둥지 뒤 비밀 방",
+      "before": 3,
+      "after": 3
+    },
+    {
+      "n": 25,
+      "name": "과녁 뒤 서재",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "n": 26,
+      "name": "밀랍 둥지",
+      "before": 5,
+      "after": 5
+    },
+    {
+      "n": 27,
+      "name": "잠긴 수로 끝",
+      "before": 4,
+      "after": 4
+    },
+    {
+      "n": 28,
+      "name": "솜뭉치 선반",
+      "before": 7,
+      "after": 7
+    },
+    {
+      "n": 29,
+      "name": "그리다 만 강아지 굴",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "n": 30,
+      "name": "찢긴 페이지 굴",
+      "before": 7,
+      "after": 7
+    }
+  ],
+  "note": "Restore original low-ceiling layout, including original passage/shaft/platform/marker positions. Current 128px materials and camera remain unchanged."
+}

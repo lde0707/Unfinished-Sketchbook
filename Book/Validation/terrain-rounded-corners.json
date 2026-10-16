@@ -2,7 +2,7 @@
   "outerRadiusPixels": 28,
   "innerRadiusPixels": 24,
   "filletAssets": 90,
-  "filletCells": 220,
+  "filletCells": 216,
   "neighborConfigurations": 256,
   "collisionGridChanged": false,
   "status": "passed"

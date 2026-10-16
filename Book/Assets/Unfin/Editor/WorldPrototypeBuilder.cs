@@ -164,6 +164,12 @@ namespace Unfin.Editor
             Build();
             TerrainCornerValidation.Render();
         }
+        public static void RebuildLayoutAndRender()
+        {
+            Build();
+            RenderPreviews();
+            WorldMapPresentation.Render();
+        }
         static int Get(int x, int y) => x < 0 || y < 0 || x >= data.width || y >= data.height ? 1 : cells[y * data.width + x];
         static int Mask(int x, int y) => TerrainTopology.Mask(Get, x, y);
         static Color Tint(int type) => type switch

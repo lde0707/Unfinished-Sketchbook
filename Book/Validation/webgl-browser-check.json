@@ -3,32 +3,33 @@
   "unity": "6000.5.3f1",
   "scene": "Assets/Scenes/World12Prototype.unity",
   "sourceSceneAndMapCopyIdentical": true,
+  "sourceMapDimensions": [560, 140],
+  "sourceGridSha256": "bca3e0e1cd97d055a037fc1027785e1d78213ed5d4a238e65ae1d37186cdf6c0",
   "localUrl": "http://127.0.0.1:8080/",
   "browser": "Codex in-app Chromium",
   "verifiedInLocalBrowser": [
     "Unity scene finishes loading and renders textured terrain",
-    "A movement changes tile x from 244.1 to 243.5",
-    "Space jump lifts player from floor",
-    "2 warps to World 2 at tile 286.1, 58.6",
-    "M displays the combined World 1 and 2 map",
-    "F and W enable free flight and move upward",
-    "R reloads scene at World 1 start in WALK mode",
-    "Fullscreen button enters fullscreen while preserving 16:9",
+    "M displays the restored compact World 1 and unchanged relative World 2 layout",
+    "Map click enters free flight inside the original low-ceiling graphite mine",
+    "Mine ceiling renders with the current rounded, textured tiles",
+    "F returns to gravity; A moves the player along the mine floor",
+    "2 warps to World 2 with its existing brown terrain",
+    "R reloads scene at the restored World 1 start",
     "Normal window shows game, title and controls without scrolling"
   ],
+  "editorPlaymodeCheck": "Passed: movement, jump, World 2 warp, flight, gate opening, corner/pattern refresh and reset. Startup now waits for editor initialization before entering play mode.",
   "browserErrorsObserved": [],
   "deployment": {
     "url": "https://unfinished-sketchbook-unity.creamykrill16.chatgpt.site",
     "access": "owner-private, ChatGPT sign-in required",
     "status": "succeeded",
     "projectId": "appgprj_6ad1cfa856b881919a657b9e588b34d2",
-    "deploymentId": "appgdep_6ad1d3ec342881919fac75aa79b42ca0",
-    "sourceCommit": "9c039a65d66e6eda0c44ee77688d06b864b951b7",
-    "hostedBrowserCheck": "Sign-in page confirmed; gameplay tested locally using identical published files"
+    "deploymentId": "appgdep_6ad1dbd0db708191a8b1a5bc8e8b06b5",
+    "sourceCommit": "46df58451afaa069adbc1b7c22a920f5973eac58",
+    "hostedBrowserCheck": "Hosted Unity game loaded successfully; M displays the restored 560x140 map. No console errors or warnings observed."
   },
   "limitations": [
     "Keyboard controls only; no mobile touch controls",
-    "Enemy/item placement markers; combat and persistent saving are not implemented",
-    "First isolated-project import reported long-path errors in unused Unity 2D tooling editor assets; WebGL build completed successfully"
+    "Enemy/item placement markers; combat and persistent saving are not implemented"
   ]
 }

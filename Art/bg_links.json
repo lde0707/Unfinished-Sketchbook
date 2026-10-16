@@ -8,7 +8,7 @@
    "contact_tiles": 4,
    "at": [
     191,
-    167
+    104
    ],
    "first_name": "풀뿌리 갈림굴",
    "second_name": "종이 틈 입구",
@@ -22,7 +22,7 @@
    "contact_tiles": 5,
    "at": [
     170,
-    172
+    114
    ],
    "first_name": "풀뿌리 갈림굴",
    "second_name": "광산 입구·갱도",
@@ -33,10 +33,10 @@
    "first": "B2",
    "second": "B1",
    "dir": "h",
-   "contact_tiles": 20,
+   "contact_tiles": 8,
    "at": [
     99,
-    189
+    126
    ],
    "first_name": "깊은 채굴장",
    "second_name": "광산 입구·갱도",
@@ -50,7 +50,7 @@
    "contact_tiles": 5,
    "at": [
     125,
-    127
+    84
    ],
    "first_name": "나무 밑동 속",
    "second_name": "풀뿌리 갈림굴",
@@ -64,7 +64,7 @@
    "contact_tiles": 18,
    "at": [
     104,
-    84
+    49
    ],
    "first_name": "속 빈 줄기",
    "second_name": "나무 밑동 속",
@@ -78,7 +78,7 @@
    "contact_tiles": 22,
    "at": [
     100,
-    33
+    13
    ],
    "first_name": "가지 속·둥지",
    "second_name": "속 빈 줄기",
@@ -92,7 +92,7 @@
    "contact_tiles": 4,
    "at": [
     168,
-    28
+    8
    ],
    "first_name": "가지 속·둥지",
    "second_name": "덩굴 다리 위층",
@@ -106,7 +106,7 @@
    "contact_tiles": 5,
    "at": [
     212,
-    44
+    22
    ],
    "first_name": "덩굴 다리 위층",
    "second_name": "사냥꾼의 굴",
@@ -120,7 +120,7 @@
    "contact_tiles": 2,
    "at": [
     276,
-    42
+    20
    ],
    "first_name": "덩굴 다리 위층",
    "second_name": "낙서 둥지",
@@ -134,7 +134,7 @@
    "contact_tiles": 5,
    "at": [
     250,
-    149
+    95
    ],
    "first_name": "사냥꾼의 굴",
    "second_name": "종이 틈 입구",
@@ -145,10 +145,10 @@
    "first": "D2",
    "second": "D3",
    "dir": "h",
-   "contact_tiles": 6,
+   "contact_tiles": 4,
    "at": [
     241,
-    62
+    30
    ],
    "first_name": "사냥꾼의 굴",
    "second_name": "낙서 둥지",
@@ -159,10 +159,10 @@
    "first": "D3",
    "second": "E1",
    "dir": "h",
-   "contact_tiles": 10,
+   "contact_tiles": 8,
    "at": [
     277,
-    44
+    22
    ],
    "first_name": "낙서 둥지",
    "second_name": "물감 번진 관문",
@@ -176,7 +176,7 @@
    "contact_tiles": 4,
    "at": [
     307,
-    56
+    32
    ],
    "first_name": "물감 번진 관문",
    "second_name": "노을빛 굴",
@@ -190,7 +190,7 @@
    "contact_tiles": 4,
    "at": [
     401,
-    56
+    32
    ],
    "first_name": "노을빛 굴",
    "second_name": "삼색 광장",
@@ -204,7 +204,7 @@
    "contact_tiles": 10,
    "at": [
     376,
-    68
+    44
    ],
    "first_name": "노을빛 굴",
    "second_name": "공방 작업장",
@@ -218,7 +218,7 @@
    "contact_tiles": 6,
    "at": [
     426,
-    80
+    56
    ],
    "first_name": "삼색 광장",
    "second_name": "협곡 중턱",
@@ -232,7 +232,7 @@
    "contact_tiles": 6,
    "at": [
     463,
-    54
+    30
    ],
    "first_name": "삼색 광장",
    "second_name": "탑 아래층",
@@ -246,7 +246,7 @@
    "contact_tiles": 5,
    "at": [
     310,
-    97
+    73
    ],
    "first_name": "공방 작업장",
    "second_name": "밀랍 저장고",
@@ -260,7 +260,7 @@
    "contact_tiles": 4,
    "at": [
     361,
-    114
+    90
    ],
    "first_name": "밀랍 저장고",
    "second_name": "물 고인 아래층",
@@ -274,7 +274,7 @@
    "contact_tiles": 16,
    "at": [
     463,
-    120
+    96
    ],
    "first_name": "협곡 중턱",
    "second_name": "협곡 바닥",
@@ -288,7 +288,7 @@
    "contact_tiles": 6,
    "at": [
     516,
-    142
+    118
    ],
    "first_name": "협곡 바닥",
    "second_name": "물감 폭포 홀",
@@ -302,7 +302,7 @@
    "contact_tiles": 15,
    "at": [
     548,
-    41
+    17
    ],
    "first_name": "탑 위층",
    "second_name": "탑 아래층",

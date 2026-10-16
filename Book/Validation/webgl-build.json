@@ -6,14 +6,14 @@
     1080
   ],
   "compression": "gzip with JavaScript fallback",
-  "totalDownloadBytes": 20142499,
+  "totalDownloadBytes": 20125497,
   "files": [
     {
-      "name": "21fa410771fd3868c1b535b30e3649dd.data.unityweb",
+      "name": "1ddb89d3454a216a89ab840b2fad0013.data.unityweb",
       "kind": "data",
-      "bytes": 10732183,
-      "unpackedBytes": 17788761,
-      "sha256": "ca9dc88ad0bf6fcd5001c5b34b5919200ed9613c90e7143079929af472121629"
+      "bytes": 10715181,
+      "unpackedBytes": 17645549,
+      "sha256": "e71180914b55d459fd25b617fb1f89e74eae28f5a1b652cc340f7755a8005007"
     },
     {
       "name": "9dc5fe56697bd658494b666675a9b12b.framework.js.unityweb",
