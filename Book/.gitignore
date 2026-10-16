@@ -1,0 +1,37 @@
+# Unity-generated files; project sources, .meta files and settings are tracked.
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/[Ee]xportedObj/
+/.vs/
+/.idea/
+/UIElementsSchema/
+
+# Generated IDE solutions and project files.
+*.csproj
+*.sln
+*.slnx
+*.unityproj
+*.user
+*.userprefs
+*.pidb
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.log
+*.tmp
+
+# Unity-generated files under Assets.
+/Assets/Plugins/Editor/JetBrains*
+/Assets/SceneDependencyCache*
+/Assets/Addressables_Temp*
+/Assets/AddressableAssetsData/*/*.bin*
+/Assets/StreamingAssets/aa*
+/Assets/Unity.VisualScripting.Generated/
