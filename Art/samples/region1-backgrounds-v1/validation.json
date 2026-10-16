@@ -1,0 +1,67 @@
+{
+  "status": "design-assets-saved",
+  "imageCount": 8,
+  "roomsCovered": 30,
+  "subareas": 11,
+  "generator": "built-in image_gen",
+  "seamlessValidated": false,
+  "unityApplied": false,
+  "files": [
+    {
+      "file": "A-paper-cavern.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2092253,
+      "sha256": "c7a4d452201ef5f9b4d87127f4bdc0e70fd5821907db20055229df60378e0b13"
+    },
+    {
+      "file": "B-graphite-mine.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2224586,
+      "sha256": "6f6c3c7df7b25993d32c940679f3d9deec2acb86578a51203b86610a48f59516"
+    },
+    {
+      "file": "C-sketch-tree.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1895077,
+      "sha256": "84e94e9b86fbd48061e1792554926665128214f41b1052e76e232d56f3e9645b"
+    },
+    {
+      "file": "D-root-depths.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2172183,
+      "sha256": "1d6ed84c24297047bd2a0368bfd6f14f012716d0bb8c5ef6962d44536db15e91"
+    },
+    {
+      "file": "transition-AB-vertical.png",
+      "width": 941,
+      "height": 1672,
+      "bytes": 2492023,
+      "sha256": "fb2c5e9835f6b707fd11e3ba600be1cbfc082921dbbf3a9549960382af4aa98d"
+    },
+    {
+      "file": "transition-CA-vertical.png",
+      "width": 941,
+      "height": 1672,
+      "bytes": 2362218,
+      "sha256": "d67b5fb85c02fe2da312f1c310499e765373020cce1a17ebd35371047e2fbdc1"
+    },
+    {
+      "file": "transition-CD-horizontal.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2203771,
+      "sha256": "fbe140bb5911cae813a112521ac01877619465f35651040f9e6ea57800c2f012"
+    },
+    {
+      "file": "transition-DA-vertical.png",
+      "width": 941,
+      "height": 1672,
+      "bytes": 2494183,
+      "sha256": "0ae26d6fc0f92939c4f33b32f3bf1ba4f8adb88c463bb1d6628cbe351d6ecc68"
+    }
+  ]
+}

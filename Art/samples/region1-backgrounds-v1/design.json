@@ -1,0 +1,249 @@
+{
+  "version": 1,
+  "date": "2026-10-16",
+  "scope": "1지역 연필 숲: 네 구역과 실제 연결 네 쌍의 배경 디자인",
+  "generator": "built-in image_gen",
+  "status": "Design concepts; not imported into Unity; not approved seamless production tiles",
+  "zones": [
+    {
+      "id": "A",
+      "name": "구겨진 종이굴",
+      "file": "A-paper-cavern.png",
+      "palette": "따뜻한 회갈색·바랜 종이색",
+      "rooms": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        25
+      ],
+      "subareas": [
+        {
+          "id": "A1",
+          "name": "종이 틈 입구",
+          "rooms": [
+            1,
+            2,
+            3
+          ],
+          "variation": "넓은 종이 주름과 부드러운 공동, 가장 낮은 배경 밀도"
+        },
+        {
+          "id": "A2",
+          "name": "풀뿌리 갈림굴",
+          "rooms": [
+            4,
+            5,
+            6,
+            25
+          ],
+          "variation": "주름 사이 굵은 뿌리를 늘려 나무·광산 분기 예고"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "흑연 광산",
+      "file": "B-graphite-mine.png",
+      "palette": "차가운 청회색·흑연색",
+      "rooms": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        27,
+        29,
+        30
+      ],
+      "subareas": [
+        {
+          "id": "B1",
+          "name": "광산 입구·갱도",
+          "rooms": [
+            7,
+            8,
+            12,
+            27
+          ],
+          "variation": "압축된 흑연층과 드문 목재 지지대"
+        },
+        {
+          "id": "B2",
+          "name": "깊은 채굴장",
+          "rooms": [
+            9,
+            10,
+            11,
+            29
+          ],
+          "variation": "깊은 갱도 공동과 일부 무너진 지지대, 쉼터는 밀도를 낮춤"
+        },
+        {
+          "id": "B3",
+          "name": "찢긴 페이지 굴",
+          "rooms": [
+            30
+          ],
+          "variation": "흑연층 안에 종이 단면을 드물게 노출, 봉인 표식은 별도 장식"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "스케치 나무 속",
+      "file": "C-sketch-tree.png",
+      "palette": "낮은 채도의 목재 갈색",
+      "rooms": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        26
+      ],
+      "subareas": [
+        {
+          "id": "C1",
+          "name": "나무 밑동 속",
+          "rooms": [
+            13,
+            26
+          ],
+          "variation": "큰 옹이와 밑동 곡선, 밀랍 둥지는 희미한 밀랍 흔적"
+        },
+        {
+          "id": "C2",
+          "name": "속 빈 줄기",
+          "rooms": [
+            14
+          ],
+          "variation": "수직 목질과 먼 공동을 길게 연결, 세로 전용 원화 필요"
+        },
+        {
+          "id": "C3",
+          "name": "가지 속·둥지",
+          "rooms": [
+            15,
+            16,
+            17
+          ],
+          "variation": "가지 방향을 가로로 열고 둥지 조각을 드물게 배치"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "name": "엉킨 뿌리 심부",
+      "file": "D-root-depths.png",
+      "palette": "이끼빛 회녹색·어두운 흙색",
+      "rooms": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        28
+      ],
+      "subareas": [
+        {
+          "id": "D1",
+          "name": "덩굴 다리 위층",
+          "rooms": [
+            18,
+            19,
+            28
+          ],
+          "variation": "뿌리 사이 공간을 넓게 남기고 가로 방향성을 강조"
+        },
+        {
+          "id": "D2",
+          "name": "사냥꾼의 굴",
+          "rooms": [
+            20,
+            21,
+            23
+          ],
+          "variation": "겹친 뿌리와 둥지 섬유, 쉼터에서는 밀도 완화"
+        },
+        {
+          "id": "D3",
+          "name": "낙서 둥지",
+          "rooms": [
+            22,
+            24
+          ],
+          "variation": "먼 둥지 공동과 잉크 흔적, 전투 중앙은 조용하게 유지"
+        }
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "id": "AB",
+      "from": "A",
+      "to": "B",
+      "axis": "vertical",
+      "description": "Top quarter matches warm taupe folded-paper cavern A; bottom quarter matches cold blue-gray graphite mine B. In the middle, curved paper laminations compress into thick graphite strata, embedded graphite gradually increases, aged mine support fragments emerge only near the lower part. Broad coherent shapes cross the transition. This is the descending mine shaft from paper hub to mine entrance. No horizontal divider.",
+      "file": "transition-AB-vertical.png",
+      "prompt": "Use case: compositing. Create ONE continuous transition BACKGROUND painting joining the two provided background artworks for a 2D metroidvania. Images 1 and 2 are the two source environment designs to blend, respectively A and B. Preserve their material language, broad shapes, surface detail scale, matte rendering and atmospheric depth. Portrait 9:16, requested 1080x1920. Material transition runs TOP TO BOTTOM, NOT left to right. Top quarter matches warm taupe folded-paper cavern A; bottom quarter matches cold blue-gray graphite mine B. In the middle, curved paper laminations compress into thick graphite strata, embedded graphite gradually increases, aged mine support fragments emerge only near the lower part. Broad coherent shapes cross the transition. This is the descending mine shaft from paper hub to mine entrance. No horizontal divider. Essential: synthesize an actual connected place, NOT a collage or two scenes with a gradient strip. A wide irregular middle region of roughly half the canvas must contain interleaving and structurally merging materials, with a shared fog depth, consistent scale and spatial planes. The boundary must be impossible to locate as a single line. Preserve the two different palettes at the opposing ends so both areas remain recognizable. Keep the central path quiet and rear-wall details subdued, lower contrast than gameplay. Background only, no characters, text, diagrams, labels, arrows, floor, platforms, horizon, daylight sky or border. No one-point floor perspective. Rounded broad geology with no needle-like spikes. Continue materials beyond the edges.",
+      "referenceFiles": [
+        "A-paper-cavern.png",
+        "B-graphite-mine.png"
+      ]
+    },
+    {
+      "id": "CA",
+      "from": "C",
+      "to": "A",
+      "axis": "vertical",
+      "description": "Top quarter matches muted walnut hollow wood C; bottom quarter matches warm gray-taupe paper cavern A. In the middle, broad woody grain becomes layered paper folds, thick root strands descend through paper, wood hollows recede gradually into crumpled paper cavities. This is the climbing vine shaft from paper hub below into tree base above. No horizontal divider.",
+      "file": "transition-CA-vertical.png",
+      "prompt": "Use case: compositing. Create ONE continuous transition BACKGROUND painting joining the two provided background artworks for a 2D metroidvania. Images 1 and 2 are the two source environment designs to blend, respectively C and A. Preserve their material language, broad shapes, surface detail scale, matte rendering and atmospheric depth. Portrait 9:16, requested 1080x1920. Material transition runs TOP TO BOTTOM, NOT left to right. Top quarter matches muted walnut hollow wood C; bottom quarter matches warm gray-taupe paper cavern A. In the middle, broad woody grain becomes layered paper folds, thick root strands descend through paper, wood hollows recede gradually into crumpled paper cavities. This is the climbing vine shaft from paper hub below into tree base above. No horizontal divider. Essential: synthesize an actual connected place, NOT a collage or two scenes with a gradient strip. A wide irregular middle region of roughly half the canvas must contain interleaving and structurally merging materials, with a shared fog depth, consistent scale and spatial planes. The boundary must be impossible to locate as a single line. Preserve the two different palettes at the opposing ends so both areas remain recognizable. Keep the central path quiet and rear-wall details subdued, lower contrast than gameplay. Background only, no characters, text, diagrams, labels, arrows, floor, platforms, horizon, daylight sky or border. No one-point floor perspective. Rounded broad geology with no needle-like spikes. Continue materials beyond the edges.",
+      "referenceFiles": [
+        "C-sketch-tree.png",
+        "A-paper-cavern.png"
+      ]
+    },
+    {
+      "id": "CD",
+      "from": "C",
+      "to": "D",
+      "axis": "horizontal",
+      "description": "Left quarter matches walnut-brown hollow tree C; right quarter matches olive gray-green root depths D. In the middle, wide wooden contours branch into massive interwoven moss-tinted roots, wood grain remains visible under roots, sparse pale nest fibers gradually appear, brown ambient air transitions to muted green. This is the passage from the branch corridor into the vine bridge area. No vertical divider.",
+      "file": "transition-CD-horizontal.png",
+      "prompt": "Use case: compositing. Create ONE continuous transition BACKGROUND painting joining the two provided background artworks for a 2D metroidvania. Images 1 and 2 are the two source environment designs to blend, respectively C and D. Preserve their material language, broad shapes, surface detail scale, matte rendering and atmospheric depth. Landscape 16:9, requested 1920x1080. Material transition runs LEFT TO RIGHT. Left quarter matches walnut-brown hollow tree C; right quarter matches olive gray-green root depths D. In the middle, wide wooden contours branch into massive interwoven moss-tinted roots, wood grain remains visible under roots, sparse pale nest fibers gradually appear, brown ambient air transitions to muted green. This is the passage from the branch corridor into the vine bridge area. No vertical divider. Essential: synthesize an actual connected place, NOT a collage or two scenes with a gradient strip. A wide irregular middle region of roughly half the canvas must contain interleaving and structurally merging materials, with a shared fog depth, consistent scale and spatial planes. The boundary must be impossible to locate as a single line. Preserve the two different palettes at the opposing ends so both areas remain recognizable. Keep the central path quiet and rear-wall details subdued, lower contrast than gameplay. Background only, no characters, text, diagrams, labels, arrows, floor, platforms, horizon, daylight sky or border. No one-point floor perspective. Rounded broad geology with no needle-like spikes. Continue materials beyond the edges.",
+      "referenceFiles": [
+        "C-sketch-tree.png",
+        "D-root-depths.png"
+      ]
+    },
+    {
+      "id": "DA",
+      "from": "D",
+      "to": "A",
+      "axis": "vertical",
+      "description": "Top quarter matches olive-gray tangled root depths D; bottom quarter matches warm taupe paper cavern A. In the middle, thick roots splay and thin gradually into paper layers, soft moss disappears while folded paper becomes dominant; a few rooted folds continue through the lower quarter. This is the one-way root shaft shortcut descending back to the starting paper cave. No horizontal divider.",
+      "file": "transition-DA-vertical.png",
+      "prompt": "Use case: compositing. Create ONE continuous transition BACKGROUND painting joining the two provided background artworks for a 2D metroidvania. Images 1 and 2 are the two source environment designs to blend, respectively D and A. Preserve their material language, broad shapes, surface detail scale, matte rendering and atmospheric depth. Portrait 9:16, requested 1080x1920. Material transition runs TOP TO BOTTOM, NOT left to right. Top quarter matches olive-gray tangled root depths D; bottom quarter matches warm taupe paper cavern A. In the middle, thick roots splay and thin gradually into paper layers, soft moss disappears while folded paper becomes dominant; a few rooted folds continue through the lower quarter. This is the one-way root shaft shortcut descending back to the starting paper cave. No horizontal divider. Essential: synthesize an actual connected place, NOT a collage or two scenes with a gradient strip. A wide irregular middle region of roughly half the canvas must contain interleaving and structurally merging materials, with a shared fog depth, consistent scale and spatial planes. The boundary must be impossible to locate as a single line. Preserve the two different palettes at the opposing ends so both areas remain recognizable. Keep the central path quiet and rear-wall details subdued, lower contrast than gameplay. Background only, no characters, text, diagrams, labels, arrows, floor, platforms, horizon, daylight sky or border. No one-point floor perspective. Rounded broad geology with no needle-like spikes. Continue materials beyond the edges.",
+      "referenceFiles": [
+        "D-root-depths.png",
+        "A-paper-cavern.png"
+      ]
+    }
+  ],
+  "notes": [
+    "현행 v8 타일의 네 구역 색을 우선한다. 이전 문서의 미세한 틴트만 적용하는 규칙과 C/D 색은 이 시안에 적용하지 않는다.",
+    "원경·중경을 한 장에 표현한 시안이다. 실제 패럴랙스용 분리 PNG는 아직 없다.",
+    "경계 이미지 내부의 재료·색 전환을 디자인했다. 별개 원화의 가장자리 픽셀 일치나 4방향 반복성은 아직 검증하지 않았으며 그대로 맞붙이는 완성 타일이 아니다.",
+    "실제 제작 때 재사용 뒷벽 A/B/C, 원경·중경 분리, 공통 경계 띠와 연결부 마스크가 필요하다. 전환 구간은 같은 월드 좌표 기준으로 여러 레이어의 가중치를 함께 바꿔 경계가 미끄러지지 않도록 한다.",
+    "Unity 현행 카메라는 1920×1080 기준 가로15칸·세로8.4375칸, 지형128px/칸·PPU128이다. 기존 배경 문서의 가로30칸 수치를 그대로 사용하지 않는다.",
+    "세부 구획 11개와 30개 방은 아래 변주 지침으로 모두 배정했다. 이번 생성 원화는 4개 구역 대표 배경이며 30개 방별 개별 그림을 생성한 것은 아니다.",
+    "2지역 연결 D→E는 이번 1지역 내부 디자인 범위에 포함하지 않는다."
+  ]
+}
