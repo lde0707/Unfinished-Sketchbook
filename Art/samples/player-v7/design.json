@@ -1,0 +1,18 @@
+{
+  "version": 7,
+  "generator": "built-in image_gen",
+  "status": "Proportion correction concept; not integrated into Unity",
+  "file": "01-compact-proportions.png",
+  "references": [
+    "Art/samples/player-v6/01-design-directions.png",
+    "Art/samples/player-v1/01-character-study.png"
+  ],
+  "correction": "User identified overly long limbs in v6. Enlarge head, compress torso, shorten arms and legs while retaining long enclosing paper cloak.",
+  "proportionNote": "Prompt targets are design intentions for this original character, not measurements of referenced game characters or a claim of exact generated ratios.",
+  "research": [
+    "https://www.teamcherry.com.au/blog/hollow-knight-silksong-revealed",
+    "https://store.steampowered.com/app/3362590/Nine_Sols_Digital_Art_Book/",
+    "https://en.enderlilies.com/images/chara_lily2.png"
+  ],
+  "prompt": "Use case: identity-preserve. CORRECT THE PROPORTIONS of the three paper-cloaked protagonist concepts A B C in IMAGE 1. Image 1 has an explicitly REJECTED tall, long-legged, small-headed anatomy. Image 2 is a reference for the compact big-head paper-being identity and material; do not copy its unclothed costume. Make this a visibly decisive correction, NOT a slight shortening. Preserve A/B/C cloak constructions from image 1, but rebuild bodies as compact low-head-count 2D metroidvania characters with a LARGE HEAD and VERY SHORT ARMS AND LEGS.\nPROPORTION LOCK for all 6 figures: standing height approximately 2.3 HEAD HEIGHTS total. Head accounts for 43 percent of total height, compact torso/covered hip accounts for 42 percent, short legs including feet only 15 percent. Neck invisible inside cloak collar. Tiny arms with total shoulder-to-hand length no greater than half one head diameter, mostly concealed by cloak, small hands close to torso. Short thin legs with minimal visible shin and tiny feet, not long humanoid shins. No tall humanoid body under the cloak. Round ivory head with ONE small charcoal dot eye and no mouth/nose/hair/horns. Keep a narrow compact torso, not fat, not baby-like padded limbs. Agility comes from alert forward posture, swept cloak shapes and tucked movement, NOT elongated legs. In small running poses both knees stay tucked close below cloak with a short stride; no stretched sprinter legs or long-reaching arms.\nPreserve long body-wrapping paper cloaks: each starts at shoulders, covers chest/front/sides/back and falls nearly to ankles, leaving only tiny feet and short shin tips. Length comes from long paper panels relative to the short BODY and a controlled rear tail, not stretching anatomy. A: diagonal closed envelope fold and one front split. B: three nested curved paper layers. C: asymmetric long wrapping panel and two rear tails. Broad gray inner folds provide dark separation. No massive train lying on floor. Maintain original chalk-ivory, parchment-gray and graphite-gray monochrome palette and tactile matte paper material, but broad simple clean folds and quiet surface detail. Preserve the dark charcoal sheet background, three columns labeled A B C, large idle at top and smaller running pose beneath each. All concepts shown at equal standing scale. The large round heads should now be immediately dominant and the visible limbs tiny. Keep the silhouette graphic, mysterious and game-readable, not a realistic doll or human fashion figure. No weapons, hood, colored accessories, armor, extra details or new text. This corrects inaccurate proportion interpretation from the previous design; do not preserve the old long limbs."
+}
