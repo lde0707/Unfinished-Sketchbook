@@ -200,8 +200,8 @@ namespace Unfin.Editor
             var tiles = world.terrainTiles;
             var tilePaths = tiles.Select(tile => AssetDatabase.GetAssetPath(tile)).ToArray();
             var filletPaths = world.filletTiles.Select(tile=>AssetDatabase.GetAssetPath(tile)).ToArray();
-            // Descending and ascending steps, a ceiling, overhangs, inner notches,
-            // one-cell pillars and floating terrain in one repeatable inspection layout.
+            // Interior corner fixture enclosed in rectangular earth. Treat outside as
+            // solid, exactly like the real world, so no bright exterior rim is generated.
             var rows = new[] {
                 "000000000000000",
                 "011110000111100",
@@ -223,7 +223,7 @@ namespace Unfin.Editor
                 var map = go.AddComponent<Tilemap>(); go.AddComponent<TilemapRenderer>();
                 var filletObject=new GameObject("Rounded inner corners (visual only)");filletObject.transform.SetParent(grid.transform);
                 var filletMap=filletObject.AddComponent<Tilemap>();filletObject.AddComponent<TilemapRenderer>().sortingOrder=1;
-                int Get(int x,int y) => x<0||y<0||x>=15||y>=9 ? 0 : rows[y][x]-'0';
+                int Get(int x,int y) => x<=0||y<=0||x>=14||y>=8 ? 1 : rows[y][x]-'0';
                 var patterns = TerrainPatterns.Create(15,9);
                 for (int y = 0; y < 9; y++) for (int x = 0; x < 15; x++) if (Get(x,y)==1)
                 {

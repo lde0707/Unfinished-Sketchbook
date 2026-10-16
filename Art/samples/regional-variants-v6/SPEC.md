@@ -22,6 +22,10 @@ Unity의 모서리 생성 규칙을 수정한다. 바깥 모서리는 이전의 
 
 Unity 메뉴 **Unfin → Rebuild World 1 + 2 Prototype**에서 실사용 타일과 맵을 재생성한다. `Book/Validation/world*-patterns-abc.png`는 실사용 128px의 연결 예시이고, 계단·모서리 미리보기는 `world*-stairs-and-corners.png`다.
 
+## 외곽 채움 규칙
+
+설계된 방·통로 바깥의 땅은 사각형 범위를 채우고 지중 내부색으로 이어진다. 지도 범위 밖도 고체 땅으로 취급하므로 전체 사각형 외곽에 밝은 흙 테두리나 둥근 노출면을 생성하지 않는다. 밝은 표면과 둥근 모서리는 내부 플레이 공간에 접한 면에 사용한다. 연결부 검수 씬도 같은 외곽 규칙을 따른다. 실제 World 1·2의 560×215 원본 격자는 변경하지 않는다.
+
 ## 참고 자료
 
 [Rocky Cave tileset](https://gameartpartners.com/downloads/rocky-cave-area-seamless-platformer-tileset/)의 큰 면 구성과 모듈 연결, [Cavern Platformer](https://rafaelchm.itch.io/handpainted-cavern-platformer)의 바닥 변형 구성을 참고했다. 외부 에셋을 복사하거나 생성 도구의 입력으로 사용하지 않았다. 생성 참조 이미지는 직접 생성한 이전 지형이다.

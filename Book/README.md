@@ -8,6 +8,7 @@ Unity **6000.5.3f1**에서 이 `Book` 폴더를 열고 `Assets/Scenes/World12Pro
 
 - 원본: `../Prototype/unfin_world.html`. `world_map_data.js`와 모든 지도 상수·셀을 대조한 뒤 추출한다.
 - 통합 지도 560×215칸, 1지역/2지역 경계 X=280. 빈칸을 포함한 120,400칸과 지형 90,124칸을 그대로 유지한다.
+- 설계된 방·통로를 제외한 영역은 어두운 땅으로 채운 사각형이다. 지도 밖도 땅으로 판정하므로 사각형 외곽에 밝은 노출면을 만들지 않는다. 전체 구조는 `Validation/world12-rectangular-map.png`, 지역별 모습은 `world1-rectangular-map.png`와 `world2-rectangular-map.png`에서 확인한다. `Unfin → Render Rectangular World Maps`로 갱신한다.
 - 방 56개, 수직 통로 14개, 적 표식 95개, 아이템·장치 표식 67개. 방·통로·수직 통로는 Hierarchy에서 별도로 찾을 수 있다.
 - Unity 타일 좌표는 `(HTML x, -HTML y - 1)`. 플레이어·적·장치의 위치와 크기는 HTML 논리 좌표를 16으로 나눈다. 박쥐의 천장 배치와 아이템별 크기 보정도 반영한다.
 - 지역별로 Solid terrain, One-way platforms, Water 타일맵을 분리한다. 원본 타일 ID는 `PrototypeTile.htmlType`과 추출 JSON에 보존한다.
@@ -28,7 +29,7 @@ Unity **6000.5.3f1**에서 이 `Book` 폴더를 열고 `Assets/Scenes/World12Pro
 
 검증은 256가지 이웃 배치, 282종 이미지의 노출면·안쪽 모서리, 실제 맵 전체의 타일 선택을 확인한다. `Validation/terrain-corners.json`과 `terrain-patterns.json`에 연결부·패턴 배치·요철·깊이별 명도 검증을 기록한다. `world1-corner-tiles.png`와 `world2-corner-tiles.png`는 타일 목록, `world*-patterns-abc.png`는 혼합 연결 예시, `world*-stairs-and-corners.png`는 계단·천장·기둥 검수 화면이다. 검수 화면 재생성은 배치 메서드 `Unfin.Editor.TerrainCornerValidation.Render`를 그래픽 장치와 함께 실행한다.
 
-`Assets/Scenes/World1TerrainCorners.unity`와 `World2TerrainCorners.unity`는 연결부만 살펴보는 별도 Tilemap 검수 씬이다. 두 씬의 카메라는 1920×1152에서 한 칸 128px로 15×9칸을 보여 준다. 플레이용 World12Prototype의 1920×1080 설정과 빌드 시작 씬은 유지한다.
+`Assets/Scenes/World1TerrainCorners.unity`와 `World2TerrainCorners.unity`는 연결부만 살펴보는 별도 Tilemap 검수 씬이며 실제 월드 배치와 다르다. 이 씬도 사각형 땅으로 둘러싸고 지도 밖을 땅으로 취급해 밝은 외곽 테두리를 없앤다. 두 씬의 카메라는 1920×1152에서 한 칸 128px로 15×9칸을 보여 준다. 실제 설계 맵은 위의 전체 지도 이미지와 World12Prototype에서 확인한다. 플레이용 World12Prototype의 1920×1080 설정과 빌드 시작 씬은 유지한다.
 
 ## 조작
 
