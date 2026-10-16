@@ -1,0 +1,190 @@
+{
+  "status": "passed",
+  "previewCount": 5,
+  "renderSize": [
+    1920,
+    1080
+  ],
+  "rawSourceFilesUnchanged": true,
+  "hardEdgeSeamless": false,
+  "connection": "256px overlapping large sprites with smooth normalized weights",
+  "unityApplied": false,
+  "results": [
+    {
+      "file": "01-A-with-ground.png",
+      "zones": [
+        "A"
+      ],
+      "backgroundTileInstances": 12,
+      "backgroundMeanLuminance": 34.268093231599025,
+      "terrainEdgeMeanLuminance": 121.46228416921794,
+      "seams": [
+        {
+          "axis": "x",
+          "position": 531,
+          "maxAdjacentChannelDifference": 10,
+          "p95AdjacentChannelDifference": 3,
+          "meanAdjacentChannelDifference": 1.08866234167439,
+          "nearbyMeanDifference": 1.2324683348779735
+        },
+        {
+          "axis": "x",
+          "position": 1299,
+          "maxAdjacentChannelDifference": 18,
+          "p95AdjacentChannelDifference": 4,
+          "meanAdjacentChannelDifference": 1.1844300278035218,
+          "nearbyMeanDifference": 1.194006796416435
+        },
+        {
+          "axis": "y",
+          "position": 595,
+          "maxAdjacentChannelDifference": 22,
+          "p95AdjacentChannelDifference": 6,
+          "meanAdjacentChannelDifference": 1.8745874587458746,
+          "nearbyMeanDifference": 1.7162150425568872
+        }
+      ]
+    },
+    {
+      "file": "02-B-with-ground.png",
+      "zones": [
+        "B"
+      ],
+      "backgroundTileInstances": 12,
+      "backgroundMeanLuminance": 33.06274467982775,
+      "terrainEdgeMeanLuminance": 98.52840797929244,
+      "seams": [
+        {
+          "axis": "x",
+          "position": 531,
+          "maxAdjacentChannelDifference": 19,
+          "p95AdjacentChannelDifference": 4,
+          "meanAdjacentChannelDifference": 1.114612295335187,
+          "nearbyMeanDifference": 1.1670528266913809
+        },
+        {
+          "axis": "x",
+          "position": 1299,
+          "maxAdjacentChannelDifference": 14,
+          "p95AdjacentChannelDifference": 4,
+          "meanAdjacentChannelDifference": 1.2752548656163114,
+          "nearbyMeanDifference": 1.3318659252394192
+        },
+        {
+          "axis": "y",
+          "position": 595,
+          "maxAdjacentChannelDifference": 28,
+          "p95AdjacentChannelDifference": 5,
+          "meanAdjacentChannelDifference": 1.9185339586590238,
+          "nearbyMeanDifference": 2.061142956400903
+        }
+      ]
+    },
+    {
+      "file": "03-C-with-ground.png",
+      "zones": [
+        "C"
+      ],
+      "backgroundTileInstances": 12,
+      "backgroundMeanLuminance": 33.87393075531975,
+      "terrainEdgeMeanLuminance": 86.76745944379093,
+      "seams": [
+        {
+          "axis": "x",
+          "position": 531,
+          "maxAdjacentChannelDifference": 10,
+          "p95AdjacentChannelDifference": 3,
+          "meanAdjacentChannelDifference": 1.0145196169292554,
+          "nearbyMeanDifference": 0.9772937905468025
+        },
+        {
+          "axis": "x",
+          "position": 1299,
+          "maxAdjacentChannelDifference": 15,
+          "p95AdjacentChannelDifference": 2,
+          "meanAdjacentChannelDifference": 0.771393265369169,
+          "nearbyMeanDifference": 0.8042168674698795
+        },
+        {
+          "axis": "y",
+          "position": 595,
+          "maxAdjacentChannelDifference": 16,
+          "p95AdjacentChannelDifference": 4,
+          "meanAdjacentChannelDifference": 1.3540038214347752,
+          "nearbyMeanDifference": 1.2533871808233454
+        }
+      ]
+    },
+    {
+      "file": "04-D-with-ground.png",
+      "zones": [
+        "D"
+      ],
+      "backgroundTileInstances": 12,
+      "backgroundMeanLuminance": 34.21602398565197,
+      "terrainEdgeMeanLuminance": 85.54362734304745,
+      "seams": [
+        {
+          "axis": "x",
+          "position": 531,
+          "maxAdjacentChannelDifference": 12,
+          "p95AdjacentChannelDifference": 4,
+          "meanAdjacentChannelDifference": 1.208217485325919,
+          "nearbyMeanDifference": 1.1777880753784369
+        },
+        {
+          "axis": "x",
+          "position": 1299,
+          "maxAdjacentChannelDifference": 16,
+          "p95AdjacentChannelDifference": 4,
+          "meanAdjacentChannelDifference": 1.2279888785912882,
+          "nearbyMeanDifference": 1.0038616002471423
+        },
+        {
+          "axis": "y",
+          "position": 595,
+          "maxAdjacentChannelDifference": 19,
+          "p95AdjacentChannelDifference": 4,
+          "meanAdjacentChannelDifference": 1.1565051241966302,
+          "nearbyMeanDifference": 1.1605871113427133
+        }
+      ]
+    },
+    {
+      "file": "05-C-D-with-ground.png",
+      "zones": [
+        "C",
+        "D"
+      ],
+      "backgroundTileInstances": 12,
+      "backgroundMeanLuminance": 34.177580015993136,
+      "terrainEdgeMeanLuminance": 109.78989211865786,
+      "seams": [
+        {
+          "axis": "x",
+          "position": 531,
+          "maxAdjacentChannelDifference": 10,
+          "p95AdjacentChannelDifference": 3,
+          "meanAdjacentChannelDifference": 1.0145196169292554,
+          "nearbyMeanDifference": 0.9772937905468025
+        },
+        {
+          "axis": "x",
+          "position": 1299,
+          "maxAdjacentChannelDifference": 16,
+          "p95AdjacentChannelDifference": 4,
+          "meanAdjacentChannelDifference": 1.2134692616620328,
+          "nearbyMeanDifference": 0.9898826073524869
+        },
+        {
+          "axis": "y",
+          "position": 595,
+          "maxAdjacentChannelDifference": 19,
+          "p95AdjacentChannelDifference": 4,
+          "meanAdjacentChannelDifference": 1.157373632100052,
+          "nearbyMeanDifference": 1.1251519888830988
+        }
+      ]
+    }
+  ]
+}
