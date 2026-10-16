@@ -1,0 +1,70 @@
+[
+  {
+    "id": "01-paper-cavern",
+    "name": "구겨진 종이굴",
+    "tileSize": 128,
+    "uniqueTiles": 89,
+    "placementsAcrossTwoMaps": 195,
+    "reusedTileIds": 37,
+    "repeatedPlacements": 106,
+    "moduleCells": [
+      4,
+      3
+    ],
+    "modules": 3,
+    "endpointSeams": "exact RGBA match for all 9 module pairings",
+    "assembly": "PNG atlas reloaded; both layouts reconstructed pixel-exactly from tile IDs",
+    "limitations": "Demonstration tiles baked for these two layouts; not a complete arbitrary-layout autotile set. Macro modules must keep their internal tile order."
+  },
+  {
+    "id": "02-graphite-mine",
+    "name": "흑연 광산",
+    "tileSize": 128,
+    "uniqueTiles": 89,
+    "placementsAcrossTwoMaps": 195,
+    "reusedTileIds": 37,
+    "repeatedPlacements": 106,
+    "moduleCells": [
+      4,
+      3
+    ],
+    "modules": 3,
+    "endpointSeams": "exact RGBA match for all 9 module pairings",
+    "assembly": "PNG atlas reloaded; both layouts reconstructed pixel-exactly from tile IDs",
+    "limitations": "Demonstration tiles baked for these two layouts; not a complete arbitrary-layout autotile set. Macro modules must keep their internal tile order."
+  },
+  {
+    "id": "03-sketch-tree",
+    "name": "스케치 나무 속",
+    "tileSize": 128,
+    "uniqueTiles": 89,
+    "placementsAcrossTwoMaps": 195,
+    "reusedTileIds": 37,
+    "repeatedPlacements": 106,
+    "moduleCells": [
+      4,
+      3
+    ],
+    "modules": 3,
+    "endpointSeams": "exact RGBA match for all 9 module pairings",
+    "assembly": "PNG atlas reloaded; both layouts reconstructed pixel-exactly from tile IDs",
+    "limitations": "Demonstration tiles baked for these two layouts; not a complete arbitrary-layout autotile set. Macro modules must keep their internal tile order."
+  },
+  {
+    "id": "04-tangled-root-depths",
+    "name": "엉킨 뿌리 심부",
+    "tileSize": 128,
+    "uniqueTiles": 89,
+    "placementsAcrossTwoMaps": 195,
+    "reusedTileIds": 37,
+    "repeatedPlacements": 106,
+    "moduleCells": [
+      4,
+      3
+    ],
+    "modules": 3,
+    "endpointSeams": "exact RGBA match for all 9 module pairings",
+    "assembly": "PNG atlas reloaded; both layouts reconstructed pixel-exactly from tile IDs",
+    "limitations": "Demonstration tiles baked for these two layouts; not a complete arbitrary-layout autotile set. Macro modules must keep their internal tile order."
+  }
+]
