@@ -9,6 +9,7 @@ namespace Unfin
     {
         public TextAsset mapJson;
         public Tilemap[] maps; // region * 3 + walls / one-way platforms / water
+        public PrototypeTile[] terrainTiles; // 47 eight-neighbor variants per region
         public Camera worldCamera;
         public Transform player;
         public Texture2D overview;
@@ -21,6 +22,7 @@ namespace Unfin
         Vector2 safe;
         readonly Dictionary<int, Change> changes = new Dictionary<int, Change>();
         readonly List<int> changeKeys = new List<int>();
+        readonly Dictionary<int, PrototypeTile> terrainLookup = new Dictionary<int, PrototypeTile>();
         sealed class Change { public int original; public float time; public bool gone; public TileBase tile; }
 
         public static int Layer(int type) => type == 9 ? 2 : GridMotor.Platform(type) ? 1 : 0;
@@ -29,6 +31,7 @@ namespace Unfin
         {
             Data = JsonUtility.FromJson<WorldData>(mapJson.text);
             Motor = new GridMotor(Data, Data.Decode());
+            foreach (var tile in terrainTiles) terrainLookup[(tile.region - 1) * 256 + tile.exposedEdges] = tile;
             Respawn(Data.startX, Data.startFloor);
             worldCamera.orthographicSize = Data.orthographicSize;
         }
@@ -125,11 +128,13 @@ namespace Unfin
                 if (!change.gone)
                 {
                     Motor.cells[index] = 0; Map(x, change.original).SetTile(WorldData.Cell(x, y), null);
+                    RefreshTerrain(x, y);
                     change.gone = true; change.time = change.original == 15 ? 3 : 2.6f;
                 }
                 else if (!(Motor.x < (x + 1) * 16 && Motor.x + 12 > x * 16 && Motor.y < (y + 1) * 16 && Motor.y + 22 > y * 16))
                 {
                     Motor.cells[index] = (byte)change.original; Map(x, change.original).SetTile(WorldData.Cell(x, y), change.tile); changes.Remove(index);
+                    RefreshTerrain(x, y);
                 }
             }
         }
@@ -149,6 +154,7 @@ namespace Unfin
                     var p = pending.Dequeue();
                     if (p.x < 0 || p.y < 0 || p.x >= Data.width || p.y >= Data.height || Motor.Get(p.x, p.y) != type) continue;
                     Motor.cells[p.y * Data.width + p.x] = 0; Map(p.x, type).SetTile(WorldData.Cell(p.x, p.y), null);
+                    RefreshTerrain(p.x, p.y);
                     pending.Enqueue(p + Vector2Int.up); pending.Enqueue(p + Vector2Int.down);
                     pending.Enqueue(p + Vector2Int.left); pending.Enqueue(p + Vector2Int.right);
                 }
@@ -160,6 +166,17 @@ namespace Unfin
             Motor.x = tx * 16 + 2; Motor.y = floor * 16 - 22; Motor.vx = Motor.vy = 0; Motor.grounded = false;
             safe = new Vector2(Motor.x, Motor.y); dashTime = jumpBuffer = coyote = wallLock = 0;
             SyncView();
+        }
+        void RefreshTerrain(int cx, int cy)
+        {
+            for (int y = cy - 1; y <= cy + 1; y++)
+            for (int x = cx - 1; x <= cx + 1; x++)
+            {
+                if (x < 0 || y < 0 || x >= Data.width || y >= Data.height || Motor.Get(x, y) != 1) continue;
+                int mask = TerrainTopology.Mask(Motor.Get, x, y);
+                int key = (x >= Data.regionX ? 256 : 0) + mask;
+                Map(x, 1).SetTile(WorldData.Cell(x, y), terrainLookup[key]);
+            }
         }
         void RestoreWorld() => UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         void SyncView()

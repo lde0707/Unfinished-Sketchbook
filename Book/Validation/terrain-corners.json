@@ -1,0 +1,9 @@
+{
+  "neighborConfigurations": 256,
+  "variantsPerRegion": 47,
+  "regions": 2,
+  "exposedFacesChecked": 104,
+  "innerCornersChecked": 104,
+  "surfaceCapPixels": 2,
+  "status": "passed"
+}

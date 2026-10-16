@@ -53,10 +53,16 @@ namespace Unfin.Editor
                 UnityEngine.Object.DestroyImmediate(texture);
             }
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            // Export every valid blob combination, including shapes absent from today's map.
+            var terrainCatalog = new List<PrototypeTile>();
+            for (int region = 0; region < 2; region++)
+            for (int mask = 0; mask < 256; mask++)
+                if (TerrainTopology.IsCanonical(mask)) terrainCatalog.Add(Tile(region, 1, mask));
             var grid = new GameObject("World 1 + 2 — HTML coordinates").AddComponent<Grid>();
             grid.cellSize = Vector3.one;
             var controller = new GameObject("World Prototype").AddComponent<WorldPrototype>();
             controller.mapJson = json; controller.maps = new Tilemap[6];
+            controller.terrainTiles = terrainCatalog.ToArray();
             for (int region = 0; region < 2; region++)
             {
                 var regionObject = new GameObject(region == 0 ? "World 1 - Graphite" : "World 2 - Crayon");
@@ -122,7 +128,7 @@ namespace Unfin.Editor
             Debug.Log("UNFIN_BUILD_OK " + ScenePath);
         }
         static int Get(int x, int y) => x < 0 || y < 0 || x >= data.width || y >= data.height ? 1 : cells[y * data.width + x];
-        static int Mask(int x, int y) => (Get(x, y - 1) != 1 ? 1 : 0) | (Get(x + 1, y) != 1 ? 2 : 0) | (Get(x, y + 1) != 1 ? 4 : 0) | (Get(x - 1, y) != 1 ? 8 : 0);
+        static int Mask(int x, int y) => TerrainTopology.Mask(Get, x, y);
         static Color Tint(int type) => type switch
         {
             2 => new Color(.55f,.3f,.33f), 3 => new Color(.55f,.12f,.36f), 4 => new Color(.55f,.61f,.65f),
@@ -137,20 +143,13 @@ namespace Unfin.Editor
             if (tileCache.TryGetValue(key, out var cached)) return cached;
             var texture = new Texture2D(128, 128, TextureFormat.RGBA32, false);
             var pixels = new Color[128 * 128];
-            Color edge = region == 0 ? new Color(.48f,.49f,.53f) : new Color(.63f,.39f,.23f);
             for (int y = 0; y < 128; y++)
             for (int x = 0; x < 128; x++)
             {
                 Color color;
                 if (type == 1)
                 {
-                    color = new Color(.016f,.017f,.023f);
-                    if ((mask & 1) != 0) color = art[region, 0].GetPixelBilinear((x + .5f) / 128, (y + .5f) / 128);
-                    else if ((mask & 2) != 0) color = art[region, 1].GetPixelBilinear((x + .5f) / 128, (y + .5f) / 128);
-                    int distance = 128;
-                    if ((mask & 4) != 0) distance = Mathf.Min(distance, y);
-                    if ((mask & 8) != 0) distance = Mathf.Min(distance, x);
-                    if (distance < 12) color = Color.Lerp(color, edge, (1 - distance / 12f) * .7f);
+                    color = TerrainSurface.Pixel(mask, x, y, art[region, 0].GetPixelBilinear, art[region, 1].GetPixelBilinear);
                 }
                 else
                 {
@@ -271,6 +270,7 @@ namespace Unfin.Editor
                     seen++; Require(tile.htmlType == type, $"Tile type at {x},{y}");
                     Require(layer == (x >= data.regionX ? 3 : 0) + WorldPrototype.Layer(type), "Tile layer");
                     Require(tile.sprite.texture.width == 128 && tile.sprite.texture.height == 128 && tile.sprite.pixelsPerUnit == 128, "Sprite scale");
+                    if (type == 1) Require(tile.exposedEdges == Mask(x, y), $"Terrain neighbors at {x},{y}");
                 }
                 Require(seen == (type == 0 ? 0 : 1), $"Cell coverage at {x},{y}");
                 if (type != 0) occupied++;
@@ -285,6 +285,7 @@ namespace Unfin.Editor
             }
             ValidateMotor();
             Directory.CreateDirectory("Validation");
+            TerrainCornerValidation.Validate(world);
             File.WriteAllText("Validation/world12-validation.json", "{\n" +
                 $"  \"gridSha256\": \"{hash}\",\n  \"cellsCompared\": {cells.Length},\n  \"occupiedCells\": {occupied},\n" +
                 $"  \"rooms\": {data.rooms.Length},\n  \"shafts\": {data.shafts.Length},\n  \"enemies\": {data.enemies.Length},\n  \"pickups\": {data.pickups.Length},\n" +

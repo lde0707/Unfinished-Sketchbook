@@ -14,6 +14,18 @@ Unity **6000.5.3f1**에서 이 `Book` 폴더를 열고 `Assets/Scenes/World12Pro
 - TilemapCollider2D와 CompositeCollider2D를 제공한다. 플레이어는 HTML의 격자 충돌 계산을 포팅한 GridMotor로 움직인다. Rigidbody2D 물리 플레이어가 아니다.
 - `Art/samples/regional-pairs-v4`의 그래파이트·크레파스 바닥/벽을 128px 파생 이미지로 사용한다. 지중 내부는 거의 검정이다. 특수 지형과 캐릭터는 구조 확인용 표식이다.
 
+## 모서리·계단 연결 타일
+
+그래파이트와 크레파스에 **각 47종, 총 94종**의 128px 지형 연결 타일을 제공한다. 상하좌우와 대각선 8방향을 확인해 직선면, 바깥 모서리, 안쪽 오목 모서리, 계단 단차, 얇은 기둥, 돌출부, 독립 블록을 자동 선택한다. 윗면이 있는 타일에서도 좌우면·아랫면 재질을 함께 그리므로 계단의 수직면이 빠지지 않는다.
+
+원본 바닥·벽 재질을 노출면까지의 거리로 혼합하고, 타일 양 끝의 재질을 이어 붙여 연결부를 완화한다. 안쪽 모서리의 표면은 곡선으로 이어지며, 바깥 꼭짓점은 최대 3px 범위에서 둥글게 처리한다. 표면 띠는 2px, 지중은 어두운 채움을 유지한다. 충돌 격자·지형 좌표·카메라 배율은 바꾸지 않는다.
+
+`Assets/Unfin/Generated/r1_t1_e*.asset`와 `r2_t1_e*.asset`가 연결용 타일이다. `PrototypeTile.exposedEdges`의 하위 비트 1/2/4/8은 위/오른쪽/아래/왼쪽 노출면, 16/32/64/128은 좌상/우상/우하/좌하 안쪽 모서리를 뜻한다. 전체 조합을 저장하므로 현재 맵에 없는 형태도 사용할 수 있다. 플레이 중 지형 변경 시 주변 타일의 이웃 상태도 갱신한다.
+
+검증은 256가지 이웃 배치, 94종 이미지의 노출면·안쪽 모서리, 실제 맵 전체의 타일 선택을 확인한다. `Validation/terrain-corners.json`은 결과, `world1-corner-tiles.png`와 `world2-corner-tiles.png`는 타일 목록, `world1-stairs-and-corners.png`와 `world2-stairs-and-corners.png`는 계단·천장·기둥 검수 화면이다. 검수 화면 재생성은 배치 메서드 `Unfin.Editor.TerrainCornerValidation.Render`를 그래픽 장치와 함께 실행한다.
+
+`Assets/Scenes/World1TerrainCorners.unity`와 `World2TerrainCorners.unity`는 연결부만 살펴보는 별도 Tilemap 검수 씬이다. 두 씬의 카메라는 1920×1152에서 한 칸 128px로 15×9칸을 보여 준다. 플레이용 World12Prototype의 1920×1080 설정과 빌드 시작 씬은 유지한다.
+
 ## 조작
 
 - A/D 또는 좌우 방향키: 이동.
