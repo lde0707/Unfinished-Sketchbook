@@ -12,13 +12,13 @@ Unity **6000.5.3f1**에서 이 `Book` 폴더를 열고 `Assets/Scenes/World12Pro
 - 저장소 루트에서 `powershell -ExecutionPolicy Bypass -File Tools/build_webgl.ps1`을 실행한다. 다른 에디터 경로는 `-Unity "경로/Unity.exe"`로 지정한다.
 - 빌드는 `Builds/UnityWebGLProject`에 Assets/Packages/ProjectSettings만 복사해 진행하므로 열려 있는 `Book` 에디터를 닫을 필요가 없다. 이 전용 복사본의 세 소스 폴더는 매번 원본과 동기화된다. 직접 작업하는 폴더로 사용하지 않는다.
 - 결과는 `Builds/WebGLSite/dist`, 로그는 `Builds/webgl-build.log`다. 첫 빌드는 패키지 임포트와 WebAssembly 컴파일 때문에 더 오래 걸린다.
-- `node Tools/verify_webgl.cjs`로 로더/스크립트 문법, gzip 무결성, WebAssembly 유효성을 검사하고 `Validation/webgl-build.json`에 크기와 해시를 기록한다.
+- `node Tools/verify_webgl.cjs`로 로더/스크립트 문법, Brotli 무결성, WebAssembly 유효성을 검사하고 `Validation/webgl-build.json`에 크기와 해시를 기록한다.
 - `node Tools/serve_webgl.cjs`를 실행한 뒤 `http://127.0.0.1:8080`에서 플레이한다. 종료는 터미널의 Ctrl+C. `file://` 더블클릭 실행은 지원하지 않는다.
 - 에디터 메뉴 **Unfin → Build Web Player**도 제공한다. 현재 프로젝트에서 직접 빌드할 때 사용하며 웹 빌드 설정이 저장된다.
 
 웹 화면은 내부 **1920×1080**, 표시 비율 **16:9**를 유지한다. 화면 크기가 달라도 같은 범위가 보이고 전체 화면에서는 남는 공간을 검게 채운다. PC 키보드 조작을 제공하며 터치 조작은 아직 없다. 브라우저 기능과 겹칠 수 있는 F1/F2 대신 숫자 **1/2**로 지역을 이동할 수 있다.
 
-gzip + Decompression Fallback을 사용해 별도 압축 헤더 설정이 없는 정적 호스팅에서도 실행한다. 배포할 때는 `dist` 전체를 함께 올린다. 빌드 산출물과 빌드용 Library는 GitHub에 포함하지 않고 소스와 재현 도구를 관리한다. Sites 배포의 프로젝트 식별자/정적 경로는 `../Tools/webgl-hosting.json`에 보존하며, 이를 빌드 폴더의 `.openai/hosting.json`으로 복사한다. 인증 토큰은 저장하지 않는다.
+Brotli + Decompression Fallback을 사용해 별도 압축 헤더 설정이 없는 정적 호스팅에서도 실행한다. 배포할 때는 `dist` 전체를 함께 올린다. 빌드 산출물과 빌드용 Library는 GitHub에 포함하지 않고 소스와 재현 도구를 관리한다. Sites 배포의 프로젝트 식별자/정적 경로는 `../Tools/webgl-hosting.json`에 보존하며, 이를 빌드 폴더의 `.openai/hosting.json`으로 복사한다. 인증 토큰은 저장하지 않는다.
 
 타일 이미지는 **128×128px**, PPU **128**, Grid Cell Size **1×1**이다. 카메라는 Orthographic Size **4.21875**이며 1920×1080에서 타일 한 칸이 **128×128 화면 픽셀**이다. 화면에 가로 15칸, 세로 8.4375칸이 들어온다. 다른 출력 해상도에서는 같은 세로 시야를 유지한다.
 
@@ -37,7 +37,7 @@ gzip + Decompression Fallback을 사용해 별도 압축 헤더 설정이 없는
 
 ## 1지역 구역별 컬러 타일맵 · v8
 
-1지역의 30개 방과 통로에 **종이굴 회갈색 / 광산 청회색 / 나무 갈색 / 뿌리 회녹색**을 적용한다. 일반 지형 28,940칸을 2,984개의 128px 타일과 14장의 아틀라스로 구성한다. 큰 무늬는 네 칸 너비로 이어지고, 깊이 세 칸에 걸쳐 검게 어두워진다. 바닥·벽·천장·단차를 같은 재질로 연결하고 구역 경계는 약 네 칸 범위에서 혼합한다.
+1지역의 30개 방과 통로에 **종이굴 회갈색 / 광산 청회색 / 나무 갈색 / 뿌리 회녹색**을 적용한다. 일반 지형 28,940칸을 3,207개의 128px 타일과 15장의 아틀라스로 구성한다. 큰 무늬는 네 칸 너비로 이어지고, 깊이 세 칸에 걸쳐 검게 어두워진다. 원화의 상단 높이 정보를 별도로 보존해 약 2~12px의 불규칙한 윤곽을 적용하며, 각 구역 바닥·벽·천장의 실제 알파 경계에 높이 변화가 남는지 검사한다. 바닥·벽·천장·단차를 같은 재질로 연결하고 구역 경계는 약 네 칸 범위에서 혼합한다.
 
 실제 에셋은 `Assets/Unfin/Art/Region1V8`, 배치 카탈로그는 `Region1Terrain.asset`이다. 원화·비교 시안·Unity용 에셋 구분과 전체 재생성 순서는 [타일 정리 문서](../Art/samples/region1-tiles-v8/UNITY.md)에 있다. `node Tools/export_region1_terrain.cjs`와 `node Tools/verify_region1_terrain.cjs`는 저장소 루트에서 실행하고, Unity 메뉴 **Unfin → Apply Region 1 Colored Tilemaps**로 씬을 갱신한다. 맵 구조가 변경되면 먼저 타일을 다시 내보내야 한다.
 

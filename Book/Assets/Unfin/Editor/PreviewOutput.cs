@@ -12,13 +12,21 @@ namespace Unfin.Editor
         {
             if(File.Exists(path)&&File.ReadAllBytes(path).SequenceEqual(bytes))return;
             string temporary=path+"."+Guid.NewGuid().ToString("N")+".tmp";
+            string previous=temporary+".previous.tmp";
             try
             {
                 File.WriteAllBytes(temporary,bytes);
-                if(File.Exists(path))File.Replace(temporary,path,null);
+                // Retain the old file during the swap: Windows image previewers may
+                // still have it memory-mapped and reject replacing it with no backup.
+                if(File.Exists(path))File.Replace(temporary,path,previous);
                 else File.Move(temporary,path);
             }
-            finally { if(File.Exists(temporary))File.Delete(temporary); }
+            finally
+            {
+                if(File.Exists(temporary))File.Delete(temporary);
+                try { if(File.Exists(previous))File.Delete(previous); }
+                catch(IOException) { /* A previewer can release this ignored backup later. */ }
+            }
         }
     }
 }

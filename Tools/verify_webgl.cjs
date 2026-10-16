@@ -11,7 +11,8 @@ const names = [...new Set([...html.matchAll(/Build\/([^'"\s]+)/g)].map(m => m[1]
 assert.equal(names.length, 4, 'data/framework/wasm/loader must be referenced');
 const files = names.map(name => {
   const bytes = fs.readFileSync(path.join(root, 'Build', name));
-  const content = name.endsWith('.unityweb') ? zlib.gunzipSync(bytes) : bytes;
+  assert(bytes.length <= 25 * 1024 * 1024, 'Static hosting allows at most 25 MiB per file');
+  const content = name.endsWith('.unityweb') ? zlib.brotliDecompressSync(bytes) : bytes;
   let kind;
   if (content.subarray(0, 4).equals(Buffer.from([0, 97, 115, 109]))) {
     assert(WebAssembly.validate(content), 'Invalid WebAssembly'); kind = 'wasm';
@@ -22,7 +23,7 @@ const files = names.map(name => {
 });
 assert.deepEqual(files.map(f => f.kind).sort(), ['data','framework','loader','wasm']);
 const result = { unity: '6000.5.3f1', scene: 'World12Prototype', renderSize: [1920,1080],
-  compression: 'gzip with JavaScript fallback', totalDownloadBytes: files.reduce((n, f) => n + f.bytes, 0), files };
+  compression: 'Brotli with JavaScript fallback', totalDownloadBytes: files.reduce((n, f) => n + f.bytes, 0), files };
 const target = path.resolve(__dirname, '../Book/Validation/webgl-build.json');
 fs.writeFileSync(target, JSON.stringify(result, null, 2) + '\n');
 console.log(JSON.stringify(result, null, 2));

@@ -3,9 +3,99 @@
   "cellsCompared": 39200,
   "groundPlacements": 28940,
   "possibleFilletPlacements": 136,
-  "uniqueSprites": 2984,
-  "actuallyReusedSpriteIds": 835,
-  "reusedPlacements": 26092,
-  "paddedPixelsChecked": 3055616,
-  "gridSha256": "bca3e0e1cd97d055a037fc1027785e1d78213ed5d4a238e65ae1d37186cdf6c0"
+  "uniqueSprites": 3207,
+  "actuallyReusedSpriteIds": 849,
+  "reusedPlacements": 25869,
+  "paddedPixelsChecked": 3283968,
+  "gridSha256": "bca3e0e1cd97d055a037fc1027785e1d78213ed5d4a238e65ae1d37186cdf6c0",
+  "reliefByZoneAndFace": [
+    [
+      [
+        0,
+        12,
+        196
+      ],
+      [
+        0,
+        12,
+        119
+      ],
+      [
+        0,
+        12,
+        193
+      ],
+      [
+        0,
+        12,
+        125
+      ]
+    ],
+    [
+      [
+        0,
+        12,
+        239
+      ],
+      [
+        0,
+        12,
+        49
+      ],
+      [
+        0,
+        12,
+        243
+      ],
+      [
+        0,
+        12,
+        50
+      ]
+    ],
+    [
+      [
+        0,
+        12,
+        124
+      ],
+      [
+        0,
+        12,
+        95
+      ],
+      [
+        0,
+        12,
+        136
+      ],
+      [
+        0,
+        12,
+        84
+      ]
+    ],
+    [
+      [
+        0,
+        12,
+        199
+      ],
+      [
+        0,
+        12,
+        99
+      ],
+      [
+        0,
+        12,
+        203
+      ],
+      [
+        0,
+        12,
+        98
+      ]
+    ]
+  ]
 }

@@ -36,12 +36,13 @@ const rooms=d.rooms.filter(r=>r.r===1),zoneVertices=[];
 for(let y=0;y<=H;y++)for(let x=0;x<=W;x++){const dist=[Infinity,Infinity,Infinity,Infinity];for(const r of rooms){const k='ABCD'.indexOf(r.z);if(k<0)continue;dist[k]=Math.min(dist[k],Math.hypot(Math.max(r.x-x,0,x-(r.x+r.w)),Math.max(r.y-y,0,y-(r.y+r.h))))}const min=Math.min(...dist),weights=dist.map(v=>smooth(1-(v-min)/4)),sum=weights.reduce((a,b)=>a+b,0);zoneVertices.push(weights.map(v=>v/sum))}
 const order=[0,1,2,0,2,1,2,1,0,2,0,1];
 const samples=[];
+const relief=require('./terrain_relief.cjs'),profiles=[];
 function sample(zone,t,depth,c){const q=mod(Math.floor(t),512*order.length),k=order[Math.floor(q/512)],x=q%512,y=Math.min(383,Math.max(0,Math.floor(depth)));return samples[zone][k][(y*512+x)*4+c]}
 function inside(x,y,px,py,solid,m){for(let corner=0;corner<4;corner++){const cx=corner===1||corner===2?N-px:px,cy=corner<2?py:N-py;const faces=[9,3,6,12][corner];if(solid&&(m&faces)===faces&&cx<28&&cy<28&&Math.hypot(28-cx,28-cy)>28)return false;if(!solid&&(m&(1<<corner))&&cx<24&&cy<24&&Math.hypot(24-cx,24-cy)>=24)return true}return solid}
 const PAD=2,PITCH=N+PAD*2,COLS=15,ATLAS=COLS*PITCH,PER=COLS*COLS;
 async function main(){
  fs.mkdirSync(out,{recursive:true});
- for(const id of ids){const list=[];for(const v of 'ABC')list.push(await sharp(path.join(root,'Art/samples/region1-tiles-v8',id,`module-${v}.png`)).ensureAlpha().raw().toBuffer());samples.push(list)}
+ for(const id of ids){const list=[];for(const v of 'ABC')list.push(await sharp(path.join(root,'Art/samples/region1-tiles-v8',id,`module-${v}.png`)).ensureAlpha().raw().toBuffer());samples.push(list);profiles.push(JSON.parse(fs.readFileSync(path.join(root,'Art/samples/region1-tiles-v8',id,'surface-profile.json'))).profiles)}
  const pool=[],hashes=new Map(),entries=[],zoneCounts=[0,0,0,0];let visible=0,fillets=0;
  const blank=Buffer.alloc(N*N*4);for(let i=0;i<blank.length;i+=4){blank[i]=5;blank[i+1]=6;blank[i+2]=8;blank[i+3]=255}
  function add(b){const h=crypto.createHash('sha256').update(b).digest('hex');if(!hashes.has(h)){hashes.set(h,pool.length);pool.push(b)}return hashes.get(h)}
@@ -59,12 +60,10 @@ async function main(){
     const f=(iy*33+ix)*2;let depth=(field[f]*(1-u)+field[f+2]*u)*(1-v)+(field[f+66]*(1-u)+field[f+68]*u)*v;
     let hw=(field[f+1]*(1-u)+field[f+3]*u)*(1-v)+(field[f+67]*(1-u)+field[f+69]*u)*v;hw=smooth(hw);
     const gx=x*N+px+.5,gy=y*N+py+.5;
-    const rx=mod(gx,512),ry=mod(gy,512);
-    const rough=q=>(1.35+.55*Math.sin(q*.061)+.5*Math.sin(q*.137))*smooth(Math.min(q,512-q)/20);
-    const rim=rough(rx)*hw+rough(ry)*(1-hw);
+    const zx=(px+.5)/N,zy=(py+.5)/N,weights=z[0].map((a,k)=>(a*(1-zx)+z[1][k]*zx)*(1-zy)+(z[2][k]*(1-zx)+z[3][k]*zx)*zy);
+    let rim=0;for(let k=0;k<4;k++)if(weights[k]>.00001)rim+=weights[k]*(relief.sample(profiles[k],gx)*hw+relief.sample(profiles[k],gy)*(1-hw));
     const sign=inside(x,y,px+.5,py+.5,solid,m)?1:-1,alpha=Math.max(0,Math.min(1,sign*depth-rim+.5));
     if(!alpha)continue;depth=Math.max(0,depth-rim);
-    const zx=(px+.5)/N,zy=(py+.5)/N,weights=z[0].map((a,k)=>(a*(1-zx)+z[1][k]*zx)*(1-zy)+(z[2][k]*(1-zx)+z[3][k]*zx)*zy);
     for(let c=0;c<3;c++){let value=0;for(let k=0;k<4;k++)if(weights[k]>.00001)value+=weights[k]*(sample(k,gx,depth,c)*hw+sample(k,gy,depth,c)*(1-hw));b[o+c]=Math.round(value)}b[o+3]=Math.round(alpha*255);
     if(depth<DEPTH-1)nonblack=true;
    }

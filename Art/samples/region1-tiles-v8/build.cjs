@@ -4,6 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypt
 let sharp;try{sharp=require('sharp')}catch{sharp=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp'))}
 const root=__dirname,N=128,MW=512,D=384,W=24*N,H=7*N;
 const spec=JSON.parse(fs.readFileSync(path.join(root,'prompts.json'),'utf8'));
+const relief=require('../../../Tools/terrain_relief.cjs');
 const smooth=t=>(t=Math.max(0,Math.min(1,t)),t*t*(3-2*t));
 const mod=(a,b)=>(a%b+b)%b;
 const lum=(a,i)=>a[i]*.2126+a[i+1]*.7152+a[i+2]*.0722;
@@ -12,7 +13,7 @@ const png=(raw,w,h)=>sharp(raw,{raw:{width:w,height:h,channels:4}}).png().toBuff
 async function material(file){
   const input=await sharp(file).resize(1536,D,{fit:'fill'}).removeAlpha().raw().toBuffer();
   const normalized=Buffer.alloc(1536*D*4);
-  // Register the generated surface to the same physical edge. Ignore dark air slivers.
+  // Normalize color sampling only; the original edge heights are retained below.
   for(let x=0;x<1536;x++){
     let edge=0,peak=0;
     for(let y=0;y<40;y++)peak=Math.max(peak,lum(input,(y*1536+x)*3));
@@ -25,6 +26,7 @@ async function material(file){
     }
   }
   const modules=[];
+  modules.relief=relief.extract(input);
   for(let k=0;k<3;k++){
     const b=Buffer.alloc(MW*D*4);
     for(let y=0;y<D;y++)normalized.copy(b,y*MW*4,(y*1536+k*MW)*4,(y*1536+(k+1)*MW)*4);
@@ -97,14 +99,14 @@ function bake(modules,points){
   const {primitives,tops}=profile(points),raw=Buffer.alloc(W*H*4);
   for(let x=0;x<W;x++)for(let y=Math.max(0,Math.floor(tops[x])-1);y<H;y++){
     const [depth,t,horizontalWeight]=closest(x+.5,y+.5,primitives);
-    // Sub-pixel contact variation is periodic over FOUR cells and shares endpoints.
-    const q=mod(t,MW),rim=(1.3+.7*Math.sin(q*.061)+.6*Math.sin(q*.137))*smooth(Math.min(q,MW-q)/20);
+    // Restore the painted height signal on both axes, including curved joins.
+    const weight=smooth(horizontalWeight);
+    const rim=relief.sample(modules.relief.profiles,x+.5)*weight+relief.sample(modules.relief.profiles,y+.5)*(1-weight);
     const inside=(y+.5>=tops[x]?depth:-depth)-rim,alpha=Math.max(0,Math.min(1,inside+.5));
     if(alpha===0)continue;
     // Blend horizontal/vertical projections around corners instead of stretching a
     // single arc-length texel into a radial streak through the whole ground depth.
     const a=sample(modules,x,Math.max(0,depth-rim)),b=sample(modules,y,Math.max(0,depth-rim)),o=(y*W+x)*4;
-    const weight=smooth(horizontalWeight);
     for(let c=0;c<3;c++)raw[o+c]=Math.round(a.b[a.i+c]*weight+b.b[b.i+c]*(1-weight));raw[o+3]=Math.round(alpha*255);
   }
   return raw;
@@ -148,6 +150,7 @@ async function main(){
     // Remove only this exporter's numbered tile files before a fresh atlas export.
     for(const file of fs.readdirSync(path.join(out,'tiles')))if(/^\d{3}\.png$/.test(file))fs.unlinkSync(path.join(out,'tiles',file));
     const modules=await material(path.join(root,'sources',region.id+'.png'));
+    fs.writeFileSync(path.join(out,'surface-profile.json'),JSON.stringify(modules.relief,null,2)+'\n');
     for(let k=0;k<3;k++)await sharp(modules[k],{raw:{width:MW,height:D,channels:4}}).png().toFile(path.join(out,`module-${'ABC'[k]}.png`));
     const pool=[],ids=new Map(),maps={},baked={};
     for(const [name,points]of Object.entries(layouts)){baked[name]=bake(modules,points);maps[name]=split(baked[name],pool,ids);}
