@@ -1,0 +1,27 @@
+{
+  "version": 6,
+  "generator": "built-in image_gen",
+  "status": "Three reference-informed concepts; not selected or integrated into Unity",
+  "file": "01-design-directions.png",
+  "reference": "Art/samples/player-v4/01-character-study.png",
+  "prompt": "Use case: stylized-concept, substantial character redesign. Create a sophisticated THREE-DIRECTION CHARACTER DESIGN BOARD for the original paper-world metroidvania Unfinished Sketchbook. The supplied image is an EARLIER design: retain only its chalk-white one-dot-eye paper-being identity and tactile paper material; substantially redesign its silhouette, proportions and cloak construction. User rejected merely stretching that old cape into a huge trailing gown and explicitly requests inspiration from actual metroidvania protagonist design. Design principles learned from Hornet in Silksong (decisive graphic garment silhouette and readable limbs), Yi in Nine Sols (compact layered wrap garment with functional movement openings), and Lily in Ender Lilies (pale focal character separated from a dark world). These are PRINCIPLES, not replicas: do not use their masks, horns, ears, weapons, hair, signature colors, symbols or exact costumes. All three original concepts must feel like mysterious agile playable explorers in a deep atmospheric action game, not cute round toys, bridal gowns or ornamental figurines.\nLayout: wide 1536x1024 presentation on dark charcoal. Three equally sized columns, labeled only A, B, C in small understated pale letters above the concepts. Each column has one large full-body three-quarter right-facing idle design, and directly below it a small right-facing dynamic running version of THAT SAME design. Six total figures, no other labels. Clear margins and no overlap. Full cloak ends visible.\nShared identity: round to gently oval chalk-ivory head with exactly one small dark dot eye, no mouth or nose, no hair or head ornaments. Head now about 30-33 percent of standing height, appreciably smaller than old bobblehead. Long lean body and slender tapered limbs. The body is ivory; shadow and cloak underside may be neutral charcoal gray. Monochrome palette only: warm chalk ivory, parchment gray, graphite gray. Long wraparound PAPER cloak that covers the front and sides of torso, reaching lower calf or ankle, no giant train pooled on floor. Long garment is essential, while split side or front openings reveal legs in motion. Broad folded paper planes and a subtly worn hem, controlled smooth silhouette, soft matte relief, medium-scale paper fiber hints, no dense tiny grains or thin scratchy drawing. Small-screen readability over intricacy, 2D illustrated game sprite sensibility rather than volumetric 3D papier-mache doll.\nA — folded-page wanderer: narrow ankle-length envelope-wrap cloak, understated raised folded collar framing the head, one strong diagonal front overlap, two long front panels separating below the knees to expose a poised stepping foot. Pale exterior, graphite gray inner folds. One broad rear panel rises during running. Clean tapered silhouette, only 3 to 4 large folds.\nB — layered-paper sentinel: body-enclosing long mantle formed from three nested broad curved paper sheets. Shoulder layer compact, lower two overlapping sheets fall asymmetrically to lower calf and ankle. One pale front plane and slightly darker ash-gray side plane. Clear slim legs through a deep side slit. A measured watchful pose; moving sheets separate in running. No rigid armor or bulky shoulders.\nC — wind-cut traveler: slim long wrap cloak with a diagonal closed front down to lower calf, two narrow broad rear tails reaching ankle at rest and sweeping backward when running. Subtle offset fold across one shoulder creates a recognizable asymmetric outline. Brighter head with somewhat darker parchment-gray cloak. Elastic forward poised stance, strongest sense of quick movement. No scarf, hood or neck ribbon.\nMake the 3 outfits CLEARLY DISTINCT in their construction and silhouette, not duplicate versions of the old robe. Keep paper texture consistent with the reference but quieter and flatter on the small figures. No sword or weapon, no belt, metal, boots, gloves, colorful accessories, glowing aura, photorealism, pixel art, spikes, excessive shredded strips, floor-length wedding train, lace or cloth weave. The long cloak should appear built for platforming. Finished art-director-quality original game concept designs.",
+  "research": [
+    {
+      "url": "https://www.teamcherry.com.au/blog/hollow-knight-silksong-revealed",
+      "application": "Design interpretation: decisive silhouette and visible agile limbs."
+    },
+    {
+      "url": "https://store.steampowered.com/app/3362590/Nine_Sols_Digital_Art_Book/",
+      "application": "Design interpretation: layered wrap garment and movement openings."
+    },
+    {
+      "url": "https://ko.enderlilies.com/",
+      "application": "Design interpretation: pale protagonist against dark environments."
+    }
+  ],
+  "directions": {
+    "A": "Folded-page wanderer: long diagonal wrap and split front.",
+    "B": "Layered-paper sentinel: nested large overlapping panels.",
+    "C": "Wind-cut traveler: asymmetrical long mantle and divided rear tails."
+  }
+}
