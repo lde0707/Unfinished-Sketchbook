@@ -1,0 +1,578 @@
+{
+  "frameCount": 16,
+  "fps": 25,
+  "loopMs": 640,
+  "cellSize": 512,
+  "columns": 4,
+  "rows": 4,
+  "pivotNormalized": [
+    0.69140625,
+    0.125
+  ],
+  "groundY": 448,
+  "method": "16 whole-body drawings: 8 Warrior-referenced keys + 8 newly generated inbetweens. Uniform scaling and translation only.",
+  "sourceFrames": [
+    {
+      "frame": 1,
+      "size": [
+        64,
+        44
+      ],
+      "sha256": "68ba1a876aec342d3ad1872b5a6521b3a7cf6ef8a7dd800aa8fd2b3c01c4e5e9"
+    },
+    {
+      "frame": 2,
+      "size": [
+        64,
+        44
+      ],
+      "sha256": "fd776a3ea0345617a8c60a1b52fceea4783b2a029f13e427ca949f45967eb5d7"
+    },
+    {
+      "frame": 3,
+      "size": [
+        64,
+        44
+      ],
+      "sha256": "4bd576980c5b70b136ad8134c79dd0f63a6d336069aafaaa1092be74e0c91bfe"
+    },
+    {
+      "frame": 4,
+      "size": [
+        64,
+        44
+      ],
+      "sha256": "ad2e39e194d7662c40aea639d13eae9fcb560b84899d8ab110793d7bb8c15d97"
+    },
+    {
+      "frame": 5,
+      "size": [
+        64,
+        44
+      ],
+      "sha256": "9509909e25223defaaed7d2ae15cad50834692780727f1ad042bdd3bc568376f"
+    },
+    {
+      "frame": 6,
+      "size": [
+        64,
+        44
+      ],
+      "sha256": "890f9510d832bad96880a549e3f06dcc07c7bb89f9b6a39f6cc60d162f4e7959"
+    },
+    {
+      "frame": 7,
+      "size": [
+        64,
+        44
+      ],
+      "sha256": "3f9f27b78be6e9dd93eeac560df4b0d4910762c6889d6c967f0fd3d18c9e3140"
+    },
+    {
+      "frame": 8,
+      "size": [
+        64,
+        44
+      ],
+      "sha256": "188d19265045123e92c5cab8d09cfd8ecceaf9954ed825aa0b311fa311f27fb6"
+    }
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "sourceSheet": "push-pair-compact.png",
+      "sourceRect": [
+        0,
+        0,
+        887,
+        887
+      ],
+      "warriorFrame": 1,
+      "inbetween": false,
+      "nextWarriorFrame": 2,
+      "scale": 0.4753623188405797,
+      "translation": [
+        44,
+        75
+      ],
+      "headWidth": 345,
+      "headCenter": [
+        354,
+        208
+      ],
+      "bounds": [
+        95,
+        126,
+        436,
+        442
+      ],
+      "footClearance": 6,
+      "durationMs": 40
+    },
+    {
+      "frame": 1,
+      "sourceSheet": "between-a-depth.png",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "warriorFrame": 1,
+      "inbetween": true,
+      "nextWarriorFrame": 2,
+      "scale": 0.6482213438735178,
+      "translation": [
+        49,
+        58
+      ],
+      "headWidth": 253,
+      "headCenter": [
+        354,
+        202
+      ],
+      "bounds": [
+        85,
+        120,
+        435,
+        433
+      ],
+      "footClearance": 14,
+      "durationMs": 40
+    },
+    {
+      "frame": 2,
+      "sourceSheet": "keys-a-depth.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "warriorFrame": 2,
+      "inbetween": false,
+      "nextWarriorFrame": 3,
+      "scale": 0.6776859504132231,
+      "translation": [
+        56,
+        59
+      ],
+      "headWidth": 242,
+      "headCenter": [
+        354,
+        195
+      ],
+      "bounds": [
+        79,
+        113,
+        435,
+        429
+      ],
+      "footClearance": 19,
+      "durationMs": 40
+    },
+    {
+      "frame": 3,
+      "sourceSheet": "between-a-depth.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "warriorFrame": 2,
+      "inbetween": true,
+      "nextWarriorFrame": 3,
+      "scale": 0.6482213438735178,
+      "translation": [
+        63,
+        54
+      ],
+      "headWidth": 253,
+      "headCenter": [
+        354,
+        198
+      ],
+      "bounds": [
+        94,
+        116,
+        436,
+        438
+      ],
+      "footClearance": 9,
+      "durationMs": 40
+    },
+    {
+      "frame": 4,
+      "sourceSheet": "keys-a-depth.png",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "warriorFrame": 3,
+      "inbetween": false,
+      "nextWarriorFrame": 4,
+      "scale": 0.6721311475409836,
+      "translation": [
+        37,
+        89
+      ],
+      "headWidth": 244,
+      "headCenter": [
+        354,
+        207
+      ],
+      "bounds": [
+        83,
+        125,
+        436,
+        444
+      ],
+      "footClearance": 3,
+      "durationMs": 40
+    },
+    {
+      "frame": 5,
+      "sourceSheet": "between-a-depth.png",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "warriorFrame": 3,
+      "inbetween": true,
+      "nextWarriorFrame": 4,
+      "scale": 0.6586345381526104,
+      "translation": [
+        46,
+        90
+      ],
+      "headWidth": 249,
+      "headCenter": [
+        354,
+        210
+      ],
+      "bounds": [
+        82,
+        128,
+        436,
+        448
+      ],
+      "footClearance": 0,
+      "durationMs": 40
+    },
+    {
+      "frame": 6,
+      "sourceSheet": "keys-a-depth.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "warriorFrame": 4,
+      "inbetween": false,
+      "nextWarriorFrame": 5,
+      "scale": 0.6804979253112033,
+      "translation": [
+        56,
+        89
+      ],
+      "headWidth": 241,
+      "headCenter": [
+        354,
+        213
+      ],
+      "bounds": [
+        85,
+        131,
+        436,
+        449
+      ],
+      "footClearance": 0,
+      "durationMs": 40
+    },
+    {
+      "frame": 7,
+      "sourceSheet": "between-a-depth.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "warriorFrame": 4,
+      "inbetween": true,
+      "nextWarriorFrame": 5,
+      "scale": 0.6533864541832669,
+      "translation": [
+        68,
+        93
+      ],
+      "headWidth": 251,
+      "headCenter": [
+        354,
+        212
+      ],
+      "bounds": [
+        86,
+        129,
+        436,
+        448
+      ],
+      "footClearance": 0,
+      "durationMs": 40
+    },
+    {
+      "frame": 8,
+      "sourceSheet": "push-pair-compact.png",
+      "sourceRect": [
+        887,
+        0,
+        1774,
+        887
+      ],
+      "warriorFrame": 5,
+      "inbetween": false,
+      "nextWarriorFrame": 6,
+      "scale": 0.4837758112094395,
+      "translation": [
+        41,
+        57
+      ],
+      "headWidth": 339,
+      "headCenter": [
+        354,
+        204
+      ],
+      "bounds": [
+        76,
+        122,
+        436,
+        439
+      ],
+      "footClearance": 9,
+      "durationMs": 40
+    },
+    {
+      "frame": 9,
+      "sourceSheet": "between-b.png",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "warriorFrame": 5,
+      "inbetween": true,
+      "nextWarriorFrame": 6,
+      "scale": 0.6533864541832669,
+      "translation": [
+        52,
+        57
+      ],
+      "headWidth": 251,
+      "headCenter": [
+        354,
+        196
+      ],
+      "bounds": [
+        89,
+        114,
+        436,
+        449
+      ],
+      "footClearance": 0,
+      "durationMs": 40
+    },
+    {
+      "frame": 10,
+      "sourceSheet": "keys-b-depth.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "warriorFrame": 6,
+      "inbetween": false,
+      "nextWarriorFrame": 7,
+      "scale": 0.6833333333333333,
+      "translation": [
+        58,
+        42
+      ],
+      "headWidth": 240,
+      "headCenter": [
+        354,
+        195
+      ],
+      "bounds": [
+        89,
+        113,
+        435,
+        421
+      ],
+      "footClearance": 26,
+      "durationMs": 40
+    },
+    {
+      "frame": 11,
+      "sourceSheet": "between-b.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "warriorFrame": 6,
+      "inbetween": true,
+      "nextWarriorFrame": 7,
+      "scale": 0.6639676113360324,
+      "translation": [
+        60,
+        56
+      ],
+      "headWidth": 247,
+      "headCenter": [
+        354,
+        204
+      ],
+      "bounds": [
+        72,
+        122,
+        435,
+        440
+      ],
+      "footClearance": 8,
+      "durationMs": 40
+    },
+    {
+      "frame": 12,
+      "sourceSheet": "keys-b-depth.png",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "warriorFrame": 7,
+      "inbetween": false,
+      "nextWarriorFrame": 8,
+      "scale": 0.6776859504132231,
+      "translation": [
+        32,
+        71
+      ],
+      "headWidth": 242,
+      "headCenter": [
+        354,
+        212
+      ],
+      "bounds": [
+        77,
+        130,
+        446,
+        449
+      ],
+      "footClearance": 0,
+      "durationMs": 40
+    },
+    {
+      "frame": 13,
+      "sourceSheet": "between-b.png",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "warriorFrame": 7,
+      "inbetween": true,
+      "nextWarriorFrame": 8,
+      "scale": 0.6666666666666666,
+      "translation": [
+        37,
+        80
+      ],
+      "headWidth": 246,
+      "headCenter": [
+        354,
+        220
+      ],
+      "bounds": [
+        78,
+        138,
+        435,
+        448
+      ],
+      "footClearance": 0,
+      "durationMs": 40
+    },
+    {
+      "frame": 14,
+      "sourceSheet": "keys-b-depth.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "warriorFrame": 8,
+      "inbetween": false,
+      "nextWarriorFrame": 1,
+      "scale": 0.6721311475409836,
+      "translation": [
+        58,
+        72
+      ],
+      "headWidth": 244,
+      "headCenter": [
+        354,
+        215
+      ],
+      "bounds": [
+        89,
+        133,
+        436,
+        447
+      ],
+      "footClearance": 0,
+      "durationMs": 40
+    },
+    {
+      "frame": 15,
+      "sourceSheet": "between-b.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "warriorFrame": 8,
+      "inbetween": true,
+      "nextWarriorFrame": 1,
+      "scale": 0.6666666666666666,
+      "translation": [
+        56,
+        80
+      ],
+      "headWidth": 246,
+      "headCenter": [
+        354,
+        206
+      ],
+      "bounds": [
+        73,
+        124,
+        436,
+        448
+      ],
+      "footClearance": 0,
+      "durationMs": 40
+    }
+  ]
+}

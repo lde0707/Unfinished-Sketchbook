@@ -1,0 +1,14 @@
+{
+  "frameCount": 16,
+  "uniqueFrames": 16,
+  "transparent": true,
+  "clippedSolidSilhouettes": 0,
+  "headWidthsNormalizedPx": 164,
+  "frameSizes": [
+    512,
+    512
+  ],
+  "loopMs": 640,
+  "maxHeadYDeltaPx": 9,
+  "note": "Packaging checks are not a claim of perfect drawing continuity or Unity foot-speed synchronization."
+}

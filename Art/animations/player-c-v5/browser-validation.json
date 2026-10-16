@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "controls": [
+    "pause/play",
+    "previous/next loop wrap",
+    "slow speed",
+    "period",
+    "keys only",
+    "flip",
+    "floor"
+  ],
+  "originalsPresent": true,
+  "missingOriginalFallback": true,
+  "consoleErrors": []
+}
