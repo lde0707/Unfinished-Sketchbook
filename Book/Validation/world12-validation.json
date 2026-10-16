@@ -1,0 +1,15 @@
+{
+  "gridSha256": "43ea0923a458d9c1d6d92ebc34154545d212ca5efa2d3349b93c15418ae89589",
+  "cellsCompared": 120400,
+  "occupiedCells": 90124,
+  "rooms": 56,
+  "shafts": 14,
+  "enemies": 95,
+  "pickups": 67,
+  "tileTextureSize": 128,
+  "pixelsPerUnit": 128,
+  "screenTilePixelsAt1080": 128,
+  "orthographicSize": 4.21875,
+  "gridAndMarkerValidation": "passed",
+  "motorValidation": "passed"
+}

@@ -1,0 +1,2 @@
+PASS
+Scene initialization; grounded spawn; keyboard move/jump; World 2 warp; flight; gate opening; scene reset.
