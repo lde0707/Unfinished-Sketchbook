@@ -1,0 +1,25 @@
+{
+  "version": 4,
+  "generator": "built-in image_gen",
+  "status": "Wraparound paper cloak concept; not integrated into Unity",
+  "userChange": "Paper cloak wraps around and covers front, sides and back of torso.",
+  "files": [
+    {
+      "file": "01-character-study.png",
+      "reference": "Art/samples/player-v3/01-character-study.png",
+      "prompt": "Use case: identity-preserve. Edit this character sheet. Requested change: replace the back-only paper cape with a TRUE WRAPAROUND PAPER CLOAK that ENCIRCLES AND COVERS THE TORSO, including chest, belly, sides and back. Preserve the same slim protagonist, circular head, one dark dot eye, no other facial features, chalk ivory body, long slender legs, existing matte paper texture and charcoal background. Same layout: large three-quarter idle left, smaller right-facing side idle upper right, running pose lower right. The cloak must read immediately as a short enclosing mantle/poncho: a small neck opening, folded collar resting around both shoulders, overlapping paper panels closed across the entire front chest and abdomen, widening gently toward an uneven upper-thigh hem. In the main idle, NO exposed bare chest or belly. Arms mostly concealed by the side panels with just small hands optionally emerging through discreet side openings. Slender legs clearly visible from hem down. In the side pose the front panel visibly covers the belly; not just a sheet hanging behind the shoulders. In the run pose the front panel still covers the torso while the back hem lifts backward naturally and one bent forearm emerges through a side slit. Paper cloak made of aged off-white drawing paper, pale warm gray slightly darker than head, two or three broad folds, faint creases, layered overlapping front edge, gently irregular torn paper hem with soft worn corners. No cloth weave, glossy leather or armor; keep matte paper relief matching current artwork. Compact silhouette, shoulder-to-upper-thigh length, not floor length, not huge billowing wings, no bulky spherical body. No hood, scarf, belt, metal clasp, buttons, colorful accents, emblems, printed letters, weapons, new costume pieces, extra eyes or head changes. Keep the same enclosing cloak construction across all three views and poses. This is a precise garment revision; preserve composition, character scale and all other design qualities. No text, labels, UI or watermarks."
+    },
+    {
+      "file": "02-five-backgrounds.png",
+      "references": [
+        "Art/samples/player-v4/01-character-study.png",
+        "Art/samples/player-v3/02-five-backgrounds.png"
+      ],
+      "prompt": "Use case: compositing. Edit IMAGE 2, the existing five-panel environment board, to dress EACH of its five small characters in the exact WRAPAROUND PAPER CLOAK from IMAGE 1. Image 1 is the new character identity reference. The new cloak surrounds shoulders, chest, belly, sides and back, with overlapping front paper panels CLOSED ACROSS THE TORSO and a gently flared upper-thigh torn-paper hem. This is not the old back-only cape. In each of the five side-facing characters, clearly show a covered chest and abdomen, a folded collar, and a compact paper mantle surrounding the whole torso. Arms mostly under the cloak with a small hand emerging; slender lower legs exposed. Preserve the slim anatomy under the cloak, round small head, one dark dot eye, chalk ivory body, pale warm gray paper cloak, matte paper surface, no other facial features or costume additions. Keep characters at their current positions and total heights, exactly one per panel facing right with grounded feet. Same wraparound cloak design in all five. Preserve image 2's five-panel composition, terrain geometry, background textures and dark regional palettes: paper top left, graphite top right, wood middle left, roots middle right, broad wood-to-root transition bottom. Keep the charcoal gutters and all framing. No new scenery or props, no glow, no added lights, no text, labels, UI or extra figures. This is only an update of the small player costumes to match image 1. Square presentation image, clean readable gameplay-sized silhouettes."
+    }
+  ],
+  "notes": [
+    "Preserve monochrome paper material and lean legs.",
+    "Environment comparison is a generated concept composite, not a Unity screenshot."
+  ]
+}
