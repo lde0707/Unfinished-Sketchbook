@@ -66,12 +66,65 @@ namespace Unfin.Editor
                     atlas.SetPixels((i%47%8)*136+4, (17-i/47*6-i%47/8)*136+4, 128, 128, texture.GetPixels());
                     UnityEngine.Object.DestroyImmediate(texture);
                 }
-                atlas.Apply(); File.WriteAllBytes($"Validation/world{region}-corner-tiles.png", atlas.EncodeToPNG());
+                atlas.Apply(); PreviewOutput.Write($"Validation/world{region}-corner-tiles.png", atlas.EncodeToPNG());
                 UnityEngine.Object.DestroyImmediate(atlas);
             }
             File.WriteAllText("Validation/terrain-corners.json", $"{{\n  \"neighborConfigurations\": 256,\n  \"shapesPerPattern\": 47,\n  \"patternsPerRegion\": 3,\n  \"variantsPerRegion\": 141,\n  \"regions\": 2,\n  \"exposedFacesChecked\": {surfaces},\n  \"innerCornersChecked\": {notches},\n  \"maximumRimRecessPixels\": 3,\n  \"status\": \"passed\"\n}}\n");
             ValidatePatterns(world);
+            ValidateRoundedCorners(world);
             Debug.Log($"UNFIN_CORNERS_OK variants=282 faces={surfaces} innerCorners={notches}");
+        }
+
+        static void ValidateRoundedCorners(WorldPrototype world)
+        {
+            Check(world.filletTiles.Length==90,"15 fillet combinations x 3 patterns x 2 regions");
+            Check(world.filletMaps.Length==2,"Both regions have fillet layers");
+            foreach(var map in world.filletMaps) Check(map.GetComponent<Collider2D>()==null,"Fillet layer has no collider");
+            foreach(var tile in world.filletTiles)
+            {
+                Check(tile.colliderType==Tile.ColliderType.None,"Fillet tile has no collision");
+                var image=new Texture2D(2,2); image.LoadImage(File.ReadAllBytes(AssetDatabase.GetAssetPath(tile.sprite)));
+                Check(image.GetPixel(64,64).a==0,"Fillet leaves the empty cell center clear");
+                for(int c=0;c<4;c++)
+                {
+                    int x=c==1||c==2?127:0,y=c<2?127:0;
+                    Check(image.GetPixel(x,y).a==((tile.exposedEdges&(1<<c))!=0?1:0),"Fillet corner coverage");
+                }
+                UnityEngine.Object.DestroyImmediate(image);
+            }
+            int[] faces={9,3,6,12};
+            for(int c=0;c<4;c++)
+            {
+                int X(int d)=>c==1||c==2?127-d:d;
+                int Y(int d)=>c<2?127-d:d;
+                Color White(float u,float v)=>Color.white;
+                Check(TerrainSurface.Pixel(faces[c],X(4),Y(4),White,White).a==0,"Outer corner is visibly rounded");
+                Check(TerrainSurface.Pixel(faces[c],X(16),Y(16),White,White).a==1,"Rounded corner keeps its interior");
+                Check(TerrainSurface.Pixel(faces[c],X(32),Y(0),White,White).a==1,"Arc returns to the straight face");
+            }
+            // All 256 neighbor arrangements: empty corners only get supported fillets.
+            var offsets=new[]{new Vector2Int(0,-1),new Vector2Int(1,0),new Vector2Int(0,1),new Vector2Int(-1,0),
+                new Vector2Int(-1,-1),new Vector2Int(1,-1),new Vector2Int(1,1),new Vector2Int(-1,1)};
+            for(int raw=0;raw<256;raw++)
+            {
+                var grid=new int[9];for(int i=0;i<8;i++)if((raw&(1<<i))!=0)grid[(offsets[i].y+1)*3+offsets[i].x+1]=1;
+                int actual=TerrainTopology.FilletMask((x,y)=>grid[y*3+x],1,1);
+                int expected=((raw&25)==25?1:0)|((raw&35)==35?2:0)|((raw&70)==70?4:0)|((raw&140)==140?8:0);
+                Check(actual==expected,"Supported concave topology");
+                grid[4]=1;Check(TerrainTopology.FilletMask((x,y)=>grid[y*3+x],1,1)==0,"No fillet on occupied cells");
+            }
+            var data=JsonUtility.FromJson<WorldData>(world.mapJson.text);var cells=data.Decode();
+            int Get(int x,int y)=>x<0||y<0||x>=data.width||y>=data.height?1:cells[y*data.width+x];
+            var patterns=TerrainPatterns.Create(data.width,data.height);int count=0;
+            for(int y=0;y<data.height;y++)for(int x=0;x<data.width;x++)
+            {
+                int mask=TerrainTopology.FilletMask(Get,x,y),region=x>=data.regionX?1:0;
+                var tile=world.filletMaps[region].GetTile<PrototypeTile>(WorldData.Cell(x,y));
+                Check((tile!=null)==(mask!=0),"Fillet map coverage");
+                Check(world.filletMaps[1-region].GetTile(WorldData.Cell(x,y))==null,"Fillet region separation");
+                if(tile!=null){Check(tile.exposedEdges==mask&&tile.patternVariant==patterns[y*data.width+x],"Fillet map choice");count++;}
+            }
+            File.WriteAllText("Validation/terrain-rounded-corners.json",$"{{\n  \"outerRadiusPixels\": {TerrainSurface.OuterRadius},\n  \"innerRadiusPixels\": {TerrainSurface.InnerRadius},\n  \"filletAssets\": 90,\n  \"filletCells\": {count},\n  \"neighborConfigurations\": 256,\n  \"collisionGridChanged\": false,\n  \"status\": \"passed\"\n}}\n");
         }
 
         static void ValidatePatterns(WorldPrototype world)
@@ -131,7 +184,7 @@ namespace Unfin.Editor
                     preview.SetPixels(i*128,128,128,128,floors[order[i]].GetPixels());
                     preview.SetPixels(i*128,0,128,128,walls[order[i]].GetPixels());
                 }
-                preview.Apply();File.WriteAllBytes($"Validation/world{region}-patterns-abc.png",preview.EncodeToPNG());
+                preview.Apply();PreviewOutput.Write($"Validation/world{region}-patterns-abc.png",preview.EncodeToPNG());
                 UnityEngine.Object.DestroyImmediate(preview);
                 foreach(var texture in floors.Concat(walls))UnityEngine.Object.DestroyImmediate(texture);
             }
@@ -146,6 +199,7 @@ namespace Unfin.Editor
             var world = UnityEngine.Object.FindAnyObjectByType<WorldPrototype>();
             var tiles = world.terrainTiles;
             var tilePaths = tiles.Select(tile => AssetDatabase.GetAssetPath(tile)).ToArray();
+            var filletPaths = world.filletTiles.Select(tile=>AssetDatabase.GetAssetPath(tile)).ToArray();
             // Descending and ascending steps, a ceiling, overhangs, inner notches,
             // one-cell pillars and floating terrain in one repeatable inspection layout.
             var rows = new[] {
@@ -163,9 +217,12 @@ namespace Unfin.Editor
                 EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
                 // NewScene unloads unused native assets; reacquire persistent tiles by path.
                 tiles = tilePaths.Select(path => AssetDatabase.LoadAssetAtPath<PrototypeTile>(path)).ToArray();
+                var fillets = filletPaths.Select(path=>AssetDatabase.LoadAssetAtPath<PrototypeTile>(path)).ToArray();
                 var grid = new GameObject("Corner fixture").AddComponent<Grid>();
                 var go = new GameObject("Terrain"); go.transform.SetParent(grid.transform);
                 var map = go.AddComponent<Tilemap>(); go.AddComponent<TilemapRenderer>();
+                var filletObject=new GameObject("Rounded inner corners (visual only)");filletObject.transform.SetParent(grid.transform);
+                var filletMap=filletObject.AddComponent<Tilemap>();filletObject.AddComponent<TilemapRenderer>().sortingOrder=1;
                 int Get(int x,int y) => x<0||y<0||x>=15||y>=9 ? 0 : rows[y][x]-'0';
                 var patterns = TerrainPatterns.Create(15,9);
                 for (int y = 0; y < 9; y++) for (int x = 0; x < 15; x++) if (Get(x,y)==1)
@@ -176,6 +233,11 @@ namespace Unfin.Editor
                     map.SetTile(WorldData.Cell(x,y), tile);
                 }
                 Check(map.GetUsedTilesCount() > 0, "Fixture terrain populated");
+                for(int y=0;y<9;y++)for(int x=0;x<15;x++)
+                {
+                    int mask=TerrainTopology.FilletMask(Get,x,y);
+                    if(mask!=0)filletMap.SetTile(WorldData.Cell(x,y),fillets.First(t=>t.region==region&&t.exposedEdges==mask&&t.patternVariant==patterns[y*15+x]));
+                }
                 var camera = new GameObject("Camera").AddComponent<Camera>(); camera.orthographic = true;
                 camera.orthographicSize = 4.5f; camera.transform.position = new Vector3(7.5f,-4.5f,-10);
                 camera.backgroundColor = new Color(.105f,.115f,.14f); camera.clearFlags = CameraClearFlags.SolidColor;
@@ -189,7 +251,7 @@ namespace Unfin.Editor
                 image.ReadPixels(new Rect(0,0,1920,1152),0,0); image.Apply();
                 Color[] rendered = image.GetPixels();
                 Check(rendered.Max(c => c.grayscale) - rendered.Min(c => c.grayscale) > .1f, "Empty fixture render");
-                File.WriteAllBytes($"Validation/world{region}-stairs-and-corners.png",image.EncodeToPNG());
+                PreviewOutput.Write($"Validation/world{region}-stairs-and-corners.png",image.EncodeToPNG());
                 RenderTexture.active = null; camera.targetTexture = null; target.Release();
                 UnityEngine.Object.DestroyImmediate(target); UnityEngine.Object.DestroyImmediate(image);
             }

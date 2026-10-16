@@ -17,6 +17,13 @@ namespace Unfin
             if ((faces & 12) == 0 && get(x - 1, y + 1) != 1) faces |= 128;
             return faces;
         }
+        public static int FilletMask(Func<int,int,int> get, int x, int y)
+        {
+            if (get(x,y) != 0) return 0;
+            bool top=get(x,y-1)==1, right=get(x+1,y)==1, bottom=get(x,y+1)==1, left=get(x-1,y)==1;
+            return (top&&left&&get(x-1,y-1)==1?1:0) | (top&&right&&get(x+1,y-1)==1?2:0) |
+                (bottom&&right&&get(x+1,y+1)==1?4:0) | (bottom&&left&&get(x-1,y+1)==1?8:0);
+        }
         public static bool IsCanonical(int mask) =>
             ((mask & 16) == 0 || (mask & 9) == 0) && ((mask & 32) == 0 || (mask & 3) == 0) &&
             ((mask & 64) == 0 || (mask & 6) == 0) && ((mask & 128) == 0 || (mask & 12) == 0);

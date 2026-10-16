@@ -44,17 +44,7 @@ namespace Unfin.Editor
             Require(data.htmlTileSize == 16 && data.tilePixels == 128 && data.pixelsPerUnit == 128, "Tile scale");
             Directory.CreateDirectory(Root + "/Generated"); Directory.CreateDirectory("Assets/Scenes");
             tileCache.Clear();
-            art = new CpuImage[2, 3, 2];
-            for (int region = 0; region < 2; region++)
-            for (int variant = 0; variant < 3; variant++)
-            for (int side = 0; side < 2; side++)
-            {
-                var texture = new Texture2D(2, 2);
-                string name = (region == 0 ? "01-graphite" : "02-crayon") + "-" + (char)('a' + variant) + (side == 0 ? "-floor.png" : "-wall.png");
-                texture.LoadImage(File.ReadAllBytes(Path.Combine(Application.dataPath, "../../Art/samples/regional-variants-v6", name)));
-                art[region, variant, side] = new CpuImage(texture);
-                UnityEngine.Object.DestroyImmediate(texture);
-            }
+            LoadArt();
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             // Export every valid blob combination, including shapes absent from today's map.
             var terrainCatalog = new List<PrototypeTile>();
@@ -62,11 +52,15 @@ namespace Unfin.Editor
             for (int variant = 0; variant < 3; variant++)
             for (int mask = 0; mask < 256; mask++)
                 if (TerrainTopology.IsCanonical(mask)) terrainCatalog.Add(Tile(region, 1, mask, variant));
+            var filletCatalog = new List<PrototypeTile>();
+            for (int region=0;region<2;region++) for(int variant=0;variant<3;variant++)
+                for(int mask=1;mask<16;mask++)filletCatalog.Add(Tile(region,0,mask,variant));
             var grid = new GameObject("World 1 + 2 — HTML coordinates").AddComponent<Grid>();
             grid.cellSize = Vector3.one;
             var controller = new GameObject("World Prototype").AddComponent<WorldPrototype>();
             controller.mapJson = json; controller.maps = new Tilemap[6];
             controller.terrainTiles = terrainCatalog.ToArray();
+            controller.filletTiles=filletCatalog.ToArray(); controller.filletMaps=new Tilemap[2];
             for (int region = 0; region < 2; region++)
             {
                 var regionObject = new GameObject(region == 0 ? "World 1 - Graphite" : "World 2 - Crayon");
@@ -104,6 +98,21 @@ namespace Unfin.Editor
                     }
                 }
             }
+            for(int region=0;region<2;region++)
+            {
+                var go=new GameObject($"World {region+1} rounded inner corners (visual only)");
+                go.transform.SetParent(grid.transform,false);
+                var map=go.AddComponent<Tilemap>(); go.AddComponent<TilemapRenderer>().sortingOrder=1;
+                controller.filletMaps[region]=map;
+                int x0=region==0?0:data.regionX, width=region==0?data.regionX:data.width-data.regionX;
+                var tiles=new TileBase[width*data.height];
+                for(int y=0;y<data.height;y++)for(int x=x0;x<x0+width;x++)
+                {
+                    int mask=TerrainTopology.FilletMask(Get,x,y);
+                    if(mask!=0)tiles[(data.height-y-1)*width+x-x0]=Tile(region,0,mask,patterns[y*data.width+x]);
+                }
+                map.SetTilesBlock(new BoundsInt(x0,-data.height,0,width,data.height,1),tiles);
+            }
             var camera = new GameObject("Main Camera").AddComponent<Camera>();
             camera.tag = "MainCamera"; camera.orthographic = true; camera.orthographicSize = data.orthographicSize;
             camera.clearFlags = CameraClearFlags.SolidColor; camera.backgroundColor = new Color(.105f, .115f, .14f);
@@ -132,6 +141,24 @@ namespace Unfin.Editor
             Debug.Log("UNFIN_BUILD_OK " + ScenePath);
         }
         // Requires a graphics device; validates and renders both world and corner scenes.
+        static void LoadArt()
+        {
+            art = new CpuImage[2, 3, 2];
+            for(int region=0;region<2;region++)for(int variant=0;variant<3;variant++)for(int side=0;side<2;side++)
+            {
+                var texture=new Texture2D(2,2);
+                string name=(region==0?"01-graphite":"02-crayon")+"-"+(char)('a'+variant)+(side==0?"-floor.png":"-wall.png");
+                texture.LoadImage(File.ReadAllBytes(Path.Combine(Application.dataPath,"../../Art/samples/regional-variants-v6",name)));
+                art[region,variant,side]=new CpuImage(texture);UnityEngine.Object.DestroyImmediate(texture);
+            }
+        }
+        public static void RefreshFilletsAndRender()
+        {
+            tileCache.Clear(); LoadArt();
+            for(int region=0;region<2;region++)for(int variant=0;variant<3;variant++)
+                for(int mask=1;mask<16;mask++)Tile(region,0,mask,variant);
+            AssetDatabase.SaveAssets(); TerrainCornerValidation.Render();
+        }
         public static void BuildAndRender()
         {
             Build();
@@ -158,7 +185,9 @@ namespace Unfin.Editor
             for (int x = 0; x < 128; x++)
             {
                 Color color;
-                if (type == 1)
+                if (type == 0)
+                    color=TerrainSurface.Fillet(mask,x,y,art[region,variant,0].GetPixelBilinear,art[region,variant,1].GetPixelBilinear);
+                else if (type == 1)
                 {
                     color = TerrainSurface.Pixel(mask, x, y, art[region, variant, 0].GetPixelBilinear, art[region, variant, 1].GetPixelBilinear);
                 }
@@ -191,7 +220,7 @@ namespace Unfin.Editor
             if (tile == null) { tile = ScriptableObject.CreateInstance<PrototypeTile>(); AssetDatabase.CreateAsset(tile, asset); }
             tile.sprite = sprite; tile.htmlType = type; tile.region = region + 1; tile.exposedEdges = mask;
             tile.patternVariant = variant;
-            tile.colliderType = type == 9 ? UnityEngine.Tilemaps.Tile.ColliderType.None : UnityEngine.Tilemaps.Tile.ColliderType.Grid;
+            tile.colliderType = type == 0 || type == 9 ? UnityEngine.Tilemaps.Tile.ColliderType.None : UnityEngine.Tilemaps.Tile.ColliderType.Grid;
             EditorUtility.SetDirty(tile); tileCache[key] = tile;
             return tile;
         }
@@ -351,7 +380,7 @@ namespace Unfin.Editor
                 world.worldCamera.Render(); RenderTexture.active = target;
                 var image = new Texture2D(1920, 1080, TextureFormat.RGB24, false);
                 image.ReadPixels(new Rect(0, 0, 1920, 1080), 0, 0); image.Apply();
-                File.WriteAllBytes($"Validation/world{region + 1}-1920x1080.png", image.EncodeToPNG());
+                PreviewOutput.Write($"Validation/world{region + 1}-1920x1080.png", image.EncodeToPNG());
                 world.worldCamera.targetTexture = null; RenderTexture.active = null; target.Release();
                 UnityEngine.Object.DestroyImmediate(target); UnityEngine.Object.DestroyImmediate(image);
             }

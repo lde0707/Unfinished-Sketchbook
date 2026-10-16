@@ -104,6 +104,14 @@ namespace Unfin.Editor
                 checkedTerrain++;
             }
             Check(checkedTerrain > 0, "Gate terrain fixture covered");
+            for(int ty=gateY-3;ty<=gateY+3;ty++)for(int tx=gateX-3;tx<=gateX+3;tx++)
+            {
+                if(tx<0||ty<0||tx>=world.Data.width||ty>=world.Data.height)continue;
+                int mask=TerrainTopology.FilletMask(world.Motor.Get,tx,ty);
+                var tile=world.filletMaps[tx>=world.Data.regionX?1:0].GetTile<PrototypeTile>(WorldData.Cell(tx,ty));
+                Check((tile!=null)==(mask!=0),"Gate refresh fillet coverage");
+                if(tile!=null)Check(tile.exposedEdges==mask&&tile.patternVariant==patterns[ty*world.Data.width+tx],"Gate refresh fillet choice");
+            }
             yield return Press(Key.R);
             yield return new WaitForSeconds(.25f);
             world = UnityEngine.Object.FindAnyObjectByType<WorldPrototype>();

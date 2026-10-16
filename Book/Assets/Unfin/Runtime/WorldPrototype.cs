@@ -10,6 +10,8 @@ namespace Unfin
         public TextAsset mapJson;
         public Tilemap[] maps; // region * 3 + walls / one-way platforms / water
         public PrototypeTile[] terrainTiles; // 47 shapes x 3 patterns per region
+        public PrototypeTile[] filletTiles;
+        public Tilemap[] filletMaps; // Visual concave arcs only, no collision.
         byte[] terrainPatterns;
         public Camera worldCamera;
         public Transform player;
@@ -24,6 +26,7 @@ namespace Unfin
         readonly Dictionary<int, Change> changes = new Dictionary<int, Change>();
         readonly List<int> changeKeys = new List<int>();
         readonly Dictionary<int, PrototypeTile> terrainLookup = new Dictionary<int, PrototypeTile>();
+        readonly Dictionary<int, PrototypeTile> filletLookup = new Dictionary<int, PrototypeTile>();
         sealed class Change { public int original; public float time; public bool gone; public TileBase tile; }
 
         public static int Layer(int type) => type == 9 ? 2 : GridMotor.Platform(type) ? 1 : 0;
@@ -35,6 +38,8 @@ namespace Unfin
             terrainPatterns = TerrainPatterns.Create(Data.width, Data.height);
             foreach (var tile in terrainTiles)
                 terrainLookup[TerrainPatterns.Key(tile.region - 1, tile.patternVariant, tile.exposedEdges)] = tile;
+            foreach (var tile in filletTiles)
+                filletLookup[TerrainPatterns.Key(tile.region - 1, tile.patternVariant, tile.exposedEdges)] = tile;
             Respawn(Data.startX, Data.startFloor);
             worldCamera.orthographicSize = Data.orthographicSize;
         }
@@ -175,10 +180,15 @@ namespace Unfin
             for (int y = cy - 1; y <= cy + 1; y++)
             for (int x = cx - 1; x <= cx + 1; x++)
             {
-                if (x < 0 || y < 0 || x >= Data.width || y >= Data.height || Motor.Get(x, y) != 1) continue;
-                int mask = TerrainTopology.Mask(Motor.Get, x, y);
-                int key = TerrainPatterns.Key(x >= Data.regionX ? 1 : 0, terrainPatterns[y * Data.width + x], mask);
-                Map(x, 1).SetTile(WorldData.Cell(x, y), terrainLookup[key]);
+                if (x < 0 || y < 0 || x >= Data.width || y >= Data.height) continue;
+                int region=x>=Data.regionX?1:0, variant=terrainPatterns[y*Data.width+x];
+                if (Motor.Get(x,y)==1)
+                {
+                    int mask = TerrainTopology.Mask(Motor.Get, x, y);
+                    Map(x, 1).SetTile(WorldData.Cell(x, y), terrainLookup[TerrainPatterns.Key(region,variant,mask)]);
+                }
+                int fillet=TerrainTopology.FilletMask(Motor.Get,x,y);
+                filletMaps[region].SetTile(WorldData.Cell(x,y),fillet==0?null:filletLookup[TerrainPatterns.Key(region,variant,fillet)]);
             }
         }
         void RestoreWorld() => UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);

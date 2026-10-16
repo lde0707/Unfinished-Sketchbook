@@ -9,6 +9,8 @@ namespace Unfin.Editor
     {
         public static readonly Color Interior = new Color(.016f, .017f, .023f, 1);
         public const float SurfaceDepth = 128;
+        public const float OuterRadius = 28;
+        public const float InnerRadius = 24;
         static readonly Vector2Int[] Neighbors = {
             new Vector2Int(0,1), new Vector2Int(1,0), new Vector2Int(0,-1), new Vector2Int(-1,0),
             new Vector2Int(-1,1), new Vector2Int(1,1), new Vector2Int(1,-1), new Vector2Int(-1,-1)
@@ -26,8 +28,23 @@ namespace Unfin.Editor
             for (int i = 0; i < 8; i++) if ((mask & (1 << i)) != 0)
             {
                 Vector2 delta = Delta(px, py, Neighbors[i]);
-                float weight = Mathf.Clamp01(1 - (delta.magnitude - nearest) / 3f);
+                float weight = Mathf.Clamp01(1 - (delta.magnitude - nearest) / 18f);
                 normal += delta.normalized * weight * weight;
+            }
+            // The material depth and normal follow the same arc as the silhouette.
+            // Merely enlarging an alpha cut leaves straight bright bands inside it.
+            float silhouette = 1;
+            for (int corner = 0; corner < 4; corner++)
+            {
+                int faces = corner == 0 ? 9 : corner == 1 ? 3 : corner == 2 ? 6 : 12;
+                if ((mask & faces) != faces) continue;
+                float cx = corner == 1 || corner == 2 ? 128-px : px;
+                float cy = corner < 2 ? 128-py : py;
+                if (cx >= OuterRadius || cy >= OuterRadius) continue;
+                var radial = new Vector2(OuterRadius-cx, OuterRadius-cy);
+                float depth = OuterRadius - radial.magnitude;
+                silhouette = Mathf.Min(silhouette, Mathf.Clamp01(depth + .5f));
+                if (depth < nearest) { nearest = Mathf.Max(0, depth); normal = radial.normalized; }
             }
             float horizontal = Mathf.Abs(normal.x), vertical = Mathf.Abs(normal.y);
             // Opposite faces can cancel on thin platforms; blend both material axes there.
@@ -38,7 +55,7 @@ namespace Unfin.Editor
             float fade = 1 - Mathf.SmoothStep(0, 1, Mathf.Clamp01((nearest - 120) / 8));
             Color result = Color.Lerp(Interior, surface, fade);
             // Artwork supplies a shallow irregular rim; no ruler-straight cap overlay.
-            result.a = surface.a * RoundedAlpha(mask, px, py);
+            result.a = surface.a * silhouette;
             return result;
         }
         static Vector2 Delta(float x, float y, Vector2Int neighbor)
@@ -51,15 +68,27 @@ namespace Unfin.Editor
             float t = tangent / 128, d = 1 - depth / 128;
             return wall ? sample(d, t) : sample(t, d);
         }
-        static float RoundedAlpha(int mask, float x, float y)
+        // Decorative concave fillet in an EMPTY cell. This layer has no collider.
+        // Corner bits TL/TR/BR/BL. Each quarter arc meets both adjoining faces tangentially.
+        public static Color Fillet(int mask, int x, int y, Func<float,float,Color> floor, Func<float,float,Color> wall)
         {
-            const float radius = 3;
-            if ((mask & 9) == 9 && x < radius && y > 128 - radius) return CornerAlpha(x, 128-y, radius);
-            if ((mask & 3) == 3 && x > 128-radius && y > 128-radius) return CornerAlpha(128-x, 128-y, radius);
-            if ((mask & 6) == 6 && x > 128-radius && y < radius) return CornerAlpha(128-x, y, radius);
-            if ((mask & 12) == 12 && x < radius && y < radius) return CornerAlpha(x, y, radius);
-            return 1;
+            float px=x+.5f, py=y+.5f;
+            for (int corner=0;corner<4;corner++) if ((mask & (1<<corner)) != 0)
+            {
+                float cx=corner==1||corner==2?128-px:px, cy=corner<2?128-py:py;
+                if(cx>=InnerRadius||cy>=InnerRadius)continue;
+                var radial=new Vector2(InnerRadius-cx,InnerRadius-cy);
+                float depth=radial.magnitude-InnerRadius;
+                if(depth<=-.5f)continue;
+                float weight=radial.x/(radial.x+radial.y);
+                // Sample below the irregular transparent rim; its hidden RGB may be
+                // bright and must not be made opaque along this new curve.
+                float materialDepth=Mathf.Max(0,depth)+4;
+                Color color=Color.Lerp(Periodic(floor,px,materialDepth,false),Periodic(wall,py,materialDepth,true),weight);
+                color.a=Mathf.Clamp01(depth+.5f);
+                return color;
+            }
+            return Color.clear;
         }
-        static float CornerAlpha(float x, float y, float radius) => Mathf.Clamp01(radius + .5f - new Vector2(x-radius, y-radius).magnitude);
     }
 }
