@@ -48,7 +48,7 @@ namespace Unfin.Editor
             {
                 var texture = new Texture2D(2, 2);
                 string name = (region == 0 ? "01-graphite" : "02-crayon") + (side == 0 ? "-floor.png" : "-wall.png");
-                texture.LoadImage(File.ReadAllBytes(Path.Combine(Application.dataPath, "../../Art/samples/regional-pairs-v4", name)));
+                texture.LoadImage(File.ReadAllBytes(Path.Combine(Application.dataPath, "../../Art/samples/regional-pairs-v5-soft", name)));
                 art[region, side] = new CpuImage(texture);
                 UnityEngine.Object.DestroyImmediate(texture);
             }
@@ -127,6 +127,12 @@ namespace Unfin.Editor
             Validate();
             Debug.Log("UNFIN_BUILD_OK " + ScenePath);
         }
+        // Requires a graphics device; validates and renders both world and corner scenes.
+        public static void BuildAndRender()
+        {
+            Build();
+            TerrainCornerValidation.Render();
+        }
         static int Get(int x, int y) => x < 0 || y < 0 || x >= data.width || y >= data.height ? 1 : cells[y * data.width + x];
         static int Mask(int x, int y) => TerrainTopology.Mask(Get, x, y);
         static Color Tint(int type) => type switch
@@ -159,7 +165,13 @@ namespace Unfin.Editor
                     {
                         float rim = Mathf.Clamp01(1 - Mathf.Min(x, 127 - x, y, 127 - y) / 10f);
                         color = Color.Lerp(tint * .42f, tint, rim); color.a = tint.a;
-                        if (type == 3 && y > 112 && (x / 16) % 2 == 0) color = tint;
+                        if (type == 3)
+                        {
+                            // Smooth ink ripples retain the hazard color without jagged marks.
+                            float wave = 114 + 3 * Mathf.Sin(x * Mathf.PI / 32);
+                            float ripple = 1 - Mathf.SmoothStep(0, 1, Mathf.Abs(y - wave) / 4);
+                            color = Color.Lerp(color, tint, ripple * .6f);
+                        }
                         if (WorldPrototype.Gate(type) && Mathf.Abs(x - 64) < 3) color = tint * 1.3f;
                     }
                 }

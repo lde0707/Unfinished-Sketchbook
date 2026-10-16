@@ -1,0 +1,41 @@
+{
+  "version": "v5-soft",
+  "generator": "built-in image_gen",
+  "editInputDirectory": "../regional-pairs-v4",
+  "sharedShapeReference": "sources/01-graphite-floor.png",
+  "scope": "All currently active World 1 and World 2 terrain materials; older art samples retained as history.",
+  "masterPixels": 256,
+  "unityPixels": 128,
+  "floorCapPixels": 4,
+  "shape": "Broad rounded masses; shallow curved seams; restrained matte detail; nearly black subsurface.",
+  "regions": [
+    {
+      "id": "01-graphite",
+      "label": "World 1 · Graphite",
+      "floor": {
+        "file": "01-graphite-floor.png",
+        "sourceFile": "exec-adb5f9eb-d9a3-4716-89af-a9589787d112.png",
+        "prompt": "Edit the attached image (the actual existing graphite FLOOR tile for a serious atmospheric 2D side-view metroidvania). Redesign its MATERIAL SHAPES to be visibly softer and rounded, not just blurred. Keep square full-bleed opaque terrain texture; exposed walkable edge is perfectly horizontal at the VERY TOP of the image, absolutely no empty space above it. Keep graphite charcoal gray muted palette and nearly black subterranean interior, fading to almost black within lower half. Replace angular broken shards, knife-like splinters, thorny roots, sharp crack networks, sharp facets with a few broad smoothly worn graphite masses, gently flowing layered bands, smooth softly rounded contours and shallow curved seams. Wide readable shapes and subtle fine matte grain; well-defined but soft-edged forms, not out of focus. Elegant restrained painted game art, mature mysterious atmosphere, about 75 percent realistic; no cute/cartoon pebbles, no glossy plastic, no bubble piles. Only a very thin consistent top rim (about 1.5 percent of total image height), front orthographic cross-section, no visible top-plane perspective or thickness variation. Texture should tile horizontally with matching edge values. No spikes, triangular marks, jagged flakes, polygonal crystals, deep black web cracks, dramatic specular rims, text, labels, borders, grids or characters. Preserve composition and region identity. Output a single high-resolution square floor texture."
+      },
+      "wall": {
+        "file": "01-graphite-wall.png",
+        "sourceFile": "exec-e8bb7096-6f36-47d2-b2fa-6ccb47d2f9b4.png",
+        "prompt": "Use case: style-transfer. Image 1 is the existing game tile to edit. Image 2 is the approved SOFTER FORM style reference only, not the layout. Redesign image 1's pointed rocky patterns into broad softly worn curved forms, shallow smooth seams and gentle rounded layers. WALL: exposed edge flush with the RIGHT image edge, solid terrain inside to the LEFT. Only the rightmost 20-30 percent contains lit smooth rounded graphite folds. Left two thirds almost black. Continuous vertical composition, match top and bottom seamlessly. Preserve graphite charcoal gray palette, serious atmospheric metroidvania mood and orthographic side-view construction. Single square full-bleed opaque terrain texture, no background gap outside the exposed edge. Keep lower/inner ground nearly black and never add exterior scenery. Material should be clearly rounded and well-defined, not blurred; simplify sharp microfractures into subtle matte grain. About 75 percent realistic painterly game art, restrained highlights. NO angular broken shards, triangular facets, knife-like splinters, pointed roots, spiky cracks, jagged flakes, crystalline geometry, deep black crack networks, glossy plastic, toy pebbles, cartoon bubbles. No visible top-plane perspective; no changing rim width. No text, frames, logos, labels, grids or characters. Deliver only one square wall texture."
+      }
+    },
+    {
+      "id": "02-crayon",
+      "label": "World 2 · Crayon",
+      "floor": {
+        "file": "02-crayon-floor.png",
+        "sourceFile": "exec-ae935579-9f16-4435-9b87-cfa30ac85231.png",
+        "prompt": "Use case: style-transfer. Image 1 is the existing game tile to edit. Image 2 is the approved SOFTER FORM style reference only, not the layout. Redesign image 1's pointed rocky patterns into broad softly worn curved forms, shallow smooth seams and gentle rounded layers. FLOOR: exposed walkable edge perfectly horizontal flush with the VERY TOP of image, thin uniform top rim 1.5 percent height. Terrain extends down; almost black lower two thirds. Broad gently rounded wax layers and softly worn matte crayon masses, not tree roots. Match left and right edges seamlessly. Preserve muted burnt amber brown and earthy crayon wax palette, serious atmospheric metroidvania mood and orthographic side-view construction. Single square full-bleed opaque terrain texture, no background gap outside the exposed edge. Keep lower/inner ground nearly black and never add exterior scenery. Material should be clearly rounded and well-defined, not blurred; simplify sharp microfractures into subtle matte grain. About 75 percent realistic painterly game art, restrained highlights. NO angular broken shards, triangular facets, knife-like splinters, pointed roots, spiky cracks, jagged flakes, crystalline geometry, deep black crack networks, glossy plastic, toy pebbles, cartoon bubbles. No visible top-plane perspective; no changing rim width. No text, frames, logos, labels, grids or characters. Deliver only one square floor texture."
+      },
+      "wall": {
+        "file": "02-crayon-wall.png",
+        "sourceFile": "exec-b363ed99-a039-4ce6-b6b7-e4e6e3c73b54.png",
+        "prompt": "Use case: style-transfer. Image 1 is the existing game tile to edit. Image 2 is the approved SOFTER FORM style reference only, not the layout. Redesign image 1's pointed rocky patterns into broad softly worn curved forms, shallow smooth seams and gentle rounded layers. WALL: exposed edge flush with the RIGHT image edge, solid terrain inside to the LEFT. Only rightmost 20-30 percent shows broad gently rounded wax layers and softly worn matte crayon masses; left two thirds nearly black. Not tree roots. Match top and bottom seamlessly. Preserve muted burnt amber brown and earthy crayon wax palette, serious atmospheric metroidvania mood and orthographic side-view construction. Single square full-bleed opaque terrain texture, no background gap outside the exposed edge. Keep lower/inner ground nearly black and never add exterior scenery. Material should be clearly rounded and well-defined, not blurred; simplify sharp microfractures into subtle matte grain. About 75 percent realistic painterly game art, restrained highlights. NO angular broken shards, triangular facets, knife-like splinters, pointed roots, spiky cracks, jagged flakes, crystalline geometry, deep black crack networks, glossy plastic, toy pebbles, cartoon bubbles. No visible top-plane perspective; no changing rim width. No text, frames, logos, labels, grids or characters. Deliver only one square wall texture."
+      }
+    }
+  ]
+}

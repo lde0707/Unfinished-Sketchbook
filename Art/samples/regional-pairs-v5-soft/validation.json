@@ -1,0 +1,30 @@
+[
+  {
+    "file": "01-graphite-floor.png",
+    "width": 256,
+    "height": 256,
+    "capPixels": 4,
+    "deepInteriorMeanLuma": 8.75
+  },
+  {
+    "file": "01-graphite-wall.png",
+    "width": 256,
+    "height": 256,
+    "capPixels": null,
+    "deepInteriorMeanLuma": 7.99
+  },
+  {
+    "file": "02-crayon-floor.png",
+    "width": 256,
+    "height": 256,
+    "capPixels": 4,
+    "deepInteriorMeanLuma": 9.91
+  },
+  {
+    "file": "02-crayon-wall.png",
+    "width": 256,
+    "height": 256,
+    "capPixels": null,
+    "deepInteriorMeanLuma": 8.91
+  }
+]
