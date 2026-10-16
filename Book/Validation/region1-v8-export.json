@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "gridSha256": "bca3e0e1cd97d055a037fc1027785e1d78213ed5d4a238e65ae1d37186cdf6c0",
+  "sourceGridChanged": false,
+  "region1Rooms": 30,
+  "zoneCounts": [
+    5757,
+    7574,
+    9117,
+    6492
+  ],
+  "uniqueTiles": 2984,
+  "atlasCount": 14,
+  "visibleTerrainCells": 7864,
+  "terrainCells": 28940,
+  "possibleFilletCells": 136,
+  "tilePixels": 128,
+  "pixelsPerUnit": 128,
+  "materialDepthPixels": 384,
+  "outerRadiusPixels": 28,
+  "innerRadiusPixels": 24,
+  "transitionWidthCells": 4,
+  "atlasPaddingPixels": 2,
+  "scope": "All World 1 ordinary terrain, including ceiling, walls, steps, narrow columns and room transitions. World 2 and special gameplay tiles retained."
+}

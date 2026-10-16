@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "cellsCompared": 39200,
+  "groundPlacements": 28940,
+  "possibleFilletPlacements": 136,
+  "uniqueSprites": 2984,
+  "actuallyReusedSpriteIds": 835,
+  "reusedPlacements": 26092,
+  "paddedPixelsChecked": 3055616,
+  "gridSha256": "bca3e0e1cd97d055a037fc1027785e1d78213ed5d4a238e65ae1d37186cdf6c0"
+}

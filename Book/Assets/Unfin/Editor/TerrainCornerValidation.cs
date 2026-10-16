@@ -122,7 +122,7 @@ namespace Unfin.Editor
                 var tile=world.filletMaps[region].GetTile<PrototypeTile>(WorldData.Cell(x,y));
                 Check((tile!=null)==(mask!=0),"Fillet map coverage");
                 Check(world.filletMaps[1-region].GetTile(WorldData.Cell(x,y))==null,"Fillet region separation");
-                if(tile!=null){Check(tile.exposedEdges==mask&&tile.patternVariant==patterns[y*data.width+x],"Fillet map choice");count++;}
+                if(tile!=null){Check(tile.exposedEdges==mask&&(region==0&&world.region1Terrain!=null ? tile==world.region1Terrain.Fillet(x,y) : tile.patternVariant==patterns[y*data.width+x]),"Fillet map choice");count++;}
             }
             File.WriteAllText("Validation/terrain-rounded-corners.json",$"{{\n  \"outerRadiusPixels\": {TerrainSurface.OuterRadius},\n  \"innerRadiusPixels\": {TerrainSurface.InnerRadius},\n  \"filletAssets\": 90,\n  \"filletCells\": {count},\n  \"neighborConfigurations\": 256,\n  \"collisionGridChanged\": false,\n  \"status\": \"passed\"\n}}\n");
         }

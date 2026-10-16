@@ -12,6 +12,7 @@ namespace Unfin
         public PrototypeTile[] terrainTiles; // 47 shapes x 3 patterns per region
         public PrototypeTile[] filletTiles;
         public Tilemap[] filletMaps; // Visual concave arcs only, no collision.
+        public Region1TerrainCatalog region1Terrain;
         byte[] terrainPatterns;
         public Camera worldCamera;
         public Transform player;
@@ -182,6 +183,15 @@ namespace Unfin
             {
                 if (x < 0 || y < 0 || x >= Data.width || y >= Data.height) continue;
                 int region=x>=Data.regionX?1:0, variant=terrainPatterns[y*Data.width+x];
+                // Gates and temporary platforms never change ordinary terrain occupancy.
+                // The v8 atlas already exposes ordinary terrain beside every special tile.
+                if (region == 0 && region1Terrain != null)
+                {
+                    if (Motor.Get(x,y)==1) Map(x,1).SetTile(WorldData.Cell(x,y),region1Terrain.Terrain(x,y));
+                    filletMaps[0].SetTile(WorldData.Cell(x,y),
+                        TerrainTopology.FilletMask(Motor.Get,x,y)==0 ? null : region1Terrain.Fillet(x,y));
+                    continue;
+                }
                 if (Motor.Get(x,y)==1)
                 {
                     int mask = TerrainTopology.Mask(Motor.Get, x, y);

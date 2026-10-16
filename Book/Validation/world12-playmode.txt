@@ -1,2 +1,2 @@
 PASS
-Scene initialization; grounded spawn; keyboard move/jump; World 2 warp; flight; gate opening; refreshed corners and stable A/B/C patterns; scene reset.
+Scene initialization; grounded spawn; keyboard move/jump; World 2 warp; flight; gate opening; refreshed corners and stable regional materials; scene reset.
