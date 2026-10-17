@@ -6,6 +6,11 @@
     "stationary jump leaves ground after 35ms; height130px total675ms",
     "moving jump leaves ground immediately; all6 poses total520ms",
     "1ms samples show uninterrupted 200px/s through moving takeoff, flight, landing and return to run in both directions",
+    "re-jump on contact in stationary/left/right modes with 120ms input buffer; 121ms-old input expires",
+    "landing animation can be interrupted by new jump input",
+    "early airborne input cannot double jump or persist until landing",
+    "real keyboard buffered press fires once; holding Space does not auto-hop",
+    "reset clears buffered jump; continuous-jump demo fires exactly 3 times",
     "release during flight lands in idle",
     "rapid input settles without stuck state",
     "keyboard after button focus",
@@ -28,7 +33,9 @@
         "idle → jump"
       ],
       "demo": null,
-      "clock": 265
+      "clock": 265,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1
     },
     "stationary": {
       "ready": true,
@@ -46,7 +53,9 @@
         "jump → idle"
       ],
       "demo": null,
-      "clock": 675
+      "clock": 675,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1
     },
     "start": {
       "ready": true,
@@ -64,7 +73,9 @@
         "start → run"
       ],
       "demo": null,
-      "clock": 160
+      "clock": 160,
+      "jumpBufferedUntil": null,
+      "jumpCount": 0
     },
     "run": {
       "ready": true,
@@ -82,7 +93,9 @@
         "start → run"
       ],
       "demo": null,
-      "clock": 800
+      "clock": 800,
+      "jumpBufferedUntil": null,
+      "jumpCount": 0
     },
     "stop": {
       "ready": true,
@@ -102,7 +115,9 @@
         "stop → idle"
       ],
       "demo": null,
-      "clock": 960
+      "clock": 960,
+      "jumpBufferedUntil": null,
+      "jumpCount": 0
     },
     "moving": {
       "ready": true,
@@ -110,7 +125,7 @@
       "jumpVariant": "jump",
       "time": 80,
       "frame": 1,
-      "x": 231.99999999999943,
+      "x": 231.99999999999946,
       "y": 0,
       "facing": 1,
       "dir": 1,
@@ -122,7 +137,9 @@
         "jump → run"
       ],
       "demo": null,
-      "clock": 1320
+      "clock": 1320,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1
     },
     "released": {
       "ready": true,
@@ -130,7 +147,7 @@
       "jumpVariant": "jump",
       "time": 0,
       "frame": 0,
-      "x": 291.99999999999983,
+      "x": 291.9999999999999,
       "y": 0,
       "facing": 1,
       "dir": 0,
@@ -144,7 +161,9 @@
         "jump → idle"
       ],
       "demo": null,
-      "clock": 1840
+      "clock": 1840,
+      "jumpBufferedUntil": null,
+      "jumpCount": 2
     },
     "left": {
       "ready": true,
@@ -152,7 +171,7 @@
       "jumpVariant": "jump",
       "time": 80,
       "frame": 1,
-      "x": -231.99999999999943,
+      "x": -231.99999999999946,
       "y": 0,
       "facing": -1,
       "dir": -1,
@@ -164,7 +183,9 @@
         "jump → run"
       ],
       "demo": null,
-      "clock": 1320
+      "clock": 1320,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1
     },
     "idleJumpRun": {
       "ready": true,
@@ -172,7 +193,7 @@
       "jumpVariant": "tuck",
       "time": 80,
       "frame": 1,
-      "x": -114.99999999999986,
+      "x": -114.99999999999984,
       "y": 0,
       "facing": -1,
       "dir": -1,
@@ -182,7 +203,9 @@
         "jump → run"
       ],
       "demo": null,
-      "clock": 675
+      "clock": 675,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1
     },
     "motion": [
       {
@@ -233,14 +256,16 @@
         "idle → jump"
       ],
       "demo": null,
-      "clock": 36
+      "clock": 36,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1
     },
     "stress": {
       "ready": true,
       "mode": "idle",
-      "jumpVariant": "jump",
-      "time": 1739,
-      "frame": 5,
+      "jumpVariant": "tuck",
+      "time": 1426,
+      "frame": 4,
       "x": -7.4,
       "y": 0,
       "facing": -1,
@@ -248,14 +273,15 @@
       "playing": false,
       "history": [
         "idle → jump",
-        "jump → run",
-        "run → jump",
-        "jump → run",
-        "run → jump",
+        "jump → jump",
+        "jump → jump",
+        "jump → jump",
         "jump → idle"
       ],
       "demo": null,
-      "clock": 3516
+      "clock": 3516,
+      "jumpBufferedUntil": null,
+      "jumpCount": 4
     },
     "all": {
       "ready": true,
@@ -287,7 +313,241 @@
         "jump → idle"
       ],
       "demo": null,
-      "clock": 9000
+      "clock": 9000,
+      "jumpBufferedUntil": null,
+      "jumpCount": 3
+    },
+    "reJumps": [
+      {
+        "dir": 0,
+        "offset": -121,
+        "countAtInput": 1,
+        "countAtContact": 1,
+        "time": 495,
+        "x": 0,
+        "countAfterExpiry": 1
+      },
+      {
+        "dir": 0,
+        "offset": -120,
+        "countAtInput": 1,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 0
+      },
+      {
+        "dir": 0,
+        "offset": -70,
+        "countAtInput": 1,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 0
+      },
+      {
+        "dir": 0,
+        "offset": -1,
+        "countAtInput": 1,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 0
+      },
+      {
+        "dir": 0,
+        "offset": 0,
+        "countAtInput": 2,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 0
+      },
+      {
+        "dir": 0,
+        "offset": 1,
+        "countAtInput": 2,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 0
+      },
+      {
+        "dir": 0,
+        "offset": 50,
+        "countAtInput": 2,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 0
+      },
+      {
+        "dir": 1,
+        "offset": -121,
+        "countAtInput": 1,
+        "countAtContact": 1,
+        "time": 460,
+        "x": 91.99999999999993,
+        "countAfterExpiry": 1
+      },
+      {
+        "dir": 1,
+        "offset": -120,
+        "countAtInput": 1,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 91.99999999999993
+      },
+      {
+        "dir": 1,
+        "offset": -70,
+        "countAtInput": 1,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 91.99999999999994
+      },
+      {
+        "dir": 1,
+        "offset": -1,
+        "countAtInput": 1,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 91.99999999999993
+      },
+      {
+        "dir": 1,
+        "offset": 0,
+        "countAtInput": 2,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 91.99999999999993
+      },
+      {
+        "dir": 1,
+        "offset": 1,
+        "countAtInput": 2,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 92.19999999999993
+      },
+      {
+        "dir": 1,
+        "offset": 50,
+        "countAtInput": 2,
+        "countAtContact": 2,
+        "time": 0,
+        "x": 101.9999999999999
+      },
+      {
+        "dir": -1,
+        "offset": -121,
+        "countAtInput": 1,
+        "countAtContact": 1,
+        "time": 460,
+        "x": -91.99999999999993,
+        "countAfterExpiry": 1
+      },
+      {
+        "dir": -1,
+        "offset": -120,
+        "countAtInput": 1,
+        "countAtContact": 2,
+        "time": 0,
+        "x": -91.99999999999993
+      },
+      {
+        "dir": -1,
+        "offset": -70,
+        "countAtInput": 1,
+        "countAtContact": 2,
+        "time": 0,
+        "x": -91.99999999999994
+      },
+      {
+        "dir": -1,
+        "offset": -1,
+        "countAtInput": 1,
+        "countAtContact": 2,
+        "time": 0,
+        "x": -91.99999999999993
+      },
+      {
+        "dir": -1,
+        "offset": 0,
+        "countAtInput": 2,
+        "countAtContact": 2,
+        "time": 0,
+        "x": -91.99999999999993
+      },
+      {
+        "dir": -1,
+        "offset": 1,
+        "countAtInput": 2,
+        "countAtContact": 2,
+        "time": 0,
+        "x": -92.19999999999993
+      },
+      {
+        "dir": -1,
+        "offset": 50,
+        "countAtInput": 2,
+        "countAtContact": 2,
+        "time": 0,
+        "x": -101.9999999999999
+      }
+    ],
+    "earlyInput": {
+      "ready": true,
+      "mode": "idle",
+      "jumpVariant": "tuck",
+      "time": 425,
+      "frame": 1,
+      "x": 0,
+      "y": 0,
+      "facing": 1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → jump",
+        "jump → idle"
+      ],
+      "demo": null,
+      "clock": 1100,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1
+    },
+    "resetClearsBuffer": {
+      "ready": true,
+      "mode": "idle",
+      "jumpVariant": "tuck",
+      "time": 1000,
+      "frame": 3,
+      "x": 0,
+      "y": 0,
+      "facing": 1,
+      "dir": 0,
+      "playing": false,
+      "history": [],
+      "demo": null,
+      "clock": 1000,
+      "jumpBufferedUntil": null,
+      "jumpCount": 0
+    },
+    "repeatDemo": {
+      "ready": true,
+      "mode": "idle",
+      "jumpVariant": "tuck",
+      "time": 335,
+      "frame": 1,
+      "x": 0,
+      "y": 0,
+      "facing": 1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → jump",
+        "jump → jump",
+        "jump → jump",
+        "jump → idle"
+      ],
+      "demo": null,
+      "clock": 2500,
+      "jumpBufferedUntil": null,
+      "jumpCount": 3
     }
   }
 }

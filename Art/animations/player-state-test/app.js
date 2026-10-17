@@ -2,7 +2,8 @@
 const $=id=>document.getElementById(id), canvas=$('stage'), ctx=canvas.getContext('2d');
 const clips={}, keys=new Set();
 let jumpReg,tuckReg,stopReg,last=0,scale=1;
-const S={ready:false,mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,playing:true,history:[],demo:null,clock:0};
+const JUMP_BUFFER_MS=120;
+const S={ready:false,mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,playing:true,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0};
 const activeJump=()=>S.jumpVariant==='tuck'?tuckReg:jumpReg;
 window.previewState=S;
 const names={idle:'Idle · 대기',start:'출발',run:'Run · 달리기',stop:'정지',jump:'Jump · 점프'};
@@ -16,7 +17,19 @@ function reconcile(){
   if(S.dir&&(S.mode==='idle'||S.mode==='stop'))enter('start');
   else if(!S.dir&&(S.mode==='run'||S.mode==='start'))enter('stop');
 }
-function jump(){if(!S.ready||S.mode==='jump')return;S.jumpVariant=S.dir?'jump':'tuck';enter('jump');}
+// Ground contact and the end of the landing drawing are separate events.
+function canJump(){return S.mode!=='jump'||S.time>=activeJump().flightEndMs;}
+function startJump(){
+  S.jumpBufferedUntil=null;S.jumpCount++;
+  if(S.mode==='jump'){S.history.push('jump → jump');if(S.history.length>40)S.history.shift();}
+  S.jumpVariant=S.dir?'jump':'tuck';enter('jump');
+}
+function jump(){if(!S.ready)return;if(canJump())startJump();else S.jumpBufferedUntil=S.clock+JUMP_BUFFER_MS;}
+function consumeBufferedJump(){
+  if(S.jumpBufferedUntil===null)return;
+  if(S.clock>S.jumpBufferedUntil+1e-6){S.jumpBufferedUntil=null;return;}
+  if(canJump())startJump();
+}
 function duration(){return S.mode==='jump'?activeJump().durationMs:(S.mode==='start'||S.mode==='stop'?stopReg.durationMs:Infinity);}
 function pose(){
   if(S.mode==='idle')S.frame=Math.floor(S.time/300)%6;
@@ -31,12 +44,13 @@ function pose(){
   S.y=0;
   if(S.mode==='jump'){const reg=activeJump();if(S.time>reg.flightStartMs&&S.time<reg.flightEndMs){const u=(S.time-reg.flightStartMs)/(reg.flightEndMs-reg.flightStartMs);S.y=-4*reg.jumpHeightPx*u*(1-u);}}
 }
-function reset(){keys.clear();Object.assign(S,{mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,history:[],demo:null,clock:0});pose();draw();}
+function reset(){keys.clear();Object.assign(S,{mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0});pose();draw();}
 const demos={
   run:{name:'대기 → 달리기 → 정지 → 대기',end:2600,events:[[500,'move',1],[1900,'move',0]]},
   jump:{name:'제자리 점프 → 대기',end:2100,events:[[500,'jump']]},
   moving:{name:'달리며 점프 → 달리기',end:3300,events:[[300,'move',1],[1300,'jump'],[2800,'move',0]]},
   stopAir:{name:'달리며 점프 → 공중에서 키 놓기 → 대기',end:2800,events:[[300,'move',1],[1300,'jump'],[1600,'move',0]]},
+  reJump:{name:'착지 직전 입력 → 연속 점프 3회',end:2500,events:[[500,'jump'],[925,'jump'],[1420,'jump']]},
   all:{name:'전체 연결 · 오른쪽 / 왼쪽',end:9000,events:[[500,'move',1],[1800,'move',0],[2300,'jump'],[3500,'move',1],[4500,'jump'],[5500,'move',0],[6200,'move',-1],[7200,'jump'],[7500,'move',0]]}
 };
 function demo(name){if(!S.ready)return;reset();S.playing=true;S.demo={...demos[name],events:demos[name].events.map(e=>[...e]),index:0};$('pause').textContent='일시정지';}
@@ -44,7 +58,9 @@ function events(){if(!S.demo)return;while(S.demo.index<S.demo.events.length&&S.d
 function advance(ms){
   if(!S.ready)return;
   // Bounded steps make keyboard, demo events and clip boundaries deterministic.
-  while(ms>1e-6){events();reconcile();const remaining=duration()-S.time;let dt=Math.min(ms,8,remaining);
+  while(ms>1e-6){events();consumeBufferedJump();reconcile();const remaining=duration()-S.time;let dt=Math.min(ms,8,remaining);
+    // Resolve buffered input at exact contact, even if a render step crosses it.
+    if(S.mode==='jump'&&S.time<activeJump().flightEndMs)dt=Math.min(dt,activeJump().flightEndMs-S.time);
     if(S.demo&&S.demo.index<S.demo.events.length)dt=Math.min(dt,S.demo.events[S.demo.index][0]-S.clock);
     if(dt<1e-6){events();break;}
     if(S.mode==='run')S.x+=S.dir*200*dt/1000;
@@ -53,6 +69,7 @@ function advance(ms){
       S.x+=S.dir*200*dt/1000;
     }
     S.time+=dt;S.clock+=dt;ms-=dt;
+    consumeBufferedJump();
     if(S.time>=duration()-1e-6){if(S.mode==='start')enter(S.dir?'run':'idle',S.dir?160:0);else if(S.mode==='stop')enter(S.dir?'start':'idle');else if(S.mode==='jump')enter(S.dir?'run':'idle',S.dir?80:0);}
     pose();
   }events();draw();
@@ -78,7 +95,7 @@ function manual(){S.demo=null;}
 function fromKeys(){direction((keys.has('ArrowRight')||keys.has('KeyD')?1:0)-(keys.has('ArrowLeft')||keys.has('KeyA')?1:0));}
 window.addEventListener('keydown',e=>{if(!S.ready||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;if(['ArrowLeft','ArrowRight','KeyA','KeyD','Space'].includes(e.code)){e.preventDefault();manual();if(e.code==='Space'){if(!e.repeat)jump();}else{keys.add(e.code);fromKeys();}}});
 window.addEventListener('keyup',e=>{if(keys.delete(e.code))fromKeys();});
-window.addEventListener('blur',()=>{keys.clear();direction(0);});
+window.addEventListener('blur',()=>{keys.clear();S.jumpBufferedUntil=null;direction(0);});
 for(const [id,key] of [['left','ArrowLeft'],['right','ArrowRight']]){
   const b=$(id);b.addEventListener('pointerdown',e=>{if(!S.ready)return;e.preventDefault();manual();b.setPointerCapture(e.pointerId);keys.add(key);fromKeys();});
   for(const event of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(event,()=>{keys.delete(key);fromKeys();});

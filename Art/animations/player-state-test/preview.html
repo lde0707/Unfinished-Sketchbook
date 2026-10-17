@@ -6,7 +6,7 @@
 <header><div><h1>플레이어 · 동작 연결 테스트</h1><p>Idle ↔ Run ↔ Jump · 좌우 이동과 착지 후 전환을 직접 확인하세요.</p></div><span class="badge">빠른 도약 · 전진 점프</span></header>
 <div class="stage"><canvas id="stage" width="1080" height="600" aria-label="플레이어 동작 연결 미리보기"></canvas><div class="hud"><strong id="state">불러오는 중…</strong><span id="detail"></span><span id="scenario"></span></div></div>
 <div class="controls"><button id="left" aria-label="왼쪽 이동">← / A</button><button id="right" aria-label="오른쪽 이동">D / →</button><button id="jump" class="primary">점프 · Space</button><span class="spacer"></span><button id="pause">일시정지</button><label>재생 속도 <select id="speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option></select></label><button id="reset">초기화</button></div>
-<div class="scenarios"><button data-demo="all">전체 연결 시연</button><button data-demo="run">Idle → Run → Idle</button><button data-demo="jump">Idle → Jump → Idle</button><button data-demo="moving">Run → Jump → Run</button><button data-demo="stopAir">Run → Jump → Idle</button></div>
+<div class="scenarios"><button data-demo="all">전체 연결 시연</button><button data-demo="run">Idle → Run → Idle</button><button data-demo="jump">Idle → Jump → Idle</button><button data-demo="moving">Run → Jump → Run</button><button data-demo="stopAir">Run → Jump → Idle</button><button data-demo="reJump">착지 → 연속 점프</button></div>
 <div id="log" aria-live="polite"></div>
-<footer>이동 키는 누르고 있는 동안 동작합니다. 공중에서도 좌우 이동할 수 있으며, 키를 놓으면 착지 후 Idle로 돌아옵니다.<br>점프 높이 130px · 제자리 준비 35ms / 이동 점프 준비 0ms · 전진 점프 520ms · 정지 160ms. 출발 연결은 기존 정지 4장을 역순으로 재생한 검토용 연결입니다. Unity 적용 전 로컬 테스트입니다.</footer>
+<footer>이동 키는 누르고 있는 동안 동작합니다. 공중에서도 좌우 이동할 수 있으며, 키를 놓으면 착지 후 Idle로 돌아옵니다. 착지 직전 120ms 안에 점프를 다시 누르면 접지 순간 다음 점프로 연결됩니다.<br>점프 높이 130px · 제자리 준비 35ms / 이동 점프 준비 0ms · 전진 점프 520ms · 정지 160ms. 출발 연결은 기존 정지 4장을 역순으로 재생한 검토용 연결입니다. Unity 적용 전 로컬 테스트입니다.</footer>
 </main><script src="app.js"></script></body></html>

@@ -28,7 +28,18 @@ const {chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtime
    d.reset();d.jump();d.advance(36);const fastStationary=capture();
    for(let i=0;i<40;i++){d.direction(i%3-1);d.jump();d.advance(37);}d.direction(0);d.advance(2000);const stress=capture();
    d.demo('all');s.playing=false;d.advance(9000);const all=capture();
-   return {apex,stationary,start,run,stop,moving,released,left,idleJumpRun,motion,fastStationary,stress,all};
+   const reJumps=[];
+   for(const dir of [0,1,-1])for(const offset of [-121,-120,-70,-1,0,1,50]){
+     d.reset();d.direction(dir);d.jump();const contact=dir?460:495;
+     d.advance(contact+offset);d.jump();const countAtInput=s.jumpCount;
+     if(offset<0)d.advance(-offset);
+     reJumps.push({dir,offset,countAtInput,countAtContact:s.jumpCount,time:s.time,x:s.x});
+     if(offset===-121){d.advance(1000);reJumps.at(-1).countAfterExpiry=s.jumpCount;}
+   }
+   d.reset();d.jump();d.advance(100);d.jump();d.advance(1000);const earlyInput=capture();
+   d.reset();d.jump();d.advance(450);d.jump();d.reset();d.advance(1000);const resetClearsBuffer=capture();
+   d.demo('reJump');s.playing=false;d.advance(2500);const repeatDemo=capture();
+   return {apex,stationary,start,run,stop,moving,released,left,idleJumpRun,motion,fastStationary,stress,all,reJumps,earlyInput,resetClearsBuffer,repeatDemo};
  });
  assert.equal(results.apex.y,-130);assert.equal(results.apex.x,0);assert.equal(results.apex.frame,4);assert.equal(results.apex.jumpVariant,'tuck');
  assert.equal(results.stationary.mode,'idle');assert.equal(results.stationary.x,0);
@@ -42,17 +53,29 @@ const {chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtime
  assert(results.fastStationary.y<0);assert.equal(results.fastStationary.x,0);
  assert.equal(results.stress.mode,'idle');assert.equal(results.all.mode,'idle');assert.equal(results.all.demo,null);
  for(const edge of ['idle → start','start → run','run → stop','stop → idle','idle → jump','run → jump','jump → run','jump → idle'])assert(results.all.history.includes(edge),edge);
+ for(const r of results.reJumps){assert.equal(r.countAtInput,r.offset<0?1:2);assert.equal(r.countAtContact,r.offset===-121?1:2,JSON.stringify(r));if(r.offset!==-121)assert.equal(r.time,0);else assert.equal(r.countAfterExpiry,1);}
+ assert.equal(results.earlyInput.jumpCount,1);assert.equal(results.earlyInput.mode,'idle');
+ assert.equal(results.resetClearsBuffer.jumpCount,0);assert.equal(results.resetClearsBuffer.mode,'idle');
+ assert.equal(results.repeatDemo.jumpCount,3);assert.equal(results.repeatDemo.mode,'idle');
  await page.click('#reset');await page.keyboard.down('KeyD');await page.evaluate(()=>previewDebug.advance(400));
  assert.equal(await page.evaluate(()=>previewState.mode),'run');
  await page.keyboard.press('Space');assert.equal(await page.evaluate(()=>previewState.mode),'jump');
  await page.keyboard.up('KeyD');await page.evaluate(()=>previewDebug.advance(740));assert.equal(await page.evaluate(()=>previewState.mode),'idle');
+ // Real key events: a second press just before contact queues exactly one hop.
+ await page.click('#reset');await page.keyboard.press('Space');await page.evaluate(()=>previewDebug.advance(425));await page.keyboard.press('Space');
+ assert.equal(await page.evaluate(()=>previewState.jumpCount),1);
+ await page.evaluate(()=>previewDebug.advance(70));assert.equal(await page.evaluate(()=>previewState.jumpCount),2);
+ await page.evaluate(()=>previewDebug.advance(1000));assert.equal(await page.evaluate(()=>previewState.jumpCount),2);
+ // Holding Space must not turn OS key-repeat into automatic hopping.
+ await page.click('#reset');await page.keyboard.down('Space');await page.evaluate(()=>previewDebug.advance(425));await page.keyboard.down('Space');await page.evaluate(()=>previewDebug.advance(1000));await page.keyboard.up('Space');
+ assert.equal(await page.evaluate(()=>previewState.jumpCount),1);
  await page.keyboard.down('ArrowLeft');await page.evaluate(()=>previewDebug.advance(400));assert.equal(await page.evaluate(()=>previewState.facing),-1);await page.keyboard.up('ArrowLeft');
  await page.evaluate(()=>{previewDebug.reset();previewDebug.direction(1);previewDebug.advance(800);previewDebug.jump();previewDebug.advance(230);});
  await page.screenshot({path:path.join(root,'player-state-test/preview-check.png')});
  await page.setViewportSize({width:390,height:844});
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
- const report={passed:true,approvedFileHashesVerified:hashCount,checks:['all six directed Idle/Run/Jump connections via start/stop bridges','stationary jump leaves ground after 35ms; height130px total675ms','moving jump leaves ground immediately; all6 poses total520ms','1ms samples show uninterrupted 200px/s through moving takeoff, flight, landing and return to run in both directions','release during flight lands in idle','rapid input settles without stuck state','keyboard after button focus','mobile width without overflow','no browser/network errors'],results};
+ const report={passed:true,approvedFileHashesVerified:hashCount,checks:['all six directed Idle/Run/Jump connections via start/stop bridges','stationary jump leaves ground after 35ms; height130px total675ms','moving jump leaves ground immediately; all6 poses total520ms','1ms samples show uninterrupted 200px/s through moving takeoff, flight, landing and return to run in both directions','re-jump on contact in stationary/left/right modes with 120ms input buffer; 121ms-old input expires','landing animation can be interrupted by new jump input','early airborne input cannot double jump or persist until landing','real keyboard buffered press fires once; holding Space does not auto-hop','reset clears buffered jump; continuous-jump demo fires exactly 3 times','release during flight lands in idle','rapid input settles without stuck state','keyboard after button focus','mobile width without overflow','no browser/network errors'],results};
  fs.writeFileSync(path.join(root,'player-state-test/browser-validation.json'),JSON.stringify(report,null,2)+'\n');
  console.log(JSON.stringify({passed:true,approvedFileHashesVerified:hashCount,checks:report.checks}));
  }finally{await browser.close();}
