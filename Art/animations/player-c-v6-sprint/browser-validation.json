@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "frameCount": 12,
+  "inbetweens": 4,
+  "loopMs": 800,
+  "checked": "All 12 selectors, playback, wrap, two transition loops, flip, speed and guides; all 20 comparison images loaded. Feet contact and old-frame6 low clearance checked.",
+  "consoleErrors": [],
+  "scope": "Anatomical progression and appearance are reviewed visually, not proven by these checks."
+}

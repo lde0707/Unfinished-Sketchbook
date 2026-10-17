@@ -1,0 +1,387 @@
+{
+  "frameCount": 12,
+  "inbetweenCount": 4,
+  "loopMs": 800,
+  "cellSize": 512,
+  "columns": 4,
+  "rows": 3,
+  "groundY": 448,
+  "pivot": [
+    0.7109375,
+    0.125
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "oldPose": "1",
+      "source": "lean-a.png",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.7729468599033816,
+      "translation": [
+        -19,
+        19
+      ],
+      "headCenter": [
+        364,
+        260
+      ],
+      "headWidth": 160,
+      "bounds": [
+        9,
+        180,
+        444,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 100,
+      "referenceFrame": 0,
+      "inserted": false
+    },
+    {
+      "frame": 2,
+      "oldPose": "2",
+      "source": "lean-a.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.7843137254901961,
+      "translation": [
+        -27,
+        17
+      ],
+      "headCenter": [
+        364,
+        269
+      ],
+      "headWidth": 160,
+      "bounds": [
+        4,
+        189,
+        444,
+        442
+      ],
+      "footGap": 6,
+      "durationMs": 100,
+      "referenceFrame": 1,
+      "inserted": false
+    },
+    {
+      "frame": 3,
+      "oldPose": "3",
+      "source": "lean-a.png",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "scale": 0.7729468599033816,
+      "translation": [
+        -24,
+        50
+      ],
+      "headCenter": [
+        364,
+        260
+      ],
+      "headWidth": 160,
+      "bounds": [
+        1,
+        180,
+        444,
+        445
+      ],
+      "footGap": 3,
+      "durationMs": 80,
+      "referenceFrame": 2,
+      "inserted": false
+    },
+    {
+      "frame": 4,
+      "oldPose": "4",
+      "source": "lean-a.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.7582938388625592,
+      "translation": [
+        -9,
+        57
+      ],
+      "headCenter": [
+        364,
+        280
+      ],
+      "headWidth": 160,
+      "bounds": [
+        25,
+        199,
+        444,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 40,
+      "referenceFrame": 3,
+      "inserted": false
+    },
+    {
+      "frame": 5,
+      "oldPose": "4>A",
+      "source": "bridges.png",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.7339449541284404,
+      "translation": [
+        -5,
+        23
+      ],
+      "headCenter": [
+        364,
+        251
+      ],
+      "headWidth": 160,
+      "bounds": [
+        28,
+        171,
+        444,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 40,
+      "referenceFrame": 3,
+      "inserted": true
+    },
+    {
+      "frame": 6,
+      "oldPose": "4>B",
+      "source": "bridges.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.7476635514018691,
+      "translation": [
+        1,
+        16
+      ],
+      "headCenter": [
+        364,
+        249
+      ],
+      "headWidth": 160,
+      "bounds": [
+        26,
+        169,
+        444,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 40,
+      "referenceFrame": 3,
+      "inserted": true
+    },
+    {
+      "frame": 7,
+      "oldPose": "5",
+      "source": "lean-b.png",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.7655502392344498,
+      "translation": [
+        -19,
+        26
+      ],
+      "headCenter": [
+        364,
+        261
+      ],
+      "headWidth": 160,
+      "bounds": [
+        20,
+        181,
+        444,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 100,
+      "referenceFrame": 4,
+      "inserted": false
+    },
+    {
+      "frame": 8,
+      "oldPose": "6",
+      "source": "lean-b.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.7692307692307693,
+      "translation": [
+        -6,
+        22
+      ],
+      "headCenter": [
+        364,
+        265
+      ],
+      "headWidth": 160,
+      "bounds": [
+        23,
+        185,
+        444,
+        442
+      ],
+      "footGap": 6,
+      "durationMs": 100,
+      "referenceFrame": 5,
+      "inserted": false
+    },
+    {
+      "frame": 9,
+      "oldPose": "7",
+      "source": "lean-b.png",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "scale": 0.7692307692307693,
+      "translation": [
+        -19,
+        49
+      ],
+      "headCenter": [
+        364,
+        261
+      ],
+      "headWidth": 160,
+      "bounds": [
+        7,
+        182,
+        444,
+        445
+      ],
+      "footGap": 3,
+      "durationMs": 80,
+      "referenceFrame": 6,
+      "inserted": false
+    },
+    {
+      "frame": 10,
+      "oldPose": "8",
+      "source": "lean-b.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.7692307692307693,
+      "translation": [
+        -21,
+        52
+      ],
+      "headCenter": [
+        364,
+        262
+      ],
+      "headWidth": 160,
+      "bounds": [
+        18,
+        182,
+        444,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 40,
+      "referenceFrame": 7,
+      "inserted": false
+    },
+    {
+      "frame": 11,
+      "oldPose": "8>A",
+      "source": "bridges.png",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "scale": 0.7476635514018691,
+      "translation": [
+        -11,
+        62
+      ],
+      "headCenter": [
+        364,
+        264
+      ],
+      "headWidth": 160,
+      "bounds": [
+        16,
+        184,
+        445,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 40,
+      "referenceFrame": 7,
+      "inserted": true
+    },
+    {
+      "frame": 12,
+      "oldPose": "8>B",
+      "source": "bridges.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.7619047619047619,
+      "translation": [
+        -18,
+        56
+      ],
+      "headCenter": [
+        364,
+        260
+      ],
+      "headWidth": 160,
+      "bounds": [
+        7,
+        181,
+        445,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 40,
+      "referenceFrame": 7,
+      "inserted": true
+    }
+  ]
+}

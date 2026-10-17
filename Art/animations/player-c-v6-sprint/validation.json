@@ -1,0 +1,40 @@
+{
+  "frameCount": 12,
+  "uniqueFrames": 12,
+  "loopMs": 800,
+  "headY": [
+    260,
+    269,
+    260,
+    280,
+    251,
+    249,
+    261,
+    265,
+    261,
+    262,
+    264,
+    260
+  ],
+  "footGaps": [
+    0,
+    6,
+    3,
+    0,
+    0,
+    0,
+    0,
+    6,
+    3,
+    0,
+    0,
+    0
+  ],
+  "insertedFrames": [
+    5,
+    6,
+    11,
+    12
+  ],
+  "note": "Image bounds and timing checks do not establish anatomical continuity; review drawings separately."
+}
