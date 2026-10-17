@@ -1,39 +1,46 @@
 'use strict';
 const $=id=>document.getElementById(id), canvas=$('stage'), ctx=canvas.getContext('2d');
 const clips={}, keys=new Set();
-let jumpReg,tuckReg,stopReg,last=0,scale=1;
+let jumpReg,tuckReg,stopReg,dashReg,last=0,scale=1;
 const JUMP_BUFFER_MS=120;
-const S={ready:false,mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,playing:true,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0};
+const S={ready:false,mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,playing:true,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0,dashDir:1,dashReadyAt:0,dashCount:0};
 const activeJump=()=>S.jumpVariant==='tuck'?tuckReg:jumpReg;
 window.previewState=S;
-const names={idle:'Idle · 대기',start:'출발',run:'Run · 달리기',stop:'정지',jump:'Jump · 점프'};
+const names={idle:'Idle · 대기',start:'출발',run:'Run · 달리기',stop:'정지',jump:'Jump · 점프',dash:'Dash · 대시'};
 function enter(mode,time=0){
   if(S.mode!==mode){S.history.push(`${S.mode} → ${mode}`);if(S.history.length>40)S.history.shift();}
   S.mode=mode;S.time=time;S.y=0;pose();
 }
-function direction(dir){if(!S.ready)return;S.dir=dir;if(dir)S.facing=dir;reconcile();}
+function direction(dir){if(!S.ready)return;S.dir=dir;if(dir&&S.mode!=='dash')S.facing=dir;reconcile();}
 function reconcile(){
-  if(S.mode==='jump')return;
+  if(S.mode==='jump'||S.mode==='dash')return;
   if(S.dir&&(S.mode==='idle'||S.mode==='stop'))enter('start');
   else if(!S.dir&&(S.mode==='run'||S.mode==='start'))enter('stop');
 }
 // Ground contact and the end of the landing drawing are separate events.
 function canJump(){return S.mode!=='jump'||S.time>=activeJump().flightEndMs;}
 function startJump(){
+  if(S.dir)S.facing=S.dir;
   S.jumpBufferedUntil=null;S.jumpCount++;
   if(S.mode==='jump'){S.history.push('jump → jump');if(S.history.length>40)S.history.shift();}
   S.jumpVariant=S.dir?'jump':'tuck';enter('jump');
 }
 function jump(){if(!S.ready)return;if(canJump())startJump();else S.jumpBufferedUntil=S.clock+JUMP_BUFFER_MS;}
+function dash(){
+  if(!S.ready||S.mode==='dash'||!canJump()||S.clock<S.dashReadyAt)return false;
+  S.dashDir=S.dir||S.facing;S.facing=S.dashDir;S.dashCount++;S.jumpBufferedUntil=null;
+  S.dashReadyAt=S.clock+dashReg.durationMs+dashReg.cooldownAfterEndMs;enter('dash');return true;
+}
 function consumeBufferedJump(){
   if(S.jumpBufferedUntil===null)return;
   if(S.clock>S.jumpBufferedUntil+1e-6){S.jumpBufferedUntil=null;return;}
   if(canJump())startJump();
 }
-function duration(){return S.mode==='jump'?activeJump().durationMs:(S.mode==='start'||S.mode==='stop'?stopReg.durationMs:Infinity);}
+function duration(){return S.mode==='dash'?dashReg.durationMs:S.mode==='jump'?activeJump().durationMs:(S.mode==='start'||S.mode==='stop'?stopReg.durationMs:Infinity);}
 function pose(){
   if(S.mode==='idle')S.frame=Math.floor(S.time/300)%6;
   else if(S.mode==='run')S.frame=Math.floor(S.time/80)%8;
+  else if(S.mode==='dash')S.frame=Math.max(0,dashReg.frames.findIndex(f=>S.time<f.startMs+f.durationMs));
   else if(S.mode==='jump'){
     S.frame=activeJump().frames.findIndex(f=>S.time<f.startMs+f.durationMs);
     if(S.frame<0)S.frame=activeJump().frameCount-1;
@@ -44,17 +51,19 @@ function pose(){
   S.y=0;
   if(S.mode==='jump'){const reg=activeJump();if(S.time>reg.flightStartMs&&S.time<reg.flightEndMs){const u=(S.time-reg.flightStartMs)/(reg.flightEndMs-reg.flightStartMs);S.y=-4*reg.jumpHeightPx*u*(1-u);}}
 }
-function reset(){keys.clear();Object.assign(S,{mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0});pose();draw();}
+function reset(){keys.clear();Object.assign(S,{mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0,dashDir:1,dashReadyAt:0,dashCount:0});pose();draw();}
 const demos={
   run:{name:'대기 → 달리기 → 정지 → 대기',end:2600,events:[[500,'move',1],[1900,'move',0]]},
   jump:{name:'제자리 점프 → 대기',end:2100,events:[[500,'jump']]},
   moving:{name:'달리며 점프 → 달리기',end:3300,events:[[300,'move',1],[1300,'jump'],[2800,'move',0]]},
   stopAir:{name:'달리며 점프 → 공중에서 키 놓기 → 대기',end:2800,events:[[300,'move',1],[1300,'jump'],[1600,'move',0]]},
   reJump:{name:'착지 직전 입력 → 연속 점프 3회',end:2500,events:[[500,'jump'],[925,'jump'],[1420,'jump']]},
+  dash:{name:'달리기 → 대시 → 달리기 · 좌우',end:3400,events:[[200,'move',1],[800,'dash'],[1450,'move',0],[1950,'move',-1],[2450,'dash'],[3000,'move',0]]},
+  dashJump:{name:'대시 → 점프 → 달리기',end:2600,events:[[200,'move',1],[800,'dash'],[920,'jump'],[2100,'move',0]]},
   all:{name:'전체 연결 · 오른쪽 / 왼쪽',end:9000,events:[[500,'move',1],[1800,'move',0],[2300,'jump'],[3500,'move',1],[4500,'jump'],[5500,'move',0],[6200,'move',-1],[7200,'jump'],[7500,'move',0]]}
 };
 function demo(name){if(!S.ready)return;reset();S.playing=true;S.demo={...demos[name],events:demos[name].events.map(e=>[...e]),index:0};$('pause').textContent='일시정지';}
-function events(){if(!S.demo)return;while(S.demo.index<S.demo.events.length&&S.demo.events[S.demo.index][0]<=S.clock+1e-6){const [,type,val]=S.demo.events[S.demo.index++];if(type==='move')direction(val);else jump();}if(S.clock>=S.demo.end)S.demo=null;}
+function events(){if(!S.demo)return;while(S.demo.index<S.demo.events.length&&S.demo.events[S.demo.index][0]<=S.clock+1e-6){const [,type,val]=S.demo.events[S.demo.index++];if(type==='move')direction(val);else if(type==='dash')dash();else jump();}if(S.clock>=S.demo.end)S.demo=null;}
 function advance(ms){
   if(!S.ready)return;
   // Bounded steps make keyboard, demo events and clip boundaries deterministic.
@@ -63,14 +72,15 @@ function advance(ms){
     if(S.mode==='jump'&&S.time<activeJump().flightEndMs)dt=Math.min(dt,activeJump().flightEndMs-S.time);
     if(S.demo&&S.demo.index<S.demo.events.length)dt=Math.min(dt,S.demo.events[S.demo.index][0]-S.clock);
     if(dt<1e-6){events();break;}
-    if(S.mode==='run')S.x+=S.dir*200*dt/1000;
+    if(S.mode==='dash')S.x+=S.dashDir*dashReg.speedPxPerSecond*dt/1000;
+    else if(S.mode==='run')S.x+=S.dir*200*dt/1000;
     else if(S.mode==='jump'){
       // Keep directional motion through takeoff and landing, just like running.
       S.x+=S.dir*200*dt/1000;
     }
     S.time+=dt;S.clock+=dt;ms-=dt;
     consumeBufferedJump();
-    if(S.time>=duration()-1e-6){if(S.mode==='start')enter(S.dir?'run':'idle',S.dir?160:0);else if(S.mode==='stop')enter(S.dir?'start':'idle');else if(S.mode==='jump')enter(S.dir?'run':'idle',S.dir?80:0);}
+    if(S.time>=duration()-1e-6){if(S.mode==='dash'){S.facing=S.dir||S.dashDir;enter(S.dir?'run':'stop',S.dir?80:0);}else if(S.mode==='start')enter(S.dir?'run':'idle',S.dir?160:0);else if(S.mode==='stop')enter(S.dir?'start':'idle');else if(S.mode==='jump')enter(S.dir?'run':'idle',S.dir?80:0);}
     pose();
   }events();draw();
 }
@@ -84,31 +94,34 @@ function draw(){
   ctx.fillStyle='#1b2224';ctx.fillRect(0,ground+1,w,h-ground);
   for(let n=Math.floor((camera-root)/100);n<(camera+root)/100;n++){const x=n*100-camera+root;ctx.strokeStyle='#414e4b';ctx.beginPath();ctx.moveTo(x,ground+1);ctx.lineTo(x,ground+9);ctx.stroke();ctx.fillStyle='#73817d';ctx.font='11px system-ui';ctx.fillText(`${n*100}px`,x+5,ground+27);}
   ctx.fillStyle=`rgba(0,0,0,${0.2+0.12*(1-Math.abs(S.y)/130)})`;ctx.beginPath();ctx.ellipse(root,ground-1,42-Math.abs(S.y)*0.12,6,0,0,Math.PI*2);ctx.fill();
-  const group=S.mode==='start'||S.mode==='stop'?'stop':S.mode==='jump'?S.jumpVariant:S.mode,anchor=group==='run'||group==='stop'||group==='jump'?340:368;
-  ctx.save();ctx.translate(root,ground+S.y);ctx.scale(S.facing,1);ctx.drawImage(clips[group][S.frame],-anchor,-448);ctx.restore();
+  const group=S.mode==='start'||S.mode==='stop'?'stop':S.mode==='jump'?S.jumpVariant:S.mode,anchor=['run','stop','jump','dash'].includes(group)?340:368;
+  ctx.save();ctx.translate(root,ground+S.y);ctx.scale(S.facing,1);
+  if(S.mode==='dash'){for(const offset of [48,24]){ctx.globalAlpha=(offset===48?0.06:0.12)*Math.min(1,S.time/30);ctx.drawImage(clips.dash[S.frame],-anchor-offset,-448);}ctx.globalAlpha=1;}
+  ctx.drawImage(clips[group][S.frame],-anchor,-448);ctx.restore();
   $('state').textContent=names[S.mode]+(S.mode==='jump'&&S.jumpVariant==='tuck'?' · 웅크리기':'');$('detail').textContent=`프레임 ${S.frame+1} / ${clips[group].length} · ${S.facing===1?'오른쪽':'왼쪽'} · 높이 ${Math.round(-S.y)}px`;
-  $('scenario').textContent=S.demo?`자동 시연: ${S.demo.name}`:'직접 조작 · A / D / ← / → + Space';
+  $('scenario').textContent=S.demo?`자동 시연: ${S.demo.name}`:'직접 조작 · A / D / ← / → · Space 점프 · Shift 대시';
+  $('dash').classList.toggle('active',S.mode==='dash');
   $('log').textContent=S.history.slice(-6).map(s=>s.replaceAll('start','출발').replaceAll('stop','정지')).join('　·　');
   $('left').classList.toggle('active',S.dir<0);$('right').classList.toggle('active',S.dir>0);
 }
 function manual(){S.demo=null;}
 function fromKeys(){direction((keys.has('ArrowRight')||keys.has('KeyD')?1:0)-(keys.has('ArrowLeft')||keys.has('KeyA')?1:0));}
-window.addEventListener('keydown',e=>{if(!S.ready||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;if(['ArrowLeft','ArrowRight','KeyA','KeyD','Space'].includes(e.code)){e.preventDefault();manual();if(e.code==='Space'){if(!e.repeat)jump();}else{keys.add(e.code);fromKeys();}}});
+window.addEventListener('keydown',e=>{if(!S.ready||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;if(['ArrowLeft','ArrowRight','KeyA','KeyD','Space','ShiftLeft','ShiftRight'].includes(e.code)){e.preventDefault();manual();if(e.code==='Space'){if(!e.repeat)jump();}else if(e.code.startsWith('Shift')){if(!e.repeat)dash();}else{keys.add(e.code);fromKeys();}}});
 window.addEventListener('keyup',e=>{if(keys.delete(e.code))fromKeys();});
 window.addEventListener('blur',()=>{keys.clear();S.jumpBufferedUntil=null;direction(0);});
 for(const [id,key] of [['left','ArrowLeft'],['right','ArrowRight']]){
   const b=$(id);b.addEventListener('pointerdown',e=>{if(!S.ready)return;e.preventDefault();manual();b.setPointerCapture(e.pointerId);keys.add(key);fromKeys();});
   for(const event of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(event,()=>{keys.delete(key);fromKeys();});
 }
-$('jump').onclick=()=>{manual();jump();};$('reset').onclick=reset;
+$('jump').onclick=()=>{manual();jump();};$('dash').onclick=()=>{manual();dash();};$('reset').onclick=reset;
 $('pause').onclick=()=>{S.playing=!S.playing;$('pause').textContent=S.playing?'일시정지':'계속 재생';};
 $('speed').onchange=e=>{scale=Number(e.target.value);};
 document.querySelectorAll('[data-demo]').forEach(b=>b.onclick=()=>demo(b.dataset.demo));
-window.previewDebug={advance,reset,direction,jump,demo,draw};
+window.previewDebug={advance,reset,direction,jump,dash,demo,draw};
 async function init(){
-  [jumpReg,tuckReg,stopReg]=await Promise.all(['../player-c-moving-jump-v1/registration.json','../player-c-jump-v2/registration.json','../player-c-run-idle-v1/registration.json'].map(async p=>{const r=await fetch(p);if(!r.ok)throw Error(p);return r.json();}));
-  await Promise.all(Object.entries({run:['player-c-v6-rhythm',8],idle:['player-c-idle-v1',6],jump:['player-c-moving-jump-v1',jumpReg.frameCount],tuck:['player-c-jump-v2',tuckReg.frameCount],stop:['player-c-run-idle-v1',4]}).map(async([name,[folder,count]])=>{clips[name]=await Promise.all(Array.from({length:count},(_,i)=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(Error(`이미지 로드 실패: ${img.src}`));img.src=`../${folder}/frames/${String(i).padStart(2,'0')}.png`;})));}));
-  S.ready=true;demo('all');draw();
+  [jumpReg,tuckReg,stopReg,dashReg]=await Promise.all(['../player-c-moving-jump-v1/registration.json','../player-c-jump-v2/registration.json','../player-c-run-idle-v1/registration.json','../player-c-dash-v1/registration.json'].map(async p=>{const r=await fetch(p);if(!r.ok)throw Error(p);return r.json();}));
+  await Promise.all(Object.entries({run:['player-c-v6-rhythm',8],idle:['player-c-idle-v1',6],jump:['player-c-moving-jump-v1',jumpReg.frameCount],tuck:['player-c-jump-v2',tuckReg.frameCount],dash:['player-c-dash-v1',dashReg.frameCount],stop:['player-c-run-idle-v1',4]}).map(async([name,[folder,count]])=>{clips[name]=await Promise.all(Array.from({length:count},(_,i)=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(Error(`이미지 로드 실패: ${img.src}`));img.src=`../${folder}/frames/${String(i).padStart(2,'0')}.png`;})));}));
+  S.ready=true;const requested=new URLSearchParams(location.search).get('demo');demo(Object.hasOwn(demos,requested)?requested:'all');draw();
   requestAnimationFrame(function tick(t){const dt=last?Math.min(t-last,50):0;last=t;if(S.playing)advance(dt*scale);requestAnimationFrame(tick);});
 }
 init().catch(e=>{$('state').textContent='불러오기 실패';$('detail').textContent=e.message;console.error(e);});

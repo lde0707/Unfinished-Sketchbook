@@ -75,5 +75,14 @@
     "durationMs": 520,
     "anticipationMs": 0,
     "usedBy": "player-state-test for jumps initiated with directional input"
+  },
+  "dashCandidate": {
+    "status": "preview_pending_user_review",
+    "directory": "player-c-dash-v1",
+    "frameCount": 4,
+    "durationMs": 180,
+    "speedPxPerSecond": 640,
+    "cooldownAfterEndMs": 220,
+    "groundOnly": true
   }
 }

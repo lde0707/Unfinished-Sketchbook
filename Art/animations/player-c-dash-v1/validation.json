@@ -1,0 +1,38 @@
+{
+  "approvedAssetsUnchanged": true,
+  "frameCount": 4,
+  "durationMs": 180,
+  "headY": [
+    309,
+    308,
+    325,
+    284
+  ],
+  "bounds": [
+    [
+      12,
+      229,
+      468,
+      448
+    ],
+    [
+      22,
+      228,
+      469,
+      411
+    ],
+    [
+      25,
+      245,
+      469,
+      448
+    ],
+    [
+      32,
+      204,
+      470,
+      448
+    ]
+  ],
+  "wholeSpriteRegistrationOnly": true
+}

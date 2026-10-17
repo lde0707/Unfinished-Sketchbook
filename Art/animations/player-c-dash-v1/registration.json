@@ -1,0 +1,125 @@
+{
+  "frameCount": 4,
+  "durationMs": 180,
+  "cellSize": 512,
+  "columns": 4,
+  "rows": 1,
+  "pivot": [
+    0.6640625,
+    0.125
+  ],
+  "groundY": 448,
+  "speedPxPerSecond": 640,
+  "cooldownAfterEndMs": 220,
+  "groundOnly": true,
+  "frames": [
+    {
+      "frame": 1,
+      "phase": "launch",
+      "startMs": 0,
+      "durationMs": 30,
+      "sourceRect": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "scale": 0.6451612903225806,
+      "translation": [
+        -21,
+        154
+      ],
+      "headCenter": [
+        388,
+        309
+      ],
+      "bounds": [
+        12,
+        229,
+        468,
+        448
+      ]
+    },
+    {
+      "frame": 2,
+      "phase": "low-burst",
+      "startMs": 30,
+      "durationMs": 80,
+      "sourceRect": [
+        768,
+        0,
+        1536,
+        512
+      ],
+      "scale": 0.6349206349206349,
+      "translation": [
+        10,
+        140
+      ],
+      "headCenter": [
+        388,
+        308
+      ],
+      "bounds": [
+        22,
+        228,
+        469,
+        411
+      ]
+    },
+    {
+      "frame": 3,
+      "phase": "stride-catch",
+      "startMs": 110,
+      "durationMs": 40,
+      "sourceRect": [
+        0,
+        512,
+        768,
+        1024
+      ],
+      "scale": 0.6324110671936759,
+      "translation": [
+        -8,
+        196
+      ],
+      "headCenter": [
+        388,
+        325
+      ],
+      "bounds": [
+        25,
+        245,
+        469,
+        448
+      ]
+    },
+    {
+      "frame": 4,
+      "phase": "run-exit",
+      "startMs": 150,
+      "durationMs": 30,
+      "sourceRect": [
+        768,
+        512,
+        1536,
+        1024
+      ],
+      "scale": 0.6584362139917695,
+      "translation": [
+        -3,
+        176
+      ],
+      "headCenter": [
+        388,
+        284
+      ],
+      "bounds": [
+        32,
+        204,
+        470,
+        448
+      ]
+    }
+  ]
+}

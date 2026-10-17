@@ -1,0 +1,13 @@
+{
+  "status": "preview_pending_user_review",
+  "generator": "built-in imagegen",
+  "prompts": [
+    {
+      "output": "sources/dash-keys.png",
+      "prompt": "Use case: precise-object-edit. Draw FOUR full-body animation poses of the EXACT ivory paper hero from input image1 (approved running appearance) and input image2 (airborne reference), in a clean equal 2x2 sprite sheet. This is a FAST LOW GROUND DASH to the RIGHT, not a jump, not a flying superhero, not a roll. Genuine transparent RGBA background, alpha zero outside character; no glow, shadows, gradient, floor, particles, labels or borders. Preserve original round large head with one black oval eye, short compact anatomical legs, plain shorts, long soft layered paper cloak, warm ivory matte fine paper texture and dark delicate contours. All hands/arms hidden INSIDE the cloak. Broad soft flowing folds, no spiky hair, speed streaks, added lines, long noodle legs or visible fists. Same head size in all four cells. Strict RIGHT SIDE profile. Whole character remains inside its cell with generous clear margins, no clipping or overlap.\nTop-left: SNAP INTO DASH. Lower torso and head, lean forwards strongly with head leading hips, near knee bent under chest, far leg gives a final short backward push. Cape swept backward left.\nTop-right: PEAK DASH. Streamlined compact low posture, torso diagonal almost horizontal but head remains naturally round and eye right-facing. Knees folded tightly underneath torso, feet skim just above ground level. Broad long paper cape streams almost straight left in soft waves. NOT a stretched body or elongated limbs.\nBottom-left: SUSTAIN DASH. Same low head and compact silhouette, tucked near shin moves slightly backward as far knee comes under body; cape slightly changes its wave. No large vertical bounce. Feet remain close beneath body, not falling downward. Keep SHORT legs and long original cape.\nBottom-right: EXIT INTO RUN. Torso rises only slightly toward approved running silhouette, near bent foot reaches down to support the next stride, far leg tucked behind. Cape begins settling from horizontal stream. Ready to resume original run immediately.\nThe four pose drawings should look consistent with the original game sprites, not redesigned or more realistic. Softness is most important. No independent limb layers, no motion blur baked on head, no background. Transparent sprite sheet."
+    }
+  ],
+  "processing": "Crop complete poses, uniformly register head width to 160px and position whole drawings. Preserve generated alpha. No limb rig or body deformation.",
+  "previewEffects": "Two faint whole-sprite afterimages during dash, drawn by the preview renderer; not baked into assets.",
+  "unityApplied": false
+}
