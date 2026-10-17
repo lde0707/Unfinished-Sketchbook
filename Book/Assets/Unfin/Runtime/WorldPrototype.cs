@@ -22,7 +22,19 @@ namespace Unfin
         public bool flying;
         bool showMap, previousJump;
         float jumpBuffer, coyote, wallLock, dashTime, dashCooldown, accumulator;
-        int facing = 1;
+        int facing = 1, dashDirection=1;
+        bool airDashUsed, dashAirborne;
+        float dashFallSpeed;
+        public int JumpSerial { get; private set; }
+        public int ResetSerial { get; private set; }
+        public bool JumpMoving { get; private set; }
+        public float JumpLaunchSpeed { get; private set; }
+        public float JumpElapsed { get; private set; }
+        public bool ForceFall { get; private set; }
+        public bool JumpInProgress { get; private set; }
+        public bool DashAirborne => dashAirborne;
+        public bool AirDashUsed => airDashUsed;
+        public float DashElapsed => .18f-dashTime;
         public int Facing => facing;
         public bool IsDashing => dashTime > 0;
         Vector2 safe;
@@ -51,29 +63,52 @@ namespace Unfin
             var k = Keyboard.current;
             if (k == null) return;
             if (k.mKey.wasPressedThisFrame) showMap = !showMap;
-            if (k.fKey.wasPressedThisFrame) { flying = !flying; Motor.vx = Motor.vy = 0; }
+            if (k.fKey.wasPressedThisFrame) { flying = !flying; Motor.vx = Motor.vy = 0; dashTime=0; airDashUsed=false; ForceFall=true; }
             if (k.rKey.wasPressedThisFrame) RestoreWorld();
             if (k.f1Key.wasPressedThisFrame || k.digit1Key.wasPressedThisFrame) Respawn(Data.startX, Data.startFloor);
             if (k.f2Key.wasPressedThisFrame || k.digit2Key.wasPressedThisFrame)
                 foreach (var p in Data.pickups) if (p.type == "save" && p.tx >= Data.regionX) { Respawn(p.tx, p.floor); break; }
             if (k.eKey.wasPressedThisFrame) OpenNearbyGate();
-            if (k.spaceKey.wasPressedThisFrame) jumpBuffer = .12f;
-            if ((k.leftShiftKey.wasPressedThisFrame || k.rightShiftKey.wasPressedThisFrame) && dashCooldown <= 0)
-            { dashTime = .17f; dashCooldown = .45f; }
+            if (k.spaceKey.wasPressedThisFrame) RequestJump();
             bool jump = k.spaceKey.isPressed;
-            if (previousJump && !jump && Motor.vy < 0) Motor.vy *= .45f;
+            if (!IsDashing && previousJump && !jump && Motor.vy < 0) Motor.vy *= .45f;
             previousJump = jump;
             int ix = (k.dKey.isPressed || k.rightArrowKey.isPressed ? 1 : 0) - (k.aKey.isPressed || k.leftArrowKey.isPressed ? 1 : 0);
             int iy = (k.sKey.isPressed || k.downArrowKey.isPressed ? 1 : 0) - (k.wKey.isPressed || k.upArrowKey.isPressed ? 1 : 0);
+            if (k.leftShiftKey.wasPressedThisFrame || k.rightShiftKey.wasPressedThisFrame) RequestDash(ix);
             accumulator += Mathf.Min(Time.deltaTime, .1f);
             const float dt = 1f / 120;
             while (accumulator >= dt) { Step(dt, ix, iy); accumulator -= dt; }
             SyncView();
         }
+        public void RequestJump()
+        {
+            jumpBuffer=.12f;
+            if(IsDashing&&!dashAirborne)dashTime=0;
+        }
+        public bool RequestDash(int inputDirection=0)
+        {
+            if(flying||IsDashing||dashCooldown>0||(!Motor.grounded&&airDashUsed))return false;
+            dashAirborne=!Motor.grounded;
+            dashFallSpeed=(!JumpInProgress||ForceFall)?Mathf.Max(0,Motor.vy):0;
+            if(dashAirborne)airDashUsed=true;
+            dashDirection=inputDirection!=0?inputDirection:facing;facing=dashDirection;
+            dashTime=.18f;dashCooldown=.4f;jumpBuffer=0;
+            return true;
+        }
+        void Launch(float speed,int ix)
+        {
+            Motor.vy=-speed;Motor.grounded=false;jumpBuffer=0;coyote=0;ForceFall=false;
+            JumpInProgress=true;JumpSerial++;JumpMoving=ix!=0;JumpLaunchSpeed=speed;JumpElapsed=0;
+        }
+        // Shared fixed-step entry point for gameplay and deterministic motor checks.
+        public void Simulate(float dt,int ix=0,int iy=0){Step(dt,ix,iy);SyncView();}
         void Step(float dt, int ix, int iy)
         {
+            if(dashTime>0&&dashTime<dt-0.000001f){float first=dashTime;Step(first,ix,iy);Step(dt-first,ix,iy);return;}
             dashCooldown -= dt; wallLock -= dt; jumpBuffer -= dt;
-            if (ix != 0) facing = ix;
+            if (ix != 0 && !IsDashing) facing = ix;
+            JumpElapsed+=dt;
             if (flying)
             {
                 Motor.x = Mathf.Clamp(Motor.x + ix * 260 * dt, 0, Data.width * 16 - GridMotor.Width);
@@ -83,7 +118,8 @@ namespace Unfin
             else
             {
                 if (Motor.grounded) coyote = .09f; else coyote -= dt;
-                if (dashTime > 0) { dashTime -= dt; Motor.vx = facing * 330; Motor.vy = 0; }
+                bool dashStep=IsDashing;
+                if (dashStep) { Motor.vx=dashDirection*400;Motor.vy=0; }
                 else
                 {
                     int under = Mathf.FloorToInt((Motor.y + GridMotor.Height + 1) / 16);
@@ -96,11 +132,33 @@ namespace Unfin
                     if (jumpBuffer > 0 && iy > 0 && Motor.grounded && Motor.Row(under, true) && !Motor.Row(under, false))
                     { Motor.dropTime = .22f; Motor.y += 2; coyote = 0; jumpBuffer = 0; }
                     if (jumpBuffer > 0 && coyote > 0)
-                    { Motor.vy = -425 * (wax ? .84f : 1); if (ix != 0) Motor.vx = ix * 155; jumpBuffer = 0; coyote = 0; }
+                    { Launch(425 * (wax ? .84f : 1),ix); if (ix != 0) Motor.vx = ix * 155; }
                     else if (jumpBuffer > 0 && wall != 0)
-                    { Motor.vy = -420; Motor.vx = -wall * 175; wallLock = .17f; jumpBuffer = 0; }
+                    { Launch(420,-wall); Motor.vx = -wall * 175; wallLock = .17f; }
                 }
                 Motor.Move(dt);
+                if(dashStep)
+                {
+                    if(!dashAirborne)
+                    {
+                        float bottom=Motor.y+GridMotor.Height;int row=Mathf.RoundToInt(bottom/16);
+                        if(Mathf.Abs(bottom-row*16)<.02f&&(Motor.Row(row,false)||(Motor.dropTime<=0&&Motor.Row(row,true))))Motor.grounded=true;
+                    }
+                    if(!Motor.grounded&&!dashAirborne){dashAirborne=true;airDashUsed=true;}
+                    dashTime=Mathf.Max(0,dashTime-dt);if(dashTime<.000001f)dashTime=0;
+                    if(!IsDashing){Motor.vy=dashAirborne?dashFallSpeed:0;ForceFall=dashAirborne;if(dashAirborne)JumpInProgress=false;}
+                }
+                if(Motor.grounded)
+                {
+                    airDashUsed=false;ForceFall=false;JumpInProgress=false;
+                    // Consume a valid buffer on contact, even during a landing drawing.
+                    if(jumpBuffer>0&&iy<=0&&!IsDashing)
+                    {
+                        int floor=Mathf.FloorToInt((Motor.y+GridMotor.Height+1)/16);
+                        bool waxLanding=Motor.Get(Mathf.FloorToInt((Motor.x+6)/16),floor)==16;
+                        Launch(425*(waxLanding?.84f:1),ix);
+                    }
+                }
                 CheckGround();
             }
             TickChanges(dt);
@@ -119,7 +177,7 @@ namespace Unfin
                 for (int y = Mathf.FloorToInt((Motor.y + 4) / 16); y <= Mathf.FloorToInt((Motor.y + GridMotor.Height - 2) / 16); y++)
                     hazard |= Motor.Get(x, y) == 9;
             }
-            if (hazard) { Motor.x = safe.x; Motor.y = safe.y; Motor.vx = Motor.vy = 0; dashTime = 0; }
+            if (hazard) { Motor.x = safe.x; Motor.y = safe.y; Motor.vx = Motor.vy = 0; dashTime = 0; airDashUsed=false;ForceFall=JumpInProgress=false;ResetSerial++; }
             else if (Motor.grounded && !unstable) safe = new Vector2(Motor.x, Motor.y);
         }
         Tilemap Map(int x, int type) => maps[(x >= Data.regionX ? 3 : 0) + Layer(type)];
@@ -175,7 +233,8 @@ namespace Unfin
         public void Respawn(int tx, int floor)
         {
             Motor.x = tx * 16 + 2; Motor.y = floor * 16 - 22; Motor.vx = Motor.vy = 0; Motor.grounded = false;
-            safe = new Vector2(Motor.x, Motor.y); dashTime = jumpBuffer = coyote = wallLock = 0;
+            safe = new Vector2(Motor.x, Motor.y); dashTime = dashCooldown = jumpBuffer = coyote = wallLock = 0;
+            airDashUsed=dashAirborne=false;ForceFall=JumpInProgress=false;previousJump=false;accumulator=0;ResetSerial++;
             SyncView();
         }
         void RefreshTerrain(int cx, int cy)
@@ -214,7 +273,7 @@ namespace Unfin
         {
             if (Data == null) return;
             GUI.Box(new Rect(12, 12, 620, 76), "WORLD 1 + 2  |  128 px / tile at 1920 x 1080\nA/D: move   Space: jump / wall jump   S+Space: drop   Shift: dash\nF: free flight   E: open nearby gate (QA)   1/2: region   M: map   R: reset");
-            GUI.Label(new Rect(24, 91, 900, 28), $"{(Motor.x / 16 < Data.regionX ? "World 1" : "World 2")}   tile ({Motor.x / 16:F1}, {Motor.y / 16:F1})   {(flying ? "FLIGHT" : "WALK")}   J: attack animation preview   Enemies / items: placement markers");
+            GUI.Label(new Rect(24, 91, 900, 28), $"{(Motor.x / 16 < Data.regionX ? "World 1" : "World 2")}   tile ({Motor.x / 16:F1}, {Motor.y / 16:F1})   {(flying ? "FLIGHT" : "WALK")}   Enemies / items: placement markers");
             if (!showMap) return;
             float width = Mathf.Min(Screen.width - 40, 1120), height = width * Data.height / Data.width;
             var rect = new Rect((Screen.width - width) / 2, (Screen.height - height) / 2, width, height);

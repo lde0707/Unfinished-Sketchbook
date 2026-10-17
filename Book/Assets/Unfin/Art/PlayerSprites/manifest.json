@@ -1,0 +1,356 @@
+{
+  "pixelsPerUnit": 256,
+  "groundY": 448,
+  "clips": [
+    {
+      "name": "Idle",
+      "source": "player-c-idle-v1",
+      "anchorX": 368,
+      "loop": true,
+      "frames": [
+        {
+          "file": "Idle/00.png",
+          "duration": 0.3,
+          "headX": 365,
+          "headY": 203,
+          "sha256": "9b647fb5117b54e888f44701a3f09b70d67f8d593543db4a66d66638d00991e3"
+        },
+        {
+          "file": "Idle/01.png",
+          "duration": 0.3,
+          "headX": 364,
+          "headY": 202,
+          "sha256": "d357ab249742241e0e12adfb3e70a9c5d27d091c473555103cd1c8a4ac57391d"
+        },
+        {
+          "file": "Idle/02.png",
+          "duration": 0.3,
+          "headX": 366,
+          "headY": 202,
+          "sha256": "cc377a845d9a69d29aaedf15de4bb1e812a14f86762332f1fa3763f4b3b0ce63"
+        },
+        {
+          "file": "Idle/03.png",
+          "duration": 0.3,
+          "headX": 364,
+          "headY": 200,
+          "sha256": "b80ffcd88a694d479ae6e9aebecfc5c69788a53b8b07ff6df97edfc8e6705710"
+        },
+        {
+          "file": "Idle/04.png",
+          "duration": 0.3,
+          "headX": 366,
+          "headY": 202,
+          "sha256": "cc377a845d9a69d29aaedf15de4bb1e812a14f86762332f1fa3763f4b3b0ce63"
+        },
+        {
+          "file": "Idle/05.png",
+          "duration": 0.3,
+          "headX": 364,
+          "headY": 202,
+          "sha256": "d357ab249742241e0e12adfb3e70a9c5d27d091c473555103cd1c8a4ac57391d"
+        }
+      ]
+    },
+    {
+      "name": "Run",
+      "source": "player-c-v6-rhythm",
+      "anchorX": 340,
+      "loop": true,
+      "frames": [
+        {
+          "file": "Run/00.png",
+          "duration": 0.08,
+          "headX": 364,
+          "headY": 269,
+          "sha256": "604cc8fa6c917ce84103a9d1fee70c1419839e6c2e46a84f6550e00a11f702a1"
+        },
+        {
+          "file": "Run/01.png",
+          "duration": 0.08,
+          "headX": 364,
+          "headY": 274,
+          "sha256": "0327e7fd1e301d2d66a61e3565ae94933a816b07ead1b8a7359ace541d6994bc"
+        },
+        {
+          "file": "Run/02.png",
+          "duration": 0.08,
+          "headX": 364,
+          "headY": 255,
+          "sha256": "93165e676e2cbc5e3f5c969426602c672d697aaebe4817eb9752d5bf24722653"
+        },
+        {
+          "file": "Run/03.png",
+          "duration": 0.08,
+          "headX": 364,
+          "headY": 249,
+          "sha256": "cdc2fe86a3640896931a88000a633db5d4bd5e957e8c77d5479d1b3d98abd581"
+        },
+        {
+          "file": "Run/04.png",
+          "duration": 0.08,
+          "headX": 364,
+          "headY": 265,
+          "sha256": "7c2adc2177f3e61500b3e2e7378665dd117404187429bc661b56e7c5bd15687e"
+        },
+        {
+          "file": "Run/05.png",
+          "duration": 0.08,
+          "headX": 364,
+          "headY": 267,
+          "sha256": "3622c554968c7e7fc64e494f70adfe122952caad42e1d3dfab09cb14bd0fe516"
+        },
+        {
+          "file": "Run/06.png",
+          "duration": 0.08,
+          "headX": 364,
+          "headY": 268,
+          "sha256": "695c6fe8e1445f20413163fa478d42d251f2ec9a0209b2ebb8333e08a6fdd11a"
+        },
+        {
+          "file": "Run/07.png",
+          "duration": 0.08,
+          "headX": 364,
+          "headY": 260,
+          "sha256": "c95800388b0c1ffa7f8b1a2e5e05453770354c399fe194d4884e9a01c3c5d8a1"
+        }
+      ]
+    },
+    {
+      "name": "RunStop",
+      "source": "player-c-run-idle-v1",
+      "anchorX": 340,
+      "loop": false,
+      "frames": [
+        {
+          "file": "RunStop/00.png",
+          "duration": 0.03,
+          "headX": 365,
+          "headY": 253,
+          "sha256": "614cc72adb88cf24e3ddaf4e77fb5df1ab8a11896ece2ee685ea34cbe53bcd6f"
+        },
+        {
+          "file": "RunStop/01.png",
+          "duration": 0.035,
+          "headX": 362,
+          "headY": 244,
+          "sha256": "aeb1bb51c07b52519867630660813605f8d82ec2cda6e2d85de6a21f9dfb314b"
+        },
+        {
+          "file": "RunStop/02.png",
+          "duration": 0.04,
+          "headX": 372,
+          "headY": 214,
+          "sha256": "bdffa996110b3cf52cfd924ae97887da0aadf5d0f6d5a2372698fccc368b849e"
+        },
+        {
+          "file": "RunStop/03.png",
+          "duration": 0.055,
+          "headX": 346,
+          "headY": 212,
+          "sha256": "2b1867f219d68953f62212b7b39ffdf0a3de635e1ee4ebf13111345ac785b54b"
+        }
+      ]
+    },
+    {
+      "name": "Jump",
+      "source": "player-c-jump-v2",
+      "anchorX": 368,
+      "loop": false,
+      "frames": [
+        {
+          "file": "Jump/00.png",
+          "duration": 0.01,
+          "headX": 365,
+          "headY": 237,
+          "sha256": "446c31de3152ec600b8460dcbbf35dd81cfb6fdd2bb55a260d59201bb3f86bf9"
+        },
+        {
+          "file": "Jump/01.png",
+          "duration": 0.015,
+          "headX": 365,
+          "headY": 296,
+          "sha256": "df67739b34dc95b03a90e35a8c537ccd7e96e1b95899b1f8064f3eaa892e46f2"
+        },
+        {
+          "file": "Jump/02.png",
+          "duration": 0.01,
+          "headX": 365,
+          "headY": 181,
+          "sha256": "36dfb29a483b65d88d808f9028a41e77642e9e80af1de031b0de3be304f3dcbe"
+        },
+        {
+          "file": "Jump/03.png",
+          "duration": 0.15,
+          "headX": 365,
+          "headY": 203,
+          "sha256": "e73876b540a03f4b05b2e49c66f09ca544e4cf5e8a07f744249f6c4e48f8be55"
+        },
+        {
+          "file": "Jump/04.png",
+          "duration": 0.18,
+          "headX": 365,
+          "headY": 203,
+          "sha256": "9cb525a088a5de8305f1d3a721a33c75319109a90e991daa0bab260c2c8d9dcd"
+        },
+        {
+          "file": "Jump/05.png",
+          "duration": 0.13,
+          "headX": 365,
+          "headY": 203,
+          "sha256": "ec8674e175990f195504909295d26bec9c0ec73384814fdc9347387de01b4c64"
+        },
+        {
+          "file": "Jump/06.png",
+          "duration": 0.04,
+          "headX": 365,
+          "headY": 232,
+          "sha256": "2f9fcd3fbd2956bb6c22a34f80aa17e393ea5ccb2b6f28e33226dad2e3f75f25"
+        },
+        {
+          "file": "Jump/07.png",
+          "duration": 0.06,
+          "headX": 365,
+          "headY": 276,
+          "sha256": "b9a7bc7fbb3a639380267cf4a62942f82e7ce41b94e7ab915667cf7a9db2ef40"
+        },
+        {
+          "file": "Jump/08.png",
+          "duration": 0.08,
+          "headX": 365,
+          "headY": 218,
+          "sha256": "c4c12ab09662050659f55b8266705c13f57bf53dcba85c08fa7e3d4076b529d7"
+        }
+      ]
+    },
+    {
+      "name": "MovingJump",
+      "source": "player-c-moving-jump-v1",
+      "anchorX": 340,
+      "loop": false,
+      "frames": [
+        {
+          "file": "MovingJump/00.png",
+          "duration": 0.08,
+          "headX": 365,
+          "headY": 255,
+          "sha256": "03450ebf61dd7d690e0b9a199a22d6413c52f779b2db95009387b9171fde5c8b"
+        },
+        {
+          "file": "MovingJump/01.png",
+          "duration": 0.14,
+          "headX": 365,
+          "headY": 250,
+          "sha256": "f55d9055b61a84d246ef7db62fd659423e87180b81c80267be8fe8cf385cbbc4"
+        },
+        {
+          "file": "MovingJump/02.png",
+          "duration": 0.1,
+          "headX": 365,
+          "headY": 250,
+          "sha256": "cf2ade1f59f8c42b8b246709a90cc58420eb302ab0d09f12c641af6f78054ec9"
+        },
+        {
+          "file": "MovingJump/03.png",
+          "duration": 0.14,
+          "headX": 365,
+          "headY": 250,
+          "sha256": "3714d59a39c125854a8b7dfaf0aa6895e7a5a3ce4f7fb02b924f7cd4ab5af9ac"
+        },
+        {
+          "file": "MovingJump/04.png",
+          "duration": 0.03,
+          "headX": 365,
+          "headY": 270,
+          "sha256": "f6b5e38a09a2f32197bd60abada95f18a529ed9839ad89a73a53718a07f6c92b"
+        },
+        {
+          "file": "MovingJump/05.png",
+          "duration": 0.03,
+          "headX": 365,
+          "headY": 267,
+          "sha256": "c78000512fd1c4eb618afc0a2bcc28149765c53249c2c74a628c657411341972"
+        }
+      ]
+    },
+    {
+      "name": "Dash",
+      "source": "player-c-dash-v2",
+      "anchorX": 364,
+      "loop": false,
+      "frames": [
+        {
+          "file": "Dash/00.png",
+          "duration": 0.03,
+          "headX": 412,
+          "headY": 308,
+          "sha256": "b86b4835d426a7322de6295ee087e7dd71c9f535804bd23eb3fd545171cc1981"
+        },
+        {
+          "file": "Dash/01.png",
+          "duration": 0.08,
+          "headX": 412,
+          "headY": 308,
+          "sha256": "2bc9c4d0a7cf2b8b6bf975031a0ad1e926b0d4be9e5121de84fc9146c55d9b1c"
+        },
+        {
+          "file": "Dash/02.png",
+          "duration": 0.04,
+          "headX": 412,
+          "headY": 308,
+          "sha256": "1dc4dfa6042b54dcb5c9911e809e42adb1de787e8a0e109b325ab95ca47fb648"
+        },
+        {
+          "file": "Dash/03.png",
+          "duration": 0.03,
+          "headX": 412,
+          "headY": 308,
+          "sha256": "a876886b351de86915d9606dfe9d303ca1e7227d645c0536de6a2aa8129a6cac"
+        }
+      ]
+    },
+    {
+      "name": "Fall",
+      "source": "player-c-fall-v1",
+      "anchorX": 368,
+      "loop": false,
+      "frames": [
+        {
+          "file": "Fall/00.png",
+          "duration": 0.14,
+          "headX": 365,
+          "headY": 203,
+          "sha256": "3645601101b26a9e946eb5411864217ae5681a1fd8e5fc48c8b517fd943c4268"
+        },
+        {
+          "file": "Fall/01.png",
+          "duration": 0.14,
+          "headX": 365,
+          "headY": 203,
+          "sha256": "9670b7ac06547ae717d1601ede59cbbf82f2a821205137cc902eb1ae7a856dd7"
+        },
+        {
+          "file": "Fall/02.png",
+          "duration": 0.14,
+          "headX": 365,
+          "headY": 203,
+          "sha256": "3419daa5522541629c0127c9eba82b21f29007c602e3d5e0bb40c14a2c8b44e6"
+        },
+        {
+          "file": "Fall/03.png",
+          "duration": 0.14,
+          "headX": 365,
+          "headY": 268,
+          "sha256": "8295f91a5e3c2f80c0d654f33b21560df7d2f3c5f0abcba5798486a6a9eafd52"
+        },
+        {
+          "file": "Fall/04.png",
+          "duration": 0.14,
+          "headX": 365,
+          "headY": 218,
+          "sha256": "c4c12ab09662050659f55b8266705c13f57bf53dcba85c08fa7e3d4076b529d7"
+        }
+      ]
+    }
+  ]
+}

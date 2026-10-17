@@ -7,11 +7,22 @@ const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '../Builds/WebGLSite/dist');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 assert(!html.includes('{{{'), 'Unity template placeholders must be resolved');
-const names = [...new Set([...html.matchAll(/Build\/([^'"\s]+)/g)].map(m => m[1]))];
+const names = [...new Set([...html.matchAll(/Build\/([^'"\s]+)/g)].map(m => m[1]))].filter(name=>!name.includes('.part'));
 assert.equal(names.length, 4, 'data/framework/wasm/loader must be referenced');
 const files = names.map(name => {
-  const bytes = fs.readFileSync(path.join(root, 'Build', name));
-  assert(bytes.length <= 25 * 1024 * 1024, 'Static hosting allows at most 25 MiB per file');
+  let bytes;
+  if (fs.existsSync(path.join(root,'Build',name))) bytes=fs.readFileSync(path.join(root,'Build',name));
+  else {
+    const manifest=JSON.parse(fs.readFileSync(path.join(root,'unity-data-parts.json')));
+    assert.equal(manifest.source,'Build/'+name);
+    bytes=Buffer.concat(manifest.parts.map(part=>{
+      const buffer=fs.readFileSync(path.join(root,part.file));
+      assert(buffer.length<=25*1024*1024);assert.equal(buffer.length,part.bytes);
+      assert.equal('sha256-'+crypto.createHash('sha256').update(buffer).digest('base64'),part.integrity);return buffer;
+    }));
+    assert.equal(bytes.length,manifest.bytes);assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),manifest.sha256);
+  }
+  if(fs.existsSync(path.join(root,'Build',name)))assert(bytes.length <= 25 * 1024 * 1024, 'Static hosting allows at most 25 MiB per file');
   const content = name.endsWith('.unityweb') ? zlib.brotliDecompressSync(bytes) : bytes;
   let kind;
   if (content.subarray(0, 4).equals(Buffer.from([0, 97, 115, 109]))) {

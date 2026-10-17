@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9865813a389f4364097dc042a3f7154a, type: 3}
+  m_Name: PlayerSprites
+  m_EditorClassIdentifier: Assembly-CSharp::Unfin.PaperSpriteLibrary
+  pixelsPerUnit: 256
+  clips:
+  - name: Idle
+    loop: 1
+    anchorX: 368
+    frames:
+    - sprite: {fileID: 21300000, guid: 6c76334d479252647b6316e6400ac6e1, type: 3}
+      duration: 0.3
+      head: {x: 365, y: 203}
+    - sprite: {fileID: 21300000, guid: bb0fdbbcdb0b9224aaf465615107baeb, type: 3}
+      duration: 0.3
+      head: {x: 364, y: 202}
+    - sprite: {fileID: 21300000, guid: 89e0cc1abda76424b9f8036cf441b2f1, type: 3}
+      duration: 0.3
+      head: {x: 366, y: 202}
+    - sprite: {fileID: 21300000, guid: 3e51a44bc34287149a4974ffe4b84d8f, type: 3}
+      duration: 0.3
+      head: {x: 364, y: 200}
+    - sprite: {fileID: 21300000, guid: a1fad672308a5e54cbf95949abbcd82a, type: 3}
+      duration: 0.3
+      head: {x: 366, y: 202}
+    - sprite: {fileID: 21300000, guid: 11ec44560ad853f4c8d8f4831254f943, type: 3}
+      duration: 0.3
+      head: {x: 364, y: 202}
+  - name: Run
+    loop: 1
+    anchorX: 340
+    frames:
+    - sprite: {fileID: 21300000, guid: e94cc6b37070f8543a6ab67032b808f9, type: 3}
+      duration: 0.08
+      head: {x: 364, y: 269}
+    - sprite: {fileID: 21300000, guid: f11ecf18609f7b44a9ad76aa5788f9bd, type: 3}
+      duration: 0.08
+      head: {x: 364, y: 274}
+    - sprite: {fileID: 21300000, guid: b081f69c286262b4f8aa2918053c08f5, type: 3}
+      duration: 0.08
+      head: {x: 364, y: 255}
+    - sprite: {fileID: 21300000, guid: e4d2db262a178ce46b68716f82cee6c9, type: 3}
+      duration: 0.08
+      head: {x: 364, y: 249}
+    - sprite: {fileID: 21300000, guid: 5d17cc4dde9eea345a8e00dd6a26ce83, type: 3}
+      duration: 0.08
+      head: {x: 364, y: 265}
+    - sprite: {fileID: 21300000, guid: 4497ebaf1d60933479d97e094e85491c, type: 3}
+      duration: 0.08
+      head: {x: 364, y: 267}
+    - sprite: {fileID: 21300000, guid: a6263ed9d6c5a8540a182303cc2c0832, type: 3}
+      duration: 0.08
+      head: {x: 364, y: 268}
+    - sprite: {fileID: 21300000, guid: 1cc73ccc813fa1f4db7305b02cd2be0f, type: 3}
+      duration: 0.08
+      head: {x: 364, y: 260}
+  - name: RunStop
+    loop: 0
+    anchorX: 340
+    frames:
+    - sprite: {fileID: 21300000, guid: 0b7f16e89c240d54a95600732386be4d, type: 3}
+      duration: 0.03
+      head: {x: 365, y: 253}
+    - sprite: {fileID: 21300000, guid: 1f0b027c28f1f874888d36a5a0736079, type: 3}
+      duration: 0.035
+      head: {x: 362, y: 244}
+    - sprite: {fileID: 21300000, guid: 44b47cffe8c32b941b58f851c4bf16df, type: 3}
+      duration: 0.04
+      head: {x: 372, y: 214}
+    - sprite: {fileID: 21300000, guid: 4092b2fe5fc876942a6943f0be80e008, type: 3}
+      duration: 0.055
+      head: {x: 346, y: 212}
+  - name: Jump
+    loop: 0
+    anchorX: 368
+    frames:
+    - sprite: {fileID: 21300000, guid: a952f012c8065944dad9d49810dcb6c8, type: 3}
+      duration: 0.01
+      head: {x: 365, y: 237}
+    - sprite: {fileID: 21300000, guid: 903eadc42dd61cf4ca78d434751ed616, type: 3}
+      duration: 0.015
+      head: {x: 365, y: 296}
+    - sprite: {fileID: 21300000, guid: 854547f07265da542b39e1ee5891ecb9, type: 3}
+      duration: 0.01
+      head: {x: 365, y: 181}
+    - sprite: {fileID: 21300000, guid: 3f3ffc221822b98458d758140e8f453f, type: 3}
+      duration: 0.15
+      head: {x: 365, y: 203}
+    - sprite: {fileID: 21300000, guid: 5f39866a366e70646a03d813f0f6f0c3, type: 3}
+      duration: 0.18
+      head: {x: 365, y: 203}
+    - sprite: {fileID: 21300000, guid: c5a327e77e2df42458273dc64a8ab453, type: 3}
+      duration: 0.13
+      head: {x: 365, y: 203}
+    - sprite: {fileID: 21300000, guid: 72d1e50cfebcaba419239665add24fd6, type: 3}
+      duration: 0.04
+      head: {x: 365, y: 232}
+    - sprite: {fileID: 21300000, guid: 04f9be289edeede4cb47626c06038f7c, type: 3}
+      duration: 0.06
+      head: {x: 365, y: 276}
+    - sprite: {fileID: 21300000, guid: e2b1cf23743d7cb46a88a89a0b57e6f8, type: 3}
+      duration: 0.08
+      head: {x: 365, y: 218}
+  - name: MovingJump
+    loop: 0
+    anchorX: 340
+    frames:
+    - sprite: {fileID: 21300000, guid: c91193bce50067045a53e583c8b13eae, type: 3}
+      duration: 0.08
+      head: {x: 365, y: 255}
+    - sprite: {fileID: 21300000, guid: 61a252b4c9a3d2f4cb81bed8123d6f4e, type: 3}
+      duration: 0.14
+      head: {x: 365, y: 250}
+    - sprite: {fileID: 21300000, guid: be3eeeeaab93fde459f463add5baafd4, type: 3}
+      duration: 0.1
+      head: {x: 365, y: 250}
+    - sprite: {fileID: 21300000, guid: 183e4eaeb1e683b4bbc63e27503c593f, type: 3}
+      duration: 0.14
+      head: {x: 365, y: 250}
+    - sprite: {fileID: 21300000, guid: 37b51f49d1ce8c14f80c9e9bfe434951, type: 3}
+      duration: 0.03
+      head: {x: 365, y: 270}
+    - sprite: {fileID: 21300000, guid: 392ba1cc8002f8c47a393eb374995a16, type: 3}
+      duration: 0.03
+      head: {x: 365, y: 267}
+  - name: Dash
+    loop: 0
+    anchorX: 364
+    frames:
+    - sprite: {fileID: 21300000, guid: e5410d36d11f8574899520e148fa0aac, type: 3}
+      duration: 0.03
+      head: {x: 412, y: 308}
+    - sprite: {fileID: 21300000, guid: fb58341e993aac7429c9fc094fc739d8, type: 3}
+      duration: 0.08
+      head: {x: 412, y: 308}
+    - sprite: {fileID: 21300000, guid: 06ce2c6fa2d927a4f9ef360e80a62fed, type: 3}
+      duration: 0.04
+      head: {x: 412, y: 308}
+    - sprite: {fileID: 21300000, guid: c19c145b0c443404182f2e6046c4e0a5, type: 3}
+      duration: 0.03
+      head: {x: 412, y: 308}
+  - name: Fall
+    loop: 0
+    anchorX: 368
+    frames:
+    - sprite: {fileID: 21300000, guid: c2811c77be7bceb40b3beaeaba64a58c, type: 3}
+      duration: 0.065
+      head: {x: 365, y: 203}
+    - sprite: {fileID: 21300000, guid: 98051862417f2ee409454f59949be1d8, type: 3}
+      duration: 0.09
+      head: {x: 365, y: 203}
+    - sprite: {fileID: 21300000, guid: c0782031bb108b6448d12ac1be636344, type: 3}
+      duration: 0.14
+      head: {x: 365, y: 203}
+  - name: RunStart
+    loop: 0
+    anchorX: 340
+    frames:
+    - sprite: {fileID: 21300000, guid: 4092b2fe5fc876942a6943f0be80e008, type: 3}
+      duration: 0.055
+      head: {x: 346, y: 212}
+    - sprite: {fileID: 21300000, guid: 44b47cffe8c32b941b58f851c4bf16df, type: 3}
+      duration: 0.04
+      head: {x: 372, y: 214}
+    - sprite: {fileID: 21300000, guid: 1f0b027c28f1f874888d36a5a0736079, type: 3}
+      duration: 0.035
+      head: {x: 362, y: 244}
+    - sprite: {fileID: 21300000, guid: 0b7f16e89c240d54a95600732386be4d, type: 3}
+      duration: 0.03
+      head: {x: 365, y: 253}
+  - name: JumpLand
+    loop: 0
+    anchorX: 368
+    frames:
+    - sprite: {fileID: 21300000, guid: 72d1e50cfebcaba419239665add24fd6, type: 3}
+      duration: 0.04
+      head: {x: 365, y: 232}
+    - sprite: {fileID: 21300000, guid: 04f9be289edeede4cb47626c06038f7c, type: 3}
+      duration: 0.06
+      head: {x: 365, y: 276}
+    - sprite: {fileID: 21300000, guid: e2b1cf23743d7cb46a88a89a0b57e6f8, type: 3}
+      duration: 0.08
+      head: {x: 365, y: 218}
+  - name: MovingLand
+    loop: 0
+    anchorX: 340
+    frames:
+    - sprite: {fileID: 21300000, guid: 37b51f49d1ce8c14f80c9e9bfe434951, type: 3}
+      duration: 0.03
+      head: {x: 365, y: 270}
+    - sprite: {fileID: 21300000, guid: 392ba1cc8002f8c47a393eb374995a16, type: 3}
+      duration: 0.03
+      head: {x: 365, y: 267}
+  - name: FallLand
+    loop: 0
+    anchorX: 368
+    frames:
+    - sprite: {fileID: 21300000, guid: fb3a9114058e0994eb4d37bb87352297, type: 3}
+      duration: 0.065
+      head: {x: 365, y: 268}
+    - sprite: {fileID: 21300000, guid: 69841de8eeabdb84a90b61429b9ec23e, type: 3}
+      duration: 0.065
+      head: {x: 365, y: 218}

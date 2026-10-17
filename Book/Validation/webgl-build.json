@@ -6,35 +6,35 @@
     1080
   ],
   "compression": "Brotli with JavaScript fallback",
-  "totalDownloadBytes": 30006022,
+  "totalDownloadBytes": 35333854,
   "files": [
     {
-      "name": "2b03fd926d9b144500a80aa6d0e91018.data.unityweb",
+      "name": "b68099a51ebbebf4c1c4f905cda213a0.data.unityweb",
       "kind": "data",
-      "bytes": 23087274,
-      "unpackedBytes": 37680220,
-      "sha256": "04d9878af23f4180669aee3f5a811df7891b21557bf29f296d095f5750c080a2"
+      "bytes": 28406430,
+      "unpackedBytes": 43913769,
+      "sha256": "cbdb44f94638078f7b20e82ddfcd3b078a901b0dca0d0efece56a0ee3c62e50d"
     },
     {
-      "name": "9dc5fe56697bd658494b666675a9b12b.framework.js.unityweb",
+      "name": "d2a22c5e9fbc21a483aa656b580051ef.framework.js.unityweb",
       "kind": "framework",
-      "bytes": 71115,
-      "unpackedBytes": 394437,
-      "sha256": "f5149c206daee050b770bfe4a6f2692354d9104da66c9fb2795883f020a57a07"
+      "bytes": 71143,
+      "unpackedBytes": 394698,
+      "sha256": "f7c2db12a152ead00b9d4783dc6cdc89ce8d74b85df26686518581499154d878"
     },
     {
-      "name": "13c6044926cb159ea61229b03adc700f.wasm.unityweb",
+      "name": "22217a041535e3fc00fb7027bdf81de4.wasm.unityweb",
       "kind": "wasm",
-      "bytes": 6729740,
-      "unpackedBytes": 33424903,
-      "sha256": "f4a25788501db91f7c4cbed6ec8afed085fadc72d5d5bf9f3ae30472d95a2ec6"
+      "bytes": 6738388,
+      "unpackedBytes": 33444738,
+      "sha256": "24c6d35c09b1e098d025b3d53040c183656190c2f4d926cd67554183346e7617"
     },
     {
-      "name": "75c288ff1a2819463ef2c897e0dc7b7c.loader.js",
+      "name": "cc3ea5037d0d6e22c29e070b259d7f7d.loader.js",
       "kind": "loader",
       "bytes": 117893,
       "unpackedBytes": 117893,
-      "sha256": "40ffc3e28ead2e8b14939d5572915c389badb400ca1b66c0dee37af33b8bcbc1"
+      "sha256": "0312b563b287c1684bd0c0d8ea05f64cf9922424ec67858d4c8399afe440e274"
     }
   ]
 }

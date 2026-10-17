@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "loadedUnity": true,
+  "keyboardActions": [
+    "left run",
+    "stationary jump",
+    "air dash",
+    "fall",
+    "region2",
+    "region1",
+    "re-jump"
+  ],
+  "errors": []
+}

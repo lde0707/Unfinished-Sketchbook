@@ -1,0 +1,1 @@
+{"passed":true,"states":"Idle,RunStart,Run,RunStop,MovingJump,Dash,Fall,Jump,JumpLand,MovingLand","checks":["idle/run/start/stop","standing and directional jumps","ground/air dash","dash direction lock","air dash to fall without ascent","fall dash velocity restored","one air dash until landing","buffered landing jump","ground dash jump cancel"]}

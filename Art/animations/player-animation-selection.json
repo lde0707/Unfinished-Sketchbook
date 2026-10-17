@@ -38,7 +38,7 @@
       "player-c-idle-v1/registration.json": "755036226813303d5da9f743b50506d0c29edebeb0af5d2eb669ea0cf300dcb8"
     }
   },
-  "unityApplied": false,
+  "unityApplied": true,
   "jump": {
     "status": "approved_by_user",
     "directory": "player-c-jump-v1",
@@ -94,5 +94,15 @@
     "newDrawings": 4,
     "airborneDuration": "until physical contact",
     "landingRecoveryMs": 130
+  },
+  "unityIntegration": {
+    "scene": "Book/Assets/Scenes/World12Prototype.unity",
+    "prefab": "Book/Assets/Unfin/Prefabs/PaperSpritePlayer.prefab",
+    "library": "Book/Assets/Unfin/Animations/PlayerSprites/PlayerSprites.asset",
+    "sourceFrames": 42,
+    "sequences": 11,
+    "pixelsPerUnit": 256,
+    "airDashExit": "Fall; remaining jump ascent cancelled",
+    "physics": "Existing map jump height and collision preserved; poses follow actual velocity/contact"
   }
 }

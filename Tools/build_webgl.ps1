@@ -30,4 +30,6 @@ Write-Output "Building Unity WebGL (PID $($taskProcess.Id)). Log: $taskLog"
 $taskProcess.WaitForExit()
 if ($taskProcess.ExitCode -ne 0) { throw "Unity WebGL build failed ($($taskProcess.ExitCode)). See $taskLog" }
 if (!(Test-Path (Join-Path $taskOutput 'index.html'))) { throw 'Build did not produce index.html.' }
+& node (Join-Path $taskRoot 'Tools/prepare_webgl_site.cjs')
+if ($LASTEXITCODE -ne 0) { throw 'Unity hosting packaging failed.' }
 Write-Output "Ready: $taskOutput"

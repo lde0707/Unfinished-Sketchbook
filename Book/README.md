@@ -94,3 +94,23 @@ Unity 메뉴 **Unfin → Apply Region 1 Backgrounds and Validate**로 재적용�
 배치 실행 메서드는 `Unfin.Editor.WorldPrototypeBuilder.Build`, `Validate`, `RenderPreviews`다. 렌더 미리보기는 그래픽 장치가 필요하므로 `-nographics` 없이 실행한다. 생성 결과의 `.meta`와 씬/타일/텍스처를 함께 Git으로 관리하므로 다음 컴퓨터에서 다시 빌드하지 않아도 씬을 열 수 있다.
 
 Play 모드 자동 검증은 배치 실행에서 `-executeMethod Unfin.Editor.WorldPrototypeSmoke.Run`을 사용하고 `-quit`을 생략한다. 검증기가 가상 키보드로 이동·점프·2지역 이동·비행·게이트 열기·초기화를 확인한 후 Unity를 종료한다. 결과는 `Validation/world12-playmode.txt`, 실제 카메라 미리보기는 `Validation/world1-1920x1080.png`와 `world2-1920x1080.png`다.
+
+
+## 현재 플레이어 스프라이트 (2026-10-17)
+
+`World12Prototype`의 플레이어에 HTML 통합 테스트에서 선택한 전신 원화42장을 적용했다. `PaperSpritePlayer.prefab`과 `Animations/PlayerSprites/PlayerSprites.asset`이 실제 게임에서 사용된다. 예전 관절 리그는 씬에서 제거했으며, 이전 에셋은 비교용으로 보존한다.
+
+- Idle: `player-c-idle-v1`, 6장·1800ms.
+- Run: `player-c-v6-rhythm`, 8장·640ms.
+- 출발/정지: `player-c-run-idle-v1`, 4장·160ms (출발은 역순).
+- 제자리 점프: `player-c-jump-v2`, 9장. 이동 점프: `player-c-moving-jump-v1`, 6장.
+- 대시: `player-c-dash-v2`, 양 다리를 접은 4장·180ms. 지상/공중 공통, 방향 고정, 공중1회, 접지 후 회복.
+- 독립 낙하/착지: `player-c-fall-v1`, 5장. 점프 없이 발판에서 내려오거나 공중 대시가 끝날 때 사용한다.
+
+PNG는 원본 바이트 그대로 512px, PPU256, Bilinear, 무압축으로 임포트한다. 발 기준점과 자세별 x 기준점은 HTML 미리보기와 같다. 실제 맵의 12×22 논리 충돌 영역과 기존 점프 속도·중력을 유지하며, 상승/정점/하강/착지를 실제 속도와 접지에 맞춘다. 따라서 HTML 검토 화면의 고정 점프 높이130px를 맵의 이동 능력으로 적용하지 않는다. 점프와 착지 원화가 이동 입력을 잠그지 않는다.
+
+대시는 기존 지상 달리기125의3.2배인400 논리px/s로180ms 이동한다. 종료 후220ms 재사용 간격이며 점프 도중 사용하면 남은 상승을 취소하고 Fall로 전환한다. 낙하 중 사용하면 대시 전 하강 속도를 복원한다. 착지 직전120ms 점프 입력 기억과 접지 즉시 재점프를 지원한다. 예전 J 공격 관절 시연은 새 플레이어에 연결하지 않는다. 새 전신 공격·피격·사망 원화는 아직 제작하지 않았다.
+
+다시 적용: 저장소 루트에서 `python Tools/export_player_unity.py` 실행 후 Unity 메뉴 **Unfin → Apply Current Player Sprites**. 별도 빌드용 프로젝트를 통해 적용하려면 `powershell -ExecutionPolicy Bypass -File Tools/apply_player_unity.ps1`을 사용한다. 이 명령은 원본 Book의 Library 대신 기존 빌드용 프로젝트를 사용하고 생성된 에셋·메타·프리팹·씬을 Book으로 복사한다. 검증 기록은 `Validation/player-sprites-import.json`, `player-sprites-runtime.json`, 실제 게임 화면은 `player-sprites-in-game.png`다. 편집용 SpriteRenderer AnimationClip 11개와 AnimatorController도 함께 제공한다. 실제 플레이어는 물리 상태와 동기화하는 프레임 드라이버로 재생한다.
+
+웹 배포 데이터가25MiB를 넘으면 `node Tools/prepare_webgl_site.cjs`가16MiB 조각으로 무손실 분할한다. 브라우저에서 각 조각의 SHA-256 무결성을 확인한 뒤 합쳐 Unity 기본 압축 해제로 전달한다. PNG 해상도·색·텍스처 압축 설정을 낮추지 않는다. `Tools/build_webgl.ps1`에서 자동 실행하며 `Tools/verify_webgl.cjs`가 조각 크기·해시·재조립 데이터와 WebAssembly를 검사한다.
