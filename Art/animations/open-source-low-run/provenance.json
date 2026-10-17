@@ -1,0 +1,103 @@
+{
+  "purpose": "New complete sprite: low forward sprint using character reference conditioning",
+  "reference": "../player-c-v6/frames/00.png",
+  "engine": {
+    "name": "ComfyUI core",
+    "revision": "5cc4b870094c89090db54bd8d12649dcaf89f2ba",
+    "source": "https://github.com/Comfy-Org/ComfyUI",
+    "license": "GPL-3.0",
+    "licenseUrl": "https://github.com/Comfy-Org/ComfyUI/blob/master/LICENSE",
+    "note": "The GPL applies to the engine. It does not automatically require generated artwork or the game to be GPL-licensed."
+  },
+  "model": {
+    "name": "stabilityai/stable-diffusion-xl-base-1.0",
+    "file": "sd_xl_base_1.0.safetensors",
+    "source": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
+    "license": "CreativeML Open RAIL++-M (2023-07-26)",
+    "licenseUrl": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/LICENSE.md",
+    "note": "Commercial use is permitted subject to license restrictions. This is an open-weight model with use restrictions, not an unrestricted OSI open-source license. The licensor claims no rights in outputs except as stated in the license. Reference rights and third-party rights are separate.",
+    "sha256": "31e35c80fc4829d14f90153f4c74cd59c90b779f6afe05a74cd6120b893f7e5b",
+    "bytes": 6938078334
+  },
+  "additionalModelWeights": [
+    {
+      "name": "IP-Adapter Plus SDXL ViT-H",
+      "license": "Apache-2.0",
+      "source": "https://huggingface.co/h94/IP-Adapter",
+      "file": "ip-adapter-plus_sdxl_vit-h.safetensors",
+      "sha256": "3f5062b8400c94b7159665b21ba5c62acdcd7682262743d7f2aefedef00e6581",
+      "bytes": 847517512
+    },
+    {
+      "name": "CLIP ViT-H/14 LAION-2B",
+      "license": "MIT",
+      "source": "https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K",
+      "file": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors",
+      "sha256": "6ca9667da1ca9e0b0f75e46bb030f7e011f44f86cbfb8d5a36590fcd7507b030",
+      "bytes": 2528373448
+    }
+  ],
+  "referenceUse": "Our complete v6 running frame, mechanically rotated 18 degrees clockwise as a whole and padded on a neutral background for IP-Adapter. No parts were articulated. Output starts from an empty latent; reference pixels are not pasted into output.",
+  "identityRule": "Folded bright foot => dark hand forward; folded dark foot => bright hand forward.",
+  "preservation": "Reference-conditioned new generation. No inpainting mask, original-pixel composite, skeletal rig, or limb transforms.",
+  "reproduce": [
+    "Start Tools/start_open_sprite_runtime.ps1",
+    "python Tools/generate_low_run_sprite.py prepare",
+    "python Tools/generate_low_run_sprite.py submit",
+    "After completion: python Tools/generate_low_run_sprite.py collect",
+    "Use the isolated runtime Python: Tools/generate_low_run_sprite.py cutout"
+  ],
+  "limitations": "New full sprite candidate, not a complete animation cycle. Reference identity and anatomy require visual review.",
+  "hardware": {
+    "gpu": "Intel Arc 130T",
+    "ramGiB": 31.4,
+    "torch": "2.14.1+xpu",
+    "gpuAvailabilityTest": true,
+    "gpuMatrixTest": true
+  },
+  "extension": {
+    "name": "ComfyUI_IPAdapter_plus",
+    "source": "https://github.com/cubiq/ComfyUI_IPAdapter_plus",
+    "license": "GPL-3.0",
+    "revision": "a0f451a5113cf9becb0847b92884cb10cbdec0ef"
+  },
+  "backgroundRemoval": {
+    "tool": "rembg",
+    "license": "MIT",
+    "source": "https://github.com/danielgatis/rembg",
+    "model": "U2NET",
+    "modelLicense": "Apache-2.0",
+    "modelSource": "https://github.com/xuebinqin/U-2-Net"
+  },
+  "iterations": [
+    {
+      "attempt": 1,
+      "reference": "character turnaround side view",
+      "status": "rejected",
+      "reason": "Followed standing reference pose; not a low running sprite"
+    },
+    {
+      "attempt": 2,
+      "reference": "v6 running frame 1",
+      "status": "rejected",
+      "change": "Landscape canvas and stronger low forward running instruction",
+      "reason": "Running pose produced, but torso too upright and face turned toward viewer with two eyes"
+    },
+    {
+      "attempt": 3,
+      "status": "selected as a single-frame pose concept",
+      "change": "Whole reference rotated 18 degrees clockwise as conditioning input, stronger profile and low posture prompts, still new full empty-latent generation"
+    }
+  ],
+  "visualReview": {
+    "pose": "Low forward-leaning airborne running moment",
+    "face": "Single visible oval eye in side profile",
+    "proportions": "Large round head and short limbs",
+    "cape": "Long layered flowing paper cape",
+    "limitations": [
+      "Airborne pose; not a grounded contact frame",
+      "Hands and shorts partially obscured by cape",
+      "One generated drawing, not a completed animation cycle"
+    ]
+  }
+}

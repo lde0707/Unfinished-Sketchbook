@@ -1,0 +1,34 @@
+{
+  "size": [
+    1216,
+    832
+  ],
+  "mode": "RGBA",
+  "alphaExtrema": [
+    0,
+    255
+  ],
+  "alphaBounds": [
+    136,
+    155,
+    1012,
+    679
+  ],
+  "entireCharacterNewlyGenerated": true,
+  "inpainting": false,
+  "referencePixelsComposited": false,
+  "backgroundRemoval": "rembg 2.0.85 + U2NET (CPU)",
+  "visualReview": "Reviewed full-size generated image and transparent cutout on dark background: low forward airborne pose, single visible oval eye, short limbs, full cape retained.",
+  "limitations": [
+    "Single airborne pose concept; not a complete run cycle",
+    "Hands and shorts partly occluded by cape"
+  ],
+  "low-run-sprite.png": {
+    "width": 1216,
+    "height": 832
+  },
+  "low-run-sprite-512.png": {
+    "width": 512,
+    "height": 350
+  }
+}
