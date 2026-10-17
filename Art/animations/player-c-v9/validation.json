@@ -1,0 +1,160 @@
+{
+  "passed": true,
+  "frameCount": 11,
+  "allFrameFilesByteIdenticalToV8": true,
+  "atlasByteIdenticalToV8": true,
+  "timingUnchanged": true,
+  "loopMs": 800,
+  "noNonzeroAlphaClipped": true,
+  "noGroundPenetration": true,
+  "headX": [
+    346,
+    356,
+    360,
+    356,
+    351,
+    346,
+    356,
+    359,
+    360,
+    356,
+    351
+  ],
+  "headY": [
+    211,
+    217,
+    217,
+    232,
+    217,
+    211,
+    207,
+    213,
+    213,
+    222,
+    220
+  ],
+  "frames": [
+    {
+      "label": "1",
+      "sourceSha256": "5861980b8ca088fe4249cec0ae110867b115a00492426ffed44f48136a36a14a",
+      "outputSha256": "5861980b8ca088fe4249cec0ae110867b115a00492426ffed44f48136a36a14a",
+      "pixelsIdentical": true,
+      "offset": [
+        -4,
+        0
+      ],
+      "footGap": 0
+    },
+    {
+      "label": "2",
+      "sourceSha256": "10c39c627cbee7ebf97c0710ed677b45d90e44609408c46271a1bc253c776577",
+      "outputSha256": "10c39c627cbee7ebf97c0710ed677b45d90e44609408c46271a1bc253c776577",
+      "pixelsIdentical": true,
+      "offset": [
+        6,
+        6
+      ],
+      "footGap": 2
+    },
+    {
+      "label": "3",
+      "sourceSha256": "a9264867fec6c3e569b72792d04a33d19c4de5887db4628040c40675004d0cee",
+      "outputSha256": "a9264867fec6c3e569b72792d04a33d19c4de5887db4628040c40675004d0cee",
+      "pixelsIdentical": true,
+      "offset": [
+        10,
+        2
+      ],
+      "footGap": 8
+    },
+    {
+      "label": "4",
+      "sourceSha256": "c0d05ad6ebcd37eac032de4bfc272a3ac4f803b0a82b0d0740bc092d96a7bab5",
+      "outputSha256": "c0d05ad6ebcd37eac032de4bfc272a3ac4f803b0a82b0d0740bc092d96a7bab5",
+      "pixelsIdentical": true,
+      "offset": [
+        6,
+        0
+      ],
+      "footGap": 0
+    },
+    {
+      "label": "4-5",
+      "sourceSha256": "866c7f19b88378010ac62ed3b298aba0c40e50d04720d120fe958a4cb693d378",
+      "outputSha256": "866c7f19b88378010ac62ed3b298aba0c40e50d04720d120fe958a4cb693d378",
+      "pixelsIdentical": true,
+      "offset": [
+        1,
+        0
+      ],
+      "footGap": 0
+    },
+    {
+      "label": "5",
+      "sourceSha256": "993df70ef8a02c40628a88ebc140ad1fdbdaaed2196f5db74de851e151e3655a",
+      "outputSha256": "993df70ef8a02c40628a88ebc140ad1fdbdaaed2196f5db74de851e151e3655a",
+      "pixelsIdentical": true,
+      "offset": [
+        -4,
+        0
+      ],
+      "footGap": 0
+    },
+    {
+      "label": "6",
+      "sourceSha256": "40f525f1825e6d4e4e3aa20603195c301cc40757d2b25bff1165153c88036497",
+      "outputSha256": "40f525f1825e6d4e4e3aa20603195c301cc40757d2b25bff1165153c88036497",
+      "pixelsIdentical": true,
+      "offset": [
+        6,
+        4
+      ],
+      "footGap": 2
+    },
+    {
+      "label": "6-7",
+      "sourceSha256": "ade4dee1cd7ac2455411df6d9d25761731f051805d129953adf2e3ed5cedd6cf",
+      "outputSha256": "ade4dee1cd7ac2455411df6d9d25761731f051805d129953adf2e3ed5cedd6cf",
+      "pixelsIdentical": true,
+      "offset": [
+        9,
+        8
+      ],
+      "footGap": 33
+    },
+    {
+      "label": "7",
+      "sourceSha256": "2557bccfd409c1bff954e7ad9fc103c227c7029c97733ab3ab52bcb9e0ddd2f7",
+      "outputSha256": "2557bccfd409c1bff954e7ad9fc103c227c7029c97733ab3ab52bcb9e0ddd2f7",
+      "pixelsIdentical": true,
+      "offset": [
+        10,
+        6
+      ],
+      "footGap": 10
+    },
+    {
+      "label": "8",
+      "sourceSha256": "b1c013aefe5980ee93dd3e58bc007916816e0fe2a566c52189c5d9748c15356f",
+      "outputSha256": "b1c013aefe5980ee93dd3e58bc007916816e0fe2a566c52189c5d9748c15356f",
+      "pixelsIdentical": true,
+      "offset": [
+        6,
+        0
+      ],
+      "footGap": 0
+    },
+    {
+      "label": "8-1",
+      "sourceSha256": "8775da6d6c83a842e67048392dadef300cb3caeb8a7eef6691f2c0d06e498f59",
+      "outputSha256": "8775da6d6c83a842e67048392dadef300cb3caeb8a7eef6691f2c0d06e498f59",
+      "pixelsIdentical": true,
+      "offset": [
+        1,
+        0
+      ],
+      "footGap": 0
+    }
+  ],
+  "note": "Geometry and identity checks do not establish user approval of motion."
+}

@@ -1,0 +1,57 @@
+{
+  "status": "Whole-sprite positional revision, preserving v8 limb drawings and timings. Preview only.",
+  "base": "player-c-v8",
+  "generator": "No new image generation. Original v8 PNG files and atlas copied byte-for-byte.",
+  "frameCount": 11,
+  "loopMs": 800,
+  "offsets": {
+    "1": [
+      -4,
+      0
+    ],
+    "2": [
+      6,
+      6
+    ],
+    "3": [
+      10,
+      2
+    ],
+    "4": [
+      6,
+      0
+    ],
+    "5": [
+      -4,
+      0
+    ],
+    "6": [
+      6,
+      4
+    ],
+    "7": [
+      10,
+      6
+    ],
+    "8": [
+      6,
+      0
+    ],
+    "4-5": [
+      1,
+      0
+    ],
+    "6-7": [
+      9,
+      8
+    ],
+    "8-1": [
+      1,
+      0
+    ]
+  },
+  "reason": "Emphasize small forward/recovery movement; lower airborne frames2/6, with smaller vertical follow-through. Preserve floor contact and authored limb/arm animation.",
+  "implementation": "Whole sprite integer translation, no resampling, rotation, redraw or part manipulation. 16px side padding protects all original nonzero-alpha pixels. Apply registration.frames[].renderOffset when rendering PNG/atlas; plain atlas remains v8.",
+  "originalPrompts": "../player-c-v8/design.json",
+  "scope": "No changes to arm/leg poses, smear or frame durations. Previously noted v8 limb-transition issues are intentionally not changed under the user's preservation constraint."
+}

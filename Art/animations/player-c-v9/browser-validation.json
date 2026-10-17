@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "frameCount": 11,
+  "unchangedDrawings": 11,
+  "loopMs": 800,
+  "consoleErrors": [],
+  "checked": "All frame selectors, matching v8 frame phase, wrap, speed, flip and guides. Motion disabled gives pixel-identical canvases for all eleven frames; enabled applies2:[6,6] and6:[6,4]. All PNG bytes and frame durations identical to v8."
+}

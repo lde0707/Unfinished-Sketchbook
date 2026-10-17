@@ -1,0 +1,38 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>플레이어 v9 · 앞으로 진행하는 달리기</title>
+<style>:root{color-scheme:dark;font-family:system-ui,'Malgun Gothic',sans-serif;color:#e7dfd1;background:#191d22}*{box-sizing:border-box}body{margin:auto;padding:24px;max-width:1200px}h1{font-size:24px}p{font-size:14px;line-height:1.7;color:#bbc3c6}.eyebrow{color:#d6bd94;font-size:12px;letter-spacing:2px}.controls{display:flex;flex-wrap:wrap;gap:9px;align-items:center;padding:12px 0}button,select{font:inherit;font-size:13px;padding:8px 11px;border:1px solid #596773;background:#303942;border-radius:7px;color:#eee3d1;cursor:pointer}button.active{background:#d3c1a4;color:#15191d}button.insert{border-color:#ba976c}label{font-size:13px;display:flex;align-items:center;gap:5px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card{border:1px solid #46515a;border-radius:12px;overflow:hidden;background:#242a30}.caption{padding:14px 18px 0;font-size:15px}.caption small{display:block;color:#a9b5bb;font-size:12px}canvas{width:100%;aspect-ratio:544/512;display:block}#role{padding:14px 17px;margin:12px 0;border-left:3px solid #d3c1a4;background:#242a30;font-size:14px;line-height:1.7}.timeline{display:flex;align-items:center;gap:12px}input[type=range]{flex:1}#keys{display:flex;gap:8px;margin:15px 0;flex-wrap:wrap}details{padding:13px 0}details img{width:100%}a{color:#dcc098}footer{font-size:12px;color:#9ba7ad;line-height:1.7}#error{color:#f5b0a1}@media(max-width:600px){body{padding:12px}.pair{gap:6px}.caption{font-size:13px;padding:8px}.caption small{font-size:10px}}</style>
+<header><div class="eyebrow">UNFINISHED SKETCHBOOK · PLAYER C / V9 · SAME V8 DRAWINGS</div><h1>팔·다리는 그대로, 몸은 앞으로</h1><p>2번·6번의 뜨는 높이를 낮추고, 몸이 조금 앞으로 진행했다가 돌아오도록 위치만 조정했습니다.<br>팔·다리·잔상 그림 11장과 재생 시간은 v8 그대로입니다.</p></header>
+<div class="controls"><button id="play">일시정지</button><label><input id="motion" type="checkbox" checked>수정한 몸 이동</label><button id="prev">이전</button><button id="next">다음</button><label>속도<select id="speed"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select></label><label><input id="flip" type="checkbox">좌우 반전</label><label><input id="floor" type="checkbox" checked>바닥선</label><label><input id="headGuide" type="checkbox">머리 기준선</label></div>
+<p>번호는 <b>기존 v6 기준</b>입니다. ‘4→5’ 같은 버튼은 새로 그린 연결 자세입니다. 왼쪽의 몸 이동을 끄면 오른쪽 v8과 같은 위치로 표시됩니다.</p><div id="error" role="alert"></div>
+<main class="pair"><section class="card"><div class="caption">수정 v9 · <span id="currentLabel"></span><small>11장 · 한 바퀴 0.8초 · 전신 그림</small></div><canvas id="ours" width="544" height="512" aria-label="11프레임 달리기"></canvas></section><section class="card"><div class="caption">기준 v8 · <span id="baseLabel"></span><small>같은 11장 · 같은 시간 · 기존 몸 위치</small></div><canvas id="reference" width="544" height="512" aria-label="기준 v8 달리기"></canvas></section></main>
+<div id="role"></div><div class="timeline"><input type="range" id="scrub" min="0" max="10" value="0" aria-label="프레임 선택"><output id="position">1 / 11</output></div><div id="keys"></div>
+<details><summary>11장 전체 자세</summary><img src="run-contact-sheet.jpg" alt="2번 수정과 연결 3장이 포함된 11장"></details>
+<footer>11장 PNG와 아틀라스는 v8 파일과 바이트 단위로 같습니다. 캐릭터 전체를 정수 픽셀만큼 옮겨 표시합니다.<br>추가된 구간은 기존 100ms를 50ms+50ms로 나눠 전체 달리기 속도를 유지했습니다.<br>원화: 기존 v8 내장 imagegen 결과 재사용 · <a href="design.json">위치 조정 기록</a> · <a href="registration.json">프레임 순서·시간·이동량</a><br>Unity·배포 게임에는 아직 적용하지 않은 미리보기입니다.</footer>
+<script>
+const $=id=>document.getElementById(id),oc=$('ours').getContext('2d'),rc=$('reference').getContext('2d');
+const notes=[
+'먼 왼다리로 뒤에서 밀기 · 가까운 오른손이 앞으로.',
+'수정: 가까운 다리의 무릎을 1번보다 조금 폅니다. 팔은 직전 자세를 유지해 늦게 따라옵니다.',
+'가까운 발이 내려옵니다. 가까운 팔은 뒤로 빠르게 넘어가며 잔상, 먼 왼손은 앞으로.',
+'가까운 오른다리로 지지 · 먼 왼손이 앞으로, 가까운 팔은 뒤에.',
+'추가: 가까운 지지발이 몸 아래를 지나 뒤로 이동합니다. 먼 다리는 접힌 채 앞으로 통과합니다.',
+'가까운 오른발이 뒤로 바닥을 밀고 먼 다리는 앞으로 접힙니다. 먼 왼손은 앞 자세 유지.',
+'다음 프레임에서 팔이 빠르게 따라옵니다. 가까운 손이 앞으로 이동하며 짧은 잔상.',
+'추가: 먼 왼다리의 무릎을 절반만 펴서 7번으로 연결합니다. 팔 잔상은 사라집니다.',
+'먼 왼발을 내려 착지를 준비합니다. 가까운 오른손이 앞으로.',
+'먼 왼발로 체중을 받고 가까운 다리를 회수합니다. 가까운 오른손이 앞으로.',
+'추가: 먼 지지발이 몸 아래를 지나 뒤로 이동하고 가까운 무릎이 앞으로 통과해 1번으로 연결됩니다.'
+];
+const state={frame:0,playing:true,ready:false,elapsed:0,last:0,frameCount:11,inbetweenCount:3};window.previewState=state;
+let art=[],base=[],meta,starts=[];
+function img(src){return new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=()=>reject(Error(src+' 로드 실패'));i.src=src})}
+function bg(c){c.fillStyle='#242a30';c.fillRect(0,0,544,512);if($('floor').checked){c.strokeStyle='#758591';c.beginPath();c.moveTo(12,448.5);c.lineTo(532,448.5);c.stroke()}if($('headGuide').checked){c.save();c.setLineDash([5,5]);c.strokeStyle='#a8987d';c.beginPath();c.moveTo(12,211);c.lineTo(532,211);c.stroke();c.restore()}}
+function render(){if(!state.ready)return;const n=state.frame,m=meta.frames[n];for(const[c,im]of[[oc,art[n]],[rc,base[n]]]){bg(c);c.save();if($('flip').checked){c.translate(544,0);c.scale(-1,1)}const o=c===oc&&$('motion').checked?m.renderOffset:[0,0];c.drawImage(im,16+o[0],o[1]);c.restore()}$('scrub').value=n;$('position').textContent=(n+1)+' / 11';$('currentLabel').textContent=m.label.replace('-', '→');$('baseLabel').textContent=m.label.replace('-','→');$('role').textContent=m.label.replace('-','→')+' · 몸 위치: 가로 '+m.renderOffset[0]+'px / 아래 '+m.renderOffset[1]+'px · 팔·다리 그림과 시간은 동일';document.querySelectorAll('[data-frame]').forEach(b=>b.classList.toggle('active',+b.dataset.frame===n));state.displayedFrame=n;state.label=m.label;state.referenceFrame=n;state.appliedOffset=$('motion').checked?m.renderOffset:[0,0];}
+function pause(){state.playing=false;$('play').textContent='재생'}
+function setFrame(n){state.frame=(n+11)%11;state.elapsed=starts[state.frame];render()}
+window.setPreviewFrame=n=>{pause();setFrame(n)};
+$('play').onclick=()=>{state.playing=!state.playing;$('play').textContent=state.playing?'일시정지':'재생'};
+$('prev').onclick=()=>{pause();setFrame(state.frame-1)};$('next').onclick=()=>{pause();setFrame(state.frame+1)};
+$('scrub').oninput=()=>{pause();setFrame(+$('scrub').value)};['flip','floor','headGuide','motion'].forEach(k=>$(k).onchange=render);
+function tick(t){const dt=state.last?Math.min(t-state.last,100):0;state.last=t;if(state.ready&&state.playing){state.elapsed=(state.elapsed+dt*+$('speed').value)%meta.loopMs;state.frame=starts.findLastIndex(s=>state.elapsed>=s);render()}requestAnimationFrame(tick)}
+(async()=>{try{meta=await(await fetch('registration.json')).json();let ms=0;for(const m of meta.frames){starts.push(ms);ms+=m.durationMs;const b=document.createElement('button');b.textContent=m.label.replace('-','→');b.dataset.frame=m.index;if(m.inserted)b.classList.add('insert');b.onclick=()=>{pause();setFrame(m.index)};$('keys').appendChild(b)}[art,base]=await Promise.all([Promise.all(meta.frames.map(m=>img('frames/'+String(m.index).padStart(2,'0')+'.png'))),Promise.all(Array.from({length:11},(_,i)=>img('../player-c-v8/frames/'+String(i).padStart(2,'0')+'.png')))]);state.ready=true;render();requestAnimationFrame(tick)}catch(e){$('error').textContent=e.message}})();
+</script></html>
