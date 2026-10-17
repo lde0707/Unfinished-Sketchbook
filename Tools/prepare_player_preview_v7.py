@@ -1,0 +1,20 @@
+from pathlib import Path
+import json
+root=Path.cwd(); dest=root/'Art/animations/player-c-v7'
+p=(root/'Art/animations/player-c-v6/preview.html').read_text(encoding='utf-8').replace('PLAYER C / V6','PLAYER C / V7').replace('다리가 교대하는 8장 달리기','몸과 망토가 함께 움직이는 8장 달리기')
+p=p.replace('<label>속도<select','<label>비교<select id="compare"><option value="v6">이전 v6</option><option value="warrior">Warrior 원본</option></select></label><label>속도<select')
+p=p.replace('Warrior 원본<small>같은 프레임 번호 · 같은 주기</small>','<span id="compareTitle">이전 v6</span><small>같은 프레임 번호 · 같은 주기</small>')
+p=p.replace('let art=[],raw=[],registration;','let art=[],raw=[],old=[],registration;')
+p=p.replace('[rc,raw[n],true]',"[rc,$('compare').value==='v6'?old[n]:raw[n],$('compare').value==='warrior']")
+p=p.replace('else c.drawImage(im,0,0);','else c.drawImage(im,c===rc?30:0,0);')
+p=p.replace('if(!state.referenceAvailable){','if(!state.referenceAvailable&&$(\'compare\').value===\'warrior\'){')
+p=p.replace("['flip','floor','headGuide']","['flip','floor','headGuide','compare']")
+p=p.replace("const n=state.frame;background", "const n=state.frame;$('compareTitle').textContent=$('compare').value==='v6'?'이전 v6':'Warrior 원본';background")
+p=p.replace("state.ready=true;render();", "old=await Promise.all(Array.from({length:8},(_,i)=>img(\x60../player-c-v6/frames/\x24{String(i).padStart(2,'0')}.png\x60)));state.ready=true;render();")
+p=p.replace('머리 크기를 통일하고, 이륙·착지에 따라 몸 전체 높이를 바꿨습니다.','머리 크기를 통일하고, 이륙·착지에 따라 몸 전체 높이를 바꿨습니다. 팔의 앞뒤 움직임과 망토의 지연 움직임을 원화에 추가했습니다.')
+(dest/'preview.html').write_text(p,encoding='utf-8')
+(dest/'frame-audit.html').write_text('<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=preview.html"><a href="preview.html">8프레임 비교 열기</a>',encoding='utf-8')
+c=(root/'Tools/check_player_run_v6.cjs').read_text(encoding='utf-8').replace('player-c-v6','player-c-v7')
+c=c.replace("assert.match(await page.locator('#role')", "await page.locator('#compare').selectOption('warrior');assert.equal(await page.locator('#compareTitle').textContent(),'Warrior 원본');await page.locator('#compare').selectOption('v6');\n assert.match(await page.locator('#role')")
+c=c.replace("assert.equal(meta.frames.length,8);","assert.equal(meta.frames.length,8);assert(meta.frames.every(f=>f.footGap>=0));assert(new Set(meta.frames.map(f=>f.headCenter[0])).size>1);")
+(root/'Tools/check_player_run_v7.cjs').write_text(c,encoding='utf-8')

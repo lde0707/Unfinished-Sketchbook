@@ -1,0 +1,267 @@
+{
+  "frameCount": 8,
+  "inbetweenCount": 0,
+  "fps": 10,
+  "loopMs": 800,
+  "cellSize": 512,
+  "columns": 4,
+  "rows": 2,
+  "groundY": 448,
+  "pivot": [
+    0.7421875,
+    0.125
+  ],
+  "sourceHeadDeltaPx": [
+    0,
+    0,
+    1,
+    2,
+    1,
+    -2,
+    -1,
+    2
+  ],
+  "headRegistration": "Uniform head width; whole drawings registered to the sole with explicit airborne clearance. Body compression and extension determine head height. Small whole-body horizontal drift retained.",
+  "frames": [
+    {
+      "frame": 1,
+      "source": "keys-a.png",
+      "sourceRect": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "scale": 0.6808510638297872,
+      "translation": [
+        -8,
+        116
+      ],
+      "headCenter": [
+        380,
+        213
+      ],
+      "headWidth": 160,
+      "bounds": [
+        41,
+        133,
+        460,
+        448
+      ],
+      "footGap": 0,
+      "forwardLeg": "near",
+      "supportLeg": "far",
+      "durationMs": 100
+    },
+    {
+      "frame": 2,
+      "source": "keys-a.png",
+      "sourceRect": [
+        768,
+        0,
+        1536,
+        512
+      ],
+      "scale": 0.6986899563318777,
+      "translation": [
+        31,
+        91
+      ],
+      "headCenter": [
+        383,
+        178
+      ],
+      "headWidth": 160,
+      "bounds": [
+        59,
+        98,
+        463,
+        438
+      ],
+      "footGap": 10,
+      "forwardLeg": "near",
+      "supportLeg": null,
+      "durationMs": 100
+    },
+    {
+      "frame": 3,
+      "source": "keys-a.png",
+      "sourceRect": [
+        0,
+        512,
+        768,
+        1024
+      ],
+      "scale": 0.7339449541284404,
+      "translation": [
+        -45,
+        101
+      ],
+      "headCenter": [
+        386,
+        204
+      ],
+      "headWidth": 160,
+      "bounds": [
+        22,
+        124,
+        467,
+        442
+      ],
+      "footGap": 6,
+      "forwardLeg": "near",
+      "supportLeg": null,
+      "durationMs": 100
+    },
+    {
+      "frame": 4,
+      "source": "keys-a.png",
+      "sourceRect": [
+        768,
+        512,
+        1536,
+        1024
+      ],
+      "scale": 0.730593607305936,
+      "translation": [
+        -35,
+        112
+      ],
+      "headCenter": [
+        383,
+        220
+      ],
+      "headWidth": 160,
+      "bounds": [
+        18,
+        140,
+        462,
+        448
+      ],
+      "footGap": 0,
+      "forwardLeg": "near",
+      "supportLeg": "near",
+      "durationMs": 100
+    },
+    {
+      "frame": 5,
+      "source": "keys-b.png",
+      "sourceRect": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "scale": 0.642570281124498,
+      "translation": [
+        33,
+        133
+      ],
+      "headCenter": [
+        380,
+        228
+      ],
+      "headWidth": 160,
+      "bounds": [
+        75,
+        148,
+        460,
+        448
+      ],
+      "footGap": 0,
+      "forwardLeg": "far",
+      "supportLeg": "near",
+      "durationMs": 100
+    },
+    {
+      "frame": 6,
+      "source": "keys-b.png",
+      "sourceRect": [
+        768,
+        0,
+        1536,
+        512
+      ],
+      "scale": 0.6557377049180327,
+      "translation": [
+        43,
+        108
+      ],
+      "headCenter": [
+        383,
+        199
+      ],
+      "headWidth": 160,
+      "bounds": [
+        95,
+        119,
+        463,
+        430
+      ],
+      "footGap": 18,
+      "forwardLeg": "far",
+      "supportLeg": null,
+      "durationMs": 100
+    },
+    {
+      "frame": 7,
+      "source": "keys-b.png",
+      "sourceRect": [
+        0,
+        512,
+        768,
+        1024
+      ],
+      "scale": 0.6779661016949152,
+      "translation": [
+        -16,
+        135
+      ],
+      "headCenter": [
+        386,
+        220
+      ],
+      "headWidth": 160,
+      "bounds": [
+        37,
+        140,
+        466,
+        436
+      ],
+      "footGap": 12,
+      "forwardLeg": "far",
+      "supportLeg": null,
+      "durationMs": 100
+    },
+    {
+      "frame": 8,
+      "source": "keys-b.png",
+      "sourceRect": [
+        768,
+        512,
+        1536,
+        1024
+      ],
+      "scale": 0.6779661016949152,
+      "translation": [
+        5,
+        144
+      ],
+      "headCenter": [
+        383,
+        231
+      ],
+      "headWidth": 160,
+      "bounds": [
+        47,
+        151,
+        464,
+        448
+      ],
+      "footGap": 0,
+      "forwardLeg": "far",
+      "supportLeg": "far",
+      "durationMs": 100
+    }
+  ]
+}
