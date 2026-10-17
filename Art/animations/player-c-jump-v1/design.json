@@ -24,18 +24,19 @@
   "durationMs": [
     60,
     40,
-    140,
-    80,
-    180,
+    160,
+    100,
+    200,
     40,
     60,
     80
   ],
-  "totalMs": 680,
+  "totalMs": 740,
   "flightStartMs": 100,
-  "flightEndMs": 500,
-  "jumpHeightPx": 100,
+  "flightEndMs": 560,
+  "jumpHeightPx": 130,
   "horizontalDisplacementPx": 0,
   "processing": "Crop and uniformly register complete drawings. Runtime vertical translation applies a parabola to the whole sprite; no joint rig, body rotation or generated in-between morphing.",
-  "unityApplied": false
+  "unityApplied": false,
+  "heightRevision": "User requested a slightly higher jump: +30% height and 400ms to 460ms flight; original pose artwork and grounded timings unchanged."
 }

@@ -1,6 +1,6 @@
 {
   "frameCount": 8,
-  "durationMs": 680,
+  "durationMs": 740,
   "cellSize": 512,
   "columns": 4,
   "rows": 2,
@@ -10,10 +10,10 @@
   ],
   "groundY": 448,
   "flightStartMs": 100,
-  "flightEndMs": 500,
-  "jumpHeightPx": 100,
+  "flightEndMs": 560,
+  "jumpHeightPx": 130,
   "horizontalDisplacementPx": 0,
-  "rootMotion": "During 100..500ms: y=-4*100*u*(1-u), u=(t-100)/400; otherwise y=0. Root x is constant. Apply to whole sprite only.",
+  "rootMotion": "During 100..560ms: y=-4*130*u*(1-u), u=(t-100)/460; otherwise y=0. Root x is constant. Apply to whole sprite only.",
   "frames": [
     {
       "frame": 1,
@@ -100,7 +100,7 @@
       ],
       "airborne": true,
       "startMs": 100,
-      "durationMs": 140
+      "durationMs": 160
     },
     {
       "frame": 4,
@@ -128,8 +128,8 @@
         415
       ],
       "airborne": true,
-      "startMs": 240,
-      "durationMs": 80
+      "startMs": 260,
+      "durationMs": 100
     },
     {
       "frame": 5,
@@ -157,8 +157,8 @@
         434
       ],
       "airborne": true,
-      "startMs": 320,
-      "durationMs": 180
+      "startMs": 360,
+      "durationMs": 200
     },
     {
       "frame": 6,
@@ -186,7 +186,7 @@
         448
       ],
       "airborne": false,
-      "startMs": 500,
+      "startMs": 560,
       "durationMs": 40
     },
     {
@@ -215,7 +215,7 @@
         448
       ],
       "airborne": false,
-      "startMs": 540,
+      "startMs": 600,
       "durationMs": 60
     },
     {
@@ -244,7 +244,7 @@
         448
       ],
       "airborne": false,
-      "startMs": 600,
+      "startMs": 660,
       "durationMs": 80
     }
   ]

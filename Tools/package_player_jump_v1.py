@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 import json,hashlib
 ROOT=Path(__file__).resolve().parents[1];ART=ROOT/'Art/animations';OUT=ART/'player-c-jump-v1'
-DURATIONS=[60,40,140,80,180,40,60,80]
+DURATIONS=[60,40,160,100,200,40,60,80]
 NAMES=['anticipation','takeoff','rise','apex','fall','contact','compression','recovery']
 def bounds(im):return im.getchannel('A').point(lambda v:255 if v>=128 else 0).getbbox()
 def verify_approved():
@@ -33,7 +33,7 @@ def main():
  for i,im in enumerate(frames):
   atlas.alpha_composite(im,((i%4)*512,(i//4)*512));thumb=im.resize((320,320),Image.Resampling.LANCZOS);x,y=(i%4)*320,(i//4)*350;contact.paste(thumb,(x,y),thumb);d.text((x+10,y+325),f'{i+1} {NAMES[i]} {DURATIONS[i]}ms',fill='#eadfce')
  atlas.save(OUT/'jump-atlas.png');contact.save(OUT/'jump-contact-sheet.jpg',quality=95)
- data=dict(frameCount=8,durationMs=start,cellSize=512,columns=4,rows=2,pivot=[365/512,1-448/512],groundY=448,flightStartMs=100,flightEndMs=500,jumpHeightPx=100,horizontalDisplacementPx=0,rootMotion='During 100..500ms: y=-4*100*u*(1-u), u=(t-100)/400; otherwise y=0. Root x is constant. Apply to whole sprite only.',frames=meta)
+ data=dict(frameCount=8,durationMs=start,cellSize=512,columns=4,rows=2,pivot=[365/512,1-448/512],groundY=448,flightStartMs=100,flightEndMs=560,jumpHeightPx=130,horizontalDisplacementPx=0,rootMotion='During 100..560ms: y=-4*130*u*(1-u), u=(t-100)/460; otherwise y=0. Root x is constant. Apply to whole sprite only.',frames=meta)
  (OUT/'registration.json').write_text(json.dumps(data,indent=2),encoding='utf-8')
  checks=dict(frameCount=8,uniqueFrames=len(set(hashlib.sha256(f.tobytes()).hexdigest() for f in frames)),durationMs=start,headY=[m['headCenter'][1] for m in meta],groundedBottoms=[m['bounds'][3] for m in meta if not m['airborne']],approvedRunAndIdleUnchanged=verify_approved(),note='World-space jump arc is separate from pose artwork. Files do not prove perceived fluidity.')
  (OUT/'validation.json').write_text(json.dumps(checks,indent=2),encoding='utf-8');print(json.dumps(checks))
