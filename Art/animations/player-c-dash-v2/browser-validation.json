@@ -5,7 +5,7 @@
     "4 drawings across 180ms; 115.2px travel at640px/s in both directions",
     "start direction locked until dash ends",
     "ground dash resumes run or stop then idle",
-    "air dash tested at rise/apex/descent in stationary/left/right jumps; height held; exact jump time and height resumed",
+    "air dash tested at rise/apex/descent in stationary/left/right jumps; height held; exits directly into Fall at same height with no further ascent",
     "one air dash per jump even after cooldown; landing restores charge",
     "Space during air dash cannot create midair jump; late input buffers through landing",
     "release movement during air dash resumes falling instead of snapping to ground",
@@ -354,10 +354,10 @@
         },
         "resumed": {
           "ready": true,
-          "mode": "jump",
+          "mode": "fall",
           "jumpVariant": "tuck",
-          "time": 60,
-          "frame": 3,
+          "time": 65,
+          "frame": 1,
           "x": 115.20000000000009,
           "y": -26.724952741020793,
           "facing": 1,
@@ -366,7 +366,7 @@
           "history": [
             "idle → jump",
             "jump → dash",
-            "dash → jump"
+            "dash → fall"
           ],
           "demo": null,
           "clock": 240,
@@ -385,8 +385,8 @@
           "ready": true,
           "mode": "idle",
           "jumpVariant": "tuck",
-          "time": 385,
-          "frame": 1,
+          "time": 697.6793920203753,
+          "frame": 2,
           "x": 115.20000000000009,
           "y": 0,
           "facing": 1,
@@ -395,8 +395,8 @@
           "history": [
             "idle → jump",
             "jump → dash",
-            "dash → jump",
-            "jump → idle"
+            "dash → fall",
+            "fall → idle"
           ],
           "demo": null,
           "clock": 1240,
@@ -408,10 +408,15 @@
           "dashReturn": null,
           "airDashUsed": false,
           "fallVelocity": 0,
-          "fallLandingMs": null,
+          "fallLandingMs": 130,
           "ledge": null
         },
-        "maxHeightError": 0
+        "maxHeightError": 0,
+        "maxAscent": 0,
+        "fallFrames": [
+          1,
+          2
+        ]
       },
       {
         "dir": 0,
@@ -482,10 +487,10 @@
         },
         "resumed": {
           "ready": true,
-          "mode": "jump",
+          "mode": "fall",
           "jumpVariant": "tuck",
-          "time": 230,
-          "frame": 4,
+          "time": 65,
+          "frame": 1,
           "x": 115.20000000000009,
           "y": -126.98960302457468,
           "facing": 1,
@@ -494,7 +499,7 @@
           "history": [
             "idle → jump",
             "jump → dash",
-            "dash → jump"
+            "dash → fall"
           ],
           "demo": null,
           "clock": 410,
@@ -513,7 +518,7 @@
           "ready": true,
           "mode": "idle",
           "jumpVariant": "tuck",
-          "time": 555,
+          "time": 494.36778770159526,
           "frame": 1,
           "x": 115.20000000000009,
           "y": 0,
@@ -523,8 +528,8 @@
           "history": [
             "idle → jump",
             "jump → dash",
-            "dash → jump",
-            "jump → idle"
+            "dash → fall",
+            "fall → idle"
           ],
           "demo": null,
           "clock": 1410,
@@ -536,10 +541,15 @@
           "dashReturn": null,
           "airDashUsed": false,
           "fallVelocity": 0,
-          "fallLandingMs": null,
+          "fallLandingMs": 130,
           "ledge": null
         },
-        "maxHeightError": 0
+        "maxHeightError": 0,
+        "maxAscent": 0,
+        "fallFrames": [
+          1,
+          2
+        ]
       },
       {
         "dir": 0,
@@ -610,10 +620,10 @@
         },
         "resumed": {
           "ready": true,
-          "mode": "jump",
+          "mode": "fall",
           "jumpVariant": "tuck",
-          "time": 430,
-          "frame": 5,
+          "time": 65,
+          "frame": 1,
           "x": 115.20000000000009,
           "y": -63.095463137996205,
           "facing": 1,
@@ -622,7 +632,7 @@
           "history": [
             "idle → jump",
             "jump → dash",
-            "dash → jump"
+            "dash → fall"
           ],
           "demo": null,
           "clock": 610,
@@ -641,7 +651,7 @@
           "ready": true,
           "mode": "idle",
           "jumpVariant": "tuck",
-          "time": 755,
+          "time": 605.2244910243228,
           "frame": 2,
           "x": 115.20000000000009,
           "y": 0,
@@ -651,8 +661,8 @@
           "history": [
             "idle → jump",
             "jump → dash",
-            "dash → jump",
-            "jump → idle"
+            "dash → fall",
+            "fall → idle"
           ],
           "demo": null,
           "clock": 1610,
@@ -664,10 +674,15 @@
           "dashReturn": null,
           "airDashUsed": false,
           "fallVelocity": 0,
-          "fallLandingMs": null,
+          "fallLandingMs": 130,
           "ledge": null
         },
-        "maxHeightError": 0
+        "maxHeightError": 0,
+        "maxAscent": 0,
+        "fallFrames": [
+          1,
+          2
+        ]
       },
       {
         "dir": 1,
@@ -740,10 +755,10 @@
         },
         "resumed": {
           "ready": true,
-          "mode": "jump",
+          "mode": "fall",
           "jumpVariant": "jump",
-          "time": 60,
-          "frame": 0,
+          "time": 65,
+          "frame": 1,
           "x": 127.2000000000001,
           "y": -58.97920604914933,
           "facing": 1,
@@ -753,7 +768,7 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump"
+            "dash → fall"
           ],
           "demo": null,
           "clock": 240,
@@ -772,9 +787,9 @@
           "ready": true,
           "mode": "run",
           "jumpVariant": "jump",
-          "time": 620,
-          "frame": 7,
-          "x": 327.20000000000067,
+          "time": 694.0069314107874,
+          "frame": 0,
+          "x": 327.19999999998885,
           "y": 0,
           "facing": 1,
           "dir": 1,
@@ -783,8 +798,8 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump",
-            "jump → run"
+            "dash → fall",
+            "fall → run"
           ],
           "demo": null,
           "clock": 1240,
@@ -796,10 +811,15 @@
           "dashReturn": null,
           "airDashUsed": false,
           "fallVelocity": 0,
-          "fallLandingMs": null,
+          "fallLandingMs": 130,
           "ledge": null
         },
-        "maxHeightError": 0
+        "maxHeightError": 0,
+        "maxAscent": 0,
+        "fallFrames": [
+          1,
+          2
+        ]
       },
       {
         "dir": 1,
@@ -872,10 +892,10 @@
         },
         "resumed": {
           "ready": true,
-          "mode": "jump",
+          "mode": "fall",
           "jumpVariant": "jump",
-          "time": 230,
-          "frame": 2,
+          "time": 65,
+          "frame": 1,
           "x": 161.1999999999994,
           "y": -130,
           "facing": 1,
@@ -885,7 +905,7 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump"
+            "dash → fall"
           ],
           "demo": null,
           "clock": 410,
@@ -904,9 +924,9 @@
           "ready": true,
           "mode": "run",
           "jumpVariant": "jump",
-          "time": 790,
-          "frame": 1,
-          "x": 361.2000000000005,
+          "time": 569.9415249669544,
+          "frame": 7,
+          "x": 361.19999999998805,
           "y": 0,
           "facing": 1,
           "dir": 1,
@@ -915,8 +935,8 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump",
-            "jump → run"
+            "dash → fall",
+            "fall → run"
           ],
           "demo": null,
           "clock": 1410,
@@ -928,10 +948,15 @@
           "dashReturn": null,
           "airDashUsed": false,
           "fallVelocity": 0,
-          "fallLandingMs": null,
+          "fallLandingMs": 130,
           "ledge": null
         },
-        "maxHeightError": 0
+        "maxHeightError": 0,
+        "maxAscent": 0,
+        "fallFrames": [
+          1,
+          2
+        ]
       },
       {
         "dir": 1,
@@ -1004,10 +1029,10 @@
         },
         "resumed": {
           "ready": true,
-          "mode": "jump",
+          "mode": "fall",
           "jumpVariant": "jump",
-          "time": 430,
-          "frame": 3,
+          "time": 65,
+          "frame": 1,
           "x": 201.19999999999843,
           "y": -31.701323251417747,
           "facing": 1,
@@ -1017,7 +1042,7 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump"
+            "dash → fall"
           ],
           "demo": null,
           "clock": 610,
@@ -1036,9 +1061,9 @@
           "ready": true,
           "mode": "run",
           "jumpVariant": "jump",
-          "time": 990,
-          "frame": 4,
-          "x": 401.2000000000003,
+          "time": 762.3202394993664,
+          "frame": 1,
+          "x": 401.19999999998714,
           "y": 0,
           "facing": 1,
           "dir": 1,
@@ -1047,8 +1072,8 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump",
-            "jump → run"
+            "dash → fall",
+            "fall → run"
           ],
           "demo": null,
           "clock": 1610,
@@ -1060,10 +1085,15 @@
           "dashReturn": null,
           "airDashUsed": false,
           "fallVelocity": 0,
-          "fallLandingMs": null,
+          "fallLandingMs": 130,
           "ledge": null
         },
-        "maxHeightError": 0
+        "maxHeightError": 0,
+        "maxAscent": 0,
+        "fallFrames": [
+          1,
+          2
+        ]
       },
       {
         "dir": -1,
@@ -1136,10 +1166,10 @@
         },
         "resumed": {
           "ready": true,
-          "mode": "jump",
+          "mode": "fall",
           "jumpVariant": "jump",
-          "time": 60,
-          "frame": 0,
+          "time": 65,
+          "frame": 1,
           "x": -127.2000000000001,
           "y": -58.97920604914933,
           "facing": -1,
@@ -1149,7 +1179,7 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump"
+            "dash → fall"
           ],
           "demo": null,
           "clock": 240,
@@ -1168,9 +1198,9 @@
           "ready": true,
           "mode": "run",
           "jumpVariant": "jump",
-          "time": 620,
-          "frame": 7,
-          "x": -327.20000000000067,
+          "time": 694.0069314107874,
+          "frame": 0,
+          "x": -327.19999999998885,
           "y": 0,
           "facing": -1,
           "dir": -1,
@@ -1179,8 +1209,8 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump",
-            "jump → run"
+            "dash → fall",
+            "fall → run"
           ],
           "demo": null,
           "clock": 1240,
@@ -1192,10 +1222,15 @@
           "dashReturn": null,
           "airDashUsed": false,
           "fallVelocity": 0,
-          "fallLandingMs": null,
+          "fallLandingMs": 130,
           "ledge": null
         },
-        "maxHeightError": 0
+        "maxHeightError": 0,
+        "maxAscent": 0,
+        "fallFrames": [
+          1,
+          2
+        ]
       },
       {
         "dir": -1,
@@ -1268,10 +1303,10 @@
         },
         "resumed": {
           "ready": true,
-          "mode": "jump",
+          "mode": "fall",
           "jumpVariant": "jump",
-          "time": 230,
-          "frame": 2,
+          "time": 65,
+          "frame": 1,
           "x": -161.1999999999994,
           "y": -130,
           "facing": -1,
@@ -1281,7 +1316,7 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump"
+            "dash → fall"
           ],
           "demo": null,
           "clock": 410,
@@ -1300,9 +1335,9 @@
           "ready": true,
           "mode": "run",
           "jumpVariant": "jump",
-          "time": 790,
-          "frame": 1,
-          "x": -361.2000000000005,
+          "time": 569.9415249669544,
+          "frame": 7,
+          "x": -361.19999999998805,
           "y": 0,
           "facing": -1,
           "dir": -1,
@@ -1311,8 +1346,8 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump",
-            "jump → run"
+            "dash → fall",
+            "fall → run"
           ],
           "demo": null,
           "clock": 1410,
@@ -1324,10 +1359,15 @@
           "dashReturn": null,
           "airDashUsed": false,
           "fallVelocity": 0,
-          "fallLandingMs": null,
+          "fallLandingMs": 130,
           "ledge": null
         },
-        "maxHeightError": 0
+        "maxHeightError": 0,
+        "maxAscent": 0,
+        "fallFrames": [
+          1,
+          2
+        ]
       },
       {
         "dir": -1,
@@ -1400,10 +1440,10 @@
         },
         "resumed": {
           "ready": true,
-          "mode": "jump",
+          "mode": "fall",
           "jumpVariant": "jump",
-          "time": 430,
-          "frame": 3,
+          "time": 65,
+          "frame": 1,
           "x": -201.19999999999843,
           "y": -31.701323251417747,
           "facing": -1,
@@ -1413,7 +1453,7 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump"
+            "dash → fall"
           ],
           "demo": null,
           "clock": 610,
@@ -1432,9 +1472,9 @@
           "ready": true,
           "mode": "run",
           "jumpVariant": "jump",
-          "time": 990,
-          "frame": 4,
-          "x": -401.2000000000003,
+          "time": 762.3202394993664,
+          "frame": 1,
+          "x": -401.19999999998714,
           "y": 0,
           "facing": -1,
           "dir": -1,
@@ -1443,8 +1483,8 @@
             "idle → start",
             "start → jump",
             "jump → dash",
-            "dash → jump",
-            "jump → run"
+            "dash → fall",
+            "fall → run"
           ],
           "demo": null,
           "clock": 1610,
@@ -1456,10 +1496,15 @@
           "dashReturn": null,
           "airDashUsed": false,
           "fallVelocity": 0,
-          "fallLandingMs": null,
+          "fallLandingMs": 130,
           "ledge": null
         },
-        "maxHeightError": 0
+        "maxHeightError": 0,
+        "maxAscent": 0,
+        "fallFrames": [
+          1,
+          2
+        ]
       }
     ],
     "secondAir": false,
@@ -1503,9 +1548,9 @@
     },
     "releaseAir": {
       "ready": true,
-      "mode": "jump",
+      "mode": "fall",
       "jumpVariant": "jump",
-      "time": 100,
+      "time": 65,
       "frame": 1,
       "x": 135.20000000000005,
       "y": -88.468809073724,
@@ -1516,7 +1561,7 @@
         "idle → start",
         "start → jump",
         "jump → dash",
-        "dash → jump"
+        "dash → fall"
       ],
       "demo": null,
       "clock": 280,
@@ -1535,7 +1580,7 @@
       "ready": true,
       "mode": "idle",
       "jumpVariant": "jump",
-      "time": 580,
+      "time": 556.4738021335661,
       "frame": 1,
       "x": 135.20000000000005,
       "y": 0,
@@ -1546,8 +1591,8 @@
         "idle → start",
         "start → jump",
         "jump → dash",
-        "dash → jump",
-        "jump → idle"
+        "dash → fall",
+        "fall → idle"
       ],
       "demo": null,
       "clock": 1280,
@@ -1559,7 +1604,7 @@
       "dashReturn": null,
       "airDashUsed": false,
       "fallVelocity": 0,
-      "fallLandingMs": null,
+      "fallLandingMs": 130,
       "ledge": null
     },
     "bufferedLanding": {
@@ -1568,7 +1613,7 @@
       "jumpVariant": "jump",
       "time": 0,
       "frame": 0,
-      "x": -207.20000000000002,
+      "x": -238.73595210012667,
       "y": 0,
       "facing": -1,
       "dir": -1,
@@ -1577,11 +1622,11 @@
         "idle → start",
         "start → jump",
         "jump → dash",
-        "dash → jump",
-        "jump → jump"
+        "dash → fall",
+        "fall → jump"
       ],
       "demo": null,
-      "clock": 640,
+      "clock": 797.6797605006338,
       "jumpBufferedUntil": null,
       "jumpCount": 2,
       "dashDir": -1,
@@ -1590,16 +1635,16 @@
       "dashReturn": null,
       "airDashUsed": false,
       "fallVelocity": 0,
-      "fallLandingMs": null,
+      "fallLandingMs": 0,
       "ledge": null
     },
     "airDemo": {
       "ready": true,
       "mode": "idle",
       "jumpVariant": "jump",
-      "time": 240,
+      "time": 239.99999999999977,
       "frame": 0,
-      "x": -10.00000000000002,
+      "x": -10.000000000000062,
       "y": 0,
       "facing": -1,
       "dir": 0,
@@ -1609,16 +1654,14 @@
         "start → run",
         "run → jump",
         "jump → dash",
-        "dash → jump",
-        "jump → run",
-        "run → stop",
-        "stop → idle",
+        "dash → fall",
+        "fall → idle",
         "idle → start",
         "start → run",
         "run → jump",
         "jump → dash",
-        "dash → jump",
-        "jump → run",
+        "dash → fall",
+        "fall → run",
         "run → stop",
         "stop → idle"
       ],
@@ -1632,7 +1675,7 @@
       "dashReturn": null,
       "airDashUsed": false,
       "fallVelocity": 0,
-      "fallLandingMs": null,
+      "fallLandingMs": 130,
       "ledge": null
     },
     "resetReady": true,

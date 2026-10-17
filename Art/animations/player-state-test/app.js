@@ -59,7 +59,12 @@ function dash(){
 }
 function finishDash(){
   S.facing=S.dir||S.dashDir;
-  if(S.dashReturn){const resume=S.dashReturn;S.dashReturn=null;if(resume.kind==='fall'){S.fallVelocity=resume.velocity;S.fallLandingMs=null;enter('fall',resume.time);S.y=resume.y;}else{S.jumpVariant=resume.variant;enter('jump',resume.time);}}
+  if(S.dashReturn){
+    const resume=S.dashReturn;S.dashReturn=null;
+    // A jump dash consumes the remaining jump arc; gravity takes over here.
+    S.fallVelocity=resume.kind==='fall'?resume.velocity:0;S.fallLandingMs=null;
+    enter('fall',resume.kind==='fall'?resume.time:fallReg.entryMs);S.y=resume.y;
+  }
   else enter(S.dir?'run':'stop',S.dir?80:0);
 }
 function consumeBufferedJump(){
