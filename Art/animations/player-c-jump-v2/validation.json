@@ -1,0 +1,25 @@
+{
+  "frameCount": 9,
+  "durationMs": 760,
+  "headY": [
+    237,
+    296,
+    181,
+    203,
+    203,
+    203,
+    232,
+    276,
+    218
+  ],
+  "groundedBottoms": [
+    448,
+    448,
+    448,
+    448,
+    448,
+    448
+  ],
+  "approvedAssetsUnchanged": true,
+  "transparentSource": true
+}

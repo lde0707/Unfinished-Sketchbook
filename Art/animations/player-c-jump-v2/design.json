@@ -1,0 +1,17 @@
+{
+  "status": "preview_pending_user_review",
+  "generator": "built-in imagegen",
+  "reference": [
+    "../player-c-jump-v1/jump-contact-sheet.jpg",
+    "../player-c-jump-v1/frames/03.png"
+  ],
+  "prompts": [
+    {
+      "output": "sources/crouch-tuck-keys.png",
+      "prompt": "Use case: precise-object-edit. Asset: four full-body animation key drawings in a 2 by 2 sprite sheet on a truly transparent RGBA background. Input image 1 is the current jump contact sheet, a pose and character identity reference ONLY; input image 2 is the exact character appearance reference. Redraw exactly this same right-facing side-view soft ivory paper-cloak little character, changing ONLY the pose to a more dynamic tucked stationary jump. Keep the large round ivory head, single black oval eye on the right edge, short compact anatomical legs, plain warm gray-ivory shorts, layered long paper cloak about 10% darker than body, gentle paper texture and warm thin dark outline. Both arms and hands completely concealed INSIDE the cloak. Same head size across all four cells. No additional characters, hands, props, text, lines, labels, shadows or ground. All silhouettes completely contained in their quadrants with generous transparent margins. No joint rig look, noodles, rubber limbs or long legs. Keep original texture, rendering and color, not a redesign.\nTop left: deep PRE-JUMP CROUCH on flat planted feet, knees sharply but anatomically folded, pelvis LOW, torso leans forward 15 degrees, round head stays same size and dips close to knees. Clearly 35% lower stance than reference standing pose. Cloak folds and gathers naturally, does not hide all of the bent legs.\nTop right: EARLY AIRBORNE TUCK immediately after push-off, both short knees bend upward toward chest, pelvis curls under torso, feet drawn back under shorts. Forward pitch mild 10 degrees, still a vertical jump in strict right side profile, not a running pose. Cloak lower tips trail downward.\nBottom left: APEX TUCK, BOTH knees visibly closer to belly than in reference, thighs raised forward, lower legs folded backward, feet close to pelvis. Compact rounded tucked whole body, head same size, clear near bright leg and far darker leg. Cloak billows slightly downward/backward with broad soft paper folds.\nBottom right: LANDING COMPRESSION with both soles planted on same baseline, knees deeply bent and pelvis low, a little less crouched than first pose; body absorbs impact, cloak softly catches up above the bent legs. Face remains right-facing. Original head size and leg proportions must not change. The sheet should show strong believable crouch and tuck through anatomical poses, no global squashing. 2x2 equal cells, no overlap, transparent background."
+    }
+  ],
+  "processing": "Full drawing crop, uniform head-size registration and translation; no joint manipulation, morphing or global squashing.",
+  "scope": "Stationary jump only. Approved v1 retained for moving jumps and fallback.",
+  "unityApplied": false
+}

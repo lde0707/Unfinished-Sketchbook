@@ -58,5 +58,14 @@
       "player-c-jump-v1/jump-atlas.png": "b1575e209dc8ff7ec3121cc14bd894456ae09ab3e3c9bf7e4908777901cef29f",
       "player-c-jump-v1/registration.json": "5f3d7c02e38baca55e7ff23d2f38ae4be11b2f149352ad83b6d6ab927671e711"
     }
+  },
+  "stationaryJumpCandidate": {
+    "status": "preview_pending_user_review",
+    "directory": "player-c-jump-v2",
+    "frameCount": 9,
+    "durationMs": 760,
+    "jumpHeightPx": 130,
+    "usedBy": "player-state-test for jumps initiated without movement input",
+    "approvedFallback": "player-c-jump-v1"
   }
 }

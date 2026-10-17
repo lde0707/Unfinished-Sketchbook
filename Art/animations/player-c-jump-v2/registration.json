@@ -1,0 +1,288 @@
+{
+  "frameCount": 9,
+  "durationMs": 760,
+  "cellSize": 512,
+  "columns": 3,
+  "rows": 3,
+  "pivot": [
+    0.712890625,
+    0.125
+  ],
+  "groundY": 448,
+  "flightStartMs": 120,
+  "flightEndMs": 580,
+  "jumpHeightPx": 130,
+  "horizontalDisplacementPx": 0,
+  "frames": [
+    {
+      "frame": 1,
+      "phase": "load",
+      "source": "../player-c-jump-v1/frames/00.png",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.5734767025089605,
+      "translation": [
+        134,
+        111
+      ],
+      "headCenter": [
+        365,
+        237
+      ],
+      "bounds": [
+        214,
+        158,
+        447,
+        448
+      ],
+      "airborne": false,
+      "startMs": 0,
+      "durationMs": 35,
+      "reusedUnchanged": true
+    },
+    {
+      "source": "sources/crouch-tuck-keys.png",
+      "sourceRect": [
+        0,
+        0,
+        701,
+        561
+      ],
+      "scale": 0.7111111111111111,
+      "translation": [
+        52,
+        76
+      ],
+      "headCenter": [
+        365,
+        296
+      ],
+      "reusedUnchanged": false,
+      "frame": 2,
+      "phase": "deep-crouch",
+      "bounds": [
+        187,
+        216,
+        445,
+        448
+      ],
+      "airborne": false,
+      "startMs": 35,
+      "durationMs": 55
+    },
+    {
+      "frame": 3,
+      "phase": "takeoff",
+      "source": "../player-c-jump-v1/frames/01.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.6694560669456067,
+      "translation": [
+        151,
+        56
+      ],
+      "headCenter": [
+        365,
+        181
+      ],
+      "bounds": [
+        256,
+        101,
+        446,
+        448
+      ],
+      "airborne": false,
+      "startMs": 90,
+      "durationMs": 30,
+      "reusedUnchanged": true
+    },
+    {
+      "source": "sources/crouch-tuck-keys.png",
+      "sourceRect": [
+        701,
+        0,
+        1402,
+        561
+      ],
+      "scale": 0.7111111111111111,
+      "translation": [
+        97,
+        37
+      ],
+      "headCenter": [
+        365,
+        203
+      ],
+      "reusedUnchanged": false,
+      "frame": 4,
+      "phase": "rise-tuck",
+      "bounds": [
+        207,
+        123,
+        445,
+        390
+      ],
+      "airborne": true,
+      "startMs": 120,
+      "durationMs": 150
+    },
+    {
+      "source": "sources/crouch-tuck-keys.png",
+      "sourceRect": [
+        0,
+        561,
+        701,
+        1122
+      ],
+      "scale": 0.6986899563318777,
+      "translation": [
+        30,
+        73
+      ],
+      "headCenter": [
+        365,
+        203
+      ],
+      "reusedUnchanged": false,
+      "frame": 5,
+      "phase": "apex-tuck",
+      "bounds": [
+        204,
+        123,
+        445,
+        369
+      ],
+      "airborne": true,
+      "startMs": 270,
+      "durationMs": 100
+    },
+    {
+      "frame": 6,
+      "phase": "fall",
+      "source": "../player-c-jump-v1/frames/04.png",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.6153846153846154,
+      "translation": [
+        135,
+        79
+      ],
+      "headCenter": [
+        365,
+        203
+      ],
+      "bounds": [
+        195,
+        123,
+        446,
+        434
+      ],
+      "airborne": true,
+      "startMs": 370,
+      "durationMs": 210,
+      "reusedUnchanged": true
+    },
+    {
+      "frame": 7,
+      "phase": "contact",
+      "source": "../player-c-jump-v1/frames/05.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.5818181818181818,
+      "translation": [
+        169,
+        105
+      ],
+      "headCenter": [
+        365,
+        232
+      ],
+      "bounds": [
+        194,
+        152,
+        447,
+        448
+      ],
+      "airborne": false,
+      "startMs": 580,
+      "durationMs": 40,
+      "reusedUnchanged": true
+    },
+    {
+      "source": "sources/crouch-tuck-keys.png",
+      "sourceRect": [
+        701,
+        561,
+        1402,
+        1122
+      ],
+      "scale": 0.7373271889400922,
+      "translation": [
+        53,
+        96
+      ],
+      "headCenter": [
+        365,
+        276
+      ],
+      "reusedUnchanged": false,
+      "frame": 8,
+      "phase": "compression",
+      "bounds": [
+        200,
+        196,
+        445,
+        448
+      ],
+      "airborne": false,
+      "startMs": 620,
+      "durationMs": 60
+    },
+    {
+      "frame": 9,
+      "phase": "recovery",
+      "source": "../player-c-jump-v1/frames/07.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.5818181818181818,
+      "translation": [
+        165,
+        129
+      ],
+      "headCenter": [
+        365,
+        218
+      ],
+      "bounds": [
+        208,
+        138,
+        447,
+        448
+      ],
+      "airborne": false,
+      "startMs": 680,
+      "durationMs": 80,
+      "reusedUnchanged": true
+    }
+  ]
+}

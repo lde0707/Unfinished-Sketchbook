@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "frameCount": 9,
+  "durationMs": 760,
+  "flightMs": 460,
+  "jumpHeightPx": 130,
+  "horizontalDisplacementPx": 0,
+  "approvedRunAndIdleUnchanged": true,
+  "checked": "1ms trajectory samples, takeoff/apex/landing boundaries, no horizontal root movement, all 9 poses, Space/controls/repeat, grounded drawings and both approval hashes.",
+  "consoleErrors": []
+}

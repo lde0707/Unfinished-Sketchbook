@@ -1,0 +1,18 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const {chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
+(async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});try{
+ const page=await browser.newPage({viewport:{width:1100,height:1150}}),errors=[];page.on('pageerror',e=>errors.push(String(e)));
+ await page.goto('http://127.0.0.1:8092/player-c-jump-v2/preview.html');await page.waitForFunction(()=>previewState.ready);
+ await page.evaluate(()=>{previewState.playing=false;previewState.auto=false;previewDebug.toIdle()});
+ const trajectory=await page.evaluate(()=>{previewDebug.jump();previewState.playing=false;const samples=[];for(let t=0;t<=760;t++){if(t)previewDebug.advance(1);samples.push({t,x:previewState.rootX,y:previewState.rootY,mode:previewState.mode,frame:previewState.frame})}return samples});
+ assert(trajectory.every(s=>s.x===0));assert.equal(trajectory[120].y,0);assert.equal(trajectory[350].y,-130);assert.equal(trajectory[580].y,0);assert.equal(trajectory[759].mode,'jump');assert.equal(trajectory[760].mode,'idle');assert(trajectory.every(s=>s.y<=0));
+ assert.deepEqual([...new Set(trajectory.filter(s=>s.mode==='jump').map(s=>s.frame))],[0,1,2,3,4,5,6,7,8]);
+ for(let i=0;i<9;i++){await page.locator(`[data-frame="${i}"]`).click();assert.equal(await page.evaluate(()=>previewState.displayedFrame),i)}
+ await page.locator('#speed').selectOption('0.25');await page.locator('#flip').check();await page.locator('#guide').uncheck();await page.locator('#flip').uncheck();await page.locator('#guide').check();await page.locator('#speed').selectOption('1');
+ await page.locator('[data-frame="3"]').click();await page.screenshot({path:'Art/animations/player-c-jump-v2/preview-check.png',fullPage:true});
+ await page.locator('#idle').click();await page.locator('h1').click();const before=await page.evaluate(()=>previewState.jumpCount);await page.keyboard.press('Space');assert.equal(await page.evaluate(()=>previewState.jumpCount),before+1);await page.waitForFunction(()=>previewState.mode==='idle');
+ await page.locator('#repeat').check();await page.evaluate(()=>{previewState.playing=false;previewDebug.toIdle();previewState.auto=false;previewDebug.advance(1200)});assert.equal(await page.evaluate(()=>previewState.mode),'jump');
+ const reg=JSON.parse(fs.readFileSync('Art/animations/player-c-jump-v2/registration.json','utf8'));assert.equal(reg.frames.reduce((s,m)=>s+m.durationMs,0),760);assert(reg.frames.filter(m=>!m.airborne).every(m=>m.bounds[3]===448));
+ const lock=JSON.parse(fs.readFileSync('Art/animations/player-animation-selection.json','utf8'));for(const state of ['run','idle','jump']){assert.equal(lock[state].status,'approved_by_user');for(const [name,hash] of Object.entries(lock[state].files))assert.equal(crypto.createHash('sha256').update(fs.readFileSync('Art/animations/'+name)).digest('hex'),hash)}
+ assert.deepEqual(errors,[]);const report={passed:true,frameCount:9,durationMs:760,flightMs:460,jumpHeightPx:130,horizontalDisplacementPx:0,approvedRunAndIdleUnchanged:true,checked:'1ms trajectory samples, takeoff/apex/landing boundaries, no horizontal root movement, all 9 poses, Space/controls/repeat, grounded drawings and both approval hashes.',consoleErrors:errors};fs.writeFileSync('Art/animations/player-c-jump-v2/browser-validation.json',JSON.stringify(report,null,2));console.log(report);
+ }finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});
