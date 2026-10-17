@@ -1,0 +1,54 @@
+{
+  "frameCount": 8,
+  "loopMs": 800,
+  "checks": [
+    {
+      "frame": 1,
+      "footGap": 0,
+      "headY": 211,
+      "durationMs": 100
+    },
+    {
+      "frame": 2,
+      "footGap": 16,
+      "headY": 211,
+      "durationMs": 100
+    },
+    {
+      "frame": 3,
+      "footGap": 9,
+      "headY": 215,
+      "durationMs": 100
+    },
+    {
+      "frame": 4,
+      "footGap": 0,
+      "headY": 233,
+      "durationMs": 100
+    },
+    {
+      "frame": 5,
+      "footGap": 0,
+      "headY": 218,
+      "durationMs": 100
+    },
+    {
+      "frame": 6,
+      "footGap": 26,
+      "headY": 203,
+      "durationMs": 100
+    },
+    {
+      "frame": 7,
+      "footGap": 18,
+      "headY": 207,
+      "durationMs": 100
+    },
+    {
+      "frame": 8,
+      "footGap": 0,
+      "headY": 234,
+      "durationMs": 100
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "version": "v6-cloaked",
+  "baseline": "../player-c-v6",
+  "generator": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit. Edit the supplied EXISTING 2x2 sprite sheet, not a redesign. Retain the same four complete right-facing character drawings, same cell order, exact image layout and character placement. Output a 1024x1024 transparent PNG with the same 512x512 cells.\nONLY CHANGE: both arms and both hands are completely tucked INSIDE the long paper cloak, entirely invisible in every frame. Remove the forward protruding ivory hand/forearm on the right of the torso AND the rear protruding hand/forearm above the leftward cloak in ALL FOUR cells. The arms are held close beneath the cloak, not stretched out under the fabric: NO hand-shaped cloth bumps, NO sleeves, NO visible fingers, NO wrists, NO elbows. Continue the existing smooth layered cloak surface naturally where a limb overlapped it; where an arm protruded beyond the cloak silhouette restore transparent background. A clean tapered wrapped cloak silhouette, not swollen fabric.\nCRITICAL PRESERVATION: keep each original head, single black eye, head angle, paper grain, ivory palette, collar, long flowing cloak tails, actual plain shorts, and BOTH legs/feet with their EXACT original poses and near/far shading. Do NOT change the leg bends, stance, head scale, proportions, clothing design, frame timing or composition. Especially keep the short feet and distinct knee bends; do not create noodle limbs. Do not make new poses or new character design. Soft painted-paper finish exactly matching input. No extra lines, accessories, ground, shadow, labels or grid lines. Genuine transparent alpha background; no black fill, no checkerboard painted in, no colored edge debris. Exactly four full sprites, no cropping.",
+  "inputs": [
+    "sources/input-1.png",
+    "sources/input-2.png"
+  ],
+  "outputs": [
+    "sources/cloaked-a.png",
+    "sources/cloaked-b.png"
+  ],
+  "processing": "Slice 2x2 sheets; uniform scale to 160px head width, translation to v6 head positions and stance ground. No limb rig, interpolation or local pixel repainting. Edited images are not pixel-identical to the original.",
+  "frameCount": 8,
+  "loopMs": 800,
+  "unityApplied": false
+}

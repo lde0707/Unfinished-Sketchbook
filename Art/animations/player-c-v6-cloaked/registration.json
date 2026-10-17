@@ -1,0 +1,268 @@
+{
+  "frameCount": 8,
+  "inbetweenCount": 0,
+  "fps": 10,
+  "loopMs": 800,
+  "cellSize": 512,
+  "columns": 4,
+  "rows": 2,
+  "groundY": 448,
+  "pivot": [
+    0.68359375,
+    0.125
+  ],
+  "sourceHeadDeltaPx": [
+    0,
+    0,
+    1,
+    2,
+    1,
+    -2,
+    -1,
+    2
+  ],
+  "headRegistration": "Reference height phase for flight frames; actual sole registration for stance. Drawing compression adds a larger drop at frames4/8. All heads use the same width.",
+  "frames": [
+    {
+      "frame": 1,
+      "source": "cloaked-a.png",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.8080808080808081,
+      "translation": [
+        4,
+        3
+      ],
+      "headCenter": [
+        350,
+        211
+      ],
+      "headWidth": 160,
+      "bounds": [
+        37,
+        131,
+        430,
+        448
+      ],
+      "footGap": 0,
+      "forwardLeg": "near",
+      "supportLeg": "far",
+      "durationMs": 100
+    },
+    {
+      "frame": 2,
+      "source": "cloaked-a.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.8080808080808081,
+      "translation": [
+        3,
+        3
+      ],
+      "headCenter": [
+        350,
+        211
+      ],
+      "headWidth": 160,
+      "bounds": [
+        45,
+        131,
+        430,
+        432
+      ],
+      "footGap": 16,
+      "forwardLeg": "near",
+      "supportLeg": null,
+      "durationMs": 100
+    },
+    {
+      "frame": 3,
+      "source": "cloaked-a.png",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "scale": 0.8080808080808081,
+      "translation": [
+        3,
+        3
+      ],
+      "headCenter": [
+        350,
+        215
+      ],
+      "headWidth": 160,
+      "bounds": [
+        21,
+        135,
+        430,
+        439
+      ],
+      "footGap": 9,
+      "forwardLeg": "near",
+      "supportLeg": null,
+      "durationMs": 100
+    },
+    {
+      "frame": 4,
+      "source": "cloaked-a.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.8121827411167513,
+      "translation": [
+        1,
+        2
+      ],
+      "headCenter": [
+        350,
+        233
+      ],
+      "headWidth": 160,
+      "bounds": [
+        37,
+        153,
+        429,
+        448
+      ],
+      "footGap": 0,
+      "forwardLeg": "near",
+      "supportLeg": "near",
+      "durationMs": 100
+    },
+    {
+      "frame": 5,
+      "source": "cloaked-b.png",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.8080808080808081,
+      "translation": [
+        3,
+        3
+      ],
+      "headCenter": [
+        350,
+        218
+      ],
+      "headWidth": 160,
+      "bounds": [
+        49,
+        138,
+        431,
+        448
+      ],
+      "footGap": 0,
+      "forwardLeg": "far",
+      "supportLeg": "near",
+      "durationMs": 100
+    },
+    {
+      "frame": 6,
+      "source": "cloaked-b.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.8121827411167513,
+      "translation": [
+        0,
+        2
+      ],
+      "headCenter": [
+        350,
+        203
+      ],
+      "headWidth": 160,
+      "bounds": [
+        60,
+        123,
+        430,
+        422
+      ],
+      "footGap": 26,
+      "forwardLeg": "far",
+      "supportLeg": null,
+      "durationMs": 100
+    },
+    {
+      "frame": 7,
+      "source": "cloaked-b.png",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "scale": 0.8163265306122449,
+      "translation": [
+        -1,
+        1
+      ],
+      "headCenter": [
+        350,
+        207
+      ],
+      "headWidth": 160,
+      "bounds": [
+        24,
+        127,
+        431,
+        430
+      ],
+      "footGap": 18,
+      "forwardLeg": "far",
+      "supportLeg": null,
+      "durationMs": 100
+    },
+    {
+      "frame": 8,
+      "source": "cloaked-b.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.8080808080808081,
+      "translation": [
+        3,
+        3
+      ],
+      "headCenter": [
+        350,
+        234
+      ],
+      "headWidth": 160,
+      "bounds": [
+        44,
+        154,
+        430,
+        448
+      ],
+      "footGap": 0,
+      "forwardLeg": "far",
+      "supportLeg": "far",
+      "durationMs": 100
+    }
+  ],
+  "artEdit": "Imagegen edited complete v6 drawings with both arms hidden. Uniform scale and translation only. Original 8-frame order and 800ms duration; not pixel-identical to v6."
+}
