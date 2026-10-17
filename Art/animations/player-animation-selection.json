@@ -83,6 +83,7 @@
     "durationMs": 180,
     "speedPxPerSecond": 640,
     "cooldownAfterEndMs": 220,
-    "groundOnly": true
+    "groundOnly": false,
+    "airDashesPerJump": 1
   }
 }

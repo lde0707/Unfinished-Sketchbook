@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id), canvas=$('stage'), ctx=canvas.getContex
 const clips={}, keys=new Set();
 let jumpReg,tuckReg,stopReg,dashReg,last=0,scale=1;
 const JUMP_BUFFER_MS=120;
-const S={ready:false,mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,playing:true,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0,dashDir:1,dashReadyAt:0,dashCount:0};
+const S={ready:false,mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,playing:true,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0,dashDir:1,dashReadyAt:0,dashCount:0,dashReturn:null,airDashUsed:false};
 const activeJump=()=>S.jumpVariant==='tuck'?tuckReg:jumpReg;
 window.previewState=S;
 const names={idle:'Idle · 대기',start:'출발',run:'Run · 달리기',stop:'정지',jump:'Jump · 점프',dash:'Dash · 대시'};
@@ -18,18 +18,28 @@ function reconcile(){
   else if(!S.dir&&(S.mode==='run'||S.mode==='start'))enter('stop');
 }
 // Ground contact and the end of the landing drawing are separate events.
-function canJump(){return S.mode!=='jump'||S.time>=activeJump().flightEndMs;}
+function canJump(){if(S.mode==='dash'&&S.dashReturn)return false;return S.mode!=='jump'||S.time>=activeJump().flightEndMs;}
 function startJump(){
   if(S.dir)S.facing=S.dir;
-  S.jumpBufferedUntil=null;S.jumpCount++;
+  S.jumpBufferedUntil=null;S.jumpCount++;S.airDashUsed=false;S.dashReturn=null;
   if(S.mode==='jump'){S.history.push('jump → jump');if(S.history.length>40)S.history.shift();}
   S.jumpVariant=S.dir?'jump':'tuck';enter('jump');
 }
 function jump(){if(!S.ready)return;if(canJump())startJump();else S.jumpBufferedUntil=S.clock+JUMP_BUFFER_MS;}
 function dash(){
-  if(!S.ready||S.mode==='dash'||!canJump()||S.clock<S.dashReadyAt)return false;
+  if(!S.ready||S.mode==='dash'||S.clock<S.dashReadyAt)return false;
+  const airborne=S.mode==='jump'&&S.time>activeJump().flightStartMs&&S.time<activeJump().flightEndMs;
+  if(airborne&&S.airDashUsed)return false;
+  if(!airborne&&!canJump())return false;
+  S.dashReturn=airborne?{time:S.time,variant:S.jumpVariant,y:S.y,headY:activeJump().frames[S.frame].headCenter[1],anchor:S.jumpVariant==='tuck'?368:340}:null;
+  if(airborne)S.airDashUsed=true;
   S.dashDir=S.dir||S.facing;S.facing=S.dashDir;S.dashCount++;S.jumpBufferedUntil=null;
   S.dashReadyAt=S.clock+dashReg.durationMs+dashReg.cooldownAfterEndMs;enter('dash');return true;
+}
+function finishDash(){
+  S.facing=S.dir||S.dashDir;
+  if(S.dashReturn){const resume=S.dashReturn;S.dashReturn=null;S.jumpVariant=resume.variant;enter('jump',resume.time);}
+  else enter(S.dir?'run':'stop',S.dir?80:0);
 }
 function consumeBufferedJump(){
   if(S.jumpBufferedUntil===null)return;
@@ -49,9 +59,10 @@ function pose(){
     for(const i of order){if(t<stopReg.frames[i].durationMs){S.frame=i;break;}t-=stopReg.frames[i].durationMs;}
   }
   S.y=0;
+  if(S.mode==='dash'&&S.dashReturn)S.y=S.dashReturn.y;
   if(S.mode==='jump'){const reg=activeJump();if(S.time>reg.flightStartMs&&S.time<reg.flightEndMs){const u=(S.time-reg.flightStartMs)/(reg.flightEndMs-reg.flightStartMs);S.y=-4*reg.jumpHeightPx*u*(1-u);}}
 }
-function reset(){keys.clear();Object.assign(S,{mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0,dashDir:1,dashReadyAt:0,dashCount:0});pose();draw();}
+function reset(){keys.clear();Object.assign(S,{mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0,dashDir:1,dashReadyAt:0,dashCount:0,dashReturn:null,airDashUsed:false});pose();draw();}
 const demos={
   run:{name:'대기 → 달리기 → 정지 → 대기',end:2600,events:[[500,'move',1],[1900,'move',0]]},
   jump:{name:'제자리 점프 → 대기',end:2100,events:[[500,'jump']]},
@@ -60,6 +71,7 @@ const demos={
   reJump:{name:'착지 직전 입력 → 연속 점프 3회',end:2500,events:[[500,'jump'],[925,'jump'],[1420,'jump']]},
   dash:{name:'달리기 → 대시 → 달리기 · 좌우',end:3400,events:[[200,'move',1],[800,'dash'],[1450,'move',0],[1950,'move',-1],[2450,'dash'],[3000,'move',0]]},
   dashJump:{name:'대시 → 점프 → 달리기',end:2600,events:[[200,'move',1],[800,'dash'],[920,'jump'],[2100,'move',0]]},
+  airDash:{name:'점프 → 공중 대시 → 착지 · 좌우',end:3400,events:[[200,'move',1],[500,'jump'],[700,'dash'],[1350,'move',0],[1800,'move',-1],[2100,'jump'],[2300,'dash'],[3000,'move',0]]},
   all:{name:'전체 연결 · 오른쪽 / 왼쪽',end:9000,events:[[500,'move',1],[1800,'move',0],[2300,'jump'],[3500,'move',1],[4500,'jump'],[5500,'move',0],[6200,'move',-1],[7200,'jump'],[7500,'move',0]]}
 };
 function demo(name){if(!S.ready)return;reset();S.playing=true;S.demo={...demos[name],events:demos[name].events.map(e=>[...e]),index:0};$('pause').textContent='일시정지';}
@@ -79,8 +91,9 @@ function advance(ms){
       S.x+=S.dir*200*dt/1000;
     }
     S.time+=dt;S.clock+=dt;ms-=dt;
+    if(S.mode==='jump'&&S.time>=activeJump().flightEndMs)S.airDashUsed=false;
     consumeBufferedJump();
-    if(S.time>=duration()-1e-6){if(S.mode==='dash'){S.facing=S.dir||S.dashDir;enter(S.dir?'run':'stop',S.dir?80:0);}else if(S.mode==='start')enter(S.dir?'run':'idle',S.dir?160:0);else if(S.mode==='stop')enter(S.dir?'start':'idle');else if(S.mode==='jump')enter(S.dir?'run':'idle',S.dir?80:0);}
+    if(S.time>=duration()-1e-6){if(S.mode==='dash')finishDash();else if(S.mode==='start')enter(S.dir?'run':'idle',S.dir?160:0);else if(S.mode==='stop')enter(S.dir?'start':'idle');else if(S.mode==='jump')enter(S.dir?'run':'idle',S.dir?80:0);}
     pose();
   }events();draw();
 }
@@ -94,11 +107,15 @@ function draw(){
   ctx.fillStyle='#1b2224';ctx.fillRect(0,ground+1,w,h-ground);
   for(let n=Math.floor((camera-root)/100);n<(camera+root)/100;n++){const x=n*100-camera+root;ctx.strokeStyle='#414e4b';ctx.beginPath();ctx.moveTo(x,ground+1);ctx.lineTo(x,ground+9);ctx.stroke();ctx.fillStyle='#73817d';ctx.font='11px system-ui';ctx.fillText(`${n*100}px`,x+5,ground+27);}
   ctx.fillStyle=`rgba(0,0,0,${0.2+0.12*(1-Math.abs(S.y)/130)})`;ctx.beginPath();ctx.ellipse(root,ground-1,42-Math.abs(S.y)*0.12,6,0,0,Math.PI*2);ctx.fill();
-  const group=S.mode==='start'||S.mode==='stop'?'stop':S.mode==='jump'?S.jumpVariant:S.mode,anchor=['run','stop','jump','dash'].includes(group)?340:368;
+  const group=S.mode==='start'||S.mode==='stop'?'stop':S.mode==='jump'?S.jumpVariant:S.mode;
+  const airPose=S.mode==='dash'?S.dashReturn:null;
+  const anchor=airPose?airPose.anchor+23:['run','stop','jump','dash'].includes(group)?340:368;
+  // Align the head when switching from an airborne pose to the lower dash pose.
+  const poseY=airPose?airPose.headY-dashReg.frames[S.frame].headCenter[1]:0;
   ctx.save();ctx.translate(root,ground+S.y);ctx.scale(S.facing,1);
-  if(S.mode==='dash'){for(const offset of [48,24]){ctx.globalAlpha=(offset===48?0.06:0.12)*Math.min(1,S.time/30);ctx.drawImage(clips.dash[S.frame],-anchor-offset,-448);}ctx.globalAlpha=1;}
-  ctx.drawImage(clips[group][S.frame],-anchor,-448);ctx.restore();
-  $('state').textContent=names[S.mode]+(S.mode==='jump'&&S.jumpVariant==='tuck'?' · 웅크리기':'');$('detail').textContent=`프레임 ${S.frame+1} / ${clips[group].length} · ${S.facing===1?'오른쪽':'왼쪽'} · 높이 ${Math.round(-S.y)}px`;
+  if(S.mode==='dash'){for(const offset of [48,24]){ctx.globalAlpha=(offset===48?0.06:0.12)*Math.min(1,S.time/30);ctx.drawImage(clips.dash[S.frame],-anchor-offset,-448+poseY);}ctx.globalAlpha=1;}
+  ctx.drawImage(clips[group][S.frame],-anchor,-448+poseY);ctx.restore();
+  $('state').textContent=airPose?'Dash · 공중 대시':names[S.mode]+(S.mode==='jump'&&S.jumpVariant==='tuck'?' · 웅크리기':'');$('detail').textContent=`프레임 ${S.frame+1} / ${clips[group].length} · ${S.facing===1?'오른쪽':'왼쪽'} · 높이 ${Math.round(-S.y)}px`;
   $('scenario').textContent=S.demo?`자동 시연: ${S.demo.name}`:'직접 조작 · A / D / ← / → · Space 점프 · Shift 대시';
   $('dash').classList.toggle('active',S.mode==='dash');
   $('log').textContent=S.history.slice(-6).map(s=>s.replaceAll('start','출발').replaceAll('stop','정지')).join('　·　');

@@ -28,7 +28,7 @@ def main():
  for i,im in enumerate(frames):
   atlas.alpha_composite(im,(i*512,0));thumb=im.resize((320,320),Image.Resampling.LANCZOS);contact.paste(thumb,(i*320,0),thumb);d.text((i*320+10,325),f'{i+1} {NAMES[i]} {DURATIONS[i]}ms',fill='#eadfce')
  atlas.save(OUT/'dash-atlas.png');contact.save(OUT/'dash-contact-sheet.jpg',quality=95)
- data=dict(frameCount=4,durationMs=start,cellSize=512,columns=4,rows=1,pivot=[340/512,1-448/512],groundY=448,speedPxPerSecond=640,cooldownAfterEndMs=220,groundOnly=True,frames=meta)
+ data=dict(frameCount=4,durationMs=start,cellSize=512,columns=4,rows=1,pivot=[340/512,1-448/512],groundY=448,speedPxPerSecond=640,cooldownAfterEndMs=220,groundOnly=False,airDashesPerJump=1,frames=meta)
  (OUT/'registration.json').write_text(json.dumps(data,indent=2),encoding='utf-8')
  checks=dict(approvedAssetsUnchanged=True,frameCount=4,durationMs=start,headY=[m['headCenter'][1] for m in meta],bounds=[m['bounds'] for m in meta],wholeSpriteRegistrationOnly=True)
  (OUT/'validation.json').write_text(json.dumps(checks,indent=2),encoding='utf-8');print(json.dumps(checks))

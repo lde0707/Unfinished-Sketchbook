@@ -11,7 +11,7 @@
   "groundY": 448,
   "speedPxPerSecond": 640,
   "cooldownAfterEndMs": 220,
-  "groundOnly": true,
+  "groundOnly": false,
   "frames": [
     {
       "frame": 1,
@@ -121,5 +121,6 @@
         448
       ]
     }
-  ]
+  ],
+  "airDashesPerJump": 1
 }

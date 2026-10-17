@@ -38,7 +38,9 @@
       "jumpCount": 1,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "stationary": {
       "ready": true,
@@ -61,7 +63,9 @@
       "jumpCount": 1,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "start": {
       "ready": true,
@@ -84,7 +88,9 @@
       "jumpCount": 0,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "run": {
       "ready": true,
@@ -107,7 +113,9 @@
       "jumpCount": 0,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "stop": {
       "ready": true,
@@ -132,7 +140,9 @@
       "jumpCount": 0,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "moving": {
       "ready": true,
@@ -157,7 +167,9 @@
       "jumpCount": 1,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "released": {
       "ready": true,
@@ -184,7 +196,9 @@
       "jumpCount": 2,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "left": {
       "ready": true,
@@ -209,7 +223,9 @@
       "jumpCount": 1,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "idleJumpRun": {
       "ready": true,
@@ -232,7 +248,9 @@
       "jumpCount": 1,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "motion": [
       {
@@ -288,7 +306,9 @@
       "jumpCount": 1,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "stress": {
       "ready": true,
@@ -314,7 +334,9 @@
       "jumpCount": 4,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "all": {
       "ready": true,
@@ -351,7 +373,9 @@
       "jumpCount": 3,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "reJumps": [
       {
@@ -547,7 +571,9 @@
       "jumpCount": 1,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "resetClearsBuffer": {
       "ready": true,
@@ -567,7 +593,9 @@
       "jumpCount": 0,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     },
     "repeatDemo": {
       "ready": true,
@@ -592,7 +620,9 @@
       "jumpCount": 3,
       "dashDir": 1,
       "dashReadyAt": 0,
-      "dashCount": 0
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false
     }
   }
 }
