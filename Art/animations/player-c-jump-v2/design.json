@@ -12,7 +12,8 @@
     }
   ],
   "processing": "Full drawing crop, uniform head-size registration and translation; no joint manipulation, morphing or global squashing.",
-  "scope": "Stationary jump only. Approved v1 retained for moving jumps and fallback.",
+  "scope": "Stationary jump only. Approved v1 retained as historical fallback; moving jumps now use player-c-moving-jump-v1.",
   "unityApplied": false,
-  "timingRevision": "Hold apex tuck for 180ms instead of 100ms; begin extending legs at 450ms instead of 370ms. Fall pose reduced from 210ms to 130ms. Total jump 760ms, flight 460ms, height 130px and all frame artwork unchanged."
+  "timingRevision": "Hold apex tuck for 180ms instead of 100ms; begin extending legs at 450ms instead of 370ms. Fall pose reduced from 210ms to 130ms. Total jump 760ms, flight 460ms, height 130px and all frame artwork unchanged.",
+  "responseRevision": "Anticipation shortened from 120ms to 35ms (10+15+10). Flight remains 460ms, height 130px and apex tuck hold 180ms. Total 675ms; artwork unchanged."
 }

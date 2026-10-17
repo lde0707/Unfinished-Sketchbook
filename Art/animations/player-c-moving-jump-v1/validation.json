@@ -1,0 +1,16 @@
+{
+  "approvedAssetsUnchanged": true,
+  "frameCount": 6,
+  "headY": [
+    255,
+    250,
+    250,
+    250,
+    270,
+    267
+  ],
+  "durationMs": 520,
+  "flightMs": 460,
+  "anticipationMs": 0,
+  "wholeSpriteRegistrationOnly": true
+}

@@ -49,9 +49,8 @@ function advance(ms){
     if(dt<1e-6){events();break;}
     if(S.mode==='run')S.x+=S.dir*200*dt/1000;
     else if(S.mode==='jump'){
-      // Horizontal control only during flight; planted anticipation/landing stays fixed.
-      const reg=activeJump();const flight=Math.max(0,Math.min(S.time+dt,reg.flightEndMs)-Math.max(S.time,reg.flightStartMs));
-      S.x+=S.dir*200*flight/1000;
+      // Keep directional motion through takeoff and landing, just like running.
+      S.x+=S.dir*200*dt/1000;
     }
     S.time+=dt;S.clock+=dt;ms-=dt;
     if(S.time>=duration()-1e-6){if(S.mode==='start')enter(S.dir?'run':'idle',S.dir?160:0);else if(S.mode==='stop')enter(S.dir?'start':'idle');else if(S.mode==='jump')enter(S.dir?'run':'idle',S.dir?80:0);}
@@ -68,7 +67,7 @@ function draw(){
   ctx.fillStyle='#1b2224';ctx.fillRect(0,ground+1,w,h-ground);
   for(let n=Math.floor((camera-root)/100);n<(camera+root)/100;n++){const x=n*100-camera+root;ctx.strokeStyle='#414e4b';ctx.beginPath();ctx.moveTo(x,ground+1);ctx.lineTo(x,ground+9);ctx.stroke();ctx.fillStyle='#73817d';ctx.font='11px system-ui';ctx.fillText(`${n*100}px`,x+5,ground+27);}
   ctx.fillStyle=`rgba(0,0,0,${0.2+0.12*(1-Math.abs(S.y)/130)})`;ctx.beginPath();ctx.ellipse(root,ground-1,42-Math.abs(S.y)*0.12,6,0,0,Math.PI*2);ctx.fill();
-  const group=S.mode==='start'||S.mode==='stop'?'stop':S.mode==='jump'?S.jumpVariant:S.mode,anchor=group==='run'||group==='stop'?340:368;
+  const group=S.mode==='start'||S.mode==='stop'?'stop':S.mode==='jump'?S.jumpVariant:S.mode,anchor=group==='run'||group==='stop'||group==='jump'?340:368;
   ctx.save();ctx.translate(root,ground+S.y);ctx.scale(S.facing,1);ctx.drawImage(clips[group][S.frame],-anchor,-448);ctx.restore();
   $('state').textContent=names[S.mode]+(S.mode==='jump'&&S.jumpVariant==='tuck'?' · 웅크리기':'');$('detail').textContent=`프레임 ${S.frame+1} / ${clips[group].length} · ${S.facing===1?'오른쪽':'왼쪽'} · 높이 ${Math.round(-S.y)}px`;
   $('scenario').textContent=S.demo?`자동 시연: ${S.demo.name}`:'직접 조작 · A / D / ← / → + Space';
@@ -90,8 +89,8 @@ $('speed').onchange=e=>{scale=Number(e.target.value);};
 document.querySelectorAll('[data-demo]').forEach(b=>b.onclick=()=>demo(b.dataset.demo));
 window.previewDebug={advance,reset,direction,jump,demo,draw};
 async function init(){
-  [jumpReg,tuckReg,stopReg]=await Promise.all(['../player-c-jump-v1/registration.json','../player-c-jump-v2/registration.json','../player-c-run-idle-v1/registration.json'].map(async p=>{const r=await fetch(p);if(!r.ok)throw Error(p);return r.json();}));
-  await Promise.all(Object.entries({run:['player-c-v6-rhythm',8],idle:['player-c-idle-v1',6],jump:['player-c-jump-v1',jumpReg.frameCount],tuck:['player-c-jump-v2',tuckReg.frameCount],stop:['player-c-run-idle-v1',4]}).map(async([name,[folder,count]])=>{clips[name]=await Promise.all(Array.from({length:count},(_,i)=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(Error(`이미지 로드 실패: ${img.src}`));img.src=`../${folder}/frames/${String(i).padStart(2,'0')}.png`;})));}));
+  [jumpReg,tuckReg,stopReg]=await Promise.all(['../player-c-moving-jump-v1/registration.json','../player-c-jump-v2/registration.json','../player-c-run-idle-v1/registration.json'].map(async p=>{const r=await fetch(p);if(!r.ok)throw Error(p);return r.json();}));
+  await Promise.all(Object.entries({run:['player-c-v6-rhythm',8],idle:['player-c-idle-v1',6],jump:['player-c-moving-jump-v1',jumpReg.frameCount],tuck:['player-c-jump-v2',tuckReg.frameCount],stop:['player-c-run-idle-v1',4]}).map(async([name,[folder,count]])=>{clips[name]=await Promise.all(Array.from({length:count},(_,i)=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(Error(`이미지 로드 실패: ${img.src}`));img.src=`../${folder}/frames/${String(i).padStart(2,'0')}.png`;})));}));
   S.ready=true;demo('all');draw();
   requestAnimationFrame(function tick(t){const dt=last?Math.min(t-last,50):0;last=t;if(S.playing)advance(dt*scale);requestAnimationFrame(tick);});
 }

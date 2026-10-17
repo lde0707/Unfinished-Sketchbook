@@ -63,9 +63,17 @@
     "status": "preview_pending_user_review",
     "directory": "player-c-jump-v2",
     "frameCount": 9,
-    "durationMs": 760,
+    "durationMs": 675,
     "jumpHeightPx": 130,
     "usedBy": "player-state-test for jumps initiated without movement input",
     "approvedFallback": "player-c-jump-v1"
+  },
+  "movingJumpCandidate": {
+    "status": "preview_pending_user_review",
+    "directory": "player-c-moving-jump-v1",
+    "frameCount": 6,
+    "durationMs": 520,
+    "anticipationMs": 0,
+    "usedBy": "player-state-test for jumps initiated with directional input"
   }
 }

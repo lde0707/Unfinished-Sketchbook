@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 import hashlib,json,shutil
 ROOT=Path(__file__).resolve().parents[1]; ART=ROOT/'Art/animations'; OUT=ART/'player-c-jump-v2'; OLD=ART/'player-c-jump-v1'
-DURATIONS=[35,55,30,150,180,130,40,60,80]
+DURATIONS=[10,15,10,150,180,130,40,60,80]
 NAMES=['load','deep-crouch','takeoff','rise-tuck','apex-tuck','fall','contact','compression','recovery']
 def bounds(im):return im.getchannel('A').point(lambda v:255 if v>=128 else 0).getbbox()
 def main():
@@ -38,7 +38,7 @@ def main():
  for i,im in enumerate(frames):
   atlas.alpha_composite(im,(i%3*512,i//3*512));thumb=im.resize((320,320),Image.Resampling.LANCZOS);x,y=i%3*320,i//3*350;contact.paste(thumb,(x,y),thumb);d.text((x+10,y+325),f'{i+1} {NAMES[i]} {DURATIONS[i]}ms',fill='#eadfce')
  atlas.save(OUT/'jump-atlas.png');contact.save(OUT/'jump-contact-sheet.jpg',quality=95)
- reg=dict(frameCount=9,durationMs=start,cellSize=512,columns=3,rows=3,pivot=[365/512,1-448/512],groundY=448,flightStartMs=120,flightEndMs=580,jumpHeightPx=130,horizontalDisplacementPx=0,frames=meta)
+ reg=dict(frameCount=9,durationMs=start,cellSize=512,columns=3,rows=3,pivot=[365/512,1-448/512],groundY=448,flightStartMs=35,flightEndMs=495,jumpHeightPx=130,horizontalDisplacementPx=0,frames=meta)
  (OUT/'registration.json').write_text(json.dumps(reg,indent=2),encoding='utf-8')
  assert meta[1]['headCenter'][1]>meta[0]['headCenter'][1]+25
  assert meta[4]['bounds'][3]<oldreg['frames'][3]['bounds'][3]-15

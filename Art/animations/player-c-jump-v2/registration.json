@@ -1,6 +1,6 @@
 {
   "frameCount": 9,
-  "durationMs": 760,
+  "durationMs": 675,
   "cellSize": 512,
   "columns": 3,
   "rows": 3,
@@ -9,8 +9,8 @@
     0.125
   ],
   "groundY": 448,
-  "flightStartMs": 120,
-  "flightEndMs": 580,
+  "flightStartMs": 35,
+  "flightEndMs": 495,
   "jumpHeightPx": 130,
   "horizontalDisplacementPx": 0,
   "frames": [
@@ -41,7 +41,7 @@
       ],
       "airborne": false,
       "startMs": 0,
-      "durationMs": 35,
+      "durationMs": 10,
       "reusedUnchanged": true
     },
     {
@@ -71,8 +71,8 @@
         448
       ],
       "airborne": false,
-      "startMs": 35,
-      "durationMs": 55
+      "startMs": 10,
+      "durationMs": 15
     },
     {
       "frame": 3,
@@ -100,8 +100,8 @@
         448
       ],
       "airborne": false,
-      "startMs": 90,
-      "durationMs": 30,
+      "startMs": 25,
+      "durationMs": 10,
       "reusedUnchanged": true
     },
     {
@@ -131,7 +131,7 @@
         390
       ],
       "airborne": true,
-      "startMs": 120,
+      "startMs": 35,
       "durationMs": 150
     },
     {
@@ -161,7 +161,7 @@
         369
       ],
       "airborne": true,
-      "startMs": 270,
+      "startMs": 185,
       "durationMs": 180
     },
     {
@@ -190,7 +190,7 @@
         434
       ],
       "airborne": true,
-      "startMs": 450,
+      "startMs": 365,
       "durationMs": 130,
       "reusedUnchanged": true
     },
@@ -220,7 +220,7 @@
         448
       ],
       "airborne": false,
-      "startMs": 580,
+      "startMs": 495,
       "durationMs": 40,
       "reusedUnchanged": true
     },
@@ -251,7 +251,7 @@
         448
       ],
       "airborne": false,
-      "startMs": 620,
+      "startMs": 535,
       "durationMs": 60
     },
     {
@@ -280,7 +280,7 @@
         448
       ],
       "airborne": false,
-      "startMs": 680,
+      "startMs": 595,
       "durationMs": 80,
       "reusedUnchanged": true
     }
