@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "frameCount": 11,
+  "inserted": 3,
+  "loopMs": 800,
+  "consoleErrors": [],
+  "checked": "Eleven selectors, original v6 labels, reference phase mapping, wraparound, playback, speed and guides. Packaging checks confirm nonnegative ground gaps and six contact poses. Visual motion quality is not asserted by these checks."
+}

@@ -1,0 +1,47 @@
+{
+  "frameCount": 11,
+  "uniqueFrames": 11,
+  "labels": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "4-5",
+    "5",
+    "6",
+    "6-7",
+    "7",
+    "8",
+    "8-1"
+  ],
+  "headY": [
+    211,
+    211,
+    215,
+    232,
+    217,
+    211,
+    203,
+    205,
+    207,
+    222,
+    220
+  ],
+  "footGaps": [
+    0,
+    8,
+    10,
+    0,
+    0,
+    0,
+    6,
+    41,
+    16,
+    0,
+    0
+  ],
+  "contactErrorPx": 0,
+  "clippedSilhouettes": 0,
+  "loopMs": 800,
+  "note": "Geometry checks only; leg/arm continuity reviewed visually, not established by metadata."
+}

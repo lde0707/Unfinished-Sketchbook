@@ -1,0 +1,391 @@
+{
+  "baseVersion": "v6",
+  "frameCount": 11,
+  "inbetweenCount": 3,
+  "loopMs": 800,
+  "timing": "Original 800ms loop; intervals4,6,8 split into50ms+50ms",
+  "cellSize": 512,
+  "columns": 4,
+  "rows": 3,
+  "groundY": 448,
+  "pivot": [
+    0.68359375,
+    0.125
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "label": "1",
+      "source": "keys-a.png",
+      "sourceRect": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "baselineFrame": 1,
+      "durationMs": 100,
+      "inserted": false,
+      "headCenter": [
+        350,
+        211
+      ],
+      "headWidth": 160,
+      "scale": 0.6779661016949152,
+      "translation": [
+        -9,
+        108
+      ],
+      "bounds": [
+        31,
+        131,
+        430,
+        448
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "forwardArm": "near",
+      "armSmear": false
+    },
+    {
+      "index": 1,
+      "label": "2",
+      "source": "keys-c.png",
+      "sourceRect": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "baselineFrame": 2,
+      "durationMs": 100,
+      "inserted": false,
+      "headCenter": [
+        350,
+        211
+      ],
+      "headWidth": 160,
+      "scale": 0.642570281124498,
+      "translation": [
+        -2,
+        123
+      ],
+      "bounds": [
+        51,
+        131,
+        429,
+        440
+      ],
+      "footGap": 8,
+      "supportLeg": null,
+      "forwardArm": "near",
+      "armSmear": false
+    },
+    {
+      "index": 2,
+      "label": "3",
+      "source": "keys-a.png",
+      "sourceRect": [
+        0,
+        512,
+        768,
+        1024
+      ],
+      "baselineFrame": 3,
+      "durationMs": 100,
+      "inserted": false,
+      "headCenter": [
+        350,
+        215
+      ],
+      "headWidth": 160,
+      "scale": 0.6779661016949152,
+      "translation": [
+        -43,
+        127
+      ],
+      "bounds": [
+        19,
+        135,
+        430,
+        438
+      ],
+      "footGap": 10,
+      "supportLeg": null,
+      "forwardArm": "far",
+      "armSmear": "backward"
+    },
+    {
+      "index": 3,
+      "label": "4",
+      "source": "keys-a.png",
+      "sourceRect": [
+        768,
+        512,
+        1536,
+        1024
+      ],
+      "baselineFrame": 4,
+      "durationMs": 50,
+      "inserted": false,
+      "headCenter": [
+        350,
+        232
+      ],
+      "headWidth": 160,
+      "scale": 0.6666666666666666,
+      "translation": [
+        -3,
+        143
+      ],
+      "bounds": [
+        36,
+        152,
+        430,
+        448
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "forwardArm": "far",
+      "armSmear": false
+    },
+    {
+      "index": 4,
+      "label": "4-5",
+      "source": "keys-c.png",
+      "sourceRect": [
+        768,
+        0,
+        1536,
+        512
+      ],
+      "baselineFrame": 4,
+      "durationMs": 50,
+      "inserted": true,
+      "headCenter": [
+        350,
+        217
+      ],
+      "headWidth": 160,
+      "scale": 0.6374501992031872,
+      "translation": [
+        23,
+        129
+      ],
+      "bounds": [
+        54,
+        137,
+        430,
+        448
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "forwardArm": "far",
+      "armSmear": false
+    },
+    {
+      "index": 5,
+      "label": "5",
+      "source": "keys-b.png",
+      "sourceRect": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "baselineFrame": 5,
+      "durationMs": 100,
+      "inserted": false,
+      "headCenter": [
+        350,
+        211
+      ],
+      "headWidth": 160,
+      "scale": 0.6557377049180327,
+      "translation": [
+        3,
+        114
+      ],
+      "bounds": [
+        43,
+        131,
+        431,
+        448
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "forwardArm": "far",
+      "armSmear": false
+    },
+    {
+      "index": 6,
+      "label": "6",
+      "source": "keys-b.png",
+      "sourceRect": [
+        768,
+        0,
+        1536,
+        512
+      ],
+      "baselineFrame": 6,
+      "durationMs": 50,
+      "inserted": false,
+      "headCenter": [
+        350,
+        203
+      ],
+      "headWidth": 160,
+      "scale": 0.6557377049180327,
+      "translation": [
+        16,
+        107
+      ],
+      "bounds": [
+        48,
+        123,
+        430,
+        442
+      ],
+      "footGap": 6,
+      "supportLeg": null,
+      "forwardArm": "near",
+      "armSmear": "forward"
+    },
+    {
+      "index": 7,
+      "label": "6-7",
+      "source": "keys-c.png",
+      "sourceRect": [
+        0,
+        512,
+        768,
+        1024
+      ],
+      "baselineFrame": 6,
+      "durationMs": 50,
+      "inserted": true,
+      "headCenter": [
+        350,
+        205
+      ],
+      "headWidth": 160,
+      "scale": 0.6349206349206349,
+      "translation": [
+        -4,
+        125
+      ],
+      "bounds": [
+        49,
+        125,
+        431,
+        407
+      ],
+      "footGap": 41,
+      "supportLeg": null,
+      "forwardArm": "near",
+      "armSmear": false
+    },
+    {
+      "index": 8,
+      "label": "7",
+      "source": "keys-b.png",
+      "sourceRect": [
+        0,
+        512,
+        768,
+        1024
+      ],
+      "baselineFrame": 7,
+      "durationMs": 100,
+      "inserted": false,
+      "headCenter": [
+        350,
+        207
+      ],
+      "headWidth": 160,
+      "scale": 0.6557377049180327,
+      "translation": [
+        -28,
+        124
+      ],
+      "bounds": [
+        28,
+        127,
+        431,
+        432
+      ],
+      "footGap": 16,
+      "supportLeg": null,
+      "forwardArm": "near",
+      "armSmear": false
+    },
+    {
+      "index": 9,
+      "label": "8",
+      "source": "keys-b.png",
+      "sourceRect": [
+        768,
+        512,
+        1536,
+        1024
+      ],
+      "baselineFrame": 8,
+      "durationMs": 50,
+      "inserted": false,
+      "headCenter": [
+        350,
+        222
+      ],
+      "headWidth": 160,
+      "scale": 0.6557377049180327,
+      "translation": [
+        4,
+        138
+      ],
+      "bounds": [
+        36,
+        142,
+        431,
+        448
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "forwardArm": "near",
+      "armSmear": false
+    },
+    {
+      "index": 10,
+      "label": "8-1",
+      "source": "keys-c.png",
+      "sourceRect": [
+        768,
+        512,
+        1536,
+        1024
+      ],
+      "baselineFrame": 8,
+      "durationMs": 50,
+      "inserted": true,
+      "headCenter": [
+        350,
+        220
+      ],
+      "headWidth": 160,
+      "scale": 0.6374501992031872,
+      "translation": [
+        19,
+        140
+      ],
+      "bounds": [
+        55,
+        140,
+        430,
+        448
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "forwardArm": "near",
+      "armSmear": false
+    }
+  ]
+}
