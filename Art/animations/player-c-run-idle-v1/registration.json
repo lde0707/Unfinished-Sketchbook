@@ -1,6 +1,6 @@
 {
   "frameCount": 4,
-  "durationMs": 320,
+  "durationMs": 160,
   "groundY": 448,
   "plantedSoleX": 340.0,
   "runExitFrame": 1,
@@ -11,7 +11,7 @@
   "frames": [
     {
       "frame": 1,
-      "durationMs": 60,
+      "durationMs": 30,
       "sourceRect": [
         0,
         0,
@@ -32,7 +32,7 @@
     },
     {
       "frame": 2,
-      "durationMs": 70,
+      "durationMs": 35,
       "sourceRect": [
         650,
         0,
@@ -53,7 +53,7 @@
     },
     {
       "frame": 3,
-      "durationMs": 80,
+      "durationMs": 40,
       "sourceRect": [
         0,
         627,
@@ -74,7 +74,7 @@
     },
     {
       "frame": 4,
-      "durationMs": 110,
+      "durationMs": 55,
       "sourceRect": [
         627,
         627,

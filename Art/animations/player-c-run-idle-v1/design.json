@@ -8,12 +8,12 @@
   ],
   "source": "sources/stop-keys.png",
   "durationMs": [
-    60,
-    70,
-    80,
-    110
+    30,
+    35,
+    40,
+    55
   ],
-  "totalMs": 320,
+  "totalMs": 160,
   "processing": "Four new full-body drawings; crop at transparent gutter, uniform scale and whole-sprite translation. Anchor rightmost grounded sole to approved run contact. Existing idle is displayed with x offset -28 only; no existing PNG edited.",
   "runExitFrame": 1,
   "runAndIdleArtworkUnchanged": true,

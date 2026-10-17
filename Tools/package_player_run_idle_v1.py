@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 import json,hashlib
 ROOT=Path(__file__).resolve().parents[1];ART=ROOT/'Art/animations';OUT=ART/'player-c-run-idle-v1'
-DURATIONS=[60,70,80,110]
+DURATIONS=[30,35,40,55]
 def bounds(im):return im.getchannel('A').point(lambda v:255 if v>=128 else 0).getbbox()
 def sole(im):
  a=im.getchannel('A');runs=[];start=None

@@ -1,7 +1,7 @@
 {
   "passed": true,
-  "transitionDurationMs": 320,
+  "transitionDurationMs": 160,
   "approvedRunUnchanged": true,
-  "checked": "Automatic run-stop-idle sequence, idle repeat, stop requested in all 8 run phases, manual stop button, 4 stop selectors, controls, planted sole and approved hashes.",
+  "checked": "Automatic run-stop-idle sequence, exact 160ms transition boundary, idle repeat, stop requested in all 8 run phases, manual stop button, 4 stop selectors, controls, planted sole and approved hashes.",
   "consoleErrors": []
 }
