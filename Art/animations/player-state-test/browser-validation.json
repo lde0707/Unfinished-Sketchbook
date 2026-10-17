@@ -40,7 +40,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "stationary": {
       "ready": true,
@@ -65,7 +68,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "start": {
       "ready": true,
@@ -90,7 +96,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "run": {
       "ready": true,
@@ -115,7 +124,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "stop": {
       "ready": true,
@@ -142,7 +154,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "moving": {
       "ready": true,
@@ -169,7 +184,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "released": {
       "ready": true,
@@ -198,7 +216,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "left": {
       "ready": true,
@@ -225,7 +246,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "idleJumpRun": {
       "ready": true,
@@ -250,7 +274,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "motion": [
       {
@@ -308,7 +335,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "stress": {
       "ready": true,
@@ -336,7 +366,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "all": {
       "ready": true,
@@ -375,7 +408,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "reJumps": [
       {
@@ -573,7 +609,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "resetClearsBuffer": {
       "ready": true,
@@ -595,7 +634,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     },
     "repeatDemo": {
       "ready": true,
@@ -622,7 +664,10 @@
       "dashReadyAt": 0,
       "dashCount": 0,
       "dashReturn": null,
-      "airDashUsed": false
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "ledge": null
     }
   }
 }

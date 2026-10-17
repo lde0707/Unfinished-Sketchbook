@@ -1,0 +1,45 @@
+{
+  "approvedAssetsUnchanged": true,
+  "frameCount": 5,
+  "newDrawings": 4,
+  "headY": [
+    203,
+    203,
+    203,
+    268,
+    218
+  ],
+  "bounds": [
+    [
+      192,
+      123,
+      445,
+      436
+    ],
+    [
+      167,
+      123,
+      445,
+      435
+    ],
+    [
+      147,
+      123,
+      445,
+      429
+    ],
+    [
+      147,
+      188,
+      445,
+      448
+    ],
+    [
+      208,
+      138,
+      447,
+      448
+    ]
+  ],
+  "wholeSpriteRegistrationOnly": true
+}

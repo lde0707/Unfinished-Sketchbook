@@ -85,5 +85,13 @@
     "cooldownAfterEndMs": 220,
     "groundOnly": false,
     "airDashesPerJump": 1
+  },
+  "fallCandidate": {
+    "status": "preview_pending_user_review",
+    "directory": "player-c-fall-v1",
+    "frameCount": 5,
+    "newDrawings": 4,
+    "airborneDuration": "until physical contact",
+    "landingRecoveryMs": 130
   }
 }

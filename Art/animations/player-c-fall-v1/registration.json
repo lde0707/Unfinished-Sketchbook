@@ -1,0 +1,135 @@
+{
+  "frameCount": 5,
+  "cellSize": 512,
+  "columns": 3,
+  "rows": 2,
+  "pivot": [
+    0.71875,
+    0.125
+  ],
+  "groundY": 448,
+  "gravityPxPerSecondSquared": 1800,
+  "terminalSpeedPxPerSecond": 900,
+  "entryMs": 65,
+  "earlyFallMs": 90,
+  "loopPoseMs": 140,
+  "landingMs": 65,
+  "recoveryMs": 65,
+  "frames": [
+    {
+      "frame": 1,
+      "phase": "step-off",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.5797101449275363,
+      "translation": [
+        137,
+        92
+      ],
+      "headCenter": [
+        365,
+        203
+      ],
+      "bounds": [
+        192,
+        123,
+        445,
+        436
+      ]
+    },
+    {
+      "frame": 2,
+      "phase": "early-fall",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.5797101449275363,
+      "translation": [
+        144,
+        86
+      ],
+      "headCenter": [
+        365,
+        203
+      ],
+      "bounds": [
+        167,
+        123,
+        445,
+        435
+      ]
+    },
+    {
+      "frame": 3,
+      "phase": "sustained-fall",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "scale": 0.5818181818181818,
+      "translation": [
+        104,
+        105
+      ],
+      "headCenter": [
+        365,
+        203
+      ],
+      "bounds": [
+        147,
+        123,
+        445,
+        429
+      ]
+    },
+    {
+      "frame": 4,
+      "phase": "landing",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.5818181818181818,
+      "translation": [
+        120,
+        120
+      ],
+      "headCenter": [
+        365,
+        268
+      ],
+      "bounds": [
+        147,
+        188,
+        445,
+        448
+      ]
+    },
+    {
+      "frame": 5,
+      "phase": "recovery",
+      "source": "../player-c-jump-v2/frames/08.png",
+      "headCenter": [
+        365,
+        218
+      ],
+      "bounds": [
+        208,
+        138,
+        447,
+        448
+      ]
+    }
+  ]
+}

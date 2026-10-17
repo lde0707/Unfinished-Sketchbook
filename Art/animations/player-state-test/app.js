@@ -1,24 +1,24 @@
 'use strict';
 const $=id=>document.getElementById(id), canvas=$('stage'), ctx=canvas.getContext('2d');
 const clips={}, keys=new Set();
-let jumpReg,tuckReg,stopReg,dashReg,last=0,scale=1;
+let jumpReg,tuckReg,stopReg,dashReg,fallReg,last=0,scale=1;
 const JUMP_BUFFER_MS=120;
-const S={ready:false,mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,playing:true,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0,dashDir:1,dashReadyAt:0,dashCount:0,dashReturn:null,airDashUsed:false};
+const S={ready:false,mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,playing:true,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0,dashDir:1,dashReadyAt:0,dashCount:0,dashReturn:null,airDashUsed:false,fallVelocity:0,fallLandingMs:null,ledge:null};
 const activeJump=()=>S.jumpVariant==='tuck'?tuckReg:jumpReg;
 window.previewState=S;
-const names={idle:'Idle · 대기',start:'출발',run:'Run · 달리기',stop:'정지',jump:'Jump · 점프',dash:'Dash · 대시'};
+const names={idle:'Idle · 대기',start:'출발',run:'Run · 달리기',stop:'정지',jump:'Jump · 점프',dash:'Dash · 대시',fall:'Fall · 낙하'};
 function enter(mode,time=0){
   if(S.mode!==mode){S.history.push(`${S.mode} → ${mode}`);if(S.history.length>40)S.history.shift();}
   S.mode=mode;S.time=time;S.y=0;pose();
 }
 function direction(dir){if(!S.ready)return;S.dir=dir;if(dir&&S.mode!=='dash')S.facing=dir;reconcile();}
 function reconcile(){
-  if(S.mode==='jump'||S.mode==='dash')return;
+  if(['jump','dash','fall'].includes(S.mode))return;
   if(S.dir&&(S.mode==='idle'||S.mode==='stop'))enter('start');
   else if(!S.dir&&(S.mode==='run'||S.mode==='start'))enter('stop');
 }
 // Ground contact and the end of the landing drawing are separate events.
-function canJump(){if(S.mode==='dash'&&S.dashReturn)return false;return S.mode!=='jump'||S.time>=activeJump().flightEndMs;}
+function canJump(){if(S.mode==='fall')return S.fallLandingMs!==null;if(S.mode==='dash'&&S.dashReturn)return false;return S.mode!=='jump'||S.time>=activeJump().flightEndMs;}
 function startJump(){
   if(S.dir)S.facing=S.dir;
   S.jumpBufferedUntil=null;S.jumpCount++;S.airDashUsed=false;S.dashReturn=null;
@@ -26,19 +26,40 @@ function startJump(){
   S.jumpVariant=S.dir?'jump':'tuck';enter('jump');
 }
 function jump(){if(!S.ready)return;if(canJump())startJump();else S.jumpBufferedUntil=S.clock+JUMP_BUFFER_MS;}
+function drop(height=160){
+  if(!S.ready)return;
+  const h=Math.max(1,Math.min(1000,Number(height)||160));
+  S.fallVelocity=0;S.fallLandingMs=null;S.airDashUsed=false;S.dashReturn=null;S.jumpBufferedUntil=null;
+  S.ledge={edge:S.x-S.facing*32,height:h,direction:S.facing};
+  enter('fall');S.y=-h;draw();
+}
+function fallContactInMs(){
+  const g=fallReg.gravityPxPerSecondSquared,v=S.fallVelocity,cap=fallReg.terminalSpeedPxPerSecond,dist=Math.max(0,-S.y);
+  const accelTime=Math.max(0,(cap-v)/g),accelDist=v*accelTime+g*accelTime*accelTime/2;
+  return 1000*(dist<=accelDist?(Math.sqrt(v*v+2*g*dist)-v)/g:accelTime+(dist-accelDist)/cap);
+}
+function advanceFall(dt){
+  if(S.fallLandingMs!==null){S.fallLandingMs+=dt;return;}
+  const seconds=dt/1000,g=fallReg.gravityPxPerSecondSquared,cap=fallReg.terminalSpeedPxPerSecond;
+  const accel=Math.min(seconds,Math.max(0,(cap-S.fallVelocity)/g));
+  S.y+=S.fallVelocity*accel+g*accel*accel/2+cap*(seconds-accel);
+  S.fallVelocity=Math.min(cap,S.fallVelocity+g*seconds);
+  if(S.y>=-1e-6){S.y=0;S.fallVelocity=0;S.fallLandingMs=0;S.airDashUsed=false;}
+}
 function dash(){
   if(!S.ready||S.mode==='dash'||S.clock<S.dashReadyAt)return false;
-  const airborne=S.mode==='jump'&&S.time>activeJump().flightStartMs&&S.time<activeJump().flightEndMs;
+  const falling=S.mode==='fall'&&S.fallLandingMs===null;
+  const airborne=falling||(S.mode==='jump'&&S.time>activeJump().flightStartMs&&S.time<activeJump().flightEndMs);
   if(airborne&&S.airDashUsed)return false;
   if(!airborne&&!canJump())return false;
-  S.dashReturn=airborne?{time:S.time,variant:S.jumpVariant,y:S.y,headY:activeJump().frames[S.frame].headCenter[1],anchor:S.jumpVariant==='tuck'?368:340}:null;
+  S.dashReturn=airborne?{kind:falling?'fall':'jump',time:S.time,variant:S.jumpVariant,y:S.y,velocity:S.fallVelocity,headY:(falling?fallReg:activeJump()).frames[S.frame].headCenter[1],anchor:falling||S.jumpVariant==='tuck'?368:340}:null;
   if(airborne)S.airDashUsed=true;
   S.dashDir=S.dir||S.facing;S.facing=S.dashDir;S.dashCount++;S.jumpBufferedUntil=null;
   S.dashReadyAt=S.clock+dashReg.durationMs+dashReg.cooldownAfterEndMs;enter('dash');return true;
 }
 function finishDash(){
   S.facing=S.dir||S.dashDir;
-  if(S.dashReturn){const resume=S.dashReturn;S.dashReturn=null;S.jumpVariant=resume.variant;enter('jump',resume.time);}
+  if(S.dashReturn){const resume=S.dashReturn;S.dashReturn=null;if(resume.kind==='fall'){S.fallVelocity=resume.velocity;S.fallLandingMs=null;enter('fall',resume.time);S.y=resume.y;}else{S.jumpVariant=resume.variant;enter('jump',resume.time);}}
   else enter(S.dir?'run':'stop',S.dir?80:0);
 }
 function consumeBufferedJump(){
@@ -48,6 +69,13 @@ function consumeBufferedJump(){
 }
 function duration(){return S.mode==='dash'?dashReg.durationMs:S.mode==='jump'?activeJump().durationMs:(S.mode==='start'||S.mode==='stop'?stopReg.durationMs:Infinity);}
 function pose(){
+  if(S.mode==='fall'){
+    if(S.fallLandingMs!==null)S.frame=S.fallLandingMs<fallReg.landingMs?3:4;
+    else if(S.time<fallReg.entryMs)S.frame=0;
+    else if(S.time<fallReg.entryMs+fallReg.earlyFallMs)S.frame=1;
+    else S.frame=2-Math.floor((S.time-fallReg.entryMs-fallReg.earlyFallMs)/fallReg.loopPoseMs)%2;
+    return;
+  }
   if(S.mode==='idle')S.frame=Math.floor(S.time/300)%6;
   else if(S.mode==='run')S.frame=Math.floor(S.time/80)%8;
   else if(S.mode==='dash')S.frame=Math.max(0,dashReg.frames.findIndex(f=>S.time<f.startMs+f.durationMs));
@@ -62,7 +90,7 @@ function pose(){
   if(S.mode==='dash'&&S.dashReturn)S.y=S.dashReturn.y;
   if(S.mode==='jump'){const reg=activeJump();if(S.time>reg.flightStartMs&&S.time<reg.flightEndMs){const u=(S.time-reg.flightStartMs)/(reg.flightEndMs-reg.flightStartMs);S.y=-4*reg.jumpHeightPx*u*(1-u);}}
 }
-function reset(){keys.clear();Object.assign(S,{mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0,dashDir:1,dashReadyAt:0,dashCount:0,dashReturn:null,airDashUsed:false});pose();draw();}
+function reset(){keys.clear();Object.assign(S,{mode:'idle',jumpVariant:'tuck',time:0,frame:0,x:0,y:0,facing:1,dir:0,history:[],demo:null,clock:0,jumpBufferedUntil:null,jumpCount:0,dashDir:1,dashReadyAt:0,dashCount:0,dashReturn:null,airDashUsed:false,fallVelocity:0,fallLandingMs:null,ledge:null});pose();draw();}
 const demos={
   run:{name:'대기 → 달리기 → 정지 → 대기',end:2600,events:[[500,'move',1],[1900,'move',0]]},
   jump:{name:'제자리 점프 → 대기',end:2100,events:[[500,'jump']]},
@@ -72,27 +100,33 @@ const demos={
   dash:{name:'달리기 → 대시 → 달리기 · 좌우',end:3400,events:[[200,'move',1],[800,'dash'],[1450,'move',0],[1950,'move',-1],[2450,'dash'],[3000,'move',0]]},
   dashJump:{name:'대시 → 점프 → 달리기',end:2600,events:[[200,'move',1],[800,'dash'],[920,'jump'],[2100,'move',0]]},
   airDash:{name:'점프 → 공중 대시 → 착지 · 좌우',end:3400,events:[[200,'move',1],[500,'jump'],[700,'dash'],[1350,'move',0],[1800,'move',-1],[2100,'jump'],[2300,'dash'],[3000,'move',0]]},
+  fall:{name:'발판 이탈 → 낙하 → 착지',end:1800,events:[[0,'drop',160]]},
+  movingFall:{name:'이동하며 발판 이탈 → 낙하 → 달리기',end:1800,events:[[0,'move',1],[0,'drop',160],[1200,'move',0]]},
+  fallDash:{name:'낙하 → 공중 대시 → 낙하 → 착지',end:1800,events:[[0,'move',1],[0,'drop',160],[180,'dash'],[1200,'move',0]]},
   all:{name:'전체 연결 · 오른쪽 / 왼쪽',end:9000,events:[[500,'move',1],[1800,'move',0],[2300,'jump'],[3500,'move',1],[4500,'jump'],[5500,'move',0],[6200,'move',-1],[7200,'jump'],[7500,'move',0]]}
 };
 function demo(name){if(!S.ready)return;reset();S.playing=true;S.demo={...demos[name],events:demos[name].events.map(e=>[...e]),index:0};$('pause').textContent='일시정지';}
-function events(){if(!S.demo)return;while(S.demo.index<S.demo.events.length&&S.demo.events[S.demo.index][0]<=S.clock+1e-6){const [,type,val]=S.demo.events[S.demo.index++];if(type==='move')direction(val);else if(type==='dash')dash();else jump();}if(S.clock>=S.demo.end)S.demo=null;}
+function events(){if(!S.demo)return;while(S.demo.index<S.demo.events.length&&S.demo.events[S.demo.index][0]<=S.clock+1e-6){const [,type,val]=S.demo.events[S.demo.index++];if(type==='move')direction(val);else if(type==='drop')drop(val);else if(type==='dash')dash();else jump();}if(S.clock>=S.demo.end-1e-6)S.demo=null;}
 function advance(ms){
   if(!S.ready)return;
   // Bounded steps make keyboard, demo events and clip boundaries deterministic.
   while(ms>1e-6){events();consumeBufferedJump();reconcile();const remaining=duration()-S.time;let dt=Math.min(ms,8,remaining);
     // Resolve buffered input at exact contact, even if a render step crosses it.
     if(S.mode==='jump'&&S.time<activeJump().flightEndMs)dt=Math.min(dt,activeJump().flightEndMs-S.time);
+    if(S.mode==='fall')dt=Math.min(dt,S.fallLandingMs===null?fallContactInMs():fallReg.landingMs+fallReg.recoveryMs-S.fallLandingMs);
     if(S.demo&&S.demo.index<S.demo.events.length)dt=Math.min(dt,S.demo.events[S.demo.index][0]-S.clock);
     if(dt<1e-6){events();break;}
     if(S.mode==='dash')S.x+=S.dashDir*dashReg.speedPxPerSecond*dt/1000;
     else if(S.mode==='run')S.x+=S.dir*200*dt/1000;
-    else if(S.mode==='jump'){
+    else if(S.mode==='jump'||S.mode==='fall'){
       // Keep directional motion through takeoff and landing, just like running.
       S.x+=S.dir*200*dt/1000;
     }
     S.time+=dt;S.clock+=dt;ms-=dt;
+    if(S.mode==='fall')advanceFall(dt);
     if(S.mode==='jump'&&S.time>=activeJump().flightEndMs)S.airDashUsed=false;
     consumeBufferedJump();
+    if(S.mode==='fall'&&S.fallLandingMs!==null&&S.fallLandingMs>=fallReg.landingMs+fallReg.recoveryMs-1e-6)enter(S.dir?'run':'idle',S.dir?80:0);
     if(S.time>=duration()-1e-6){if(S.mode==='dash')finishDash();else if(S.mode==='start')enter(S.dir?'run':'idle',S.dir?160:0);else if(S.mode==='stop')enter(S.dir?'start':'idle');else if(S.mode==='jump')enter(S.dir?'run':'idle',S.dir?80:0);}
     pose();
   }events();draw();
@@ -105,8 +139,9 @@ function draw(){
   const camera=S.x, root=w/2;
   ctx.strokeStyle='#465350';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(0,ground);ctx.lineTo(w,ground);ctx.stroke();
   ctx.fillStyle='#1b2224';ctx.fillRect(0,ground+1,w,h-ground);
+  if(S.ledge){const edge=S.ledge.edge-camera+root,top=ground-S.ledge.height;ctx.fillStyle='#3e4e50';ctx.fillRect(S.ledge.direction>0?edge-210:edge,top,210,14);ctx.fillStyle='#9baea6';ctx.fillRect(S.ledge.direction>0?edge-210:edge,top,210,2);}
   for(let n=Math.floor((camera-root)/100);n<(camera+root)/100;n++){const x=n*100-camera+root;ctx.strokeStyle='#414e4b';ctx.beginPath();ctx.moveTo(x,ground+1);ctx.lineTo(x,ground+9);ctx.stroke();ctx.fillStyle='#73817d';ctx.font='11px system-ui';ctx.fillText(`${n*100}px`,x+5,ground+27);}
-  ctx.fillStyle=`rgba(0,0,0,${0.2+0.12*(1-Math.abs(S.y)/130)})`;ctx.beginPath();ctx.ellipse(root,ground-1,42-Math.abs(S.y)*0.12,6,0,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle=`rgba(0,0,0,${Math.max(.06,0.2+0.12*(1-Math.abs(S.y)/130))})`;ctx.beginPath();ctx.ellipse(root,ground-1,Math.max(10,42-Math.abs(S.y)*0.12),6,0,0,Math.PI*2);ctx.fill();
   const group=S.mode==='start'||S.mode==='stop'?'stop':S.mode==='jump'?S.jumpVariant:S.mode;
   const airPose=S.mode==='dash'?S.dashReturn:null;
   const anchor=airPose?airPose.anchor+23:['run','stop','jump','dash'].includes(group)?340:368;
@@ -134,10 +169,10 @@ $('jump').onclick=()=>{manual();jump();};$('dash').onclick=()=>{manual();dash();
 $('pause').onclick=()=>{S.playing=!S.playing;$('pause').textContent=S.playing?'일시정지':'계속 재생';};
 $('speed').onchange=e=>{scale=Number(e.target.value);};
 document.querySelectorAll('[data-demo]').forEach(b=>b.onclick=()=>demo(b.dataset.demo));
-window.previewDebug={advance,reset,direction,jump,dash,demo,draw};
+window.previewDebug={advance,reset,direction,jump,dash,drop,demo,draw};
 async function init(){
-  [jumpReg,tuckReg,stopReg,dashReg]=await Promise.all(['../player-c-moving-jump-v1/registration.json','../player-c-jump-v2/registration.json','../player-c-run-idle-v1/registration.json','../player-c-dash-v1/registration.json'].map(async p=>{const r=await fetch(p);if(!r.ok)throw Error(p);return r.json();}));
-  await Promise.all(Object.entries({run:['player-c-v6-rhythm',8],idle:['player-c-idle-v1',6],jump:['player-c-moving-jump-v1',jumpReg.frameCount],tuck:['player-c-jump-v2',tuckReg.frameCount],dash:['player-c-dash-v1',dashReg.frameCount],stop:['player-c-run-idle-v1',4]}).map(async([name,[folder,count]])=>{clips[name]=await Promise.all(Array.from({length:count},(_,i)=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(Error(`이미지 로드 실패: ${img.src}`));img.src=`../${folder}/frames/${String(i).padStart(2,'0')}.png`;})));}));
+  [jumpReg,tuckReg,stopReg,dashReg,fallReg]=await Promise.all(['../player-c-moving-jump-v1/registration.json','../player-c-jump-v2/registration.json','../player-c-run-idle-v1/registration.json','../player-c-dash-v1/registration.json','../player-c-fall-v1/registration.json'].map(async p=>{const r=await fetch(p);if(!r.ok)throw Error(p);return r.json();}));
+  await Promise.all(Object.entries({run:['player-c-v6-rhythm',8],idle:['player-c-idle-v1',6],jump:['player-c-moving-jump-v1',jumpReg.frameCount],tuck:['player-c-jump-v2',tuckReg.frameCount],dash:['player-c-dash-v1',dashReg.frameCount],fall:['player-c-fall-v1',fallReg.frameCount],stop:['player-c-run-idle-v1',4]}).map(async([name,[folder,count]])=>{clips[name]=await Promise.all(Array.from({length:count},(_,i)=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(Error(`이미지 로드 실패: ${img.src}`));img.src=`../${folder}/frames/${String(i).padStart(2,'0')}.png`;})));}));
   S.ready=true;const requested=new URLSearchParams(location.search).get('demo');demo(Object.hasOwn(demos,requested)?requested:'all');draw();
   requestAnimationFrame(function tick(t){const dt=last?Math.min(t-last,50):0;last=t;if(S.playing)advance(dt*scale);requestAnimationFrame(tick);});
 }
