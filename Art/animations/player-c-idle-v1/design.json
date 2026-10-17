@@ -1,5 +1,5 @@
 {
-  "status": "preview_pending_user_review",
+  "status": "approved_by_user",
   "generator": "built-in imagegen",
   "references": [
     "../player-c-v6-rhythm/frames/02.png",

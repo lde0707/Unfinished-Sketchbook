@@ -2,8 +2,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 s=(ROOT/'Art/animations/player-c-v6-rhythm/preview.html').read_text(encoding='utf-8').split('<script>')[0]
 s=s.replace('일정한 박자의 8프레임','조용한 호흡 Idle').replace('V6 RHYTHM','IDLE / V1').replace('굽힌 무릎으로 착지 · 8프레임','가만히 서서 숨 쉬기')
-s=s.replace('비슷한 기존 1·4·7·10번을 덜어내고, 착지와 통과 자세의 무릎을 굽혔습니다.<br>밝은 다리 = 가까운 쪽 · 어두운 다리 = 먼 쪽. 모든 프레임을 80ms로 재생합니다.','발은 바닥에 둔 채 몸과 망토만 작게 들썩이는 Idle 시안입니다.<br>오른쪽 달리기는 확정한 버전 그대로입니다.')
-s=s.replace('무릎 착지 · 일정한 박자','Idle · 검토용 시안').replace('8장 · 80ms씩 · 전체 0.64초','4개 원화 · 왕복 6프레임 · 1.8초 호흡')
+s=s.replace('비슷한 기존 1·4·7·10번을 덜어내고, 착지와 통과 자세의 무릎을 굽혔습니다.<br>밝은 다리 = 가까운 쪽 · 어두운 다리 = 먼 쪽. 모든 프레임을 80ms로 재생합니다.','발은 바닥에 둔 채 몸과 망토만 작게 들썩이는 확정 Idle입니다.<br>오른쪽 달리기는 확정한 버전 그대로입니다.')
+s=s.replace('무릎 착지 · 일정한 박자','Idle · 사용자 확정').replace('8장 · 80ms씩 · 전체 0.64초','4개 원화 · 왕복 6프레임 · 1.8초 호흡')
 s=s.replace('수정 전 · 12프레임','달리기 · 사용자 확정').replace('재생 중 기존 0.8초 주기 · 정지 시 대응 자세 비교','8프레임 · 80ms씩 · 원본 그대로')
 s=s.replace('max="7"','max="5"').replace('1 / 8','1 / 6').replace('8프레임 전체 보기','Idle 원화 4장').replace('run-contact-sheet.jpg','idle-contact-sheet.jpg').replace('8프레임 달리기','Idle 원화')
 s=s.replace('착지·통과 원화 4장은 내장 imagegen으로 수정하고, 나머지 4장은 그대로 사용했습니다.','Idle 원화는 내장 imagegen으로 제작했습니다. 네 자세를 순방향·역방향으로 이어 호흡이 반복됩니다.')

@@ -20,8 +20,27 @@
     }
   },
   "idle": {
-    "status": "preview_pending_user_review",
-    "directory": "player-c-idle-v1"
+    "status": "approved_by_user",
+    "directory": "player-c-idle-v1",
+    "frameCount": 6,
+    "uniqueDrawings": 4,
+    "durationMs": 300,
+    "loopMs": 1800,
+    "decision": "User approved the current idle before requesting a stationary side-profile jump.",
+    "files": {
+      "player-c-idle-v1/frames/00.png": "9b647fb5117b54e888f44701a3f09b70d67f8d593543db4a66d66638d00991e3",
+      "player-c-idle-v1/frames/01.png": "d357ab249742241e0e12adfb3e70a9c5d27d091c473555103cd1c8a4ac57391d",
+      "player-c-idle-v1/frames/02.png": "cc377a845d9a69d29aaedf15de4bb1e812a14f86762332f1fa3763f4b3b0ce63",
+      "player-c-idle-v1/frames/03.png": "b80ffcd88a694d479ae6e9aebecfc5c69788a53b8b07ff6df97edfc8e6705710",
+      "player-c-idle-v1/frames/04.png": "cc377a845d9a69d29aaedf15de4bb1e812a14f86762332f1fa3763f4b3b0ce63",
+      "player-c-idle-v1/frames/05.png": "d357ab249742241e0e12adfb3e70a9c5d27d091c473555103cd1c8a4ac57391d",
+      "player-c-idle-v1/idle-atlas.png": "46fda1808a8e9b8b59206d71ee55c82ebea8f84f831fd77dc06c0e6e6ae3c609",
+      "player-c-idle-v1/registration.json": "755036226813303d5da9f743b50506d0c29edebeb0af5d2eb669ea0cf300dcb8"
+    }
   },
-  "unityApplied": false
+  "unityApplied": false,
+  "jump": {
+    "status": "preview_pending_user_review",
+    "directory": "player-c-jump-v1"
+  }
 }

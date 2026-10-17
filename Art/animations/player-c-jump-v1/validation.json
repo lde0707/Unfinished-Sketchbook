@@ -1,0 +1,24 @@
+{
+  "frameCount": 8,
+  "uniqueFrames": 8,
+  "durationMs": 680,
+  "headY": [
+    237,
+    181,
+    203,
+    203,
+    203,
+    232,
+    241,
+    218
+  ],
+  "groundedBottoms": [
+    448,
+    448,
+    448,
+    448,
+    448
+  ],
+  "approvedRunAndIdleUnchanged": true,
+  "note": "World-space jump arc is separate from pose artwork. Files do not prove perceived fluidity."
+}

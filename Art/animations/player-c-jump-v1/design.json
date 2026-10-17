@@ -1,0 +1,41 @@
+{
+  "status": "preview_pending_review",
+  "generator": "built-in imagegen",
+  "reference": "../player-c-idle-v1/frames/00.png",
+  "prompts": [
+    {
+      "output": "sources/jump-up.png",
+      "prompt": "Use case: identity-preserve. Create a 2x2 transparent sprite sheet of FOUR full-body animation poses of the EXACT same paper hero in the reference, all facing RIGHT in strict SIDE PROFILE. This is a QUICK VERTICAL JUMP IN PLACE, NOT a forward leap, not running, not a flip. Preserve the oversized round warm-ivory head, one same black oval eye, SHORT compact legs, short plain shorts, soft matte painted paper grain, same wraparound long layered cloak. Both arms/hands hidden INSIDE cloak throughout. No sleeves, visible hands, new accessories, face changes, dramatic pose twist or frontal view. Head silhouette and scale identical in all cells. Feet point right; both short legs stay close under pelvis, near leg light ivory, far leg muted darker taupe.\nFour equal square cells; same scale and horizontal body axis in each, all characters fully within cell with generous margins. Do NOT depict world-space jump height here; show each whole-body pose centered in its own cell so engine can move it vertically. Grounded cells have same horizontal foot baseline. Character is about TWO head diameters tall in neutral, never long-legged. Snappy compact athletic motion, not floaty, no noodle limbs. Long cape retains original broad layered shapes, motion mainly vertical and only slight horizontal cloth flutter. No floor, cast shadows, text, labels, grid, speed lines, background or colored fringe. Genuine transparent alpha.\nReading order:\nTOP LEFT: ANTICIPATION. Feet both flat in the SAME small stance as reference. Knees bend compactly to load a spring, pelvis/head lowered only about 12% of head diameter, torso just a little forward. Cloak compressed gently around knees; nothing sweeps horizontally.\nTOP RIGHT: TAKEOFF EXTENSION. Torso straightens vertically, both short knees extend without lengthening limbs, heels rise and toes press downward for the final push. Head above hips, no forward tilt. Cape lags downward close to legs, narrow streamlined outline.\nBOTTOM LEFT: EARLY ASCENT. Both feet off ground, knees bend slightly and tuck together beneath the body, toes point slightly down/back. Both thighs stay mostly under hips, NOT a running split stride. Head/torso nearly upright. Cloak trails DOWN from upward acceleration, broad smooth tails pointed mostly down-left close to body.\nBOTTOM RIGHT: APEX. Compact floating pose, knees softly folded underneath and feet close together. Torso still upright, same side-facing eye. Cape tips gently relax outward a little with residual lift, preserving the long original cloak, no big wind. Slightly less vertical tension than ascent."
+    },
+    {
+      "output": "sources/jump-down.png",
+      "prompt": "Use case: identity-preserve. Create a 2x2 transparent sprite sheet of FOUR full-body animation poses of the EXACT same paper hero in the reference, all facing RIGHT in strict SIDE PROFILE. This is a QUICK VERTICAL JUMP IN PLACE, NOT a forward leap, not running, not a flip. Preserve the oversized round warm-ivory head, one same black oval eye, SHORT compact legs, short plain shorts, soft matte painted paper grain, same wraparound long layered cloak. Both arms/hands hidden INSIDE cloak throughout. No sleeves, visible hands, new accessories, face changes, dramatic pose twist or frontal view. Head silhouette and scale identical in all cells. Feet point right; both short legs stay close under pelvis, near leg light ivory, far leg muted darker taupe.\nFour equal square cells; same scale and horizontal body axis in each, all characters fully within cell with generous margins. Do NOT depict world-space jump height here; show each whole-body pose centered in its own cell so engine can move it vertically. Grounded cells have same horizontal foot baseline. Character is about TWO head diameters tall in neutral, never long-legged. Snappy compact athletic motion, not floaty, no noodle limbs. Long cape retains original broad layered shapes, motion mainly vertical and only slight horizontal cloth flutter. No floor, cast shadows, text, labels, grid, speed lines, background or colored fringe. Genuine transparent alpha.\nReading order:\nTOP LEFT: DESCENT / READY TO LAND. Torso upright, both short feet lower beneath hip in a narrow same-as-idle stance, knees NOT locked; feet pointing right, soles preparing to meet ground. Cape tips float mildly UPWARD behind in response to falling, but not horizontal or explosive.\nTOP RIGHT: FIRST CONTACT. Both soles contact same ground line, knees already softly bent, chest slightly inclined forward. A compact quick landing; no straight-legged landing. Cape still has a small upward lag.\nBOTTOM LEFT: LANDING COMPRESSION. Same planted feet, knees bend a little deeper than first-contact, pelvis/head lowered about 12% of a head diameter compared to reference idle. Torso still mostly upright. Cape settles around bent legs and softly bunches; no floor collision.\nBOTTOM RIGHT: RECOVERY. Both feet remain planted in exact idle stance; torso almost fully upright, knee bend almost gone, head/cape nearly match reference idle. Only a tiny remaining downward cape-tip curve settling. This frame will cut directly to the attached approved idle, so do not redesign the clothes."
+    },
+    {
+      "output": "sources/grounded-keys.png",
+      "selectedForFrames": [
+        1,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "durationMs": [
+    60,
+    40,
+    140,
+    80,
+    180,
+    40,
+    60,
+    80
+  ],
+  "totalMs": 680,
+  "flightStartMs": 100,
+  "flightEndMs": 500,
+  "jumpHeightPx": 100,
+  "horizontalDisplacementPx": 0,
+  "processing": "Crop and uniformly register complete drawings. Runtime vertical translation applies a parabola to the whole sprite; no joint rig, body rotation or generated in-between morphing.",
+  "unityApplied": false
+}
