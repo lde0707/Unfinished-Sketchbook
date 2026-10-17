@@ -1,0 +1,21 @@
+{
+  "status": "preview_pending_review",
+  "generator": "built-in imagegen",
+  "prompt": "Use case: identity-preserve. Draw FOUR new consecutive full-body transition frames between these two exact sprites. Reference1 is the starting bent-knee RUN CONTACT pose, reference2 is the final standing IDLE. Same character, round ivory head one oval black eye, short legs, plain shorts, soft warm paper cloak. BOTH ARMS/HANDS remain fully hidden. Preserve head size, character design and paper grain. A real hand-drawn slowing-to-stop animation, NOT crossfade, not four duplicates.\nOutput genuine transparent alpha 2x2 sheet, four equal square cells, exactly one right-facing full sprite in each, generous margins, same head scale. Reading order is elapsed stop progression 20%,45%,70%,90%. Ground horizontal. Near BRIGHT foot that has just landed remains flat planted at the same position in all cells. Far DARK foot is behind initially and comes down beside/just behind the planted foot. No stepping forward with the planted foot. Upper body gradually rises from the deeply leaned running pose toward reference2 upright idle, shoulders/head move back over hips. Cloak continues trailing initially then gradually falls with delayed follow-through. No raised arms, no floppy noodle legs, no vertical hop.\nTOP LEFT 20%: bright near knee still bent absorbing stop, dark rear bent leg begins swinging down toward ground but heel/sole still slightly lifted. Torso still leans forward like start but less deeply. Cape swept back almost horizontal with tips just beginning to fall.\nTOP RIGHT 45%: bright supporting knee partly unbends, dark foot touches ground just behind the bright foot. Torso halfway upright. Long cape tails trail diagonally down-left, halfway between horizontal run cape and draped idle cape.\nBOTTOM LEFT 70%: both short feet grounded in the final narrow standing stance; bright knee nearly relaxed upright. Torso almost upright, head very close to final idle height, cloak lowers to steep down-left angle with its tip still slightly higher than final idle.\nBOTTOM RIGHT 90%: feet in same standing stance and body essentially reference2 idle pose, tiny residual forward inclination. Cloak almost exactly the draped shape of reference2, just a tiny final settling difference at tips. This must blend into reference2, no extra flourish, no wind, no bounce.\nThe four frames MUST show progressive torso unleaning and gradual cape settling, with fixed bright support foot. No labels, numbers, grid, floor, shadows, background, color fringe or checkerboard. Transparent PNG.",
+  "references": [
+    "../player-c-v6-rhythm/frames/01.png",
+    "../player-c-idle-v1/frames/00.png"
+  ],
+  "source": "sources/stop-keys.png",
+  "durationMs": [
+    60,
+    70,
+    80,
+    110
+  ],
+  "totalMs": 320,
+  "processing": "Four new full-body drawings; crop at transparent gutter, uniform scale and whole-sprite translation. Anchor rightmost grounded sole to approved run contact. Existing idle is displayed with x offset -28 only; no existing PNG edited.",
+  "runExitFrame": 1,
+  "runAndIdleArtworkUnchanged": true,
+  "unityApplied": false
+}

@@ -1,0 +1,97 @@
+{
+  "frameCount": 4,
+  "durationMs": 320,
+  "groundY": 448,
+  "plantedSoleX": 340.0,
+  "runExitFrame": 1,
+  "idleRenderOffset": [
+    -28,
+    0
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "durationMs": 60,
+      "sourceRect": [
+        0,
+        0,
+        650,
+        627
+      ],
+      "scale": 0.7339449541284404,
+      "translation": [
+        -19,
+        44
+      ],
+      "headCenter": [
+        365,
+        253
+      ],
+      "soleCenterX": 340.0,
+      "groundY": 448
+    },
+    {
+      "frame": 2,
+      "durationMs": 70,
+      "sourceRect": [
+        650,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.7079646017699115,
+      "translation": [
+        71,
+        54
+      ],
+      "headCenter": [
+        362,
+        244
+      ],
+      "soleCenterX": 340.0,
+      "groundY": 448
+    },
+    {
+      "frame": 3,
+      "durationMs": 80,
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "scale": 0.6926406926406926,
+      "translation": [
+        39,
+        90
+      ],
+      "headCenter": [
+        372,
+        214
+      ],
+      "soleCenterX": 340.5,
+      "groundY": 448
+    },
+    {
+      "frame": 4,
+      "durationMs": 110,
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.6926406926406926,
+      "translation": [
+        60,
+        89
+      ],
+      "headCenter": [
+        346,
+        212
+      ],
+      "soleCenterX": 340.5,
+      "groundY": 448
+    }
+  ]
+}

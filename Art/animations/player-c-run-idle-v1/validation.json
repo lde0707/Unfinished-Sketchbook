@@ -1,0 +1,19 @@
+{
+  "frameCount": 4,
+  "durationMs": 320,
+  "headY": [
+    253,
+    244,
+    214,
+    212
+  ],
+  "soleCenterX": [
+    340.0,
+    340.0,
+    340.5,
+    340.5
+  ],
+  "idleOffsetX": -28,
+  "approvedRunUnchanged": true,
+  "note": "Whole-sprite offsets keep the planted sole near its run-contact position; no approved artwork is edited."
+}
