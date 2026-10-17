@@ -1,5 +1,6 @@
 {
-  "status": "Complete 16-frame run artwork and local comparison preview; visual review pending. Not installed in Unity.",
+  "status": "16-frame run candidate requires leg-pose and contact corrections after frame-by-frame audit on 2026-10-17. Not installed in Unity.",
+  "frameAudit": "frame-audit.json",
   "generator": "built-in image_gen",
   "frameCount": 16,
   "keyDrawings": 8,
