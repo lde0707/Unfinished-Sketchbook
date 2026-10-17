@@ -1,0 +1,233 @@
+{
+  "passed": true,
+  "approvedFileHashesVerified": 28,
+  "checks": [
+    "all six directed Idle/Run/Jump connections via start/stop bridges",
+    "stationary jump: x=0, apex=130px, duration=740ms",
+    "left/right movement and moving jump",
+    "release during flight lands in idle",
+    "rapid input settles without stuck state",
+    "keyboard after button focus",
+    "mobile width without overflow",
+    "no browser/network errors"
+  ],
+  "results": {
+    "apex": {
+      "ready": true,
+      "mode": "jump",
+      "time": 330,
+      "frame": 3,
+      "x": 0,
+      "y": -130,
+      "facing": 1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → jump"
+      ],
+      "demo": null,
+      "clock": 330
+    },
+    "stationary": {
+      "ready": true,
+      "mode": "idle",
+      "time": 0,
+      "frame": 0,
+      "x": 0,
+      "y": 0,
+      "facing": 1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → jump",
+        "jump → idle"
+      ],
+      "demo": null,
+      "clock": 740
+    },
+    "start": {
+      "ready": true,
+      "mode": "run",
+      "time": 160,
+      "frame": 2,
+      "x": 0,
+      "y": 0,
+      "facing": 1,
+      "dir": 1,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → run"
+      ],
+      "demo": null,
+      "clock": 160
+    },
+    "run": {
+      "ready": true,
+      "mode": "run",
+      "time": 800,
+      "frame": 2,
+      "x": 127.9999999999998,
+      "y": 0,
+      "facing": 1,
+      "dir": 1,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → run"
+      ],
+      "demo": null,
+      "clock": 800
+    },
+    "stop": {
+      "ready": true,
+      "mode": "idle",
+      "time": 0,
+      "frame": 0,
+      "x": 127.9999999999998,
+      "y": 0,
+      "facing": 1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → run",
+        "run → stop",
+        "stop → idle"
+      ],
+      "demo": null,
+      "clock": 960
+    },
+    "moving": {
+      "ready": true,
+      "mode": "run",
+      "time": 80,
+      "frame": 1,
+      "x": 219.9999999999995,
+      "y": 0,
+      "facing": 1,
+      "dir": 1,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → run",
+        "run → jump",
+        "jump → run"
+      ],
+      "demo": null,
+      "clock": 1540
+    },
+    "released": {
+      "ready": true,
+      "mode": "idle",
+      "time": 0,
+      "frame": 0,
+      "x": 259.99999999999943,
+      "y": 0,
+      "facing": 1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → run",
+        "run → jump",
+        "jump → run",
+        "run → jump",
+        "jump → idle"
+      ],
+      "demo": null,
+      "clock": 2280
+    },
+    "left": {
+      "ready": true,
+      "mode": "run",
+      "time": 80,
+      "frame": 1,
+      "x": -219.9999999999995,
+      "y": 0,
+      "facing": -1,
+      "dir": -1,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → run",
+        "run → jump",
+        "jump → run"
+      ],
+      "demo": null,
+      "clock": 1540
+    },
+    "idleJumpRun": {
+      "ready": true,
+      "mode": "run",
+      "time": 80,
+      "frame": 1,
+      "x": -91.99999999999993,
+      "y": 0,
+      "facing": -1,
+      "dir": -1,
+      "playing": false,
+      "history": [
+        "idle → jump",
+        "jump → run"
+      ],
+      "demo": null,
+      "clock": 740
+    },
+    "stress": {
+      "ready": true,
+      "mode": "idle",
+      "time": 1840,
+      "frame": 0,
+      "x": -89.79999999999993,
+      "y": 0,
+      "facing": -1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → jump",
+        "jump → run",
+        "run → jump",
+        "jump → idle",
+        "idle → start",
+        "start → jump",
+        "jump → run",
+        "run → stop",
+        "stop → idle"
+      ],
+      "demo": null,
+      "clock": 4220
+    },
+    "all": {
+      "ready": true,
+      "mode": "idle",
+      "time": 1060,
+      "frame": 3,
+      "x": 332.00000000000034,
+      "y": 0,
+      "facing": -1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → run",
+        "run → stop",
+        "stop → idle",
+        "idle → jump",
+        "jump → idle",
+        "idle → start",
+        "start → run",
+        "run → jump",
+        "jump → run",
+        "run → stop",
+        "stop → idle",
+        "idle → start",
+        "start → run",
+        "run → jump",
+        "jump → idle"
+      ],
+      "demo": null,
+      "clock": 9000
+    }
+  }
+}

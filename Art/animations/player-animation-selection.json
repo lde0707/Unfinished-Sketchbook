@@ -40,7 +40,23 @@
   },
   "unityApplied": false,
   "jump": {
-    "status": "preview_pending_user_review",
-    "directory": "player-c-jump-v1"
+    "status": "approved_by_user",
+    "directory": "player-c-jump-v1",
+    "frameCount": 8,
+    "durationMs": 740,
+    "jumpHeightPx": 130,
+    "decision": "User approved the higher stationary jump and requested a combined idle, run and jump transition test.",
+    "files": {
+      "player-c-jump-v1/frames/00.png": "446c31de3152ec600b8460dcbbf35dd81cfb6fdd2bb55a260d59201bb3f86bf9",
+      "player-c-jump-v1/frames/01.png": "36dfb29a483b65d88d808f9028a41e77642e9e80af1de031b0de3be304f3dcbe",
+      "player-c-jump-v1/frames/02.png": "a807599c16bdf67f09744a3737f769f92dbe2311ed0d3e1274554874bf3cedce",
+      "player-c-jump-v1/frames/03.png": "65477372141e3fde2655a1e5a3f29ec7e088c3b820cab6f7908d7e3f340ea9e6",
+      "player-c-jump-v1/frames/04.png": "ec8674e175990f195504909295d26bec9c0ec73384814fdc9347387de01b4c64",
+      "player-c-jump-v1/frames/05.png": "2f9fcd3fbd2956bb6c22a34f80aa17e393ea5ccb2b6f28e33226dad2e3f75f25",
+      "player-c-jump-v1/frames/06.png": "42a6aeded42e5819479add7647412d8d280719231839dc65a339faade532837a",
+      "player-c-jump-v1/frames/07.png": "c4c12ab09662050659f55b8266705c13f57bf53dcba85c08fa7e3d4076b529d7",
+      "player-c-jump-v1/jump-atlas.png": "b1575e209dc8ff7ec3121cc14bd894456ae09ab3e3c9bf7e4908777901cef29f",
+      "player-c-jump-v1/registration.json": "5f3d7c02e38baca55e7ff23d2f38ae4be11b2f149352ad83b6d6ab927671e711"
+    }
   }
 }
