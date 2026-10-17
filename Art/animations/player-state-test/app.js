@@ -144,7 +144,7 @@ function draw(){
   ctx.fillStyle=`rgba(0,0,0,${Math.max(.06,0.2+0.12*(1-Math.abs(S.y)/130))})`;ctx.beginPath();ctx.ellipse(root,ground-1,Math.max(10,42-Math.abs(S.y)*0.12),6,0,0,Math.PI*2);ctx.fill();
   const group=S.mode==='start'||S.mode==='stop'?'stop':S.mode==='jump'?S.jumpVariant:S.mode;
   const airPose=S.mode==='dash'?S.dashReturn:null;
-  const anchor=airPose?airPose.anchor+23:['run','stop','jump','dash'].includes(group)?340:368;
+  const anchor=airPose?airPose.anchor+dashReg.frames[S.frame].headCenter[0]-365:group==='dash'?dashReg.pivot[0]*dashReg.cellSize:['run','stop','jump'].includes(group)?340:368;
   // Align the head when switching from an airborne pose to the lower dash pose.
   const poseY=airPose?airPose.headY-dashReg.frames[S.frame].headCenter[1]:0;
   ctx.save();ctx.translate(root,ground+S.y);ctx.scale(S.facing,1);
@@ -171,8 +171,8 @@ $('speed').onchange=e=>{scale=Number(e.target.value);};
 document.querySelectorAll('[data-demo]').forEach(b=>b.onclick=()=>demo(b.dataset.demo));
 window.previewDebug={advance,reset,direction,jump,dash,drop,demo,draw};
 async function init(){
-  [jumpReg,tuckReg,stopReg,dashReg,fallReg]=await Promise.all(['../player-c-moving-jump-v1/registration.json','../player-c-jump-v2/registration.json','../player-c-run-idle-v1/registration.json','../player-c-dash-v1/registration.json','../player-c-fall-v1/registration.json'].map(async p=>{const r=await fetch(p);if(!r.ok)throw Error(p);return r.json();}));
-  await Promise.all(Object.entries({run:['player-c-v6-rhythm',8],idle:['player-c-idle-v1',6],jump:['player-c-moving-jump-v1',jumpReg.frameCount],tuck:['player-c-jump-v2',tuckReg.frameCount],dash:['player-c-dash-v1',dashReg.frameCount],fall:['player-c-fall-v1',fallReg.frameCount],stop:['player-c-run-idle-v1',4]}).map(async([name,[folder,count]])=>{clips[name]=await Promise.all(Array.from({length:count},(_,i)=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(Error(`이미지 로드 실패: ${img.src}`));img.src=`../${folder}/frames/${String(i).padStart(2,'0')}.png`;})));}));
+  [jumpReg,tuckReg,stopReg,dashReg,fallReg]=await Promise.all(['../player-c-moving-jump-v1/registration.json','../player-c-jump-v2/registration.json','../player-c-run-idle-v1/registration.json','../player-c-dash-v2/registration.json','../player-c-fall-v1/registration.json'].map(async p=>{const r=await fetch(p);if(!r.ok)throw Error(p);return r.json();}));
+  await Promise.all(Object.entries({run:['player-c-v6-rhythm',8],idle:['player-c-idle-v1',6],jump:['player-c-moving-jump-v1',jumpReg.frameCount],tuck:['player-c-jump-v2',tuckReg.frameCount],dash:['player-c-dash-v2',dashReg.frameCount],fall:['player-c-fall-v1',fallReg.frameCount],stop:['player-c-run-idle-v1',4]}).map(async([name,[folder,count]])=>{clips[name]=await Promise.all(Array.from({length:count},(_,i)=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(Error(`이미지 로드 실패: ${img.src}`));img.src=`../${folder}/frames/${String(i).padStart(2,'0')}.png`;})));}));
   S.ready=true;const requested=new URLSearchParams(location.search).get('demo');demo(Object.hasOwn(demos,requested)?requested:'all');draw();
   requestAnimationFrame(function tick(t){const dt=last?Math.min(t-last,50):0;last=t;if(S.playing)advance(dt*scale);requestAnimationFrame(tick);});
 }

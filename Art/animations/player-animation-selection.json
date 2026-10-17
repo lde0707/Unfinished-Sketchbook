@@ -78,13 +78,14 @@
   },
   "dashCandidate": {
     "status": "preview_pending_user_review",
-    "directory": "player-c-dash-v1",
+    "directory": "player-c-dash-v2",
     "frameCount": 4,
     "durationMs": 180,
     "speedPxPerSecond": 640,
     "cooldownAfterEndMs": 220,
     "groundOnly": false,
-    "airDashesPerJump": 1
+    "airDashesPerJump": 1,
+    "pose": "Both legs tucked throughout all four frames; forward-leaning glide with no foot strikes."
   },
   "fallCandidate": {
     "status": "preview_pending_user_review",
