@@ -85,7 +85,7 @@
     },
     {
       "attempt": 3,
-      "status": "selected as a single-frame pose concept",
+      "status": "rejected_by_user",
       "change": "Whole reference rotated 18 degrees clockwise as conditioning input, stronger profile and low posture prompts, still new full empty-latent generation"
     }
   ],
@@ -99,5 +99,9 @@
       "Hands and shorts partially obscured by cape",
       "One generated drawing, not a completed animation cycle"
     ]
-  }
+  },
+  "status": "rejected_by_user",
+  "selectedBaseline": "../player-c-v6/",
+  "rejectionReason": "User rejected the newly generated sprite: arms and legs look worm-like; use the existing sprites instead.",
+  "usage": "Do not use as a game asset or as a reference for subsequent player work. Retained only as an experiment record."
 }
