@@ -1,0 +1,26 @@
+{
+  "frameCount": 6,
+  "uniqueDrawings": 4,
+  "loopMs": 1800,
+  "headY": [
+    202,
+    200,
+    203,
+    202
+  ],
+  "headTravelY": 3,
+  "soleCenterX": [
+    358.0,
+    357.5,
+    358.0,
+    358.0
+  ],
+  "groundY": [
+    448,
+    448,
+    448,
+    448
+  ],
+  "approvedRunUnchanged": true,
+  "note": "Ground and sole-center registration stabilize feet; generated silhouettes are not pixel-identical."
+}

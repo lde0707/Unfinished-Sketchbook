@@ -1,0 +1,191 @@
+{
+  "frameCount": 6,
+  "uniqueDrawings": 4,
+  "sequence": [
+    2,
+    0,
+    3,
+    1,
+    3,
+    0
+  ],
+  "loopMs": 1800,
+  "cellSize": 512,
+  "columns": 3,
+  "rows": 2,
+  "groundY": 448,
+  "pivot": [
+    0.7109375,
+    0.125
+  ],
+  "frames": [
+    {
+      "key": 2,
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "scale": 0.622568093385214,
+      "translation": [
+        132,
+        99
+      ],
+      "headCenter": [
+        365,
+        203
+      ],
+      "bounds": [
+        197,
+        123,
+        445,
+        448
+      ],
+      "groundY": 448,
+      "soleCenterX": 358.0,
+      "frame": 1,
+      "durationMs": 300
+    },
+    {
+      "key": 0,
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.625,
+      "translation": [
+        133,
+        73
+      ],
+      "headCenter": [
+        364,
+        202
+      ],
+      "bounds": [
+        195,
+        122,
+        444,
+        448
+      ],
+      "groundY": 448,
+      "soleCenterX": 358.0,
+      "frame": 2,
+      "durationMs": 300
+    },
+    {
+      "key": 3,
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.6201550387596899,
+      "translation": [
+        150,
+        100
+      ],
+      "headCenter": [
+        366,
+        202
+      ],
+      "bounds": [
+        197,
+        122,
+        446,
+        448
+      ],
+      "groundY": 448,
+      "soleCenterX": 358.0,
+      "frame": 3,
+      "durationMs": 300
+    },
+    {
+      "key": 1,
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.625,
+      "translation": [
+        150,
+        73
+      ],
+      "headCenter": [
+        364,
+        200
+      ],
+      "bounds": [
+        195,
+        121,
+        445,
+        448
+      ],
+      "groundY": 448,
+      "soleCenterX": 357.5,
+      "frame": 4,
+      "durationMs": 300
+    },
+    {
+      "key": 3,
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.6201550387596899,
+      "translation": [
+        150,
+        100
+      ],
+      "headCenter": [
+        366,
+        202
+      ],
+      "bounds": [
+        197,
+        122,
+        446,
+        448
+      ],
+      "groundY": 448,
+      "soleCenterX": 358.0,
+      "frame": 5,
+      "durationMs": 300
+    },
+    {
+      "key": 0,
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.625,
+      "translation": [
+        133,
+        73
+      ],
+      "headCenter": [
+        364,
+        202
+      ],
+      "bounds": [
+        195,
+        122,
+        444,
+        448
+      ],
+      "groundY": 448,
+      "soleCenterX": 358.0,
+      "frame": 6,
+      "durationMs": 300
+    }
+  ]
+}

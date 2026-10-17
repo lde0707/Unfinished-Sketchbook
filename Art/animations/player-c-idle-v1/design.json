@@ -1,0 +1,22 @@
+{
+  "status": "preview_pending_user_review",
+  "generator": "built-in imagegen",
+  "references": [
+    "../player-c-v6-rhythm/frames/02.png",
+    "../../samples/player-v8/01-front-back-side.png"
+  ],
+  "prompt": "Use case: identity-preserve. Create a transparent PNG 2x2 animation sheet containing FOUR nearly identical full-body IDLE drawings of the SAME paper hero, right-facing side profile, one complete sprite centered in each equal square cell. Reference1 (running sprite) is PRIMARY and controls exact head shape, paper texture, palette, short compact proportions, cloak layering, shorts, and single black oval eye. Reference2 turnaround is SECONDARY ONLY for how the long cloak drapes while standing; do NOT copy its visible hands or its longer legs.\nStanding pose: relaxed nearly upright with a subtle alert forward inclination, both SHORT legs resting on the same horizontal ground, small rounded feet pointing right, near foot light ivory, far foot muted darker taupe slightly offset behind. Knees relaxed, no crouch or run. Large round head, no mouth/nose/hair, one unchanged open black oval eye. Body approximately 1.95 head diameters tall including head. Short plain shorts. BOTH ARMS AND HANDS fully hidden INSIDE the cloak: no sleeves, fists, fingers or elbows. Long layered warm-ivory paper cloak wraps the body, gently drapes downward behind to ankle height with soft broad curved hems; NOT streaming horizontally as during running. Preserve same fabric layers from running sprite, soft matte paper grain, restrained broad shading, same colors. No new accessories.\nAnimation: Four incremental phases of one VERY SUBTLE INHALATION. Reading order top-left at relaxed exhalation, top-right very slightly inhaled, bottom-left slightly more inhaled, bottom-right gentle inhale peak. Total difference from first to last: head/shoulder rises only 1.5% of one head diameter (about 2–3px after head normalized to160px); chest cloak expands only 1% of head diameter, lowest cloak tips lift/curl by at most2% of head diameter. Everything is restrained and almost still. NOT a big bounce, no swaying head, no turning, no dancing, no arm gestures. Head shape/size/eye position and leg proportions identical. Both feet and shorts remain exactly same placement and silhouette in all four cells, foot baselines equal. Texture and folds should stay consistent, only tiny breathing elevation and cloth response. These will be played forward and reversed to form a quiet breathing loop, so incremental consistent changes are essential.\n1024x1024 square with equal512 cells, generous transparent margin around each sprite. No labels, grids, numbers, ground lines, cast shadows, background, gradients, checkerboard or color fringe. Genuine transparent alpha. Exactly four full sprites, no cropping.",
+  "source": "sources/idle-keys.png",
+  "keyOrder": [
+    2,
+    0,
+    3,
+    1,
+    3,
+    0
+  ],
+  "frameDurationMs": 300,
+  "loopMs": 1800,
+  "processing": "Four full-body drawings, uniformly scaled and translated to ground and sole center. Six-frame ping-pong ordering chosen after reviewing measured breath heights. No joint rig, no synthetic in-between or runtime distortion.",
+  "unityApplied": false
+}

@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "frameCount": 6,
+  "uniqueDrawings": 4,
+  "loopMs": 1800,
+  "headTravelY": 3,
+  "approvedRunUnchanged": true,
+  "consoleErrors": [],
+  "checked": "6 frame controls, wrap/play, speed/flip/guides, 14 loaded sprites, grounded soles, subtle head travel and exact approved run hashes."
+}

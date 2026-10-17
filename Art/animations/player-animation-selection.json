@@ -1,0 +1,27 @@
+{
+  "run": {
+    "status": "approved_by_user",
+    "directory": "player-c-v6-rhythm",
+    "frameCount": 8,
+    "durationMs": 80,
+    "loopMs": 640,
+    "decision": "User approved this run and requested that it remain fixed while idle is developed.",
+    "files": {
+      "player-c-v6-rhythm/frames/00.png": "604cc8fa6c917ce84103a9d1fee70c1419839e6c2e46a84f6550e00a11f702a1",
+      "player-c-v6-rhythm/frames/01.png": "0327e7fd1e301d2d66a61e3565ae94933a816b07ead1b8a7359ace541d6994bc",
+      "player-c-v6-rhythm/frames/02.png": "93165e676e2cbc5e3f5c969426602c672d697aaebe4817eb9752d5bf24722653",
+      "player-c-v6-rhythm/frames/03.png": "cdc2fe86a3640896931a88000a633db5d4bd5e957e8c77d5479d1b3d98abd581",
+      "player-c-v6-rhythm/frames/04.png": "7c2adc2177f3e61500b3e2e7378665dd117404187429bc661b56e7c5bd15687e",
+      "player-c-v6-rhythm/frames/05.png": "3622c554968c7e7fc64e494f70adfe122952caad42e1d3dfab09cb14bd0fe516",
+      "player-c-v6-rhythm/frames/06.png": "695c6fe8e1445f20413163fa478d42d251f2ec9a0209b2ebb8333e08a6fdd11a",
+      "player-c-v6-rhythm/frames/07.png": "c95800388b0c1ffa7f8b1a2e5e05453770354c399fe194d4884e9a01c3c5d8a1",
+      "player-c-v6-rhythm/run-atlas.png": "e6ff025b219159ba26a662432593cacf432153563b4e1edb67359d4c524ba567",
+      "player-c-v6-rhythm/registration.json": "5a751941ac236b89cf6a36cf1d856f9efc417717aec917f6a72ddbfbc4b81921"
+    }
+  },
+  "idle": {
+    "status": "preview_pending_user_review",
+    "directory": "player-c-idle-v1"
+  },
+  "unityApplied": false
+}
