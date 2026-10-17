@@ -13,5 +13,6 @@
   ],
   "processing": "Full drawing crop, uniform head-size registration and translation; no joint manipulation, morphing or global squashing.",
   "scope": "Stationary jump only. Approved v1 retained for moving jumps and fallback.",
-  "unityApplied": false
+  "unityApplied": false,
+  "timingRevision": "Hold apex tuck for 180ms instead of 100ms; begin extending legs at 450ms instead of 370ms. Fall pose reduced from 210ms to 130ms. Total jump 760ms, flight 460ms, height 130px and all frame artwork unchanged."
 }

@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 import hashlib,json,shutil
 ROOT=Path(__file__).resolve().parents[1]; ART=ROOT/'Art/animations'; OUT=ART/'player-c-jump-v2'; OLD=ART/'player-c-jump-v1'
-DURATIONS=[35,55,30,150,100,210,40,60,80]
+DURATIONS=[35,55,30,150,180,130,40,60,80]
 NAMES=['load','deep-crouch','takeoff','rise-tuck','apex-tuck','fall','contact','compression','recovery']
 def bounds(im):return im.getchannel('A').point(lambda v:255 if v>=128 else 0).getbbox()
 def main():

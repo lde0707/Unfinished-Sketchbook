@@ -5,7 +5,7 @@ const {chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtime
  await page.goto('http://127.0.0.1:8092/player-c-jump-v2/preview.html');await page.waitForFunction(()=>previewState.ready);
  await page.evaluate(()=>{previewState.playing=false;previewState.auto=false;previewDebug.toIdle()});
  const trajectory=await page.evaluate(()=>{previewDebug.jump();previewState.playing=false;const samples=[];for(let t=0;t<=760;t++){if(t)previewDebug.advance(1);samples.push({t,x:previewState.rootX,y:previewState.rootY,mode:previewState.mode,frame:previewState.frame})}return samples});
- assert(trajectory.every(s=>s.x===0));assert.equal(trajectory[120].y,0);assert.equal(trajectory[350].y,-130);assert.equal(trajectory[580].y,0);assert.equal(trajectory[759].mode,'jump');assert.equal(trajectory[760].mode,'idle');assert(trajectory.every(s=>s.y<=0));
+ assert(trajectory.every(s=>s.x===0));assert.equal(trajectory[120].y,0);assert.equal(trajectory[350].y,-130);assert.equal(trajectory[580].y,0);assert.equal(trajectory[759].mode,'jump');assert.equal(trajectory[760].mode,'idle');assert(trajectory.every(s=>s.y<=0));assert.equal(trajectory[449].frame,4);assert.equal(trajectory[450].frame,5);
  assert.deepEqual([...new Set(trajectory.filter(s=>s.mode==='jump').map(s=>s.frame))],[0,1,2,3,4,5,6,7,8]);
  for(let i=0;i<9;i++){await page.locator(`[data-frame="${i}"]`).click();assert.equal(await page.evaluate(()=>previewState.displayedFrame),i)}
  await page.locator('#speed').selectOption('0.25');await page.locator('#flip').check();await page.locator('#guide').uncheck();await page.locator('#flip').uncheck();await page.locator('#guide').check();await page.locator('#speed').selectOption('1');

@@ -162,7 +162,7 @@
       ],
       "airborne": true,
       "startMs": 270,
-      "durationMs": 100
+      "durationMs": 180
     },
     {
       "frame": 6,
@@ -190,8 +190,8 @@
         434
       ],
       "airborne": true,
-      "startMs": 370,
-      "durationMs": 210,
+      "startMs": 450,
+      "durationMs": 130,
       "reusedUnchanged": true
     },
     {
