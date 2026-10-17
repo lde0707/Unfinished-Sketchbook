@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "frameCount": 8,
+  "inbetweens": 0,
+  "checked": "All eight frame selectors, wrapping, play, speed, flip, ground/head guides, local-source fallback. PNG metadata confirms sole registration and varying body height.",
+  "consoleErrors": [],
+  "scope": "Visual identity and anatomical continuity were inspected separately; metadata checks do not prove leg animation quality."
+}

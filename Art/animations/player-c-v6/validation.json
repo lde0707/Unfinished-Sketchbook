@@ -1,0 +1,35 @@
+{
+  "frameCount": 8,
+  "inbetweenCount": 0,
+  "uniqueFrames": 8,
+  "headWidthPx": 160,
+  "headY": [
+    211,
+    211,
+    215,
+    232,
+    219,
+    203,
+    207,
+    235
+  ],
+  "footGaps": [
+    0,
+    18,
+    8,
+    0,
+    0,
+    28,
+    21,
+    0
+  ],
+  "supportFrames": [
+    1,
+    4,
+    5,
+    8
+  ],
+  "contactErrorPx": 0,
+  "clippedSilhouettes": 0,
+  "note": "Drawing leg identity and overlap require visual review; file checks do not establish animation quality."
+}

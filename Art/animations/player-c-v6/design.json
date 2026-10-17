@@ -1,0 +1,48 @@
+{
+  "status": "Eight-frame redraw responding to near/far leg correction, no inbetweens. Visual review pending; no Unity replacement.",
+  "generator": "built-in image_gen",
+  "frameCount": 8,
+  "inbetweenCount": 0,
+  "fps": 10,
+  "legIdentity": {
+    "right": "near, brighter ivory, forward in frames1-3; support4; rear push5; recovery6-8",
+    "left": "far, shaded ivory, rear support1; recovery2-4; forward5-7; support8"
+  },
+  "contacts": [
+    1,
+    4,
+    5,
+    8
+  ],
+  "userPriorities": [
+    "Far leg forward in5,6,7",
+    "Tighter folded leg and extended-leg sole grounded in1,5",
+    "No inbetweens",
+    "Physical legs alternate rather than repeatedly animate one leg",
+    "Reference-informed vertical head/body motion"
+  ],
+  "method": "Complete drawings from imagegen. Pose diagrams are references only; no part animation. Uniform whole-image scaling and translation for packaging.",
+  "reference": {
+    "appearance": "Art/samples/player-v8/01-front-back-side.png",
+    "motion": "Clembod Warrior-V1.3 original Run PNGs, locally stored",
+    "url": "https://clembod.itch.io/warrior-free-animation-set"
+  },
+  "headHeight": {
+    "sourceRelativePx": [
+      0,
+      0,
+      1,
+      2,
+      1,
+      -2,
+      -1,
+      2
+    ],
+    "method": "Read relative height phase from source images, adapted 4x in flight. Stance frames align soles. Same head width160px; actual output heights211,211,215,232,219,203,207,235px. Includes drawn compression rather than an exact trace."
+  },
+  "prompts": {
+    "firstHalf": "Use case: identity-preserve, frame-by-frame 2D character animation.\nCreate exactly FOUR complete right-facing run sprites in an equal 2x2 grid, genuine transparent alpha background, no labels, floor, diagram, colored marks or shadows. The output is a production full-body sprite sheet, not rig parts.\nREFERENCE1: exact character identity/costume/material/proportions. REFERENCE2: exact pose geometry of frames1-4. Its BLUE lines always mean the physical RIGHT/NEAR leg. Its ORANGE lines always mean the physical LEFT/FAR leg. Reference3 is Warrior source motion; preserve broad timing, but prioritize guide2's limb identity and our character's SHORT limb proportions.\nCRITICAL: translate the BLUE guide leg into a BRIGHT IVORY NEAR leg (#E8DDCB). Translate ORANGE into a slightly darker shaded warm ivory FAR leg (#B9B09F). NEVER leave colored blue/orange legs. This same near/far physical identity persists across all poses. In ALL FOUR poses of this sheet, the bright near leg is the one moving FORWARD-RIGHT; shaded far leg is behind/recovering. Near leg visually OVERLAPS far leg when they cross; show separate leg openings of shorts. Do not just switch shading on the same leg drawing.\nFRAME1 top-left: shaded FAR leg extended diagonally BACK-LEFT/DOWN, its FOOT SOLE FLAT on the common invisible ground baseline. Bright NEAR thigh rises FORWARD-RIGHT almost horizontal, knee tightly folded, calf bends BACK-LEFT under thigh, heel pulled toward underside of shorts. The folded foot is tucked close to pelvis, NOT hanging far below knee. Follow guide1 exactly. This is the most important correction: one very tightly folded front leg, one stretched rear leg supporting on sole.\nFRAME2 top-right: both feet airborne. Bright NEAR thigh forward, calf still folded BACK, foot under knee; shaded FAR leg still stretched backward-down, just after release, NOT prematurely curled up.\nFRAME3 bottom-left: bright NEAR shin comes DOWN nearly vertical directly below knee, foot approaches ground with toe only gently forward; NO long forward kick. Shaded FAR leg is behind with heel curled upward near backside.\nFRAME4 bottom-right: bright NEAR foot planted near under pelvis, knee bent absorbing weight, shaded FAR leg folded passing beneath pelvis. Keep knees/feet as guide. Head/body lowest.\nIDENTITY: large round smooth ivory head with one small black oval eye on right side; no mouth/nose/ears/hair/hood. Compact torso, short arms/legs, approximately2.3-head neutral standing height. Soft rounded hands and short feet. Long broad paper cloak wraps front/sides with overlapping front panel, TWO long smooth rear tails flowing LEFT. Front hem raised just enough to expose actual plain SHORTS and knees. Cloak/shorts same warm ivory #D1C7B7, about10% darker than head; no seam stripes, dark pants or boots. Both bare legs same ivory material, only far leg shaded to clearly show depth. Short counter-swinging arms follow run.\nSTYLE soft matte painterly paper matching reference1, broad smooth curves, restrained grain, no photorealism, no pixelart, no puppet joints. Keep head diameter, eye, costume architecture, lighting constant acrossfour drawings. Head slight height changes from guide, not rigidly pinned. DO NOT straighten or lengthen short legs. Four complete drawings with generous margins in equal cells; no clipping of long cloak. Use same relative position/scale as poseguide, add cloak flowing into empty left area. Important match poseguide legs first, not generic run poses.",
+    "alphaAndDepth": "Use case: background-extraction plus precise depth-shading correction. Edit this exact four-frame 2x2 sprite sheet. REMOVE ALL BACKGROUND AND ALL HALO/GLOW COMPLETELY, replace with genuinely transparent alpha. No beige mist, black rectangle, floor or cast shadow. Preserve all four complete character silhouettes, poses, feet sole shapes, clothing, head and layout EXACTLY. Make ONLY the FAR bare leg slightly more shaded warm ivory #B9B09F to distinguish physical leg identity: TOPLEFT and TOPRIGHT the BACK LEFT stretched leg; BOTTOMLEFT and BOTTOMRIGHT the BACK LEFT folded leg. All FRONT RIGHT legs stay lighter body ivory #E8DDCB. Cloak and shorts remain light warm ivory10% darker than head, not charcoal. Preserve near-leg contours overlapping far leg near shorts, never switch physical legs. Output4sprites same2x2equalgrid on actual transparentalpha, no newelements.",
+    "secondHalf": "Use case: identity-preserve, full-body 2D run animation, second half of loop.\nExactly FOUR complete right-facing sprites in an equal2x2grid, genuine transparentalpha, no labels/ground/diagram. Reference1=exact appearance and rendering of finished frames1-4. Reference2=pose guide for frames5-8; reference3=neutral model. MATCH REFERENCE1 HEADSIZE, CLOAK, SHORTS, BRUSHWORK AND SCALE. But IMPORTANT: SWAP WHICH PHYSICAL LEG GOES FORWARD, not mirror the picture and not repeat same limb.\nReference2 BLUE is always RIGHT/NEAR physicalleg. ORANGE is always LEFT/FAR physicalleg. FINAL: BLUE becomes light warm ivory #E8DDCB; ORANGE becomes clearly shaded warm ivory #B9B09F. No blue/orange in final. In frames5,6,7 the DARKER FAR LEG IS FORWARD-RIGHT; the LIGHT NEAR LEG IS BACK-LEFT. Do not invert this. Near bright thigh overlaps/occludes far shaded thigh at pelvis wherever they cross. Draw actual changed overlap and leg connections from separate shorts openings, not simply recolor the old front leg.\nFrame5 TOPLEFT: LIGHT NEAR leg stretched BACK-LEFT DOWN, SOLE FLAT contacting invisible ground. DARKER FAR thigh lifted FORWARD-RIGHT, knee tightly folded, shin folds BACK-LEFT toward undersideofshorts, heel tucked high under pelvis, foot not danglinglow. This folded FAR leg must be visible emerging from behind lightnearshorts, not drawn overtopnearleg. Matchguide.\nFrame6 TOPRIGHT: LIGHT NEAR leg still stretched back-left down in earlyflight; DARK FAR thigh forward-right and knee tightlybent, shin foldsback underthigh. Bothfeetoffground. Body/head slightlyhigherthanframe5.\nFrame7 BOTTOMLEFT: LIGHT NEAR leg is BEHIND and curled at knee withheelhigh towardbutt; DARK FAR shin descends almost VERTICAL beneath forwardknee towardground. No extended forward kick. The entire visible descending shin/foot must be shadedwarmivory, neverbrightlikehead. This is oppositephysicallegtoframe3.\nFrame8 BOTTOMRIGHT: DARK FAR foot planted underpelvis, kneecompresses; LIGHT NEAR leg isfoldedpassingunderpelvisbehind. Nearlegstillvisuallyoverlapsfarlegatcrossing. Body/headlowestbeforeloopbacktoframe1.\nAll4: large smooth roundivoryhead, ONE smallblackovaleye lookingright; nohair/mouth/nose/ears/hood. Shortlimbscompacttorso~2.3headneutralheight. Same longbroadpapercloakwrappingfront/sides andtwolongsofttailsflowleft. Plainactualshortsvisible belowfrontcloak; cloakANDshorts samewarmivory10%darkerthanbody, nohemstripes/seams, nocharcoalpants. FAR LEG shadingisconsistentacrossentiresequence NOTacolorchangeofpants. Fullarmscounter-swingmatchinglegexchange; nearhandforwardduringfarlegforwardphaseandfararmback, oppositeprevioushalf.\nPreservewholebodyandheadscale acrossframes, followposeguidegeometryexactly beforeaddingcostume. Softmattepaintedpaperart, broadcurves, subtlegrain. No newdetails orprops. Four independently drawn COMPLETE bodies withcleartransparentmargins, no clipping."
+  }
+}
