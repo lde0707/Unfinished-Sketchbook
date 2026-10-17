@@ -1,0 +1,286 @@
+{
+  "frameCount": 8,
+  "inbetweenCount": 0,
+  "loopMs": 640,
+  "fps": 12.5,
+  "cellSize": 512,
+  "columns": 4,
+  "rows": 2,
+  "groundY": 448,
+  "pivot": [
+    0.7109375,
+    0.125
+  ],
+  "removedPreviousFrames": [
+    1,
+    4,
+    7,
+    10
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "oldPose": "2",
+      "source": "../player-c-v6-sprint/frames/01.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.7843137254901961,
+      "translation": [
+        -27,
+        17
+      ],
+      "headCenter": [
+        364,
+        269
+      ],
+      "headWidth": 160,
+      "bounds": [
+        4,
+        189,
+        444,
+        442
+      ],
+      "footGap": 6,
+      "durationMs": 80,
+      "referenceFrame": 1,
+      "inserted": false,
+      "previousFrame": 2,
+      "reusedExact": true
+    },
+    {
+      "frame": 2,
+      "oldPose": "3",
+      "source": "sources/bent-contacts-draft.png",
+      "sourceRect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 0.7960199004975125,
+      "translation": [
+        9,
+        20
+      ],
+      "headCenter": [
+        364,
+        274
+      ],
+      "headWidth": 160,
+      "bounds": [
+        14,
+        194,
+        443,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 80,
+      "referenceFrame": 2,
+      "inserted": false,
+      "previousFrame": 3,
+      "reusedExact": false
+    },
+    {
+      "frame": 3,
+      "oldPose": "4>A",
+      "source": "sources/bent-contacts-draft.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.8290155440414507,
+      "translation": [
+        -7,
+        -1
+      ],
+      "headCenter": [
+        364,
+        255
+      ],
+      "headWidth": 160,
+      "bounds": [
+        21,
+        175,
+        445,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 80,
+      "referenceFrame": 4,
+      "inserted": false,
+      "previousFrame": 5,
+      "reusedExact": false
+    },
+    {
+      "frame": 4,
+      "oldPose": "4>B",
+      "source": "../player-c-v6-sprint/frames/05.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.7476635514018691,
+      "translation": [
+        1,
+        16
+      ],
+      "headCenter": [
+        364,
+        249
+      ],
+      "headWidth": 160,
+      "bounds": [
+        26,
+        169,
+        444,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 80,
+      "referenceFrame": 5,
+      "inserted": false,
+      "previousFrame": 6,
+      "reusedExact": true
+    },
+    {
+      "frame": 5,
+      "oldPose": "6",
+      "source": "../player-c-v6-sprint/frames/07.png",
+      "sourceRect": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "scale": 0.7692307692307693,
+      "translation": [
+        -6,
+        22
+      ],
+      "headCenter": [
+        364,
+        265
+      ],
+      "headWidth": 160,
+      "bounds": [
+        23,
+        185,
+        444,
+        442
+      ],
+      "footGap": 6,
+      "durationMs": 80,
+      "referenceFrame": 7,
+      "inserted": false,
+      "previousFrame": 8,
+      "reusedExact": true
+    },
+    {
+      "frame": 6,
+      "oldPose": "7",
+      "source": "sources/bent-contacts-draft.png",
+      "sourceRect": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "scale": 0.8163265306122449,
+      "translation": [
+        -1,
+        8
+      ],
+      "headCenter": [
+        364,
+        267
+      ],
+      "headWidth": 160,
+      "bounds": [
+        16,
+        187,
+        444,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 80,
+      "referenceFrame": 8,
+      "inserted": false,
+      "previousFrame": 9,
+      "reusedExact": false
+    },
+    {
+      "frame": 7,
+      "oldPose": "8>A",
+      "source": "sources/bent-contacts.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.8205128205128205,
+      "translation": [
+        -6,
+        7
+      ],
+      "headCenter": [
+        364,
+        268
+      ],
+      "headWidth": 160,
+      "bounds": [
+        18,
+        188,
+        444,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 80,
+      "referenceFrame": 10,
+      "inserted": false,
+      "previousFrame": 11,
+      "reusedExact": false
+    },
+    {
+      "frame": 8,
+      "oldPose": "8>B",
+      "source": "../player-c-v6-sprint/frames/11.png",
+      "sourceRect": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "scale": 0.7619047619047619,
+      "translation": [
+        -18,
+        56
+      ],
+      "headCenter": [
+        364,
+        260
+      ],
+      "headWidth": 160,
+      "bounds": [
+        7,
+        181,
+        445,
+        448
+      ],
+      "footGap": 0,
+      "durationMs": 80,
+      "referenceFrame": 11,
+      "inserted": false,
+      "previousFrame": 12,
+      "reusedExact": true
+    }
+  ]
+}

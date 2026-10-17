@@ -1,0 +1,52 @@
+{
+  "frameCount": 8,
+  "uniqueFrames": 8,
+  "loopMs": 640,
+  "durationMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "previousFrames": [
+    2,
+    3,
+    5,
+    6,
+    8,
+    9,
+    11,
+    12
+  ],
+  "headY": [
+    269,
+    274,
+    255,
+    249,
+    265,
+    267,
+    268,
+    260
+  ],
+  "footGaps": [
+    6,
+    0,
+    0,
+    0,
+    6,
+    0,
+    0,
+    0
+  ],
+  "exactReusedFrames": [
+    1,
+    4,
+    5,
+    8
+  ],
+  "note": "Automatic checks cover files and timing, not perceived motion quality."
+}

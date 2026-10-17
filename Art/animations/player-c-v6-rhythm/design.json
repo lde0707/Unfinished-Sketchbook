@@ -1,0 +1,50 @@
+{
+  "version": "v6-rhythm",
+  "generator": "built-in imagegen",
+  "baseline": "../player-c-v6-sprint",
+  "keptPreviousFrames": [
+    2,
+    3,
+    5,
+    6,
+    8,
+    9,
+    11,
+    12
+  ],
+  "removedPreviousFrames": [
+    1,
+    4,
+    7,
+    10
+  ],
+  "durationPerFrameMs": 80,
+  "loopMs": 640,
+  "editedNewFrames": [
+    2,
+    3,
+    6,
+    7
+  ],
+  "exactReusedNewFrames": [
+    1,
+    4,
+    5,
+    8
+  ],
+  "prompts": [
+    {
+      "output": "sources/bent-contacts-draft.png",
+      "input": "sources/landing-input.png",
+      "prompt": "Use case: precise-object-edit. Edit the four existing right-facing running character drawings in this 2x2 transparent sprite sheet. Output same four full sprites in same cell positions and proportions with genuine transparent alpha. Keep their upper bodies, heads, one black oval eye, soft ivory paper texture, long layered cloak streaming LEFT, forward lean, shorts and hidden arms unchanged. BOTH HANDS/ARMS remain fully inside cloak, no visible arms.\nCHANGE: replace the straight reaching landing legs with clearly BENT-KNEE low running contacts. Short thighs, defined knees, short shins and small feet; NO straight locked knee, no leg reaching out ahead like a kick. Supporting foot lands directly under pelvis or just a little ahead, well BEHIND head center. The knee is ahead of ankle and bends approximately 110 degrees, shin angles back slightly toward the heel. Low soft athletic crouch, not sitting, not high jump. Preserve which leg is near light ivory vs far dark warm taupe.\nTOP LEFT: near BRIGHT leg lands on sole under the front edge of pelvis, with a conspicuous bent knee ahead of its ankle. Bring foot BACK toward hip from original extended-forward foot. Far DARK leg folded behind, foot raised, ready to swing through. This is initial bent contact.\nTOP RIGHT: near BRIGHT leg now carries weight, foot directly underneath/slightly behind hip, knee still bent and compressing. Far DARK recovering knee has moved forward to under hip, with foot tucked and raised. Show a meaningful passing phase, not duplicate top-left. Both knees stay compact.\nBOTTOM LEFT: same bent initial contact phase but DARK FAR leg is the supporting leg under pelvis; BRIGHT NEAR leg folded behind raised. Keep dark leg dark, bright leg bright.\nBOTTOM RIGHT: same compressed passing phase as top-right but DARK FAR leg supports beneath/slightly behind hip and BRIGHT NEAR knee is coming forward beneath hip with foot raised.\nKeep same head size and lower head/torso naturally a little if necessary to accommodate knee compression, do not lengthen legs. Ground-contact soles all share the same baseline in their own cells. Clear difference contact vs passing, two distinct feet. Preserve cape design and character identity. No ground, guide marks, labels, extra objects or color fringe. Exactly four fully contained sprites."
+    },
+    {
+      "output": "sources/bent-contacts.png",
+      "input": "sources/bent-contacts-draft.png",
+      "prompt": "Use case: precise-object-edit. Make ONE small color correction in the BOTTOM-RIGHT sprite only. Its supporting bent leg with the flat foot on the ground must be the DARK warm taupe FAR leg, exactly matching the supporting leg color in the BOTTOM-LEFT sprite. Its rear bent raised leg/foot must be LIGHT ivory NEAR leg, exactly matching the raised rear limb of the BOTTOM-LEFT sprite. Correct only these two leg colors in the BOTTOM-RIGHT cell; leave geometry, knees, feet, all texture, shading detail, silhouette and position of all four sprites unchanged. Do NOT change any other cell. All heads, cloaks, shorts, hidden arms, and the transparent alpha remain unchanged. Same exact 2x2 layout, four full sprites, no new objects or text.",
+      "selection": "Only bottom-right cell selected; other three final edits use preceding generation."
+    }
+  ],
+  "processing": "Crop, uniform resize, whole-sprite ground alignment and atlas packaging. No limb rig or interpolation.",
+  "unityApplied": false
+}
