@@ -1,0 +1,1525 @@
+{
+  "passed": true,
+  "checks": [
+    "six high-jump cases preserve height, velocity and direction at jump-to-fall handoff",
+    "descending poses transition to fall loop without midair landing",
+    "landing only at actual lower ground",
+    "attack survives handoff and ends on schedule",
+    "no renewed dash charge or midair jump; buffered re-jump still works",
+    "fall dash preserves vertical state",
+    "both long-fall demos complete",
+    "rise4 frames and fall gather/recovery hashes preserved",
+    "no browser errors; mobile layout"
+  ],
+  "result": {
+    "cases": [
+      {
+        "dir": -1,
+        "height": 160,
+        "boundary": 310,
+        "before": {
+          "ready": true,
+          "mode": "jump",
+          "jumpVariant": "jump",
+          "time": 309,
+          "frame": 2,
+          "x": -61.80000000000003,
+          "y": -274.66294896030246,
+          "facing": -1,
+          "dir": -1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump"
+          ],
+          "demo": null,
+          "clock": 309,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": null,
+          "jumpOriginY": -160,
+          "fallPoseFrom": null,
+          "ledge": {
+            "edge": 24,
+            "height": 160,
+            "direction": -1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "handoff": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "jump",
+          "time": 65,
+          "frame": 1,
+          "x": -62.000000000000036,
+          "y": -274.27221172022684,
+          "facing": -1,
+          "dir": -1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 310,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 393.1947069943289,
+          "fallLandingMs": null,
+          "jumpOriginY": -160,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": 24,
+            "height": 160,
+            "direction": -1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "monotone": true,
+        "midairLanding": false,
+        "frames": [
+          1,
+          2
+        ],
+        "contact": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "jump",
+          "time": 450,
+          "frame": 3,
+          "x": -139.00000000000037,
+          "y": 0,
+          "facing": -1,
+          "dir": -1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 695,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 0.9779113545112528,
+          "jumpOriginY": -160,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": 24,
+            "height": 160,
+            "direction": -1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "end": {
+          "ready": true,
+          "mode": "run",
+          "jumpVariant": "jump",
+          "time": 80.97791135451126,
+          "frame": 1,
+          "x": -165.00000000000028,
+          "y": 0,
+          "facing": -1,
+          "dir": -1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall",
+            "fall → run"
+          ],
+          "demo": null,
+          "clock": 825,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 130,
+          "jumpOriginY": -160,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": 24,
+            "height": 160,
+            "direction": -1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        }
+      },
+      {
+        "dir": -1,
+        "height": 320,
+        "boundary": 310,
+        "before": {
+          "ready": true,
+          "mode": "jump",
+          "jumpVariant": "jump",
+          "time": 309,
+          "frame": 2,
+          "x": -61.80000000000003,
+          "y": -434.66294896030246,
+          "facing": -1,
+          "dir": -1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump"
+          ],
+          "demo": null,
+          "clock": 309,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": null,
+          "jumpOriginY": -320,
+          "fallPoseFrom": null,
+          "ledge": {
+            "edge": 24,
+            "height": 320,
+            "direction": -1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "handoff": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "jump",
+          "time": 65,
+          "frame": 1,
+          "x": -62.000000000000036,
+          "y": -434.27221172022684,
+          "facing": -1,
+          "dir": -1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 310,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 393.1947069943289,
+          "fallLandingMs": null,
+          "jumpOriginY": -320,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": 24,
+            "height": 320,
+            "direction": -1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "monotone": true,
+        "midairLanding": false,
+        "frames": [
+          1,
+          2
+        ],
+        "contact": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "jump",
+          "time": 627,
+          "frame": 3,
+          "x": -174.39999999999836,
+          "y": 0,
+          "facing": -1,
+          "dir": -1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 872,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 0.20013357673472554,
+          "jumpOriginY": -320,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": 24,
+            "height": 320,
+            "direction": -1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "end": {
+          "ready": true,
+          "mode": "run",
+          "jumpVariant": "jump",
+          "time": 80.20013357673474,
+          "frame": 1,
+          "x": -200.39999999999827,
+          "y": 0,
+          "facing": -1,
+          "dir": -1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall",
+            "fall → run"
+          ],
+          "demo": null,
+          "clock": 1002,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 130,
+          "jumpOriginY": -320,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": 24,
+            "height": 320,
+            "direction": -1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        }
+      },
+      {
+        "dir": 0,
+        "height": 160,
+        "boundary": 345,
+        "before": {
+          "ready": true,
+          "mode": "jump",
+          "jumpVariant": "tuck",
+          "time": 344,
+          "frame": 4,
+          "x": 0,
+          "y": -274.66294896030246,
+          "facing": 1,
+          "dir": 0,
+          "playing": false,
+          "history": [
+            "idle → jump"
+          ],
+          "demo": null,
+          "clock": 344,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": null,
+          "jumpOriginY": -160,
+          "fallPoseFrom": null,
+          "ledge": {
+            "edge": -24,
+            "height": 160,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "handoff": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "tuck",
+          "time": 65,
+          "frame": 1,
+          "x": 0,
+          "y": -274.27221172022684,
+          "facing": 1,
+          "dir": 0,
+          "playing": false,
+          "history": [
+            "idle → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 345,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 393.1947069943289,
+          "fallLandingMs": null,
+          "jumpOriginY": -160,
+          "fallPoseFrom": {
+            "x": 0,
+            "y": 0,
+            "clock": 345
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 160,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "monotone": true,
+        "midairLanding": false,
+        "frames": [
+          1,
+          2
+        ],
+        "contact": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "tuck",
+          "time": 450,
+          "frame": 3,
+          "x": 0,
+          "y": 0,
+          "facing": 1,
+          "dir": 0,
+          "playing": false,
+          "history": [
+            "idle → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 730,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 0.9779113545112528,
+          "jumpOriginY": -160,
+          "fallPoseFrom": {
+            "x": 0,
+            "y": 0,
+            "clock": 345
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 160,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "end": {
+          "ready": true,
+          "mode": "idle",
+          "jumpVariant": "tuck",
+          "time": 0.9779113545112637,
+          "frame": 0,
+          "x": 0,
+          "y": 0,
+          "facing": 1,
+          "dir": 0,
+          "playing": false,
+          "history": [
+            "idle → jump",
+            "jump → fall",
+            "fall → idle"
+          ],
+          "demo": null,
+          "clock": 860,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 130,
+          "jumpOriginY": -160,
+          "fallPoseFrom": {
+            "x": 0,
+            "y": 0,
+            "clock": 345
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 160,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        }
+      },
+      {
+        "dir": 0,
+        "height": 320,
+        "boundary": 345,
+        "before": {
+          "ready": true,
+          "mode": "jump",
+          "jumpVariant": "tuck",
+          "time": 344,
+          "frame": 4,
+          "x": 0,
+          "y": -434.66294896030246,
+          "facing": 1,
+          "dir": 0,
+          "playing": false,
+          "history": [
+            "idle → jump"
+          ],
+          "demo": null,
+          "clock": 344,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": null,
+          "jumpOriginY": -320,
+          "fallPoseFrom": null,
+          "ledge": {
+            "edge": -24,
+            "height": 320,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "handoff": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "tuck",
+          "time": 65,
+          "frame": 1,
+          "x": 0,
+          "y": -434.27221172022684,
+          "facing": 1,
+          "dir": 0,
+          "playing": false,
+          "history": [
+            "idle → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 345,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 393.1947069943289,
+          "fallLandingMs": null,
+          "jumpOriginY": -320,
+          "fallPoseFrom": {
+            "x": 0,
+            "y": 0,
+            "clock": 345
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 320,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "monotone": true,
+        "midairLanding": false,
+        "frames": [
+          1,
+          2
+        ],
+        "contact": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "tuck",
+          "time": 627,
+          "frame": 3,
+          "x": 0,
+          "y": 0,
+          "facing": 1,
+          "dir": 0,
+          "playing": false,
+          "history": [
+            "idle → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 907,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 0.20013357673472554,
+          "jumpOriginY": -320,
+          "fallPoseFrom": {
+            "x": 0,
+            "y": 0,
+            "clock": 345
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 320,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "end": {
+          "ready": true,
+          "mode": "idle",
+          "jumpVariant": "tuck",
+          "time": 0.20013357673474275,
+          "frame": 0,
+          "x": 0,
+          "y": 0,
+          "facing": 1,
+          "dir": 0,
+          "playing": false,
+          "history": [
+            "idle → jump",
+            "jump → fall",
+            "fall → idle"
+          ],
+          "demo": null,
+          "clock": 1037,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 130,
+          "jumpOriginY": -320,
+          "fallPoseFrom": {
+            "x": 0,
+            "y": 0,
+            "clock": 345
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 320,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        }
+      },
+      {
+        "dir": 1,
+        "height": 160,
+        "boundary": 310,
+        "before": {
+          "ready": true,
+          "mode": "jump",
+          "jumpVariant": "jump",
+          "time": 309,
+          "frame": 2,
+          "x": 61.80000000000003,
+          "y": -274.66294896030246,
+          "facing": 1,
+          "dir": 1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump"
+          ],
+          "demo": null,
+          "clock": 309,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": null,
+          "jumpOriginY": -160,
+          "fallPoseFrom": null,
+          "ledge": {
+            "edge": -24,
+            "height": 160,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "handoff": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "jump",
+          "time": 65,
+          "frame": 1,
+          "x": 62.000000000000036,
+          "y": -274.27221172022684,
+          "facing": 1,
+          "dir": 1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 310,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 393.1947069943289,
+          "fallLandingMs": null,
+          "jumpOriginY": -160,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 160,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "monotone": true,
+        "midairLanding": false,
+        "frames": [
+          1,
+          2
+        ],
+        "contact": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "jump",
+          "time": 450,
+          "frame": 3,
+          "x": 139.00000000000037,
+          "y": 0,
+          "facing": 1,
+          "dir": 1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 695,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 0.9779113545112528,
+          "jumpOriginY": -160,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 160,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "end": {
+          "ready": true,
+          "mode": "run",
+          "jumpVariant": "jump",
+          "time": 80.97791135451126,
+          "frame": 1,
+          "x": 165.00000000000028,
+          "y": 0,
+          "facing": 1,
+          "dir": 1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall",
+            "fall → run"
+          ],
+          "demo": null,
+          "clock": 825,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 130,
+          "jumpOriginY": -160,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 160,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        }
+      },
+      {
+        "dir": 1,
+        "height": 320,
+        "boundary": 310,
+        "before": {
+          "ready": true,
+          "mode": "jump",
+          "jumpVariant": "jump",
+          "time": 309,
+          "frame": 2,
+          "x": 61.80000000000003,
+          "y": -434.66294896030246,
+          "facing": 1,
+          "dir": 1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump"
+          ],
+          "demo": null,
+          "clock": 309,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": null,
+          "jumpOriginY": -320,
+          "fallPoseFrom": null,
+          "ledge": {
+            "edge": -24,
+            "height": 320,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "handoff": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "jump",
+          "time": 65,
+          "frame": 1,
+          "x": 62.000000000000036,
+          "y": -434.27221172022684,
+          "facing": 1,
+          "dir": 1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 310,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 393.1947069943289,
+          "fallLandingMs": null,
+          "jumpOriginY": -320,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 320,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "monotone": true,
+        "midairLanding": false,
+        "frames": [
+          1,
+          2
+        ],
+        "contact": {
+          "ready": true,
+          "mode": "fall",
+          "jumpVariant": "jump",
+          "time": 627,
+          "frame": 3,
+          "x": 174.39999999999836,
+          "y": 0,
+          "facing": 1,
+          "dir": 1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall"
+          ],
+          "demo": null,
+          "clock": 872,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 0.20013357673472554,
+          "jumpOriginY": -320,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 320,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        },
+        "end": {
+          "ready": true,
+          "mode": "run",
+          "jumpVariant": "jump",
+          "time": 80.20013357673474,
+          "frame": 1,
+          "x": 200.39999999999827,
+          "y": 0,
+          "facing": 1,
+          "dir": 1,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall",
+            "fall → run"
+          ],
+          "demo": null,
+          "clock": 1002,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 130,
+          "jumpOriginY": -320,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 310
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 320,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        }
+      }
+    ],
+    "attackStarted": true,
+    "attackBefore": {
+      "ready": true,
+      "mode": "jump",
+      "jumpVariant": "jump",
+      "time": 260,
+      "frame": 2,
+      "x": 52.00000000000002,
+      "y": -347.7882797731569,
+      "facing": 1,
+      "dir": 1,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → jump"
+      ],
+      "demo": null,
+      "clock": 260,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1,
+      "dashDir": 1,
+      "dashReadyAt": 0,
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": null,
+      "jumpOriginY": -220,
+      "fallPoseFrom": null,
+      "ledge": {
+        "edge": -24,
+        "height": 220,
+        "direction": 1
+      },
+      "airAttack": {
+        "kind": "fall",
+        "startedAt": 260,
+        "facing": 1,
+        "frame": 0
+      },
+      "airAttackCount": 1,
+      "airAttackHistory": [
+        {
+          "kind": "fall",
+          "clock": 260,
+          "x": 52.00000000000002,
+          "y": -347.7882797731569
+        }
+      ]
+    },
+    "attackAfter": {
+      "ready": true,
+      "mode": "fall",
+      "jumpVariant": "jump",
+      "time": 65,
+      "frame": 1,
+      "x": 62.00000000000003,
+      "y": -334.27221172022684,
+      "facing": 1,
+      "dir": 1,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → jump",
+        "jump → fall"
+      ],
+      "demo": null,
+      "clock": 310,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1,
+      "dashDir": 1,
+      "dashReadyAt": 0,
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false,
+      "fallVelocity": 393.1947069943289,
+      "fallLandingMs": null,
+      "jumpOriginY": -220,
+      "fallPoseFrom": {
+        "x": 28,
+        "y": 47,
+        "clock": 310
+      },
+      "ledge": {
+        "edge": -24,
+        "height": 220,
+        "direction": 1
+      },
+      "airAttack": {
+        "kind": "fall",
+        "startedAt": 260,
+        "facing": 1,
+        "frame": 1
+      },
+      "airAttackCount": 1,
+      "airAttackHistory": [
+        {
+          "kind": "fall",
+          "clock": 260,
+          "x": 52.00000000000002,
+          "y": -347.7882797731569
+        }
+      ]
+    },
+    "attackEnd": {
+      "ready": true,
+      "mode": "fall",
+      "jumpVariant": "jump",
+      "time": 235,
+      "frame": 2,
+      "x": 95.99999999999993,
+      "y": -241.41911153119096,
+      "facing": 1,
+      "dir": 1,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → jump",
+        "jump → fall"
+      ],
+      "demo": null,
+      "clock": 480,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1,
+      "dashDir": 1,
+      "dashReadyAt": 0,
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false,
+      "fallVelocity": 699.1947069943285,
+      "fallLandingMs": null,
+      "jumpOriginY": -220,
+      "fallPoseFrom": {
+        "x": 28,
+        "y": 47,
+        "clock": 310
+      },
+      "ledge": {
+        "edge": -24,
+        "height": 220,
+        "direction": 1
+      },
+      "airAttack": null,
+      "airAttackCount": 1,
+      "airAttackHistory": [
+        {
+          "kind": "fall",
+          "clock": 260,
+          "x": 52.00000000000002,
+          "y": -347.7882797731569
+        }
+      ]
+    },
+    "charge": {
+      "ready": true,
+      "mode": "fall",
+      "jumpVariant": "tuck",
+      "time": 65,
+      "frame": 1,
+      "x": 0,
+      "y": -434.27221172022684,
+      "facing": 1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → jump",
+        "jump → fall"
+      ],
+      "demo": null,
+      "clock": 345,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1,
+      "dashDir": 1,
+      "dashReadyAt": 0,
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": true,
+      "fallVelocity": 393.1947069943289,
+      "fallLandingMs": null,
+      "jumpOriginY": -320,
+      "fallPoseFrom": {
+        "x": 0,
+        "y": 0,
+        "clock": 345
+      },
+      "ledge": {
+        "edge": -24,
+        "height": 320,
+        "direction": 1
+      },
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
+    },
+    "extraDashRejected": true,
+    "noMidairJump": {
+      "ready": true,
+      "mode": "fall",
+      "jumpVariant": "tuck",
+      "time": 215,
+      "frame": 2,
+      "x": 0,
+      "y": -355.04300567107754,
+      "facing": 1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → jump",
+        "jump → fall"
+      ],
+      "demo": null,
+      "clock": 495,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1,
+      "dashDir": 1,
+      "dashReadyAt": 0,
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false,
+      "fallVelocity": 663.1947069943285,
+      "fallLandingMs": null,
+      "jumpOriginY": -320,
+      "fallPoseFrom": {
+        "x": 0,
+        "y": 0,
+        "clock": 345
+      },
+      "ledge": {
+        "edge": -24,
+        "height": 320,
+        "direction": 1
+      },
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
+    },
+    "buffered": {
+      "ready": true,
+      "mode": "jump",
+      "jumpVariant": "tuck",
+      "time": 21.20013357673513,
+      "frame": 1,
+      "x": 0,
+      "y": 0,
+      "facing": 1,
+      "dir": 0,
+      "playing": false,
+      "history": [
+        "idle → jump",
+        "jump → fall",
+        "fall → jump"
+      ],
+      "demo": null,
+      "clock": 928,
+      "jumpBufferedUntil": null,
+      "jumpCount": 2,
+      "dashDir": 1,
+      "dashReadyAt": 0,
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false,
+      "fallVelocity": 0,
+      "fallLandingMs": 0,
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": {
+        "edge": -24,
+        "height": 320,
+        "direction": 1
+      },
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
+    },
+    "beforeDash": {
+      "ready": true,
+      "mode": "fall",
+      "jumpVariant": "jump",
+      "time": 135,
+      "frame": 1,
+      "x": 76,
+      "y": -302.33858223062384,
+      "facing": 1,
+      "dir": 1,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → jump",
+        "jump → fall"
+      ],
+      "demo": null,
+      "clock": 380,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1,
+      "dashDir": 1,
+      "dashReadyAt": 0,
+      "dashCount": 0,
+      "dashReturn": null,
+      "airDashUsed": false,
+      "fallVelocity": 519.1947069943287,
+      "fallLandingMs": null,
+      "jumpOriginY": -220,
+      "fallPoseFrom": {
+        "x": 28,
+        "y": 47,
+        "clock": 310
+      },
+      "ledge": {
+        "edge": -24,
+        "height": 220,
+        "direction": 1
+      },
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
+    },
+    "afterDash": {
+      "ready": true,
+      "mode": "fall",
+      "jumpVariant": "jump",
+      "time": 135,
+      "frame": 1,
+      "x": 191.2000000000001,
+      "y": -302.33858223062384,
+      "facing": 1,
+      "dir": 1,
+      "playing": false,
+      "history": [
+        "idle → start",
+        "start → jump",
+        "jump → fall",
+        "fall → dash",
+        "dash → fall"
+      ],
+      "demo": null,
+      "clock": 560,
+      "jumpBufferedUntil": null,
+      "jumpCount": 1,
+      "dashDir": 1,
+      "dashReadyAt": 780,
+      "dashCount": 1,
+      "dashReturn": null,
+      "airDashUsed": true,
+      "fallVelocity": 519.1947069943287,
+      "fallLandingMs": null,
+      "jumpOriginY": -220,
+      "fallPoseFrom": {
+        "x": 28,
+        "y": 47,
+        "clock": 310
+      },
+      "ledge": {
+        "edge": -24,
+        "height": 220,
+        "direction": 1
+      },
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
+    },
+    "demos": [
+      {
+        "name": "longFall",
+        "end": {
+          "ready": true,
+          "mode": "idle",
+          "jumpVariant": "jump",
+          "time": 1090,
+          "frame": 3,
+          "x": 320.0000000000003,
+          "y": 0,
+          "facing": 1,
+          "dir": 0,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall",
+            "fall → run",
+            "run → stop",
+            "stop → idle"
+          ],
+          "demo": null,
+          "clock": 3000,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 130,
+          "jumpOriginY": -180,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 460
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 180,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 0,
+          "airAttackHistory": []
+        }
+      },
+      {
+        "name": "longFallAttack",
+        "end": {
+          "ready": true,
+          "mode": "idle",
+          "jumpVariant": "jump",
+          "time": 1090,
+          "frame": 3,
+          "x": 320.0000000000003,
+          "y": 0,
+          "facing": 1,
+          "dir": 0,
+          "playing": false,
+          "history": [
+            "idle → start",
+            "start → jump",
+            "jump → fall",
+            "fall → run",
+            "run → stop",
+            "stop → idle"
+          ],
+          "demo": null,
+          "clock": 3000,
+          "jumpBufferedUntil": null,
+          "jumpCount": 1,
+          "dashDir": 1,
+          "dashReadyAt": 0,
+          "dashCount": 0,
+          "dashReturn": null,
+          "airDashUsed": false,
+          "fallVelocity": 0,
+          "fallLandingMs": 130,
+          "jumpOriginY": -220,
+          "fallPoseFrom": {
+            "x": 28,
+            "y": 47,
+            "clock": 460
+          },
+          "ledge": {
+            "edge": -24,
+            "height": 220,
+            "direction": 1
+          },
+          "airAttack": null,
+          "airAttackCount": 1,
+          "airAttackHistory": [
+            {
+              "kind": "fall",
+              "clock": 620,
+              "x": 93.99999999999993,
+              "y": -248.32105860113424
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

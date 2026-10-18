@@ -1,0 +1,458 @@
+{
+  "frameCount": 13,
+  "insertedThisRevision": 2,
+  "loopMs": 800,
+  "cellSize": 512,
+  "renderCanvas": [
+    544,
+    512
+  ],
+  "renderPaddingX": 16,
+  "groundY": 448,
+  "columns": 4,
+  "rows": 4,
+  "frames": [
+    {
+      "index": 0,
+      "number": 1,
+      "label": "1",
+      "source": "phase-0",
+      "sourceCell": 0,
+      "previousIndex": 0,
+      "previousLabel": "1",
+      "new": false,
+      "durationMs": 100,
+      "renderOffset": [
+        -4,
+        0
+      ],
+      "headCenter": [
+        350,
+        213
+      ],
+      "renderedHeadCenter": [
+        346,
+        213
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "soleCenterX": 197.0,
+      "bounds": [
+        34,
+        133,
+        430,
+        448
+      ],
+      "forwardHandColorIntent": "dark",
+      "armTransition": false
+    },
+    {
+      "index": 1,
+      "number": 2,
+      "label": "2",
+      "source": "phase-0",
+      "sourceCell": 1,
+      "previousIndex": 1,
+      "previousLabel": "2",
+      "new": false,
+      "durationMs": 100,
+      "renderOffset": [
+        6,
+        6
+      ],
+      "headCenter": [
+        350,
+        210
+      ],
+      "renderedHeadCenter": [
+        356,
+        216
+      ],
+      "footGap": 4,
+      "supportLeg": null,
+      "soleCenterX": null,
+      "bounds": [
+        55,
+        130,
+        430,
+        438
+      ],
+      "forwardHandColorIntent": "dark",
+      "armTransition": true
+    },
+    {
+      "index": 2,
+      "number": 3,
+      "label": "3",
+      "source": "phase-0",
+      "sourceCell": 2,
+      "previousIndex": 2,
+      "previousLabel": "3",
+      "new": false,
+      "durationMs": 100,
+      "renderOffset": [
+        10,
+        2
+      ],
+      "headCenter": [
+        350,
+        215
+      ],
+      "renderedHeadCenter": [
+        360,
+        217
+      ],
+      "footGap": 8,
+      "supportLeg": null,
+      "soleCenterX": null,
+      "bounds": [
+        24,
+        135,
+        430,
+        438
+      ],
+      "forwardHandColorIntent": "bright",
+      "armTransition": true
+    },
+    {
+      "index": 3,
+      "number": 4,
+      "label": "4",
+      "source": "phase-0",
+      "sourceCell": 3,
+      "previousIndex": 3,
+      "previousLabel": "4",
+      "new": false,
+      "durationMs": 30,
+      "renderOffset": [
+        6,
+        0
+      ],
+      "headCenter": [
+        350,
+        232
+      ],
+      "renderedHeadCenter": [
+        356,
+        232
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "soleCenterX": 312.5,
+      "bounds": [
+        38,
+        152,
+        443,
+        448
+      ],
+      "forwardHandColorIntent": "bright",
+      "armTransition": false
+    },
+    {
+      "index": 4,
+      "number": 5,
+      "label": "5",
+      "source": "phase-1",
+      "sourceCell": 0,
+      "previousIndex": 3,
+      "previousLabel": "4",
+      "new": true,
+      "durationMs": 40,
+      "renderOffset": [
+        4,
+        0
+      ],
+      "headCenter": [
+        350,
+        233
+      ],
+      "renderedHeadCenter": [
+        354,
+        233
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "soleCenterX": 287.5,
+      "bounds": [
+        42,
+        154,
+        430,
+        448
+      ],
+      "forwardHandColorIntent": "bright",
+      "armTransition": false
+    },
+    {
+      "index": 5,
+      "number": 6,
+      "label": "6",
+      "source": "phase-1",
+      "sourceCell": 1,
+      "previousIndex": 4,
+      "previousLabel": "4-5",
+      "new": false,
+      "durationMs": 30,
+      "renderOffset": [
+        1,
+        0
+      ],
+      "headCenter": [
+        350,
+        220
+      ],
+      "renderedHeadCenter": [
+        351,
+        220
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "soleCenterX": 229.5,
+      "bounds": [
+        58,
+        140,
+        430,
+        448
+      ],
+      "forwardHandColorIntent": "bright",
+      "armTransition": false
+    },
+    {
+      "index": 6,
+      "number": 7,
+      "label": "7",
+      "source": "phase-1",
+      "sourceCell": 2,
+      "previousIndex": 5,
+      "previousLabel": "5",
+      "new": false,
+      "durationMs": 100,
+      "renderOffset": [
+        -4,
+        0
+      ],
+      "headCenter": [
+        350,
+        213
+      ],
+      "renderedHeadCenter": [
+        346,
+        213
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "soleCenterX": 204.5,
+      "bounds": [
+        48,
+        133,
+        434,
+        448
+      ],
+      "forwardHandColorIntent": "bright",
+      "armTransition": false
+    },
+    {
+      "index": 7,
+      "number": 8,
+      "label": "8",
+      "source": "phase-1",
+      "sourceCell": 3,
+      "previousIndex": 6,
+      "previousLabel": "6",
+      "new": false,
+      "durationMs": 50,
+      "renderOffset": [
+        6,
+        4
+      ],
+      "headCenter": [
+        350,
+        203
+      ],
+      "renderedHeadCenter": [
+        356,
+        207
+      ],
+      "footGap": 4,
+      "supportLeg": null,
+      "soleCenterX": null,
+      "bounds": [
+        51,
+        123,
+        430,
+        440
+      ],
+      "forwardHandColorIntent": "bright",
+      "armTransition": true
+    },
+    {
+      "index": 8,
+      "number": 9,
+      "label": "9",
+      "source": "transitions",
+      "sourceCell": 2,
+      "previousIndex": 7,
+      "previousLabel": "6-7",
+      "new": false,
+      "durationMs": 50,
+      "renderOffset": [
+        9,
+        8
+      ],
+      "headCenter": [
+        350,
+        205
+      ],
+      "renderedHeadCenter": [
+        359,
+        213
+      ],
+      "footGap": 32,
+      "supportLeg": null,
+      "soleCenterX": null,
+      "bounds": [
+        51,
+        125,
+        430,
+        408
+      ],
+      "forwardHandColorIntent": "bright",
+      "armTransition": true
+    },
+    {
+      "index": 9,
+      "number": 10,
+      "label": "10",
+      "source": "color-fix",
+      "sourceCell": 1,
+      "previousIndex": 8,
+      "previousLabel": "7",
+      "new": false,
+      "durationMs": 100,
+      "renderOffset": [
+        10,
+        6
+      ],
+      "headCenter": [
+        350,
+        207
+      ],
+      "renderedHeadCenter": [
+        360,
+        213
+      ],
+      "footGap": 12,
+      "supportLeg": null,
+      "soleCenterX": null,
+      "bounds": [
+        33,
+        128,
+        430,
+        430
+      ],
+      "forwardHandColorIntent": "dark",
+      "armTransition": true
+    },
+    {
+      "index": 10,
+      "number": 11,
+      "label": "11",
+      "source": "phase-2",
+      "sourceCell": 2,
+      "previousIndex": 9,
+      "previousLabel": "8",
+      "new": false,
+      "durationMs": 30,
+      "renderOffset": [
+        6,
+        0
+      ],
+      "headCenter": [
+        350,
+        223
+      ],
+      "renderedHeadCenter": [
+        356,
+        223
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "soleCenterX": 332.0,
+      "bounds": [
+        40,
+        143,
+        431,
+        448
+      ],
+      "forwardHandColorIntent": "dark",
+      "armTransition": false
+    },
+    {
+      "index": 11,
+      "number": 12,
+      "label": "12",
+      "source": "phase-2",
+      "sourceCell": 3,
+      "previousIndex": 9,
+      "previousLabel": "8",
+      "new": true,
+      "durationMs": 40,
+      "renderOffset": [
+        4,
+        0
+      ],
+      "headCenter": [
+        350,
+        232
+      ],
+      "renderedHeadCenter": [
+        354,
+        232
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "soleCenterX": 278.5,
+      "bounds": [
+        39,
+        152,
+        430,
+        448
+      ],
+      "forwardHandColorIntent": "dark",
+      "armTransition": false
+    },
+    {
+      "index": 12,
+      "number": 13,
+      "label": "13",
+      "source": "phase-3",
+      "sourceCell": 0,
+      "previousIndex": 10,
+      "previousLabel": "8-1",
+      "new": false,
+      "durationMs": 30,
+      "renderOffset": [
+        1,
+        0
+      ],
+      "headCenter": [
+        350,
+        221
+      ],
+      "renderedHeadCenter": [
+        351,
+        221
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "soleCenterX": 227.0,
+      "bounds": [
+        56,
+        141,
+        430,
+        448
+      ],
+      "forwardHandColorIntent": "dark",
+      "armTransition": false
+    }
+  ]
+}

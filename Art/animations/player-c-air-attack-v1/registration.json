@@ -1,0 +1,301 @@
+{
+  "revision": "forward-fall-v2",
+  "cellSize": [
+    768,
+    640
+  ],
+  "headWidth": 160,
+  "clips": {
+    "rise": {
+      "durationMs": 220,
+      "frames": [
+        {
+          "frame": 1,
+          "startMs": 0,
+          "durationMs": 35,
+          "phase": "gather",
+          "headCenter": [
+            384,
+            232
+          ],
+          "source": "sources/rise-keys.png",
+          "sourceRect": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "sourceHeadCenter": [
+            431.6304347826087,
+            265.0
+          ],
+          "sourceHeadWidth": 244,
+          "scale": 0.6557377049180327,
+          "translation": [
+            101,
+            58
+          ],
+          "bounds": [
+            172,
+            162,
+            464,
+            424
+          ]
+        },
+        {
+          "frame": 2,
+          "startMs": 35,
+          "durationMs": 70,
+          "phase": "single-swing",
+          "headCenter": [
+            384,
+            232
+          ],
+          "source": "sources/rise-keys.png",
+          "sourceRect": [
+            627,
+            0,
+            1254,
+            627
+          ],
+          "sourceHeadCenter": [
+            392.06666666666666,
+            271.0
+          ],
+          "sourceHeadWidth": 246,
+          "scale": 0.6504065040650406,
+          "translation": [
+            129,
+            56
+          ],
+          "bounds": [
+            136,
+            161,
+            512,
+            424
+          ]
+        },
+        {
+          "frame": 3,
+          "startMs": 105,
+          "durationMs": 45,
+          "phase": "follow-through",
+          "headCenter": [
+            384,
+            232
+          ],
+          "source": "sources/rise-keys.png",
+          "sourceRect": [
+            0,
+            627,
+            627,
+            1254
+          ],
+          "sourceHeadCenter": [
+            453.15909090909093,
+            186.5
+          ],
+          "sourceHeadWidth": 247,
+          "scale": 0.6477732793522267,
+          "translation": [
+            90,
+            111
+          ],
+          "bounds": [
+            156,
+            163,
+            464,
+            425
+          ]
+        },
+        {
+          "frame": 4,
+          "startMs": 150,
+          "durationMs": 70,
+          "phase": "return",
+          "headCenter": [
+            384,
+            232
+          ],
+          "source": "sources/rise-keys.png",
+          "sourceRect": [
+            627,
+            627,
+            1254,
+            1254
+          ],
+          "sourceHeadCenter": [
+            387.42105263157896,
+            191.0
+          ],
+          "sourceHeadWidth": 250,
+          "scale": 0.64,
+          "translation": [
+            136,
+            110
+          ],
+          "bounds": [
+            174,
+            162,
+            464,
+            420
+          ]
+        }
+      ],
+      "activeMs": [
+        35,
+        105
+      ]
+    },
+    "fall": {
+      "durationMs": 220,
+      "frames": [
+        {
+          "frame": 1,
+          "startMs": 0,
+          "durationMs": 35,
+          "phase": "gather",
+          "headCenter": [
+            384,
+            232
+          ],
+          "source": "sources/fall-keys.png",
+          "sourceRect": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "sourceHeadCenter": [
+            441.67391304347825,
+            204.0
+          ],
+          "sourceHeadWidth": 270,
+          "scale": 0.5925925925925926,
+          "translation": [
+            122,
+            111
+          ],
+          "bounds": [
+            155,
+            158,
+            464,
+            453
+          ]
+        },
+        {
+          "frame": 2,
+          "startMs": 35,
+          "durationMs": 70,
+          "phase": "single-swing",
+          "headCenter": [
+            384,
+            232
+          ],
+          "source": "sources/fall-forward-keys-v2.png",
+          "sourceRect": [
+            627,
+            0,
+            1254,
+            627
+          ],
+          "sourceHeadCenter": [
+            400.42857142857144,
+            214.0
+          ],
+          "sourceHeadWidth": 270,
+          "scale": 0.5925925925925926,
+          "translation": [
+            147,
+            105
+          ],
+          "bounds": [
+            154,
+            162,
+            509,
+            446
+          ]
+        },
+        {
+          "frame": 3,
+          "startMs": 105,
+          "durationMs": 45,
+          "phase": "follow-through",
+          "headCenter": [
+            384,
+            232
+          ],
+          "source": "sources/fall-forward-keys-v2.png",
+          "sourceRect": [
+            0,
+            627,
+            627,
+            1254
+          ],
+          "sourceHeadCenter": [
+            462.30434782608694,
+            175.0
+          ],
+          "sourceHeadWidth": 266,
+          "scale": 0.6015037593984962,
+          "translation": [
+            106,
+            127
+          ],
+          "bounds": [
+            150,
+            163,
+            464,
+            443
+          ]
+        },
+        {
+          "frame": 4,
+          "startMs": 150,
+          "durationMs": 70,
+          "phase": "return",
+          "headCenter": [
+            384,
+            232
+          ],
+          "source": "sources/fall-keys.png",
+          "sourceRect": [
+            627,
+            627,
+            1254,
+            1254
+          ],
+          "sourceHeadCenter": [
+            444.84375,
+            182.5
+          ],
+          "sourceHeadWidth": 269,
+          "scale": 0.5947955390334573,
+          "translation": [
+            119,
+            123
+          ],
+          "bounds": [
+            138,
+            159,
+            464,
+            452
+          ]
+        }
+      ],
+      "activeMs": [
+        35,
+        105
+      ]
+    }
+  },
+  "gravityPolicy": "unmodified locomotion",
+  "cancelOn": [
+    "landing",
+    "dash",
+    "new-jump",
+    "reset"
+  ],
+  "unityApplied": true,
+  "status": "integrated_in_Unity_2026_10_18"
+}

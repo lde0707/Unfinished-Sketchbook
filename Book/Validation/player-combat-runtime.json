@@ -1,0 +1,1 @@
+{"passed":true,"checks":["three-stage combo and thrust VFX","250ms combo window","150ms input expiry","500ms finisher recovery","moving attack preserves motor travel","moving/standing variant and reversal","jump/dash/landing cancel","rise and forward fall attacks220ms","air facing lock","long jump-to-fall and real contact","long-fall dash velocity"]}

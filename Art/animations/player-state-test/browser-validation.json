@@ -43,7 +43,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "stationary": {
       "ready": true,
@@ -71,7 +76,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "start": {
       "ready": true,
@@ -99,7 +109,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "run": {
       "ready": true,
@@ -127,7 +142,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "stop": {
       "ready": true,
@@ -157,7 +177,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "moving": {
       "ready": true,
@@ -187,7 +212,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "released": {
       "ready": true,
@@ -219,7 +249,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "left": {
       "ready": true,
@@ -249,7 +284,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "idleJumpRun": {
       "ready": true,
@@ -277,7 +317,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "motion": [
       {
@@ -338,7 +383,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "stress": {
       "ready": true,
@@ -369,7 +419,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "all": {
       "ready": true,
@@ -411,7 +466,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "reJumps": [
       {
@@ -612,7 +672,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "resetClearsBuffer": {
       "ready": true,
@@ -637,7 +702,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     },
     "repeatDemo": {
       "ready": true,
@@ -667,7 +737,12 @@
       "airDashUsed": false,
       "fallVelocity": 0,
       "fallLandingMs": null,
-      "ledge": null
+      "jumpOriginY": 0,
+      "fallPoseFrom": null,
+      "ledge": null,
+      "airAttack": null,
+      "airAttackCount": 0,
+      "airAttackHistory": []
     }
   }
 }

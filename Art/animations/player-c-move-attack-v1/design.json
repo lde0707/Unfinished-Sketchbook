@@ -1,0 +1,152 @@
+{
+  "status": "Integrated in Unity World12Prototype; damage not implemented",
+  "generator": "built-in imagegen",
+  "refinement": {
+    "output": "sources/attack1-keys-refined.png",
+    "prompt": "Use case: precise-object-edit. This is the existing six-frame MOVE ATTACK 1 sheet. Preserve EXACT same six cells, character identity, circular head sizes/positions, cape, eraser attack gestures, upper bodies, and palette. Make only these two leg corrections: bottom-middle (frame5) must show DARK FAR SUPPORT LEG pushing BACK, foot on ground behind hips toward LEFT; BRIGHT NEAR LEG is lifted with its KNEE bent forward toward RIGHT, heel folded beneath shorts, NOT touching ground. Bottom-right (frame6) must show BRIGHT NEAR knee advancing forward bent ready to land, DARK FAR lower leg now folding tightly backward, not extended straight left. These complete the alternating run steps after the dark forward contact in bottom-left frame4. Do not alter other four frames. Keep legs short and compact like before. Also remove diffuse light halos around the eraser swing across the sheet: keep a clean ivory crescent only in frames3 and4 and zero-alpha background. Do not crop the crescent; it must fit entirely in its own 512px cell with a 24px empty margin, with no glow/fragments leaking into other cells. All backgrounds truly transparent RGBA, alpha zero outside individual sprites, no black rectangle, checkerboard, shadow or lighting. Preserve original 1536x1024 size, equal3x2 layout. This is a precision correction, not a redesign.",
+    "selected": true
+  },
+  "references": [
+    "player-c-v6-rhythm/run-atlas.png",
+    "player-c-v6-rhythm/frames/00.png",
+    "player-c-attack-v1/sources/attack{1,2,3}-keys.png"
+  ],
+  "prompts": [
+    {
+      "output": "sources/attack1-keys.png",
+      "prompt": "Use case: stylized-concept. Production full-body frame-by-frame 2D metroidvania MOVE ATTACK sprites. REFERENCE 1 is the approved RUN animation: preserve its low forward lean, giant round ivory head with single black oval eye, compact short arms and legs, plain shorts, long softly flowing layered paper cloak, subtle matte paper texture, thin dark warm outline. REFERENCE 2 is the approved running pose enlarged. REFERENCE 3 is standing attack ONLY for eraser appearance and attack arc; do NOT copy its upright stationary stance. Create a NEW 3 columns x 2 rows equal-cell sprite sheet, SIX WHOLE-BODY moving attack frames, read left-right top-bottom, on TRUE transparent RGBA background. 1536x1024 canvas, each cell512x512. Keep every full sprite and arc within its cell, with 35px blank margin on all four sides! Head diameter about150px SAME size in all six. Face always right, one black eye, no mouth or nose, no redesign. Body stays low and tilted 25-35 degrees forward throughout, head leading hips, knees always bent. Arms remain short, one hand holding a small blunt ivory rectangular ERASER, NO sword, no handle. Cloak/shorts 10% darker than body, distant leg noticeably darker warm grey, near leg ivory. Cape streams backward left, broad rounded waves, not spikes. This is continuous RUNNING while striking: the feet must exchange roles; no standing planted lunge repeated in all cells. No pieces/rigs, no fake motion by sliding one unchanged standing pose.\nSix leg poses IN ORDER (near = bright, far = dark): 1 bright near knee forward, bright sole lands under chest, dark far leg bent behind; 2 bright near foot travels BACK under hips pushing ground, dark far knee swings forward folded; 3 dark far knee leads forward and lowers, bright near leg bends behind (brief airborne passage, not a high jump); 4 dark far sole lands under chest with bent knee, bright near leg folds behind; 5 dark far foot pushes BACK beneath hip, bright near knee comes forward folded; 6 bright near knee leads forward ready to land, dark far leg bends behind. Both feet are NEVER locked to ground together. Do not show only the bright leg cycling. Head vertical bob very small, forward motion dominates.\nTransparent alpha zero outside silhouettes, no background, glow, floor, cast shadow, text, grid or labels. Soft illustrated paper texture like reference, NOT pixel art or 3D. Exactly six complete distinct drawings, no overlapping cells.\nATTACK 1: fast forward/downward slash WHILE RUNNING. Frame1 running gather with eraser near chest. Frame2 short backswing at rear shoulder while near foot pushes. Frame3 eraser accelerates forward across chest with one thin short ivory crescent, far knee comes forward. Frame4 clear hit: short eraser arm reaches forward and slightly down, far foot lands beneath bent knee, head dips slightly, one short thin crescent. Frame5 arm follows through down near front hip as far foot pushes back, cape lags. Frame6 arm returns near chest for next strike, bright knee forward; keep the running lean, no standing recovery. The eraser continuously travels through a clear path, while the legs perform the specified alternating gait."
+    },
+    {
+      "output": "sources/attack2-keys.png",
+      "prompt": "Use case: stylized-concept. Production full-body frame-by-frame 2D metroidvania MOVE ATTACK sprites. REFERENCE 1 is the approved RUN animation: preserve its low forward lean, giant round ivory head with single black oval eye, compact short arms and legs, plain shorts, long softly flowing layered paper cloak, subtle matte paper texture, thin dark warm outline. REFERENCE 2 is the approved running pose enlarged. REFERENCE 3 is standing attack ONLY for eraser appearance and attack arc; do NOT copy its upright stationary stance. Create a NEW 3 columns x 2 rows equal-cell sprite sheet, SIX WHOLE-BODY moving attack frames, read left-right top-bottom, on TRUE transparent RGBA background. 1536x1024 canvas, each cell512x512. Keep every full sprite and arc within its cell, with 35px blank margin on all four sides! Head diameter about150px SAME size in all six. Face always right, one black eye, no mouth or nose, no redesign. Body stays low and tilted 25-35 degrees forward throughout, head leading hips, knees always bent. Arms remain short, one hand holding a small blunt ivory rectangular ERASER, NO sword, no handle. Cloak/shorts 10% darker than body, distant leg noticeably darker warm grey, near leg ivory. Cape streams backward left, broad rounded waves, not spikes. This is continuous RUNNING while striking: the feet must exchange roles; no standing planted lunge repeated in all cells. No pieces/rigs, no fake motion by sliding one unchanged standing pose.\nSix leg poses IN ORDER (near = bright, far = dark): 1 bright near knee forward, bright sole lands under chest, dark far leg bent behind; 2 bright near foot travels BACK under hips pushing ground, dark far knee swings forward folded; 3 dark far knee leads forward and lowers, bright near leg bends behind (brief airborne passage, not a high jump); 4 dark far sole lands under chest with bent knee, bright near leg folds behind; 5 dark far foot pushes BACK beneath hip, bright near knee comes forward folded; 6 bright near knee leads forward ready to land, dark far leg bends behind. Both feet are NEVER locked to ground together. Do not show only the bright leg cycling. Head vertical bob very small, forward motion dominates.\nTransparent alpha zero outside silhouettes, no background, glow, floor, cast shadow, text, grid or labels. Soft illustrated paper texture like reference, NOT pixel art or 3D. Exactly six complete distinct drawings, no overlapping cells.\nATTACK 2: upward reverse eraser strike WHILE RUNNING. Six phases: 1 eraser held low by forward hip, bright near foot contacts ahead and dark leg folded behind. 2 eraser coils slightly lower/back; bright near SUPPORT FOOT must now be BACK BEHIND HIP, dark knee folded forward, not a repeated forward lunge. 3 fast underhand rising eraser reaches chest with a small thin upward arc; dark knee forward about to land and bright leg tightly folded behind. 4 eraser rises above-front of head with short curved arm and small rising crescent; dark foot contacts ahead while bright leg remains folded behind. 5 eraser follows through overhead; dark SUPPORT FOOT must now be BACK BEHIND HIP, bright knee folded forward, not the same forward-lunge legs as frame4. 6 eraser settles beside rear shoulder ready for next blow, bright knee leads ready to land, dark leg tightly folded behind. Keep head low forward of hips throughout, no upright pose. The leg weight and push-off ALTERNATE every half cycle. Ground is invisible but contact soles line up. Far leg must stay dark in every frame, near leg bright, regardless of position. NO grey full-body tint."
+    },
+    {
+      "output": "sources/attack3-keys.png",
+      "prompt": "Use case: stylized-concept. Production full-body frame-by-frame 2D metroidvania MOVE ATTACK sprites. REFERENCE 1 is the approved RUN animation: preserve its low forward lean, giant round ivory head with single black oval eye, compact short arms and legs, plain shorts, long softly flowing layered paper cloak, subtle matte paper texture, thin dark warm outline. REFERENCE 2 is the approved running pose enlarged. REFERENCE 3 is standing attack ONLY for eraser appearance and attack arc; do NOT copy its upright stationary stance. Create a NEW 3 columns x 2 rows equal-cell sprite sheet, SIX WHOLE-BODY moving attack frames, read left-right top-bottom, on TRUE transparent RGBA background. 1536x1024 canvas, each cell512x512. Keep every full sprite and arc within its cell, with 35px blank margin on all four sides! Head diameter about150px SAME size in all six. Face always right, one black eye, no mouth or nose, no redesign. Body stays low and tilted 25-35 degrees forward throughout, head leading hips, knees always bent. Arms remain short, one hand holding a small blunt ivory rectangular ERASER, NO sword, no handle. Cloak/shorts 10% darker than body, distant leg noticeably darker warm grey, near leg ivory. Cape streams backward left, broad rounded waves, not spikes. This is continuous RUNNING while striking: the feet must exchange roles; no standing planted lunge repeated in all cells. No pieces/rigs, no fake motion by sliding one unchanged standing pose.\nSix leg poses IN ORDER (near = bright, far = dark): 1 bright near knee forward, bright sole lands under chest, dark far leg bent behind; 2 bright near foot travels BACK under hips pushing ground, dark far knee swings forward folded; 3 dark far knee leads forward and lowers, bright near leg bends behind (brief airborne passage, not a high jump); 4 dark far sole lands under chest with bent knee, bright near leg folds behind; 5 dark far foot pushes BACK beneath hip, bright near knee comes forward folded; 6 bright near knee leads forward ready to land, dark far leg bends behind. Both feet are NEVER locked to ground together. Do not show only the bright leg cycling. Head vertical bob very small, forward motion dominates.\nTransparent alpha zero outside silhouettes, no background, glow, floor, cast shadow, text, grid or labels. Soft illustrated paper texture like reference, NOT pixel art or 3D. Exactly six complete distinct drawings, no overlapping cells.\nATTACK 3 MOVE FINISHER: overhead diagonal downslash carried through a continuous running step. Do NOT stop and kneel. Reference4 is the preceding moving upward strike, match character scale/cape/weapon. Frame1: eraser by rear shoulder just behind head, bright near leg stepping forward, dark far leg folded behind, running body tilted forwards. Frame2: compact coil, bright near foot pushes BEHIND hips, dark far knee comes forward folded; eraser above/rear of head, torso only slightly lower. Frame3: eraser swings above-front/right of head, compact broad paper-white arc, dark far knee extends downward to next contact, bright near heel folds toward shorts. Frame4: powerful low-forward downstroke at front knee level, dark far foot lands beneath chest with knee bent, bright leg folds behind; torso dips only modestly (not grounded kneeling), broad curved ivory arc to right fully inside cell. Frame5: continue through the hit, dark far support foot pushes BACK behind hips, bright near knee swings folded FORWARD, eraser low by front hip, no arc. Frame6: recover directly into low running posture, bright near knee leads forward for next landing and dark far leg folded behind, eraser hand tucks toward chest under cloak. Head stays same circular size, tiny vertical bob, cape lags as one smooth stream. End resembles the approved run pose, not standing idle. Both knees remain compact and bent, no long straight kick, no high vertical jump."
+    },
+    {
+      "output": "sources/attack3-thrust-keys.png",
+      "prompt": "Use case: stylized-concept. Create a game animation sprite sheet, 1536x1024 transparent RGBA, exactly 3 columns x 2 rows of equal 512x512 cells, 6 full-body hand-drawn poses in chronological reading order, no labels or grid. Reference is this exact hero and the end of attack 2. Preserve giant circular ivory paper head, black oval eye facing RIGHT, short compact limbs, plain shorts, soft layered paper cape, cream shading, delicate dark outline. Existing weapon is a small blunt rectangular cream eraser held in fist, never a blade. Same hero scale in every cell: head diameter around180px; whole figure within cell with at least24px margin, foot baseline y460. Third attack is a HORIZONTAL FORWARD THRUST, never an overhead slash. Short anatomically bent elbow then extend toward right chest-height; arm must stay compact, no rubber limbs. Cape trails left. No circular slash arcs, at most a short narrow horizontal smear behind the eraser in frame3. Pose1: begin exactly with the reference raised/back weapon arm pose, continuing the upward second attack. Pose2: lower eraser to near chest, elbow tucked and hand pulled back to prepare thrust. Pose3: quick forward horizontal thrust in progress. Pose4: fully extended forward thrust, blunt eraser front face pointing right, body leaning into it. Pose5: retract eraser on same horizontal line halfway to chest. Pose6: retract hand into cloak and settle. All six poses isolated with fully transparent background. No ground, shadows, text, watermark, extra limbs. MOVING attack version: preserve forward low running silhouette from reference and compact limbs. All six poses run toward RIGHT while thrusting. Alternate bright near leg and darker far leg. Pose1 bright front bent knee planted, dark leg bent behind, hand beside rear shoulder like reference. Pose2 bright foot pushes backward, dark knee swings forward. Pose3 dark knee forwards with bright foot recovering. Pose4 dark front foot supports thrust with bent knee, bright leg bent behind. Pose5 dark foot pushes back and bright knee swings forwards. Pose6 bright knee returns forwards ready to land, dark leg folds behind, hand tucked under cape. No jump, no long straight legs. Critical: actual transparent background alpha=0 outside sprite, absolutely no brown gradient glow/shadow surrounding characters."
+    }
+  ],
+  "processing": "Slice intact whole-body drawings; preserve generated alpha. Uniform scaling/translation only, head160px, floor560px, 768x640 canvas. Largest connected silhouette is measured for foot registration so detached attack effects do not lift the feet; no pixels removed. Some head widths measured manually where arm/cape touches the head silhouette.",
+  "timing": {
+    "attackMs": [
+      480,
+      400,
+      420
+    ],
+    "sourceDrawingsPerAttack": 6,
+    "playedDrawingsPerAttack": [
+      6,
+      4,
+      6
+    ],
+    "entryFrame": 1,
+    "preparationMs": [
+      160,
+      160,
+      180
+    ],
+    "activeMs": [
+      [
+        160,
+        320
+      ],
+      [
+        160,
+        260
+      ],
+      [
+        180,
+        240
+      ]
+    ],
+    "chainAfterMs": [
+      480,
+      400,
+      420
+    ],
+    "inputBufferMs": 150,
+    "comboWindowMs": 250,
+    "finisherRecoveryMs": 500,
+    "thirdFrameMs": [
+      90,
+      90,
+      12,
+      48,
+      60,
+      120
+    ],
+    "thrustNote": "Original start timing retained. Extension12ms, contact48ms, retract60ms. Recovery and cooldown unchanged. Art unchanged.",
+    "secondFrameMs": [
+      80,
+      80,
+      0,
+      100,
+      0,
+      140
+    ],
+    "secondAttackNote": "Match attack1 preparation duration and its main contact drawing hold: standing80ms preparation/70ms swing, moving160ms preparation/100ms swing. One swing drawing retained, then140ms settled pause. Third attack unchanged."
+  },
+  "preview": {
+    "moveSpeed": 320,
+    "movementMultiplierDuringAttack": 1,
+    "reverseInput": "Cancels attack and resets combo, smoothly reverses velocity",
+    "releaseInput": "Decelerates and switches to same normalized phase of standing attack",
+    "resumeRun": "Return to run frame2 (near-foot contact) following move recovery's near knee advance",
+    "stationaryAttack": "Reuse previous18frames unchanged",
+    "scope": "Local art and movement preview. No damage or Unity changes."
+  },
+  "unityApplied": true,
+  "input": "Primary pointerdown or J starts frame1 preparation. The next input is buffered150ms; the preceding strike plays fully before chaining. No recovery cancel. After hit3, a500ms attack-only lock remains.",
+  "selectedThirdAttack": "sources/attack3-thrust-keys.png",
+  "revision": "combo-window250-v9",
+  "thirdAttack": "Swing-end shared drawing -> chest chamber -> horizontal forward eraser thrust -> retract -> recovery. Third frame1 reuses attack2 frame6 exactly. Old downslash source retained as history.",
+  "thrustVfx": {
+    "asset": "../player-c-attack-v1/effects/thrust-spike.png",
+    "generator": "built-in imagegen",
+    "promptFile": "../player-c-attack-v1/effects/thrust-spike-prompt.txt",
+    "frames": [
+      3,
+      4
+    ],
+    "durationMs": 60,
+    "layer": "behind unchanged character",
+    "sourceRect": [
+      140,
+      490,
+      1000,
+      300
+    ],
+    "directions": "mirrors with attack facing",
+    "unityApplied": false
+  },
+  "preservedAttackFrames": {
+    "player-c-move-attack-v1\\attack1\\frames\\00.png": "13ddcba26fea2366b706949a945f3a5febb4b1c9d56e6e5afd2c4c9f54849210",
+    "player-c-move-attack-v1\\attack1\\frames\\01.png": "1883ce2cd81e51cefdbfe808ef0b3ad7581e054d7e026d3ab32e5b98761f1b3e",
+    "player-c-move-attack-v1\\attack1\\frames\\02.png": "a2510235e111a8206bddbd955471a81a0ebbb4f94d8b14a0e633d62d36f0e659",
+    "player-c-move-attack-v1\\attack1\\frames\\03.png": "40d5d3d1ffe195ea12df2e5c4c7229638c2d723e92fbe8e093c32ea778d25486",
+    "player-c-move-attack-v1\\attack1\\frames\\04.png": "7d2f3faa1f2003744aa356bdf17cf27836b15fd9ab525825710241b13a516ebd",
+    "player-c-move-attack-v1\\attack1\\frames\\05.png": "9b76713dfec28b2510f18b824bd096637879fc2c97db87072975ee26d392142a",
+    "player-c-move-attack-v1\\attack2\\frames\\00.png": "f2e049300e4e5eacdb6578a4e28e9d19f68accf6c73123845d0f7bade35e9d3c",
+    "player-c-move-attack-v1\\attack2\\frames\\01.png": "13e9cf2006a105f8de8be552cea6445d54f423b7059fc2747b24cc91d78f64b0",
+    "player-c-move-attack-v1\\attack2\\frames\\02.png": "a8c2b19007608cedfb77383a44b3d5fe8c19123af168370eecafa3d6c676bdd4",
+    "player-c-move-attack-v1\\attack2\\frames\\03.png": "c047f16801b89b691420945789e1c6980e972c9b9bc806fd7c1d7b28471e16cc",
+    "player-c-move-attack-v1\\attack2\\frames\\04.png": "8ad22550b9434b669d6242a18772b81df9ab2dc982376d6f0823b3ae6ec9eb90",
+    "player-c-move-attack-v1\\attack2\\frames\\05.png": "23ce5ce4f96bee191f80138faf5c78fca7147cb5e3461618d49f2f07e29dc583",
+    "player-c-move-attack-v1\\attack3\\frames\\00.png": "23ce5ce4f96bee191f80138faf5c78fca7147cb5e3461618d49f2f07e29dc583",
+    "player-c-move-attack-v1\\attack3\\frames\\01.png": "3a91ef1d7f9c8ef4fb436ef4e9f1866304d9f1bd800eed1e5a029e008817770a",
+    "player-c-move-attack-v1\\attack3\\frames\\02.png": "8cf72371eb9c6ee1dc3752c2c835abe4e3c830e246de551d0bf26aa247e7ddd6",
+    "player-c-move-attack-v1\\attack3\\frames\\03.png": "9c699ccb79af7258749f708a57aa62e353c834bb0fba5e22d0e56a15b3d9a812",
+    "player-c-move-attack-v1\\attack3\\frames\\04.png": "13e1b7247d5e623f07504ec92d5092b9dc13ca6340229a7c7525430ddb9356bc",
+    "player-c-move-attack-v1\\attack3\\frames\\05.png": "1a65e32d4853d7c397b2bb72bc0366f62d5ac3e2569fecb8781ea2df49abd571"
+  },
+  "unityIntegration": {
+    "scene": "Book/Assets/Scenes/World12Prototype.unity",
+    "date": "2026-10-18",
+    "damageImplemented": false,
+    "validation": "Book/Validation/player-combat-runtime.json"
+  },
+  "scope": "Selected full-body animation artwork integrated in Unity; timing and source frames preserved. No damage implementation."
+}

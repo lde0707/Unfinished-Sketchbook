@@ -14,7 +14,7 @@ namespace Unfin.Editor
         public const string Root="Assets/Unfin/Art/PlayerSprites";
         public const string AnimRoot="Assets/Unfin/Animations/PlayerSprites";
         [Serializable] class Manifest { public float pixelsPerUnit; public SourceClip[] clips; }
-        [Serializable] class SourceClip { public string name; public float anchorX; public bool loop; public SourceFrame[] frames; }
+        [Serializable] class SourceClip { public string name; public float anchorX,groundY; public int width,height; public bool loop; public SourceFrame[] frames; }
         [Serializable] class SourceFrame { public string file,sha256; public float duration,headX,headY; }
         public static PaperSpriteLibrary Generate()
         {
@@ -33,19 +33,19 @@ namespace Unfin.Editor
                     importer.textureType=TextureImporterType.Sprite;importer.spriteImportMode=SpriteImportMode.Single;
                     importer.spritePixelsPerUnit=manifest.pixelsPerUnit;importer.alphaIsTransparency=true;
                     importer.mipmapEnabled=false;importer.filterMode=FilterMode.Bilinear;importer.wrapMode=TextureWrapMode.Clamp;
-                    importer.textureCompression=TextureImporterCompression.Uncompressed;importer.maxTextureSize=512;
+                    importer.textureCompression=TextureImporterCompression.Uncompressed;importer.maxTextureSize=source.width>512?1024:512;
                     var settings=new TextureImporterSettings();importer.ReadTextureSettings(settings);
-                    settings.spriteAlignment=(int)SpriteAlignment.Custom;settings.spritePivot=new Vector2(source.anchorX/512f,.125f);
+                    settings.spriteAlignment=(int)SpriteAlignment.Custom;settings.spritePivot=new Vector2(source.anchorX/source.width,1-source.groundY/source.height);
                     settings.spriteMeshType=SpriteMeshType.FullRect;importer.SetTextureSettings(settings);importer.SaveAndReimport();
                     frames.Add(new PaperSpriteFrame{sprite=AssetDatabase.LoadAssetAtPath<Sprite>(path),duration=f.duration,head=new Vector2(f.headX,f.headY)});
                 }
-                clips.Add(new PaperSpriteClip{name=source.name,anchorX=source.anchorX,loop=source.loop,frames=frames.ToArray()});
+                clips.Add(new PaperSpriteClip{name=source.name,anchorX=source.anchorX,groundY=source.groundY,loop=source.loop,frames=frames.ToArray()});
             }
             PaperSpriteClip Slice(string name,string from,int first,int count,bool reverse=false)
             {
                 var original=clips.Find(c=>c.name==from);var frames=original.frames.Skip(first).Take(count);
                 if(reverse)frames=frames.Reverse();
-                return new PaperSpriteClip{name=name,anchorX=original.anchorX,frames=frames.ToArray()};
+                return new PaperSpriteClip{name=name,anchorX=original.anchorX,groundY=original.groundY,frames=frames.ToArray()};
             }
             clips.Add(Slice("RunStart","RunStop",0,4,true));
             clips.Add(Slice("JumpLand","Jump",6,3));clips.Add(Slice("MovingLand","MovingJump",4,2));
@@ -54,6 +54,13 @@ namespace Unfin.Editor
             fall.frames[0].duration=.065f;fall.frames[1].duration=.09f;fall.frames[2].duration=.14f;
             var landing=clips.Find(c=>c.name=="FallLand");foreach(var f in landing.frames)f.duration=.065f;
             library.pixelsPerUnit=manifest.pixelsPerUnit;library.clips=clips.ToArray();EditorUtility.SetDirty(library);
+            var effectPath=Root+"/Effects/thrust.png";var effect=(TextureImporter)AssetImporter.GetAtPath(effectPath);
+            effect.textureType=TextureImporterType.Sprite;effect.spriteImportMode=SpriteImportMode.Single;effect.spritePixelsPerUnit=256;
+            effect.alphaIsTransparency=true;effect.mipmapEnabled=false;effect.filterMode=FilterMode.Bilinear;effect.wrapMode=TextureWrapMode.Clamp;
+            effect.textureCompression=TextureImporterCompression.Uncompressed;effect.maxTextureSize=1024;
+            var effectSettings=new TextureImporterSettings();effect.ReadTextureSettings(effectSettings);effectSettings.spriteAlignment=(int)SpriteAlignment.Custom;
+            effectSettings.spritePivot=new Vector2(.28f,1-.16f/.3f);effectSettings.spriteMeshType=SpriteMeshType.FullRect;effect.SetTextureSettings(effectSettings);effect.SaveAndReimport();
+            library.thrustEffect=AssetDatabase.LoadAssetAtPath<Sprite>(effectPath);
             // Editable sprite-swap clips are also provided for Animator-based consumers.
             var controller=AssetDatabase.LoadAssetAtPath<AnimatorController>(AnimRoot+"/PaperSprites.controller");
             if(controller==null)controller=AnimatorController.CreateAnimatorControllerAtPath(AnimRoot+"/PaperSprites.controller");
@@ -63,7 +70,7 @@ namespace Unfin.Editor
                 string path=AnimRoot+"/"+c.name+".anim";var clip=AssetDatabase.LoadAssetAtPath<AnimationClip>(path);
                 if(clip==null){clip=new AnimationClip();AssetDatabase.CreateAsset(clip,path);}clip.ClearCurves();clip.frameRate=1000;
                 var keys=new List<ObjectReferenceKeyframe>();float t=0;
-                foreach(var f in c.frames){keys.Add(new ObjectReferenceKeyframe{time=t,value=f.sprite});t+=f.duration;}
+                foreach(var f in c.frames){if(f.duration>0)keys.Add(new ObjectReferenceKeyframe{time=t,value=f.sprite});t+=f.duration;}
                 keys.Add(new ObjectReferenceKeyframe{time=t,value=c.frames[c.loop?0:c.frames.Length-1].sprite});
                 AnimationUtility.SetObjectReferenceCurve(clip,EditorCurveBinding.PPtrCurve("Visual",typeof(SpriteRenderer),"m_Sprite"),keys.ToArray());
                 var settings=AnimationUtility.GetAnimationClipSettings(clip);settings.loopTime=c.loop;AnimationUtility.SetAnimationClipSettings(clip,settings);
@@ -85,26 +92,27 @@ namespace Unfin.Editor
                 var renderer=child.AddComponent<SpriteRenderer>();renderer.sortingOrder=order;renderer.color=new Color(1,1,1,alpha);return renderer;
             }
             var player=go.AddComponent<PaperSpritePlayer>();player.library=library;player.visual=Make("Visual",27,1);
+            player.attackEffect=Make("Thrust effect",26,1);player.attackEffect.enabled=false;
             player.trails=new[]{Make("Dash trail near",26,.12f),Make("Dash trail far",25,.06f)};player.Render(1);
             Directory.CreateDirectory("Assets/Unfin/Prefabs");PrefabUtility.SaveAsPrefabAsset(go,"Assets/Unfin/Prefabs/PaperSpritePlayer.prefab");player.world=world;
         }
         [MenuItem("Unfin/Apply Current Player Sprites")]
         public static void Apply()
         {
-            Generate();EditorSceneManager.OpenScene(WorldPrototypeBuilder.ScenePath);
-            var world=UnityEngine.Object.FindAnyObjectByType<WorldPrototype>();Attach(world);
+            Generate();RegionalPlatformImporter.Generate();EditorSceneManager.OpenScene(WorldPrototypeBuilder.ScenePath);
+            var world=UnityEngine.Object.FindAnyObjectByType<WorldPrototype>();Attach(world);RegionalPlatformImporter.Apply(world);
             EditorSceneManager.SaveScene(world.gameObject.scene);AssetDatabase.SaveAssets();
-            Validate();PaperSpriteValidation.Run();WorldPrototypeBuilder.Validate();Debug.Log("UNFIN_SPRITES_APPLIED");
+            Validate();RegionalPlatformImporter.Validate(world);PaperSpriteValidation.Run();PlayerCombatValidation.Run();WorldPrototypeBuilder.Validate();Debug.Log("UNFIN_SPRITES_APPLIED");
         }
         public static void Validate()
         {
             var library=AssetDatabase.LoadAssetAtPath<PaperSpriteLibrary>(AnimRoot+"/PlayerSprites.asset");
-            if(library.clips.Length!=11)throw new Exception("Expected 11 sprite sequences");
+            if(library.clips.Length!=19)throw new Exception("Expected 19 sprite sequences");
             foreach(var c in library.clips)foreach(var f in c.frames)
-                if(f.sprite==null||f.duration<=0||f.sprite.pixelsPerUnit!=256)throw new Exception("Invalid sprite: "+c.name);
+                if(f.sprite==null||f.duration<0||f.sprite.pixelsPerUnit!=256)throw new Exception("Invalid sprite: "+c.name);
             var world=UnityEngine.Object.FindAnyObjectByType<WorldPrototype>();
             if(world.player.GetComponentInChildren<PaperPlayerRig>()!=null||world.player.GetComponentInChildren<PaperSpritePlayer>()==null)throw new Exception("Legacy rig still attached");
-            Directory.CreateDirectory("Validation");File.WriteAllText("Validation/player-sprites-import.json","{\"passed\":true,\"sourceFrames\":42,\"sequences\":11,\"pixelsPerUnit\":256,\"legacyRigAttached\":false}");
+            Directory.CreateDirectory("Validation");File.WriteAllText("Validation/player-sprites-import.json","{\"passed\":true,\"sourceFrames\":86,\"sequences\":19,\"pixelsPerUnit\":256,\"legacyRigAttached\":false}");
         }
     }
 }

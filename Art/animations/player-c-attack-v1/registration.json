@@ -1,0 +1,573 @@
+{
+  "status": "integrated_in_Unity_2026_10_18",
+  "cellSize": [
+    768,
+    640
+  ],
+  "groundY": 560,
+  "pivot": [
+    0.5,
+    0.125
+  ],
+  "pixelsPerUnit": 256,
+  "frameCount": 18,
+  "playbackFramesPerClip": [
+    6,
+    4,
+    6
+  ],
+  "clips": [
+    {
+      "name": "Attack1",
+      "durationMs": 360,
+      "frames": [
+        {
+          "frame": 1,
+          "globalFrame": 1,
+          "phase": "ready",
+          "durationMs": 40,
+          "startMs": 0,
+          "sourceRect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "scale": 0.8541666666666666,
+          "translation": [
+            97,
+            160
+          ],
+          "sourceHeadWidth": 192,
+          "headX": 384,
+          "bounds": [
+            165,
+            249,
+            467,
+            559
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 2,
+          "globalFrame": 2,
+          "phase": "windup",
+          "durationMs": 40,
+          "startMs": 40,
+          "sourceRect": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "scale": 0.8367346938775511,
+          "translation": [
+            110,
+            169
+          ],
+          "sourceHeadWidth": 196,
+          "headX": 376,
+          "bounds": [
+            168,
+            256,
+            458,
+            559
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 3,
+          "globalFrame": 3,
+          "phase": "smear",
+          "durationMs": 25,
+          "startMs": 80,
+          "sourceRect": [
+            1024,
+            0,
+            1536,
+            512
+          ],
+          "scale": 0.841025641025641,
+          "translation": [
+            105,
+            167
+          ],
+          "sourceHeadWidth": 195,
+          "headX": 394,
+          "bounds": [
+            126,
+            266,
+            515,
+            560
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 4,
+          "globalFrame": 4,
+          "phase": "impact",
+          "durationMs": 70,
+          "startMs": 105,
+          "sourceRect": [
+            0,
+            512,
+            568,
+            1024
+          ],
+          "scale": 0.8677248677248677,
+          "translation": [
+            60,
+            218
+          ],
+          "sourceHeadWidth": 189,
+          "headX": 404,
+          "bounds": [
+            82,
+            301,
+            538,
+            560
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 5,
+          "globalFrame": 5,
+          "phase": "follow-through",
+          "durationMs": 75,
+          "startMs": 175,
+          "sourceRect": [
+            568,
+            512,
+            1024,
+            1024
+          ],
+          "scale": 0.8723404255319149,
+          "translation": [
+            104,
+            215
+          ],
+          "sourceHeadWidth": 188,
+          "headX": 398,
+          "bounds": [
+            107,
+            302,
+            481,
+            561
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 6,
+          "globalFrame": 6,
+          "phase": "recovery",
+          "durationMs": 110,
+          "startMs": 250,
+          "sourceRect": [
+            1024,
+            512,
+            1536,
+            1024
+          ],
+          "scale": 0.8817204301075269,
+          "translation": [
+            66,
+            211
+          ],
+          "sourceHeadWidth": 186,
+          "headX": 384,
+          "bounds": [
+            131,
+            292,
+            466,
+            560
+          ],
+          "sharedFrom": null
+        }
+      ],
+      "entryFrame": 0,
+      "chainMs": 360,
+      "activeMs": [
+        80,
+        175
+      ],
+      "playbackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "Attack2",
+      "durationMs": 290,
+      "frames": [
+        {
+          "frame": 1,
+          "globalFrame": 7,
+          "phase": "ready",
+          "durationMs": 40,
+          "startMs": 0,
+          "sourceRect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "scale": 0.8586387434554974,
+          "translation": [
+            82,
+            162
+          ],
+          "sourceHeadWidth": 191,
+          "headX": 384,
+          "bounds": [
+            116,
+            259,
+            467,
+            561
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 2,
+          "globalFrame": 8,
+          "phase": "windup",
+          "durationMs": 40,
+          "startMs": 40,
+          "sourceRect": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "scale": 0.8631578947368421,
+          "translation": [
+            71,
+            159
+          ],
+          "sourceHeadWidth": 190,
+          "headX": 378,
+          "bounds": [
+            110,
+            293,
+            460,
+            560
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 3,
+          "globalFrame": 9,
+          "phase": "smear",
+          "durationMs": 0,
+          "startMs": 80,
+          "sourceRect": [
+            1024,
+            0,
+            1536,
+            512
+          ],
+          "scale": 0.8817204301075269,
+          "translation": [
+            99,
+            146
+          ],
+          "sourceHeadWidth": 186,
+          "headX": 390,
+          "bounds": [
+            132,
+            247,
+            520,
+            559
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 4,
+          "globalFrame": 10,
+          "phase": "impact",
+          "durationMs": 70,
+          "startMs": 80,
+          "sourceRect": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "scale": 0.82,
+          "translation": [
+            143,
+            216
+          ],
+          "sourceHeadWidth": 200,
+          "headX": 398,
+          "bounds": [
+            179,
+            232,
+            551,
+            561
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 5,
+          "globalFrame": 11,
+          "phase": "follow-through",
+          "durationMs": 0,
+          "startMs": 150,
+          "sourceRect": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "scale": 0.8913043478260869,
+          "translation": [
+            84,
+            183
+          ],
+          "sourceHeadWidth": 184,
+          "headX": 392,
+          "bounds": [
+            106,
+            240,
+            477,
+            560
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 6,
+          "globalFrame": 12,
+          "phase": "recovery",
+          "durationMs": 140,
+          "startMs": 150,
+          "sourceRect": [
+            1024,
+            512,
+            1536,
+            1024
+          ],
+          "scale": 0.8913043478260869,
+          "translation": [
+            73,
+            184
+          ],
+          "sourceHeadWidth": 184,
+          "headX": 384,
+          "bounds": [
+            124,
+            229,
+            465,
+            560
+          ],
+          "sharedFrom": null
+        }
+      ],
+      "entryFrame": 0,
+      "chainMs": 290,
+      "activeMs": [
+        80,
+        150
+      ],
+      "playbackFrames": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "swingFrames": [
+        3
+      ],
+      "postSwingHoldMs": 140
+    },
+    {
+      "name": "Attack3",
+      "durationMs": 460,
+      "frames": [
+        {
+          "frame": 1,
+          "globalFrame": 13,
+          "phase": "swing-end",
+          "durationMs": 70,
+          "startMs": 0,
+          "sourceRect": [
+            1024,
+            512,
+            1536,
+            1024
+          ],
+          "scale": 0.8913043478260869,
+          "translation": [
+            73,
+            184
+          ],
+          "sourceHeadWidth": 184,
+          "headX": 384,
+          "bounds": [
+            124,
+            229,
+            465,
+            560
+          ],
+          "sharedFrom": "Attack2/6"
+        },
+        {
+          "frame": 2,
+          "globalFrame": 14,
+          "phase": "chamber",
+          "durationMs": 80,
+          "startMs": 70,
+          "sourceRect": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "scale": 0.82,
+          "translation": [
+            119,
+            157
+          ],
+          "sourceHeadWidth": 200,
+          "headX": 376,
+          "bounds": [
+            139,
+            277,
+            539,
+            560
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 3,
+          "globalFrame": 15,
+          "phase": "thrust",
+          "durationMs": 12,
+          "startMs": 150,
+          "sourceRect": [
+            1024,
+            0,
+            1536,
+            512
+          ],
+          "scale": 0.8282828282828283,
+          "translation": [
+            155,
+            152
+          ],
+          "sourceHeadWidth": 198,
+          "headX": 390,
+          "bounds": [
+            155,
+            275,
+            544,
+            559
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 4,
+          "globalFrame": 16,
+          "phase": "thrust-impact",
+          "durationMs": 48,
+          "startMs": 162,
+          "sourceRect": [
+            0,
+            512,
+            540,
+            1024
+          ],
+          "scale": 0.845360824742268,
+          "translation": [
+            119,
+            205
+          ],
+          "sourceHeadWidth": 194,
+          "headX": 408,
+          "bounds": [
+            149,
+            274,
+            564,
+            560
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 5,
+          "globalFrame": 17,
+          "phase": "retract",
+          "durationMs": 60,
+          "startMs": 210,
+          "sourceRect": [
+            540,
+            512,
+            1024,
+            1024
+          ],
+          "scale": 0.8324873096446701,
+          "translation": [
+            158,
+            210
+          ],
+          "sourceHeadWidth": 197,
+          "headX": 402,
+          "bounds": [
+            178,
+            271,
+            519,
+            559
+          ],
+          "sharedFrom": null
+        },
+        {
+          "frame": 6,
+          "globalFrame": 18,
+          "phase": "recovery",
+          "durationMs": 190,
+          "startMs": 270,
+          "sourceRect": [
+            1024,
+            512,
+            1536,
+            1024
+          ],
+          "scale": 0.8324873096446701,
+          "translation": [
+            141,
+            207
+          ],
+          "sourceHeadWidth": 197,
+          "headX": 384,
+          "bounds": [
+            159,
+            268,
+            489,
+            559
+          ],
+          "sharedFrom": null
+        }
+      ],
+      "entryFrame": 0,
+      "chainMs": 460,
+      "activeMs": [
+        150,
+        210
+      ],
+      "playbackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "inputBufferMs": 150,
+  "comboWindowMs": 250,
+  "finisherRecoveryMs": 500,
+  "unityApplied": true
+}

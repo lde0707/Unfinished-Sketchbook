@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: dbe3b8e73055fba4c93ae470fa4e9af8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1034406060638875262
+    second: F-workshop_0
+  - first:
+      213: 3787367347511797898
+    second: F-workshop_1
+  - first:
+      213: 2515169875780993201
+    second: F-workshop_2
+  - first:
+      213: 7396713131267858249
+    second: F-workshop_3
+  - first:
+      213: -4562029928316616765
+    second: F-workshop_4
+  - first:
+      213: 3266915372057575390
+    second: F-workshop_5
+  - first:
+      213: -2085570881355260341
+    second: F-workshop_6
+  - first:
+      213: -1339471976086618555
+    second: F-workshop_7
+  - first:
+      213: 3648758803224866010
+    second: F-workshop_8
+  - first:
+      213: 6142549882858343687
+    second: F-workshop_9
+  - first:
+      213: -1356128273267218064
+    second: F-workshop_10
+  - first:
+      213: -7792378274499533776
+    second: F-workshop_11
+  - first:
+      213: -123698064809438206
+    second: F-workshop_12
+  - first:
+      213: -956844984886947703
+    second: F-workshop_13
+  - first:
+      213: 2841674064820031275
+    second: F-workshop_14
+  - first:
+      213: 5670487124803087946
+    second: F-workshop_15
+  - first:
+      213: 8263822369223655296
+    second: F-workshop_16
+  - first:
+      213: -465717396693626236
+    second: F-workshop_17
+  - first:
+      213: -5895871752230816543
+    second: F-workshop_18
+  - first:
+      213: -7456268466429636033
+    second: F-workshop_19
+  - first:
+      213: 3604364535553775204
+    second: F-workshop_20
+  - first:
+      213: 1988258329498729719
+    second: F-workshop_21
+  - first:
+      213: 8552074077464808468
+    second: F-workshop_22
+  - first:
+      213: 8885676902969305755
+    second: F-workshop_23
+  - first:
+      213: -163779524948441334
+    second: F-workshop_24
+  - first:
+      213: -1129455628777460439
+    second: F-workshop_25
+  - first:
+      213: 7552513597926738575
+    second: F-workshop_26
+  - first:
+      213: -3642503391625241212
+    second: F-workshop_27
+  - first:
+      213: -3754662131708223128
+    second: F-workshop_28
+  - first:
+      213: -6576771213896654682
+    second: F-workshop_29
+  - first:
+      213: -734712144168300077
+    second: F-workshop_30
+  - first:
+      213: 95824675082964624
+    second: F-workshop_31
+  - first:
+      213: -8163793593272491598
+    second: F-workshop_32
+  - first:
+      213: 334389867130143616
+    second: F-workshop_33
+  - first:
+      213: 2733235734152499632
+    second: F-workshop_34
+  - first:
+      213: -8737635436191349997
+    second: F-workshop_35
+  - first:
+      213: -2777402050959092910
+    second: F-workshop_36
+  - first:
+      213: -7727108245792076240
+    second: F-workshop_37
+  - first:
+      213: -7453180953532937686
+    second: F-workshop_38
+  - first:
+      213: -6017518032670608172
+    second: F-workshop_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: F-workshop_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 389
+        width: 695
+        height: 865
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7e24e5e4d2fa5e00800000000000000
+      internalID: 1034406060638875262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_1
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 636
+        width: 548
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a88aa56498e6f8430800000000000000
+      internalID: 3787367347511797898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_2
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 1225
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b080b31dada7e220800000000000000
+      internalID: 2515169875780993201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_3
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 1220
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f10b6476766a660800000000000000
+      internalID: 7396713131267858249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_4
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 1157
+        width: 41
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cfbcfb63f960b0c0800000000000000
+      internalID: -4562029928316616765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1038
+        width: 6
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf31c6d83a665d20800000000000000
+      internalID: 3266915372057575390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_6
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 625
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4edbee45509e03e0800000000000000
+      internalID: -2085570881355260341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_7
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 632
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e34c6a55d396de0800000000000000
+      internalID: -1339471976086618555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_8
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 529
+        width: 29
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc2c41bccef2a230800000000000000
+      internalID: 3648758803224866010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 531
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70d83e6e298be3550800000000000000
+      internalID: 6142549882858343687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_10
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 546
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0792b0245801e2de0800000000000000
+      internalID: -1356128273267218064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_11
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 0
+        width: 585
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034ebf0ce39ebd390800000000000000
+      internalID: -7792378274499533776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_12
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 529
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20451a3f349884ef0800000000000000
+      internalID: -123698064809438206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_13
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 445
+        width: 65
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98013ba4e8a98b2f0800000000000000
+      internalID: -956844984886947703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_14
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 503
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2fc9019187af6720800000000000000
+      internalID: 2841674064820031275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_15
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 487
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e60591ffd91be40800000000000000
+      internalID: 5670487124803087946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_16
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 427
+        width: 67
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08fb08449aefea270800000000000000
+      internalID: 8263822369223655296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_17
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 495
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4825b54ce707989f0800000000000000
+      internalID: -465717396693626236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 504
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e4b50701e7ad2ea0800000000000000
+      internalID: -5895871752230816543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_19
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 477
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32d384b553068890800000000000000
+      internalID: -7456268466429636033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_20
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 475
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 466d2b6c276450230800000000000000
+      internalID: 3604364535553775204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_21
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 485
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fcbb7b9a66b79b10800000000000000
+      internalID: 1988258329498729719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_22
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 489
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ccd1800121fa670800000000000000
+      internalID: 8552074077464808468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_23
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 485
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ae06e9014405b70800000000000000
+      internalID: 8885676902969305755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_24
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 481
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0747f9c3632abdf0800000000000000
+      internalID: -163779524948441334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_25
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 486
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d6729f61e5350f0800000000000000
+      internalID: -1129455628777460439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_26
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 456
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8a0bb53a1befc860800000000000000
+      internalID: 7552513597926738575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_27
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 476
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48d9501d67a337dc0800000000000000
+      internalID: -3642503391625241212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_28
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 471
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 861abeb2fa2c4ebc0800000000000000
+      internalID: -3754662131708223128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_29
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 449
+        width: 7
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a0ecaa1d6d9ab4a0800000000000000
+      internalID: -6576771213896654682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_30
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 465
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1dea29237cdc5f0800000000000000
+      internalID: -734712144168300077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_31
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 457
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09e8907c800745100800000000000000
+      internalID: 95824675082964624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_32
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 449
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b122650bf064be80800000000000000
+      internalID: -8163793593272491598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_33
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 425
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08348ceffcdf3a400800000000000000
+      internalID: 334389867130143616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_34
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 403
+        width: 15
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1509d3b676ee520800000000000000
+      internalID: 2733235734152499632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_35
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 411
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31303f06ddeadb680800000000000000
+      internalID: -8737635436191349997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_36
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 410
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 253542acc8fa479d0800000000000000
+      internalID: -2777402050959092910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_37
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 403
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03e429c8dfbc3c490800000000000000
+      internalID: -7727108245792076240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 656
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a46f1596bf09890800000000000000
+      internalID: -7453180953532937686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F-workshop_39
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 337
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d439214b3b7d7ca0800000000000000
+      internalID: -6017518032670608172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      F-workshop_0: 1034406060638875262
+      F-workshop_1: 3787367347511797898
+      F-workshop_10: -1356128273267218064
+      F-workshop_11: -7792378274499533776
+      F-workshop_12: -123698064809438206
+      F-workshop_13: -956844984886947703
+      F-workshop_14: 2841674064820031275
+      F-workshop_15: 5670487124803087946
+      F-workshop_16: 8263822369223655296
+      F-workshop_17: -465717396693626236
+      F-workshop_18: -5895871752230816543
+      F-workshop_19: -7456268466429636033
+      F-workshop_2: 2515169875780993201
+      F-workshop_20: 3604364535553775204
+      F-workshop_21: 1988258329498729719
+      F-workshop_22: 8552074077464808468
+      F-workshop_23: 8885676902969305755
+      F-workshop_24: -163779524948441334
+      F-workshop_25: -1129455628777460439
+      F-workshop_26: 7552513597926738575
+      F-workshop_27: -3642503391625241212
+      F-workshop_28: -3754662131708223128
+      F-workshop_29: -6576771213896654682
+      F-workshop_3: 7396713131267858249
+      F-workshop_30: -734712144168300077
+      F-workshop_31: 95824675082964624
+      F-workshop_32: -8163793593272491598
+      F-workshop_33: 334389867130143616
+      F-workshop_34: 2733235734152499632
+      F-workshop_35: -8737635436191349997
+      F-workshop_36: -2777402050959092910
+      F-workshop_37: -7727108245792076240
+      F-workshop_38: -7453180953532937686
+      F-workshop_39: -6017518032670608172
+      F-workshop_4: -4562029928316616765
+      F-workshop_5: 3266915372057575390
+      F-workshop_6: -2085570881355260341
+      F-workshop_7: -1339471976086618555
+      F-workshop_8: 3648758803224866010
+      F-workshop_9: 6142549882858343687
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

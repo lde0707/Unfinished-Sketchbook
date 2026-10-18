@@ -1,0 +1,71 @@
+{
+  "status": "Integrated in Unity World12Prototype; damage not implemented",
+  "generator": "built-in imagegen",
+  "scope": "Selected full-body animation artwork integrated in Unity; timing and source frames preserved. No damage implementation.",
+  "sources": [
+    {
+      "output": "sources/rise-keys.png",
+      "prompt": "Use case: stylized-concept. Production 2D metroidvania full-body animation sprite sheet. FOUR poses in a strict2 columns x2 rows grid, 1024x1024, equal512x512 cells, reading order. True transparent RGBA outside sprites, no background or shadows/text/labels/grid. Reference1 defines the exact character and airborne posture. Reference2 defines the same hero's small blunt rectangular ivory ERASER weapon and pale ivory tapered crescent attack effect. Preserve giant round ivory head, single black oval eye facing RIGHT, no mouth, very short compact limbs, plain shorts, soft layered paper cape with subtle paper shading and thin warm dark outline. Cape and shorts slightly darker than body. No redesign, swords, long rubber arms, disconnected limbs or pixel art. Same head diameter180px in each cell, head approximately x300 y180 in each cell. Entire sprite including cape and attack arc within its own cell with24px clear margin. Four distinct WHOLE-BODY drawings, no rigged cutouts. Frame1 short gather: bent eraser hand beside upper chest/shoulder. Frame2 SINGLE clear fast slash impact, short arm extends diagonally forward, one crisp tapered ivory crescent following eraser; never an extra separate weapon or multiple hands. Frame3 follow-through with bent arm lowers to front hip, NO effect. Frame4 hand tucks under cape and returns to reference airborne pose. Body and round head scale consistent; subtle body counter-rotation and cape lag, avoid huge pose changes. This is RISING JUMP ATTACK: both legs remain tightly folded with short knees forward under body as reference1, feet off ground in ALL four poses. Cape trails softly diagonally DOWN-LEFT due to upward motion. Slash direction goes outward and slightly upward to the RIGHT around chest level. No planted or running footstep, no standing stance. Preserve the compact tucked jump silhouette and large round head.",
+      "reference": [
+        "../player-c-jump-v2/frames/03.png",
+        "../player-c-attack-v1/attack1/frames/03.png"
+      ]
+    },
+    {
+      "output": "sources/fall-keys.png",
+      "prompt": "Use case: stylized-concept. Production 2D metroidvania full-body animation sprite sheet. FOUR poses in a strict2 columns x2 rows grid, 1024x1024, equal512x512 cells, reading order. True transparent RGBA outside sprites, no background or shadows/text/labels/grid. Reference1 defines the exact character and airborne posture. Reference2 defines the same hero's small blunt rectangular ivory ERASER weapon and pale ivory tapered crescent attack effect. Preserve giant round ivory head, single black oval eye facing RIGHT, no mouth, very short compact limbs, plain shorts, soft layered paper cape with subtle paper shading and thin warm dark outline. Cape and shorts slightly darker than body. No redesign, swords, long rubber arms, disconnected limbs or pixel art. Same head diameter180px in each cell, head approximately x300 y180 in each cell. Entire sprite including cape and attack arc within its own cell with24px clear margin. Four distinct WHOLE-BODY drawings, no rigged cutouts. Frame1 short gather: bent eraser hand beside upper chest/shoulder. Frame2 SINGLE clear fast slash impact, short arm extends diagonally forward, one crisp tapered ivory crescent following eraser; never an extra separate weapon or multiple hands. Frame3 follow-through with bent arm lowers to front hip, NO effect. Frame4 hand tucks under cape and returns to reference airborne pose. Body and round head scale consistent; subtle body counter-rotation and cape lag, avoid huge pose changes. This is DESCENDING / FALLING ATTACK: the character is falling without jumping, like reference1. Both short legs hang below the pelvis with lightly bent knees, toes downward, far leg darker, never planted or running. Cape lifts and fans gently UP-LEFT due to downward motion, broad rounded paper layers. Head stays round, torso upright with slight forward lean. Frame1 eraser gathered beside shoulder. Frame2 quick diagonal DOWN-FORWARD eraser cut toward lower-right with ONE slim tapered ivory crescent beside the forward hand, not a plunge/downward stab. Frame3 bent arm at front hip follows through. Frame4 hand tucked, gentle dangling bent legs and cape lifted, returning to the reference falling posture. Four entire airborne poses, no floor, no landing crouch, no footstep.",
+      "reference": [
+        "../player-c-fall-v1/frames/01.png",
+        "../player-c-attack-v1/attack1/frames/03.png"
+      ],
+      "status": "Original v1 sheet: retain gather/recovery cells 1 and 4; swing/follow-through superseded by v2."
+    },
+    {
+      "output": "sources/fall-forward-keys-v2.png",
+      "prompt": "Use case: precise-object-edit. Edit reference1, our four-frame FALL ATTACK sprite sheet. Reference2 is ONLY an example of a FORWARD chest-height attack arm and pale crescent effect, not its tucked jumping legs. Preserve reference1 character identity, exact four-cell layout, big ivory round head, short limbs, lifted upward-left paper cape, plain shorts and dangling bent legs. Change attack direction ONLY: frame2 (TOP RIGHT) must strike HORIZONTALLY FORWARD to the RIGHT at upper-chest height, with the short forearm approximately horizontal and blunt rectangular ivory eraser near the bottom edge of the head, never down by the waist or feet. Draw a compact tapered ivory crescent in FRONT of the chest/face to communicate forward strike, no downward arc below knees. Frame1 (TOP LEFT) short gather beside chest. Frame3 (BOTTOM LEFT) retract short elbow and eraser toward chest after the forward strike, not downward follow-through. Frame4 (BOTTOM RIGHT) hand concealed under cape, identical falling recovery. Keep both short legs hanging beneath pelvis in all frames; do not copy jump tucking. Same scale and head size in every frame. Whole-body drawings, no skeletal rig or rubber limbs. Strict2x2 equal-cell sheet, square1254x1254 or1024x1024 with generous clear gutters, no text/labels/grid. TRUE transparent RGBA background alpha0 outside the silhouettes. Preserve polished soft ivory paper illustration texture and fine warm dark outlines. No new weapon, no swords, no ground or shadows. Make the second frame clearly strike at an enemy directly in front, not below.\n",
+      "reference": [
+        "sources/fall-keys.png",
+        "sources/rise-keys.png"
+      ],
+      "selectedCells": [
+        2,
+        3
+      ],
+      "preservedCells": "Fall cells 1 and 4 remain from original v1; all rise frames unchanged."
+    }
+  ],
+  "processing": "Crop four whole-body drawings per generated sheet, uniform scale to160px head width, register by head center. Generated alpha preserved. No joint rigging, image morph or frame crossfade.",
+  "timing": {
+    "frameMs": [
+      35,
+      70,
+      45,
+      70
+    ],
+    "totalMs": 220,
+    "swingDrawings": 1
+  },
+  "behavior": {
+    "select": "At input: jump ascent -> rise; jump descent or ledge fall -> fall. Retain chosen attack until end.",
+    "physics": "Locomotion mode, time, x, y and gravity continue unchanged.",
+    "facing": "Lock attack direction at input while horizontal controls remain active.",
+    "repeat": "Reject while attack is active. Allow another attack after220ms if still airborne.",
+    "cancel": [
+      "landing",
+      "dash",
+      "new jump",
+      "reset"
+    ],
+    "input": "J or primary pointerdown on canvas or attack button",
+    "longFall": "On high-ledge jump, transition 80ms after apex to airborne Fall loop, preserving height, horizontal travel, vertical velocity, active attack and dash charge. Landing only on actual lower ground. Whole-sprite registration offset settles over 80ms."
+  },
+  "preview": "../player-state-test/preview.html?demo=longFallAttack&v=forward-fall2",
+  "unityApplied": true,
+  "revision": "forward-fall-v2",
+  "unityIntegration": {
+    "scene": "Book/Assets/Scenes/World12Prototype.unity",
+    "date": "2026-10-18",
+    "damageImplemented": false,
+    "validation": "Book/Validation/player-combat-runtime.json"
+  }
+}

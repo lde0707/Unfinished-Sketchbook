@@ -1,7 +1,7 @@
 {
-  "gridSha256": "bca3e0e1cd97d055a037fc1027785e1d78213ed5d4a238e65ae1d37186cdf6c0",
+  "gridSha256": "330a8b6a41ff7620942812e3f703e2cb665e3fb09ff9604ced32ff766b469c73",
   "cellsCompared": 78400,
-  "occupiedCells": 57482,
+  "occupiedCells": 57774,
   "rooms": 56,
   "shafts": 14,
   "enemies": 95,

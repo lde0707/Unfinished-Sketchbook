@@ -1,0 +1,69 @@
+{
+  "status": "Installed in Unity: eight map zones across World1/2; five original sprite sets retained",
+  "generator": "built-in imagegen",
+  "scope": "Five world regions, three standalone one-cell platform variants per region",
+  "target": {
+    "tilePixels": 128,
+    "ppu": 128,
+    "widthUnits": 1,
+    "visualThicknessPx": "14–20px measured after uniform downscaling; approximately18px reference thickness",
+    "surface": "narrow top lip with1–2px soft irregularity",
+    "collision": "Existing top-only platform collision; no physics changes in this design pass"
+  },
+  "regions": [
+    {
+      "id": "01-pencil-forest",
+      "name": "연필 숲",
+      "ref": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/samples/region1-tiles-v8/all-regions-connected.png",
+      "detail": "Region1 Pencil Forest hub. Warm muted taupe-gray compressed paper-earth strata with charcoal graphite seams, subtle thick rounded root fibers within underside. Use the FIRST warm paper cavern band of the material reference. Grounded ancient paper ledge, softened torn laminated edges. Keep broad asymmetric layers, no central knot/ring motif.",
+      "prompt": "Use case: stylized-concept. Production sprite design sheet for Unfinished Sketchbook, a serious atmospheric 2D side-view metroidvania. Create THREE standalone one-cell thin foothold platform variants stacked in three rows, on TRUE TRANSPARENT RGBA background. Square sheet 1024x1024. Each platform occupies x64..960, centered at y210,512,814; each is 896px wide and approximately126px tall (7.1:1 wide/thin silhouette), ample clear space between. These become128px-wide ~18px-thick one-way footholds. Exact orthographic side view: walkable crest near horizontal with softly irregular bumps equivalent1-2px at final128px width, narrow top highlight equivalent2px, no visible broad top plane or perspective. Both ends rounded and finished, underside softly irregular, no support pillars. At least85% of width is walkable, do not make hanging islands or blocks. Three variations of same material, change the broad layering/erosion shapes rather than copy a giant repeating motif. Match the references' subdued matte textured relief and medium-large soft forms; simplified detail, no tiny scratched lines, no jagged shards, no pointed thorns, no pixel art, no photorealism, no thick cartoon outlines, no shiny3D look. Relatively readable upper rim, underside progressively darkens to near black while maintaining opaque material, outside transparent. No characters, floor scene, text, labels, borders, grids, shadows on background, floating debris, plant grass, or special-effect glow. Reference image1 is material/color context ONLY, not layout. Region1 Pencil Forest hub. Warm muted taupe-gray compressed paper-earth strata with charcoal graphite seams, subtle thick rounded root fibers within underside. Use the FIRST warm paper cavern band of the material reference. Grounded ancient paper ledge, softened torn laminated edges. Keep broad asymmetric layers, no central knot/ring motif."
+    },
+    {
+      "id": "02-crayon-hills",
+      "name": "크레파스 언덕",
+      "ref": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/samples/regional-pairs-v5-soft/active-region-pairs.png",
+      "detail": "Region2 Crayon Hills. Use RIGHT warm burnt umber/ochre crayon wax material from reference. Thick worn wax pigment strata with two or three broad rounded compressions, muted rust top lip, dark brown underside. A solid foothold, not active melting animation; no liquid drips or glowing lava.",
+      "prompt": "Use case: stylized-concept. Production sprite design sheet for Unfinished Sketchbook, a serious atmospheric 2D side-view metroidvania. Create THREE standalone one-cell thin foothold platform variants stacked in three rows, on TRUE TRANSPARENT RGBA background. Square sheet 1024x1024. Each platform occupies x64..960, centered at y210,512,814; each is 896px wide and approximately126px tall (7.1:1 wide/thin silhouette), ample clear space between. These become128px-wide ~18px-thick one-way footholds. Exact orthographic side view: walkable crest near horizontal with softly irregular bumps equivalent1-2px at final128px width, narrow top highlight equivalent2px, no visible broad top plane or perspective. Both ends rounded and finished, underside softly irregular, no support pillars. At least85% of width is walkable, do not make hanging islands or blocks. Three variations of same material, change the broad layering/erosion shapes rather than copy a giant repeating motif. Match the references' subdued matte textured relief and medium-large soft forms; simplified detail, no tiny scratched lines, no jagged shards, no pointed thorns, no pixel art, no photorealism, no thick cartoon outlines, no shiny3D look. Relatively readable upper rim, underside progressively darkens to near black while maintaining opaque material, outside transparent. No characters, floor scene, text, labels, borders, grids, shadows on background, floating debris, plant grass, or special-effect glow. Reference image1 is material/color context ONLY, not layout. Region2 Crayon Hills. Use RIGHT warm burnt umber/ochre crayon wax material from reference. Thick worn wax pigment strata with two or three broad rounded compressions, muted rust top lip, dark brown underside. A solid foothold, not active melting animation; no liquid drips or glowing lava."
+    },
+    {
+      "id": "03-watercolor-lake",
+      "name": "수채화 호수",
+      "ref": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/samples/regional-pairs-v4/regional-pairs-preview.png",
+      "detail": "Region3 Watercolor Lake. Use THIRD muted slate-blue watercolor region in reference. Compressed water-worn paper strata with softly eroded scalloped edge, muted desaturated blue teal stain washes held inside the paper material, deep navy underside. Very subtle matte dampness, no water splash/glass/ice/crystals or floating droplets.",
+      "prompt": "Use case: stylized-concept. Production sprite design sheet for Unfinished Sketchbook, a serious atmospheric 2D side-view metroidvania. Create THREE standalone one-cell thin foothold platform variants stacked in three rows, on TRUE TRANSPARENT RGBA background. Square sheet 1024x1024. Each platform occupies x64..960, centered at y210,512,814; each is 896px wide and approximately126px tall (7.1:1 wide/thin silhouette), ample clear space between. These become128px-wide ~18px-thick one-way footholds. Exact orthographic side view: walkable crest near horizontal with softly irregular bumps equivalent1-2px at final128px width, narrow top highlight equivalent2px, no visible broad top plane or perspective. Both ends rounded and finished, underside softly irregular, no support pillars. At least85% of width is walkable, do not make hanging islands or blocks. Three variations of same material, change the broad layering/erosion shapes rather than copy a giant repeating motif. Match the references' subdued matte textured relief and medium-large soft forms; simplified detail, no tiny scratched lines, no jagged shards, no pointed thorns, no pixel art, no photorealism, no thick cartoon outlines, no shiny3D look. Relatively readable upper rim, underside progressively darkens to near black while maintaining opaque material, outside transparent. No characters, floor scene, text, labels, borders, grids, shadows on background, floating debris, plant grass, or special-effect glow. Reference image1 is material/color context ONLY, not layout. Region3 Watercolor Lake. Use THIRD muted slate-blue watercolor region in reference. Compressed water-worn paper strata with softly eroded scalloped edge, muted desaturated blue teal stain washes held inside the paper material, deep navy underside. Very subtle matte dampness, no water splash/glass/ice/crystals or floating droplets."
+    },
+    {
+      "id": "04-paper-city",
+      "name": "색종이 도시",
+      "ref": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/samples/regional-pairs-v4/regional-pairs-preview.png",
+      "detail": "Region4 Folded Paper City. Use FOURTH weathered paper architecture region in reference. Thin shelf of folded laminated paper slabs, muted blue gray broad upper fold, small desaturated burgundy and parchment layer accents, charcoal underside. Corners softly worn, broad staggered folds without repetitive bricks or decorative miniature building. No spikes, hard metallic glossy edges or origami birds.",
+      "prompt": "Use case: stylized-concept. Production sprite design sheet for Unfinished Sketchbook, a serious atmospheric 2D side-view metroidvania. Create THREE standalone one-cell thin foothold platform variants stacked in three rows, on TRUE TRANSPARENT RGBA background. Square sheet 1024x1024. Each platform occupies x64..960, centered at y210,512,814; each is 896px wide and approximately126px tall (7.1:1 wide/thin silhouette), ample clear space between. These become128px-wide ~18px-thick one-way footholds. Exact orthographic side view: walkable crest near horizontal with softly irregular bumps equivalent1-2px at final128px width, narrow top highlight equivalent2px, no visible broad top plane or perspective. Both ends rounded and finished, underside softly irregular, no support pillars. At least85% of width is walkable, do not make hanging islands or blocks. Three variations of same material, change the broad layering/erosion shapes rather than copy a giant repeating motif. Match the references' subdued matte textured relief and medium-large soft forms; simplified detail, no tiny scratched lines, no jagged shards, no pointed thorns, no pixel art, no photorealism, no thick cartoon outlines, no shiny3D look. Relatively readable upper rim, underside progressively darkens to near black while maintaining opaque material, outside transparent. No characters, floor scene, text, labels, borders, grids, shadows on background, floating debris, plant grass, or special-effect glow. Reference image1 is material/color context ONLY, not layout. Region4 Folded Paper City. Use FOURTH weathered paper architecture region in reference. Thin shelf of folded laminated paper slabs, muted blue gray broad upper fold, small desaturated burgundy and parchment layer accents, charcoal underside. Corners softly worn, broad staggered folds without repetitive bricks or decorative miniature building. No spikes, hard metallic glossy edges or origami birds."
+    },
+    {
+      "id": "05-ink-abyss",
+      "name": "잉크 심연",
+      "ref": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/samples/regional-pairs-v4/regional-pairs-preview.png",
+      "detail": "Region5 Ink Abyss. Use FIFTH dark violet-gray region in reference. Ancient compressed paper shelf saturated with nearly black ink, broad gently undulating sediment layers, muted violet slate readable rim and dark desaturated purple middle, underside almost black. Solid matte substrate; no goo drips, tentacles, eyes, glow or damaging spikes.",
+      "prompt": "Use case: stylized-concept. Production sprite design sheet for Unfinished Sketchbook, a serious atmospheric 2D side-view metroidvania. Create THREE standalone one-cell thin foothold platform variants stacked in three rows, on TRUE TRANSPARENT RGBA background. Square sheet 1024x1024. Each platform occupies x64..960, centered at y210,512,814; each is 896px wide and approximately126px tall (7.1:1 wide/thin silhouette), ample clear space between. These become128px-wide ~18px-thick one-way footholds. Exact orthographic side view: walkable crest near horizontal with softly irregular bumps equivalent1-2px at final128px width, narrow top highlight equivalent2px, no visible broad top plane or perspective. Both ends rounded and finished, underside softly irregular, no support pillars. At least85% of width is walkable, do not make hanging islands or blocks. Three variations of same material, change the broad layering/erosion shapes rather than copy a giant repeating motif. Match the references' subdued matte textured relief and medium-large soft forms; simplified detail, no tiny scratched lines, no jagged shards, no pointed thorns, no pixel art, no photorealism, no thick cartoon outlines, no shiny3D look. Relatively readable upper rim, underside progressively darkens to near black while maintaining opaque material, outside transparent. No characters, floor scene, text, labels, borders, grids, shadows on background, floating debris, plant grass, or special-effect glow. Reference image1 is material/color context ONLY, not layout. Region5 Ink Abyss. Use FIFTH dark violet-gray region in reference. Ancient compressed paper shelf saturated with nearly black ink, broad gently undulating sediment layers, muted violet slate readable rim and dark desaturated purple middle, underside almost black. Solid matte substrate; no goo drips, tentacles, eyes, glow or damaging spikes."
+    }
+  ],
+  "artifacts": {
+    "overview": "all-platforms-preview.png",
+    "preview": "preview.html",
+    "sourceSheets": "sources/*.png",
+    "sprites": "<region>/A-128.png through C-128.png;256px masters alongside",
+    "notes": "Each source image is an isolated end-capped one-cell platform. Unity uses zone-specific materials and three variants. Collision geometry is unchanged by the palette update."
+  },
+  "unityIntegration": {
+    "scene": "Book/Assets/Scenes/World12Prototype.unity",
+    "world1Cells": 367,
+    "world2Cells": 260,
+    "spriteCount": 15,
+    "tileAssets": 117,
+    "baseTileAssets": 45,
+    "zoneTileAssets": 72,
+    "zones": "ABCDEFGH",
+    "paletteSource": "Book/Assets/Unfin/Runtime/RegionalTilePalette.cs",
+    "note": "Existing fifteen source sprites reused in eight zone-specific tile sets. No source PNG redraw."
+  }
+}

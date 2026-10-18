@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "gridSha256": "330a8b6a41ff7620942812e3f703e2cb665e3fb09ff9604ced32ff766b469c73",
+  "loadedUnity": true,
+  "rooms": [
+    {
+      "room": "1-9",
+      "spawn": "78,123"
+    },
+    {
+      "room": "1-14",
+      "spawn": "108,48"
+    },
+    {
+      "room": "2-3",
+      "spawn": "372,28"
+    },
+    {
+      "room": "2-4",
+      "spawn": "430,30"
+    },
+    {
+      "room": "2-7",
+      "spawn": "300,88"
+    },
+    {
+      "room": "2-18",
+      "spawn": "527,115"
+    }
+  ],
+  "actions": [
+    "review spawn",
+    "right jump",
+    "return to starting region"
+  ],
+  "scope": "Browser load/input smoke test; route reachability is verified separately by the Unity GridMotor tests.",
+  "errors": []
+}

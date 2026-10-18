@@ -1,0 +1,432 @@
+{
+  "frameCount": 13,
+  "insertedThisRevision": 2,
+  "loopMs": 800,
+  "cellSize": 512,
+  "renderCanvas": [
+    544,
+    512
+  ],
+  "renderPaddingX": 16,
+  "groundY": 448,
+  "columns": 4,
+  "rows": 4,
+  "frames": [
+    {
+      "index": 0,
+      "number": 1,
+      "label": "1",
+      "source": "old",
+      "sourceCell": 0,
+      "previousIndex": 0,
+      "previousLabel": "1",
+      "new": false,
+      "durationMs": 100,
+      "renderOffset": [
+        -4,
+        0
+      ],
+      "headCenter": [
+        350,
+        211
+      ],
+      "renderedHeadCenter": [
+        346,
+        211
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "soleCenterX": 194.5,
+      "bounds": [
+        31,
+        131,
+        430,
+        448
+      ]
+    },
+    {
+      "index": 1,
+      "number": 2,
+      "label": "2",
+      "source": "arms",
+      "sourceCell": 0,
+      "previousIndex": 1,
+      "previousLabel": "2",
+      "new": false,
+      "durationMs": 100,
+      "renderOffset": [
+        6,
+        6
+      ],
+      "headCenter": [
+        350,
+        210
+      ],
+      "renderedHeadCenter": [
+        356,
+        216
+      ],
+      "footGap": 2,
+      "supportLeg": null,
+      "soleCenterX": null,
+      "bounds": [
+        52,
+        130,
+        430,
+        440
+      ]
+    },
+    {
+      "index": 2,
+      "number": 3,
+      "label": "3",
+      "source": "arms",
+      "sourceCell": 1,
+      "previousIndex": 2,
+      "previousLabel": "3",
+      "new": false,
+      "durationMs": 100,
+      "renderOffset": [
+        10,
+        2
+      ],
+      "headCenter": [
+        350,
+        215
+      ],
+      "renderedHeadCenter": [
+        360,
+        217
+      ],
+      "footGap": 7,
+      "supportLeg": null,
+      "soleCenterX": null,
+      "bounds": [
+        23,
+        135,
+        431,
+        439
+      ]
+    },
+    {
+      "index": 3,
+      "number": 4,
+      "label": "4",
+      "source": "old",
+      "sourceCell": 3,
+      "previousIndex": 3,
+      "previousLabel": "4",
+      "new": false,
+      "durationMs": 30,
+      "renderOffset": [
+        6,
+        0
+      ],
+      "headCenter": [
+        350,
+        232
+      ],
+      "renderedHeadCenter": [
+        356,
+        232
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "soleCenterX": 312.0,
+      "bounds": [
+        36,
+        152,
+        430,
+        448
+      ]
+    },
+    {
+      "index": 4,
+      "number": 5,
+      "label": "5",
+      "source": "transitions",
+      "sourceCell": 0,
+      "previousIndex": 3,
+      "previousLabel": "4",
+      "new": true,
+      "durationMs": 40,
+      "renderOffset": [
+        4,
+        0
+      ],
+      "headCenter": [
+        350,
+        232
+      ],
+      "renderedHeadCenter": [
+        354,
+        232
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "soleCenterX": 285.5,
+      "bounds": [
+        40,
+        152,
+        429,
+        448
+      ]
+    },
+    {
+      "index": 5,
+      "number": 6,
+      "label": "6",
+      "source": "old",
+      "sourceCell": 4,
+      "previousIndex": 4,
+      "previousLabel": "4-5",
+      "new": false,
+      "durationMs": 30,
+      "renderOffset": [
+        1,
+        0
+      ],
+      "headCenter": [
+        350,
+        217
+      ],
+      "renderedHeadCenter": [
+        351,
+        217
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "soleCenterX": 227.5,
+      "bounds": [
+        54,
+        137,
+        430,
+        448
+      ]
+    },
+    {
+      "index": 6,
+      "number": 7,
+      "label": "7",
+      "source": "arms",
+      "sourceCell": 2,
+      "previousIndex": 5,
+      "previousLabel": "5",
+      "new": false,
+      "durationMs": 100,
+      "renderOffset": [
+        -4,
+        0
+      ],
+      "headCenter": [
+        350,
+        212
+      ],
+      "renderedHeadCenter": [
+        346,
+        212
+      ],
+      "footGap": 0,
+      "supportLeg": "near",
+      "soleCenterX": 204.0,
+      "bounds": [
+        46,
+        132,
+        431,
+        448
+      ]
+    },
+    {
+      "index": 7,
+      "number": 8,
+      "label": "8",
+      "source": "arms",
+      "sourceCell": 3,
+      "previousIndex": 6,
+      "previousLabel": "6",
+      "new": false,
+      "durationMs": 50,
+      "renderOffset": [
+        6,
+        4
+      ],
+      "headCenter": [
+        350,
+        203
+      ],
+      "renderedHeadCenter": [
+        356,
+        207
+      ],
+      "footGap": 4,
+      "supportLeg": null,
+      "soleCenterX": null,
+      "bounds": [
+        49,
+        122,
+        430,
+        440
+      ]
+    },
+    {
+      "index": 8,
+      "number": 9,
+      "label": "9",
+      "source": "transitions",
+      "sourceCell": 2,
+      "previousIndex": 7,
+      "previousLabel": "6-7",
+      "new": false,
+      "durationMs": 50,
+      "renderOffset": [
+        9,
+        8
+      ],
+      "headCenter": [
+        350,
+        205
+      ],
+      "renderedHeadCenter": [
+        359,
+        213
+      ],
+      "footGap": 32,
+      "supportLeg": null,
+      "soleCenterX": null,
+      "bounds": [
+        51,
+        125,
+        430,
+        408
+      ]
+    },
+    {
+      "index": 9,
+      "number": 10,
+      "label": "10",
+      "source": "old",
+      "sourceCell": 8,
+      "previousIndex": 8,
+      "previousLabel": "7",
+      "new": false,
+      "durationMs": 100,
+      "renderOffset": [
+        10,
+        6
+      ],
+      "headCenter": [
+        350,
+        207
+      ],
+      "renderedHeadCenter": [
+        360,
+        213
+      ],
+      "footGap": 10,
+      "supportLeg": null,
+      "soleCenterX": null,
+      "bounds": [
+        28,
+        127,
+        431,
+        432
+      ]
+    },
+    {
+      "index": 10,
+      "number": 11,
+      "label": "11",
+      "source": "old",
+      "sourceCell": 9,
+      "previousIndex": 9,
+      "previousLabel": "8",
+      "new": false,
+      "durationMs": 30,
+      "renderOffset": [
+        6,
+        0
+      ],
+      "headCenter": [
+        350,
+        222
+      ],
+      "renderedHeadCenter": [
+        356,
+        222
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "soleCenterX": 331.5,
+      "bounds": [
+        36,
+        142,
+        431,
+        448
+      ]
+    },
+    {
+      "index": 11,
+      "number": 12,
+      "label": "12",
+      "source": "transitions",
+      "sourceCell": 1,
+      "previousIndex": 9,
+      "previousLabel": "8",
+      "new": true,
+      "durationMs": 40,
+      "renderOffset": [
+        4,
+        0
+      ],
+      "headCenter": [
+        350,
+        231
+      ],
+      "renderedHeadCenter": [
+        354,
+        231
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "soleCenterX": 278.5,
+      "bounds": [
+        39,
+        152,
+        431,
+        448
+      ]
+    },
+    {
+      "index": 12,
+      "number": 13,
+      "label": "13",
+      "source": "old",
+      "sourceCell": 10,
+      "previousIndex": 10,
+      "previousLabel": "8-1",
+      "new": false,
+      "durationMs": 30,
+      "renderOffset": [
+        1,
+        0
+      ],
+      "headCenter": [
+        350,
+        220
+      ],
+      "renderedHeadCenter": [
+        351,
+        220
+      ],
+      "footGap": 0,
+      "supportLeg": "far",
+      "soleCenterX": 225.5,
+      "bounds": [
+        55,
+        140,
+        430,
+        448
+      ]
+    }
+  ]
+}

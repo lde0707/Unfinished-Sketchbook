@@ -40,6 +40,7 @@ namespace Unfin.Editor
         public static void Build()
         {
             AssetDatabase.Refresh();
+            RegionalPlatformImporter.Generate();
             var json = AssetDatabase.LoadAssetAtPath<TextAsset>(Root + "/Data/world12.json");
             data = JsonUtility.FromJson<WorldData>(json.text); cells = data.Decode();
             patterns = TerrainPatterns.Create(data.width, data.height);
@@ -132,11 +133,13 @@ namespace Unfin.Editor
             player.transform.position = new Vector3(data.startX + .5f, -data.startFloor + .6875f, 0);
             controller.player = player.transform;
             PaperSpriteImporter.Attach(controller);
+            RegionalPlatformImporter.Apply(controller);
             MakeMarkers("Enemy placement (no AI)", data.enemies, true, markerSprite);
             MakeMarkers("Item and device placement", data.pickups, false, markerSprite);
             MakeAreas("Rooms", data.rooms); MakeAreas("Passages", data.passages); MakeAreas("Shafts", data.shafts);
             controller.overview = Overview();
             Region1BackgroundImporter.Apply(data);
+            RoomBackdropImporter.Apply(data);
             PlayerSettings.defaultScreenWidth = 1920; PlayerSettings.defaultScreenHeight = 1080;
             PlayerSettings.fullScreenMode = FullScreenMode.FullScreenWindow;
             PlayerSettings.runInBackground = true;
@@ -238,6 +241,7 @@ namespace Unfin.Editor
             if (tile == null) { tile = ScriptableObject.CreateInstance<PrototypeTile>(); AssetDatabase.CreateAsset(tile, asset); }
             tile.sprite = sprite; tile.htmlType = type; tile.region = region + 1; tile.exposedEdges = mask;
             tile.patternVariant = variant;
+            tile.flags=region==1&&(type==0||type==1)?TileFlags.LockTransform:TileFlags.LockAll;
             tile.colliderType = type == 0 || type == 9 ? UnityEngine.Tilemaps.Tile.ColliderType.None : UnityEngine.Tilemaps.Tile.ColliderType.Grid;
             EditorUtility.SetDirty(tile); tileCache[key] = tile;
             return tile;

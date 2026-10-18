@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "playerFramesUnchanged": 86,
+  "platformPNGsUnchanged": 15,
+  "scope": "All copied PNG SHA256 hashes match selected source artwork; effect cropped from generated source."
+}

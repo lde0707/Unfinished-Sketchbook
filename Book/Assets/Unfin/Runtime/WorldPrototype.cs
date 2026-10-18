@@ -20,6 +20,11 @@ namespace Unfin
         public WorldData Data { get; private set; }
         public GridMotor Motor { get; private set; }
         public bool flying;
+        public bool MapOpen => showMap;
+        readonly PlatformCameraFollow cameraFollow = new PlatformCameraFollow();
+        int cameraResetSerial = -1;
+        public int MoveInput {get;private set;}
+        float jumpStartBottom;
         bool showMap, previousJump;
         float jumpBuffer, coyote, wallLock, dashTime, dashCooldown, accumulator;
         int facing = 1, dashDirection=1;
@@ -55,8 +60,8 @@ namespace Unfin
                 terrainLookup[TerrainPatterns.Key(tile.region - 1, tile.patternVariant, tile.exposedEdges)] = tile;
             foreach (var tile in filletTiles)
                 filletLookup[TerrainPatterns.Key(tile.region - 1, tile.patternVariant, tile.exposedEdges)] = tile;
-            Respawn(Data.startX, Data.startFloor);
             worldCamera.orthographicSize = Data.orthographicSize;
+            Respawn(Data.startX, Data.startFloor);
         }
         void Update()
         {
@@ -100,11 +105,13 @@ namespace Unfin
         {
             Motor.vy=-speed;Motor.grounded=false;jumpBuffer=0;coyote=0;ForceFall=false;
             JumpInProgress=true;JumpSerial++;JumpMoving=ix!=0;JumpLaunchSpeed=speed;JumpElapsed=0;
+            jumpStartBottom=Motor.y+GridMotor.Height;
         }
         // Shared fixed-step entry point for gameplay and deterministic motor checks.
         public void Simulate(float dt,int ix=0,int iy=0){Step(dt,ix,iy);SyncView();}
         void Step(float dt, int ix, int iy)
         {
+            MoveInput=ix;
             if(dashTime>0&&dashTime<dt-0.000001f){float first=dashTime;Step(first,ix,iy);Step(dt-first,ix,iy);return;}
             dashCooldown -= dt; wallLock -= dt; jumpBuffer -= dt;
             if (ix != 0 && !IsDashing) facing = ix;
@@ -137,6 +144,9 @@ namespace Unfin
                     { Launch(420,-wall); Motor.vx = -wall * 175; wallLock = .17f; }
                 }
                 Motor.Move(dt);
+                // Crossing below the takeoff surface without contact means a continuing fall.
+                if(JumpInProgress&&!Motor.grounded&&Motor.vy>0&&Motor.y+GridMotor.Height>jumpStartBottom+.5f)
+                {JumpInProgress=false;ForceFall=true;}
                 if(dashStep)
                 {
                     if(!dashAirborne)
@@ -230,11 +240,23 @@ namespace Unfin
                 return;
             }
         }
+        // Web prototype review shortcut, alongside the existing flight/region QA controls.
+        // Accept only a standing position on real terrain with room for the player.
+        public void PreviewPosition(string cell)
+        {
+            var parts=cell.Split(',');
+            if(parts.Length!=2||!int.TryParse(parts[0],out int x)||!int.TryParse(parts[1],out int y)||
+                Motor==null||x<0||x>=Data.width||y<2||y>=Data.height)return;
+            int t=Motor.Get(x,y);
+            if(t==0||t==3||t==9)return;
+            if(GridMotor.Wall(Motor.Get(x,y-1))||GridMotor.Wall(Motor.Get(x,y-2)))return;
+            flying=false;showMap=false;Respawn(x,y);
+        }
         public void Respawn(int tx, int floor)
         {
             Motor.x = tx * 16 + 2; Motor.y = floor * 16 - 22; Motor.vx = Motor.vy = 0; Motor.grounded = false;
             safe = new Vector2(Motor.x, Motor.y); dashTime = dashCooldown = jumpBuffer = coyote = wallLock = 0;
-            airDashUsed=dashAirborne=false;ForceFall=JumpInProgress=false;previousJump=false;accumulator=0;ResetSerial++;
+            airDashUsed=dashAirborne=false;ForceFall=JumpInProgress=false;previousJump=false;accumulator=0;MoveInput=0;ResetSerial++;
             SyncView();
         }
         void RefreshTerrain(int cx, int cy)
@@ -260,19 +282,32 @@ namespace Unfin
                 }
                 int fillet=TerrainTopology.FilletMask(Motor.Get,x,y);
                 filletMaps[region].SetTile(WorldData.Cell(x,y),fillet==0?null:filletLookup[TerrainPatterns.Key(region,variant,fillet)]);
+                RegionalTilePalette.ApplyTerrainCell(this,Data,x,y);
             }
         }
         void RestoreWorld() => UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         void SyncView()
         {
             player.position = new Vector3((Motor.x + 6) / 16, -(Motor.y + 11) / 16, 0);
-            float halfH = worldCamera.orthographicSize, halfW = halfH * worldCamera.aspect;
-            worldCamera.transform.position = new Vector3(Mathf.Clamp(player.position.x, halfW, Data.width - halfW), Mathf.Clamp(player.position.y + 1, -Data.height + halfH, -halfH), -10);
+            if (cameraResetSerial != ResetSerial)
+            {
+                cameraResetSerial = ResetSerial;
+                cameraFollow.Reset(player.position, worldCamera.orthographicSize, worldCamera.aspect, Data.width, Data.height);
+                worldCamera.transform.position = new Vector3(cameraFollow.Position.x, cameraFollow.Position.y, -10);
+            }
+        }
+        void LateUpdate() => TickCamera(Time.deltaTime);
+        public void TickCamera(float dt)
+        {
+            if (Motor == null || Data == null) return;
+            var p = cameraFollow.Tick(player.position, new Vector2(Motor.vx, -Motor.vy) / 16,
+                Motor.grounded, flying, dt, worldCamera.orthographicSize, worldCamera.aspect, Data.width, Data.height);
+            worldCamera.transform.position = new Vector3(p.x, p.y, -10);
         }
         void OnGUI()
         {
             if (Data == null) return;
-            GUI.Box(new Rect(12, 12, 620, 76), "WORLD 1 + 2  |  128 px / tile at 1920 x 1080\nA/D: move   Space: jump / wall jump   S+Space: drop   Shift: dash\nF: free flight   E: open nearby gate (QA)   1/2: region   M: map   R: reset");
+            GUI.Box(new Rect(12, 12, 700, 76), "WORLD 1 + 2  |  128 px / tile at 1920 x 1080\nA/D: move   Space: jump   S+Space: drop   Shift: dash   J / Click: attack\nF: free flight   E: open nearby gate (QA)   1/2: region   M: map   R: reset");
             GUI.Label(new Rect(24, 91, 900, 28), $"{(Motor.x / 16 < Data.regionX ? "World 1" : "World 2")}   tile ({Motor.x / 16:F1}, {Motor.y / 16:F1})   {(flying ? "FLIGHT" : "WALK")}   Enemies / items: placement markers");
             if (!showMap) return;
             float width = Mathf.Min(Screen.width - 40, 1120), height = width * Data.height / Data.width;

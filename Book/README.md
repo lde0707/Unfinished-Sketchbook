@@ -109,8 +109,69 @@ Play 모드 자동 검증은 배치 실행에서 `-executeMethod Unfin.Editor.Wo
 
 PNG는 원본 바이트 그대로 512px, PPU256, Bilinear, 무압축으로 임포트한다. 발 기준점과 자세별 x 기준점은 HTML 미리보기와 같다. 실제 맵의 12×22 논리 충돌 영역과 기존 점프 속도·중력을 유지하며, 상승/정점/하강/착지를 실제 속도와 접지에 맞춘다. 따라서 HTML 검토 화면의 고정 점프 높이130px를 맵의 이동 능력으로 적용하지 않는다. 점프와 착지 원화가 이동 입력을 잠그지 않는다.
 
-대시는 기존 지상 달리기125의3.2배인400 논리px/s로180ms 이동한다. 종료 후220ms 재사용 간격이며 점프 도중 사용하면 남은 상승을 취소하고 Fall로 전환한다. 낙하 중 사용하면 대시 전 하강 속도를 복원한다. 착지 직전120ms 점프 입력 기억과 접지 즉시 재점프를 지원한다. 예전 J 공격 관절 시연은 새 플레이어에 연결하지 않는다. 새 전신 공격·피격·사망 원화는 아직 제작하지 않았다.
+대시는 기존 지상 달리기125의3.2배인400 논리px/s로180ms 이동한다. 종료 후220ms 재사용 간격이며 점프 도중 사용하면 남은 상승을 취소하고 Fall로 전환한다. 낙하 중 사용하면 대시 전 하강 속도를 복원한다. 착지 직전120ms 점프 입력 기억과 접지 즉시 재점프를 지원한다. 지상·이동 3단 공격과 상승·낙하 공격을 J 또는 마우스 왼쪽 클릭으로 재생한다. 피격·사망 원화와 실제 대미지 판정은 아직 연결하지 않았다.
 
 다시 적용: 저장소 루트에서 `python Tools/export_player_unity.py` 실행 후 Unity 메뉴 **Unfin → Apply Current Player Sprites**. 별도 빌드용 프로젝트를 통해 적용하려면 `powershell -ExecutionPolicy Bypass -File Tools/apply_player_unity.ps1`을 사용한다. 이 명령은 원본 Book의 Library 대신 기존 빌드용 프로젝트를 사용하고 생성된 에셋·메타·프리팹·씬을 Book으로 복사한다. 검증 기록은 `Validation/player-sprites-import.json`, `player-sprites-runtime.json`, 실제 게임 화면은 `player-sprites-in-game.png`다. 편집용 SpriteRenderer AnimationClip 11개와 AnimatorController도 함께 제공한다. 실제 플레이어는 물리 상태와 동기화하는 프레임 드라이버로 재생한다.
 
 웹 배포 데이터가25MiB를 넘으면 `node Tools/prepare_webgl_site.cjs`가16MiB 조각으로 무손실 분할한다. 브라우저에서 각 조각의 SHA-256 무결성을 확인한 뒤 합쳐 Unity 기본 압축 해제로 전달한다. PNG 해상도·색·텍스처 압축 설정을 낮추지 않는다. `Tools/build_webgl.ps1`에서 자동 실행하며 `Tools/verify_webgl.cjs`가 조각 크기·해시·재조립 데이터와 WebAssembly를 검사한다.
+
+
+## 플레이어 공격과 지역별 발판 적용 (2026-10-18)
+
+현재 라이브러리는 기존 이동 원화42장과 공격 원화44장, 총86장·19개 시퀀스를 사용한다. 기존 이동 PNG는 바이트 그대로 유지하고 공격768×640 원본은 PPU256·무압축·최대1024로 임포트한다. 지상 원화 발 기준은560px, 공중 원화는 현재 이동 자세의 머리 기준에 맞춘다. 지우개 찌르기 이펙트도 별도 SpriteRenderer에 적용한다.
+
+- J / 마우스 왼쪽 클릭: 지상에서는 1타 베기 → 2타 올려치기 → 3타 찌르기. 이동 중에는 MoveAttack 원화를 쓰며 실제 이동 속도를 유지한다.
+- 제자리 공격 시간:360/290/460ms. 이동 공격:480/400/420ms. 2타 휘두름은 한 장이며 마무리140ms를 유지한다.
+- 종료 후250ms 이내 입력은 다음 타격으로 연결한다. 미리 누른 입력은150ms 동안 기억하고, 3타 종료 후500ms 회복 시간이 있다.
+- 상승/낙하 공격은 각220ms. 낙하 공격도 정면으로 베며, 수평 이동·중력·공격 시작 방향을 유지한다. 점프·대시·착지에 맞춰 공격을 취소한다. 지상에서 반대 방향으로 전환하면 공격을 취소한다.
+- 높은 곳에서 점프한 뒤 출발 높이 아래로 내려가도 접지하지 않았다면 Fall로 연결한다. 실제 접지 전에는 착지 원화를 재생하지 않는다. 기존 맵의 중력·점프 높이를 유지한다.
+
+지역별 한 칸 발판15종은 `Assets/Unfin/Art/RegionalPlatforms`, 타입4/6/15별 기본 타일45개는 `Assets/Unfin/Platforms`에 있다. 현재 배치는 아래의 8구역 팔레트 적용 기준을 따른다. 3~5지역은 지도 제작 전이므로 원화만 준비했다. 폭128px·PPU128·1칸이며 원본 투명 PNG를 유지한다. 타입6/15는 옅은 식별색을 추가하고 기존 무너짐·녹음·복구 및 통과 판정을 유지한다.
+
+재현: `python Tools/export_player_unity.py`, `python Tools/export_regional_platforms_unity.py` 실행 후 `powershell -ExecutionPolicy Bypass -File Tools/apply_player_unity.ps1`. Unity 메뉴 **Unfin → Apply Current Player Sprites**는 플레이어와 발판을 함께 적용한다. 전체 맵 재생성에도 새 발판 배치를 반영했다.
+
+검증: `Validation/player-combat-runtime.json`, `Validation/regional-platforms.json`, 기존 이동/전체 맵 검사. 실제 Unity 렌더는 `player-attack-in-game.png`, `player-air-attack-in-game.png`, `platform-world1-in-game.png`에 기록한다. 로컬 Unity 소스·씬 변경이며 공개 웹사이트의 배포 상태와는 별개다.
+
+## 큰 방의 중간층 (2026-10-18)
+
+1지역의 무너진 갱도·나무 속 탑, 2지역의 노을빛 큰 굴·삼색 광장·밀랍 저장고·물감 폭포 홀에 총12개의 고체 중간층을 추가했다. 두께2칸의 층을 얇은 발판과 연결하며, 방마다 순환 경로·수직굴 진입·상층 수집품 접근에 활용한다. 현재 지도는78,400셀 중57,774셀이 지형이며, 한 칸 발판은1지역367칸·2지역260칸이다.
+
+재현 순서는 `node Tools/add_room_mezzanines.cjs` → `node Tools/export_unity_world.cjs` → `node Tools/export_region1_terrain.cjs` → `node Tools/verify_region1_terrain.cjs` → `powershell -ExecutionPolicy Bypass -File Tools/apply_mezzanines_unity.ps1`이다. 마지막으로 `Tools/build_webgl.ps1`로 로컬 웹을 갱신한다. 원본 셀과 새 셀의 변경 이력 및 방별 좌표는 `Assets/Unfin/Data/room-mezzanines.json`에 있다.
+
+`Validation/room-mezzanines-routes.json`은 실제 GridMotor를 사용해39개 이동 구간을 일반 점프로 검증한다. 대시·벽 점프·게이트 해제는 검사에 사용하지 않는다. 얇은 발판의 머리 공간, 기존 통로·수직굴·마커와 폭포 동쪽 벽타기 공간도 검사한다. `mezzanine-room-지역-방.png`는 방 전체, `mezzanine-play-지역-방.png`는 실제 카메라 배율, `mezzanine-web-지역-방.png`는 웹 실행 화면이다.
+
+로컬 웹에서 `?spawn=78,123`(갱도), `?spawn=108,48`(나무 속 탑), `?spawn=372,28`(큰 굴), `?spawn=430,30`(광장), `?spawn=300,88`(저장고), `?spawn=527,115`(폭포 홀)로 중간층에서 바로 검토할 수 있다. 이는 기존 비행·지역 이동과 같은 프로토타입 검토용 기능이다.
+
+## 8구역 타일 구분 (2026-10-18)
+
+1지역은 기존의 네 가지 지형 원화와 경계 혼합을 유지한다. 얇은 발판은 A 종이굴의 회베이지, B 흑연 광산의 청회색, C 나무 속의 목재색으로 구분하고, D 뿌리 심부는 녹빛 뿌리 지형에 자주빛 발판을 배치한다. 2지역은 E 노을 굴의 주황색, F 밀랍 공방의 황토·밀랍색, G 지하 협곡의 청색, H 기사의 탑의 적갈색으로 구분한다. 2지역 팔레트는 일반 바닥·벽·천장·중간층·안쪽 모서리와 얇은 발판에 적용한다.
+
+기존 발판 원화15종 중 재질이 맞는 세트를 재사용하고, 구역8종 × 변형3종 × 발판 타입3종의 타일72개를 별도로 만든다. `RegionalTilePalette.cs`가 가까운 방의 구역을 고르며, 2지역 지형은 경계4칸에 걸쳐 색을 혼합한다. `RegionalTiles.shader`는 원화의 밝기·질감·투명도를 유지하며 구역 색을 입힌다. 게이트·위험 타일은 원래 식별색을 유지한다. 발판 복구와 게이트 제거 후 지형 갱신에도 구역 팔레트를 적용한다.
+
+Unity 메뉴 **Unfin → Apply Zone Tile Palettes** 또는 `powershell -ExecutionPolicy Bypass -File Tools/apply_mezzanines_unity.ps1 -Method Unfin.Editor.RegionalPlatformImporter.ApplyZonesAndRender`로 재적용한다. 전체 맵/플레이어 재생성 시에도 구역별 타일이 유지된다. 검증은 `Validation/regional-platforms.json`, 8구역 렌더는 `Validation/zone-tiles-A.png`부터 `zone-tiles-H.png`까지다.
+
+## 방별 가까운 배경 (2026-10-18)
+
+현재 56개 방에 공용 원화32종·전용 대형 원화3종을 조합한 배경 조각127개를 배치했다. `Assets/Unfin/Art/RoomBackdropsV1/room-layouts.json`에 방 크기·구성 의도·좌표를 기록한다. 긴 방은 비대칭 가로 구성, 높은 방은 연속된 세로 구조물, 작은 방은 한두 개의 대표 소재를 사용한다. 기존 반복 벽 강도는 원래 값0.52로 복원하고 새 배경을 -65/-40/-20 세 레이어에 배치했다. 방별 배경 구조물은 배치한 월드 좌표에 고정하며 카메라를 따라 이동하지 않는다. 지형과 플레이어보다 뒤에 그리며 충돌을 추가하지 않는다.
+
+Unity 메뉴 **Unfin → Apply Room Backdrops and Render**, 또는 `Tools/apply_room_backdrops_unity.ps1`로 적용한다. 상세 재현 방법과 생성 프롬프트는 `Art/room-backdrops-v1/README.md`를 참고한다. 검증 결과는 `Validation/room-backdrops.json`, 방 전체 실제 렌더는 `Validation/room-backdrops/`에 있으며, 웹 검토 화면은 `Art/samples/room-backdrops-v1/preview.html`이다.
+
+## 카메라 반응과 배경 밝기 (2026-10-18)
+
+`PlatformCameraFollow.cs`는 좌우 위치를 매 프레임 플레이어 중심에 즉시 맞춘다. 좌우 여유 영역, 감쇠, 속도에 따른 전방 쏠림은 사용하지 않는다. 상하는 플레이어 중심보다1칸 위를 목표로 점프 시작부터 따라가며, 상승은0.14초, 하강·착지·비행은0.12초 SmoothDamp를 적용한다. 수치는 완료 시간이 아닌 감쇠 파라미터다. 이전의 큰 수직 여유 영역과 착지까지 높이를 유지하는 방식은 사용자 피드백에 따라 제거했다.
+
+화면 끝 안전 여백은 플레이어 중심에서0.8칸이며 월드 경계를 넘지 않는다. 리스폰·지역 이동·검토 좌표 이동은 즉시 재정렬한다. 카메라는 LateUpdate에서 이동 충돌체 중심을 추적하며 배경 구조물은 월드 좌표에 고정한다. 애니메이션의 머리 흔들림은 추적하지 않는다.
+
+기존 1지역 뒷벽 타일의 불투명도를0.08에서 원래 값0.52로 복원했다. `RoomBackdropImporter`도0.52를 사용하므로 배경을 재생성해도 복원된 밝기를 유지한다. 새 방별 배경 구조물의 원화·색상·배치는 유지한다.
+
+참고: [Itay Keren, GDC Scroll Back](https://media.gdcvault.com/gdc2015/presentations/Keren_Itay_ScrollBack.pdf)과 [Unity Position Composer](https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/CinemachinePositionComposer.html)의 축별 추적·감쇠 개념을 현재 GridMotor에 맞춰 구현했다. Cinemachine 패키지를 새로 설치하지 않았다.
+
+검증과 웹 빌드: `Tools/build_webgl.ps1 -ValidateCamera`. 배경 불투명도0.52, 점프 첫100ms 추적, 최대 점프4회, 좌우·반전·대시 즉시 추적, 긴 낙하·착지·리스폰과30/60/120fps 수직 상승을 검사한다. 결과는 `Validation/camera-follow.json`이다. 점프 높이·속도·대시·공격 및 맵 데이터는 변경하지 않는다.
+
+## 공격 이펙트 확대 (2026-10-18)
+
+`PaperAttackArc.cs`가 1·2타와 이동·상승·낙하 공격에 종이색의 큰 바깥 궤적을 그린다. 기존 프레임에 그려진 작은 궤적은 안쪽 잔상으로 유지한다. 캐릭터 원본 PNG와 비율은 바꾸지 않는다. 새 궤적은 기존 휘두르기 프레임에서만 켜지고 회수·취소 시 숨긴다. 공중 공격의 위치 보정과 좌우 반전을 함께 따르며 캐릭터보다 뒤에 그린다.
+
+3타 찌르기 별도 이펙트는 기존 크기의1.6배다. 공격 지속 시간·콤보 입력 시간·이동 속도는 그대로다. 이는 시각 효과 변경이며 전투 판정을 추가하지 않는다.
+
+`Tools/build_webgl.ps1 -ValidateCombat`로 기존 전투 회귀 검사와 여섯 가지 이펙트 렌더를 수행하고 웹 빌드한다. 검증은 `Validation/attack-effects.json`, 캡처는 `Validation/attack-fx-*.png`다.

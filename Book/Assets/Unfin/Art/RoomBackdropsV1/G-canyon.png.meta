@@ -1,0 +1,2288 @@
+fileFormatVersion: 2
+guid: 6e02474a5114ec748b05723312f96f66
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1801664399215130969
+    second: G-canyon_0
+  - first:
+      213: 4933469978949689034
+    second: G-canyon_1
+  - first:
+      213: 2285944887955824392
+    second: G-canyon_2
+  - first:
+      213: -7510643672559497983
+    second: G-canyon_3
+  - first:
+      213: 526874113648838297
+    second: G-canyon_4
+  - first:
+      213: 2896679587916035277
+    second: G-canyon_5
+  - first:
+      213: -3854626113853996084
+    second: G-canyon_6
+  - first:
+      213: -9067832600573995527
+    second: G-canyon_7
+  - first:
+      213: 1116040792017771133
+    second: G-canyon_8
+  - first:
+      213: 6013125925114301515
+    second: G-canyon_9
+  - first:
+      213: -3117616271927671972
+    second: G-canyon_10
+  - first:
+      213: 6487465296260522762
+    second: G-canyon_11
+  - first:
+      213: 9169756454713441871
+    second: G-canyon_12
+  - first:
+      213: -5772734673748070841
+    second: G-canyon_13
+  - first:
+      213: 6188109777338613510
+    second: G-canyon_14
+  - first:
+      213: -6999060327840366341
+    second: G-canyon_15
+  - first:
+      213: -9187136571253442779
+    second: G-canyon_16
+  - first:
+      213: 9122800601338609839
+    second: G-canyon_17
+  - first:
+      213: -8368533873557185789
+    second: G-canyon_18
+  - first:
+      213: 2932933894404039891
+    second: G-canyon_19
+  - first:
+      213: 1439567430328854920
+    second: G-canyon_20
+  - first:
+      213: -1566972479743231732
+    second: G-canyon_21
+  - first:
+      213: -1118477591173609573
+    second: G-canyon_22
+  - first:
+      213: -8550149492809127853
+    second: G-canyon_23
+  - first:
+      213: 3333064129296005470
+    second: G-canyon_24
+  - first:
+      213: 259669476362684788
+    second: G-canyon_25
+  - first:
+      213: -717752260101958551
+    second: G-canyon_26
+  - first:
+      213: 6548120640034833638
+    second: G-canyon_27
+  - first:
+      213: 9095760792872817322
+    second: G-canyon_28
+  - first:
+      213: -3952799622164752432
+    second: G-canyon_29
+  - first:
+      213: 5098279165611726679
+    second: G-canyon_30
+  - first:
+      213: -7547916763371803692
+    second: G-canyon_31
+  - first:
+      213: -1504501631458521702
+    second: G-canyon_32
+  - first:
+      213: -1862470321172015758
+    second: G-canyon_33
+  - first:
+      213: -1117259574945477542
+    second: G-canyon_34
+  - first:
+      213: 161879893788534498
+    second: G-canyon_35
+  - first:
+      213: 5021812636268536068
+    second: G-canyon_36
+  - first:
+      213: 1156229149413853742
+    second: G-canyon_37
+  - first:
+      213: -915160645951390366
+    second: G-canyon_38
+  - first:
+      213: 2108777786762475654
+    second: G-canyon_39
+  - first:
+      213: -8907045585004163151
+    second: G-canyon_40
+  - first:
+      213: -4250386009845948168
+    second: G-canyon_41
+  - first:
+      213: 7501432918595176726
+    second: G-canyon_42
+  - first:
+      213: -2496897822534915831
+    second: G-canyon_43
+  - first:
+      213: -1856662716499078677
+    second: G-canyon_44
+  - first:
+      213: 5809786910684046087
+    second: G-canyon_45
+  - first:
+      213: 5654726950151507011
+    second: G-canyon_46
+  - first:
+      213: -3296564760805583430
+    second: G-canyon_47
+  - first:
+      213: 3391610185470071204
+    second: G-canyon_48
+  - first:
+      213: -2404397796214947060
+    second: G-canyon_49
+  - first:
+      213: -6338219726077931183
+    second: G-canyon_50
+  - first:
+      213: -3977353748967099410
+    second: G-canyon_51
+  - first:
+      213: -7631000753862242095
+    second: G-canyon_52
+  - first:
+      213: 7119776455552393858
+    second: G-canyon_53
+  - first:
+      213: 5107331144574744604
+    second: G-canyon_54
+  - first:
+      213: -5903736030277310990
+    second: G-canyon_55
+  - first:
+      213: -923700748332385737
+    second: G-canyon_56
+  - first:
+      213: 1136875388524665615
+    second: G-canyon_57
+  - first:
+      213: -1347818189130037184
+    second: G-canyon_58
+  - first:
+      213: -7779000017543577036
+    second: G-canyon_59
+  - first:
+      213: 2037755672798655107
+    second: G-canyon_60
+  - first:
+      213: 8673860088673545380
+    second: G-canyon_61
+  - first:
+      213: 1195098692562711173
+    second: G-canyon_62
+  - first:
+      213: 5078777866895809346
+    second: G-canyon_63
+  - first:
+      213: 8097735675575322202
+    second: G-canyon_64
+  - first:
+      213: -7015893793034979048
+    second: G-canyon_65
+  - first:
+      213: 7436503574318830514
+    second: G-canyon_66
+  - first:
+      213: -2460000849490371638
+    second: G-canyon_67
+  - first:
+      213: -3225273366781890698
+    second: G-canyon_68
+  - first:
+      213: -5327412434246767376
+    second: G-canyon_69
+  - first:
+      213: 8271925382856400061
+    second: G-canyon_70
+  - first:
+      213: -152694959529861438
+    second: G-canyon_71
+  - first:
+      213: 8885445822741509012
+    second: G-canyon_72
+  - first:
+      213: -2670930743865843862
+    second: G-canyon_73
+  - first:
+      213: -1438092982830594279
+    second: G-canyon_74
+  - first:
+      213: -3194931346883947399
+    second: G-canyon_75
+  - first:
+      213: 6784618982790389270
+    second: G-canyon_76
+  - first:
+      213: -5653047678127242954
+    second: G-canyon_77
+  - first:
+      213: -5030860633918473740
+    second: G-canyon_78
+  - first:
+      213: -1067415936292152590
+    second: G-canyon_79
+  - first:
+      213: 4319716226863728912
+    second: G-canyon_80
+  - first:
+      213: 8040846757961600075
+    second: G-canyon_81
+  - first:
+      213: -4475822104302586184
+    second: G-canyon_82
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: G-canyon_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 452
+        width: 743
+        height: 795
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9597fa7b93cc00910800000000000000
+      internalID: 1801664399215130969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1179
+        width: 42
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ace9955aec4377440800000000000000
+      internalID: 4933469978949689034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 1221
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f1abe93ce49bf10800000000000000
+      internalID: 2285944887955824392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_3
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 1231
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10d4e867f55d4c790800000000000000
+      internalID: -7510643672559497983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_4
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 549
+        width: 505
+        height: 687
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99643610735df4700800000000000000
+      internalID: 526874113648838297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_5
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 1219
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc43cd9ecb2133820800000000000000
+      internalID: 2896679587916035277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_6
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 1207
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3c9cdd8fd918ac0800000000000000
+      internalID: -3854626113853996084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_7
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 1176
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f594101b46982280800000000000000
+      internalID: -9067832600573995527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_8
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 1187
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7a9013ff29fc7f00800000000000000
+      internalID: 1116040792017771133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_9
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1187
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c41248b2ae27350800000000000000
+      internalID: 6013125925114301515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1087
+        width: 6
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5306cdb4800cb4d0800000000000000
+      internalID: -3117616271927671972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_11
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 1049
+        width: 119
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a03684c905b180a50800000000000000
+      internalID: 6487465296260522762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_12
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 1047
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e3a0089e4814f70800000000000000
+      internalID: 9169756454713441871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_13
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 1002
+        width: 54
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e6aa4466023efa0800000000000000
+      internalID: -5772734673748070841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_14
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 1020
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fb3657e0590e550800000000000000
+      internalID: 6188109777338613510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 966
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf0cb85e6b75ede90800000000000000
+      internalID: -6999060327840366341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_16
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 964
+        width: 10
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5273077c6fbb08080800000000000000
+      internalID: -9187136571253442779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_17
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 921
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa0028fefc2ba9e70800000000000000
+      internalID: 9122800601338609839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_18
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 927
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30bdcc7c7cefcdb80800000000000000
+      internalID: -8368533873557185789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_19
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 907
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d4e7ad66dfd3b820800000000000000
+      internalID: 2932933894404039891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_20
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 867
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88929f263fe5af310800000000000000
+      internalID: 1439567430328854920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_21
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 805
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c097714f4def04ae0800000000000000
+      internalID: -1566972479743231732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_22
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 781
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97ccd88e8e5a70f0800000000000000
+      internalID: -1118477591173609573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_23
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 658
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35820a04654c75980800000000000000
+      internalID: -8550149492809127853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_24
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 610
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e59f8409a2c614e20800000000000000
+      internalID: 3333064129296005470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_25
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 529
+        width: 90
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4790c9153088a9300800000000000000
+      internalID: 259669476362684788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_26
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 597
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96493eb4f180a06f0800000000000000
+      internalID: -717752260101958551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_27
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 563
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e40ea757099fda50800000000000000
+      internalID: 6548120640034833638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_28
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 548
+        width: 63
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa21c1def32aa3e70800000000000000
+      internalID: 9095760792872817322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_29
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 612
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d7529cbfa5d429c0800000000000000
+      internalID: -3952799622164752432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_30
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 596
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 757df08a3e9b0c640800000000000000
+      internalID: 5098279165611726679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_31
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 604
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dbe10db1b9604790800000000000000
+      internalID: -7547916763371803692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_32
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 613
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d4be4ccbfee1be0800000000000000
+      internalID: -1504501631458521702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_33
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 580
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27595d55c1d2726e0800000000000000
+      internalID: -1862470321172015758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_34
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 425
+        width: 144
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c88790652be70f0800000000000000
+      internalID: -1117259574945477542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_35
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 594
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e62b8dd7ec1f3200800000000000000
+      internalID: 161879893788534498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_36
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 594
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 401aa596cff01b540800000000000000
+      internalID: 5021812636268536068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_37
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 594
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ac3c11940cb0010800000000000000
+      internalID: 1156229149413853742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_38
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 594
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d76a1cd32bc43f0800000000000000
+      internalID: -915160645951390366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_39
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 558
+        width: 58
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 688363a6932e34d10800000000000000
+      internalID: 2108777786762475654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_40
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 301
+        width: 326
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf8d936b31d36480800000000000000
+      internalID: -8907045585004163151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_41
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 596
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0a7dc81789305c0800000000000000
+      internalID: -4250386009845948168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_42
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 519
+        width: 29
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6198943ce717a1860800000000000000
+      internalID: 7501432918595176726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_43
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 497
+        width: 74
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9092c57d8ac395dd0800000000000000
+      internalID: -2496897822534915831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_44
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 533
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be15c5ba81fcb36e0800000000000000
+      internalID: -1856662716499078677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_45
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 560
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7036908e96280a050800000000000000
+      internalID: 5809786910684046087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_46
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 503
+        width: 50
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ccb9d7330a97e40800000000000000
+      internalID: 5654726950151507011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_47
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 544
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab5dc15e0df3042d0800000000000000
+      internalID: -3296564760805583430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_48
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 0
+        width: 574
+        height: 560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a15a818e7b611f20800000000000000
+      internalID: 3391610185470071204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_49
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 533
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0340e181fcd1aed0800000000000000
+      internalID: -2404397796214947060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_50
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 539
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15150ce8dbe1a08a0800000000000000
+      internalID: -6338219726077931183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_51
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 529
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee37fb696d99dc8c0800000000000000
+      internalID: -3977353748967099410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_52
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 505
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d09d41ce3d391690800000000000000
+      internalID: -7631000753862242095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_53
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 475
+        width: 51
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282e361d6f68ec260800000000000000
+      internalID: 7119776455552393858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_54
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 505
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c18baaebd92e0e640800000000000000
+      internalID: 5107331144574744604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_55
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 507
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f565ab1c57b11ea0800000000000000
+      internalID: -5903736030277310990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_56
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 515
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ab2e8301b5e23f0800000000000000
+      internalID: -923700748332385737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_57
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 501
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0b95e6742ef6cf00800000000000000
+      internalID: 1136875388524665615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_58
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 497
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 048081f7f769b4de0800000000000000
+      internalID: -1347818189130037184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_59
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 499
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432ce8ee2b07b0490800000000000000
+      internalID: -7779000017543577036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_60
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 485
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3827338ecff874c10800000000000000
+      internalID: 2037755672798655107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_61
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 489
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ac23d86bcdbf5870800000000000000
+      internalID: 8673860088673545380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_62
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 488
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 582fbb1dde7d59010800000000000000
+      internalID: 1195098692562711173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_63
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 461
+        width: 46
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24bd079bf817b7640800000000000000
+      internalID: 5078777866895809346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 413
+        width: 37
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56ccab71bfe06070800000000000000
+      internalID: 8097735675575322202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_65
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 463
+        width: 56
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819384c54c982ae90800000000000000
+      internalID: -7015893793034979048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_66
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 453
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b3523eb994c33760800000000000000
+      internalID: 7436503574318830514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 662
+        height: 453
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb97f2d2425cddd0800000000000000
+      internalID: -2460000849490371638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_68
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 416
+        width: 33
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67fef6d06f68d33d0800000000000000
+      internalID: -3225273366781890698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_69
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 447
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fce8bced9a3116b0800000000000000
+      internalID: -5327412434246767376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_70
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 440
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc51b52f48cbc270800000000000000
+      internalID: 8271925382856400061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ceda3a4eb481edf0800000000000000
+      internalID: -152694959529861438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_72
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 7
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4937c7f06e17f4b70800000000000000
+      internalID: 8885445822741509012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_73
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 21
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6fd430c3a2feead0800000000000000
+      internalID: -2670930743865843862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_74
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 21
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 917866c2d0eda0ce0800000000000000
+      internalID: -1438092982830594279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_75
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 17
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 974d8331ed259a3d0800000000000000
+      internalID: -3194931346883947399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_76
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 13
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61ed795b40fc72e50800000000000000
+      internalID: 6784618982790389270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_77
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 13
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63101ee76175c81b0800000000000000
+      internalID: -5653047678127242954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_78
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 13
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f9fac878eace2ab0800000000000000
+      internalID: -5030860633918473740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_79
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 10
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa17b18cd6cf21f0800000000000000
+      internalID: -1067415936292152590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_80
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 13
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01904b08507b2fb30800000000000000
+      internalID: 4319716226863728912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_81
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 7
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c07ad2683d69f60800000000000000
+      internalID: 8040846757961600075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-canyon_82
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 9
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b6f333928fa2e1c0800000000000000
+      internalID: -4475822104302586184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      G-canyon_0: 1801664399215130969
+      G-canyon_1: 4933469978949689034
+      G-canyon_10: -3117616271927671972
+      G-canyon_11: 6487465296260522762
+      G-canyon_12: 9169756454713441871
+      G-canyon_13: -5772734673748070841
+      G-canyon_14: 6188109777338613510
+      G-canyon_15: -6999060327840366341
+      G-canyon_16: -9187136571253442779
+      G-canyon_17: 9122800601338609839
+      G-canyon_18: -8368533873557185789
+      G-canyon_19: 2932933894404039891
+      G-canyon_2: 2285944887955824392
+      G-canyon_20: 1439567430328854920
+      G-canyon_21: -1566972479743231732
+      G-canyon_22: -1118477591173609573
+      G-canyon_23: -8550149492809127853
+      G-canyon_24: 3333064129296005470
+      G-canyon_25: 259669476362684788
+      G-canyon_26: -717752260101958551
+      G-canyon_27: 6548120640034833638
+      G-canyon_28: 9095760792872817322
+      G-canyon_29: -3952799622164752432
+      G-canyon_3: -7510643672559497983
+      G-canyon_30: 5098279165611726679
+      G-canyon_31: -7547916763371803692
+      G-canyon_32: -1504501631458521702
+      G-canyon_33: -1862470321172015758
+      G-canyon_34: -1117259574945477542
+      G-canyon_35: 161879893788534498
+      G-canyon_36: 5021812636268536068
+      G-canyon_37: 1156229149413853742
+      G-canyon_38: -915160645951390366
+      G-canyon_39: 2108777786762475654
+      G-canyon_4: 526874113648838297
+      G-canyon_40: -8907045585004163151
+      G-canyon_41: -4250386009845948168
+      G-canyon_42: 7501432918595176726
+      G-canyon_43: -2496897822534915831
+      G-canyon_44: -1856662716499078677
+      G-canyon_45: 5809786910684046087
+      G-canyon_46: 5654726950151507011
+      G-canyon_47: -3296564760805583430
+      G-canyon_48: 3391610185470071204
+      G-canyon_49: -2404397796214947060
+      G-canyon_5: 2896679587916035277
+      G-canyon_50: -6338219726077931183
+      G-canyon_51: -3977353748967099410
+      G-canyon_52: -7631000753862242095
+      G-canyon_53: 7119776455552393858
+      G-canyon_54: 5107331144574744604
+      G-canyon_55: -5903736030277310990
+      G-canyon_56: -923700748332385737
+      G-canyon_57: 1136875388524665615
+      G-canyon_58: -1347818189130037184
+      G-canyon_59: -7779000017543577036
+      G-canyon_6: -3854626113853996084
+      G-canyon_60: 2037755672798655107
+      G-canyon_61: 8673860088673545380
+      G-canyon_62: 1195098692562711173
+      G-canyon_63: 5078777866895809346
+      G-canyon_64: 8097735675575322202
+      G-canyon_65: -7015893793034979048
+      G-canyon_66: 7436503574318830514
+      G-canyon_67: -2460000849490371638
+      G-canyon_68: -3225273366781890698
+      G-canyon_69: -5327412434246767376
+      G-canyon_7: -9067832600573995527
+      G-canyon_70: 8271925382856400061
+      G-canyon_71: -152694959529861438
+      G-canyon_72: 8885445822741509012
+      G-canyon_73: -2670930743865843862
+      G-canyon_74: -1438092982830594279
+      G-canyon_75: -3194931346883947399
+      G-canyon_76: 6784618982790389270
+      G-canyon_77: -5653047678127242954
+      G-canyon_78: -5030860633918473740
+      G-canyon_79: -1067415936292152590
+      G-canyon_8: 1116040792017771133
+      G-canyon_80: 4319716226863728912
+      G-canyon_81: 8040846757961600075
+      G-canyon_82: -4475822104302586184
+      G-canyon_9: 6013125925114301515
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,141 @@
+{
+  "status": "Integrated in Unity World12Prototype; damage not implemented",
+  "generator": "built-in imagegen",
+  "reference": {
+    "asset": "Warrior Free Asset / Warrior V1.3",
+    "url": "https://assetstore.unity.com/packages/2d/characters/warrior-free-asset-195707",
+    "localSource": "Art/inbox/warrior-motion-reference/original/Warrior/Individual Sprite/Attack",
+    "observed": "12 frames: raised backswing in 1-5, downward swing/follow-through in 6-9, reverse upward swing in 10-12. Third finisher is adapted from our design document, not a third attack claimed to exist in this reference.",
+    "license": "Local License.txt allows personal/commercial use and modifications; prohibits redistribution/resale. Original reference pixels are not shipped with preview."
+  },
+  "weapon": "Small blunt eraser, per Docs/05 and Docs/11. No sword.",
+  "prompts": [
+    {
+      "output": "sources/attack1-keys.png",
+      "prompt": "Use case: stylized-concept. Asset type: production hand-drawn full-body sprite animation for a 2D metroidvania. Reference 1 is our EXACT approved character identity and standing proportions. Reference 2 is the SAME character running, provided for cloak softness and compact bent limbs. Reference 3 is a licensed Warrior attack contact sheet supplied ONLY as motion study, never copy its character, clothing, pixels or sword. Preserve our large circular warm ivory paper head, single black oval eye on the right, very short compact limbs and plain shorts, long layered softly curved paper cloak, subtle matte ivory paper texture and fine warm brown outline. Cloak and shorts about 10% darker than body. No redesign, no nose/mouth/hair/armor, no elongated or noodle limbs. Head remains circular and same size in all frames. Strict right-facing side profile, eye visible. Weapon: one small blunt pale rectangular ERASER held in the near hand, NO sword/blade/handle. Only the short attacking arm emerges from cloak, other hand mostly concealed. Show both short legs under cloak, near leg brighter and far leg darker; bent knees, planted foot support. Draw six genuinely distinct WHOLE BODY frames, no skeletal rigs, no rotated cutout pieces. 3 columns by 2 rows EQUAL CELLS, reading left to right then next row. Output 1536x1024 if possible, each cell 512x512. Each full character and all motion arcs fit INSIDE its own cell with at least 25px empty gutters, no overlapping neighboring cells. Same drawing scale in all cells: head about 145px diameter at this layout, feet on the same invisible baseline about 450px within each cell, hip center about x260. Character total standing height about290px. Room on right for strike, cape to left. TRUE transparent RGBA background outside silhouettes; no checkerboard baked in, no backdrop, no ground/shadow, no text/numbers/grid. Soft polished 2D paper illustration matching references, NOT pixel art or realistic 3D. Fast smear is ONE short ivory curved ribbon adjacent to eraser only on specified frames, not a giant glowing magical effect.\nThis sheet is ATTACK 1, the fast short forward/downward eraser slash. Study Warrior frames 3-8: body coils before eraser accelerates, then weight transfers onto bent lead knee and cloak lags. Frame1: compact ready recoil, eraser hand beside upper chest, knees slightly flexed, cloak hangs behind. Frame2: backswing, eraser raised beside rear shoulder LEFT of head without hiding face, torso twists 8 degrees backwards, cloak still hangs. Frame3: accelerating diagonal down-forward swing, short arm passes in front of chest toward right, small thin ivory smear follows eraser; torso leans forward. Frame4: clear impact pose, eraser reaches forward-right slightly below chest, near knee bends and takes weight, rear heel rises, head moves forward slightly but no jump; single thin crescent trails eraser. Frame5: low follow-through, eraser hand ends near front thigh, torso forward, cloak catches up to LEFT in soft broad folds, no smear. Frame6: settles into low poised stance with eraser at right hip, knees bent, head returns halfway toward neutral, suitable to start an upward reverse second strike. Do not make all poses identical: the eraser traces a visible overhead-to-forward-to-low path."
+    },
+    {
+      "output": "sources/attack2-keys.png",
+      "prompt": "Use case: stylized-concept. Asset type: production hand-drawn full-body sprite animation for a 2D metroidvania. Reference 1 is our EXACT approved character identity and standing proportions. Reference 2 is the SAME character running, provided for cloak softness and compact bent limbs. Reference 3 is a licensed Warrior attack contact sheet supplied ONLY as motion study, never copy its character, clothing, pixels or sword. Preserve our large circular warm ivory paper head, single black oval eye on the right, very short compact limbs and plain shorts, long layered softly curved paper cloak, subtle matte ivory paper texture and fine warm brown outline. Cloak and shorts about 10% darker than body. No redesign, no nose/mouth/hair/armor, no elongated or noodle limbs. Head remains circular and same size in all frames. Strict right-facing side profile, eye visible. Weapon: one small blunt pale rectangular ERASER held in the near hand, NO sword/blade/handle. Only the short attacking arm emerges from cloak, other hand mostly concealed. Show both short legs under cloak, near leg brighter and far leg darker; bent knees, planted foot support. Draw six genuinely distinct WHOLE BODY frames, no skeletal rigs, no rotated cutout pieces. 3 columns by 2 rows EQUAL CELLS, reading left to right then next row. Output 1536x1024 if possible, each cell 512x512. Each full character and all motion arcs fit INSIDE its own cell with at least 25px empty gutters, no overlapping neighboring cells. Same drawing scale in all cells: head about 145px diameter at this layout, feet on the same invisible baseline about 450px within each cell, hip center about x260. Character total standing height about290px. Room on right for strike, cape to left. TRUE transparent RGBA background outside silhouettes; no checkerboard baked in, no backdrop, no ground/shadow, no text/numbers/grid. Soft polished 2D paper illustration matching references, NOT pixel art or realistic 3D. Fast smear is ONE short ivory curved ribbon adjacent to eraser only on specified frames, not a giant glowing magical effect.\nThis sheet is ATTACK 2, a reverse UNDERHAND UPWARD eraser strike. Study Warrior frames9-12: low recovery coils into an explosive upward sweep with weight shift, then the arm carries upward. Our motion is adapted to the short limbs, no copied sword. Six poses: 1. Low ready stance, eraser held beside forward/right thigh, both knees bent, cloak pointing gently left; this continues attack1's low finish. 2. Compress into a deeper low crouch, eraser hand drawn slightly left/down near knee, torso coils away while face stays right. 3. Accelerate eraser UP and forward RIGHT from below the waist to chest, short curved ivory smear along lower-right path, body starts rising through hips, feet grounded. 4. Upward strike reaches in front of face then above forehead at upper-right, one slender rising ivory crescent from lower-right to upper-right, lead bent leg holds weight, rear heel up; no jump. 5. Follow-through: eraser is above and slightly behind crown, short arm bent overhead; cloak lifts outward to left after body rises. 6. Balanced overhead ready stance, eraser tucked back just above LEFT of crown and elbow bent, torso slightly coiled, feet planted, ready for attack3's overhead downstroke. Maintain visible weapon motion across ALL six poses, not just a changing crescent. The large round head should not enlarge or shrink. No theatrical background or halo."
+    },
+    {
+      "output": "sources/attack3-keys.png",
+      "prompt": "Use case: stylized-concept. Asset type: production hand-drawn full-body sprite animation for a 2D metroidvania. Reference 1 is our EXACT approved character identity and standing proportions. Reference 2 is the SAME character running, provided for cloak softness and compact bent limbs. Reference 3 is a licensed Warrior attack contact sheet supplied ONLY as motion study, never copy its character, clothing, pixels or sword. Preserve our large circular warm ivory paper head, single black oval eye on the right, very short compact limbs and plain shorts, long layered softly curved paper cloak, subtle matte ivory paper texture and fine warm brown outline. Cloak and shorts about 10% darker than body. No redesign, no nose/mouth/hair/armor, no elongated or noodle limbs. Head remains circular and same size in all frames. Strict right-facing side profile, eye visible. Weapon: one small blunt pale rectangular ERASER held in the near hand, NO sword/blade/handle. Only the short attacking arm emerges from cloak, other hand mostly concealed. Show both short legs under cloak, near leg brighter and far leg darker; bent knees, planted foot support. Draw six genuinely distinct WHOLE BODY frames, no skeletal rigs, no rotated cutout pieces. 3 columns by 2 rows EQUAL CELLS, reading left to right then next row. Output 1536x1024 if possible, each cell 512x512. Each full character and all motion arcs fit INSIDE its own cell with at least 25px empty gutters, no overlapping neighboring cells. Same drawing scale in all cells: head about 145px diameter at this layout, feet on the same invisible baseline about 450px within each cell, hip center about x260. Character total standing height about290px. Room on right for strike, cape to left. TRUE transparent RGBA background outside silhouettes; no checkerboard baked in, no backdrop, no ground/shadow, no text/numbers/grid. Soft polished 2D paper illustration matching references, NOT pixel art or realistic 3D. Fast smear is ONE short ivory curved ribbon adjacent to eraser only on specified frames, not a giant glowing magical effect.\nThis sheet is ATTACK 3, a forceful overhead DOWNWARD finishing eraser slash, our original third strike adapted from Warrior's weight transfer rather than a claim that the Warrior sheet contains this third hit. Frame1: start at the exact overhead-ready pose of the last character in reference4: short bent arm and eraser just above LEFT of the crown, knees bent, facing right, cloak soft to left. Frame2: windup compresses deeply, both knees flex, head lowers a little, eraser draws behind head at upper-left, cloak lifts a little. Frame3: quick extension from hips and explosive overhead downswing, eraser now above-right of head, short arm bent, one broad ivory motion ribbon over crown going toward right, all readable as one eraser swing, feet grounded. Frame4: deep forward low IMPACT, eraser hand reaches down-right to knee level, lead knee deeply bent, rear leg pushing but still short, torso folds forward and round head lowers, broad but compact paper-white crescent on right and very few tiny eraser crumbs (no glowing explosion). Frame5: low follow-through, eraser finishes near front ankle, torso stays crouched briefly, cape catches up left in curved layers, no smear. Frame6: recovery toward original standing idle, knees only lightly bent, head and torso upright, eraser hand tucked back under front edge of cloak at waist, cloak falls back down behind, both feet under body. This lets player return to reference1 idle. NO jump in frame3, keep feet grounded so attack does not look floaty. Power comes from crouch, hip extension, folding down and cloak lag. No limb elongation. Each six-cell character fully visible with safe margins, no overlapping neighbors, transparent alpha."
+    },
+    {
+      "output": "sources/attack3-thrust-keys.png",
+      "prompt": "Use case: stylized-concept. Create a game animation sprite sheet, 1536x1024 transparent RGBA, exactly 3 columns x 2 rows of equal 512x512 cells, 6 full-body hand-drawn poses in chronological reading order, no labels or grid. Reference is this exact hero and the end of attack 2. Preserve giant circular ivory paper head, black oval eye facing RIGHT, short compact limbs, plain shorts, soft layered paper cape, cream shading, delicate dark outline. Existing weapon is a small blunt rectangular cream eraser held in fist, never a blade. Same hero scale in every cell: head diameter around180px; whole figure within cell with at least24px margin, foot baseline y460. Third attack is a HORIZONTAL FORWARD THRUST, never an overhead slash. Short anatomically bent elbow then extend toward right chest-height; arm must stay compact, no rubber limbs. Cape trails left. No circular slash arcs, at most a short narrow horizontal smear behind the eraser in frame3. Pose1: begin exactly with the reference raised/back weapon arm pose, continuing the upward second attack. Pose2: lower eraser to near chest, elbow tucked and hand pulled back to prepare thrust. Pose3: quick forward horizontal thrust in progress. Pose4: fully extended forward thrust, blunt eraser front face pointing right, body leaning into it. Pose5: retract eraser on same horizontal line halfway to chest. Pose6: retract hand into cloak and settle. All six poses isolated with fully transparent background. No ground, shadows, text, watermark, extra limbs. STANDING version: feet planted in a wide low bent-knee stance. Front knee flexes during thrust, rear leg pushes, no running or airborne jump. Frame6 returns to upright compact idle."
+    }
+  ],
+  "processing": "Crop six complete drawings per sheet. Uniform whole-sprite scaling and translation to head width164px / ground560px. Preserve generated alpha; no joint rigging, warping, morphing or crossfading.",
+  "timing": {
+    "attackMs": [
+      360,
+      290,
+      460
+    ],
+    "sourceDrawingsPerAttack": 6,
+    "playedDrawingsPerAttack": [
+      6,
+      4,
+      6
+    ],
+    "entryFrame": 1,
+    "preparationMs": [
+      80,
+      80,
+      150
+    ],
+    "activeMs": [
+      [
+        80,
+        175
+      ],
+      [
+        80,
+        150
+      ],
+      [
+        150,
+        210
+      ]
+    ],
+    "chainAfterMs": [
+      360,
+      290,
+      460
+    ],
+    "inputBufferMs": 150,
+    "comboWindowMs": 250,
+    "finisherRecoveryMs": 500,
+    "thirdFrameMs": [
+      70,
+      80,
+      12,
+      48,
+      60,
+      190
+    ],
+    "thrustNote": "Original start timing retained. Extension12ms, contact48ms, retract60ms. Recovery and cooldown unchanged. Art unchanged.",
+    "secondFrameMs": [
+      40,
+      40,
+      0,
+      70,
+      0,
+      140
+    ],
+    "secondAttackNote": "Match attack1 preparation duration and its main contact drawing hold: standing80ms preparation/70ms swing, moving160ms preparation/100ms swing. One swing drawing retained, then140ms settled pause. Third attack unchanged."
+  },
+  "scope": "Selected full-body animation artwork integrated in Unity; timing and source frames preserved. No damage implementation.",
+  "unityApplied": true,
+  "input": "Primary pointerdown or J starts frame1 preparation. The next input is buffered150ms; the preceding strike plays fully before chaining. No recovery cancel. After hit3, a500ms attack-only lock remains.",
+  "selectedThirdAttack": "sources/attack3-thrust-keys.png",
+  "revision": "combo-window250-v9",
+  "thirdAttack": "Swing-end shared drawing -> chest chamber -> horizontal forward eraser thrust -> retract -> recovery. Third frame1 reuses attack2 frame6 exactly. Old downslash source retained as history.",
+  "thrustVfx": {
+    "asset": "effects/thrust-spike.png",
+    "generator": "built-in imagegen",
+    "promptFile": "effects/thrust-spike-prompt.txt",
+    "frames": [
+      3,
+      4
+    ],
+    "durationMs": 60,
+    "layer": "behind unchanged character",
+    "sourceRect": [
+      140,
+      490,
+      1000,
+      300
+    ],
+    "directions": "mirrors with attack facing",
+    "unityApplied": false
+  },
+  "preservedAttackFrames": {
+    "player-c-attack-v1\\attack1\\frames\\00.png": "9562cd792d396a21abb4b2531e4f6d02f75c41139de366824b875b8782c8be6a",
+    "player-c-attack-v1\\attack1\\frames\\01.png": "371661864fa7f0e00573da1ed462f9ee6085a1a8efc9197e98d19c4a1d17e313",
+    "player-c-attack-v1\\attack1\\frames\\02.png": "5d25007601dbefcbe6fa8ca76be333dd9a73dab9fab441836330294ed0566e87",
+    "player-c-attack-v1\\attack1\\frames\\03.png": "5085b45a96fd3007a4c39354abd58984a4de713cc6acc50cf9890d056a235d1e",
+    "player-c-attack-v1\\attack1\\frames\\04.png": "59d2190a4c9e203469c8e385eeb08edf99be67db153d75be8e8d17de9ba42449",
+    "player-c-attack-v1\\attack1\\frames\\05.png": "de4f4a9043393f7bed725101ef97b4eb132c2d717f1362e311037f45a2fbb8cd",
+    "player-c-attack-v1\\attack2\\frames\\00.png": "2691ccaa59816bc8cb261f26062e8e7d72f8c3d8ab5598011457956bde6e7294",
+    "player-c-attack-v1\\attack2\\frames\\01.png": "9468130b18628a1dca1cbd2764b6c3d1ab2932b2a70331b1f3c8a394e98f97bd",
+    "player-c-attack-v1\\attack2\\frames\\02.png": "7803912703b21806067a67db995347408b190c1d1b3c0eae1eeb6021cf677d5b",
+    "player-c-attack-v1\\attack2\\frames\\03.png": "8034ebb0b07153ed079497d7ecd9ca14ee46631a58ace68d81f26f53c7990964",
+    "player-c-attack-v1\\attack2\\frames\\04.png": "3f4907098a8adb9ba67003786691cf70f718ec70272e3530018cd26a88510ab8",
+    "player-c-attack-v1\\attack2\\frames\\05.png": "e12b591731e75481cd76daf48c3ffb4660ba9f6d1824166515fa3f03a6b54dbc",
+    "player-c-attack-v1\\attack3\\frames\\00.png": "e12b591731e75481cd76daf48c3ffb4660ba9f6d1824166515fa3f03a6b54dbc",
+    "player-c-attack-v1\\attack3\\frames\\01.png": "92dc0922c1c37e59c960284cbb822dbcab7fc4c546dc8607835fd10c24c12d99",
+    "player-c-attack-v1\\attack3\\frames\\02.png": "1f4b95c8a81c644287d454d794672beffdc1cdc27a324f892a429975f95afcfd",
+    "player-c-attack-v1\\attack3\\frames\\03.png": "d8580928e5f3066627766cad17077082026ecd769abd07eeafe3c3ae0b2b256d",
+    "player-c-attack-v1\\attack3\\frames\\04.png": "3d284fc939187b0140db6e1b981e063fcf919957954a43a34a48d0e74fcc573f",
+    "player-c-attack-v1\\attack3\\frames\\05.png": "f9857e12394f6a3b9d578e3eed68d9ba6a35b6fa45287ade1e8ed7b5e86136b5"
+  },
+  "unityIntegration": {
+    "scene": "Book/Assets/Scenes/World12Prototype.unity",
+    "date": "2026-10-18",
+    "damageImplemented": false,
+    "validation": "Book/Validation/player-combat-runtime.json"
+  }
+}

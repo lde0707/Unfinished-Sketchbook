@@ -29,7 +29,7 @@
     <div id="loading" role="status" aria-live="polite"><strong id="status">월드를 불러오는 중</strong><progress id="progress" max="1" value="0"></progress><p id="percent">0%</p><p id="error" hidden></p></div>
     <div id="hint" hidden>화면을 클릭한 후 키보드로 플레이하세요</div>
   </div>
-  <footer><p><kbd>A D / ← →</kbd> 이동 · <kbd>Space</kbd> 점프 · <kbd>Shift</kbd> 대시 · <kbd>S + Space</kbd> 발판 내려가기</p><p><kbd>1 / 2</kbd> 지역 이동 · <kbd>M</kbd> 지도 · <kbd>F</kbd> 비행 · <kbd>E</kbd> 게이트 열기 · <kbd>R</kbd> 초기화</p></footer>
+  <footer><p><kbd>A D / ← →</kbd> 이동 · <kbd>Space</kbd> 점프 · <kbd>Shift</kbd> 대시 · <kbd>J / 클릭</kbd> 공격 · <kbd>S + Space</kbd> 발판 내려가기</p><p><kbd>1 / 2</kbd> 지역 이동 · <kbd>M</kbd> 지도 · <kbd>F</kbd> 비행 · <kbd>E</kbd> 게이트 열기 · <kbd>R</kbd> 초기화</p></footer>
   <small>PC 키보드 조작 · 16:9 시야 유지 · 적과 아이템은 배치 확인용 표식이며 전투·저장은 아직 구현되지 않았습니다.</small>
 </main>
 <script>
@@ -45,6 +45,8 @@
   const loader=document.createElement('script');loader.src='Build/{{{ LOADER_FILENAME }}}';loader.onerror=()=>fail('실행 파일을 내려받지 못했습니다.');
   loader.onload=()=>createUnityInstance(canvas,config,p=>{bar.value=p;percent.textContent=Math.round(p*100)+'%';}).then(instance=>{
     window.unityInstance=instance;loading.hidden=true;full.disabled=false;hint.hidden=false;canvas.focus({preventScroll:true});
+    const previewSpawn=new URLSearchParams(location.search).get('spawn');
+    if(previewSpawn&&/^\d{1,3},\d{1,3}$/.test(previewSpawn))instance.SendMessage('World Prototype','PreviewPosition',previewSpawn);
     canvas.addEventListener('pointerdown',()=>{canvas.focus({preventScroll:true});hint.hidden=true;});
     full.onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await stage.requestFullscreen();canvas.focus({preventScroll:true});}catch(e){console.warn(e);}};
     document.addEventListener('fullscreenchange',()=>{full.textContent=document.fullscreenElement?'전체 화면 종료':'전체 화면';});

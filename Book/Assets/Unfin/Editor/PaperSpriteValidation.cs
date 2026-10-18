@@ -57,7 +57,7 @@ namespace Unfin.Editor
             File.WriteAllText("Validation/player-sprites-runtime.json","{\"passed\":true,\"states\":\""+string.Join(",",states)+"\",\"checks\":[\"idle/run/start/stop\",\"standing and directional jumps\",\"ground/air dash\",\"dash direction lock\",\"air dash to fall without ascent\",\"fall dash velocity restored\",\"one air dash until landing\",\"buffered landing jump\",\"ground dash jump cancel\"]}");
             Debug.Log("UNFIN_SPRITE_RUNTIME_OK");
         }
-        static void Capture(Camera camera,string path)
+        public static void Capture(Camera camera,string path)
         {
             Directory.CreateDirectory(Path.GetDirectoryName(path));
             var rt=new RenderTexture(1920,1080,24);var image=new Texture2D(1920,1080,TextureFormat.RGB24,false);

@@ -1,13 +1,13 @@
 {
   "status": "passed",
   "cellsCompared": 39200,
-  "groundPlacements": 28940,
+  "groundPlacements": 29056,
   "possibleFilletPlacements": 136,
-  "uniqueSprites": 3207,
-  "actuallyReusedSpriteIds": 849,
-  "reusedPlacements": 25869,
-  "paddedPixelsChecked": 3283968,
-  "gridSha256": "bca3e0e1cd97d055a037fc1027785e1d78213ed5d4a238e65ae1d37186cdf6c0",
+  "uniqueSprites": 3267,
+  "actuallyReusedSpriteIds": 868,
+  "reusedPlacements": 25925,
+  "paddedPixelsChecked": 3345408,
+  "gridSha256": "330a8b6a41ff7620942812e3f703e2cb665e3fb09ff9604ced32ff766b469c73",
   "reliefByZoneAndFace": [
     [
       [
@@ -35,7 +35,7 @@
       [
         0,
         12,
-        239
+        260
       ],
       [
         0,
@@ -45,7 +45,7 @@
       [
         0,
         12,
-        243
+        264
       ],
       [
         0,
@@ -57,7 +57,7 @@
       [
         0,
         12,
-        124
+        151
       ],
       [
         0,
@@ -67,7 +67,7 @@
       [
         0,
         12,
-        136
+        163
       ],
       [
         0,

@@ -6,6 +6,9 @@
       "name": "Idle",
       "source": "player-c-idle-v1",
       "anchorX": 368,
+      "groundY": 448,
+      "width": 512,
+      "height": 512,
       "loop": true,
       "frames": [
         {
@@ -56,6 +59,9 @@
       "name": "Run",
       "source": "player-c-v6-rhythm",
       "anchorX": 340,
+      "groundY": 448,
+      "width": 512,
+      "height": 512,
       "loop": true,
       "frames": [
         {
@@ -120,6 +126,9 @@
       "name": "RunStop",
       "source": "player-c-run-idle-v1",
       "anchorX": 340,
+      "groundY": 448,
+      "width": 512,
+      "height": 512,
       "loop": false,
       "frames": [
         {
@@ -156,6 +165,9 @@
       "name": "Jump",
       "source": "player-c-jump-v2",
       "anchorX": 368,
+      "groundY": 448,
+      "width": 512,
+      "height": 512,
       "loop": false,
       "frames": [
         {
@@ -227,6 +239,9 @@
       "name": "MovingJump",
       "source": "player-c-moving-jump-v1",
       "anchorX": 340,
+      "groundY": 448,
+      "width": 512,
+      "height": 512,
       "loop": false,
       "frames": [
         {
@@ -277,6 +292,9 @@
       "name": "Dash",
       "source": "player-c-dash-v2",
       "anchorX": 364,
+      "groundY": 448,
+      "width": 512,
+      "height": 512,
       "loop": false,
       "frames": [
         {
@@ -313,6 +331,9 @@
       "name": "Fall",
       "source": "player-c-fall-v1",
       "anchorX": 368,
+      "groundY": 448,
+      "width": 512,
+      "height": 512,
       "loop": false,
       "frames": [
         {
@@ -349,6 +370,402 @@
           "headX": 365,
           "headY": 218,
           "sha256": "c4c12ab09662050659f55b8266705c13f57bf53dcba85c08fa7e3d4076b529d7"
+        }
+      ]
+    },
+    {
+      "name": "Attack1",
+      "source": "player-c-attack-v1",
+      "anchorX": 384,
+      "groundY": 560,
+      "width": 768,
+      "height": 640,
+      "loop": false,
+      "frames": [
+        {
+          "file": "Attack1/00.png",
+          "duration": 0.04,
+          "headX": 384,
+          "headY": 329,
+          "sha256": "9562cd792d396a21abb4b2531e4f6d02f75c41139de366824b875b8782c8be6a"
+        },
+        {
+          "file": "Attack1/01.png",
+          "duration": 0.04,
+          "headX": 376,
+          "headY": 336,
+          "sha256": "371661864fa7f0e00573da1ed462f9ee6085a1a8efc9197e98d19c4a1d17e313"
+        },
+        {
+          "file": "Attack1/02.png",
+          "duration": 0.025,
+          "headX": 394,
+          "headY": 346,
+          "sha256": "5d25007601dbefcbe6fa8ca76be333dd9a73dab9fab441836330294ed0566e87"
+        },
+        {
+          "file": "Attack1/03.png",
+          "duration": 0.07,
+          "headX": 404,
+          "headY": 381,
+          "sha256": "5085b45a96fd3007a4c39354abd58984a4de713cc6acc50cf9890d056a235d1e"
+        },
+        {
+          "file": "Attack1/04.png",
+          "duration": 0.075,
+          "headX": 398,
+          "headY": 382,
+          "sha256": "59d2190a4c9e203469c8e385eeb08edf99be67db153d75be8e8d17de9ba42449"
+        },
+        {
+          "file": "Attack1/05.png",
+          "duration": 0.11,
+          "headX": 384,
+          "headY": 372,
+          "sha256": "de4f4a9043393f7bed725101ef97b4eb132c2d717f1362e311037f45a2fbb8cd"
+        }
+      ]
+    },
+    {
+      "name": "Attack2",
+      "source": "player-c-attack-v1",
+      "anchorX": 384,
+      "groundY": 560,
+      "width": 768,
+      "height": 640,
+      "loop": false,
+      "frames": [
+        {
+          "file": "Attack2/00.png",
+          "duration": 0.04,
+          "headX": 384,
+          "headY": 339,
+          "sha256": "2691ccaa59816bc8cb261f26062e8e7d72f8c3d8ab5598011457956bde6e7294"
+        },
+        {
+          "file": "Attack2/01.png",
+          "duration": 0.04,
+          "headX": 378,
+          "headY": 373,
+          "sha256": "9468130b18628a1dca1cbd2764b6c3d1ab2932b2a70331b1f3c8a394e98f97bd"
+        },
+        {
+          "file": "Attack2/02.png",
+          "duration": 0.0,
+          "headX": 390,
+          "headY": 327,
+          "sha256": "7803912703b21806067a67db995347408b190c1d1b3c0eae1eeb6021cf677d5b"
+        },
+        {
+          "file": "Attack2/03.png",
+          "duration": 0.07,
+          "headX": 398,
+          "headY": 312,
+          "sha256": "8034ebb0b07153ed079497d7ecd9ca14ee46631a58ace68d81f26f53c7990964"
+        },
+        {
+          "file": "Attack2/04.png",
+          "duration": 0.0,
+          "headX": 392,
+          "headY": 320,
+          "sha256": "3f4907098a8adb9ba67003786691cf70f718ec70272e3530018cd26a88510ab8"
+        },
+        {
+          "file": "Attack2/05.png",
+          "duration": 0.14,
+          "headX": 384,
+          "headY": 309,
+          "sha256": "e12b591731e75481cd76daf48c3ffb4660ba9f6d1824166515fa3f03a6b54dbc"
+        }
+      ]
+    },
+    {
+      "name": "Attack3",
+      "source": "player-c-attack-v1",
+      "anchorX": 384,
+      "groundY": 560,
+      "width": 768,
+      "height": 640,
+      "loop": false,
+      "frames": [
+        {
+          "file": "Attack3/00.png",
+          "duration": 0.07,
+          "headX": 384,
+          "headY": 309,
+          "sha256": "e12b591731e75481cd76daf48c3ffb4660ba9f6d1824166515fa3f03a6b54dbc"
+        },
+        {
+          "file": "Attack3/01.png",
+          "duration": 0.08,
+          "headX": 376,
+          "headY": 357,
+          "sha256": "92dc0922c1c37e59c960284cbb822dbcab7fc4c546dc8607835fd10c24c12d99"
+        },
+        {
+          "file": "Attack3/02.png",
+          "duration": 0.012,
+          "headX": 390,
+          "headY": 355,
+          "sha256": "1f4b95c8a81c644287d454d794672beffdc1cdc27a324f892a429975f95afcfd"
+        },
+        {
+          "file": "Attack3/03.png",
+          "duration": 0.048,
+          "headX": 408,
+          "headY": 354,
+          "sha256": "d8580928e5f3066627766cad17077082026ecd769abd07eeafe3c3ae0b2b256d"
+        },
+        {
+          "file": "Attack3/04.png",
+          "duration": 0.06,
+          "headX": 402,
+          "headY": 351,
+          "sha256": "3d284fc939187b0140db6e1b981e063fcf919957954a43a34a48d0e74fcc573f"
+        },
+        {
+          "file": "Attack3/05.png",
+          "duration": 0.19,
+          "headX": 384,
+          "headY": 348,
+          "sha256": "f9857e12394f6a3b9d578e3eed68d9ba6a35b6fa45287ade1e8ed7b5e86136b5"
+        }
+      ]
+    },
+    {
+      "name": "MoveAttack1",
+      "source": "player-c-move-attack-v1",
+      "anchorX": 384,
+      "groundY": 560,
+      "width": 768,
+      "height": 640,
+      "loop": false,
+      "frames": [
+        {
+          "file": "MoveAttack1/00.png",
+          "duration": 0.08,
+          "headX": 384,
+          "headY": 369,
+          "sha256": "13ddcba26fea2366b706949a945f3a5febb4b1c9d56e6e5afd2c4c9f54849210"
+        },
+        {
+          "file": "MoveAttack1/01.png",
+          "duration": 0.08,
+          "headX": 384,
+          "headY": 372,
+          "sha256": "1883ce2cd81e51cefdbfe808ef0b3ad7581e054d7e026d3ab32e5b98761f1b3e"
+        },
+        {
+          "file": "MoveAttack1/02.png",
+          "duration": 0.06,
+          "headX": 384,
+          "headY": 360,
+          "sha256": "a2510235e111a8206bddbd955471a81a0ebbb4f94d8b14a0e633d62d36f0e659"
+        },
+        {
+          "file": "MoveAttack1/03.png",
+          "duration": 0.1,
+          "headX": 384,
+          "headY": 404,
+          "sha256": "40d5d3d1ffe195ea12df2e5c4c7229638c2d723e92fbe8e093c32ea778d25486"
+        },
+        {
+          "file": "MoveAttack1/04.png",
+          "duration": 0.08,
+          "headX": 384,
+          "headY": 383,
+          "sha256": "7d2f3faa1f2003744aa356bdf17cf27836b15fd9ab525825710241b13a516ebd"
+        },
+        {
+          "file": "MoveAttack1/05.png",
+          "duration": 0.08,
+          "headX": 384,
+          "headY": 367,
+          "sha256": "9b76713dfec28b2510f18b824bd096637879fc2c97db87072975ee26d392142a"
+        }
+      ]
+    },
+    {
+      "name": "MoveAttack2",
+      "source": "player-c-move-attack-v1",
+      "anchorX": 384,
+      "groundY": 560,
+      "width": 768,
+      "height": 640,
+      "loop": false,
+      "frames": [
+        {
+          "file": "MoveAttack2/00.png",
+          "duration": 0.08,
+          "headX": 384,
+          "headY": 370,
+          "sha256": "f2e049300e4e5eacdb6578a4e28e9d19f68accf6c73123845d0f7bade35e9d3c"
+        },
+        {
+          "file": "MoveAttack2/01.png",
+          "duration": 0.08,
+          "headX": 384,
+          "headY": 363,
+          "sha256": "13e9cf2006a105f8de8be552cea6445d54f423b7059fc2747b24cc91d78f64b0"
+        },
+        {
+          "file": "MoveAttack2/02.png",
+          "duration": 0.0,
+          "headX": 384,
+          "headY": 346,
+          "sha256": "a8c2b19007608cedfb77383a44b3d5fe8c19123af168370eecafa3d6c676bdd4"
+        },
+        {
+          "file": "MoveAttack2/03.png",
+          "duration": 0.1,
+          "headX": 384,
+          "headY": 355,
+          "sha256": "c047f16801b89b691420945789e1c6980e972c9b9bc806fd7c1d7b28471e16cc"
+        },
+        {
+          "file": "MoveAttack2/04.png",
+          "duration": 0.0,
+          "headX": 384,
+          "headY": 357,
+          "sha256": "8ad22550b9434b669d6242a18772b81df9ab2dc982376d6f0823b3ae6ec9eb90"
+        },
+        {
+          "file": "MoveAttack2/05.png",
+          "duration": 0.14,
+          "headX": 384,
+          "headY": 365,
+          "sha256": "23ce5ce4f96bee191f80138faf5c78fca7147cb5e3461618d49f2f07e29dc583"
+        }
+      ]
+    },
+    {
+      "name": "MoveAttack3",
+      "source": "player-c-move-attack-v1",
+      "anchorX": 384,
+      "groundY": 560,
+      "width": 768,
+      "height": 640,
+      "loop": false,
+      "frames": [
+        {
+          "file": "MoveAttack3/00.png",
+          "duration": 0.09,
+          "headX": 384,
+          "headY": 365,
+          "sha256": "23ce5ce4f96bee191f80138faf5c78fca7147cb5e3461618d49f2f07e29dc583"
+        },
+        {
+          "file": "MoveAttack3/01.png",
+          "duration": 0.09,
+          "headX": 384,
+          "headY": 363,
+          "sha256": "3a91ef1d7f9c8ef4fb436ef4e9f1866304d9f1bd800eed1e5a029e008817770a"
+        },
+        {
+          "file": "MoveAttack3/02.png",
+          "duration": 0.012,
+          "headX": 384,
+          "headY": 357,
+          "sha256": "8cf72371eb9c6ee1dc3752c2c835abe4e3c830e246de551d0bf26aa247e7ddd6"
+        },
+        {
+          "file": "MoveAttack3/03.png",
+          "duration": 0.048,
+          "headX": 384,
+          "headY": 362,
+          "sha256": "9c699ccb79af7258749f708a57aa62e353c834bb0fba5e22d0e56a15b3d9a812"
+        },
+        {
+          "file": "MoveAttack3/04.png",
+          "duration": 0.06,
+          "headX": 384,
+          "headY": 359,
+          "sha256": "13e1b7247d5e623f07504ec92d5092b9dc13ca6340229a7c7525430ddb9356bc"
+        },
+        {
+          "file": "MoveAttack3/05.png",
+          "duration": 0.12,
+          "headX": 384,
+          "headY": 355,
+          "sha256": "1a65e32d4853d7c397b2bb72bc0366f62d5ac3e2569fecb8781ea2df49abd571"
+        }
+      ]
+    },
+    {
+      "name": "AirRiseAttack",
+      "source": "player-c-air-attack-v1",
+      "anchorX": 384,
+      "groundY": 560,
+      "width": 768,
+      "height": 640,
+      "loop": false,
+      "frames": [
+        {
+          "file": "AirRiseAttack/00.png",
+          "duration": 0.035,
+          "headX": 384,
+          "headY": 232,
+          "sha256": "b6e6f9908553a5fde5c1c66b47a0dbc60581e7a81cc1ca3144e87e44f5ff2d67"
+        },
+        {
+          "file": "AirRiseAttack/01.png",
+          "duration": 0.07,
+          "headX": 384,
+          "headY": 232,
+          "sha256": "a982926a6e944f5590885fd4d32c6b487e49c0563713277c151e82311e9588c7"
+        },
+        {
+          "file": "AirRiseAttack/02.png",
+          "duration": 0.045,
+          "headX": 384,
+          "headY": 232,
+          "sha256": "60347690872167352899ec95bd660bf462581bcd479eae52998473992320e52f"
+        },
+        {
+          "file": "AirRiseAttack/03.png",
+          "duration": 0.07,
+          "headX": 384,
+          "headY": 232,
+          "sha256": "c25cbafb1235a53e1687830c5b5501aab13918deafcbef0efdfe15a011d8e66b"
+        }
+      ]
+    },
+    {
+      "name": "AirFallAttack",
+      "source": "player-c-air-attack-v1",
+      "anchorX": 384,
+      "groundY": 560,
+      "width": 768,
+      "height": 640,
+      "loop": false,
+      "frames": [
+        {
+          "file": "AirFallAttack/00.png",
+          "duration": 0.035,
+          "headX": 384,
+          "headY": 232,
+          "sha256": "2217ac9186c2a0ae0d75d0e48e42af0c781a2139171177947d343b9c44dfce21"
+        },
+        {
+          "file": "AirFallAttack/01.png",
+          "duration": 0.07,
+          "headX": 384,
+          "headY": 232,
+          "sha256": "ef29529c620c2f4469bc058423ce2dfc13ef26d34e6d383ffcf87fcb77b550bc"
+        },
+        {
+          "file": "AirFallAttack/02.png",
+          "duration": 0.045,
+          "headX": 384,
+          "headY": 232,
+          "sha256": "3768117b045accb9a91cbaddbe86a03ac6a0f2a91b6fc822650f4565cf2f0382"
+        },
+        {
+          "file": "AirFallAttack/03.png",
+          "duration": 0.07,
+          "headX": 384,
+          "headY": 232,
+          "sha256": "46cfe93b6f97515512cdfc36d17b05df9f6905236e7d52328f4de2a7df64de27"
         }
       ]
     }

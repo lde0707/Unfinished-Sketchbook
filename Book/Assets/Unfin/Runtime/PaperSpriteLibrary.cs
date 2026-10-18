@@ -14,6 +14,7 @@ namespace Unfin
         public string name;
         public bool loop;
         public float anchorX;
+        public float groundY=448;
         public PaperSpriteFrame[] frames;
         public float Duration { get { float t=0; foreach(var f in frames)t+=f.duration; return t; } }
         public int FrameAt(float time)
@@ -26,6 +27,7 @@ namespace Unfin
     public sealed class PaperSpriteLibrary : ScriptableObject
     {
         public float pixelsPerUnit=256;
+        public Sprite thrustEffect;
         public PaperSpriteClip[] clips;
         public PaperSpriteClip Find(string name) => Array.Find(clips,c=>c.name==name);
     }

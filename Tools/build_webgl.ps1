@@ -1,5 +1,7 @@
 param(
-    [string]$Unity = 'C:\Program Files\Unity\Hub\Editor\6000.5.3f1\Editor\Unity.exe'
+    [string]$Unity = 'C:\Program Files\Unity\Hub\Editor\6000.5.3f1\Editor\Unity.exe',
+    [switch]$ValidateCamera,
+    [switch]$ValidateCombat
 )
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path $PSScriptRoot -Parent
@@ -23,8 +25,10 @@ foreach ($taskFolder in @('Assets','Packages','ProjectSettings')) {
     if ($LASTEXITCODE -ge 8) { throw "Source copy failed: $taskFolder" }
 }
 $env:UNFIN_WEBGL_OUTPUT = $taskOutput
-$taskArguments = @('-batchmode','-nographics','-projectPath',('"'+$taskProject+'"'),'-buildTarget','WebGL',
-    '-executeMethod','Unfin.Editor.WebGLBuilder.Build','-quit','-logFile',('"'+$taskLog+'"'))
+$taskMethod = if ($ValidateCombat) { 'Unfin.Editor.PlayerCombatValidation.RunAndBuild' } elseif ($ValidateCamera) { 'Unfin.Editor.CameraFollowValidation.RunAndBuild' } else { 'Unfin.Editor.WebGLBuilder.Build' }
+$taskArguments = @('-batchmode','-projectPath',('"'+$taskProject+'"'),'-buildTarget','WebGL',
+    '-executeMethod',$taskMethod,'-quit','-logFile',('"'+$taskLog+'"'))
+if (!$ValidateCombat) { $taskArguments += '-nographics' }
 $taskProcess = Start-Process -FilePath $Unity -ArgumentList $taskArguments -WindowStyle Hidden -PassThru
 Write-Output "Building Unity WebGL (PID $($taskProcess.Id)). Log: $taskLog"
 $taskProcess.WaitForExit()

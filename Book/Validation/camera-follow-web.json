@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "rooms": [
+    "1-09",
+    "2-18"
+  ],
+  "errors": [],
+  "scope": "WebGL load, repeated jumping, run/jump/air dash and visual captures. Camera displacement and framing assertions are in camera-follow.json."
+}

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "gridSha256": "330a8b6a41ff7620942812e3f703e2cb665e3fb09ff9604ced32ff766b469c73",
+  "galleryRooms": 56,
+  "webglRooms": [
+    "1-01",
+    "1-09",
+    "1-14",
+    "1-22",
+    "2-03",
+    "2-07",
+    "2-18",
+    "2-20"
+  ],
+  "errors": [],
+  "scope": "Gallery interaction / all images load / WebGL shader and movement smoke test. Native validation separately verifies scene layers and collision geometry."
+}

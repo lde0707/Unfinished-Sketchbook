@@ -4,7 +4,7 @@ namespace Unfin
 {
     // Whole drawings only: no bone deformation or cross-fading between silhouettes.
     [DefaultExecutionOrder(50)]
-    public sealed class PaperSpritePlayer : MonoBehaviour
+    public sealed partial class PaperSpritePlayer : MonoBehaviour
     {
         public WorldPrototype world;
         public PaperSpriteLibrary library;
@@ -16,14 +16,16 @@ namespace Unfin
         int jumpSerial=-1,resetSerial=-1;
         bool wasGrounded=true,jumpActive,movingJump;
         Vector2 dashOffset;
-        void Update(){Tick(Mathf.Min(Time.deltaTime,.1f));}
+        Vector2 fallOffset;
+        float fallBlend;
+        void Update(){Tick(Mathf.Min(Time.deltaTime,.1f));ReadAttackInput();}
         void Play(string name){if(CurrentAnimation==name)return;CurrentAnimation=name;AnimationTime=0;}
         public void Tick(float dt)
         {
             if(world==null||world.Motor==null||library==null||visual==null)return;
             var m=world.Motor;
-            if(resetSerial!=world.ResetSerial){resetSerial=world.ResetSerial;jumpSerial=world.JumpSerial;wasGrounded=true;jumpActive=false;CurrentAnimation="Idle";AnimationTime=0;}
-            AnimationTime+=dt;
+            if(resetSerial!=world.ResetSerial){resetSerial=world.ResetSerial;jumpSerial=world.JumpSerial;wasGrounded=true;jumpActive=false;CurrentAnimation="Idle";AnimationTime=0;ResetCombat();}
+            AnimationTime+=dt;fallBlend=Mathf.Max(0,fallBlend-dt);
             bool moving=Mathf.Abs(m.vx)>12;
             bool newJump=jumpSerial!=world.JumpSerial;
             if(newJump){jumpSerial=world.JumpSerial;jumpActive=true;movingJump=world.JumpMoving;CurrentAnimation=movingJump?"MovingJump":"Jump";AnimationTime=0;}
@@ -34,7 +36,7 @@ namespace Unfin
                     var prior=library.Find(CurrentAnimation);var frame=prior.frames[prior.FrameAt(AnimationTime)];
                     dashOffset=world.DashAirborne?new Vector2(prior.anchorX-364+412-frame.head.x,308-frame.head.y)/library.pixelsPerUnit:Vector2.zero;
                     // X moves the sprite opposite the anchor change; Y preserves the airborne head height.
-                    dashOffset.x=-dashOffset.x;Play("Dash");
+                    dashOffset.x=-dashOffset.x;if(CurrentAnimation=="Fall")dashOffset+=fallOffset*(fallBlend/.08f);Play("Dash");
                 }
                 AnimationTime=world.DashElapsed;
             }
@@ -53,7 +55,15 @@ namespace Unfin
                 else
                 {
                     bool fromDash=CurrentAnimation=="Dash";
-                    Play("Fall");if(fromDash)AnimationTime=.065f;
+                    bool fromJump=CurrentAnimation=="Jump"||CurrentAnimation=="MovingJump";
+                    if(fromJump)
+                    {
+                        var prior=library.Find(CurrentAnimation);var h=prior.frames[prior.FrameAt(AnimationTime)].head;
+                        var next=library.Find("Fall");var n=next.frames[1].head;
+                        fallOffset=new Vector2(h.x-prior.anchorX-n.x+next.anchorX,prior.groundY-h.y-next.groundY+n.y)/library.pixelsPerUnit;
+                        fallBlend=.08f;
+                    }
+                    Play("Fall");if(fromDash||fromJump)AnimationTime=.065f;
                 }
             }
             else
@@ -72,6 +82,7 @@ namespace Unfin
                 }
             }
             wasGrounded=m.grounded;
+            TickCombat(dt);
             Render(world.Facing);
         }
         public void Render(int facing)
@@ -82,6 +93,8 @@ namespace Unfin
             visual.sprite=clip.frames[CurrentFrame].sprite;
             transform.localScale=new Vector3(facing<0?-1:1,1,1);
             visual.transform.localPosition=CurrentAnimation=="Dash"?(Vector3)dashOffset:Vector3.zero;
+            if(CurrentAnimation=="Fall")visual.transform.localPosition=(Vector3)(fallOffset*(fallBlend/.08f));
+            RenderCombat(clip,facing);
             if(trails==null)return;
             for(int i=0;i<trails.Length;i++)
             {

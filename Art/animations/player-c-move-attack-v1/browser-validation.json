@@ -1,0 +1,663 @@
+{
+  "passed": true,
+  "timingRevision": "combo-window250-v9",
+  "checks": [
+    "attack2 matches attack1 preparation and main contact timing; one70/100ms swing drawing then140ms hold; queued input survives",
+    "60/120Hz samples show only one swing drawing at five phase offsets",
+    "original thrust onset and recovery preserved; extension12ms, contact48ms, retract60ms",
+    "attack2 plays four poses; other attacks retain six",
+    "second swing completes before third thrust starts",
+    "identical full-body drawing at 2-to-3 boundary",
+    "150ms queue expiry; 250ms combo boundary;251ms restarts attack1",
+    "third finisher blocks restart for500ms",
+    "attack1/2 image hashes unchanged",
+    "pointerdown starts preparation once",
+    "all18 frames inspectable",
+    "constant movement in both directions",
+    "standing/moving phase continuity and reverse cancellation",
+    "no browser errors; mobile layout"
+  ],
+  "result": {
+    "atComboBoundary": {
+      "ready": true,
+      "playing": false,
+      "mode": "attack",
+      "variant": "move",
+      "clip": 1,
+      "frame": 0,
+      "time": 0,
+      "clock": 1130,
+      "x": 340.4263999999942,
+      "vx": 320,
+      "direction": 1,
+      "facing": 1,
+      "attackFacing": 1,
+      "runTime": 330,
+      "queuedUntil": -1,
+      "lastClip": 0,
+      "comboUntil": 1130,
+      "cooldownUntil": -1,
+      "auto": false,
+      "demoCycle": -1,
+      "demoFired": false,
+      "attacks": [
+        {
+          "stage": 1,
+          "variant": "move",
+          "x": 106.82639999999914,
+          "clock": 400
+        },
+        {
+          "stage": 2,
+          "variant": "move",
+          "x": 340.4263999999942,
+          "clock": 1130
+        }
+      ],
+      "cancellations": 0,
+      "frameGlobal": 6
+    },
+    "before": {
+      "ready": true,
+      "playing": false,
+      "mode": "attack",
+      "variant": "move",
+      "clip": 1,
+      "frame": 5,
+      "time": 399,
+      "clock": 799,
+      "x": 234.50639999999643,
+      "vx": 320,
+      "direction": 1,
+      "facing": 1,
+      "attackFacing": 1,
+      "runTime": 333.83250000000004,
+      "queuedUntil": 850,
+      "lastClip": -1,
+      "comboUntil": -1,
+      "cooldownUntil": -1,
+      "auto": false,
+      "demoCycle": -1,
+      "demoFired": false,
+      "attacks": [
+        {
+          "stage": 2,
+          "variant": "move",
+          "x": 106.82639999999914,
+          "clock": 400
+        }
+      ],
+      "cancellations": 0,
+      "frameGlobal": 11
+    },
+    "third": {
+      "ready": true,
+      "playing": false,
+      "mode": "attack",
+      "variant": "move",
+      "clip": 2,
+      "frame": 0,
+      "time": 0,
+      "clock": 800,
+      "x": 234.82639999999643,
+      "vx": 320,
+      "direction": 1,
+      "facing": 1,
+      "attackFacing": 1,
+      "runTime": 333.83250000000004,
+      "queuedUntil": -1,
+      "lastClip": 1,
+      "comboUntil": 1050,
+      "cooldownUntil": -1,
+      "auto": false,
+      "demoCycle": -1,
+      "demoFired": false,
+      "attacks": [
+        {
+          "stage": 2,
+          "variant": "move",
+          "x": 106.82639999999914,
+          "clock": 400
+        },
+        {
+          "stage": 3,
+          "variant": "move",
+          "x": 234.82639999999643,
+          "clock": 800
+        }
+      ],
+      "cancellations": 0,
+      "frameGlobal": 12
+    },
+    "ended": {
+      "ready": true,
+      "playing": false,
+      "mode": "run",
+      "variant": "move",
+      "clip": 2,
+      "frame": 5,
+      "time": 0,
+      "clock": 1220,
+      "x": 369.2263999999936,
+      "vx": 320,
+      "direction": 1,
+      "facing": 1,
+      "attackFacing": 1,
+      "runTime": 80,
+      "queuedUntil": -1,
+      "lastClip": 2,
+      "comboUntil": -1,
+      "cooldownUntil": 1720,
+      "auto": false,
+      "demoCycle": -1,
+      "demoFired": false,
+      "attacks": [
+        {
+          "stage": 2,
+          "variant": "move",
+          "x": 106.82639999999914,
+          "clock": 400
+        },
+        {
+          "stage": 3,
+          "variant": "move",
+          "x": 234.82639999999643,
+          "clock": 800
+        }
+      ],
+      "cancellations": 0,
+      "frameGlobal": 12
+    },
+    "locked": true,
+    "readyAgain": true,
+    "singles": [
+      {
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "mode": "run"
+      },
+      {
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "mode": "run"
+      },
+      {
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "mode": "run"
+      }
+    ],
+    "expired": {
+      "ready": true,
+      "playing": false,
+      "mode": "run",
+      "variant": "move",
+      "clip": 0,
+      "frame": 5,
+      "time": 0,
+      "clock": 880,
+      "x": 260.4263999999959,
+      "vx": 320,
+      "direction": 1,
+      "facing": 1,
+      "attackFacing": 1,
+      "runTime": 80,
+      "queuedUntil": -1,
+      "lastClip": 0,
+      "comboUntil": 1130,
+      "cooldownUntil": -1,
+      "auto": false,
+      "demoCycle": -1,
+      "demoFired": false,
+      "attacks": [
+        {
+          "stage": 1,
+          "variant": "move",
+          "x": 106.82639999999914,
+          "clock": 400
+        }
+      ],
+      "cancellations": 0,
+      "frameGlobal": 0
+    },
+    "thirdQueueRejected": true,
+    "noWrap": {
+      "ready": true,
+      "playing": false,
+      "mode": "run",
+      "variant": "move",
+      "clip": 2,
+      "frame": 5,
+      "time": 0,
+      "clock": 820,
+      "x": 241.2263999999963,
+      "vx": 320,
+      "direction": 1,
+      "facing": 1,
+      "attackFacing": 1,
+      "runTime": 80,
+      "queuedUntil": -1,
+      "lastClip": 2,
+      "comboUntil": -1,
+      "cooldownUntil": 1320,
+      "auto": false,
+      "demoCycle": -1,
+      "demoFired": false,
+      "attacks": [
+        {
+          "stage": 3,
+          "variant": "move",
+          "x": 106.82639999999914,
+          "clock": 400
+        }
+      ],
+      "cancellations": 0,
+      "frameGlobal": 0
+    },
+    "expiredCombo": {
+      "ready": true,
+      "playing": false,
+      "mode": "attack",
+      "variant": "move",
+      "clip": 0,
+      "frame": 0,
+      "time": 0,
+      "clock": 1131,
+      "x": 340.7463999999942,
+      "vx": 320,
+      "direction": 1,
+      "facing": 1,
+      "attackFacing": 1,
+      "runTime": 331,
+      "queuedUntil": -1,
+      "lastClip": 0,
+      "comboUntil": 1130,
+      "cooldownUntil": -1,
+      "auto": false,
+      "demoCycle": -1,
+      "demoFired": false,
+      "attacks": [
+        {
+          "stage": 1,
+          "variant": "move",
+          "x": 106.82639999999914,
+          "clock": 400
+        },
+        {
+          "stage": 1,
+          "variant": "move",
+          "x": 340.7463999999942,
+          "clock": 1131
+        }
+      ],
+      "cancellations": 0,
+      "frameGlobal": 0
+    },
+    "movement": [
+      {
+        "facing": -1,
+        "distance": -415.99999999999307,
+        "speed": -320,
+        "mode": "run"
+      },
+      {
+        "facing": 1,
+        "distance": 415.99999999999307,
+        "speed": 320,
+        "mode": "run"
+      },
+      {
+        "stopped": {
+          "ready": true,
+          "playing": false,
+          "mode": "attack",
+          "variant": "standing",
+          "clip": 0,
+          "frame": 2,
+          "time": 98.5,
+          "clock": 530,
+          "x": 127.99039999999918,
+          "vx": 8.000000000000163,
+          "direction": 0,
+          "facing": 1,
+          "attackFacing": 1,
+          "runTime": 333.83250000000004,
+          "queuedUntil": -1,
+          "lastClip": -1,
+          "comboUntil": -1,
+          "cooldownUntil": -1,
+          "auto": false,
+          "demoCycle": -1,
+          "demoFired": false,
+          "attacks": [
+            {
+              "stage": 1,
+              "variant": "move",
+              "x": 106.82639999999914,
+              "clock": 400
+            }
+          ],
+          "cancellations": 0,
+          "frameGlobal": 2
+        },
+        "resumed": {
+          "ready": true,
+          "playing": false,
+          "mode": "attack",
+          "variant": "move",
+          "clip": 0,
+          "frame": 1,
+          "time": 141.66666666666669,
+          "clock": 540,
+          "x": 128.20239999999916,
+          "vx": 32.000000000000156,
+          "direction": 1,
+          "facing": 1,
+          "attackFacing": 1,
+          "runTime": 333.83250000000004,
+          "queuedUntil": -1,
+          "lastClip": -1,
+          "comboUntil": -1,
+          "cooldownUntil": -1,
+          "auto": false,
+          "demoCycle": -1,
+          "demoFired": false,
+          "attacks": [
+            {
+              "stage": 1,
+              "variant": "move",
+              "x": 106.82639999999914,
+              "clock": 400
+            }
+          ],
+          "cancellations": 0,
+          "frameGlobal": 1
+        }
+      },
+      {
+        "cancelled": {
+          "ready": true,
+          "playing": false,
+          "mode": "run",
+          "variant": "move",
+          "clip": 0,
+          "frame": 0,
+          "time": 0,
+          "clock": 400,
+          "x": 106.82639999999914,
+          "vx": 320,
+          "direction": -1,
+          "facing": -1,
+          "attackFacing": 1,
+          "runTime": 80,
+          "queuedUntil": -1,
+          "lastClip": -1,
+          "comboUntil": -1,
+          "cooldownUntil": -1,
+          "auto": false,
+          "demoCycle": -1,
+          "demoFired": false,
+          "attacks": [
+            {
+              "stage": 1,
+              "variant": "move",
+              "x": 106.82639999999914,
+              "clock": 400
+            }
+          ],
+          "cancellations": 1,
+          "frameGlobal": 0
+        }
+      }
+    ],
+    "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "refreshSamples": [
+      {
+        "hz": 60,
+        "offset": 0,
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "hz": 60,
+        "offset": 4,
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "hz": 60,
+        "offset": 8,
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "hz": 60,
+        "offset": 12,
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "hz": 60,
+        "offset": 16,
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "hz": 120,
+        "offset": 0,
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "hz": 120,
+        "offset": 4,
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "hz": 120,
+        "offset": 8,
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "hz": 120,
+        "offset": 12,
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "hz": 120,
+        "offset": 16,
+        "frames": [
+          0,
+          1,
+          3,
+          5
+        ]
+      }
+    ],
+    "holdStart": {
+      "ready": true,
+      "playing": false,
+      "mode": "attack",
+      "variant": "move",
+      "clip": 1,
+      "frame": 5,
+      "time": 260,
+      "clock": 660,
+      "x": 190.02639999999738,
+      "vx": 320,
+      "direction": 1,
+      "facing": 1,
+      "attackFacing": 1,
+      "runTime": 333.83250000000004,
+      "queuedUntil": 810,
+      "lastClip": -1,
+      "comboUntil": -1,
+      "cooldownUntil": -1,
+      "auto": false,
+      "demoCycle": -1,
+      "demoFired": false,
+      "attacks": [
+        {
+          "stage": 2,
+          "variant": "move",
+          "x": 106.82639999999914,
+          "clock": 400
+        }
+      ],
+      "cancellations": 0,
+      "frameGlobal": 11
+    },
+    "holdEnd": {
+      "ready": true,
+      "playing": false,
+      "mode": "attack",
+      "variant": "move",
+      "clip": 1,
+      "frame": 5,
+      "time": 399,
+      "clock": 799,
+      "x": 234.50639999999643,
+      "vx": 320,
+      "direction": 1,
+      "facing": 1,
+      "attackFacing": 1,
+      "runTime": 333.83250000000004,
+      "queuedUntil": 810,
+      "lastClip": -1,
+      "comboUntil": -1,
+      "cooldownUntil": -1,
+      "auto": false,
+      "demoCycle": -1,
+      "demoFired": false,
+      "attacks": [
+        {
+          "stage": 2,
+          "variant": "move",
+          "x": 106.82639999999914,
+          "clock": 400
+        }
+      ],
+      "cancellations": 0,
+      "frameGlobal": 11
+    },
+    "afterHold": {
+      "ready": true,
+      "playing": false,
+      "mode": "attack",
+      "variant": "move",
+      "clip": 2,
+      "frame": 0,
+      "time": 0,
+      "clock": 800,
+      "x": 234.82639999999643,
+      "vx": 320,
+      "direction": 1,
+      "facing": 1,
+      "attackFacing": 1,
+      "runTime": 333.83250000000004,
+      "queuedUntil": -1,
+      "lastClip": 1,
+      "comboUntil": 1050,
+      "cooldownUntil": -1,
+      "auto": false,
+      "demoCycle": -1,
+      "demoFired": false,
+      "attacks": [
+        {
+          "stage": 2,
+          "variant": "move",
+          "x": 106.82639999999914,
+          "clock": 400
+        },
+        {
+          "stage": 3,
+          "variant": "move",
+          "x": 234.82639999999643,
+          "clock": 800
+        }
+      ],
+      "cancellations": 0,
+      "frameGlobal": 12
+    },
+    "thrust": {
+      "chamber": 1,
+      "extension": 2,
+      "contact": 3,
+      "retract": 4
+    }
+  }
+}

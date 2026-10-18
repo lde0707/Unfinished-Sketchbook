@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: f1118e07dbb5a9541b63d48c1f5b828c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7224915734047792437
+    second: D-root_0
+  - first:
+      213: -6921200405999787747
+    second: D-root_1
+  - first:
+      213: -6718259487881323136
+    second: D-root_2
+  - first:
+      213: -2775745472117459633
+    second: D-root_3
+  - first:
+      213: -6153853539071533663
+    second: D-root_4
+  - first:
+      213: -7613250037802589976
+    second: D-root_5
+  - first:
+      213: -5392342510624342336
+    second: D-root_6
+  - first:
+      213: -2553706867161485516
+    second: D-root_7
+  - first:
+      213: 880686461921317415
+    second: D-root_8
+  - first:
+      213: -6997784329685205570
+    second: D-root_9
+  - first:
+      213: -4470696844944053287
+    second: D-root_10
+  - first:
+      213: 1027075807047221911
+    second: D-root_11
+  - first:
+      213: -1645477326213875319
+    second: D-root_12
+  - first:
+      213: 7565028659060449223
+    second: D-root_13
+  - first:
+      213: 800978368261786864
+    second: D-root_14
+  - first:
+      213: -4056862295715655369
+    second: D-root_15
+  - first:
+      213: -7422946295644738388
+    second: D-root_16
+  - first:
+      213: -7823966477388260316
+    second: D-root_17
+  - first:
+      213: 3843865083079982694
+    second: D-root_18
+  - first:
+      213: -2228739607721743196
+    second: D-root_19
+  - first:
+      213: -3895656521242657252
+    second: D-root_20
+  - first:
+      213: -4323850396024661191
+    second: D-root_21
+  - first:
+      213: -6641689154474569261
+    second: D-root_22
+  - first:
+      213: 4429179819404940642
+    second: D-root_23
+  - first:
+      213: 5970590772730598000
+    second: D-root_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: D-root_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 533
+        width: 668
+        height: 721
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d9c04b49e044460800000000000000
+      internalID: 7224915734047792437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_1
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 0
+        width: 599
+        height: 1254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d11e71d96e4f2ff90800000000000000
+      internalID: -6921200405999787747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_2
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 1191
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d9fe33792f3c2a0800000000000000
+      internalID: -6718259487881323136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_3
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 855
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f453a8b13329a79d0800000000000000
+      internalID: -2775745472117459633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_4
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 747
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad5cdb8fce199aa0800000000000000
+      internalID: -6153853539071533663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 623
+        width: 6
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e02c866d6d485690800000000000000
+      internalID: -7613250037802589976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_6
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 562
+        width: 134
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce7ff27e0d8a25b0800000000000000
+      internalID: -5392342510624342336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_7
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 570
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f2d5a62296f8cd0800000000000000
+      internalID: -2553706867161485516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_8
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 570
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 722d059cba3d83c00800000000000000
+      internalID: 880686461921317415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_9
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 548
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebd715e5a30e2ee90800000000000000
+      internalID: -6997784329685205570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 739
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db66a208e4e4f1c0800000000000000
+      internalID: -4470696844944053287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_11
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 509
+        width: 17
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792827c3108e04e00800000000000000
+      internalID: 1027075807047221911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_12
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 111
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 989ff0507171a29e0800000000000000
+      internalID: -1645477326213875319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_13
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 106
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf92f2fb716cf860800000000000000
+      internalID: 7565028659060449223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_14
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 91
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc04090595ad1b00800000000000000
+      internalID: 800978368261786864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_15
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 71
+        width: 19
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73151397c3123b7c0800000000000000
+      internalID: -4056862295715655369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_16
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 68
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cac2b4d2ca56cf890800000000000000
+      internalID: -7422946295644738388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_17
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 47
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42c55b421ffab6390800000000000000
+      internalID: -7823966477388260316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 15
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e72896de6285530800000000000000
+      internalID: 3843865083079982694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_19
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 88
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ace6e8922de111e0800000000000000
+      internalID: -2228739607721743196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_20
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 13
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1eb564b809dfe9c0800000000000000
+      internalID: -3895656521242657252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_21
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 7
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b940b39f89ef3c0800000000000000
+      internalID: -4323850396024661191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_22
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 7
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d19af637eaf3d3a0800000000000000
+      internalID: -6641689154474569261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_23
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 15
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 265d5f5349b977d30800000000000000
+      internalID: 4429179819404940642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-root_24
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 17
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07215db9caccbd250800000000000000
+      internalID: 5970590772730598000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      D-root_0: 7224915734047792437
+      D-root_1: -6921200405999787747
+      D-root_10: -4470696844944053287
+      D-root_11: 1027075807047221911
+      D-root_12: -1645477326213875319
+      D-root_13: 7565028659060449223
+      D-root_14: 800978368261786864
+      D-root_15: -4056862295715655369
+      D-root_16: -7422946295644738388
+      D-root_17: -7823966477388260316
+      D-root_18: 3843865083079982694
+      D-root_19: -2228739607721743196
+      D-root_2: -6718259487881323136
+      D-root_20: -3895656521242657252
+      D-root_21: -4323850396024661191
+      D-root_22: -6641689154474569261
+      D-root_23: 4429179819404940642
+      D-root_24: 5970590772730598000
+      D-root_3: -2775745472117459633
+      D-root_4: -6153853539071533663
+      D-root_5: -7613250037802589976
+      D-root_6: -5392342510624342336
+      D-root_7: -2553706867161485516
+      D-root_8: 880686461921317415
+      D-root_9: -6997784329685205570
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

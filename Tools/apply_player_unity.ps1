@@ -6,7 +6,7 @@ foreach($folder in @('Assets','Packages','ProjectSettings')) {
  $source=[IO.Path]::GetFullPath((Join-Path $taskRoot "Book/$folder"))
  $destination=[IO.Path]::GetFullPath((Join-Path $taskProject $folder))
  if(!$destination.StartsWith(([IO.Path]::GetFullPath($taskProject)+'\'),[StringComparison]::OrdinalIgnoreCase)){throw 'Invalid build mirror target'}
- & robocopy $source $destination /MIR /R:2 /W:1 /NFL /NDL /NJH /NJS /NP
+ & robocopy $source $destination /MIR /R:2 /W:1 /NFL /NDL /NJH /NJS /NP | Out-Null
  if($LASTEXITCODE -ge 8){throw 'Mirror failed'}
 }
 $taskLog=Join-Path $taskRoot 'Builds/player-integration.log'
@@ -16,8 +16,8 @@ Write-Output "Unity import PID $($taskProcess.Id); $taskLog"
 $taskProcess.WaitForExit()
 if($taskProcess.ExitCode -ne 0){throw "Unity failed: $($taskProcess.ExitCode); $taskLog"}
 # Copy only the generated player assets, scene and metadata back to the real Book project.
-foreach($folder in @('Assets/Unfin/Art/PlayerSprites','Assets/Unfin/Animations/PlayerSprites')) {
- & robocopy (Join-Path $taskProject $folder) (Join-Path $taskRoot "Book/$folder") /E /R:2 /W:1 /NFL /NDL /NJH /NJS /NP
+foreach($folder in @('Assets/Unfin/Art/PlayerSprites','Assets/Unfin/Animations/PlayerSprites','Assets/Unfin/Art/RegionalPlatforms','Assets/Unfin/Platforms')) {
+ & robocopy (Join-Path $taskProject $folder) (Join-Path $taskRoot "Book/$folder") /E /R:2 /W:1 /NFL /NDL /NJH /NJS /NP | Out-Null
  if($LASTEXITCODE -ge 8){throw 'Asset copy failed'}
  Copy-Item -LiteralPath (Join-Path $taskProject "$folder.meta") -Destination (Join-Path $taskRoot "Book/$folder.meta") -Force
 }
@@ -25,3 +25,6 @@ foreach($file in @('Assets/Scenes/World12Prototype.unity','Assets/Unfin/Prefabs/
  Copy-Item -LiteralPath (Join-Path $taskProject $file) -Destination (Join-Path $taskRoot "Book/$file") -Force
 }
 Write-Output 'Player sprite integration copied into Book.'
+foreach($file in @('Assets/Unfin/Runtime/PaperSpriteCombat.cs.meta','Assets/Unfin/Editor/RegionalPlatformImporter.cs.meta','Assets/Unfin/Editor/PlayerCombatValidation.cs.meta','Validation/world12-validation.json','Validation/player-combat-runtime.json','Validation/regional-platforms.json','Validation/player-attack-in-game.png','Validation/player-air-attack-in-game.png','Validation/platform-world1-in-game.png')) {
+ Copy-Item -LiteralPath (Join-Path $taskProject $file) -Destination (Join-Path $taskRoot "Book/$file") -Force
+}

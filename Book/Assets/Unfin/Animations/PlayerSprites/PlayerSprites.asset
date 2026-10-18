@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: PlayerSprites
   m_EditorClassIdentifier: Assembly-CSharp::Unfin.PaperSpriteLibrary
   pixelsPerUnit: 256
+  thrustEffect: {fileID: 21300000, guid: 7d0a2c8d2c045d94ab7db3d75060615f, type: 3}
   clips:
   - name: Idle
     loop: 1
     anchorX: 368
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: 6c76334d479252647b6316e6400ac6e1, type: 3}
       duration: 0.3
@@ -39,6 +41,7 @@ MonoBehaviour:
   - name: Run
     loop: 1
     anchorX: 340
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: e94cc6b37070f8543a6ab67032b808f9, type: 3}
       duration: 0.08
@@ -67,6 +70,7 @@ MonoBehaviour:
   - name: RunStop
     loop: 0
     anchorX: 340
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: 0b7f16e89c240d54a95600732386be4d, type: 3}
       duration: 0.03
@@ -83,6 +87,7 @@ MonoBehaviour:
   - name: Jump
     loop: 0
     anchorX: 368
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: a952f012c8065944dad9d49810dcb6c8, type: 3}
       duration: 0.01
@@ -114,6 +119,7 @@ MonoBehaviour:
   - name: MovingJump
     loop: 0
     anchorX: 340
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: c91193bce50067045a53e583c8b13eae, type: 3}
       duration: 0.08
@@ -136,6 +142,7 @@ MonoBehaviour:
   - name: Dash
     loop: 0
     anchorX: 364
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: e5410d36d11f8574899520e148fa0aac, type: 3}
       duration: 0.03
@@ -152,6 +159,7 @@ MonoBehaviour:
   - name: Fall
     loop: 0
     anchorX: 368
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: c2811c77be7bceb40b3beaeaba64a58c, type: 3}
       duration: 0.065
@@ -162,9 +170,182 @@ MonoBehaviour:
     - sprite: {fileID: 21300000, guid: c0782031bb108b6448d12ac1be636344, type: 3}
       duration: 0.14
       head: {x: 365, y: 203}
+  - name: Attack1
+    loop: 0
+    anchorX: 384
+    groundY: 560
+    frames:
+    - sprite: {fileID: 21300000, guid: 62ca9abb62d40674f9a137b0e268dbdb, type: 3}
+      duration: 0.04
+      head: {x: 384, y: 329}
+    - sprite: {fileID: 21300000, guid: 59ace26693c95a543a13f404e2e87897, type: 3}
+      duration: 0.04
+      head: {x: 376, y: 336}
+    - sprite: {fileID: 21300000, guid: 2f580195ed35f3d43b417d44e400f40c, type: 3}
+      duration: 0.025
+      head: {x: 394, y: 346}
+    - sprite: {fileID: 21300000, guid: 21a694d6f076c244c9f7392c613e8d69, type: 3}
+      duration: 0.07
+      head: {x: 404, y: 381}
+    - sprite: {fileID: 21300000, guid: 568e6a70bab9c38438b652174ef6d3c6, type: 3}
+      duration: 0.075
+      head: {x: 398, y: 382}
+    - sprite: {fileID: 21300000, guid: ba1e9ec3386e7274ea25ea2006f6c680, type: 3}
+      duration: 0.11
+      head: {x: 384, y: 372}
+  - name: Attack2
+    loop: 0
+    anchorX: 384
+    groundY: 560
+    frames:
+    - sprite: {fileID: 21300000, guid: c320e7dd45139e74ca0a5fe3f561cede, type: 3}
+      duration: 0.04
+      head: {x: 384, y: 339}
+    - sprite: {fileID: 21300000, guid: bff30a57675185142bf726f62e2d1b28, type: 3}
+      duration: 0.04
+      head: {x: 378, y: 373}
+    - sprite: {fileID: 21300000, guid: 0f0e7c0602b13a744874e21d1937b793, type: 3}
+      duration: 0
+      head: {x: 390, y: 327}
+    - sprite: {fileID: 21300000, guid: 60ec96e3135dbe5429b33e664bdcab75, type: 3}
+      duration: 0.07
+      head: {x: 398, y: 312}
+    - sprite: {fileID: 21300000, guid: 3b96931957d7f6347aa443a5e95d0bc9, type: 3}
+      duration: 0
+      head: {x: 392, y: 320}
+    - sprite: {fileID: 21300000, guid: 3f73ac65e64f4d04eb62dfbf2f892f10, type: 3}
+      duration: 0.14
+      head: {x: 384, y: 309}
+  - name: Attack3
+    loop: 0
+    anchorX: 384
+    groundY: 560
+    frames:
+    - sprite: {fileID: 21300000, guid: f0455088470d11648a4230eb89bdea2f, type: 3}
+      duration: 0.07
+      head: {x: 384, y: 309}
+    - sprite: {fileID: 21300000, guid: 72a4ed9f750546a4681658886750415f, type: 3}
+      duration: 0.08
+      head: {x: 376, y: 357}
+    - sprite: {fileID: 21300000, guid: c6c181783a927524aaea9742de21aba8, type: 3}
+      duration: 0.012
+      head: {x: 390, y: 355}
+    - sprite: {fileID: 21300000, guid: 0e6e1aa0048a77d4c8ef6ec864a7f92c, type: 3}
+      duration: 0.048
+      head: {x: 408, y: 354}
+    - sprite: {fileID: 21300000, guid: 72cdb107cdc55a44f9e08e95d4bf8741, type: 3}
+      duration: 0.06
+      head: {x: 402, y: 351}
+    - sprite: {fileID: 21300000, guid: 167c64b7d9bece0429144b954a44ba00, type: 3}
+      duration: 0.19
+      head: {x: 384, y: 348}
+  - name: MoveAttack1
+    loop: 0
+    anchorX: 384
+    groundY: 560
+    frames:
+    - sprite: {fileID: 21300000, guid: c016c43830a29a24c8fd499d182b2bf1, type: 3}
+      duration: 0.08
+      head: {x: 384, y: 369}
+    - sprite: {fileID: 21300000, guid: 11259b3ccadb5bf42aa24555f581c5da, type: 3}
+      duration: 0.08
+      head: {x: 384, y: 372}
+    - sprite: {fileID: 21300000, guid: f90ecc1253d3721478bf8381c71552bd, type: 3}
+      duration: 0.06
+      head: {x: 384, y: 360}
+    - sprite: {fileID: 21300000, guid: 7f28d01376138c443967e84374cd3a85, type: 3}
+      duration: 0.1
+      head: {x: 384, y: 404}
+    - sprite: {fileID: 21300000, guid: 280d8edfdf669974a9519136b6a9b43e, type: 3}
+      duration: 0.08
+      head: {x: 384, y: 383}
+    - sprite: {fileID: 21300000, guid: 3cbf1309cac40fa4cbc597e470a1e94a, type: 3}
+      duration: 0.08
+      head: {x: 384, y: 367}
+  - name: MoveAttack2
+    loop: 0
+    anchorX: 384
+    groundY: 560
+    frames:
+    - sprite: {fileID: 21300000, guid: ef23aead80948c44eb67b1efce769175, type: 3}
+      duration: 0.08
+      head: {x: 384, y: 370}
+    - sprite: {fileID: 21300000, guid: b27e9a6283c14254bbeec7c5a973e227, type: 3}
+      duration: 0.08
+      head: {x: 384, y: 363}
+    - sprite: {fileID: 21300000, guid: 4ad4c7192f06b3d48813c841c817a624, type: 3}
+      duration: 0
+      head: {x: 384, y: 346}
+    - sprite: {fileID: 21300000, guid: 878d357a2be423b4b89e90919df95ffb, type: 3}
+      duration: 0.1
+      head: {x: 384, y: 355}
+    - sprite: {fileID: 21300000, guid: 3375513d81f443145b3db68e99c50982, type: 3}
+      duration: 0
+      head: {x: 384, y: 357}
+    - sprite: {fileID: 21300000, guid: d3f426d3c01e58144afdc73b78ef5af1, type: 3}
+      duration: 0.14
+      head: {x: 384, y: 365}
+  - name: MoveAttack3
+    loop: 0
+    anchorX: 384
+    groundY: 560
+    frames:
+    - sprite: {fileID: 21300000, guid: 84f7145abdf3f634e93542f8f6132b28, type: 3}
+      duration: 0.09
+      head: {x: 384, y: 365}
+    - sprite: {fileID: 21300000, guid: b30b8f10a5615fb4497c0a0966e95088, type: 3}
+      duration: 0.09
+      head: {x: 384, y: 363}
+    - sprite: {fileID: 21300000, guid: 56ac3c515dd78d346baf4b0a53e4f64a, type: 3}
+      duration: 0.012
+      head: {x: 384, y: 357}
+    - sprite: {fileID: 21300000, guid: 26b99433b272b3c4eb8d38ea5b1fa1a2, type: 3}
+      duration: 0.048
+      head: {x: 384, y: 362}
+    - sprite: {fileID: 21300000, guid: 7b50e933a14673a4d9808c83ee81fe95, type: 3}
+      duration: 0.06
+      head: {x: 384, y: 359}
+    - sprite: {fileID: 21300000, guid: 455f20c180ca6134ebb984127ff86fe1, type: 3}
+      duration: 0.12
+      head: {x: 384, y: 355}
+  - name: AirRiseAttack
+    loop: 0
+    anchorX: 384
+    groundY: 560
+    frames:
+    - sprite: {fileID: 21300000, guid: 5db5f2cc017593147a5dfb08036c2e86, type: 3}
+      duration: 0.035
+      head: {x: 384, y: 232}
+    - sprite: {fileID: 21300000, guid: 629c940516d05fc4cab9ec1bddf1a9d6, type: 3}
+      duration: 0.07
+      head: {x: 384, y: 232}
+    - sprite: {fileID: 21300000, guid: 9e484cace92315d458f69ca33e84fe44, type: 3}
+      duration: 0.045
+      head: {x: 384, y: 232}
+    - sprite: {fileID: 21300000, guid: 6e87bfe5255675d4dbb0988bad4aa1cd, type: 3}
+      duration: 0.07
+      head: {x: 384, y: 232}
+  - name: AirFallAttack
+    loop: 0
+    anchorX: 384
+    groundY: 560
+    frames:
+    - sprite: {fileID: 21300000, guid: 9f073c9a04d5c764e86563c6b0f04b5f, type: 3}
+      duration: 0.035
+      head: {x: 384, y: 232}
+    - sprite: {fileID: 21300000, guid: 2d0c324689d3d494db1c3e892fee51f1, type: 3}
+      duration: 0.07
+      head: {x: 384, y: 232}
+    - sprite: {fileID: 21300000, guid: 14549d53a6433e641bbf3f9df81f19aa, type: 3}
+      duration: 0.045
+      head: {x: 384, y: 232}
+    - sprite: {fileID: 21300000, guid: db76fc6727acdb546ab7e96d024d0308, type: 3}
+      duration: 0.07
+      head: {x: 384, y: 232}
   - name: RunStart
     loop: 0
     anchorX: 340
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: 4092b2fe5fc876942a6943f0be80e008, type: 3}
       duration: 0.055
@@ -181,6 +362,7 @@ MonoBehaviour:
   - name: JumpLand
     loop: 0
     anchorX: 368
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: 72d1e50cfebcaba419239665add24fd6, type: 3}
       duration: 0.04
@@ -194,6 +376,7 @@ MonoBehaviour:
   - name: MovingLand
     loop: 0
     anchorX: 340
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: 37b51f49d1ce8c14f80c9e9bfe434951, type: 3}
       duration: 0.03
@@ -204,6 +387,7 @@ MonoBehaviour:
   - name: FallLand
     loop: 0
     anchorX: 368
+    groundY: 448
     frames:
     - sprite: {fileID: 21300000, guid: fb3a9114058e0994eb4d37bb87352297, type: 3}
       duration: 0.065

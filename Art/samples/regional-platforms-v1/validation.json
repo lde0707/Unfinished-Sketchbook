@@ -1,0 +1,338 @@
+{
+  "source": "generated raster sprites",
+  "cropOnly": true,
+  "regionCount": 5,
+  "variantCount": 15,
+  "records": [
+    {
+      "region": "01-pencil-forest",
+      "variant": "A",
+      "crop": {
+        "left": 19,
+        "top": 245,
+        "width": 1218,
+        "height": 172
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 18
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 36
+        }
+      }
+    },
+    {
+      "region": "01-pencil-forest",
+      "variant": "B",
+      "crop": {
+        "left": 20,
+        "top": 598,
+        "width": 1216,
+        "height": 171
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 18
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 36
+        }
+      }
+    },
+    {
+      "region": "01-pencil-forest",
+      "variant": "C",
+      "crop": {
+        "left": 20,
+        "top": 951,
+        "width": 1217,
+        "height": 163
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 17
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 34
+        }
+      }
+    },
+    {
+      "region": "02-crayon-hills",
+      "variant": "A",
+      "crop": {
+        "left": 25,
+        "top": 244,
+        "width": 1206,
+        "height": 172
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 18
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 37
+        }
+      }
+    },
+    {
+      "region": "02-crayon-hills",
+      "variant": "B",
+      "crop": {
+        "left": 26,
+        "top": 560,
+        "width": 1202,
+        "height": 186
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 20
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 40
+        }
+      }
+    },
+    {
+      "region": "02-crayon-hills",
+      "variant": "C",
+      "crop": {
+        "left": 28,
+        "top": 871,
+        "width": 1199,
+        "height": 190
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 20
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 41
+        }
+      }
+    },
+    {
+      "region": "03-watercolor-lake",
+      "variant": "A",
+      "crop": {
+        "left": 27,
+        "top": 298,
+        "width": 1201,
+        "height": 145
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 15
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 31
+        }
+      }
+    },
+    {
+      "region": "03-watercolor-lake",
+      "variant": "B",
+      "crop": {
+        "left": 30,
+        "top": 583,
+        "width": 1196,
+        "height": 164
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 18
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 35
+        }
+      }
+    },
+    {
+      "region": "03-watercolor-lake",
+      "variant": "C",
+      "crop": {
+        "left": 26,
+        "top": 873,
+        "width": 1200,
+        "height": 164
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 17
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 35
+        }
+      }
+    },
+    {
+      "region": "04-paper-city",
+      "variant": "A",
+      "crop": {
+        "left": 18,
+        "top": 311,
+        "width": 1217,
+        "height": 136
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 14
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 29
+        }
+      }
+    },
+    {
+      "region": "04-paper-city",
+      "variant": "B",
+      "crop": {
+        "left": 19,
+        "top": 609,
+        "width": 1217,
+        "height": 144
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 15
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 30
+        }
+      }
+    },
+    {
+      "region": "04-paper-city",
+      "variant": "C",
+      "crop": {
+        "left": 19,
+        "top": 899,
+        "width": 1215,
+        "height": 145
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 15
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 31
+        }
+      }
+    },
+    {
+      "region": "05-ink-abyss",
+      "variant": "A",
+      "crop": {
+        "left": 36,
+        "top": 275,
+        "width": 1182,
+        "height": 137
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 15
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 30
+        }
+      }
+    },
+    {
+      "region": "05-ink-abyss",
+      "variant": "B",
+      "crop": {
+        "left": 42,
+        "top": 586,
+        "width": 1177,
+        "height": 155
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 17
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 34
+        }
+      }
+    },
+    {
+      "region": "05-ink-abyss",
+      "variant": "C",
+      "crop": {
+        "left": 38,
+        "top": 886,
+        "width": 1180,
+        "height": 152
+      },
+      "sizes": {
+        "128": {
+          "width": 128,
+          "height": 128,
+          "visibleHeight": 16
+        },
+        "256": {
+          "width": 256,
+          "height": 256,
+          "visibleHeight": 33
+        }
+      }
+    }
+  ]
+}
