@@ -133,7 +133,7 @@ namespace Unfin.Editor
             player.transform.position = new Vector3(data.startX + .5f, -data.startFloor + .6875f, 0);
             controller.player = player.transform;
             PaperSpriteImporter.Attach(controller);
-            RegionalPlatformImporter.Apply(controller);
+            RegionalPlatformImporter.Apply(controller);SpecialTileImporter.Apply(controller);
             MakeMarkers("Enemy placement (no AI)", data.enemies, true, markerSprite);
             MakeMarkers("Item and device placement", data.pickups, false, markerSprite);
             MakeAreas("Rooms", data.rooms); MakeAreas("Passages", data.passages); MakeAreas("Shafts", data.shafts);
@@ -242,7 +242,7 @@ namespace Unfin.Editor
             tile.sprite = sprite; tile.htmlType = type; tile.region = region + 1; tile.exposedEdges = mask;
             tile.patternVariant = variant;
             tile.flags=region==1&&(type==0||type==1)?TileFlags.LockTransform:TileFlags.LockAll;
-            tile.colliderType = type == 0 || type == 9 ? UnityEngine.Tilemaps.Tile.ColliderType.None : UnityEngine.Tilemaps.Tile.ColliderType.Grid;
+            tile.colliderType = type == 0 || GridMotor.Liquid(type) ? UnityEngine.Tilemaps.Tile.ColliderType.None : UnityEngine.Tilemaps.Tile.ColliderType.Grid;
             EditorUtility.SetDirty(tile); tileCache[key] = tile;
             return tile;
         }
@@ -339,7 +339,8 @@ namespace Unfin.Editor
                     if (tile == null) continue;
                     seen++; Require(tile.htmlType == type, $"Tile type at {x},{y}");
                     Require(layer == (x >= data.regionX ? 3 : 0) + WorldPrototype.Layer(type), "Tile layer");
-                    Require(tile.sprite.rect.width == 128 && tile.sprite.rect.height == 128 && tile.sprite.pixelsPerUnit == 128, "Sprite scale");
+                    if(type==1||type==4)Require(tile.sprite.rect.width==128&&tile.sprite.rect.height==128&&tile.sprite.pixelsPerUnit==128,"Terrain sprite scale");
+                    else Require(tile.sprite.pixelsPerUnit==128&&Mathf.Abs(tile.sprite.bounds.size.x*tile.transform.m00-1)<.001f,"Special tile spans one cell");
                     if (type == 1) Require(tile.exposedEdges == Mask(x, y), $"Terrain neighbors at {x},{y}");
                     if (type == 1 && x >= data.regionX) Require(tile.patternVariant == patterns[y * data.width + x], $"Terrain pattern at {x},{y}");
                     if (type == 1 && x < data.regionX) Require(world.region1Terrain != null && tile == world.region1Terrain.Terrain(x,y), $"Colored terrain at {x},{y}");
@@ -382,7 +383,7 @@ namespace Unfin.Editor
             Require(motor.grounded && Mathf.Abs(motor.y - 106) < .001f, "Solid ground");
             grid[6 * 12 + 5] = 1; motor.x = 67; motor.y = 96; motor.vx = 330; motor.vy = 0; motor.Move(1f / 120);
             Require(motor.hitWall == 1 && Mathf.Abs(motor.x - 68) < .001f, "Dash wall collision");
-            Require(!GridMotor.Wall(9) && !GridMotor.Wall(6) && !GridMotor.Wall(15) && GridMotor.Wall(3), "HTML tile semantics");
+            Require(!GridMotor.Wall(9) && !GridMotor.Wall(6) && !GridMotor.Wall(15) && !GridMotor.Wall(3), "Liquid and platform collision semantics");
         }
 
         // Run with a graphics device (omit -nographics) for actual Unity-rendered previews.

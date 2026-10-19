@@ -1,0 +1,26 @@
+[
+  {
+    "id": "COMMON01",
+    "prompt": "Edit target: image 1 is an eight-frame 4-column 2-row transparent sprite sheet. Reference: image 2 is the original character animation sheet. COLOR AND VALUE MATCH ONLY: match image 1 to image 2's subdued neutral paper/graphite palette, lower orange/yellow saturation and match the softer contrast/value so these frames intercut with the original WITHOUT color or brightness flicker. Especially neutralize orange brown. Keep EXACTLY the eight poses, body proportions, silhouettes, pixel positions, equal cell layout and transparent background of image 1. Do not redesign, re-pose, add, remove or duplicate sprites. Preserve all eight complete sprites. Keep transparent alpha. No background, text, or shadows.",
+    "mode": "built-in imagegen",
+    "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-7b848f75-7a83-4756-8b10-b15f879b6587.png"
+  },
+  {
+    "id": "COMMON02",
+    "prompt": "Edit target: image 1 is an eight-frame 4-column 2-row transparent sprite sheet. Reference: image 2 is the original character animation sheet. COLOR AND VALUE MATCH ONLY: match image 1 to image 2's subdued neutral paper/graphite palette, lower orange/yellow saturation and match the softer contrast/value so these frames intercut with the original WITHOUT color or brightness flicker. Especially neutralize orange brown. Keep EXACTLY the eight poses, body proportions, silhouettes, pixel positions, equal cell layout and transparent background of image 1. Do not redesign, re-pose, add, remove or duplicate sprites. Preserve all eight complete sprites. Keep transparent alpha. No background, text, or shadows.",
+    "mode": "built-in imagegen",
+    "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-b3670ba4-4564-4ef8-a54c-d0cd51c5d11d.png"
+  },
+  {
+    "id": "A02",
+    "prompt": "Edit target: image 1 is an eight-frame 4-column 2-row transparent sprite sheet. Reference: image 2 is the original character animation sheet. COLOR AND VALUE MATCH ONLY: match image 1 to image 2's subdued neutral paper/graphite palette, lower orange/yellow saturation and match the softer contrast/value so these frames intercut with the original WITHOUT color or brightness flicker. Especially neutralize orange brown. Keep EXACTLY the eight poses, body proportions, silhouettes, pixel positions, equal cell layout and transparent background of image 1. Do not redesign, re-pose, add, remove or duplicate sprites. Preserve all eight complete sprites. Keep transparent alpha. No background, text, or shadows.",
+    "mode": "built-in imagegen",
+    "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-875bdc4a-9ba2-4753-9a8e-4835ab2a3c21.png"
+  },
+  {
+    "id": "C02",
+    "prompt": "Edit target: image 1 is an eight-frame 4-column 2-row transparent sprite sheet. Reference: image 2 is the original character animation sheet. COLOR AND VALUE MATCH ONLY: match image 1 to image 2's subdued neutral paper/graphite palette, lower orange/yellow saturation and match the softer contrast/value so these frames intercut with the original WITHOUT color or brightness flicker. Especially neutralize orange brown. Keep EXACTLY the eight poses, body proportions, silhouettes, pixel positions, equal cell layout and transparent background of image 1. Do not redesign, re-pose, add, remove or duplicate sprites. Preserve all eight complete sprites. Keep transparent alpha. No background, text, or shadows.",
+    "mode": "built-in imagegen",
+    "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-b0da20e1-761e-452f-b037-b411489c50b5.png"
+  }
+]

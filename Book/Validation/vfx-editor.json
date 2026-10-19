@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": [
+    "UNFIN_VFX_OK",
+    "UNFIN_ENEMY_MOTION_OK",
+    "UNFIN_ENEMY_ANIMATIONS_OK"
+  ],
+  "textures": 6,
+  "poolLimit": 128,
+  "hitTint": [
+    0.64,
+    0.6,
+    0.52
+  ],
+  "maxHitAlpha": 0.52,
+  "hurtAnimationAdded": false
+}

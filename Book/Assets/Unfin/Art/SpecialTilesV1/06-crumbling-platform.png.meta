@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: f276a0df06e931c4bbf8491ce81d1ac5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4660742527508168608
+    second: 06-crumbling-platform_0
+  - first:
+      213: 7112877149592624508
+    second: 06-crumbling-platform_1
+  - first:
+      213: 3437131866047348817
+    second: 06-crumbling-platform_2
+  - first:
+      213: -6620803274997465517
+    second: 06-crumbling-platform_3
+  - first:
+      213: -8411834579078889607
+    second: 06-crumbling-platform_4
+  - first:
+      213: 4851630305676109021
+    second: 06-crumbling-platform_5
+  - first:
+      213: -4721320125345522041
+    second: 06-crumbling-platform_6
+  - first:
+      213: -7928967678125436184
+    second: 06-crumbling-platform_7
+  - first:
+      213: -1964131636993049481
+    second: 06-crumbling-platform_8
+  - first:
+      213: 5358630246133562067
+    second: 06-crumbling-platform_9
+  - first:
+      213: 6064123956738962641
+    second: 06-crumbling-platform_10
+  - first:
+      213: -1429459171617047336
+    second: 06-crumbling-platform_11
+  - first:
+      213: 4505633944760531898
+    second: 06-crumbling-platform_12
+  - first:
+      213: 2897787597104426778
+    second: 06-crumbling-platform_13
+  - first:
+      213: -1539059121125707254
+    second: 06-crumbling-platform_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 06-crumbling-platform_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 90
+        width: 1731
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af3ea592a84ea040800000000000000
+      internalID: 4660742527508168608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 694
+        width: 33
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d1678f41406b260800000000000000
+      internalID: 7112877149592624508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_2
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 599
+        width: 418
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1508de1b83523bf20800000000000000
+      internalID: 3437131866047348817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_3
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 676
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e780aff7e2e14a0800000000000000
+      internalID: -6620803274997465517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_4
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 614
+        width: 338
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97fb7a4a409234b80800000000000000
+      internalID: -8411834579078889607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_5
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 706
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd42857de04745340800000000000000
+      internalID: 4851630305676109021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_6
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 707
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78e90e15c508a7eb0800000000000000
+      internalID: -4721320125345522041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_7
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 717
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e297cdf7e5a6f190800000000000000
+      internalID: -7928967678125436184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_8
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 614
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77c3cecbea00eb4e0800000000000000
+      internalID: -1964131636993049481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_9
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 599
+        width: 354
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3da747f41ddad5a40800000000000000
+      internalID: 5358630246133562067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_10
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 620
+        width: 292
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d4bc5b0c98182450800000000000000
+      internalID: 6064123956738962641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_11
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 676
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dc77def47a892ce0800000000000000
+      internalID: -1429459171617047336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_12
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 563
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abbb46d633a378e30800000000000000
+      internalID: 4505633944760531898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_13
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 217
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f21f76772073820800000000000000
+      internalID: 2897787597104426778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-crumbling-platform_14
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 217
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a023af432e924aae0800000000000000
+      internalID: -1539059121125707254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      06-crumbling-platform_0: 4660742527508168608
+      06-crumbling-platform_1: 7112877149592624508
+      06-crumbling-platform_10: 6064123956738962641
+      06-crumbling-platform_11: -1429459171617047336
+      06-crumbling-platform_12: 4505633944760531898
+      06-crumbling-platform_13: 2897787597104426778
+      06-crumbling-platform_14: -1539059121125707254
+      06-crumbling-platform_2: 3437131866047348817
+      06-crumbling-platform_3: -6620803274997465517
+      06-crumbling-platform_4: -8411834579078889607
+      06-crumbling-platform_5: 4851630305676109021
+      06-crumbling-platform_6: -4721320125345522041
+      06-crumbling-platform_7: -7928967678125436184
+      06-crumbling-platform_8: -1964131636993049481
+      06-crumbling-platform_9: 5358630246133562067
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

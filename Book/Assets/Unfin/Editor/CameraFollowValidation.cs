@@ -39,7 +39,7 @@ namespace Unfin.Editor
                 }
                 Check(m.grounded, "repeated jump lands");
             }
-            Check(earlyFollow > .35f, "camera follows within first 100ms: " + earlyFollow);
+            Check(earlyFollow > .35f * (PlayerMotion.JumpSpeed / 330f), "camera follows within first 100ms: " + earlyFollow);
             Check(jumpMovement > 2.5f && jumpMovement < 4.4f, "camera follows jump height smoothly: " + jumpMovement);
             Step(240, 1);
             Check(Mathf.Abs(w.worldCamera.transform.position.x-w.player.position.x)<.0001f, "horizontal tracking has no lag");

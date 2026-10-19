@@ -1,0 +1,1446 @@
+{
+  "version": 3,
+  "cell": 384,
+  "columns": 4,
+  "rows": 3,
+  "states": [
+    "Move",
+    "Attack",
+    "Death"
+  ],
+  "enemies": [
+    {
+      "id": "COMMON01",
+      "group": "common",
+      "name": "구겨진 종이공",
+      "region": 0,
+      "scope": "공통",
+      "zone": "공통 · 여러 지역",
+      "color": "#b9b09b",
+      "appearance": "Low round crumpled parchment armadillo with three large folded shell plates, tiny dark feet and a narrow ink eye slit",
+      "height": 0.65,
+      "role": "수평 돌진",
+      "first": "1지역 3번 종이 비탈 / 2지역 2번 비탈",
+      "timing": [
+        0.65,
+        0.35,
+        0.9
+      ],
+      "attack": "몸을 압축한 뒤 한 방향으로 구름. 벽 충돌 시 납작하게 펼쳐짐",
+      "response": "점프로 넘기거나 뒤로 물러난 뒤 펼쳐진 몸 공격",
+      "parry": "구르는 몸은 반사 불가. 벽 충돌로 같은 빈틈 확보",
+      "caution": "낭떠러지 바로 옆 첫 배치 금지; 지역별 겉종이 색만 변경",
+      "image": "common.png",
+      "panel": 1,
+      "imagePosition": "왼쪽 지상",
+      "file": "atlases/COMMON01.png",
+      "pixelsPerUnit": 198.163,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "durations": [
+        [
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06
+        ],
+        [
+          0.17875000000000002,
+          0.17875000000000002,
+          0.14625000000000002,
+          0.14625000000000002,
+          0.22749999999999998,
+          0.12249999999999998,
+          0.36000000000000004,
+          0.54
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "caa637e62e380b3304edbaae6f03865cb06271ca1f98576492c4596b95ee52e8",
+        "2981607f9f7527e178df39db3823d86f7bef8dab0e07e1f1ea4cb7c854c8312b",
+        "69f07a1a9f7a208efac7f9c8cc177d05c9ee93cdc4233651e9443246bdb36b01",
+        "324796b48f950ebcec6f36ba19fa795194398b91e4a6f9c96cb95b4ef4523d02",
+        "b5c0f9754ecbed1783e2c279ab25f7fe60a20536b3e97b114e423e6012ceb617",
+        "75c99ccccd81090963744515d174b16aeb3150bd05acf279e163e744cfb1230c",
+        "c55774fd1663594cd88e279ae2df0979f8d3e73f1023dc21b4bcbfc74e61162a",
+        "0097a450846d7ff82a8c885e07f8a5dece4b116209f5739e6c07395dc26567de",
+        "90ea21b632cf17ec733b9e079151d506bf6419042793b24d87aedc54bcf848e0",
+        "eedf7fa10e4a0c777038a4e877e1392f5a7985d2968cabd92f85b081036c94d5",
+        "cb51fe9ca811609687abac58fa68f2862e7086716a6237bf213648b1f89e18c9",
+        "dadd0355d20773d52c7e2c9984d1146be0946aed271e95e9207969cf52f2efbd",
+        "5be1b8972e45f411d03ed59ce0c78cf49afa11eed608f2e3c215dccca7381779",
+        "02551336b8a6dcc484690a2a1c167b44835b7e65684e241a931faded1e97eda9",
+        "1d652467c705ae6d84d45abcf0af615880fbd7d53e1dbb3be2967aff05cc8a24",
+        "ddf5011d032a99c4645be3489e857711b4611c254264d8b71ff9efec2c381f02",
+        "5bc342de26832ecf1f6aab9aa57f6b3ff82d2aed5a0c4a67628f17abbb99466c",
+        "1f41512aae6f060af6250997a33a58a1b0b367ee00df02784164f9154ed8d01c",
+        "e6b0a1dfb96921a54408dac5739acf6749412ba32e0a2ee1ce811b742fe05447",
+        "685311509ba37d1d6cc7a2095baaa73c7ad3e4a9a3a7c00d1c451a9e7beb562d"
+      ],
+      "columns": 4,
+      "rows": 5,
+      "frameCounts": [
+        8,
+        8,
+        4
+      ],
+      "starts": [
+        0,
+        8,
+        16
+      ]
+    },
+    {
+      "id": "COMMON02",
+      "group": "common",
+      "name": "종이 나방",
+      "region": 0,
+      "scope": "공통",
+      "zone": "공통 · 여러 지역",
+      "color": "#b9b09b",
+      "appearance": "Small hovering moth with two broad curled paper wings and a dark seed body, asymmetrical missing wing corner, restrained ivory and slate",
+      "height": 0.55,
+      "role": "공중 접근",
+      "first": "1지역 2번 후반 / 2지역 3번 넓은 공간",
+      "timing": [
+        0.7,
+        0.3,
+        0.85
+      ],
+      "attack": "날개를 접고 조준선을 고정한 뒤 짧은 대각선 급강하",
+      "response": "조준 고정 후 한 걸음 옆으로 이동; 저공 회복 때 공격",
+      "parry": "획득 후 급강하 접촉을 튕기면 바닥에 떨어져 1초 노출",
+      "caution": "첫 등장 1마리. 발판 착지 위치를 매복하지 않음",
+      "image": "common.png",
+      "panel": 2,
+      "imagePosition": "중앙 오른쪽 공중",
+      "file": "atlases/COMMON02.png",
+      "pixelsPerUnit": 312.066,
+      "pivotY": 0.5,
+      "stationary": false,
+      "flying": true,
+      "durations": [
+        [
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06
+        ],
+        [
+          0.1925,
+          0.1925,
+          0.1575,
+          0.1575,
+          0.195,
+          0.105,
+          0.34,
+          0.51
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "d1ddda3fcb3a58c4fef0369d7c9b25b6a0574a666a32d4ba610fe967e3319132",
+        "259e66bfcaef79f55ad5030b5289496f1f394ec6cc8d00bbc10fcc581c4cfb81",
+        "a285a95fa9cf7985ad748429a2e02c32c2a15e383c2b4926ffa117f24e700c48",
+        "c1f6e3cc946ea9beed18dc8f4ebfa496461450eaa60cfb5e4794955002a99daf",
+        "1dc797e1f9b17ad7589e3d035ebdae16fe73908f5262d5c7ad7a80179a295301",
+        "0357c753f53f9196fcc3cec09ada3a6f4821193499a617e39c159f356a3cc7ee",
+        "5ad8c274b075ef8b0e9579c047d187d543f2a7c878e6a00a285cba1342b24b47",
+        "592b813c80a8fae4e848c2b532456f2758133ffe43b6f6872da2f55f244b6ea3",
+        "a2cf10140941be6629251cfcb4ae01114fb50a59e9617171d0d978ebbc888bc3",
+        "054a11842e6f62b3f63e993a030ca5afb5aa4aff77ce1d495b1cdc45cbdfe3f2",
+        "81ffd1287255d9faa0f3991d80459eb456f1e7d528d034e1e05f2dcc6edaeb90",
+        "dae42a5db4a44f512d313c03a828f1f4e46eb019d754ac02dde28abef7eb8fff",
+        "ee9397bdb307ed7b9286be22e29821cdcf53c91d1eeb90132e37d6fb1e128fb4",
+        "5ced895e775ef43f0f4414432a1cb1491cb474055924716c72566940feccaf06",
+        "fe4ca546ecc5972bd31d5b1a0459583c9ebe1ab278325855508454566dbc62df",
+        "2b5a87571a09f87ddaf59f671ab9e154ffede4f29a88fe50ef2b5b4f902da107",
+        "c64c0218b1e20ca7e8c1324f000f63e42f8be8a270ff8ee124348a6f3e3dec48",
+        "21896cd7d9eefc0ad8cfc6342fa2859399478b78a3449177b46aa32588cb50cd",
+        "1d7e6179c94eab308e41e4bdd17ad34add8f22a881bf56e993e59b8d35d807bf",
+        "cf8fe371115e59736098cd4c34399e630f60e06262c2474749ca9c38379bee75"
+      ],
+      "columns": 4,
+      "rows": 5,
+      "frameCounts": [
+        8,
+        8,
+        4
+      ],
+      "starts": [
+        0,
+        8,
+        16
+      ]
+    },
+    {
+      "id": "COMMON03",
+      "group": "common",
+      "name": "잉크 방울",
+      "region": 0,
+      "scope": "공통",
+      "zone": "공통 · 여러 지역",
+      "color": "#b9b09b",
+      "appearance": "Squat ink-sac creature held in an open folded paper cup, one soft droplet nozzle and two short feet, matte blue-black core",
+      "height": 0.7,
+      "role": "곡사 견제",
+      "first": "1지역 18번 덩굴 다리 / 2지역 15번 넓은 바닥",
+      "timing": [
+        0.8,
+        0.15,
+        1.1
+      ],
+      "attack": "주머니가 부풀고 큰 잉크탄 한 발. 바닥 착탄 그림자 뒤 작은 웅덩이 1.5초",
+      "response": "탄을 베거나 착탄 표시 밖으로 이동; 웅덩이를 점프로 넘음",
+      "parry": "탄 반사 시 사수 경직 1초. 웅덩이 자체는 패링 불가",
+      "caution": "다리 전체를 웅덩이가 막지 않도록 안전 폭 유지",
+      "image": "common.png",
+      "panel": 3,
+      "imagePosition": "오른쪽 지상",
+      "file": "atlases/COMMON03.png",
+      "pixelsPerUnit": 245.195,
+      "pivotY": 0.125,
+      "stationary": true,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.44000000000000006,
+          0.36000000000000004,
+          0.15,
+          1.1
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "af11030b6d40101d5bef39936e60a3b4f3c2fddfb86e67c9d6132924fdf5be85",
+        "ff923a1c086838e2495f824b83b8b866f13c4d9c8264fd3e68020ab39673f3bf",
+        "e69475a7987eb8f517d8123c26bd7b788a376e82f0351d9c4448248e7028d5ce",
+        "a399f16c42afd73e26ecec5fd801aa054eb68ae928e1a7a8cc67e972b65dcb0d",
+        "145dcf6386ba197b9b6c57f1749dabfcce9eea4765f88440e43cc58b47e2b19d",
+        "07392b5faac1aa389a740a2bfc7b4ef78dda11e808b83e8c4da058b9e994761b",
+        "0f593e939290b6873248821812bb2db90e5cab75cd855abc1542f38f890485d2",
+        "eba495ef215cfd9af810254dce5fb89552609eea13674a22f311ebf28af57ba7",
+        "efeaaab0993d786d3347f8783bef17d47a4cafc326b15b71f0477fa2a632e0ea",
+        "39693b9be7f2620ec1ea311d7b67bc367cfaca0711714b8157bc87b59b8f43eb",
+        "bc4ca5479b8f1ef6bd58af6143a917943f11b1b3d4f84bb333fd0fda6156f241",
+        "310645e1ce7beabc81d0a6b093c287174dd3e897bdca90a7fad167b067295143"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "R101",
+      "group": "r1",
+      "name": "흑연 벌레",
+      "region": 1,
+      "scope": "지역 전용",
+      "zone": "연필 숲 · 지역 전용",
+      "color": "#89979c",
+      "appearance": "Low elongated graphite grub with four broad smooth pencil-core plates, blunt snout and short ivory underfeet, charcoal blue gray",
+      "height": 0.55,
+      "role": "기초 근접",
+      "first": "1지역 1번 시작의 백지길",
+      "timing": [
+        0.65,
+        0.18,
+        0.85
+      ],
+      "attack": "머리를 들어 멈춘 뒤 몸 길이만큼 짧게 들이받음",
+      "response": "뒤로 한 걸음 피하고 긴 회복에 공격; 대시 불필요",
+      "parry": "재방문 시 머리 타격을 튕기면 즉시 뒤집힘",
+      "caution": "시작 세이브에서 충분히 떨어진 평지에 단독 배치",
+      "image": "r1.png",
+      "panel": 1,
+      "imagePosition": "왼쪽 지상",
+      "file": "atlases/R101.png",
+      "pixelsPerUnit": 173.293,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.35750000000000004,
+          0.29250000000000004,
+          0.18,
+          0.85
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "60a27b51e493873eaaef6949af91315e37ec2bf76c751641fcdef0ea7f77824d",
+        "e33beae2cb41324f3d0ec9a335722adf8dee9290d4bbbfa59607f278cab9b867",
+        "d07011e31ce2844330a4311ad40cc6a49d5445c15d53034d54a961e37d410391",
+        "1d9f622ea5e54e7ae5b876b813cd9a7ebfa27dbcb93b81f21e97da55d6b83364",
+        "86e6f811b882c0e13a73b2911b65de9ffcaeb56d7a51b6bf072076a0ccdacc16",
+        "c27dc13e1d51c2790efd269819bb937ba881617196d067a35d355aaf9bc94858",
+        "3fbd8c47df00982086fd29e91dfa74abb4feecd367aba0caf50250a9397db910",
+        "f7dd9e7fa66922466e48f949e9a7ba8ef93ee14b65ea83e0b73ef71d206ef0ba",
+        "bba256d3b813075e23bad8c8f332ca7c8804ec038608ffd49665ae1e35f635f1",
+        "560dc06b9c7b7c5cf67adda692123c637459a94c8699dd15b529d591349ccb52",
+        "b9d095d4832d004316a5dc159000b3a348f328bbd4c18892dd33b6ff5d7952c7",
+        "d17c790fc0c12be0ca9fe0f6f2b4996b171c056fc2d2f644183988ae1c08dc6b"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "R102",
+      "group": "r1",
+      "name": "연필깎이 포탑",
+      "region": 1,
+      "scope": "지역 전용",
+      "zone": "연필 숲 · 지역 전용",
+      "color": "#89979c",
+      "appearance": "Grounded squat wooden pencil sharpener creature with one circular muzzle and folded wooden flanks, visible chunky graphite pellet, no mechanical gun barrel",
+      "height": 0.85,
+      "role": "수평 탄",
+      "first": "1지역 2번 바람 드는 종이 틈",
+      "timing": [
+        0.75,
+        0.12,
+        1.3
+      ],
+      "attack": "구멍 안에 흑연이 모인 뒤 수평으로 단발 사격",
+      "response": "점프로 넘기거나 탄을 베기; 총구 뒤 안전",
+      "parry": "재방문 탄 반사로 긴 경직. 6번→25번 과녁 문 탄 공급 역할 유지",
+      "caution": "1지역 전용으로 재분류. 기존 2지역 15번 포탑 역할은 G03으로 교체 제안",
+      "image": "r1.png",
+      "panel": 2,
+      "imagePosition": "플레이어 오른쪽 포탑",
+      "file": "atlases/R102.png",
+      "pixelsPerUnit": 190.29,
+      "pivotY": 0.125,
+      "stationary": true,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.41250000000000003,
+          0.3375,
+          0.12,
+          1.3
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "f3a4fcc8b08ee7bf7fc357f7539e66c250af8a02b0570e9801263b26b2b1bac3",
+        "b7b4d8ef0b097e627a565d75c01b058b14087da5b906fee8608decb56b19d105",
+        "98afdbc501b4c8312e1907dd0eb32a9a1fdd98222c7f9fc7fcb08df581a1da9a",
+        "f21d1656154b6a9904da27d1fc52ab79b254ea3a208baa55f4c255c0c5768bc7",
+        "7ace68309c08f4964bc7b3c8c6bc32aee981555445a9bb1ffe685944fc8749e3",
+        "a7271953ab4ebac0d96f95b8a733afb108708b41f98bb9450512e31039e39a09",
+        "ac971fc2d639747ba14d4c372a4d35986ae81264cffc5069b76db7a8a18f3624",
+        "bc889a1b4bbb9b5e3c1d6585fbf9b7c541d5639b3f51d2de7ac3aa4c7653a2c2",
+        "005ca90415c711892427c874f6cbe24c20dc80f956ddbd66269634ab3084bcd9",
+        "0982baf1557cdd60a3d8d1cebc6c3b65091940dcd2a681db6eebccf46aad34dd",
+        "3d2f9821b1306c62683773369f32ae90bafa0be22951a7ca6d58afc9cf04f819",
+        "3fd7ecacb0284a88aaf18429edfa457ac57d324ccaf5bf408acf50dc209392bb"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "R103",
+      "group": "r1",
+      "name": "지우개 짐꾼",
+      "region": 1,
+      "scope": "지역 전용",
+      "zone": "연필 숲 · 지역 전용",
+      "color": "#89979c",
+      "appearance": "Hunched squat eraser beast carrying a broad curved graphite-stained shield slab on its back, short sturdy feet and a small exposed pale belly",
+      "height": 1.0,
+      "role": "정면 압박",
+      "first": "1지역 5번 갈림길 굴 전투 공간",
+      "timing": [
+        0.85,
+        0.25,
+        1.1
+      ],
+      "attack": "앞판을 세우고 짧게 밀친 뒤 배가 드러남. 정면 상시 무적 아님",
+      "response": "밀치기 거리 밖에서 기다리거나 점프로 뒤를 잡고 공격",
+      "parry": "재방문 정면 밀치기 패링으로 앞판 벌어짐",
+      "caution": "통로 출구를 완전히 봉쇄하지 않음; 기존 엘리트 지우개와 크기·장비 구별",
+      "image": "r1.png",
+      "panel": 3,
+      "imagePosition": "맨 오른쪽",
+      "file": "atlases/R103.png",
+      "pixelsPerUnit": 150.567,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.4675,
+          0.3825,
+          0.25,
+          1.1
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "97b9f064edc1a3b1fe49a702f2538ed0e77662dfaa346b3587a198b296e9eb9c",
+        "85c64b9b78454d8597503a96db1b82ad0cd1416c9b9c241c2fec68c6727eae13",
+        "67deeb7dc60b71f5f2f4a7e7bdb8b8f2cba91935a443c53d9c333126523120fe",
+        "6aad27336d652117eebb5fb0585d4898074203ba0fabcb9406de5f434f7cad1a",
+        "c99338835b37718dd6cf2f741cd38e9e2e039cb266cc2553c5e24e5afe819ee4",
+        "d1b0b2477aa178e14f3b3472d29c716942096bc9df0d6126b6ea1d88401f1426",
+        "2212fec5f3b84c69ce32f9aefcbf702b3c390631ccacdf66b3a4ccd7910c137a",
+        "00ccc5615db19bf4d49440284b9f86a9be942f9f67bb13b2de34d8aaf8847341",
+        "1eac5f9fb2f72d2a22be884a2a3926ceae9d062e5c9b8430f82d7c737178d680",
+        "5b7109fdf3980b4e64e3cf13c491595bef1ba385bee3a0da01bff35e2eae4c13",
+        "39b62aeb8056900d96438a20a326409cd461a8003e9e95c2aeb9914a31eb5433",
+        "2a49f3af39d5f592fc1c856c74f906f2b0fe298e7814d7a57a5ae43fc22b7590"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "A01",
+      "group": "a",
+      "name": "접힌 입 종이벌레",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "구겨진 종이굴",
+      "color": "#b3a18c",
+      "appearance": "Flat beige paper slug with a large folded envelope mouth, two dark eye dots and rounded accordion body, broad sparse crease patterns",
+      "height": 0.55,
+      "role": "짧은 물기",
+      "first": "1지역 3번 상단 평지",
+      "timing": [
+        0.75,
+        0.15,
+        0.9
+      ],
+      "attack": "봉투 입을 벌려 멈춘 뒤 앞쪽 반 몸통 거리 물기",
+      "response": "공격 범위 밖에서 기다렸다 닫힌 입 공격",
+      "parry": "재방문 입 닫힘 타격 패링 시 경직",
+      "caution": "벽 점프 획득 전후 모두 지상 대응 가능",
+      "image": "a.png",
+      "panel": 1,
+      "imagePosition": "왼쪽 위 발판",
+      "file": "atlases/A01.png",
+      "pixelsPerUnit": 213.794,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.41250000000000003,
+          0.3375,
+          0.15,
+          0.9
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "a0cc53806a32aa31aae8715ed19b76e0a88e2078a1f83538b68cd9b186cf7240",
+        "3f3b813c01e48b9571be41a8dd930b2cf95c8e3563318f4346990fd9aa2f3108",
+        "daff6ab7da15a91bb33544ce1b64092619d558fb14b11c4dee4e25591ee98f4e",
+        "fe23b0764743438d07bda9a2b6325e5895a48b321d28fd9309f9089895ac50e6",
+        "6bae851825492a5ea6abd03164a1bed17b42c2892acc91bf12a85561e3ee1124",
+        "9094c77d99ffa5483337bb109686a11aef5042ce0e0184e2b8bd804a64df82d9",
+        "cc22bd41657a1988d94a0813275841b32bc9194c189b1d3e412767ef2816a34e",
+        "1daa351dace83392c92709b2a5db0aa354c5db3eca3408efd23651b20b5ff035",
+        "14e25bc6ed82b5ecb575b48b75a9756d3c3bbf6e9624f292f5764fdcbb7ea8a8",
+        "ccb49705d2d13c5e7e615eff29a6696c04cf5cee3a76110efd18a0ce7de3cdf1",
+        "dc6847f216fc05e2a85ea5248b5171aca24da0ce65777405161ea75b69a83629",
+        "aad98274cfac88d243bbba750fac32690f8b4bbd873971c81a1f7d83a0c668ec"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "A02",
+      "group": "a",
+      "name": "종이 귀뚜라미",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "구겨진 종이굴",
+      "color": "#b3a18c",
+      "appearance": "Small long-backed folded paper cricket with broad bent hind legs and curled antennae, warm taupe paper, compact non-spiky silhouette",
+      "height": 0.65,
+      "role": "착지 공격",
+      "first": "1지역 4번 풀 그림자 굴 바닥",
+      "timing": [
+        0.8,
+        0.45,
+        1.0
+      ],
+      "attack": "뒷다리를 접고 낮은 포물선으로 한 번 뛰어 착지",
+      "response": "착지 그림자 밖으로 걷고 착지 후 공격",
+      "parry": "재방문 착지 몸통 타격 패링으로 넘어진 상태",
+      "caution": "머리 위 화면 밖에서 뛰어들지 않음",
+      "image": "a.png",
+      "panel": 2,
+      "imagePosition": "플레이어 왼쪽",
+      "file": "atlases/A02.png",
+      "pixelsPerUnit": 255.425,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "durations": [
+        [
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06
+        ],
+        [
+          0.22000000000000003,
+          0.22000000000000003,
+          0.18000000000000002,
+          0.18000000000000002,
+          0.29250000000000004,
+          0.1575,
+          0.4,
+          0.6
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "ee40863e9ce369d8cd9ee4a3bfbfb99632243edc4967ccaf6b10402c2501414a",
+        "6370af6d1c0508bf91435e7205bbce20678480954eaf31be3a7fe0731c3d1607",
+        "2a28e7faeb4dabe5c2d33701fdadd3769474fa672bd5bc1a390ffa254f8d67b9",
+        "cf356fcf99c0ca3ddfbb0d98cae724dbf2db2c68661894accc944d806ffe7887",
+        "25c35394e6f49df4011457eee6334203b9abf12219b163423758b344e8fb44c1",
+        "ab21d83775fe4d0437345d099830170a7e13efa42640d1fe10b630ab230ef988",
+        "9c997d12b74a69b91782f81152dda1a68794a6bf0d228b960d477698eaa81b07",
+        "8809286543963ca895538d9260b6b33c6159811ba785b605ad9bd1f065146bc8",
+        "097f465183c4c0bba4a19d9288472ca49fd251df9c55a0584d7567c70002d200",
+        "6e32b87534220b55d2451e70ca52d2c90e26ce77075e5bfd1de2c4a5bef1645e",
+        "f0afde3cca52f19e527a56c2bfcd71232da96922c01e5daf5914135d6b4d447c",
+        "340a596607bb7428e8783f9d95def500f84d80df4b1a116548cba19f271fc8a7",
+        "a81ffee7a2a17d7299bd3a5b30a68b11f4f7e673556ed1058caf3feeea54f740",
+        "a1e889d5fbece957de4f349d85d82f3bc80bbc415d226969b7a7101bc113dbc9",
+        "b5bba5cdee8245cbf1cf0abdd73fe24e073c9a82f90183e464cd3642f6975ba6",
+        "c28c02a8509ce856a3c50abf67b96231cf0ab23f5dcc4fd266bd3c7fe62b686a",
+        "ce673f6c8ed2a07be26395c8222cb4e6e5d83782dd70f0769ed25c2fbe2137dc",
+        "59af50a3eece7a2a6ddbb571369c5866c8dd2f089980c9c27b11deab11e45bb6",
+        "ccd92990da900c08d506498120308e572dd30e7d59b5edee88d1f75f47242c65",
+        "0aa3de96ae18ef91904fac56c822d7dad23b8cd82ace43b54ad3f6ecccb7452b"
+      ],
+      "columns": 4,
+      "rows": 5,
+      "frameCounts": [
+        8,
+        8,
+        4
+      ],
+      "starts": [
+        0,
+        8,
+        16
+      ]
+    },
+    {
+      "id": "A03",
+      "group": "a",
+      "name": "책장 소라",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "구겨진 종이굴",
+      "color": "#b3a18c",
+      "appearance": "Small snail carrying a curved rolled book-page shell with one thick page lip, charcoal soft foot and visible light face",
+      "height": 0.8,
+      "role": "방어와 빈틈",
+      "first": "1지역 6번 갈림굴 다락 넓은 선반",
+      "timing": [
+        0.9,
+        0.2,
+        1.2
+      ],
+      "attack": "껍질 속에 숨었다가 페이지를 한 번 펼쳐 앞쪽을 쓸음",
+      "response": "범위를 빠져나온 뒤 노출된 얼굴 공격",
+      "parry": "재방문 페이지 쓸기 패링으로 껍질 열린 상태 유지",
+      "caution": "기존 포탑 2마리와 동시 첫 소개 금지",
+      "image": "a.png",
+      "panel": 3,
+      "imagePosition": "오른쪽 건너편",
+      "file": "atlases/A03.png",
+      "pixelsPerUnit": 144.435,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.49500000000000005,
+          0.405,
+          0.2,
+          1.2
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "613963b1176c510d9f1be89fe468cc23436a31e223b8aba68792d583df9d6ee2",
+        "a7e5303717e927d46ea14a0be9322c4d51f826a1d55b21d34eee6967fe9a11a3",
+        "9f72677f3962051d22e35a7834346a809b13cea9a7186f3e1b5ceecca8f99779",
+        "0df8c7834fcd46f8c682a0e52c891faf5c4a1c6279c966073965fd55263f5dbe",
+        "1bb980c413acc030fe607713d4aa2fb29d3dc05321c253ed43b1cc8b54fb9df0",
+        "438348df8af09b44c68f96dc5adea90674f17d4ad2cfb487c83c6f5214481aad",
+        "2df0b2350298ff35101a0223c4edcdbe6d10fc3d2056631b90066be557bdf3da",
+        "b477624b37b19aaac73704747d4f8a9183fa798f06855e0c517b867cb62719c4",
+        "d6d8d28a6ebc01483e87dc60c8696d299040760e82ec8e597341c3f49c93f2d6",
+        "442d7de069aeed6c579a25bbac746f7deb33b336ed2fdbea312ee163d3b3c26b",
+        "873e21e455cde582706f4d24b7163740897b7fa8a3db873c6e3905bf62d321db",
+        "3c29661ada05343c42c55d3d797d7252b0b9b026cc5c9a5a7a70a9c3400ec5cc"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "B01",
+      "group": "b",
+      "name": "흑연 두더지",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "흑연 광산",
+      "color": "#8096aa",
+      "appearance": "Rounded blue-gray graphite mole with large blunt shovel forepaws, pale snout, three chunky ore plates on back",
+      "height": 0.8,
+      "role": "지면 예고",
+      "first": "1지역 7번 광산 입구",
+      "timing": [
+        0.7,
+        0.25,
+        1.2
+      ],
+      "attack": "이동 흙더미가 멈춘 위치에서 솟아오르고 잠깐 노출",
+      "response": "흙더미를 옆으로 피하고 나온 뒤 공격",
+      "parry": "솟아오르는 몸은 패링 불가; 지상 앞발 타격만 가능",
+      "caution": "불투명 바닥 위에서만 잠복; 첫 등장 단독 유지",
+      "image": "b.png",
+      "panel": 1,
+      "imagePosition": "플레이어 왼쪽",
+      "file": "atlases/B01.png",
+      "pixelsPerUnit": 145.341,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.385,
+          0.315,
+          0.25,
+          1.2
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "1a1cb806aa065a54a36c80f0780ec227f2d18377893d55fbc8e1298854d6ac71",
+        "ba0f1560be69cc6c0aa69e9b57f0912562e4bd04359ea7d776f4697ab50becb5",
+        "79bad291423ce23b8fd93b6337457628807289d894731889c843eb0cedba2a7d",
+        "7df6abf051b5551a108c292b7b0e6da27aa7ce1eb1a20874f9203b6cd2cef6db",
+        "dd126cc926fc744cacb15b399829cf48a142a9232b774dbe2e804eeb5cc27be3",
+        "3b913e1e9504c64f9235d9d9b88b1b30c97b09de7be762677478e2a67804ee57",
+        "94641721ec4c42ce66e786bbc73d6ac4ebcfd49f206532203eb766ab4b85729a",
+        "5d1bad735c7938033f5e76d5543c24691ca62cefe6df2c2a683eee328f730bfc",
+        "f7e13477581e30e921055d58e7bff0ebc24edd505713b7f86b929b0047bc88a7",
+        "a6e3c3d3ac5f4823bf7d8444ae79aa121ad241fa7f6895d2add850d58c8f6480",
+        "551f72935617dde4a8ebd2c4e06a3de6f68e513ee376ab3a214746d290dba32d",
+        "dbcc549a823d2d5b65eb4935765e0abf44ae251b897d37428c51c4d163e55088"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "B02",
+      "group": "b",
+      "name": "흑연 등딱지",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "흑연 광산",
+      "color": "#8096aa",
+      "appearance": "Low wide beetle with two smooth heavy graphite ore shields, bright worn seams and six tiny sturdy feet, one front scraping plate",
+      "height": 0.85,
+      "role": "낮은 횡공격",
+      "first": "1지역 8번 흑연 갱도 평지",
+      "timing": [
+        0.85,
+        0.25,
+        1.15
+      ],
+      "attack": "앞판으로 바닥을 긁고 낮게 1.5몸 길이 밀어냄",
+      "response": "점프로 넘긴 뒤 뒤쪽 열린 틈 공격",
+      "parry": "재방문 긁는 앞판 패링 시 옆으로 뒤집힘",
+      "caution": "6칸 높이 갱도에서 높은 점프를 요구하지 않음",
+      "image": "b.png",
+      "panel": 2,
+      "imagePosition": "오른쪽 지상",
+      "file": "atlases/B02.png",
+      "pixelsPerUnit": 125.359,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.4675,
+          0.3825,
+          0.25,
+          1.15
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "ad01c1906b1d567a140e5556563e7fba1dd0dda7842974ff0753499f6e9e2afa",
+        "0946cdd8b82e7a65a7a806006c89db7ecff33c09ff78c43915801effde0f2966",
+        "bcc05568c860a9a5025b6b1f0bb512305c242f83845038c7842cc38d2b9fe802",
+        "0a6973baab9fff46635c2dd413905855b9a8634e432e09e916d69051bd329db3",
+        "aac8aaa31068e1ebbc302f65a0d5de0b1e2cb08bf88ffdda468ed4ad658d18f1",
+        "8b85736a5e229396ab58ba5094a6dcbbdef2d811f1aa412f7545efd528d84e45",
+        "21643953eab4e7c4516c4d54144810f149f4259a233dd92abe462561e26ee6c8",
+        "f7088436b9b46a2c2343082356864f3b595ff3fc8e685d6a948041173626b568",
+        "796f2e04dcb594fa25e62441097443aba803141f2504ac7f1cf147251594e0be",
+        "afa855b05abced284aedcc0cbc269389a7babc5508390cc917f9266d5289c995",
+        "ac6b6546a9231e307f9ef2832e8a755f443debe45b7e3ed49e528173656be1dd",
+        "b957f343bb116b711b4681b64633f103f8d4332425935aeb929555b8c335a69e"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "B03",
+      "group": "b",
+      "name": "갱등 주머니",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "흑연 광산",
+      "color": "#8096aa",
+      "appearance": "Hanging soft graphite dust pouch with a heavy folded lantern hood and one dim amber seam, dark strap loop, broad rounded silhouette",
+      "height": 0.7,
+      "role": "천장 낙하",
+      "first": "1지역 9번 무너진 갱도 안전 선반 위",
+      "timing": [
+        0.9,
+        0.3,
+        1.3
+      ],
+      "attack": "고리가 흔들리고 바닥 그림자 표시 후 수직 낙하",
+      "response": "그림자 밖 이동; 떨어진 주머니 공격",
+      "parry": "몸통 낙하는 패링 불가",
+      "caution": "무너지는 발판 첫 점프 구간과 중첩 금지; 복귀 이동은 무피해",
+      "image": "b.png",
+      "panel": 3,
+      "imagePosition": "오른쪽 공중 주머니",
+      "file": "atlases/B03.png",
+      "pixelsPerUnit": 245.195,
+      "pivotY": 0.5,
+      "stationary": true,
+      "flying": true,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.49500000000000005,
+          0.405,
+          0.3,
+          1.3
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "5ceb7d716952de300a29c315402b16a0e1b6c956df70c765358a6b1b40235f8b",
+        "52e0b8e5f4678afc7ae9fbf7ca0109934391d57b0a8708a81a3403c9f1061d2d",
+        "51cf32108e0bcdf7807707da0baf14ca1e868798eb65b39afe93f70edf5405ba",
+        "bc5f8fc8ab1c91e4f7a0c060d16a5232e0c2f506aeb98223e4953520b839dd29",
+        "ca0a01972a9504630c5994e93eae95852d9607b6c8d2072b0e7139d0d381beb3",
+        "f6fd592d71a219ae7a1016e035df0f0da221f5eb729ed01f1503dda6c5e0d9a5",
+        "625e2fa9905a9c0f6ec02231ef58696c2b4abcc8d537d590386bc39e0ccda9f0",
+        "d1173924ba27224bd12aef91c1d9bb3d4f9cf1cb01843ea75dcb9533065d1860",
+        "43aff6ea9d04590d29f2d59bfe96ad704faa449962a43f8f1b735ac5026b24c1",
+        "e4c76b335b133ffdd13c5ee9c61b73558b2117f3025c6a2fda8bf8039eaa9fbb",
+        "6ee595284a8ab2e96cd5a24a0c87d08c401b253651fcbf09ad8daf519198b78b",
+        "9be3272532fda5e9bae0dfda3e10018c76cdf682797352203a5cd429d2b3d2a4"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "C01",
+      "group": "c",
+      "name": "지우개 거미",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "스케치 나무 속",
+      "color": "#ad8a65",
+      "appearance": "Soft worn eraser abdomen with four pairs of short curved graphite legs, one visible hanging paper thread, warm wood-gray palette",
+      "height": 0.65,
+      "role": "수직 견제",
+      "first": "1지역 13번 옹이 방",
+      "timing": [
+        0.8,
+        0.35,
+        1.0
+      ],
+      "attack": "실을 팽팽히 당긴 뒤 정해진 높이까지 내려와 다리 쓸기",
+      "response": "실 아래에서 비켜나고 낮아진 몸 공격",
+      "parry": "획득 후 다리 쓸기만 패링 가능; 실은 공격으로 절단",
+      "caution": "첫 배치는 넓은 바닥; 화면 밖 수직 기습 금지",
+      "image": "c.png",
+      "panel": 1,
+      "imagePosition": "왼쪽 위 매달린 개체",
+      "file": "atlases/C01.png",
+      "pixelsPerUnit": 264.056,
+      "pivotY": 0.5,
+      "stationary": false,
+      "flying": true,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.44000000000000006,
+          0.36000000000000004,
+          0.35,
+          1.0
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "8dc47f4e4afc5d8a799467bbd099a99cb250952b4117600e10d1e60e7b89b439",
+        "ee17cac5f53573dea88a0bcf7c0571e8ea12d61888d49e20618c048805ff7f75",
+        "c94cbbcea8ac70817adec113afb78d3b2e5bcc200a6c1ad05169cecbb9563fb7",
+        "81e8ad761742fb580ec0cee1f10af5e5215efffd8cda43368c73cb0dc7584360",
+        "d1ea051ba225baa7025f9d8abca533046e7ac8bd95e9fd23affa3011cebf568d",
+        "99ce58f5db427c4f50b4035f4d46ef7bd406972465a4dd737cd26e4d9f760733",
+        "ca0cf88fdf6d81d32c2cb1d0f6989f00da59ff56da1510bec975072c50b0ceca",
+        "eaa85b56fc0dd939b064668dd2bd9b86b230eb451e0e6a461ba331227d2bf070",
+        "3f639c36401a4ae3eb94c322b6a881c15fd6bcdcc002e5bca9be9fb4050d4d2b",
+        "9aabe7037b30ccdde45f6dc5d3b640afe51d071a9b579527399b6db9ac68204d",
+        "5fe1ffc8f1f4b0092f6e64d319e6037245b58658337883e33522f58f1fa088a8",
+        "80997603cd1ab4ff792e77dcd2a288fd645d152dd47a3a915f3197659833d741"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "C02",
+      "group": "c",
+      "name": "옹이 도마뱀",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "스케치 나무 속",
+      "color": "#ad8a65",
+      "appearance": "Small bark lizard made of overlapping broad warm brown curled wood-paper plates, large rounded knot cheek and short curved tail",
+      "height": 0.75,
+      "role": "벽 이동",
+      "first": "1지역 14번 나무 속 탑의 넓은 중간층",
+      "timing": [
+        0.75,
+        0.25,
+        0.95
+      ],
+      "attack": "벽에 붙어 머리를 돌리고 선반으로 짧게 도약",
+      "response": "도약 방향 고정 후 이동; 착지 중 노출",
+      "parry": "재방문 도약의 머리 타격 패링으로 선반에 쓰러짐",
+      "caution": "벽 점프 입력을 가로막는 좁은 벽에 배치 금지",
+      "image": "c.png",
+      "panel": 2,
+      "imagePosition": "왼쪽 발판 도마뱀",
+      "file": "atlases/C02.png",
+      "pixelsPerUnit": 155.69,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "durations": [
+        [
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06
+        ],
+        [
+          0.20625000000000002,
+          0.20625000000000002,
+          0.16875,
+          0.16875,
+          0.1625,
+          0.0875,
+          0.38,
+          0.57
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "89664a3023d9d608750cfd73042d106986da67aa6283e732af10f24590658169",
+        "8918e1b6e1f99a5e9fc3c7adcbc151f920d66e0a0d4506a1fe3b5117c2865be5",
+        "557f56c1d1091b7a6a604815c4d1fac9455844222c223d1e27de1bdaf39431f8",
+        "227c1e52113e0f586c7bea246de9ba9c68a757976ba25d19cf29f1e5b7cfa87f",
+        "7cde4a6d40581ef4f92f61998643afa31c535691f781a03d70458c75bd1a1db0",
+        "8aeb752a2477510f58cbe88406d99a42f32fa16d4a2e0239e32c21319011ca34",
+        "30747101b267b0d1202d1b9267e19693897b01999d1810646c73b72fa095cf55",
+        "d247ced2c2ffd408fbca6e1ec69cdf6068c6edfeb0a99b1a01289d73df91530e",
+        "c070a228584c5d37d8757bba24ba41989f098734e8a061342884467044f66612",
+        "a56787d9c09c51e580d71cfd0d9f95d054ecdde29bdda7704e6a8885786395fa",
+        "e0add2c6a110c0b4588c1f6f14d2b207509201fd100eed0fc7eae8e677355411",
+        "93a124e4b4e8b9cb1206cbdcb9aa0d71b9e48f9023c9028b3e7317b3805c27d8",
+        "8d25fa7cb14847418caf7d2354aac4e63775622604681c527cec27646ded08e3",
+        "bd737fe53a744a976ae82eb23db691b996a8953b9adef2aefb7f0baa5878f935",
+        "3bf17a8ca0e75ff630def254d637e9d7678a39ca79f2950826611d7632c1fb91",
+        "f6ce321e2858b53e5619ce587e68399b3ac70569f1061bc12369d355cff6bd7d",
+        "0a998406dcb68e5812a4be8a25ccfb91b439121b7175cfc6689ac7c56533d4a1",
+        "48923df171433516e747f014a8dd79140afe275b927496feb6fd95a114fe3a98",
+        "9e56f87cf1c1d5db7104d30b64e7ebe10085140a254bdc054212831956dcd903",
+        "c85f9d5ef9f00a458f66fe6015f39375faa3c0d05ef57b0985730b0a1b9d4220"
+      ],
+      "columns": 4,
+      "rows": 5,
+      "frameCounts": [
+        8,
+        8,
+        4
+      ],
+      "starts": [
+        0,
+        8,
+        16
+      ]
+    },
+    {
+      "id": "C03",
+      "group": "c",
+      "name": "연필씨 부엉이",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "스케치 나무 속",
+      "color": "#ad8a65",
+      "appearance": "Small squat owl shaped from curved pencil shavings, two broad leaf wings, dark round seed chest and ivory crescent face",
+      "height": 0.8,
+      "role": "수평 활공",
+      "first": "1지역 17번 새 둥지",
+      "timing": [
+        0.85,
+        0.4,
+        1.05
+      ],
+      "attack": "날개를 넓게 펴고 일정 높이로 한 번 활공",
+      "response": "낮은 활공은 점프; 높은 활공은 아래로 통과",
+      "parry": "재방문 날개 타격 패링 시 착지 경직",
+      "caution": "횡단 중 플레이어 추적 회전 금지",
+      "image": "c.png",
+      "panel": 3,
+      "imagePosition": "오른쪽 공중",
+      "file": "atlases/C03.png",
+      "pixelsPerUnit": 178.923,
+      "pivotY": 0.5,
+      "stationary": false,
+      "flying": true,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.4675,
+          0.3825,
+          0.4,
+          1.05
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "b81f31a26b470e482b0c3424c0430dd0426f380fa7c1943a414c46f271d50060",
+        "dd145db1306d26115286c2e2ed11ba9900fcf262171452658409db3ffb0f5a68",
+        "39233ff6f203ce1f99dea2ae1c689616bc563987949166f399759919a6795fae",
+        "ca60aa2fcef1337124b0ba2384aa97c7cf29f52b517f653e913898bd7d0c69fd",
+        "3565d28e152f13dd37a6ed2fb63ad53abf1f2b58f2b3e6a87d7b6cd4e2e413ea",
+        "c692d4b854dd094dfb35e84717bb155dcb527e7719407075742c1aaa1fd2a1a0",
+        "6b98ed9ebeb7f1746229d51a1201f16e14b554d361ca4dc758883cd6d37033d6",
+        "c83f09c3efce60afc2a83d0bd334945e9388179bcc1c45994f41212f01abfa92",
+        "fe066a817f3beb260ed68ae71d6673ffda48fde80696fc38276b19c85e6b509f",
+        "a314dbddc8a3480d081ed10731caf392274d584b18444ef0fae7ccd9f563d181",
+        "7a8198e1abe61fcbd5447a5f7a2b0345cb9f01fb64f1019db77a2280f2f1b7dd",
+        "af0572985fe80b3fcb9cae3bb5307cee2643a33796db753fc8bb6c6b18fcab19"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "D01",
+      "group": "d",
+      "name": "뿌리 매듭개",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "엉킨 뿌리 심부",
+      "color": "#88a18a",
+      "appearance": "Low prowling root hound with broad intertwined sage-gray paper root bands, rounded hunched shoulders and one dark eye slit",
+      "height": 0.9,
+      "role": "추격 후 물기",
+      "first": "1지역 18번 덩굴 다리의 넓은 끝부분",
+      "timing": [
+        0.7,
+        0.2,
+        0.9
+      ],
+      "attack": "일정 거리까지 접근 후 멈추고 목을 낮춰 한 번 물기",
+      "response": "멈춤을 보고 점프 또는 후퇴, 물기 종료 후 공격",
+      "parry": "재방문 물기 패링 시 매듭이 느슨해져 경직",
+      "caution": "첫 잉크 방울 튜토리얼과 구분된 공간에서 소개",
+      "image": "d.png",
+      "panel": 1,
+      "imagePosition": "왼쪽",
+      "file": "atlases/D01.png",
+      "pixelsPerUnit": 116.177,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.385,
+          0.315,
+          0.2,
+          0.9
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "57940da718a5a0b7d29d14edc1a48be3db4be02e23275301af2534be02b64512",
+        "c11394ebb3e226346431243a257fc00f99c98ecb6dd59084c3387ec983c24d4c",
+        "c050bbd9a3e03a0c637e7f5a3d8b2c222fa8d1762055fc1bf4913da8400528e2",
+        "1e13acd49a5970cc1822d66223cbf87386ecff62b7d1553929a262441dd7013f",
+        "6f5d61be6f992fb34b68ece47581cabd171359ecf4a1dfd3f9057f14c9fe64f4",
+        "ff72ce258f4a8a7a6704da8956cf0c8a4673b197735c130794882977136835ec",
+        "5a8aee1865e4de810759a81ab0e4e02bee83e6c03312efffc802f1d58e9cfeb7",
+        "b184d001e7a3a546ae3bc3e3fb00da7e402291f3533422c008eba7db13a855f0",
+        "02ec4b09730af939e4eda5091a78862e41b5b5595cd3ea073e201fecd0e70a64",
+        "c1c5a30320f18e98d3b136a3c491b4fdfef5e6d517c672d684aabb5b4887a940",
+        "1dc58983f137c3503641b3c9826e6257c98d29214707b719a7784710178b40b5",
+        "8d57c478a8725f97841431bb8cbe669b25537c9e1491b5609c427e679a34ca90"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "D02",
+      "group": "d",
+      "name": "씨주머니 보행자",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "엉킨 뿌리 심부",
+      "color": "#88a18a",
+      "appearance": "Pear-shaped root seed pod walker with three broad folded green-gray husk petals, short root feet and a dark round central seed",
+      "height": 0.85,
+      "role": "시간차 탄",
+      "first": "1지역 19번 위쪽 갈림의 평지",
+      "timing": [
+        0.9,
+        0.15,
+        1.2
+      ],
+      "attack": "껍질이 열리고 땅에 닿아 한 번 튀는 씨앗 하나 발사",
+      "response": "첫 탄을 베거나 튀는 높이 아래로 이동",
+      "parry": "재방문 씨앗 반사로 껍질 열림 1.2초",
+      "caution": "탄은 한 개만 유지; 좁은 필수 착지점 겨냥 금지",
+      "image": "d.png",
+      "panel": 2,
+      "imagePosition": "중앙 오른쪽 씨주머니",
+      "file": "atlases/D02.png",
+      "pixelsPerUnit": 201.925,
+      "pivotY": 0.125,
+      "stationary": true,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.49500000000000005,
+          0.405,
+          0.15,
+          1.2
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "08adf470d1fc53582829c1b97bce759ed87d7c9cecf58560d37ee5b1ed7c4966",
+        "f2497a86df5a81f40521d48c659ea6c1783668cbc648a130c3bddf42b739b49d",
+        "025a1d1be04be4de9068889e504b655f4e77cce2a210672dac79a3c5d60fe995",
+        "d6144006148253e2e82b3546e97586b1d890888068fcea9c9ad6e8416dc3027c",
+        "9d9378259f28713d27e8447deee089fb86cff465e86ea663844f31895dc635f4",
+        "f9616c4f5881f62a5016549d051193c379b8e02976133dd43a24008497f6c078",
+        "b707fc80785d10b6308d5cb5c34fb7a6eafcae58075f84b0674375aac34e3dea",
+        "971b3257de67e98fb64d37def4cd410bde2453a86480e2658ffc9ab927df6f99",
+        "28c090791537169affbfa911995611b71d5f9126602a67e18b4b936c9781d2bd",
+        "77cb01a3b0f4cf581de6fa3c6c12a24c2e8a9fe0ca0760c189b8d8f6413ce04e",
+        "385afcce4b20ecd69018c7c5ca996acec937eacd4f5ec8114a3db6e1005a2bd0",
+        "3e706ae4f7c6ecd24655ff08771cb10b58f0a7b4b8b347e815d397ec03803c8a"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "D03",
+      "group": "d",
+      "name": "덩굴 손아귀",
+      "region": 1,
+      "scope": "구역 전용",
+      "zone": "엉킨 뿌리 심부",
+      "color": "#88a18a",
+      "appearance": "Stationary stump creature with one thick curled paper vine arm ending in three rounded gripping lobes, pale cut wood center",
+      "height": 1.1,
+      "role": "영역 쓸기",
+      "first": "1지역 23번 뿌리 내리막",
+      "timing": [
+        0.95,
+        0.3,
+        1.3
+      ],
+      "attack": "손을 뒤로 말고 지면 가까이 한 번 쓸어냄",
+      "response": "점프로 손을 넘거나 범위 밖 후 공격",
+      "parry": "재방문 손끝 타격 패링 시 팔이 뒤로 접힘",
+      "caution": "연필 깎기로 제거하는 기믹 덩굴과 실루엣 구분; 잡기 QTE 없음",
+      "image": "d.png",
+      "panel": 3,
+      "imagePosition": "맨 오른쪽 그루터기",
+      "file": "atlases/D03.png",
+      "pixelsPerUnit": 116.421,
+      "pivotY": 0.125,
+      "stationary": true,
+      "flying": false,
+      "durations": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.5225,
+          0.4275,
+          0.3,
+          1.3
+        ],
+        [
+          0.1,
+          0.13,
+          0.18,
+          0.35
+        ]
+      ],
+      "frameHashes": [
+        "e8201823342f9cfc4479832f9bcd3638f92f3fecf65cce47ddda47eaea2a08ac",
+        "dd1edaf6f4467c378559ef9dcbbc244ec4fed26b1d6e2899dfa7ba6d6664d562",
+        "03055f88df2ce2f63c36b2adbf15d5b5a7818feb7b2ef1dde7cd1210d4cf6d02",
+        "6230dc957b1163d00f403bb3420992d3599535453c7a9e15da240ef478f6f46c",
+        "ccfdc3a64f4e7ee497c79e3b9bda2a245e0959e23580f5b822e058ed88e47a8e",
+        "d6d4b894648c1500b452aeba86fac133766ca947ed8e67c320b68712ba49d7c9",
+        "7d4fcb9f645dd9152251ba39585f1bcbf2586f5dc3fedbcb915ca4827b93c138",
+        "e60edb9c3b15f838a530d5e1800581efb0fd5cdd84765508ddb938e68ed1c381",
+        "85b7fd71c1a4a821997102a4f4a3486aedd9d211b8d48d1b2bccd1863a1ab66d",
+        "024e87049624700b853ffe4ae1f905b428965256a7d2ba182e1c4b97d4735575",
+        "4c50bae61652523249c0ad16bae30bfe5577bf7cbe742be3628afa4f3729f897",
+        "2bf12e2f15fb804158cbc0f9216e12debe4cd2a93cf5b4bee70a77b3ceaee049"
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCounts": [
+        4,
+        4,
+        4
+      ],
+      "starts": [
+        0,
+        4,
+        8
+      ]
+    }
+  ],
+  "totalFrames": 248
+}

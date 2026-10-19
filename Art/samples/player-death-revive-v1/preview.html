@@ -1,0 +1,23 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>플레이어 죽음 · 부활 시안</title><style>
+body{margin:0;background:#161b21;color:#e9e0d1;font:16px system-ui;padding:28px;max-width:1100px;margin:auto}h1{font-size:25px}p{color:#b5b5b2}canvas{width:min(100%,800px);background:radial-gradient(ellipse at 50% 70%,#30363d,#1d232b);border:1px solid #41464c;border-radius:12px}button,select{background:#303840;color:#f0e7d6;border:1px solid #5d646a;border-radius:7px;padding:10px;margin:4px;cursor:pointer}button.active{border-color:#d3b789}#status{margin:14px 0;min-height:25px}article{margin:24px 0}article img{width:100%;background:#252b32;border-radius:10px}small{color:#b4aaa0}input{vertical-align:middle}</style>
+<h1>플레이어 · 죽음과 부활</h1><p>통째로 그린 6프레임씩. 죽을 때 접히고, 다시 일어나 Idle로 돌아오는 동작 시안입니다.</p>
+<canvas id="stage" width="800" height="450"></canvas><div id="status"></div>
+<div><button id="cycle">죽음 → 부활 반복</button><button id="death">죽음만</button><button id="revive">부활만</button><button id="pause">일시정지</button><button id="prev">이전 프레임</button><button id="next">다음 프레임</button><select id="speed"><option value=".5">0.5배속</option><option value="1" selected>1배속</option><option value="1.25">1.25배속</option></select></div>
+<p><small>프레임마다 전신을 새로 그린 시안입니다. 그림 크기를 확대하려면 아래 원화를 확인하세요.</small></p>
+<article><h2>죽음 · 6프레임</h2><img src="death-sheet.png"></article><article><h2>부활 · 6프레임</h2><img src="revive-sheet.png"></article>
+<script>
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d'),status=document.querySelector('#status');
+const images={},timings={death:[90,90,110,120,140,280],revive:[140,110,100,90,90,180]};let mode='cycle',frame=0,phase='idle',elapsed=0,paused=false,last=0,registration;
+const load=name=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{images[name]=im;resolve()};im.onerror=reject;im.src=name==='idle'?'idle.png':name+'-sheet.png'});
+function start(m){mode=m;phase=m==='cycle'?'idle':m;frame=0;elapsed=0;paused=false;document.querySelector('#pause').textContent='일시정지'}
+function advance(){elapsed=0;if(phase==='idle'){phase='death';frame=0}else if(frame<5)frame++;else if(mode==='cycle'){phase=phase==='death'?'revive':'idle';frame=0}else frame=0}
+function render(){ctx.clearRect(0,0,800,450);ctx.strokeStyle='#61605b';ctx.beginPath();ctx.moveTo(170,386);ctx.lineTo(630,386);ctx.stroke();
+if(phase==='idle'){const im=images.idle;ctx.drawImage(im,0,0,512,512,131.5,50,384,384)}else{
+ const im=images[phase],r=registration[phase][frame],scale=registration.scale[phase],s=r.sourceRect;
+ ctx.drawImage(im,...s,400-r.anchorX*scale,386-r.bottom*scale,s[2]*scale,s[3]*scale);
+}status.textContent=(phase==='idle'?'Idle':phase==='death'?'죽음':'부활')+(phase==='idle'?'':` · ${frame+1} / 6`)+(paused?' · 정지':'');window.previewState={phase,frame,paused};}
+function tick(now){const dt=Math.min(100,now-last);last=now;if(!paused){elapsed+=dt*Number(document.querySelector('#speed').value);if(elapsed>=(phase==='idle'?850:timings[phase][frame]))advance()}render();requestAnimationFrame(tick)}
+['cycle','death','revive'].forEach(m=>document.querySelector('#'+m).onclick=()=>start(m));document.querySelector('#pause').onclick=()=>{paused=!paused;document.querySelector('#pause').textContent=paused?'재생':'일시정지'};
+document.querySelector('#next').onclick=()=>{paused=true;if(phase==='idle')phase='death';frame=(frame+1)%6};document.querySelector('#prev').onclick=()=>{paused=true;if(phase==='idle')phase='death';frame=(frame+5)%6};
+Promise.all([load('death'),load('revive'),load('idle'),fetch('registration.json').then(r=>r.json()).then(r=>registration=r)]).then(()=>{window.previewReady=true;requestAnimationFrame(tick)}).catch(e=>status.textContent='이미지 로딩 실패: '+e);
+</script></html>

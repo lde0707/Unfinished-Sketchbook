@@ -1,1 +1,1 @@
-{"passed":true,"thrustScale":1.6,"slash":"larger outer crescent over existing inner trail","characterFramesChanged":false,"timingChanged":false,"captures":["slash1","slash2","thrust","moving","air-rise","air-fall"]}
+{"passed":true,"thrustScaleX":3.2,"thrustScaleY":1.6,"slash":"extended sweep with shared hit outline","characterFramesChanged":false,"timingChanged":false,"captures":["slash1","slash2","thrust","moving","air-rise","air-fall"]}

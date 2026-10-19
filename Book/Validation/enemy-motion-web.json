@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "errors": [],
+  "checks": "Unity selector loads, 13 targets, rolling/hopping/dropping captures; numerical collision checks in EnemyAnimationValidation"
+}

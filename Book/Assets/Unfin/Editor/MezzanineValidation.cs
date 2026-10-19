@@ -49,8 +49,8 @@ namespace Unfin.Editor
 
         static bool ClearBody(GridMotor m)
         {
-            for(int y=Mathf.FloorToInt(m.y/16);y<=Mathf.FloorToInt((m.y+GridMotor.Height-.01f)/16);y++)
-            for(int x=Mathf.FloorToInt(m.x/16);x<=Mathf.FloorToInt((m.x+GridMotor.Width-.01f)/16);x++)
+            for(int y=Mathf.FloorToInt(m.y/16);y<=Mathf.FloorToInt((m.Bottom-.01f)/16);y++)
+            for(int x=Mathf.FloorToInt(m.Left/16);x<=Mathf.FloorToInt((m.Right-.01f)/16);x++)
                 if(GridMotor.Wall(m.Get(x,y))||m.Get(x,y)==9)return false;
             return true;
         }
@@ -62,18 +62,18 @@ namespace Unfin.Editor
             for(float sx=r.fromX+.5f;sx<r.fromEnd;sx+=.5f)
             for(float target=r.toX+.5f;target<r.toEnd;target+=.5f)
             {
-                var m=new GridMotor(data,cells){x=sx*16-6,y=r.fromY*16-22};
+                var m=new GridMotor(data,cells){x=sx*16-6,y=r.fromY*16-GridMotor.CollisionHeight};
                 if(!ClearBody(m)||!(m.Row(r.fromY,false)||m.Row(r.fromY,true)))continue;
                 int floor=m.Get(Mathf.FloorToInt(sx),r.fromY);if(floor==3||floor==9)continue;
                 int dir=target>sx?1:-1;
-                m.vx=delay==0?dir*155:0;m.vy=-425*(floor==16?.84f:1);
+                m.vx=delay==0?dir*PlayerMotion.JumpHorizontal:0;m.vy=-PlayerMotion.JumpSpeed*(floor==16?.84f:1);
                 for(int tick=0;tick<180;tick++)
                 {
                     if(tick>0){float dx=target*16-(m.x+6);int input=tick*dt<delay?0:Mathf.Abs(dx)<3?0:dx>0?1:-1;
-                        m.vx=Mathf.Lerp(m.vx,input*150,dt*10);m.vy=Mathf.Min(430,m.vy+1350*dt);}
+                        m.vx=Mathf.Lerp(m.vx,input*PlayerMotion.AirSpeed,dt*10);m.vy=Mathf.Min(PlayerMotion.FallSpeed,m.vy+PlayerMotion.Gravity*dt);}
                     m.Move(dt);
                     if(!ClearBody(m))break;
-                    if(m.grounded){float cx=(m.x+6)/16,fy=(m.y+22)/16;
+                    if(m.grounded){float cx=(m.x+6)/16,fy=m.Bottom/16;
                         if(Mathf.Abs(fy-r.toY)<.01f&&cx>=r.toX+.375f&&cx<=r.toEnd-.375f){result.passed=true;result.startX=sx;result.targetX=target;result.delay=delay;result.landingX=cx;result.seconds=(tick+1)*dt;return result;}
                         break;
                     }

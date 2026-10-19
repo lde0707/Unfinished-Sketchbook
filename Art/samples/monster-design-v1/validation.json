@@ -1,0 +1,103 @@
+{
+  "designCount": 33,
+  "uniqueIds": 33,
+  "images": [
+    {
+      "group": "common",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "group": "r1",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "group": "a",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "group": "b",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "group": "c",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "group": "d",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "group": "r2",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "group": "e",
+      "size": [
+        1672,
+        940
+      ],
+      "mode": "RGB"
+    },
+    {
+      "group": "f",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "group": "g",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "group": "h",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "unityModified": false,
+  "visualReview": "11 images reviewed: three enemies each; A slug corrected from background book to foreground ledge. Concept scale and some material detail vary; not sprite-ready.",
+  "browser": {
+    "cards": 33,
+    "loadedImages": 11,
+    "originalLinks": 11,
+    "filtersPassed": true,
+    "errors": []
+  }
+}

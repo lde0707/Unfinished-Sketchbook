@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 3e29a0a78b86efb41ac72592dad1878d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6068183139105063072
+    second: 03-hazard-ink_0
+  - first:
+      213: 3258703670804703294
+    second: 03-hazard-ink_1
+  - first:
+      213: -2151777981966404647
+    second: 03-hazard-ink_2
+  - first:
+      213: 8806847202902542913
+    second: 03-hazard-ink_3
+  - first:
+      213: 9110558842490340677
+    second: 03-hazard-ink_4
+  - first:
+      213: 787833808235632050
+    second: 03-hazard-ink_5
+  - first:
+      213: -4892357862838418504
+    second: 03-hazard-ink_6
+  - first:
+      213: 983151011385532182
+    second: 03-hazard-ink_7
+  - first:
+      213: -1434074061965406194
+    second: 03-hazard-ink_8
+  - first:
+      213: 306573383780172909
+    second: 03-hazard-ink_9
+  - first:
+      213: -3719866110637489336
+    second: 03-hazard-ink_10
+  - first:
+      213: -8375258088558213789
+    second: 03-hazard-ink_11
+  - first:
+      213: 5135373452560513176
+    second: 03-hazard-ink_12
+  - first:
+      213: -4750739935934653630
+    second: 03-hazard-ink_13
+  - first:
+      213: 5476413259306292702
+    second: 03-hazard-ink_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 03-hazard-ink_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1241
+        height: 1192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06fb0a9e59b79cba0800000000000000
+      internalID: -6068183139105063072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1148
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e38639629bd393d20800000000000000
+      internalID: 3258703670804703294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_2
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 1150
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d3b26573595322e0800000000000000
+      internalID: -2151777981966404647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_3
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 1142
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14a0620ded4383a70800000000000000
+      internalID: 8806847202902542913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1132
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5454ee75ff43f6e70800000000000000
+      internalID: 9110558842490340677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_5
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1106
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b59de9aca2feea00800000000000000
+      internalID: 787833808235632050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_6
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1110
+        width: 34
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b34d6fc17ada1cb0800000000000000
+      internalID: -4892357862838418504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_7
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1115
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f533ac2aad4ad00800000000000000
+      internalID: 983151011385532182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 724
+        width: 5
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0053fa1d35291ce0800000000000000
+      internalID: -1434074061965406194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 742
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d648ec54eda214400800000000000000
+      internalID: 306573383780172909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 538
+        width: 6
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84340772b71606cc0800000000000000
+      internalID: -3719866110637489336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 5
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3654549742b15cb80800000000000000
+      internalID: -8375258088558213789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_12
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 302
+        width: 18
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89837dc52f2844740800000000000000
+      internalID: 5135373452560513176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_13
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 53
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24b5a52e23bf11eb0800000000000000
+      internalID: -4750739935934653630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-hazard-ink_14
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 0
+        width: 48
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5d03418d0200c40800000000000000
+      internalID: 5476413259306292702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      03-hazard-ink_0: -6068183139105063072
+      03-hazard-ink_1: 3258703670804703294
+      03-hazard-ink_10: -3719866110637489336
+      03-hazard-ink_11: -8375258088558213789
+      03-hazard-ink_12: 5135373452560513176
+      03-hazard-ink_13: -4750739935934653630
+      03-hazard-ink_14: 5476413259306292702
+      03-hazard-ink_2: -2151777981966404647
+      03-hazard-ink_3: 8806847202902542913
+      03-hazard-ink_4: 9110558842490340677
+      03-hazard-ink_5: 787833808235632050
+      03-hazard-ink_6: -4892357862838418504
+      03-hazard-ink_7: 983151011385532182
+      03-hazard-ink_8: -1434074061965406194
+      03-hazard-ink_9: 306573383780172909
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

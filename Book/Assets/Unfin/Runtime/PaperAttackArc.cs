@@ -13,6 +13,8 @@ namespace Unfin
         readonly Color[] colors = new Color[(Segments+1)*2];
         readonly Vector2[] uv = new Vector2[(Segments+1)*2];
         Material material;
+        // Filled sweep of the weapon, bounded by the very same outer edge as the drawing.
+        public readonly Vector2[] HitPolygon = new Vector2[Segments+2];
         public bool Visible => draw != null && draw.enabled;
 
         public void Initialize(SpriteRenderer source)
@@ -35,17 +37,19 @@ namespace Unfin
         public void Hide(){if(draw!=null)draw.enabled=false;}
         public void Show(Vector2 center, Vector2 radius, float start, float end, float opacity, float ppu)
         {
+            HitPolygon[0]=transform.TransformPoint(new Vector3((center.x-384)/ppu,(560-center.y)/ppu,0));
             for(int i=0;i<=Segments;i++)
             {
                 float t=(float)i/Segments,angle=Mathf.Lerp(start,end,t)*Mathf.Deg2Rad;
                 float taper=Mathf.Pow(Mathf.Max(0,Mathf.Sin(t*Mathf.PI)),.85f);
                 // An asymmetric crescent with needle tips, rather than a uniform ring.
-                float thickness=(.24f+.12f*t)*taper;
+                float thickness=(.52f+.18f*t)*taper;
                 var outside=new Vector2(Mathf.Cos(angle)*radius.x,Mathf.Sin(angle)*radius.y);
                 var inside=outside*(1-thickness);
                 Vector2 a=center+outside,b=center+inside;
                 vertices[i*2]=new Vector3((a.x-384)/ppu,(560-a.y)/ppu,0);
                 vertices[i*2+1]=new Vector3((b.x-384)/ppu,(560-b.y)/ppu,0);
+                HitPolygon[i+1]=transform.TransformPoint(vertices[i*2]);
                 colors[i*2]=new Color(1,.96f,.86f,opacity);
                 colors[i*2+1]=new Color(.96f,.88f,.72f,opacity*.72f);
             }

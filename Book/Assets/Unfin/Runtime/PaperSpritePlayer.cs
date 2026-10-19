@@ -18,14 +18,22 @@ namespace Unfin
         Vector2 dashOffset;
         Vector2 fallOffset;
         float fallBlend;
+        float projectileContactFlash;
+        public void ShowProjectileContact(Vector2 point)
+        {
+            projectileContactFlash=.18f;PaperVfx.Get()?.Hit(point,world.Facing);GameAudio.Emit(SoundCue.Hit,point,.65f);
+        }
         void Update(){Tick(Mathf.Min(Time.deltaTime,.1f));ReadAttackInput();}
         void Play(string name){if(CurrentAnimation==name)return;CurrentAnimation=name;AnimationTime=0;}
         public void Tick(float dt)
         {
             if(world==null||world.Motor==null||library==null||visual==null)return;
+            // Sample short impact drawings even when a rendered frame spans the whole impact.
+            if(dt>1f/120f){while(dt>1f/120f){Tick(1f/120f);dt-=1f/120f;}if(dt>0)Tick(dt);return;}
             var m=world.Motor;
+            projectileContactFlash=Mathf.Max(0,projectileContactFlash-dt);
             if(resetSerial!=world.ResetSerial){resetSerial=world.ResetSerial;jumpSerial=world.JumpSerial;wasGrounded=true;jumpActive=false;CurrentAnimation="Idle";AnimationTime=0;ResetCombat();}
-            AnimationTime+=dt;fallBlend=Mathf.Max(0,fallBlend-dt);
+            AnimationTime+=dt*(CurrentAnimation=="Run"?PlayerMotion.RunPlaybackRate:1);fallBlend=Mathf.Max(0,fallBlend-dt);
             bool moving=Mathf.Abs(m.vx)>12;
             bool newJump=jumpSerial!=world.JumpSerial;
             if(newJump){jumpSerial=world.JumpSerial;jumpActive=true;movingJump=world.JumpMoving;CurrentAnimation=movingJump?"MovingJump":"Jump";AnimationTime=0;}
@@ -41,6 +49,7 @@ namespace Unfin
                 AnimationTime=world.DashElapsed;
             }
             else if(world.flying){jumpActive=false;Play("Idle");}
+            else if(world.OnWall){jumpActive=false;Play(world.WallMoving?"WallClimb":"WallHold");}
             else if(!m.grounded)
             {
                 if(world.ForceFall)jumpActive=false;
@@ -84,6 +93,7 @@ namespace Unfin
             wasGrounded=m.grounded;
             TickCombat(dt);
             Render(world.Facing);
+            ResolveAttackHits();
         }
         public void Render(int facing)
         {
@@ -91,6 +101,7 @@ namespace Unfin
             // Intro once, then alternate the two falling drawings until actual contact.
             CurrentFrame=CurrentAnimation=="Fall"&&AnimationTime>=.155f?2-(Mathf.FloorToInt((AnimationTime-.155f)/.14f)%2):clip.FrameAt(AnimationTime);
             visual.sprite=clip.frames[CurrentFrame].sprite;
+            visual.color=Color.Lerp(Color.white,new Color(.55f,.53f,.51f,1),projectileContactFlash/.18f);
             transform.localScale=new Vector3(facing<0?-1:1,1,1);
             visual.transform.localPosition=CurrentAnimation=="Dash"?(Vector3)dashOffset:Vector3.zero;
             if(CurrentAnimation=="Fall")visual.transform.localPosition=(Vector3)(fallOffset*(fallBlend/.08f));

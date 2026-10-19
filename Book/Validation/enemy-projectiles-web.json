@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "errors": [],
+  "checks": "Actual Unity map: 3 shooter flight/impact captures, attack/jump/dash input smoke. Numerical physics and emission assertions in EnemyProjectileValidation."
+}

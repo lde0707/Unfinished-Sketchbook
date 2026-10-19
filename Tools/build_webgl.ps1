@@ -1,7 +1,17 @@
 param(
     [string]$Unity = 'C:\Program Files\Unity\Hub\Editor\6000.5.3f1\Editor\Unity.exe',
     [switch]$ValidateCamera,
-    [switch]$ValidateCombat
+    [switch]$ValidateCombat,
+    [switch]$ValidateWall,
+    [switch]$ValidateTempo,
+    [switch]$ValidateSpecialTiles,
+    [switch]$ValidateAudio,
+    [switch]$ValidateHazards,
+    [switch]$ValidateContact,
+    [switch]$FastLocal,
+    [switch]$ValidateVfx,
+    [switch]$ValidateEnemies,
+    [switch]$ValidateProjectiles
 )
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path $PSScriptRoot -Parent
@@ -25,10 +35,13 @@ foreach ($taskFolder in @('Assets','Packages','ProjectSettings')) {
     if ($LASTEXITCODE -ge 8) { throw "Source copy failed: $taskFolder" }
 }
 $env:UNFIN_WEBGL_OUTPUT = $taskOutput
-$taskMethod = if ($ValidateCombat) { 'Unfin.Editor.PlayerCombatValidation.RunAndBuild' } elseif ($ValidateCamera) { 'Unfin.Editor.CameraFollowValidation.RunAndBuild' } else { 'Unfin.Editor.WebGLBuilder.Build' }
+$env:UNFIN_WEBGL_FAST_LOCAL = if ($FastLocal) { '1' } else { '0' }
+$taskMethod = if ($ValidateHazards) { 'Unfin.Editor.InkHazardValidation.RunAndBuild' } elseif ($ValidateSpecialTiles) { 'Unfin.Editor.SpecialTileImporter.ApplyValidateAndBuild' } elseif ($ValidateAudio) { 'Unfin.Editor.GameAudioValidation.RunAndBuild' } elseif ($ValidateVfx) { 'Unfin.Editor.PaperVfxValidation.RunAndBuild' } elseif ($ValidateEnemies) { 'Unfin.Editor.EnemyAnimationValidation.RunAndBuild' } elseif ($ValidateWall) { 'Unfin.Editor.PlayerWallValidation.RunAndBuild' } elseif ($ValidateTempo) { 'Unfin.Editor.PlayerTempoValidation.RunAndBuild' } elseif ($ValidateCombat) { 'Unfin.Editor.PlayerCombatValidation.RunAndBuild' } elseif ($ValidateCamera) { 'Unfin.Editor.CameraFollowValidation.RunAndBuild' } else { 'Unfin.Editor.WebGLBuilder.Build' }
+if ($ValidateContact) { $taskMethod = 'Unfin.Editor.PlayerContactValidation.RunAndBuild' }
+if ($ValidateProjectiles) { $taskMethod = 'Unfin.Editor.EnemyProjectileValidation.RunAndBuild' }
 $taskArguments = @('-batchmode','-projectPath',('"'+$taskProject+'"'),'-buildTarget','WebGL',
     '-executeMethod',$taskMethod,'-quit','-logFile',('"'+$taskLog+'"'))
-if (!$ValidateCombat) { $taskArguments += '-nographics' }
+if (!$ValidateCombat -and !$ValidateTempo -and !$ValidateWall -and !$ValidateContact) { $taskArguments += '-nographics' }
 $taskProcess = Start-Process -FilePath $Unity -ArgumentList $taskArguments -WindowStyle Hidden -PassThru
 Write-Output "Building Unity WebGL (PID $($taskProcess.Id)). Log: $taskLog"
 $taskProcess.WaitForExit()

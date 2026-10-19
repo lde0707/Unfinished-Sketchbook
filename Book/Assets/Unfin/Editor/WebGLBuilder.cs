@@ -19,7 +19,8 @@ namespace Unfin.Editor
             if (string.IsNullOrEmpty(output)) output = Path.GetFullPath("../Builds/WebGLSite/dist");
             Directory.CreateDirectory(output);
             PlayerSettings.WebGL.template = "PROJECT:Unfin";
-            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Brotli;
+            // Optional quick local iteration; normal publishing builds keep Brotli.
+            PlayerSettings.WebGL.compressionFormat = Environment.GetEnvironmentVariable("UNFIN_WEBGL_FAST_LOCAL")=="1" ? WebGLCompressionFormat.Gzip : WebGLCompressionFormat.Brotli;
             // Ordinary static hosts do not need Content-Encoding configuration.
             PlayerSettings.WebGL.decompressionFallback = true;
             PlayerSettings.WebGL.nameFilesAsHashes = true;

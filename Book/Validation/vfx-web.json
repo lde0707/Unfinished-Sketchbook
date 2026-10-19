@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "errors": [],
+  "checks": "WebGL loads; actual keyboard attack, jump, air dash; screenshots captured"
+}

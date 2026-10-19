@@ -1,0 +1,1 @@
+{"passed":true,"species":3,"capacity":48,"checks":["transparent painted sprites","attack-frame emission","horizontal both directions","locked ballistic aim","wall sweep","single seed bounce","ink puddle expiry","slash destroys projectile","contact feedback","respawn clear"]}

@@ -1,0 +1,7 @@
+{
+  "mode": "built-in image_gen",
+  "group": "a",
+  "prompt": "Edit this enemy placement mockup with ONE precise change: move the envelope-mouth paper slug in the upper-left, currently sitting on the BACKGROUND BOOK, down to stand on the real foreground platform at left. Its feet must touch the horizontal platform top at x=16% of image width, y=59% of image height. Keep its exact creature design and scale. Restore the background book where it was. Keep the cricket, snail, player, all terrain silhouettes, colors, framing and all other pixels visually unchanged. Exactly three monsters plus original player, no duplicates, no new labels. The background book is NOT a walkable platform.",
+  "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-19b56741-5439-4603-a97e-5fc6405b7da4.png",
+  "output": "a.png"
+}

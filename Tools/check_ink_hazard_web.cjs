@@ -1,0 +1,14 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const {chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
+(async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--enable-webgl','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+try{const page=await browser.newPage({viewport:{width:1200,height:850}}),errors=[];
+page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(/Exception|Shader.*error/i.test(m.text()))errors.push(m.text())});
+await page.route(u=>u.pathname==='/',async r=>{const response=await r.fetch();await r.fulfill({response,body:(await response.text()).replace('width="1920" height="1080"','width="640" height="360"')})});
+await page.goto('http://127.0.0.1:8080/?v=deep-ink-respawn-20261019&spawn=365,12');await page.waitForFunction(()=>!!window.unityInstance,{},{timeout:240000});await page.locator('#unity-canvas').click();
+const wait=ms=>new Promise(r=>setTimeout(r,ms));await wait(6000);
+await page.evaluate(()=>unityInstance.SendMessage('World Prototype','PreviewPosition','365,12'));await wait(600);
+await page.locator('#unity-canvas').screenshot({path:'Book/Validation/ink-depth-web.png',timeout:60000});
+await page.keyboard.down('d');await wait(4200);await page.locator('#unity-canvas').screenshot({path:'Book/Validation/ink-return-web.png',timeout:60000});
+await wait(1500);await page.locator('#unity-canvas').screenshot({path:'Book/Validation/ink-held-input-web.png',timeout:60000});await page.keyboard.up('d');
+assert.deepEqual(errors,[]);fs.writeFileSync('Book/Validation/ink-hazard-web.json',JSON.stringify({passed:true,errors,heldInputSeconds:5.7,screenshots:['ink-depth-web.png','ink-return-web.png','ink-held-input-web.png']},null,2));console.log('INK_HAZARD_WEB_OK');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});

@@ -1,0 +1,338 @@
+[
+  {
+    "sourceIndex": 0,
+    "id": "R101",
+    "zone": "A",
+    "room": 1,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 1,
+    "id": "R101",
+    "zone": "A",
+    "room": 2,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 2,
+    "id": "R101",
+    "zone": "A",
+    "room": 2,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 3,
+    "id": "R102",
+    "zone": "A",
+    "room": 2,
+    "kind": "range"
+  },
+  {
+    "sourceIndex": 4,
+    "id": "COMMON02",
+    "zone": "A",
+    "room": 2,
+    "kind": "fly"
+  },
+  {
+    "sourceIndex": 5,
+    "id": "COMMON02",
+    "zone": "A",
+    "room": 3,
+    "kind": "fly"
+  },
+  {
+    "sourceIndex": 6,
+    "id": "A02",
+    "zone": "A",
+    "room": 3,
+    "kind": "ball"
+  },
+  {
+    "sourceIndex": 7,
+    "id": "COMMON01",
+    "zone": "A",
+    "room": 4,
+    "kind": "ball"
+  },
+  {
+    "sourceIndex": 8,
+    "id": "COMMON01",
+    "zone": "A",
+    "room": 4,
+    "kind": "ball"
+  },
+  {
+    "sourceIndex": 9,
+    "id": "COMMON02",
+    "zone": "A",
+    "room": 4,
+    "kind": "fly"
+  },
+  {
+    "sourceIndex": 10,
+    "id": "A01",
+    "zone": "A",
+    "room": 5,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 11,
+    "id": "R103",
+    "zone": "A",
+    "room": 5,
+    "kind": "ball"
+  },
+  {
+    "sourceIndex": 12,
+    "id": "A03",
+    "zone": "A",
+    "room": 5,
+    "kind": "range"
+  },
+  {
+    "sourceIndex": 13,
+    "id": "R102",
+    "zone": "A",
+    "room": 6,
+    "kind": "range"
+  },
+  {
+    "sourceIndex": 14,
+    "id": "B01",
+    "zone": "B",
+    "room": 7,
+    "kind": "mole"
+  },
+  {
+    "sourceIndex": 15,
+    "id": "B02",
+    "zone": "B",
+    "room": 8,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 16,
+    "id": "B01",
+    "zone": "B",
+    "room": 8,
+    "kind": "mole"
+  },
+  {
+    "sourceIndex": 17,
+    "id": "B03",
+    "zone": "B",
+    "room": 8,
+    "kind": "fly"
+  },
+  {
+    "sourceIndex": 18,
+    "id": "R102",
+    "zone": "B",
+    "room": 8,
+    "kind": "range"
+  },
+  {
+    "sourceIndex": 19,
+    "id": "COMMON01",
+    "zone": "B",
+    "room": 8,
+    "kind": "ball"
+  },
+  {
+    "sourceIndex": 20,
+    "id": "COMMON02",
+    "zone": "B",
+    "room": 9,
+    "kind": "fly"
+  },
+  {
+    "sourceIndex": 21,
+    "id": "COMMON02",
+    "zone": "B",
+    "room": 9,
+    "kind": "fly"
+  },
+  {
+    "sourceIndex": 22,
+    "id": "R102",
+    "zone": "B",
+    "room": 9,
+    "kind": "range"
+  },
+  {
+    "sourceIndex": 24,
+    "id": "R102",
+    "zone": "B",
+    "room": 11,
+    "kind": "range"
+  },
+  {
+    "sourceIndex": 25,
+    "id": "C01",
+    "zone": "C",
+    "room": 13,
+    "kind": "spider"
+  },
+  {
+    "sourceIndex": 26,
+    "id": "C01",
+    "zone": "C",
+    "room": 13,
+    "kind": "spider"
+  },
+  {
+    "sourceIndex": 27,
+    "id": "COMMON02",
+    "zone": "A",
+    "room": 5,
+    "kind": "fly"
+  },
+  {
+    "sourceIndex": 28,
+    "id": "C02",
+    "zone": "C",
+    "room": 13,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 29,
+    "id": "R101",
+    "zone": "C",
+    "room": 13,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 30,
+    "id": "C01",
+    "zone": "C",
+    "room": 13,
+    "kind": "spider"
+  },
+  {
+    "sourceIndex": 31,
+    "id": "C01",
+    "zone": "C",
+    "room": 14,
+    "kind": "spider"
+  },
+  {
+    "sourceIndex": 32,
+    "id": "C03",
+    "zone": "C",
+    "room": 14,
+    "kind": "fly"
+  },
+  {
+    "sourceIndex": 33,
+    "id": "COMMON01",
+    "zone": "C",
+    "room": 15,
+    "kind": "ball"
+  },
+  {
+    "sourceIndex": 34,
+    "id": "R101",
+    "zone": "C",
+    "room": 15,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 35,
+    "id": "R101",
+    "zone": "C",
+    "room": 15,
+    "kind": "mole"
+  },
+  {
+    "sourceIndex": 36,
+    "id": "R102",
+    "zone": "C",
+    "room": 15,
+    "kind": "range"
+  },
+  {
+    "sourceIndex": 37,
+    "id": "R102",
+    "zone": "C",
+    "room": 17,
+    "kind": "range"
+  },
+  {
+    "sourceIndex": 38,
+    "id": "C01",
+    "zone": "C",
+    "room": 17,
+    "kind": "spider"
+  },
+  {
+    "sourceIndex": 39,
+    "id": "COMMON02",
+    "zone": "C",
+    "room": 17,
+    "kind": "fly"
+  },
+  {
+    "sourceIndex": 40,
+    "id": "COMMON03",
+    "zone": "D",
+    "room": 18,
+    "kind": "blob"
+  },
+  {
+    "sourceIndex": 41,
+    "id": "D01",
+    "zone": "D",
+    "room": 19,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 42,
+    "id": "D02",
+    "zone": "D",
+    "room": 19,
+    "kind": "blob"
+  },
+  {
+    "sourceIndex": 43,
+    "id": "COMMON02",
+    "zone": "D",
+    "room": 19,
+    "kind": "spider"
+  },
+  {
+    "sourceIndex": 45,
+    "id": "R101",
+    "zone": "D",
+    "room": 20,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 46,
+    "id": "COMMON02",
+    "zone": "D",
+    "room": 20,
+    "kind": "fly"
+  },
+  {
+    "sourceIndex": 48,
+    "id": "D03",
+    "zone": "D",
+    "room": 23,
+    "kind": "walker"
+  },
+  {
+    "sourceIndex": 49,
+    "id": "R101",
+    "zone": "D",
+    "room": 23,
+    "kind": "mole"
+  },
+  {
+    "sourceIndex": 50,
+    "id": "COMMON03",
+    "zone": "D",
+    "room": 23,
+    "kind": "blob"
+  }
+]

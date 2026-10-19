@@ -6,20 +6,20 @@
         {
             "label": "무너진 갱도 / 1",
             "passed": true,
-            "startX": 65.5,
+            "startX": 66.0,
             "targetX": 71.5,
             "delay": 0.0,
-            "landingX": 71.52787017822266,
-            "seconds": 0.6416667103767395
+            "landingX": 71.43096923828125,
+            "seconds": 0.7583333849906921
         },
         {
             "label": "무너진 갱도 / 2",
             "passed": true,
-            "startX": 72.0,
+            "startX": 72.5,
             "targetX": 76.5,
             "delay": 0.0,
-            "landingX": 76.63113403320313,
-            "seconds": 0.5
+            "landingX": 76.48696899414063,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "무너진 갱도 / 3",
@@ -27,8 +27,8 @@
             "startX": 76.5,
             "targetX": 75.5,
             "delay": 0.0,
-            "landingX": 75.66219329833985,
-            "seconds": 0.5
+            "landingX": 75.6054458618164,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "무너진 갱도 / 4",
@@ -36,8 +36,8 @@
             "startX": 75.5,
             "targetX": 62.5,
             "delay": 0.0,
-            "landingX": 71.93087768554688,
-            "seconds": 0.5
+            "landingX": 72.80532836914063,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "무너진 갱도 / 5",
@@ -45,17 +45,17 @@
             "startX": 62.5,
             "targetX": 65.5,
             "delay": 0.0,
-            "landingX": 65.54015350341797,
-            "seconds": 0.32500001788139346
+            "landingX": 65.64669036865235,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "나무 속 탑 / 1",
             "passed": true,
-            "startX": 102.0,
+            "startX": 102.5,
             "targetX": 106.5,
             "delay": 0.0,
-            "landingX": 106.63113403320313,
-            "seconds": 0.5
+            "landingX": 106.48696899414063,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "나무 속 탑 / 2",
@@ -63,26 +63,26 @@
             "startX": 106.5,
             "targetX": 100.5,
             "delay": 0.0,
-            "landingX": 101.78141021728516,
-            "seconds": 0.5
+            "landingX": 102.48703002929688,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "나무 속 탑 / 3",
             "passed": true,
-            "startX": 101.0,
+            "startX": 101.5,
             "targetX": 105.5,
             "delay": 0.0,
-            "landingX": 105.63113403320313,
-            "seconds": 0.5
+            "landingX": 105.48696899414063,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "나무 속 탑 / 4",
             "passed": true,
-            "startX": 111.5,
+            "startX": 111.0,
             "targetX": 112.5,
             "delay": 0.0,
-            "landingX": 112.375,
-            "seconds": 0.5
+            "landingX": 112.45336151123047,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "나무 속 탑 / 5",
@@ -90,8 +90,8 @@
             "startX": 112.5,
             "targetX": 101.5,
             "delay": 0.0,
-            "landingX": 109.93087768554688,
-            "seconds": 0.5
+            "landingX": 110.80532836914063,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "나무 속 탑 / 6",
@@ -99,17 +99,17 @@
             "startX": 101.5,
             "targetX": 101.0,
             "delay": 0.0,
-            "landingX": 101.168212890625,
-            "seconds": 0.5
+            "landingX": 101.15789031982422,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "나무 속 탑 / 7",
             "passed": true,
-            "startX": 101.0,
+            "startX": 101.5,
             "targetX": 105.5,
             "delay": 0.0,
-            "landingX": 105.63113403320313,
-            "seconds": 0.5
+            "landingX": 105.48696899414063,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "나무 속 탑 / 8",
@@ -117,17 +117,17 @@
             "startX": 105.5,
             "targetX": 100.5,
             "delay": 0.0,
-            "landingX": 100.78141021728516,
-            "seconds": 0.5
+            "landingX": 101.48703002929688,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "나무 속 탑 / 9",
             "passed": true,
-            "startX": 104.0,
+            "startX": 104.5,
             "targetX": 108.5,
             "delay": 0.0,
-            "landingX": 108.63113403320313,
-            "seconds": 0.5
+            "landingX": 108.48696899414063,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "나무 속 탑 / 10",
@@ -135,8 +135,8 @@
             "startX": 108.5,
             "targetX": 100.5,
             "delay": 0.0,
-            "landingX": 103.78141021728516,
-            "seconds": 0.5
+            "landingX": 104.48703002929688,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "노을빛 큰 굴 / 1",
@@ -144,35 +144,35 @@
             "startX": 363.5,
             "targetX": 363.5,
             "delay": 0.0,
-            "landingX": 363.57159423828127,
-            "seconds": 0.5
+            "landingX": 363.63067626953127,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "노을빛 큰 굴 / 2",
             "passed": true,
-            "startX": 364.0,
+            "startX": 364.5,
             "targetX": 368.5,
             "delay": 0.0,
-            "landingX": 368.631103515625,
-            "seconds": 0.5
+            "landingX": 368.4869079589844,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "노을빛 큰 굴 / 3",
             "passed": true,
-            "startX": 380.0,
+            "startX": 380.5,
             "targetX": 384.5,
             "delay": 0.0,
-            "landingX": 384.631103515625,
-            "seconds": 0.5
+            "landingX": 384.4869079589844,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "노을빛 큰 굴 / 4",
             "passed": true,
-            "startX": 386.0,
+            "startX": 385.0,
             "targetX": 390.5,
             "delay": 0.0,
-            "landingX": 390.5805358886719,
-            "seconds": 0.491666704416275
+            "landingX": 390.430908203125,
+            "seconds": 0.7583333849906921
         },
         {
             "label": "노을빛 큰 굴 / 5",
@@ -180,8 +180,8 @@
             "startX": 384.5,
             "targetX": 384.5,
             "delay": 0.0,
-            "landingX": 384.57159423828127,
-            "seconds": 0.5
+            "landingX": 384.63067626953127,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "노을빛 큰 굴 / 6",
@@ -189,17 +189,17 @@
             "startX": 384.5,
             "targetX": 368.5,
             "delay": 0.0,
-            "landingX": 380.9308776855469,
-            "seconds": 0.5
+            "landingX": 381.8052673339844,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "삼색 광장 / 1",
             "passed": true,
             "startX": 423.5,
-            "targetX": 425.0,
+            "targetX": 424.5,
             "delay": 0.0,
-            "landingX": 424.8223876953125,
-            "seconds": 0.5583333373069763
+            "landingX": 424.3852233886719,
+            "seconds": 0.6333333849906921
         },
         {
             "label": "삼색 광장 / 2",
@@ -207,26 +207,26 @@
             "startX": 424.5,
             "targetX": 427.5,
             "delay": 0.0,
-            "landingX": 427.5250244140625,
-            "seconds": 0.5
+            "landingX": 427.64678955078127,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "삼색 광장 / 3",
             "passed": true,
-            "startX": 436.5,
+            "startX": 437.5,
             "targetX": 443.5,
             "delay": 0.0,
-            "landingX": 443.5254821777344,
-            "seconds": 0.7500000596046448
+            "landingX": 443.6579895019531,
+            "seconds": 0.8916667103767395
         },
         {
             "label": "삼색 광장 / 4",
             "passed": true,
             "startX": 445.5,
-            "targetX": 443.5,
+            "targetX": 444.0,
             "delay": 0.0,
-            "landingX": 443.4420471191406,
-            "seconds": 0.5
+            "landingX": 443.9086608886719,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "삼색 광장 / 5",
@@ -234,17 +234,17 @@
             "startX": 443.5,
             "targetX": 427.5,
             "delay": 0.0,
-            "landingX": 438.7813415527344,
-            "seconds": 0.5
+            "landingX": 439.4870910644531,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "밀랍 저장고 / 1",
             "passed": true,
             "startX": 296.5,
-            "targetX": 293.5,
+            "targetX": 294.0,
             "delay": 0.0,
-            "landingX": 293.4749755859375,
-            "seconds": 0.5
+            "landingX": 293.9453125,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "밀랍 저장고 / 2",
@@ -252,44 +252,44 @@
             "startX": 293.5,
             "targetX": 297.5,
             "delay": 0.0,
-            "landingX": 297.8011169433594,
-            "seconds": 0.5
+            "landingX": 297.4869079589844,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "밀랍 저장고 / 3",
             "passed": true,
-            "startX": 306.0,
+            "startX": 306.5,
             "targetX": 310.5,
             "delay": 0.0,
-            "landingX": 310.631103515625,
-            "seconds": 0.5
+            "landingX": 310.4869079589844,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "밀랍 저장고 / 4",
             "passed": true,
-            "startX": 311.0,
+            "startX": 311.5,
             "targetX": 316.5,
             "delay": 0.0,
-            "landingX": 316.7734069824219,
-            "seconds": 0.6416667103767395
+            "landingX": 316.7073059082031,
+            "seconds": 0.7583333849906921
         },
         {
             "label": "밀랍 저장고 / 5",
             "passed": true,
             "startX": 316.5,
-            "targetX": 313.5,
+            "targetX": 314.0,
             "delay": 0.0,
-            "landingX": 313.4749755859375,
-            "seconds": 0.5
+            "landingX": 313.9453125,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "밀랍 저장고 / 6",
             "passed": true,
             "startX": 313.5,
-            "targetX": 310.5,
+            "targetX": 311.0,
             "delay": 0.0,
-            "landingX": 310.375,
-            "seconds": 0.5
+            "landingX": 310.9453125,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "물감 폭포 홀 / 1",
@@ -297,17 +297,17 @@
             "startX": 518.5,
             "targetX": 520.5,
             "delay": 0.0,
-            "landingX": 520.3949584960938,
-            "seconds": 0.5
+            "landingX": 520.5151977539063,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "물감 폭포 홀 / 2",
             "passed": true,
-            "startX": 521.0,
+            "startX": 521.5,
             "targetX": 525.5,
             "delay": 0.0,
-            "landingX": 525.6311645507813,
-            "seconds": 0.5
+            "landingX": 525.4867553710938,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "물감 폭포 홀 / 3",
@@ -315,26 +315,26 @@
             "startX": 525.5,
             "targetX": 523.5,
             "delay": 0.0,
-            "landingX": 523.6050415039063,
-            "seconds": 0.5
+            "landingX": 523.4848022460938,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "물감 폭포 홀 / 4",
             "passed": true,
-            "startX": 526.0,
+            "startX": 526.5,
             "targetX": 530.5,
             "delay": 0.0,
-            "landingX": 530.6311645507813,
-            "seconds": 0.5
+            "landingX": 530.4867553710938,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "물감 폭포 홀 / 5",
             "passed": true,
-            "startX": 531.5,
+            "startX": 531.0,
             "targetX": 533.5,
             "delay": 0.0,
-            "landingX": 533.3949584960938,
-            "seconds": 0.5
+            "landingX": 533.5545654296875,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "물감 폭포 홀 / 6",
@@ -342,8 +342,8 @@
             "startX": 533.5,
             "targetX": 523.5,
             "delay": 0.0,
-            "landingX": 529.9308471679688,
-            "seconds": 0.5
+            "landingX": 530.8054809570313,
+            "seconds": 0.5416666865348816
         },
         {
             "label": "물감 폭포 홀 / 7",
@@ -351,8 +351,8 @@
             "startX": 523.5,
             "targetX": 523.5,
             "delay": 0.0,
-            "landingX": 523.57177734375,
-            "seconds": 0.5
+            "landingX": 523.630859375,
+            "seconds": 0.5416666865348816
         }
     ]
 }

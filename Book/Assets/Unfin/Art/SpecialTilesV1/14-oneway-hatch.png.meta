@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: 9ceaf0e667a39ca40aa9ef3a9f077b65
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8350659313227768703
+    second: 14-oneway-hatch_0
+  - first:
+      213: -1291628719217767065
+    second: 14-oneway-hatch_1
+  - first:
+      213: 8799496295892824671
+    second: 14-oneway-hatch_2
+  - first:
+      213: -1314203969822396867
+    second: 14-oneway-hatch_3
+  - first:
+      213: -5403112350285177361
+    second: 14-oneway-hatch_4
+  - first:
+      213: 7034560653179210065
+    second: 14-oneway-hatch_5
+  - first:
+      213: -8121725502431289583
+    second: 14-oneway-hatch_6
+  - first:
+      213: 654247496472772613
+    second: 14-oneway-hatch_7
+  - first:
+      213: 3105979951005162383
+    second: 14-oneway-hatch_8
+  - first:
+      213: -4193146462868860053
+    second: 14-oneway-hatch_9
+  - first:
+      213: 4278807840765382946
+    second: 14-oneway-hatch_10
+  - first:
+      213: 3635741928727466861
+    second: 14-oneway-hatch_11
+  - first:
+      213: -5314695155821260702
+    second: 14-oneway-hatch_12
+  - first:
+      213: 2058270087082456518
+    second: 14-oneway-hatch_13
+  - first:
+      213: 5796078255515209791
+    second: 14-oneway-hatch_14
+  - first:
+      213: 6934169744352371712
+    second: 14-oneway-hatch_15
+  - first:
+      213: -4828483986798491360
+    second: 14-oneway-hatch_16
+  - first:
+      213: -4628183766323895901
+    second: 14-oneway-hatch_17
+  - first:
+      213: 7902802723834502051
+    second: 14-oneway-hatch_18
+  - first:
+      213: 5522688842827249351
+    second: 14-oneway-hatch_19
+  - first:
+      213: 8323700921575987905
+    second: 14-oneway-hatch_20
+  - first:
+      213: 4339321864506675052
+    second: 14-oneway-hatch_21
+  - first:
+      213: 5074075380088717351
+    second: 14-oneway-hatch_22
+  - first:
+      213: -7832752284158120051
+    second: 14-oneway-hatch_23
+  - first:
+      213: -3919679776504391764
+    second: 14-oneway-hatch_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 14-oneway-hatch_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 1177
+        height: 1231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18c50ca299f7c1c80800000000000000
+      internalID: -8350659313227768703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 85
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d0551f586331ee0800000000000000
+      internalID: -1291628719217767065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_2
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 109
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f52be0762471e1a70800000000000000
+      internalID: 8799496295892824671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 89
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ee350d37203cde0800000000000000
+      internalID: -1314203969822396867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_4
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 63
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fedd9bfb1f94405b0800000000000000
+      internalID: -5403112350285177361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_5
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 103
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159cfa3b4a7cf9160800000000000000
+      internalID: 7034560653179210065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_6
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 71
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11f1a50bfa5d94f80800000000000000
+      internalID: -8121725502431289583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_7
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 79
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 500c276b1aa541900800000000000000
+      internalID: 654247496472772613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_8
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 71
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8bd52b2f48aa1b20800000000000000
+      internalID: 3105979951005162383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_9
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 69
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b63148d1283fec5c0800000000000000
+      internalID: -4193146462868860053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_10
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 77
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2211af2af01616b30800000000000000
+      internalID: 4278807840765382946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_11
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 71
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d635bcc6500c47230800000000000000
+      internalID: 3635741928727466861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_12
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 77
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 260d8cb0ae86e36b0800000000000000
+      internalID: -5314695155821260702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_13
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 15
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c5bc503db1709c10800000000000000
+      internalID: 2058270087082456518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_14
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 45
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f309956e67ecf6050800000000000000
+      internalID: 5796078255515209791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_15
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 0
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0046268c4ae1b3060800000000000000
+      internalID: 6934169744352371712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_16
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 79
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029c63b7567cdfcb0800000000000000
+      internalID: -4828483986798491360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_17
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 63
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a1e80db26365cfb0800000000000000
+      internalID: -4628183766323895901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_18
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 65
+        width: 86
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab152cd4356cad60800000000000000
+      internalID: 7902802723834502051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_19
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 95
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c63bb9fd3884ac40800000000000000
+      internalID: 5522688842827249351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_20
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 89
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cad02723e9b38370800000000000000
+      internalID: 8323700921575987905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_21
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 95
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f810cbe3e583c30800000000000000
+      internalID: 4339321864506675052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_22
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 55
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7204eb1bcacba6640800000000000000
+      internalID: 5074075380088717351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_23
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 90
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8f20291c497c4390800000000000000
+      internalID: -7832752284158120051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14-oneway-hatch_24
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 101
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca75c28b2008a99c0800000000000000
+      internalID: -3919679776504391764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      14-oneway-hatch_0: -8350659313227768703
+      14-oneway-hatch_1: -1291628719217767065
+      14-oneway-hatch_10: 4278807840765382946
+      14-oneway-hatch_11: 3635741928727466861
+      14-oneway-hatch_12: -5314695155821260702
+      14-oneway-hatch_13: 2058270087082456518
+      14-oneway-hatch_14: 5796078255515209791
+      14-oneway-hatch_15: 6934169744352371712
+      14-oneway-hatch_16: -4828483986798491360
+      14-oneway-hatch_17: -4628183766323895901
+      14-oneway-hatch_18: 7902802723834502051
+      14-oneway-hatch_19: 5522688842827249351
+      14-oneway-hatch_2: 8799496295892824671
+      14-oneway-hatch_20: 8323700921575987905
+      14-oneway-hatch_21: 4339321864506675052
+      14-oneway-hatch_22: 5074075380088717351
+      14-oneway-hatch_23: -7832752284158120051
+      14-oneway-hatch_24: -3919679776504391764
+      14-oneway-hatch_3: -1314203969822396867
+      14-oneway-hatch_4: -5403112350285177361
+      14-oneway-hatch_5: 7034560653179210065
+      14-oneway-hatch_6: -8121725502431289583
+      14-oneway-hatch_7: 654247496472772613
+      14-oneway-hatch_8: 3105979951005162383
+      14-oneway-hatch_9: -4193146462868860053
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -107,12 +107,12 @@ namespace Unfin.Editor
         public static void Validate()
         {
             var library=AssetDatabase.LoadAssetAtPath<PaperSpriteLibrary>(AnimRoot+"/PlayerSprites.asset");
-            if(library.clips.Length!=19)throw new Exception("Expected 19 sprite sequences");
+            if(library.clips.Length!=21)throw new Exception("Expected 21 sprite sequences");
             foreach(var c in library.clips)foreach(var f in c.frames)
                 if(f.sprite==null||f.duration<0||f.sprite.pixelsPerUnit!=256)throw new Exception("Invalid sprite: "+c.name);
             var world=UnityEngine.Object.FindAnyObjectByType<WorldPrototype>();
             if(world.player.GetComponentInChildren<PaperPlayerRig>()!=null||world.player.GetComponentInChildren<PaperSpritePlayer>()==null)throw new Exception("Legacy rig still attached");
-            Directory.CreateDirectory("Validation");File.WriteAllText("Validation/player-sprites-import.json","{\"passed\":true,\"sourceFrames\":86,\"sequences\":19,\"pixelsPerUnit\":256,\"legacyRigAttached\":false}");
+            Directory.CreateDirectory("Validation");File.WriteAllText("Validation/player-sprites-import.json","{\"passed\":true,\"sourceFrames\":90,\"sequences\":21,\"pixelsPerUnit\":256,\"legacyRigAttached\":false}");
         }
     }
 }

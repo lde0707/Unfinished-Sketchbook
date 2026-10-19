@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "errors": [],
+  "heldInputSeconds": 5.7,
+  "screenshots": [
+    "ink-depth-web.png",
+    "ink-return-web.png",
+    "ink-held-input-web.png"
+  ]
+}

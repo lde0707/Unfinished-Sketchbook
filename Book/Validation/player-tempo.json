@@ -1,0 +1,33 @@
+{
+    "passed": true,
+    "groundSpeed": 88.0,
+    "airSpeed": 105.5999984741211,
+    "gravity": 813.9239501953125,
+    "dashSpeed": 244.8000030517578,
+    "dashSeconds": 0.20000000298023225,
+    "dashDistance": 48.9609375,
+    "runPlaybackRate": 0.7039999961853027,
+    "jumps": [
+        {
+            "direction": -1,
+            "angle": 59.962791442871097,
+            "heightTiles": 3.6334152221679689,
+            "distanceTiles": 5.444343566894531,
+            "seconds": 0.7583333849906921
+        },
+        {
+            "direction": 0,
+            "angle": 90.0,
+            "heightTiles": 3.6334152221679689,
+            "distanceTiles": 0.0,
+            "seconds": 0.7583333849906921
+        },
+        {
+            "direction": 1,
+            "angle": 59.962791442871097,
+            "heightTiles": 3.6334152221679689,
+            "distanceTiles": 5.444343566894531,
+            "seconds": 0.7583333849906921
+        }
+    ]
+}

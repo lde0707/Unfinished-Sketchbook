@@ -22,7 +22,7 @@ namespace Unfin.Editor
             var original=(byte[])m.cells.Clone();Array.Clear(m.cells,0,m.cells.Length);
             for(int x=0;x<w.Data.width;x++)m.cells[40*w.Data.width+x]=1;
             void Step(int count,int dir=0){for(int i=0;i<count;i++){w.Simulate(.005f,dir);p.Tick(.005f);}}
-            void Reset(){w.Respawn(100,40);Step(20);}
+            void Reset(){w.Respawn(100,40);Step(100);}
             var states=new HashSet<string>();
             void Expect(string state){Check(p.CurrentAnimation==state,$"expected {state}, got {p.CurrentAnimation}");states.Add(state);}
             Reset();Expect("Idle");Step(4,1);Expect("RunStart");Step(80,1);Expect("Run");
@@ -31,7 +31,7 @@ namespace Unfin.Editor
             {
                 Reset();w.RequestJump();Step(1,dir);Expect(dir==0?"Jump":"MovingJump");Check(m.vy<0,"instant launch");
                 Step(25,dir);float y=m.y;Check(w.RequestDash(dir),"air dash accepted");p.Tick(0);Expect("Dash");
-                Step(36,-dir);Check(!w.IsDashing,"180ms dash ends");Check(Mathf.Abs(m.y-y)<.02f,"dash height held");
+                Step(40,-dir);Check(!w.IsDashing,"200ms dash ends");Check(Mathf.Abs(m.y-y)<.02f,"dash height held");
                 Check(w.ForceFall&&m.vy>=0,"jump dash cancels remaining ascent");Expect("Fall");
                 Step(45);Check(!w.RequestDash(),"one air dash even after cooldown");
                 float before=m.y;Step(1);Check(m.y>=before,"never rises after dash");
@@ -40,17 +40,17 @@ namespace Unfin.Editor
                 w.RequestJump();for(int i=0;i<50&&w.JumpSerial==oldJump;i++)Step(1);
                 Check(w.JumpSerial==oldJump+1&&m.vy<0,"buffered jump on contact");Check(!w.AirDashUsed,"landing restores charge");
             }
-            Reset();w.RequestJump();Step(1);Step(150);Expect("JumpLand");Step(50);Expect("Idle");
+            Reset();w.RequestJump();Step(1);for(int i=0;i<300&&!m.grounded;i++)Step(1);Expect("JumpLand");Step(50);Expect("Idle");
             Reset();w.RequestJump();Step(1,1);for(int i=0;i<300&&!m.grounded;i++)Step(1,1);Expect("MovingLand");Step(20,1);Expect("Run");
             Reset();m.y-=120;m.grounded=false;m.vy=150;Step(1);Expect("Fall");
-            float fallingSpeed=m.vy;Check(w.RequestDash(1),"fall dash accepted");Step(36,1);Expect("Fall");Check(Mathf.Abs(m.vy-fallingSpeed)<.1f,"fall speed restored");
+            float fallingSpeed=m.vy;Check(w.RequestDash(1),"fall dash accepted");Step(40,1);Expect("Fall");Check(Mathf.Abs(m.vy-fallingSpeed)<.1f,"fall speed restored");
             Step(150);Expect("Idle");
-            Reset();Check(w.RequestDash(1),"ground dash");p.Tick(0);float dashStartX=m.x;Step(36,-1);Check(Mathf.Abs(m.x-dashStartX-72)<.1f,"dash direction locked and 3.2x speed");Check(m.grounded,"ground dash retains floor contact");
+            Reset();Check(w.RequestDash(1),"ground dash");p.Tick(0);float dashStartX=m.x;Step(40,-1);Check(Mathf.Abs(m.x-dashStartX-PlayerMotion.DashSpeed*PlayerMotion.DashDuration)<.1f,"dash respects configured distance and locked direction");Check(m.grounded,"ground dash retains floor contact");
             Reset();w.RequestDash(1);Step(10,1);w.RequestJump();Step(1,1);Check(!w.IsDashing&&m.vy<0,"ground dash jump cancel");
             Reset();for(int col=0;col<w.Data.width;col++)m.cells[40*w.Data.width+col]=16;
-            m.y-=80;m.grounded=false;Step(50);w.RequestJump();int waxJump=w.JumpSerial;
+            m.y-=80;m.grounded=false;for(int i=0;i<200&&m.y+GridMotor.Height<40*16-12;i++)Step(1);w.RequestJump();int waxJump=w.JumpSerial;
             for(int i=0;i<40&&w.JumpSerial==waxJump;i++)Step(1);
-            Check(w.JumpSerial==waxJump+1&&Mathf.Abs(w.JumpLaunchSpeed-357)<.01f,$"buffered wax jump retains reduced height: serial={waxJump}->{w.JumpSerial}, speed={w.JumpLaunchSpeed}, y={m.y}, vy={m.vy}");
+            Check(w.JumpSerial==waxJump+1&&Mathf.Abs(w.JumpLaunchSpeed-PlayerMotion.JumpSpeed*.84f)<.01f,$"buffered wax jump retains reduced height: serial={waxJump}->{w.JumpSerial}, speed={w.JumpLaunchSpeed}, y={m.y}, vy={m.vy}");
             Array.Copy(original,m.cells,original.Length);w.Respawn(w.Data.startX,w.Data.startFloor);Step(20);
             Capture(w.worldCamera,"Validation/player-sprites-in-game.png");
             Directory.CreateDirectory("Validation");

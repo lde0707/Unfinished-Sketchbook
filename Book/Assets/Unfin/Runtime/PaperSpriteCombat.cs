@@ -6,7 +6,9 @@ namespace Unfin
     public sealed partial class PaperSpritePlayer
     {
         public SpriteRenderer attackEffect;
-        public const float ThrustEffectScale = 1.6f;
+        public const float ThrustEffectScale = 3.2f;
+        public const float ComboPause = .08f;
+        public const float AirAttackInterval = .36f;
         PaperAttackArc outerArc;
         public bool SlashEffectVisible => outerArc != null && outerArc.Visible;
         public string AttackAnimation {get;private set;}
@@ -17,51 +19,66 @@ namespace Unfin
         public bool Attacking => AttackAnimation!=null;
         public string DisplayedAnimation => AttackAnimation??CurrentAnimation;
         float combatClock,queuedUntil=-1,comboUntil=-1,recoverUntil=-1;
-        int lastStage=-1,stage,attackJumpSerial;
-        bool airAttack;
+        float airRepeatReady=-1;
+        bool queuedAirAttack;
+        int lastStage=-1,stage;
+        bool airAttack,attackVfxEmitted;
         void ReadAttackInput()
         {
             var k=Keyboard.current;var mouse=Mouse.current;
             if((k!=null&&k.jKey.wasPressedThisFrame)||(mouse!=null&&mouse.leftButton.wasPressedThisFrame))RequestAttack();
         }
-        void ResetCombat(){combatClock=0;AttackCount=0;recoverUntil=-1;fallBlend=0;CancelAttack();}
-        void CancelAttack(){AttackAnimation=null;AttackTime=0;queuedUntil=comboUntil=-1;lastStage=-1;if(attackEffect!=null)attackEffect.enabled=false;if(outerArc!=null)outerArc.Hide();}
+        void ResetCombat(){combatClock=0;AttackCount=0;recoverUntil=airRepeatReady=-1;fallBlend=0;projectileContactFlash=0;CancelAttack();}
+        void CancelAttack(bool clearBuffer=true){if(clearBuffer)queuedAirAttack=false;AttackAnimation=null;AttackTime=0;queuedUntil=comboUntil=-1;lastStage=-1;if(attackEffect!=null)attackEffect.enabled=false;if(outerArc!=null)outerArc.Hide();}
         bool MovingAttack => Mathf.Abs(world.Motor.vx)>8||world.MoveInput!=0;
         string GroundAttackName(int n)=>(MovingAttack?"MoveAttack":"Attack")+(n+1);
         void StartAttack(int n)
         {
+            hitTargets.Clear();attackVfxEmitted=false;queuedAirAttack=false;
             stage=n;airAttack=!world.Motor.grounded;AttackTime=0;AttackFacing=world.Facing;
-            attackJumpSerial=world.JumpSerial;queuedUntil=-1;AttackCount++;
+            // Preserve this deadline across landing and dash cancellation, so
+            // switching locomotion states cannot bypass the airborne attack cadence.
+            if(airAttack){airRepeatReady=combatClock+AirAttackInterval;recoverUntil=Mathf.Max(recoverUntil,airRepeatReady);}
+            queuedUntil=-1;AttackCount++;
             AttackAnimation=airAttack?(world.Motor.vy<0?"AirRiseAttack":"AirFallAttack"):GroundAttackName(n);
-            AttackFrame=0;
+            // The existing impact drawing is the input response. Skip preparation
+            // frames without changing the authored swing, follow-through or pose.
+            var clip=library.Find(AttackAnimation);
+            int impact=airAttack?1:2;
+            for(int i=0;i<impact;i++)AttackTime+=clip.frames[i].duration;
+            AttackFrame=clip.FrameAt(AttackTime);
         }
         public bool RequestAttack()
         {
-            if(world==null||world.Motor==null||world.flying||world.MapOpen||world.IsDashing||library==null)return false;
-            if(Attacking){if(airAttack||stage==2)return false;queuedUntil=combatClock+.15f;return true;}
-            if(world.Motor.grounded&&combatClock<recoverUntil)return false;
+            if(world==null||world.Motor==null||world.HazardInputBlocked||world.flying||world.MapOpen||world.IsDashing||library==null)return false;
+            if(Attacking){if(airAttack){queuedAirAttack=true;return true;}if(stage==2)return false;queuedUntil=combatClock+.15f+ComboPause;return true;}
+            if(combatClock<recoverUntil){if(combatClock<airRepeatReady){queuedAirAttack=true;return true;}return false;}
             StartAttack(combatClock<=comboUntil&&lastStage>=0&&lastStage<2?lastStage+1:0);
-            Render(world.Facing);return true;
+            Render(world.Facing);ResolveAttackHits();return true;
         }
         void TickCombat(float dt)
         {
-            combatClock+=dt;if(!Attacking)return;
-            var m=world.Motor;
-            if(world.flying||world.MapOpen||world.IsDashing||attackJumpSerial!=world.JumpSerial||airAttack==m.grounded||(!airAttack&&world.Facing!=AttackFacing)){CancelAttack();return;}
-            if(!airAttack)
+            combatClock+=dt;
+            // A strike keeps its drawing and playback time for its entire duration. Steering,
+            // jumping and landing must not restart or cancel its wind-up/impact.
+            if(world.HazardInputBlocked||world.flying||world.MapOpen||world.IsDashing){CancelAttack();return;}
+            if(!Attacking)
             {
-                string name=GroundAttackName(stage);
-                if(name!=AttackAnimation){AttackTime=AttackTime/library.Find(AttackAnimation).Duration*library.Find(name).Duration;AttackAnimation=name;}
+                if(queuedAirAttack&&combatClock+0.00001f>=recoverUntil)StartAttack(0);
+                return;
             }
             AttackTime+=dt;
             var clip=library.Find(AttackAnimation);
-            if(AttackTime+0.00001f>=clip.Duration)
+            // Hold the recovery drawing briefly between combo hits. The next
+            // strike still starts on its impact frame, so neutral attacks stay immediate.
+            float duration=clip.Duration+(!airAttack&&stage<2?ComboPause:0);
+            if(AttackTime+0.00001f>=duration)
             {
-                float ended=combatClock-Mathf.Max(0,AttackTime-clip.Duration);
-                if(airAttack){CancelAttack();return;}
+                float ended=combatClock-Mathf.Max(0,AttackTime-duration);
+                if(airAttack){CancelAttack(false);return;}
                 lastStage=stage;comboUntil=ended+.25f;
-                if(stage<2&&queuedUntil>=ended){float remainder=Mathf.Max(0,AttackTime-clip.Duration);StartAttack(stage+1);AttackTime=remainder;}
-                else{AttackAnimation=null;queuedUntil=-1;if(stage==2){recoverUntil=ended+.5f;comboUntil=-1;}return;}
+                if(stage<2&&queuedUntil>=ended){float remainder=Mathf.Max(0,AttackTime-duration);StartAttack(stage+1);AttackTime+=remainder;}
+                else{AttackAnimation=null;queuedUntil=-1;if(stage==2){recoverUntil=ended+.12f;comboUntil=-1;}return;}
             }
             AttackFrame=library.Find(AttackAnimation).FrameAt(AttackTime);
         }
@@ -70,6 +87,7 @@ namespace Unfin
             if(attackEffect!=null)attackEffect.enabled=false;
             if(outerArc!=null)outerArc.Hide();
             if(!Attacking)return;
+            AttackFacing=facing<0?-1:1;
             var clip=library.Find(AttackAnimation);AttackFrame=clip.FrameAt(AttackTime);
             visual.sprite=clip.frames[AttackFrame].sprite;transform.localScale=new Vector3(AttackFacing,1,1);
             if(airAttack)
@@ -87,7 +105,7 @@ namespace Unfin
             Vector2 anchor=move?(AttackFrame==2?new Vector2(486,420):new Vector2(530,418)):(AttackFrame==2?new Vector2(528,420):new Vector2(562,408));
             attackEffect.enabled=true;attackEffect.sprite=library.thrustEffect;
             attackEffect.transform.localPosition=new Vector3((anchor.x-384)/library.pixelsPerUnit,(560-anchor.y)/library.pixelsPerUnit,0);
-            attackEffect.transform.localScale=Vector3.one*(width/1000)*ThrustEffectScale;
+            attackEffect.transform.localScale=new Vector3(ThrustEffectScale,1.6f,1)*(width/1000);
         }
         void RenderOuterArc()
         {
@@ -100,16 +118,16 @@ namespace Unfin
             }
             bool move=AttackAnimation.StartsWith("Move");
             Vector2 center,radius;float start,end;
-            if(airAttack){center=new Vector2(424,282);radius=new Vector2(148,106);start=-76;end=91;}
+            if(airAttack){center=new Vector2(424,282);radius=new Vector2(420,106);start=-88;end=88;}
             else if(stage==0)
             {
                 center=move?new Vector2(409,470):new Vector2(447,456);
-                radius=new Vector2(142,103);start=-76;end=98;
+                radius=new Vector2(420,103);start=-88;end=88;
             }
             else
             {
                 center=move?new Vector2(426,330):new Vector2(450,327);
-                radius=new Vector2(155,156);start=-82;end=76;
+                radius=new Vector2(440,156);start=-88;end=88;
             }
             outerArc.Show(center,radius,start,end,AttackFrame==2?.7f:.95f,library.pixelsPerUnit);
         }

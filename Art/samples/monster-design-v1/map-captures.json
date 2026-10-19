@@ -1,0 +1,90 @@
+[
+  {
+    "group": "common",
+    "room": "1-05",
+    "roomName": "갈림길 굴",
+    "spawn": "161,108",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/common.png"
+  },
+  {
+    "group": "r1",
+    "room": "1-08",
+    "roomName": "흑연 갱도",
+    "spawn": "124,132",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/r1.png"
+  },
+  {
+    "group": "a",
+    "room": "1-03",
+    "roomName": "구겨진 종이 비탈",
+    "spawn": "211,110",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/a.png"
+  },
+  {
+    "group": "b",
+    "room": "1-09",
+    "roomName": "무너진 갱도",
+    "spawn": "79,123",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/b.png"
+  },
+  {
+    "group": "c",
+    "room": "1-13",
+    "roomName": "옹이 방",
+    "spawn": "119,60",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/c.png"
+  },
+  {
+    "group": "d",
+    "room": "1-23",
+    "roomName": "뿌리 내리막",
+    "spawn": "241,70",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/d.png"
+  },
+  {
+    "group": "r2",
+    "room": "2-03",
+    "roomName": "노을빛 큰 굴",
+    "spawn": "375,34",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/r2.png"
+  },
+  {
+    "group": "e",
+    "room": "2-02",
+    "roomName": "첫 크레파스 비탈",
+    "spawn": "329,36",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/e.png"
+  },
+  {
+    "group": "f",
+    "room": "2-07",
+    "roomName": "밀랍 저장고",
+    "spawn": "310,91",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/f.png"
+  },
+  {
+    "group": "g",
+    "room": "2-18",
+    "roomName": "물감 폭포 홀",
+    "spawn": "534,124",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/g.png"
+  },
+  {
+    "group": "h",
+    "room": "2-21",
+    "roomName": "탑 옆 틈새",
+    "spawn": "554,24",
+    "source": "current local Unity WebGL build",
+    "image": "map-originals/h.png"
+  }
+]

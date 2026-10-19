@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 11228732ed4ccec45b294ecf04ba6d8b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3382436626456762217
+    second: 07-lever-gate_0
+  - first:
+      213: 3246087843233435913
+    second: 07-lever-gate_1
+  - first:
+      213: -860410977945160897
+    second: 07-lever-gate_2
+  - first:
+      213: 8833744779862186156
+    second: 07-lever-gate_3
+  - first:
+      213: 3970524832481775680
+    second: 07-lever-gate_4
+  - first:
+      213: -7363228914058084643
+    second: 07-lever-gate_5
+  - first:
+      213: -898105861665426761
+    second: 07-lever-gate_6
+  - first:
+      213: 3159745940898514562
+    second: 07-lever-gate_7
+  - first:
+      213: -1938798114476192869
+    second: 07-lever-gate_8
+  - first:
+      213: 2174216715325334415
+    second: 07-lever-gate_9
+  - first:
+      213: 872938219319425649
+    second: 07-lever-gate_10
+  - first:
+      213: 1447927168120580058
+    second: 07-lever-gate_11
+  - first:
+      213: -5606710182370919945
+    second: 07-lever-gate_12
+  - first:
+      213: -4114979348578970380
+    second: 07-lever-gate_13
+  - first:
+      213: 329251545045531533
+    second: 07-lever-gate_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 07-lever-gate_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 1233
+        height: 1230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79826c42fcb2f01d0800000000000000
+      internalID: -3382436626456762217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_1
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 1211
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90194a5e1bb6c0d20800000000000000
+      internalID: 3246087843233435913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_2
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 17
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f337bb236c43f04f0800000000000000
+      internalID: -860410977945160897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_3
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 15
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca89528f214c79a70800000000000000
+      internalID: 8833744779862186156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 9
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04091f36c432a1730800000000000000
+      internalID: 3970524832481775680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_5
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 19
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddebea1905e80d990800000000000000
+      internalID: -7363228914058084643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_6
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 23
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b27cb82a794983f0800000000000000
+      internalID: -898105861665426761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_7
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 19
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2860db3313ca9db20800000000000000
+      internalID: 3159745940898514562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_8
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 20
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b037713610815e0800000000000000
+      internalID: -1938798114476192869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_9
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 15
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f83eea5459e5c2e10800000000000000
+      internalID: 2174216715325334415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_10
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 25
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17a75697fac4d1c00800000000000000
+      internalID: 872938219319425649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_11
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 25
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad7e6748612181410800000000000000
+      internalID: 1447927168120580058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_12
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 5
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f937357bc6f032b0800000000000000
+      internalID: -5606710182370919945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_13
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 15
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f4d1e5a518a4e6c0800000000000000
+      internalID: -4114979348578970380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-lever-gate_14
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 23
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8bff28298cb19400800000000000000
+      internalID: 329251545045531533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      07-lever-gate_0: -3382436626456762217
+      07-lever-gate_1: 3246087843233435913
+      07-lever-gate_10: 872938219319425649
+      07-lever-gate_11: 1447927168120580058
+      07-lever-gate_12: -5606710182370919945
+      07-lever-gate_13: -4114979348578970380
+      07-lever-gate_14: 329251545045531533
+      07-lever-gate_2: -860410977945160897
+      07-lever-gate_3: 8833744779862186156
+      07-lever-gate_4: 3970524832481775680
+      07-lever-gate_5: -7363228914058084643
+      07-lever-gate_6: -898105861665426761
+      07-lever-gate_7: 3159745940898514562
+      07-lever-gate_8: -1938798114476192869
+      07-lever-gate_9: 2174216715325334415
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

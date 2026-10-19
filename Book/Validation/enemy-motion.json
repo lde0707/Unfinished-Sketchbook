@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "movingAttackSpecies": 13,
+  "checks": [
+    "stationary telegraph",
+    "active-frame displacement",
+    "left/right symmetry",
+    "height recovery",
+    "wall sweep",
+    "ledge guard",
+    "solid-floor collision"
+  ],
+  "runner": "Unfin.Editor.EnemyAnimationValidation.Run"
+}

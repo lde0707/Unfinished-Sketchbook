@@ -1,0 +1,2080 @@
+fileFormatVersion: 2
+guid: 833b1c01003bd8c4d887f13062c0d152
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7203509811496260964
+    second: 18-three-pigment-door_0
+  - first:
+      213: -7242004122855444391
+    second: 18-three-pigment-door_1
+  - first:
+      213: 2713729306170459832
+    second: 18-three-pigment-door_2
+  - first:
+      213: -1290812644390660220
+    second: 18-three-pigment-door_3
+  - first:
+      213: -3966533935602336752
+    second: 18-three-pigment-door_4
+  - first:
+      213: 4983632572553030298
+    second: 18-three-pigment-door_5
+  - first:
+      213: -927590528064263276
+    second: 18-three-pigment-door_6
+  - first:
+      213: 8937128427088083594
+    second: 18-three-pigment-door_7
+  - first:
+      213: 7324054085065809604
+    second: 18-three-pigment-door_8
+  - first:
+      213: -2409420810847724798
+    second: 18-three-pigment-door_9
+  - first:
+      213: -7968470280810457085
+    second: 18-three-pigment-door_10
+  - first:
+      213: 4205178441256232214
+    second: 18-three-pigment-door_11
+  - first:
+      213: 6114891599723367165
+    second: 18-three-pigment-door_12
+  - first:
+      213: -9218891351183955809
+    second: 18-three-pigment-door_13
+  - first:
+      213: 2723447955838734214
+    second: 18-three-pigment-door_14
+  - first:
+      213: 5603244748609958506
+    second: 18-three-pigment-door_15
+  - first:
+      213: -4068338278462169002
+    second: 18-three-pigment-door_16
+  - first:
+      213: -8499094203281729914
+    second: 18-three-pigment-door_17
+  - first:
+      213: -8558214926890793747
+    second: 18-three-pigment-door_18
+  - first:
+      213: 4613399020782349287
+    second: 18-three-pigment-door_19
+  - first:
+      213: -1573458687811259763
+    second: 18-three-pigment-door_20
+  - first:
+      213: 6897666675557611688
+    second: 18-three-pigment-door_21
+  - first:
+      213: 4455007205969601386
+    second: 18-three-pigment-door_22
+  - first:
+      213: -6453655118765316040
+    second: 18-three-pigment-door_23
+  - first:
+      213: 1979387674018330389
+    second: 18-three-pigment-door_24
+  - first:
+      213: 4070078546001835305
+    second: 18-three-pigment-door_25
+  - first:
+      213: 3750397013971279140
+    second: 18-three-pigment-door_26
+  - first:
+      213: 262236153493086131
+    second: 18-three-pigment-door_27
+  - first:
+      213: -4722667573704001573
+    second: 18-three-pigment-door_28
+  - first:
+      213: 6350845283469800467
+    second: 18-three-pigment-door_29
+  - first:
+      213: 3148893697963195868
+    second: 18-three-pigment-door_30
+  - first:
+      213: 3553514595655232016
+    second: 18-three-pigment-door_31
+  - first:
+      213: 9133470752145756906
+    second: 18-three-pigment-door_32
+  - first:
+      213: 8819455881829334100
+    second: 18-three-pigment-door_33
+  - first:
+      213: -6314209070628388130
+    second: 18-three-pigment-door_34
+  - first:
+      213: -1904115101287512509
+    second: 18-three-pigment-door_35
+  - first:
+      213: -2978112836609177001
+    second: 18-three-pigment-door_36
+  - first:
+      213: 8670381377780567789
+    second: 18-three-pigment-door_37
+  - first:
+      213: -3489740861387113041
+    second: 18-three-pigment-door_38
+  - first:
+      213: -3120409685375733570
+    second: 18-three-pigment-door_39
+  - first:
+      213: 6175285027739408915
+    second: 18-three-pigment-door_40
+  - first:
+      213: -9164684839893681117
+    second: 18-three-pigment-door_41
+  - first:
+      213: 2216681586353431713
+    second: 18-three-pigment-door_42
+  - first:
+      213: 5577326105264675101
+    second: 18-three-pigment-door_43
+  - first:
+      213: 1443435881324764960
+    second: 18-three-pigment-door_44
+  - first:
+      213: -9041390403258207908
+    second: 18-three-pigment-door_45
+  - first:
+      213: -2521423404631756911
+    second: 18-three-pigment-door_46
+  - first:
+      213: -2835183745873259294
+    second: 18-three-pigment-door_47
+  - first:
+      213: -7589461896493709818
+    second: 18-three-pigment-door_48
+  - first:
+      213: -9206670466234330113
+    second: 18-three-pigment-door_49
+  - first:
+      213: -3622223837591663018
+    second: 18-three-pigment-door_50
+  - first:
+      213: -4979612854445795068
+    second: 18-three-pigment-door_51
+  - first:
+      213: -2196534217883970481
+    second: 18-three-pigment-door_52
+  - first:
+      213: 8484388355438890478
+    second: 18-three-pigment-door_53
+  - first:
+      213: -5241046091064840799
+    second: 18-three-pigment-door_54
+  - first:
+      213: 2443161223478182164
+    second: 18-three-pigment-door_55
+  - first:
+      213: 7888489639393415635
+    second: 18-three-pigment-door_56
+  - first:
+      213: 5367573389321088503
+    second: 18-three-pigment-door_57
+  - first:
+      213: 7945494018076015188
+    second: 18-three-pigment-door_58
+  - first:
+      213: -3114254186695671949
+    second: 18-three-pigment-door_59
+  - first:
+      213: -3194756946949598116
+    second: 18-three-pigment-door_60
+  - first:
+      213: -3241195050284405533
+    second: 18-three-pigment-door_61
+  - first:
+      213: -4502234469338193693
+    second: 18-three-pigment-door_62
+  - first:
+      213: 2017132223492279161
+    second: 18-three-pigment-door_63
+  - first:
+      213: -2670316895022225022
+    second: 18-three-pigment-door_64
+  - first:
+      213: -4714265075516222653
+    second: 18-three-pigment-door_65
+  - first:
+      213: -3563851843119538617
+    second: 18-three-pigment-door_66
+  - first:
+      213: 4808319069257993174
+    second: 18-three-pigment-door_67
+  - first:
+      213: 4147086465917515363
+    second: 18-three-pigment-door_68
+  - first:
+      213: 4722065452978574774
+    second: 18-three-pigment-door_69
+  - first:
+      213: 3038469933554983627
+    second: 18-three-pigment-door_70
+  - first:
+      213: -3878945387037991746
+    second: 18-three-pigment-door_71
+  - first:
+      213: 902637119248131954
+    second: 18-three-pigment-door_72
+  - first:
+      213: -988011559980047128
+    second: 18-three-pigment-door_73
+  - first:
+      213: 3251141775845204292
+    second: 18-three-pigment-door_74
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 18-three-pigment-door_0
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 1173
+        width: 49
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 465964af10208f360800000000000000
+      internalID: 7203509811496260964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_1
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1164
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950794bbe9b3f7b90800000000000000
+      internalID: -7242004122855444391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_2
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1195
+        width: 44
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b68bde0d6a19a520800000000000000
+      internalID: 2713729306170459832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_3
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 1207
+        width: 51
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 487138b2dbc161ee0800000000000000
+      internalID: -1290812644390660220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_4
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 1164
+        width: 29
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01cf3e2b66a04f8c0800000000000000
+      internalID: -3966533935602336752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_5
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1227
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9ae61a9b6b692540800000000000000
+      internalID: 4983632572553030298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_6
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 1224
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49b66bd44598023f0800000000000000
+      internalID: -927590528064263276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_7
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 1203
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a71a814fe070c70800000000000000
+      internalID: 8937128427088083594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_8
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 1173
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce9818c26444a560800000000000000
+      internalID: 7324054085065809604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_9
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1211
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20bdcf6c984009ed0800000000000000
+      internalID: -2409420810847724798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_10
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1211
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30819059f7e4a6190800000000000000
+      internalID: -7968470280810457085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_11
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1208
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6156538238bcb5a30800000000000000
+      internalID: 4205178441256232214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_12
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1215
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfa088903857cd450800000000000000
+      internalID: 6114891599723367165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_13
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 1150
+        width: 61
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9862cde82bef0080800000000000000
+      internalID: -9218891351183955809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_14
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 1201
+        width: 19
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68f08048c71abc520800000000000000
+      internalID: 2723447955838734214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_15
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1174
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a62387e5969b2cd40800000000000000
+      internalID: 5603244748609958506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_16
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 1203
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 650632604eb5a87c0800000000000000
+      internalID: -4068338278462169002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_17
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 1205
+        width: 69
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6869fcc2ad62d0a80800000000000000
+      internalID: -8499094203281729914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_18
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 1213
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de48a3b0edc1b3980800000000000000
+      internalID: -8558214926890793747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_19
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1207
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ebedd077f5160040800000000000000
+      internalID: 4613399020782349287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_20
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 1205
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d82f144f8a3f92ae0800000000000000
+      internalID: -1573458687811259763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_21
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 1207
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a839a7cb4f69bf50800000000000000
+      internalID: 6897666675557611688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_22
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1154
+        width: 145
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a63af9f337d53dd30800000000000000
+      internalID: 4455007205969601386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_23
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 1162
+        width: 83
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838ac17ccd20076a0800000000000000
+      internalID: -6453655118765316040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_24
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1173
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51736ae2a92387b10800000000000000
+      internalID: 1979387674018330389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_25
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 1162
+        width: 44
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925b0669fd2db7830800000000000000
+      internalID: 4070078546001835305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_26
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 1170
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42d9178b6361c0430800000000000000
+      internalID: 3750397013971279140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_27
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 1160
+        width: 41
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf58386466a3a300800000000000000
+      internalID: 262236153493086131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_28
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 1173
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7fd1d0dd6b57eb0800000000000000
+      internalID: -4722667573704001573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_29
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 1186
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 314bea8132cb22850800000000000000
+      internalID: 6350845283469800467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_30
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1162
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cddff8e722e13bb20800000000000000
+      internalID: 3148893697963195868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_31
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1177
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a223a82be905130800000000000000
+      internalID: 3553514595655232016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_32
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 1165
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae25114024b90ce70800000000000000
+      internalID: 9133470752145756906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_33
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1173
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45cbaa4a560056a70800000000000000
+      internalID: 8819455881829334100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_34
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 1173
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed245abed4c6f58a0800000000000000
+      internalID: -6314209070628388130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_35
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 1155
+        width: 49
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3460d4067693395e0800000000000000
+      internalID: -1904115101287512509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_36
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 1152
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75a01e0672e9ba6d0800000000000000
+      internalID: -2978112836609177001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_37
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 1164
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deec5c9ece1635870800000000000000
+      internalID: 8670381377780567789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_38
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 1173
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fadfade0d23f19fc0800000000000000
+      internalID: -3489740861387113041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_39
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1171
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb0bd7d7ce312b4d0800000000000000
+      internalID: -3120409685375733570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_40
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 1154
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a1231c30503b550800000000000000
+      internalID: 6175285027739408915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_41
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1158
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32cbab7d1bf70d080800000000000000
+      internalID: -9164684839893681117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_42
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 1152
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a4eeb6882c33ce10800000000000000
+      internalID: 2216681586353431713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_43
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 1151
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1950d4fa84a66d40800000000000000
+      internalID: 5577326105264675101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_44
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1158
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f5a62594d180410800000000000000
+      internalID: 1443435881324764960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_45
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 1156
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c513b22e457868280800000000000000
+      internalID: -9041390403258207908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1254
+        height: 1153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19f6196c5ca120dd0800000000000000
+      internalID: -2521423404631756911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_47
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1140
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e45342976767a8d0800000000000000
+      internalID: -2835183745873259294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_48
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 95
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6064127ad90dca690800000000000000
+      internalID: -7589461896493709818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_49
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 19
+        width: 73
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff3d5007df55b3080800000000000000
+      internalID: -9206670466234330113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_50
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 95
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e856f6c964bbdc0800000000000000
+      internalID: -3622223837591663018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_51
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 101
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4091ac3fd7cd4eab0800000000000000
+      internalID: -4979612854445795068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_52
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 65
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f44190e34c75481e0800000000000000
+      internalID: -2196534217883970481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_53
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 13
+        width: 160
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eed456ec14a9eb570800000000000000
+      internalID: 8484388355438890478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_54
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 12
+        width: 252
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad61a239501447b0800000000000000
+      internalID: -5241046091064840799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_55
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 79
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4110d66303ad7e120800000000000000
+      internalID: 2443161223478182164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_56
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 55
+        width: 20
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1d462388b897d60800000000000000
+      internalID: 7888489639393415635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_57
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 13
+        width: 128
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fda2581f837d7a40800000000000000
+      internalID: 5367573389321088503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_58
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 70
+        width: 34
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45a796066b0144e60800000000000000
+      internalID: 7945494018076015188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_59
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 12
+        width: 212
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37f3bb53152f7c4d0800000000000000
+      internalID: -3114254186695671949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_60
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 25
+        width: 51
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c549b59bb71f9a3d0800000000000000
+      internalID: -3194756946949598116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_61
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 65
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec2b0c3646f403d0800000000000000
+      internalID: -3241195050284405533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_62
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 63
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e0e39f9a99d481c0800000000000000
+      internalID: -4502234469338193693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_63
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 69
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b404ee11b4efb10800000000000000
+      internalID: 2017132223492279161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_64
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 43
+        width: 84
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 289e9729ee021fad0800000000000000
+      internalID: -2670316895022225022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_65
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 45
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34353dc14e0939eb0800000000000000
+      internalID: -4714265075516222653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_66
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 50
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e1dba71a7aa8ec0800000000000000
+      internalID: -3563851843119538617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_67
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 48
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6db0cd9c7b49ab240800000000000000
+      internalID: 4808319069257993174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_68
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 33
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 366f7d52b296d8930800000000000000
+      internalID: 4147086465917515363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_69
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 31
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b59eeac285288140800000000000000
+      internalID: 4722065452978574774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_70
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 33
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc2ef3a5e40da2a20800000000000000
+      internalID: 3038469933554983627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebcd576d8b73b2ac0800000000000000
+      internalID: -3878945387037991746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_72
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 18
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277edd57dafc68c00800000000000000
+      internalID: 902637119248131954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_73
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 17
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4e86d88b0e942f0800000000000000
+      internalID: -988011559980047128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18-three-pigment-door_74
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 9
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 441afa748306e1d20800000000000000
+      internalID: 3251141775845204292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      18-three-pigment-door_0: 7203509811496260964
+      18-three-pigment-door_1: -7242004122855444391
+      18-three-pigment-door_10: -7968470280810457085
+      18-three-pigment-door_11: 4205178441256232214
+      18-three-pigment-door_12: 6114891599723367165
+      18-three-pigment-door_13: -9218891351183955809
+      18-three-pigment-door_14: 2723447955838734214
+      18-three-pigment-door_15: 5603244748609958506
+      18-three-pigment-door_16: -4068338278462169002
+      18-three-pigment-door_17: -8499094203281729914
+      18-three-pigment-door_18: -8558214926890793747
+      18-three-pigment-door_19: 4613399020782349287
+      18-three-pigment-door_2: 2713729306170459832
+      18-three-pigment-door_20: -1573458687811259763
+      18-three-pigment-door_21: 6897666675557611688
+      18-three-pigment-door_22: 4455007205969601386
+      18-three-pigment-door_23: -6453655118765316040
+      18-three-pigment-door_24: 1979387674018330389
+      18-three-pigment-door_25: 4070078546001835305
+      18-three-pigment-door_26: 3750397013971279140
+      18-three-pigment-door_27: 262236153493086131
+      18-three-pigment-door_28: -4722667573704001573
+      18-three-pigment-door_29: 6350845283469800467
+      18-three-pigment-door_3: -1290812644390660220
+      18-three-pigment-door_30: 3148893697963195868
+      18-three-pigment-door_31: 3553514595655232016
+      18-three-pigment-door_32: 9133470752145756906
+      18-three-pigment-door_33: 8819455881829334100
+      18-three-pigment-door_34: -6314209070628388130
+      18-three-pigment-door_35: -1904115101287512509
+      18-three-pigment-door_36: -2978112836609177001
+      18-three-pigment-door_37: 8670381377780567789
+      18-three-pigment-door_38: -3489740861387113041
+      18-three-pigment-door_39: -3120409685375733570
+      18-three-pigment-door_4: -3966533935602336752
+      18-three-pigment-door_40: 6175285027739408915
+      18-three-pigment-door_41: -9164684839893681117
+      18-three-pigment-door_42: 2216681586353431713
+      18-three-pigment-door_43: 5577326105264675101
+      18-three-pigment-door_44: 1443435881324764960
+      18-three-pigment-door_45: -9041390403258207908
+      18-three-pigment-door_46: -2521423404631756911
+      18-three-pigment-door_47: -2835183745873259294
+      18-three-pigment-door_48: -7589461896493709818
+      18-three-pigment-door_49: -9206670466234330113
+      18-three-pigment-door_5: 4983632572553030298
+      18-three-pigment-door_50: -3622223837591663018
+      18-three-pigment-door_51: -4979612854445795068
+      18-three-pigment-door_52: -2196534217883970481
+      18-three-pigment-door_53: 8484388355438890478
+      18-three-pigment-door_54: -5241046091064840799
+      18-three-pigment-door_55: 2443161223478182164
+      18-three-pigment-door_56: 7888489639393415635
+      18-three-pigment-door_57: 5367573389321088503
+      18-three-pigment-door_58: 7945494018076015188
+      18-three-pigment-door_59: -3114254186695671949
+      18-three-pigment-door_6: -927590528064263276
+      18-three-pigment-door_60: -3194756946949598116
+      18-three-pigment-door_61: -3241195050284405533
+      18-three-pigment-door_62: -4502234469338193693
+      18-three-pigment-door_63: 2017132223492279161
+      18-three-pigment-door_64: -2670316895022225022
+      18-three-pigment-door_65: -4714265075516222653
+      18-three-pigment-door_66: -3563851843119538617
+      18-three-pigment-door_67: 4808319069257993174
+      18-three-pigment-door_68: 4147086465917515363
+      18-three-pigment-door_69: 4722065452978574774
+      18-three-pigment-door_7: 8937128427088083594
+      18-three-pigment-door_70: 3038469933554983627
+      18-three-pigment-door_71: -3878945387037991746
+      18-three-pigment-door_72: 902637119248131954
+      18-three-pigment-door_73: -988011559980047128
+      18-three-pigment-door_74: 3251141775845204292
+      18-three-pigment-door_8: 7324054085065809604
+      18-three-pigment-door_9: -2409420810847724798
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

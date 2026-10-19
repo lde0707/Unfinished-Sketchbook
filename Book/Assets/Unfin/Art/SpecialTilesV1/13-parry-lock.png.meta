@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: f1273b3e3b3c7554684cf0d4100729f5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7453735031908433988
+    second: 13-parry-lock_0
+  - first:
+      213: 3554157886604785216
+    second: 13-parry-lock_1
+  - first:
+      213: -4890315197163689564
+    second: 13-parry-lock_2
+  - first:
+      213: 5128097863346359246
+    second: 13-parry-lock_3
+  - first:
+      213: 8422341659165800053
+    second: 13-parry-lock_4
+  - first:
+      213: -8179210987717318436
+    second: 13-parry-lock_5
+  - first:
+      213: 2280354213782144111
+    second: 13-parry-lock_6
+  - first:
+      213: -7937823650769910005
+    second: 13-parry-lock_7
+  - first:
+      213: -4349008599166156593
+    second: 13-parry-lock_8
+  - first:
+      213: -947190827697929206
+    second: 13-parry-lock_9
+  - first:
+      213: 5943192181864938801
+    second: 13-parry-lock_10
+  - first:
+      213: -1278666928009060618
+    second: 13-parry-lock_11
+  - first:
+      213: -7878609291194732912
+    second: 13-parry-lock_12
+  - first:
+      213: -2465569123233098836
+    second: 13-parry-lock_13
+  - first:
+      213: -1216558245700607518
+    second: 13-parry-lock_14
+  - first:
+      213: 493154844600170278
+    second: 13-parry-lock_15
+  - first:
+      213: 2189908854298284801
+    second: 13-parry-lock_16
+  - first:
+      213: -6364549761156706202
+    second: 13-parry-lock_17
+  - first:
+      213: 2038985956761550139
+    second: 13-parry-lock_18
+  - first:
+      213: -4082835581002275441
+    second: 13-parry-lock_19
+  - first:
+      213: 6648939216629941717
+    second: 13-parry-lock_20
+  - first:
+      213: -3317890823829643417
+    second: 13-parry-lock_21
+  - first:
+      213: 4150610123102410239
+    second: 13-parry-lock_22
+  - first:
+      213: -535926405634729250
+    second: 13-parry-lock_23
+  - first:
+      213: -564405495430416079
+    second: 13-parry-lock_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 13-parry-lock_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1223
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44089ca158cf07760800000000000000
+      internalID: 7453735031908433988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_1
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 1197
+        width: 34
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0463bb264c7e25130800000000000000
+      internalID: 3554157886604785216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_2
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 65
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a92d59fc3c122cb0800000000000000
+      internalID: -4890315197163689564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 55
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb033e36d9aa2740800000000000000
+      internalID: 5128097863346359246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_4
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 49
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5763d839d1b22e470800000000000000
+      internalID: 8422341659165800053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_5
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 41
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd8232621fa9d7e80800000000000000
+      internalID: -8179210987717318436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_6
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 17
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f64cc8a531275af10800000000000000
+      internalID: 2280354213782144111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_7
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 34
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b074a2e227f27d190800000000000000
+      internalID: -7937823650769910005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_8
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 31
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc0059998b735a3c0800000000000000
+      internalID: -4349008599166156593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_9
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 13
+        width: 64
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a048e8ce5f6ead2f0800000000000000
+      internalID: -947190827697929206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_10
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 31
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d30ff0dc57a7250800000000000000
+      internalID: 5943192181864938801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_11
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 23
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fedaf12433414ee0800000000000000
+      internalID: -1278666928009060618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_12
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 35
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09eee32a79e89a290800000000000000
+      internalID: -7878609291194732912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_13
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 15
+        width: 50
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca3158012f988cdd0800000000000000
+      internalID: -2465569123233098836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_14
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 11
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e1617c98baed1fe0800000000000000
+      internalID: -1216558245700607518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_15
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 27
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 627f7a3e7b908d600800000000000000
+      internalID: 493154844600170278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_16
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 17
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1039ee6108e146e10800000000000000
+      internalID: 2189908854298284801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_17
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 21
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66015fa86b39ca7a0800000000000000
+      internalID: -6364549761156706202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_18
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 17
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d38c6bceeeb4c10800000000000000
+      internalID: 2038985956761550139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_19
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 15
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f85a80ebbaad657c0800000000000000
+      internalID: -4082835581002275441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_20
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 15
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d5446c6df6c54c50800000000000000
+      internalID: 6648939216629941717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_21
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 17
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f1b1aefdb74f1d0800000000000000
+      internalID: -3317890823829643417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_22
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 17
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff5d8a48aede99930800000000000000
+      internalID: 4150610123102410239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_23
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 0
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edad36606c10098f0800000000000000
+      internalID: -535926405634729250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13-parry-lock_24
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 7
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13977973134da28f0800000000000000
+      internalID: -564405495430416079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      13-parry-lock_0: 7453735031908433988
+      13-parry-lock_1: 3554157886604785216
+      13-parry-lock_10: 5943192181864938801
+      13-parry-lock_11: -1278666928009060618
+      13-parry-lock_12: -7878609291194732912
+      13-parry-lock_13: -2465569123233098836
+      13-parry-lock_14: -1216558245700607518
+      13-parry-lock_15: 493154844600170278
+      13-parry-lock_16: 2189908854298284801
+      13-parry-lock_17: -6364549761156706202
+      13-parry-lock_18: 2038985956761550139
+      13-parry-lock_19: -4082835581002275441
+      13-parry-lock_2: -4890315197163689564
+      13-parry-lock_20: 6648939216629941717
+      13-parry-lock_21: -3317890823829643417
+      13-parry-lock_22: 4150610123102410239
+      13-parry-lock_23: -535926405634729250
+      13-parry-lock_24: -564405495430416079
+      13-parry-lock_3: 5128097863346359246
+      13-parry-lock_4: 8422341659165800053
+      13-parry-lock_5: -8179210987717318436
+      13-parry-lock_6: 2280354213782144111
+      13-parry-lock_7: -7937823650769910005
+      13-parry-lock_8: -4349008599166156593
+      13-parry-lock_9: -947190827697929206
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,187 @@
+[
+  {
+    "event": "StepStone",
+    "runtime": "StepStone_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\footstep_concrete_000.ogg"
+  },
+  {
+    "event": "StepStone",
+    "runtime": "StepStone_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\footstep_concrete_001.ogg"
+  },
+  {
+    "event": "StepStone",
+    "runtime": "StepStone_2.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\footstep_concrete_002.ogg"
+  },
+  {
+    "event": "StepSoft",
+    "runtime": "StepSoft_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\footstep_carpet_000.ogg"
+  },
+  {
+    "event": "StepSoft",
+    "runtime": "StepSoft_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\footstep_carpet_001.ogg"
+  },
+  {
+    "event": "StepSoft",
+    "runtime": "StepSoft_2.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\footstep_carpet_002.ogg"
+  },
+  {
+    "event": "StepWood",
+    "runtime": "StepWood_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\footstep_wood_000.ogg"
+  },
+  {
+    "event": "StepWood",
+    "runtime": "StepWood_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\footstep_wood_001.ogg"
+  },
+  {
+    "event": "StepWood",
+    "runtime": "StepWood_2.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\footstep_wood_002.ogg"
+  },
+  {
+    "event": "Jump",
+    "runtime": "Jump_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\cloth1.ogg"
+  },
+  {
+    "event": "Jump",
+    "runtime": "Jump_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\cloth2.ogg"
+  },
+  {
+    "event": "Land",
+    "runtime": "Land_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\impactSoft_medium_000.ogg"
+  },
+  {
+    "event": "Land",
+    "runtime": "Land_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\impactSoft_medium_001.ogg"
+  },
+  {
+    "event": "Dash",
+    "runtime": "Dash_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\cloth3.ogg"
+  },
+  {
+    "event": "Dash",
+    "runtime": "Dash_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\cloth4.ogg"
+  },
+  {
+    "event": "Swing",
+    "runtime": "Swing_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\cloth3.ogg"
+  },
+  {
+    "event": "Swing",
+    "runtime": "Swing_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\cloth4.ogg"
+  },
+  {
+    "event": "Thrust",
+    "runtime": "Thrust_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\cloth2.ogg"
+  },
+  {
+    "event": "Hit",
+    "runtime": "Hit_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\impactPunch_medium_000.ogg"
+  },
+  {
+    "event": "Hit",
+    "runtime": "Hit_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\impactPunch_medium_001.ogg"
+  },
+  {
+    "event": "Hit",
+    "runtime": "Hit_2.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\impactSoft_medium_002.ogg"
+  },
+  {
+    "event": "Death",
+    "runtime": "Death_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\bookClose.ogg"
+  },
+  {
+    "event": "Wall",
+    "runtime": "Wall_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\footstep_carpet_003.ogg"
+  },
+  {
+    "event": "Wall",
+    "runtime": "Wall_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\clothBelt.ogg"
+  },
+  {
+    "event": "EnemyMove",
+    "runtime": "EnemyMove_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\handleSmallLeather.ogg"
+  },
+  {
+    "event": "EnemyMove",
+    "runtime": "EnemyMove_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\handleSmallLeather2.ogg"
+  },
+  {
+    "event": "EnemyAttack",
+    "runtime": "EnemyAttack_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\clothBelt2.ogg"
+  },
+  {
+    "event": "EnemyAttack",
+    "runtime": "EnemyAttack_1.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\cloth4.ogg"
+  },
+  {
+    "event": "Gate",
+    "runtime": "Gate_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\doorOpen_1.ogg"
+  },
+  {
+    "event": "Crumble",
+    "runtime": "Crumble_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\impactMining_000.ogg"
+  },
+  {
+    "event": "Restore",
+    "runtime": "Restore_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\impactWood_light_000.ogg"
+  },
+  {
+    "event": "Hazard",
+    "runtime": "Hazard_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Impact\\Audio\\impactSoft_heavy_000.ogg"
+  },
+  {
+    "event": "MapOpen",
+    "runtime": "MapOpen_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\bookOpen.ogg"
+  },
+  {
+    "event": "MapClose",
+    "runtime": "MapClose_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\bookClose.ogg"
+  },
+  {
+    "event": "Respawn",
+    "runtime": "Respawn_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\RPG\\Audio\\bookFlip1.ogg"
+  },
+  {
+    "event": "MusicGraphite",
+    "runtime": "MusicGraphite_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\deep-humidity.ogg"
+  },
+  {
+    "event": "MusicCrayon",
+    "runtime": "MusicCrayon_0.ogg",
+    "original": "Art\\ThirdParty\\Audio\\Searching.ogg"
+  }
+]

@@ -1,0 +1,1238 @@
+{
+  "enemies": [
+    {
+      "id": "COMMON01",
+      "name": "구겨진 종이공",
+      "group": "common",
+      "pixelsPerUnit": 198.163,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.17875000000000002,
+            0.17875000000000002,
+            0.14625000000000002,
+            0.14625000000000002,
+            0.22749999999999998,
+            0.12249999999999998,
+            0.36000000000000004,
+            0.54
+          ],
+          "motionDurations": [
+            0.35750000000000004,
+            0.29250000000000004,
+            0.35,
+            0.9
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 0.89375,
+      "bodyWidth": 1.0278125,
+      "columns": 4,
+      "rows": 5
+    },
+    {
+      "id": "COMMON02",
+      "name": "종이 나방",
+      "group": "common",
+      "pixelsPerUnit": 312.066,
+      "pivotY": 0.5,
+      "stationary": false,
+      "flying": true,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.1925,
+            0.1925,
+            0.1575,
+            0.1575,
+            0.195,
+            0.105,
+            0.34,
+            0.51
+          ],
+          "motionDurations": [
+            0.385,
+            0.315,
+            0.3,
+            0.85
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 0.7562500000000001,
+      "bodyWidth": 0.8696875000000001,
+      "columns": 4,
+      "rows": 5
+    },
+    {
+      "id": "COMMON03",
+      "name": "잉크 방울",
+      "group": "common",
+      "pixelsPerUnit": 245.195,
+      "pivotY": 0.125,
+      "stationary": true,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.44000000000000006,
+            0.36000000000000004,
+            0.15,
+            1.1
+          ],
+          "motionDurations": [
+            0.44000000000000006,
+            0.36000000000000004,
+            0.15,
+            1.1
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 0.9624999999999999,
+      "bodyWidth": 1.1068749999999998,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "R101",
+      "name": "흑연 벌레",
+      "group": "r1",
+      "pixelsPerUnit": 173.293,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.35750000000000004,
+            0.29250000000000004,
+            0.18,
+            0.85
+          ],
+          "motionDurations": [
+            0.35750000000000004,
+            0.29250000000000004,
+            0.18,
+            0.85
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 0.7562500000000001,
+      "bodyWidth": 0.8696875000000001,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "R102",
+      "name": "연필깎이 포탑",
+      "group": "r1",
+      "pixelsPerUnit": 190.29,
+      "pivotY": 0.125,
+      "stationary": true,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.41250000000000003,
+            0.3375,
+            0.12,
+            1.3
+          ],
+          "motionDurations": [
+            0.41250000000000003,
+            0.3375,
+            0.12,
+            1.3
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 1.16875,
+      "bodyWidth": 1.3440625,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "R103",
+      "name": "지우개 짐꾼",
+      "group": "r1",
+      "pixelsPerUnit": 150.567,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.4675,
+            0.3825,
+            0.25,
+            1.1
+          ],
+          "motionDurations": [
+            0.4675,
+            0.3825,
+            0.25,
+            1.1
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 1.375,
+      "bodyWidth": 1.5812499999999998,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "A01",
+      "name": "접힌 입 종이벌레",
+      "group": "a",
+      "pixelsPerUnit": 213.794,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.41250000000000003,
+            0.3375,
+            0.15,
+            0.9
+          ],
+          "motionDurations": [
+            0.41250000000000003,
+            0.3375,
+            0.15,
+            0.9
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 0.7562500000000001,
+      "bodyWidth": 0.8696875000000001,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "A02",
+      "name": "종이 귀뚜라미",
+      "group": "a",
+      "pixelsPerUnit": 255.425,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.22000000000000003,
+            0.22000000000000003,
+            0.18000000000000002,
+            0.18000000000000002,
+            0.29250000000000004,
+            0.1575,
+            0.4,
+            0.6
+          ],
+          "motionDurations": [
+            0.44000000000000006,
+            0.36000000000000004,
+            0.45,
+            1.0
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 0.89375,
+      "bodyWidth": 1.0278125,
+      "columns": 4,
+      "rows": 5
+    },
+    {
+      "id": "A03",
+      "name": "책장 소라",
+      "group": "a",
+      "pixelsPerUnit": 144.435,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.49500000000000005,
+            0.405,
+            0.2,
+            1.2
+          ],
+          "motionDurations": [
+            0.49500000000000005,
+            0.405,
+            0.2,
+            1.2
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 1.1,
+      "bodyWidth": 1.265,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "B01",
+      "name": "흑연 두더지",
+      "group": "b",
+      "pixelsPerUnit": 145.341,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.385,
+            0.315,
+            0.25,
+            1.2
+          ],
+          "motionDurations": [
+            0.385,
+            0.315,
+            0.25,
+            1.2
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 1.1,
+      "bodyWidth": 1.265,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "B02",
+      "name": "흑연 등딱지",
+      "group": "b",
+      "pixelsPerUnit": 125.359,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.4675,
+            0.3825,
+            0.25,
+            1.15
+          ],
+          "motionDurations": [
+            0.4675,
+            0.3825,
+            0.25,
+            1.15
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 1.16875,
+      "bodyWidth": 1.3440625,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "B03",
+      "name": "갱등 주머니",
+      "group": "b",
+      "pixelsPerUnit": 245.195,
+      "pivotY": 0.5,
+      "stationary": true,
+      "flying": true,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.49500000000000005,
+            0.405,
+            0.3,
+            1.3
+          ],
+          "motionDurations": [
+            0.49500000000000005,
+            0.405,
+            0.3,
+            1.3
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 0.9624999999999999,
+      "bodyWidth": 1.1068749999999998,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "C01",
+      "name": "지우개 거미",
+      "group": "c",
+      "pixelsPerUnit": 264.056,
+      "pivotY": 0.5,
+      "stationary": false,
+      "flying": true,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.44000000000000006,
+            0.36000000000000004,
+            0.35,
+            1.0
+          ],
+          "motionDurations": [
+            0.44000000000000006,
+            0.36000000000000004,
+            0.35,
+            1.0
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 0.89375,
+      "bodyWidth": 1.0278125,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "C02",
+      "name": "옹이 도마뱀",
+      "group": "c",
+      "pixelsPerUnit": 155.69,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06,
+            0.06
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.20625000000000002,
+            0.20625000000000002,
+            0.16875,
+            0.16875,
+            0.1625,
+            0.0875,
+            0.38,
+            0.57
+          ],
+          "motionDurations": [
+            0.41250000000000003,
+            0.3375,
+            0.25,
+            0.95
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 1.03125,
+      "bodyWidth": 1.1859374999999999,
+      "columns": 4,
+      "rows": 5
+    },
+    {
+      "id": "C03",
+      "name": "연필씨 부엉이",
+      "group": "c",
+      "pixelsPerUnit": 178.923,
+      "pivotY": 0.5,
+      "stationary": false,
+      "flying": true,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.4675,
+            0.3825,
+            0.4,
+            1.05
+          ],
+          "motionDurations": [
+            0.4675,
+            0.3825,
+            0.4,
+            1.05
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 1.1,
+      "bodyWidth": 1.265,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "D01",
+      "name": "뿌리 매듭개",
+      "group": "d",
+      "pixelsPerUnit": 116.177,
+      "pivotY": 0.125,
+      "stationary": false,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.385,
+            0.315,
+            0.2,
+            0.9
+          ],
+          "motionDurations": [
+            0.385,
+            0.315,
+            0.2,
+            0.9
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 1.2375,
+      "bodyWidth": 1.423125,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "D02",
+      "name": "씨주머니 보행자",
+      "group": "d",
+      "pixelsPerUnit": 201.925,
+      "pivotY": 0.125,
+      "stationary": true,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.49500000000000005,
+            0.405,
+            0.15,
+            1.2
+          ],
+          "motionDurations": [
+            0.49500000000000005,
+            0.405,
+            0.15,
+            1.2
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 1.16875,
+      "bodyWidth": 1.3440625,
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "D03",
+      "name": "덩굴 손아귀",
+      "group": "d",
+      "pixelsPerUnit": 116.421,
+      "pivotY": 0.125,
+      "stationary": true,
+      "flying": false,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.12,
+            0.12,
+            0.12,
+            0.12
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.5225,
+            0.4275,
+            0.3,
+            1.3
+          ],
+          "motionDurations": [
+            0.5225,
+            0.4275,
+            0.3,
+            1.3
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.1,
+            0.13,
+            0.18,
+            0.35
+          ]
+        }
+      ],
+      "bodyHeight": 1.5125000000000002,
+      "bodyWidth": 1.7393750000000001,
+      "columns": 4,
+      "rows": 3
+    }
+  ],
+  "placements": [
+    {
+      "sourceIndex": 0,
+      "id": "R101",
+      "zone": "A",
+      "room": 1,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 1,
+      "id": "R101",
+      "zone": "A",
+      "room": 2,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 2,
+      "id": "R101",
+      "zone": "A",
+      "room": 2,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 3,
+      "id": "R102",
+      "zone": "A",
+      "room": 2,
+      "kind": "range"
+    },
+    {
+      "sourceIndex": 4,
+      "id": "COMMON02",
+      "zone": "A",
+      "room": 2,
+      "kind": "fly"
+    },
+    {
+      "sourceIndex": 5,
+      "id": "COMMON02",
+      "zone": "A",
+      "room": 3,
+      "kind": "fly"
+    },
+    {
+      "sourceIndex": 6,
+      "id": "A02",
+      "zone": "A",
+      "room": 3,
+      "kind": "ball"
+    },
+    {
+      "sourceIndex": 7,
+      "id": "COMMON01",
+      "zone": "A",
+      "room": 4,
+      "kind": "ball"
+    },
+    {
+      "sourceIndex": 8,
+      "id": "COMMON01",
+      "zone": "A",
+      "room": 4,
+      "kind": "ball"
+    },
+    {
+      "sourceIndex": 9,
+      "id": "COMMON02",
+      "zone": "A",
+      "room": 4,
+      "kind": "fly"
+    },
+    {
+      "sourceIndex": 10,
+      "id": "A01",
+      "zone": "A",
+      "room": 5,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 11,
+      "id": "R103",
+      "zone": "A",
+      "room": 5,
+      "kind": "ball"
+    },
+    {
+      "sourceIndex": 12,
+      "id": "A03",
+      "zone": "A",
+      "room": 5,
+      "kind": "range"
+    },
+    {
+      "sourceIndex": 13,
+      "id": "R102",
+      "zone": "A",
+      "room": 6,
+      "kind": "range"
+    },
+    {
+      "sourceIndex": 14,
+      "id": "B01",
+      "zone": "B",
+      "room": 7,
+      "kind": "mole"
+    },
+    {
+      "sourceIndex": 15,
+      "id": "B02",
+      "zone": "B",
+      "room": 8,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 16,
+      "id": "B01",
+      "zone": "B",
+      "room": 8,
+      "kind": "mole"
+    },
+    {
+      "sourceIndex": 17,
+      "id": "B03",
+      "zone": "B",
+      "room": 8,
+      "kind": "fly"
+    },
+    {
+      "sourceIndex": 18,
+      "id": "R102",
+      "zone": "B",
+      "room": 8,
+      "kind": "range"
+    },
+    {
+      "sourceIndex": 19,
+      "id": "COMMON01",
+      "zone": "B",
+      "room": 8,
+      "kind": "ball"
+    },
+    {
+      "sourceIndex": 20,
+      "id": "COMMON02",
+      "zone": "B",
+      "room": 9,
+      "kind": "fly"
+    },
+    {
+      "sourceIndex": 21,
+      "id": "COMMON02",
+      "zone": "B",
+      "room": 9,
+      "kind": "fly"
+    },
+    {
+      "sourceIndex": 22,
+      "id": "R102",
+      "zone": "B",
+      "room": 9,
+      "kind": "range"
+    },
+    {
+      "sourceIndex": 24,
+      "id": "R102",
+      "zone": "B",
+      "room": 11,
+      "kind": "range"
+    },
+    {
+      "sourceIndex": 25,
+      "id": "C01",
+      "zone": "C",
+      "room": 13,
+      "kind": "spider"
+    },
+    {
+      "sourceIndex": 26,
+      "id": "C01",
+      "zone": "C",
+      "room": 13,
+      "kind": "spider"
+    },
+    {
+      "sourceIndex": 27,
+      "id": "COMMON02",
+      "zone": "A",
+      "room": 5,
+      "kind": "fly"
+    },
+    {
+      "sourceIndex": 28,
+      "id": "C02",
+      "zone": "C",
+      "room": 13,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 29,
+      "id": "R101",
+      "zone": "C",
+      "room": 13,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 30,
+      "id": "C01",
+      "zone": "C",
+      "room": 13,
+      "kind": "spider"
+    },
+    {
+      "sourceIndex": 31,
+      "id": "C01",
+      "zone": "C",
+      "room": 14,
+      "kind": "spider"
+    },
+    {
+      "sourceIndex": 32,
+      "id": "C03",
+      "zone": "C",
+      "room": 14,
+      "kind": "fly"
+    },
+    {
+      "sourceIndex": 33,
+      "id": "COMMON01",
+      "zone": "C",
+      "room": 15,
+      "kind": "ball"
+    },
+    {
+      "sourceIndex": 34,
+      "id": "R101",
+      "zone": "C",
+      "room": 15,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 35,
+      "id": "R101",
+      "zone": "C",
+      "room": 15,
+      "kind": "mole"
+    },
+    {
+      "sourceIndex": 36,
+      "id": "R102",
+      "zone": "C",
+      "room": 15,
+      "kind": "range"
+    },
+    {
+      "sourceIndex": 37,
+      "id": "R102",
+      "zone": "C",
+      "room": 17,
+      "kind": "range"
+    },
+    {
+      "sourceIndex": 38,
+      "id": "C01",
+      "zone": "C",
+      "room": 17,
+      "kind": "spider"
+    },
+    {
+      "sourceIndex": 39,
+      "id": "COMMON02",
+      "zone": "C",
+      "room": 17,
+      "kind": "fly"
+    },
+    {
+      "sourceIndex": 40,
+      "id": "COMMON03",
+      "zone": "D",
+      "room": 18,
+      "kind": "blob"
+    },
+    {
+      "sourceIndex": 41,
+      "id": "D01",
+      "zone": "D",
+      "room": 19,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 42,
+      "id": "D02",
+      "zone": "D",
+      "room": 19,
+      "kind": "blob"
+    },
+    {
+      "sourceIndex": 43,
+      "id": "COMMON02",
+      "zone": "D",
+      "room": 19,
+      "kind": "spider"
+    },
+    {
+      "sourceIndex": 45,
+      "id": "R101",
+      "zone": "D",
+      "room": 20,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 46,
+      "id": "COMMON02",
+      "zone": "D",
+      "room": 20,
+      "kind": "fly"
+    },
+    {
+      "sourceIndex": 48,
+      "id": "D03",
+      "zone": "D",
+      "room": 23,
+      "kind": "walker"
+    },
+    {
+      "sourceIndex": 49,
+      "id": "R101",
+      "zone": "D",
+      "room": 23,
+      "kind": "mole"
+    },
+    {
+      "sourceIndex": 50,
+      "id": "COMMON03",
+      "zone": "D",
+      "room": 23,
+      "kind": "blob"
+    }
+  ]
+}

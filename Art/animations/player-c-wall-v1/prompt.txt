@@ -1,0 +1,1 @@
+Built-in image_gen, reference: player-c-idle-v1/frames/00.png. Four whole-drawing wall climbing poses in 2x2 transparent sheet, facing right; preserve ivory paper character, big head, short limbs, beige shorts and long paper cape. Alternate reach, pull and bent knees. No drawn wall, text or shadow. Whole-sprite registration only, no joint deformation.

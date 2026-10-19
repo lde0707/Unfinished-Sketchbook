@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: 0f6c5f3b231cd144590a7735c47e2637
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5749156307387158345
+    second: 09-deep-liquid_0
+  - first:
+      213: -6580589088579232823
+    second: 09-deep-liquid_1
+  - first:
+      213: -5013307970276647411
+    second: 09-deep-liquid_2
+  - first:
+      213: 8160666870048144014
+    second: 09-deep-liquid_3
+  - first:
+      213: -1289836508134163451
+    second: 09-deep-liquid_4
+  - first:
+      213: 6999053809952141673
+    second: 09-deep-liquid_5
+  - first:
+      213: -9013166226873352121
+    second: 09-deep-liquid_6
+  - first:
+      213: 140259640133973355
+    second: 09-deep-liquid_7
+  - first:
+      213: -3971659776878339843
+    second: 09-deep-liquid_8
+  - first:
+      213: -5692069395460636821
+    second: 09-deep-liquid_9
+  - first:
+      213: -468631005018500683
+    second: 09-deep-liquid_10
+  - first:
+      213: 5164438914559877988
+    second: 09-deep-liquid_11
+  - first:
+      213: -7179438892073519304
+    second: 09-deep-liquid_12
+  - first:
+      213: -2863734559031938339
+    second: 09-deep-liquid_13
+  - first:
+      213: -7929497260710857093
+    second: 09-deep-liquid_14
+  - first:
+      213: 2104872549425767325
+    second: 09-deep-liquid_15
+  - first:
+      213: -6751942903548798240
+    second: 09-deep-liquid_16
+  - first:
+      213: -6146790063465132517
+    second: 09-deep-liquid_17
+  - first:
+      213: -116094439155062769
+    second: 09-deep-liquid_18
+  - first:
+      213: 2155747891835296338
+    second: 09-deep-liquid_19
+  - first:
+      213: -8530646515630438441
+    second: 09-deep-liquid_20
+  - first:
+      213: 6246701406955771309
+    second: 09-deep-liquid_21
+  - first:
+      213: 259959126010312007
+    second: 09-deep-liquid_22
+  - first:
+      213: -6931076658599864937
+    second: 09-deep-liquid_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 09-deep-liquid_0
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 1187
+        width: 120
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f0204833b19cf40800000000000000
+      internalID: 5749156307387158345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_1
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 1245
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cb5c62e61d0da4a0800000000000000
+      internalID: -6580589088579232823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_2
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1235
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0e960276f62d6ab0800000000000000
+      internalID: -5013307970276647411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_3
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 1221
+        width: 46
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ab48ff743804170800000000000000
+      internalID: 8160666870048144014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1252
+        height: 1232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50c355a9784991ee0800000000000000
+      internalID: -1289836508134163451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_5
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 1205
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 961ba0a8b52a12160800000000000000
+      internalID: 6999053809952141673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_6
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1213
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7408aa9021dcae280800000000000000
+      internalID: -9013166226873352121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_7
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1189
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b65728a466d42f100800000000000000
+      internalID: 140259640133973355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_8
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 1188
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df89576c974d1e8c0800000000000000
+      internalID: -3971659776878339843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_9
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 1195
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6f32beea05b101b0800000000000000
+      internalID: -5692069395460636821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_10
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 1173
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b1532775961f79f0800000000000000
+      internalID: -468631005018500683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_11
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1151
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 463ab8694d5cba740800000000000000
+      internalID: 5164438914559877988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_12
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 751
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 837755fad528d5c90800000000000000
+      internalID: -7179438892073519304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_13
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 523
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd234ed5798f148d0800000000000000
+      internalID: -2863734559031938339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_14
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 366
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7675efe044c4f190800000000000000
+      internalID: -7929497260710857093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_15
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 295
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d936efd7e62063d10800000000000000
+      internalID: 2104872549425767325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_16
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 264
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ea114ad3b74c42a0800000000000000
+      internalID: -6751942903548798240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_17
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 242
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e824e110732baa0800000000000000
+      internalID: -6146790063465132517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_18
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 173
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08a3c109bc836ef0800000000000000
+      internalID: -116094439155062769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 146
+        width: 6
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ad3263941caed10800000000000000
+      internalID: 2155747891835296338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_20
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 146
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d78c6bf03e0d9980800000000000000
+      internalID: -8530646515630438441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_21
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 110
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da5188b45ddb0b650800000000000000
+      internalID: 6246701406955771309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_22
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 65
+        width: 35
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74537f1a27f8b9300800000000000000
+      internalID: 259959126010312007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-deep-liquid_23
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 63
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 795572d508edfcf90800000000000000
+      internalID: -6931076658599864937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      09-deep-liquid_0: 5749156307387158345
+      09-deep-liquid_1: -6580589088579232823
+      09-deep-liquid_10: -468631005018500683
+      09-deep-liquid_11: 5164438914559877988
+      09-deep-liquid_12: -7179438892073519304
+      09-deep-liquid_13: -2863734559031938339
+      09-deep-liquid_14: -7929497260710857093
+      09-deep-liquid_15: 2104872549425767325
+      09-deep-liquid_16: -6751942903548798240
+      09-deep-liquid_17: -6146790063465132517
+      09-deep-liquid_18: -116094439155062769
+      09-deep-liquid_19: 2155747891835296338
+      09-deep-liquid_2: -5013307970276647411
+      09-deep-liquid_20: -8530646515630438441
+      09-deep-liquid_21: 6246701406955771309
+      09-deep-liquid_22: 259959126010312007
+      09-deep-liquid_23: -6931076658599864937
+      09-deep-liquid_3: 8160666870048144014
+      09-deep-liquid_4: -1289836508134163451
+      09-deep-liquid_5: 6999053809952141673
+      09-deep-liquid_6: -9013166226873352121
+      09-deep-liquid_7: 140259640133973355
+      09-deep-liquid_8: -3971659776878339843
+      09-deep-liquid_9: -5692069395460636821
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

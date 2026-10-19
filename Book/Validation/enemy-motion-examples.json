@@ -1,0 +1,93 @@
+[
+  {
+    "id": "COMMON01",
+    "name": "구겨진 종이공",
+    "motion": "전방 구르기",
+    "spawn": "264,130",
+    "sourceIndex": 7
+  },
+  {
+    "id": "COMMON02",
+    "name": "종이 나방",
+    "motion": "플레이어 위치를 향한 돌진",
+    "spawn": "266,118",
+    "sourceIndex": 9
+  },
+  {
+    "id": "R101",
+    "name": "흑연 벌레",
+    "motion": "짧은 들이받기",
+    "spawn": "252,131",
+    "sourceIndex": 0
+  },
+  {
+    "id": "R103",
+    "name": "지우개 짐꾼",
+    "motion": "전진 밀치기",
+    "spawn": "166,108",
+    "sourceIndex": 11
+  },
+  {
+    "id": "A01",
+    "name": "접힌 입 종이벌레",
+    "motion": "전진 물기",
+    "spawn": "162,108",
+    "sourceIndex": 10
+  },
+  {
+    "id": "A02",
+    "name": "종이 귀뚜라미",
+    "motion": "낮은 도약과 착지",
+    "spawn": "208,110",
+    "sourceIndex": 6
+  },
+  {
+    "id": "B01",
+    "name": "흑연 두더지",
+    "motion": "짧은 전진과 솟구치기",
+    "spawn": "158,132",
+    "sourceIndex": 14
+  },
+  {
+    "id": "B02",
+    "name": "흑연 등딱지",
+    "motion": "낮은 전방 돌진",
+    "spawn": "106,132",
+    "sourceIndex": 15
+  },
+  {
+    "id": "B03",
+    "name": "갱등 주머니",
+    "motion": "플레이어 방향 돌진 후 복귀",
+    "spawn": "122,132",
+    "sourceIndex": 17
+  },
+  {
+    "id": "C01",
+    "name": "지우개 거미",
+    "motion": "플레이어 위치를 향한 급습",
+    "spawn": "108,18",
+    "sourceIndex": 31
+  },
+  {
+    "id": "C02",
+    "name": "옹이 도마뱀",
+    "motion": "전방 도약",
+    "spawn": "126,60",
+    "sourceIndex": 28
+  },
+  {
+    "id": "C03",
+    "name": "연필씨 부엉이",
+    "motion": "플레이어 방향 활공",
+    "spawn": "110,48",
+    "sourceIndex": 32
+  },
+  {
+    "id": "D01",
+    "name": "뿌리 매듭개",
+    "motion": "접근 후 물기",
+    "spawn": "226,14",
+    "sourceIndex": 41
+  }
+]

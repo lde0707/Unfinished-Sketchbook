@@ -1,0 +1,95 @@
+{
+  "mode": "built-in image_gen",
+  "images": [
+    {
+      "id": "COMMON01",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-3259b976-c52c-4a09-aff3-5b3908521048.png",
+      "output": "sources/COMMON01.png"
+    },
+    {
+      "id": "COMMON02",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-b4c2a4de-1b74-4556-9f98-cbaa2e9d6260.png",
+      "output": "sources/COMMON02.png"
+    },
+    {
+      "id": "COMMON03",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-220c06fc-9a5c-42ac-b7ca-41b788b76b6e.png",
+      "output": "sources/COMMON03.png"
+    },
+    {
+      "id": "R101",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-f95bc183-adc8-4add-ac00-d1103dfbad80.png",
+      "output": "sources/R101.png"
+    },
+    {
+      "id": "R102",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-f52941f3-eaf9-4e3d-b87c-9de3a6fc5314.png",
+      "output": "sources/R102.png"
+    },
+    {
+      "id": "R103",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-ac942b3f-b496-48ba-9b19-8cf24ee2fcb2.png",
+      "output": "sources/R103.png"
+    },
+    {
+      "id": "A01",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-2e4b5f83-285c-4139-bac9-e5854b327339.png",
+      "output": "sources/A01.png"
+    },
+    {
+      "id": "A02",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-90b6bf8d-ae6b-4e5d-9873-78f70438bb43.png",
+      "output": "sources/A02.png"
+    },
+    {
+      "id": "A03",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-26b97ce5-4b4b-4280-a8f6-d526cda50051.png",
+      "output": "sources/A03.png"
+    },
+    {
+      "id": "B01",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-4cff44f1-bd15-4087-b9f7-723b6b118e48.png",
+      "output": "sources/B01.png"
+    },
+    {
+      "id": "B02",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-8eeeb23d-b0b5-49a0-95c4-dba48a9a12a8.png",
+      "output": "sources/B02.png"
+    },
+    {
+      "id": "B03",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-bc57c8af-314c-46fb-b512-651746550a88.png",
+      "output": "sources/B03.png"
+    },
+    {
+      "id": "C01",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-267a5c56-65ad-4d4f-985a-563bfc0bf6fc.png",
+      "output": "sources/C01.png"
+    },
+    {
+      "id": "C02",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-fabfb88f-17fc-4455-8c21-f87e9487e221.png",
+      "output": "sources/C02.png"
+    },
+    {
+      "id": "C03",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-923b1a1d-3aa1-4117-abee-b1c9c90f2560.png",
+      "output": "sources/C03.png"
+    },
+    {
+      "id": "D01",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-317659d5-b137-486c-a347-22a9f516a362.png",
+      "output": "sources/D01.png"
+    },
+    {
+      "id": "D02",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-786fbf14-7b26-4fd9-a33c-3651b684db44.png",
+      "output": "sources/D02.png"
+    },
+    {
+      "id": "D03",
+      "source": "C:\\Users\\doun0\\.codex\\generated_images\\01a13ce9-93a4-7d33-a322-461ed4f36c99\\exec-83b1d362-c3d1-44f3-ab58-d7a0082297d2.png",
+      "output": "sources/D03.png"
+    }
+  ]
+}

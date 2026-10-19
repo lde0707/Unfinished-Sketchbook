@@ -1,0 +1,1430 @@
+fileFormatVersion: 2
+guid: bc80292211907434db4905d981307137
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8984541937490083387
+    second: 16-sticky-wax-floor_0
+  - first:
+      213: -5251673389933994454
+    second: 16-sticky-wax-floor_1
+  - first:
+      213: 8957474140712243537
+    second: 16-sticky-wax-floor_2
+  - first:
+      213: 6580069894767986507
+    second: 16-sticky-wax-floor_3
+  - first:
+      213: 8503823447747100168
+    second: 16-sticky-wax-floor_4
+  - first:
+      213: -3180033818854057046
+    second: 16-sticky-wax-floor_5
+  - first:
+      213: -2181919953991958254
+    second: 16-sticky-wax-floor_6
+  - first:
+      213: 6024115448133749700
+    second: 16-sticky-wax-floor_7
+  - first:
+      213: -3893302443527467547
+    second: 16-sticky-wax-floor_8
+  - first:
+      213: -5260520909271654159
+    second: 16-sticky-wax-floor_9
+  - first:
+      213: 6829670534192415170
+    second: 16-sticky-wax-floor_10
+  - first:
+      213: 1360533863353001654
+    second: 16-sticky-wax-floor_11
+  - first:
+      213: 8527044681249478752
+    second: 16-sticky-wax-floor_12
+  - first:
+      213: -2039941489391478412
+    second: 16-sticky-wax-floor_13
+  - first:
+      213: -7751402696565594814
+    second: 16-sticky-wax-floor_14
+  - first:
+      213: 6246294754068876592
+    second: 16-sticky-wax-floor_15
+  - first:
+      213: -579956215254092575
+    second: 16-sticky-wax-floor_16
+  - first:
+      213: -3706899017743322136
+    second: 16-sticky-wax-floor_17
+  - first:
+      213: -1506888806442315108
+    second: 16-sticky-wax-floor_18
+  - first:
+      213: 1344482724098022859
+    second: 16-sticky-wax-floor_19
+  - first:
+      213: -5494073818404343686
+    second: 16-sticky-wax-floor_20
+  - first:
+      213: -5402482230917818737
+    second: 16-sticky-wax-floor_21
+  - first:
+      213: 3546181530624409822
+    second: 16-sticky-wax-floor_22
+  - first:
+      213: -1754193135914256892
+    second: 16-sticky-wax-floor_23
+  - first:
+      213: -2259282839308040374
+    second: 16-sticky-wax-floor_24
+  - first:
+      213: -1655092089020189190
+    second: 16-sticky-wax-floor_25
+  - first:
+      213: -7070820265208933181
+    second: 16-sticky-wax-floor_26
+  - first:
+      213: 3007234410778344606
+    second: 16-sticky-wax-floor_27
+  - first:
+      213: 8074689990984339025
+    second: 16-sticky-wax-floor_28
+  - first:
+      213: 6835763831568289614
+    second: 16-sticky-wax-floor_29
+  - first:
+      213: 2624282431966521200
+    second: 16-sticky-wax-floor_30
+  - first:
+      213: 3175523126731629654
+    second: 16-sticky-wax-floor_31
+  - first:
+      213: 4108357126576497334
+    second: 16-sticky-wax-floor_32
+  - first:
+      213: 8066517099034618386
+    second: 16-sticky-wax-floor_33
+  - first:
+      213: 1987281756550852421
+    second: 16-sticky-wax-floor_34
+  - first:
+      213: -6949803527432206227
+    second: 16-sticky-wax-floor_35
+  - first:
+      213: -4202942446316943633
+    second: 16-sticky-wax-floor_36
+  - first:
+      213: 2054971744282830156
+    second: 16-sticky-wax-floor_37
+  - first:
+      213: -8779581433816777147
+    second: 16-sticky-wax-floor_38
+  - first:
+      213: -2786787450312868209
+    second: 16-sticky-wax-floor_39
+  - first:
+      213: 8087369707415147190
+    second: 16-sticky-wax-floor_40
+  - first:
+      213: -3422180297822178705
+    second: 16-sticky-wax-floor_41
+  - first:
+      213: 2210080122776961005
+    second: 16-sticky-wax-floor_42
+  - first:
+      213: 4059102078716063331
+    second: 16-sticky-wax-floor_43
+  - first:
+      213: -7943226270607119740
+    second: 16-sticky-wax-floor_44
+  - first:
+      213: -3214812841979547065
+    second: 16-sticky-wax-floor_45
+  - first:
+      213: -4127524283980044402
+    second: 16-sticky-wax-floor_46
+  - first:
+      213: 1789672749946216754
+    second: 16-sticky-wax-floor_47
+  - first:
+      213: 1514103182885949000
+    second: 16-sticky-wax-floor_48
+  - first:
+      213: 3921588810313333598
+    second: 16-sticky-wax-floor_49
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_0
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1215
+        width: 55
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3e32bd3a418fac70800000000000000
+      internalID: 8984541937490083387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_1
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1197
+        width: 9
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2edc9c50ee4e17b0800000000000000
+      internalID: -5251673389933994454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_2
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1243
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15196e1b5475f4c70800000000000000
+      internalID: 8957474140712243537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_3
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1205
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4743e2e4ba115b50800000000000000
+      internalID: 6580069894767986507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_4
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 1227
+        width: 85
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e7a9bde56a30670800000000000000
+      internalID: 8503823447747100168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_5
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 1239
+        width: 38
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aab997d17104ed3d0800000000000000
+      internalID: -3180033818854057046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_6
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 1242
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21109f5bc5348b1e0800000000000000
+      internalID: -2181919953991958254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_7
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 1237
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb84fb3515f99350800000000000000
+      internalID: 6024115448133749700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1231
+        height: 1219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ed82622e0638f9c0800000000000000
+      internalID: -3893302443527467547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_9
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 1195
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f0295dba10eef6b0800000000000000
+      internalID: -5260520909271654159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_10
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1173
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c1cd7b6a2dd7ce50800000000000000
+      internalID: 6829670534192415170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_11
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 1175
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b6ab0e175691e210800000000000000
+      internalID: 1360533863353001654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_12
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 1179
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06852c995f5265670800000000000000
+      internalID: 8527044681249478752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_13
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 1175
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4795d32060ca0b3e0800000000000000
+      internalID: -2039941489391478412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_14
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 1162
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 245e330f05c7d6490800000000000000
+      internalID: -7751402696565594814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_15
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1162
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03d49aa0cfb4fa650800000000000000
+      internalID: 6246294754068876592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 215
+        width: 15
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e4ff7c15e493f7f0800000000000000
+      internalID: -579956215254092575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_17
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 231
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e33a2dbbf27e8cc0800000000000000
+      internalID: -3706899017743322136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_18
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 67
+        width: 33
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c925ef74d94761be0800000000000000
+      internalID: -1506888806442315108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_19
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 75
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd13880aef88a210800000000000000
+      internalID: 1344482724098022859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_20
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 114
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a703c3498f021c3b0800000000000000
+      internalID: -5494073818404343686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_21
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 83
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8698c8d8078605b0800000000000000
+      internalID: -5402482230917818737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_22
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 77
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed04be94051963130800000000000000
+      internalID: 3546181530624409822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_23
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 89
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 406f66213aad7a7e0800000000000000
+      internalID: -1754193135914256892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_24
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 61
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4788e35a3a65a0e0800000000000000
+      internalID: -2259282839308040374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_25
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 95
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af5746b938ee709e0800000000000000
+      internalID: -1655092089020189190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_26
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 69
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c4969d7e666fdd90800000000000000
+      internalID: -7070820265208933181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_27
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 43
+        width: 83
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c36ca73c7dbb920800000000000000
+      internalID: 3007234410778344606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_28
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 69
+        width: 50
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e0608e3cf0f0070800000000000000
+      internalID: 8074689990984339025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_29
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 99
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4f4715ccf28dde50800000000000000
+      internalID: 6835763831568289614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_30
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077a9a3c7f25b6420800000000000000
+      internalID: 2624282431966521200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_31
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 51
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65460e88579b11c20800000000000000
+      internalID: 3175523126731629654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_32
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 49
+        width: 67
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b269042a01d30930800000000000000
+      internalID: 4108357126576497334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_33
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 85
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21aa296309602ff60800000000000000
+      internalID: 8066517099034618386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_34
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 79
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54fe3df7a3e349b10800000000000000
+      internalID: 1987281756550852421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_35
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 60
+        width: 48
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6885a073865d8f90800000000000000
+      internalID: -6949803527432206227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_36
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 59
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe60edbfc162ca5c0800000000000000
+      internalID: -4202942446316943633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_37
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 63
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c456179e9e9b48c10800000000000000
+      internalID: 2054971744282830156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_38
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 69
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e7cb0c339a82680800000000000000
+      internalID: -8779581433816777147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_39
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 67
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8eb59734975359d0800000000000000
+      internalID: -2786787450312868209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_40
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 65
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b21cb176eb1c3070800000000000000
+      internalID: 8087369707415147190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_41
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 47
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62f7fe8629f180d0800000000000000
+      internalID: -3422180297822178705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_42
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 63
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: defb5438928cbae10800000000000000
+      internalID: 2210080122776961005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_43
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 61
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36eabe4a5d3d45830800000000000000
+      internalID: 4059102078716063331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_44
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 63
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a69e9bacdf3c190800000000000000
+      internalID: -7943226270607119740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_45
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 55
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 742f176c0c0b263d0800000000000000
+      internalID: -3214812841979547065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_46
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 53
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e872293488618b6c0800000000000000
+      internalID: -4127524283980044402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_47
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 49
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 231adbc42e136d810800000000000000
+      internalID: 1789672749946216754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_48
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 47
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e8431a2dc230510800000000000000
+      internalID: 1514103182885949000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16-sticky-wax-floor_49
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 7
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b7fd9de384c6630800000000000000
+      internalID: 3921588810313333598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      16-sticky-wax-floor_0: 8984541937490083387
+      16-sticky-wax-floor_1: -5251673389933994454
+      16-sticky-wax-floor_10: 6829670534192415170
+      16-sticky-wax-floor_11: 1360533863353001654
+      16-sticky-wax-floor_12: 8527044681249478752
+      16-sticky-wax-floor_13: -2039941489391478412
+      16-sticky-wax-floor_14: -7751402696565594814
+      16-sticky-wax-floor_15: 6246294754068876592
+      16-sticky-wax-floor_16: -579956215254092575
+      16-sticky-wax-floor_17: -3706899017743322136
+      16-sticky-wax-floor_18: -1506888806442315108
+      16-sticky-wax-floor_19: 1344482724098022859
+      16-sticky-wax-floor_2: 8957474140712243537
+      16-sticky-wax-floor_20: -5494073818404343686
+      16-sticky-wax-floor_21: -5402482230917818737
+      16-sticky-wax-floor_22: 3546181530624409822
+      16-sticky-wax-floor_23: -1754193135914256892
+      16-sticky-wax-floor_24: -2259282839308040374
+      16-sticky-wax-floor_25: -1655092089020189190
+      16-sticky-wax-floor_26: -7070820265208933181
+      16-sticky-wax-floor_27: 3007234410778344606
+      16-sticky-wax-floor_28: 8074689990984339025
+      16-sticky-wax-floor_29: 6835763831568289614
+      16-sticky-wax-floor_3: 6580069894767986507
+      16-sticky-wax-floor_30: 2624282431966521200
+      16-sticky-wax-floor_31: 3175523126731629654
+      16-sticky-wax-floor_32: 4108357126576497334
+      16-sticky-wax-floor_33: 8066517099034618386
+      16-sticky-wax-floor_34: 1987281756550852421
+      16-sticky-wax-floor_35: -6949803527432206227
+      16-sticky-wax-floor_36: -4202942446316943633
+      16-sticky-wax-floor_37: 2054971744282830156
+      16-sticky-wax-floor_38: -8779581433816777147
+      16-sticky-wax-floor_39: -2786787450312868209
+      16-sticky-wax-floor_4: 8503823447747100168
+      16-sticky-wax-floor_40: 8087369707415147190
+      16-sticky-wax-floor_41: -3422180297822178705
+      16-sticky-wax-floor_42: 2210080122776961005
+      16-sticky-wax-floor_43: 4059102078716063331
+      16-sticky-wax-floor_44: -7943226270607119740
+      16-sticky-wax-floor_45: -3214812841979547065
+      16-sticky-wax-floor_46: -4127524283980044402
+      16-sticky-wax-floor_47: 1789672749946216754
+      16-sticky-wax-floor_48: 1514103182885949000
+      16-sticky-wax-floor_49: 3921588810313333598
+      16-sticky-wax-floor_5: -3180033818854057046
+      16-sticky-wax-floor_6: -2181919953991958254
+      16-sticky-wax-floor_7: 6024115448133749700
+      16-sticky-wax-floor_8: -3893302443527467547
+      16-sticky-wax-floor_9: -5260520909271654159
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -33,7 +33,7 @@ namespace Unfin.Editor
         }
         public static void Generate()
         {
-            AssetDatabase.Refresh();Directory.CreateDirectory(Tiles);
+            AssetDatabase.Refresh();Directory.CreateDirectory(Tiles);SpecialTileImporter.Generate();
             for(int r=0;r<5;r++)for(int v=0;v<3;v++)
             {
                 string path=$"{Root}/{Regions[r]}/{(char)('A'+v)}-128.png";
@@ -49,10 +49,10 @@ namespace Unfin.Editor
                 {
                     string asset=TilePath(r,type,v);var tile=AssetDatabase.LoadAssetAtPath<PrototypeTile>(asset);
                     if(tile==null){tile=ScriptableObject.CreateInstance<PrototypeTile>();AssetDatabase.CreateAsset(tile,asset);}
-                    tile.sprite=sprite;tile.htmlType=type;tile.region=r+1;tile.patternVariant=v;tile.exposedEdges=15;
-                    tile.colliderType=Tile.ColliderType.Grid;tile.transform=Matrix4x4.identity;tile.flags=TileFlags.LockAll;
+                    tile.sprite=type==4?sprite:SpecialTileImporter.SpriteFor(type);tile.htmlType=type;tile.region=r+1;tile.patternVariant=v;tile.exposedEdges=15;
+                    tile.colliderType=Tile.ColliderType.Grid;tile.transform=type==4?Matrix4x4.TRS(new Vector3(0,-.125f,0),Quaternion.identity,new Vector3(1,1.25f,1)):SpecialTileImporter.TransformFor(type,tile.sprite);tile.flags=type==4?TileFlags.LockAll:TileFlags.None;
                     // Keep temporary-platform types identifiable without changing collision or timers.
-                    tile.color=type==6?new Color(.86f,.78f,.70f,1):type==15?new Color(1,.88f,.72f,1):Color.white;
+                    tile.color=Color.white;
                     EditorUtility.SetDirty(tile);
                 }
             }
@@ -62,11 +62,11 @@ namespace Unfin.Editor
                 if(tile==null){tile=ScriptableObject.CreateInstance<PrototypeTile>();AssetDatabase.CreateAsset(tile,asset);}
                 tile.sprite=Get(RegionalTilePalette.PlatformSources[z],type,v).sprite;
                 tile.htmlType=type;tile.region=z<4?1:2;tile.patternVariant=v;tile.exposedEdges=15;
-                tile.colliderType=Tile.ColliderType.Grid;tile.transform=Matrix4x4.identity;tile.flags=TileFlags.LockAll;
+                tile.colliderType=Tile.ColliderType.Grid;tile.transform=type==4?Matrix4x4.TRS(new Vector3(0,-.125f,0),Quaternion.identity,new Vector3(1,1.25f,1)):SpecialTileImporter.TransformFor(type,tile.sprite);tile.flags=type==4?TileFlags.LockAll:TileFlags.None;
                 var color=RegionalTilePalette.Colors[z];
                 if(type==6)color=Color.Lerp(color,new Color(.55f,.43f,.35f),.22f);
                 if(type==15)color=Color.Lerp(color,new Color(.78f,.40f,.18f),.22f);
-                tile.color=color;EditorUtility.SetDirty(tile);
+                tile.color=type==4?color:Color.white;EditorUtility.SetDirty(tile);
             }
             var shader=Shader.Find("Unfin/Regional Tiles");if(shader==null||!shader.isSupported)throw new Exception("Regional tile shader unavailable");
             var material=AssetDatabase.LoadAssetAtPath<Material>(Tiles+"/RegionalTiles.mat");
@@ -90,7 +90,8 @@ namespace Unfin.Editor
                 RegionalTilePalette.ApplyTerrainCell(world,d,x,y);
                 int type=cells[y*d.width+x];if(!GridMotor.Platform(type))continue;
                 int r=x>=d.regionX?1:0,v=(x+y)%3;
-                world.maps[r*3+1].SetTile(WorldData.Cell(x,y),ZoneTile(RegionalTilePalette.ZoneAt(d,x,y),type,v));count++;
+                var map=world.maps[r*3+1];var cell=WorldData.Cell(x,y);var tile=ZoneTile(RegionalTilePalette.ZoneAt(d,x,y),type,v);
+                map.SetTile(cell,tile);map.SetTileFlags(cell,TileFlags.None);map.SetTransformMatrix(cell,tile.transform);map.SetTileFlags(cell,tile.flags);count++;
             }
             Debug.Log("UNFIN_REGIONAL_PLATFORMS_APPLIED "+count);
         }
@@ -99,7 +100,7 @@ namespace Unfin.Editor
             var d=JsonUtility.FromJson<WorldData>(world.mapJson.text);var cells=d.Decode();var counts=new int[2];var zoneCounts=new int[8];int coloredTerrain=0;
             for(int r=0;r<5;r++)for(int v=0;v<3;v++)foreach(int t in new[]{4,6,15})
             {
-                var tile=Get(r,t,v);if(tile==null||tile.sprite==null||tile.sprite.pixelsPerUnit!=128||tile.sprite.rect.width!=128||tile.htmlType!=t||tile.colliderType!=Tile.ColliderType.Grid)throw new Exception("Platform asset invalid");
+                var tile=Get(r,t,v);if(tile==null||tile.sprite==null||tile.sprite.pixelsPerUnit!=128||(t==4&&tile.sprite.rect.width!=128)||tile.htmlType!=t||tile.colliderType!=Tile.ColliderType.Grid)throw new Exception("Platform asset invalid");
             }
             for(int z=0;z<8;z++)for(int v=0;v<3;v++)foreach(int t in new[]{4,6,15}){
                 var tile=ZoneTile(z,t,v);if(tile==null||tile.sprite!=Get(RegionalTilePalette.PlatformSources[z],t,v).sprite||tile.htmlType!=t||tile.colliderType!=Tile.ColliderType.Grid)throw new Exception("Zone tile invalid");}

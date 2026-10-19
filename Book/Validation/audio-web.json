@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "music": {
+    "starts": 4,
+    "energy": 0.057734401363119914,
+    "states": [
+      "running"
+    ],
+    "sampleCount": 3,
+    "last": [
+      {
+        "t": 10093.800000000745,
+        "rms": 0.057734401363119914,
+        "state": "running"
+      },
+      {
+        "t": 10096.39999999851,
+        "rms": 0.057734401363119914,
+        "state": "running"
+      },
+      {
+        "t": 10124.800000000745,
+        "rms": 0.041162209774456504,
+        "state": "running"
+      }
+    ]
+  },
+  "effects": {
+    "starts": 28,
+    "energy": 0.04283366452059101
+  },
+  "muted": 0,
+  "reports": [
+    "UNFIN_AUDIO_RUNTIME played=1 voices=1 region=0 music=playing\n",
+    "UNFIN_AUDIO_RUNTIME played=13 voices=0 region=0 music=playing\n",
+    "UNFIN_AUDIO_RUNTIME played=14 voices=0 region=1 music=playing\n"
+  ],
+  "errors": []
+}

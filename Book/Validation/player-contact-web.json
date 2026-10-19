@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "errors": [],
+  "screenshots": [
+    "contact-floor.png",
+    "contact-wall.png",
+    "contact-wall-hops.png"
+  ],
+  "note": "Browser load/input smoke and visual captures; collision assertions run in PlayerContactValidation."
+}

@@ -433,7 +433,7 @@
     },
     {
       "name": "MoveAttack3",
-      "durationMs": 420,
+      "durationMs": 460,
       "frames": [
         {
           "frame": 1,
@@ -533,7 +533,7 @@
           "globalFrame": 16,
           "phase": "thrust-impact",
           "startMs": 192,
-          "durationMs": 48,
+          "durationMs": 88,
           "sourceRect": [
             0,
             512,
@@ -563,7 +563,7 @@
           "frame": 5,
           "globalFrame": 17,
           "phase": "retract",
-          "startMs": 240,
+          "startMs": 280,
           "durationMs": 60,
           "sourceRect": [
             512,
@@ -594,7 +594,7 @@
           "frame": 6,
           "globalFrame": 18,
           "phase": "recovery",
-          "startMs": 300,
+          "startMs": 340,
           "durationMs": 120,
           "sourceRect": [
             1024,

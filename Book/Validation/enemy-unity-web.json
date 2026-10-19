@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "errors": [],
+  "checks": "WebGL loads; four zone captures; attack input smoke check. State assertions are in EnemyAnimationValidation."
+}

@@ -1,0 +1,1 @@
+{"passed":true,"checks":["1.7tile sweep hit","outside/behind/above miss","windup/recovery inactive","one hit per swing","wall blocking","left facing","low fps crossing","second swing reset","2.3tile thrust hit","rise/fall both directions","moving hit","dash cancellation"]}

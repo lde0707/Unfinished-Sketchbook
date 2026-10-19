@@ -511,7 +511,7 @@
         },
         {
           "file": "Attack3/03.png",
-          "duration": 0.048,
+          "duration": 0.088,
           "headX": 408,
           "headY": 354,
           "sha256": "d8580928e5f3066627766cad17077082026ecd769abd07eeafe3c3ae0b2b256d"
@@ -670,7 +670,7 @@
         },
         {
           "file": "MoveAttack3/03.png",
-          "duration": 0.048,
+          "duration": 0.088,
           "headX": 384,
           "headY": 362,
           "sha256": "9c699ccb79af7258749f708a57aa62e353c834bb0fba5e22d0e56a15b3d9a812"
@@ -766,6 +766,61 @@
           "headX": 384,
           "headY": 232,
           "sha256": "46cfe93b6f97515512cdfc36d17b05df9f6905236e7d52328f4de2a7df64de27"
+        }
+      ]
+    },
+    {
+      "name": "WallHold",
+      "width": 512,
+      "height": 512,
+      "anchorX": 358,
+      "groundY": 448,
+      "loop": true,
+      "frames": [
+        {
+          "file": "Wall/00.png",
+          "sha256": "0e8a245142484d8e1bf6232c200cee786e28e3b1cb1f876b190bbb0d3adb8dbb",
+          "duration": 0.3,
+          "headX": 355,
+          "headY": 202
+        }
+      ]
+    },
+    {
+      "name": "WallClimb",
+      "width": 512,
+      "height": 512,
+      "anchorX": 358,
+      "groundY": 448,
+      "loop": true,
+      "frames": [
+        {
+          "file": "Wall/00.png",
+          "sha256": "0e8a245142484d8e1bf6232c200cee786e28e3b1cb1f876b190bbb0d3adb8dbb",
+          "duration": 0.13,
+          "headX": 355,
+          "headY": 202
+        },
+        {
+          "file": "Wall/01.png",
+          "sha256": "bc8e965dfe3cc3c8872afebdbc821909061a7ab6f1e9b47205d0831d0d71cd66",
+          "duration": 0.13,
+          "headX": 355,
+          "headY": 202
+        },
+        {
+          "file": "Wall/02.png",
+          "sha256": "48e880e2f5f3e025a01b1a4857a14ffff3c8613d2ab1fbb8128520814b2dbfc9",
+          "duration": 0.13,
+          "headX": 355,
+          "headY": 202
+        },
+        {
+          "file": "Wall/03.png",
+          "sha256": "bf2565de996685444614586c6f058fe6b3c412fffa614b550907a26570d73ca4",
+          "duration": 0.13,
+          "headX": 355,
+          "headY": 202
         }
       ]
     }

@@ -24,10 +24,14 @@ namespace Unfin
         readonly PlatformCameraFollow cameraFollow = new PlatformCameraFollow();
         int cameraResetSerial = -1;
         public int MoveInput {get;private set;}
+        public int WallSide {get;private set;}
+        public bool OnWall => WallSide!=0;
+        public bool WallMoving => OnWall && Mathf.Abs(Motor.vy)>1;
         float jumpStartBottom;
         bool showMap, previousJump;
         float jumpBuffer, coyote, wallLock, dashTime, dashCooldown, accumulator;
-        int facing = 1, dashDirection=1;
+        int facing = 1, dashDirection=1, wallJumpSide;
+        float wallReturnTime;
         bool airDashUsed, dashAirborne;
         float dashFallSpeed;
         public int JumpSerial { get; private set; }
@@ -39,10 +43,17 @@ namespace Unfin
         public bool JumpInProgress { get; private set; }
         public bool DashAirborne => dashAirborne;
         public bool AirDashUsed => airDashUsed;
-        public float DashElapsed => .18f-dashTime;
+        // The approved dash drawings cover180ms; stretch their clock to the new duration.
+        public float DashElapsed => (PlayerMotion.DashDuration-dashTime)*(.18f/PlayerMotion.DashDuration);
         public int Facing => facing;
         public bool IsDashing => dashTime > 0;
         Vector2 safe;
+        float drowning,recovering;
+        bool releaseAfterHazard;
+        public bool HazardInputBlocked => drowning>0||recovering>0||releaseAfterHazard;
+        public bool IsDrowning => drowning>0;
+        float dustClock,dashDustClock;
+        Vector2 EffectFeet => new Vector2((Motor.x+GridMotor.Width*.5f)/16,-(Motor.y+GridMotor.Height)/16);
         readonly Dictionary<int, Change> changes = new Dictionary<int, Change>();
         readonly List<int> changeKeys = new List<int>();
         readonly Dictionary<int, PrototypeTile> terrainLookup = new Dictionary<int, PrototypeTile>();
@@ -62,12 +73,13 @@ namespace Unfin
                 filletLookup[TerrainPatterns.Key(tile.region - 1, tile.patternVariant, tile.exposedEdges)] = tile;
             worldCamera.orthographicSize = Data.orthographicSize;
             Respawn(Data.startX, Data.startFloor);
+            if(Application.isPlaying)InkHazardVisual.Create(this);
         }
         void Update()
         {
             var k = Keyboard.current;
             if (k == null) return;
-            if (k.mKey.wasPressedThisFrame) showMap = !showMap;
+            if (k.mKey.wasPressedThisFrame){showMap=!showMap;GameAudio.Emit(showMap?SoundCue.MapOpen:SoundCue.MapClose,player.position);}
             if (k.fKey.wasPressedThisFrame) { flying = !flying; Motor.vx = Motor.vy = 0; dashTime=0; airDashUsed=false; ForceFall=true; }
             if (k.rKey.wasPressedThisFrame) RestoreWorld();
             if (k.f1Key.wasPressedThisFrame || k.digit1Key.wasPressedThisFrame) Respawn(Data.startX, Data.startFloor);
@@ -88,32 +100,57 @@ namespace Unfin
         }
         public void RequestJump()
         {
+            if(HazardInputBlocked)return;
             jumpBuffer=.12f;
             if(IsDashing&&!dashAirborne)dashTime=0;
         }
         public bool RequestDash(int inputDirection=0)
         {
-            if(flying||IsDashing||dashCooldown>0||(!Motor.grounded&&airDashUsed))return false;
+            if(HazardInputBlocked||flying||IsDashing||dashCooldown>0||(!Motor.grounded&&airDashUsed))return false;
+            WallSide=0;wallReturnTime=0;wallLock=.25f;
             dashAirborne=!Motor.grounded;
             dashFallSpeed=(!JumpInProgress||ForceFall)?Mathf.Max(0,Motor.vy):0;
             if(dashAirborne)airDashUsed=true;
             dashDirection=inputDirection!=0?inputDirection:facing;facing=dashDirection;
-            dashTime=.18f;dashCooldown=.4f;jumpBuffer=0;
+            GameAudio.Emit(SoundCue.Dash,EffectFeet);
+            PaperVfx.Get()?.Dash(EffectFeet+Vector2.up*.6f,dashDirection);dashDustClock=.05f;
+            dashTime=PlayerMotion.DashDuration;dashCooldown=PlayerMotion.DashCooldown;jumpBuffer=0;
             return true;
         }
         void Launch(float speed,int ix)
         {
-            Motor.vy=-speed;Motor.grounded=false;jumpBuffer=0;coyote=0;ForceFall=false;
+            GameAudio.Emit(SoundCue.Jump,EffectFeet);
+            PaperVfx.Get()?.Dust(EffectFeet,.7f,ix);
+            WallSide=0;wallReturnTime=0;Motor.vy=-speed;Motor.grounded=false;jumpBuffer=0;coyote=0;ForceFall=false;
             JumpInProgress=true;JumpSerial++;JumpMoving=ix!=0;JumpLaunchSpeed=speed;JumpElapsed=0;
             jumpStartBottom=Motor.y+GridMotor.Height;
         }
+        void LaunchGroundJump(bool wax,int ix)
+        {
+            Launch(PlayerMotion.JumpSpeed*(wax?.84f:1),ix);
+            // A directional launch carries forward momentum, then blends to slower air steering.
+            if(ix!=0)Motor.vx=ix*PlayerMotion.JumpHorizontal;
+        }
         // Shared fixed-step entry point for gameplay and deterministic motor checks.
         public void Simulate(float dt,int ix=0,int iy=0){Step(dt,ix,iy);SyncView();}
+
         void Step(float dt, int ix, int iy)
         {
+            if(drowning>0){
+                MoveInput=0;Motor.vx=0;Motor.vy=40;Motor.y+=40*dt;Motor.grounded=false;drowning=Mathf.Max(0,drowning-dt);
+                if(drowning==0){Motor.x=safe.x;Motor.y=safe.y;Motor.vx=Motor.vy=0;Motor.grounded=true;recovering=.3f;releaseAfterHazard=true;ResetSerial++;GameAudio.Emit(SoundCue.Respawn,EffectFeet);}
+                TickChanges(dt);return;
+            }
+            if(recovering>0||releaseAfterHazard){
+                recovering=Mathf.Max(0,recovering-dt);MoveInput=0;Motor.vx=Motor.vy=0;
+                var keys=Keyboard.current;bool actionHeld=keys!=null&&(keys.spaceKey.isPressed||keys.leftShiftKey.isPressed||keys.rightShiftKey.isPressed);
+                if(recovering==0&&ix==0&&iy==0&&!actionHeld)releaseAfterHazard=false;
+                TickChanges(dt);return;
+            }
             MoveInput=ix;
+            if(flying||showMap)WallSide=0;
             if(dashTime>0&&dashTime<dt-0.000001f){float first=dashTime;Step(first,ix,iy);Step(dt-first,ix,iy);return;}
-            dashCooldown -= dt; wallLock -= dt; jumpBuffer -= dt;
+            dashCooldown -= dt; wallLock -= dt; jumpBuffer -= dt;wallReturnTime-=dt;
             if (ix != 0 && !IsDashing) facing = ix;
             JumpElapsed+=dt;
             if (flying)
@@ -126,24 +163,48 @@ namespace Unfin
             {
                 if (Motor.grounded) coyote = .09f; else coyote -= dt;
                 bool dashStep=IsDashing;
-                if (dashStep) { Motor.vx=dashDirection*400;Motor.vy=0; }
+                if (dashStep) { Motor.vx=dashDirection*PlayerMotion.DashSpeed;Motor.vy=0; }
                 else
                 {
                     int under = Mathf.FloorToInt((Motor.y + GridMotor.Height + 1) / 16);
                     bool wax = Motor.grounded && Motor.Get(Mathf.FloorToInt((Motor.x + 6) / 16), under) == 16;
-                    if (wallLock <= 0) Motor.vx = Mathf.Lerp(Motor.vx, ix * (Motor.grounded ? 125 : 150) * (wax ? .5f : 1), dt * (Motor.grounded ? 18 : 10));
-                    Motor.vy = Mathf.Min(430, Motor.vy + 1350 * dt);
-                    int wall = Motor.Column(Mathf.FloorToInt((Motor.x + 13) / 16), Motor.y + 3, 16) ? 1 :
-                        Motor.Column(Mathf.FloorToInt((Motor.x - 1) / 16), Motor.y + 3, 16) ? -1 : 0;
-                    if (wall != 0 && !Motor.grounded && ix == wall && Motor.vy > 60) Motor.vy = 60;
+                    if (wallLock <= 0) Motor.vx = Mathf.Lerp(Motor.vx, ix * (Motor.grounded ? PlayerMotion.GroundSpeed : PlayerMotion.AirSpeed) * (wax ? .5f : 1), dt * (Motor.grounded ? 18 : wallReturnTime>0&&ix==wallJumpSide ? PlayerMotion.WallReturnAcceleration : 10));
+                    Motor.vy = Mathf.Min(PlayerMotion.FallSpeed, Motor.vy + PlayerMotion.Gravity * dt);
+                    int wall = Motor.TouchingWall();
+                    bool releasing=OnWall&&ix==-WallSide;
+                    if(releasing){WallSide=0;wallLock=.18f;ForceFall=true;JumpInProgress=false;}
+                    bool hold=wall!=0&&!Motor.grounded&&wallLock<=0&&!showMap&&
+                        (ix==wall||WallSide==wall);
+                    WallSide=hold?wall:0;
+                    if(hold){Motor.SnapToWall(wall);facing=wall;Motor.vx=0;Motor.vy=iy*55;ForceFall=true;JumpInProgress=false;}
+
                     if (jumpBuffer > 0 && iy > 0 && Motor.grounded && Motor.Row(under, true) && !Motor.Row(under, false))
                     { Motor.dropTime = .22f; Motor.y += 2; coyote = 0; jumpBuffer = 0; }
                     if (jumpBuffer > 0 && coyote > 0)
-                    { Launch(425 * (wax ? .84f : 1),ix); if (ix != 0) Motor.vx = ix * 155; }
-                    else if (jumpBuffer > 0 && wall != 0)
-                    { Launch(420,-wall); Motor.vx = -wall * 175; wallLock = .17f; }
+                    { LaunchGroundJump(wax,ix); }
+                    else if (jumpBuffer > 0 && wall != 0 && wallLock<=0)
+                    {
+                        Launch(PlayerMotion.WallJumpSpeed,-wall);
+                        // Holding toward this wall selects a short hop for repeated same-wall jumps.
+                        Motor.vx=-wall*(ix==wall?PlayerMotion.WallReturnPush:PlayerMotion.WallJumpHorizontal);
+                        facing=-wall;wallJumpSide=wall;wallReturnTime=.35f;
+                        wallLock=PlayerMotion.WallRegrabDelay;
+                    }
                 }
+                bool wasAirborne=!Motor.grounded;float landingSpeed=Motor.vy;
                 Motor.Move(dt);
+                if(wasAirborne&&Motor.grounded&&landingSpeed>45){PaperVfx.Get()?.Dust(EffectFeet,Mathf.Clamp(landingSpeed/280,.4f,1.4f));GameAudio.Emit(SoundCue.Land,EffectFeet,Mathf.Clamp(landingSpeed/280,.4f,1.4f));}
+                if(!showMap){
+                    dustClock-=dt;dashDustClock-=dt;
+                    if(IsDashing&&dashDustClock<=0){PaperVfx.Get()?.Dash(EffectFeet+Vector2.up*.55f,facing);dashDustClock=.065f;}
+                    else if(!IsDashing&&dustClock<=0&&((Motor.grounded&&Mathf.Abs(Motor.vx)>40)||WallMoving)){
+                        PaperVfx.Get()?.Dust(OnWall?EffectFeet+new Vector2(WallSide*.35f,.5f):EffectFeet,.28f,facing);dustClock=.18f;
+                    }
+                }
+                if(OnWall){
+                    int sideColumn=Mathf.FloorToInt((WallSide>0?Motor.Right+1:Motor.Left-1)/16);
+                    if(Motor.grounded||!Motor.Column(sideColumn,Motor.y+3,16))WallSide=0;
+                }
                 // Crossing below the takeoff surface without contact means a continuing fall.
                 if(JumpInProgress&&!Motor.grounded&&Motor.vy>0&&Motor.y+GridMotor.Height>jumpStartBottom+.5f)
                 {JumpInProgress=false;ForceFall=true;}
@@ -151,7 +212,7 @@ namespace Unfin
                 {
                     if(!dashAirborne)
                     {
-                        float bottom=Motor.y+GridMotor.Height;int row=Mathf.RoundToInt(bottom/16);
+                        float bottom=Motor.Bottom;int row=Mathf.RoundToInt(bottom/16);
                         if(Mathf.Abs(bottom-row*16)<.02f&&(Motor.Row(row,false)||(Motor.dropTime<=0&&Motor.Row(row,true))))Motor.grounded=true;
                     }
                     if(!Motor.grounded&&!dashAirborne){dashAirborne=true;airDashUsed=true;}
@@ -166,7 +227,7 @@ namespace Unfin
                     {
                         int floor=Mathf.FloorToInt((Motor.y+GridMotor.Height+1)/16);
                         bool waxLanding=Motor.Get(Mathf.FloorToInt((Motor.x+6)/16),floor)==16;
-                        Launch(425*(waxLanding?.84f:1),ix);
+                        LaunchGroundJump(waxLanding,ix);
                     }
                 }
                 CheckGround();
@@ -175,20 +236,30 @@ namespace Unfin
         }
         void CheckGround()
         {
-            int left = Mathf.FloorToInt(Motor.x / 16), right = Mathf.FloorToInt((Motor.x + GridMotor.Width - .01f) / 16);
+            int left = Mathf.FloorToInt(Motor.Left / 16), right = Mathf.FloorToInt((Motor.Right - .01f) / 16);
             int bottom = Mathf.FloorToInt((Motor.y + GridMotor.Height + 1) / 16);
             bool hazard = false, unstable = false;
             for (int x = left; x <= right; x++)
             {
                 int t = Motor.Get(x, bottom);
-                hazard |= t == 3;
+                hazard |= Motor.InLiquid(x*16+8,Motor.y+GridMotor.Height-.01f);
                 unstable |= t == 6 || t == 15;
                 if (Motor.grounded && (t == 6 || t == 15)) Schedule(x, bottom, t);
                 for (int y = Mathf.FloorToInt((Motor.y + 4) / 16); y <= Mathf.FloorToInt((Motor.y + GridMotor.Height - 2) / 16); y++)
-                    hazard |= Motor.Get(x, y) == 9;
+                    hazard |= Motor.InLiquid(x*16+8,Mathf.Min((y+1)*16-.01f,Motor.y+GridMotor.Height-2));
             }
-            if (hazard) { Motor.x = safe.x; Motor.y = safe.y; Motor.vx = Motor.vy = 0; dashTime = 0; airDashUsed=false;ForceFall=JumpInProgress=false;ResetSerial++; }
-            else if (Motor.grounded && !unstable) safe = new Vector2(Motor.x, Motor.y);
+            if (hazard) {
+                GameAudio.Emit(SoundCue.Hazard,player.position);drowning=.55f;WallSide=0;Motor.vx=0;Motor.vy=40;Motor.grounded=false;
+                dashTime=jumpBuffer=coyote=wallLock=wallReturnTime=0;airDashUsed=false;JumpInProgress=false;ForceFall=true;
+            }
+            else if (Motor.grounded && !unstable && SafeStanding(Motor.x,Motor.y)) safe = new Vector2(Motor.x, Motor.y);
+        }
+        bool SafeStanding(float px,float py){
+            int row=Mathf.RoundToInt((py+GridMotor.Height)/16);
+            for(int x=Mathf.FloorToInt((px-16)/16);x<=Mathf.FloorToInt((px+GridMotor.Width+16)/16);x++){
+                int t=Motor.Get(x,row);if(t!=1&&t!=4&&t!=16)return false;
+                if(Motor.Column(x,py,GridMotor.CollisionHeight-.1f))return false;
+            }return true;
         }
         Tilemap Map(int x, int type) => maps[(x >= Data.regionX ? 3 : 0) + Layer(type)];
         void Schedule(int x, int y, int type)
@@ -202,17 +273,28 @@ namespace Unfin
             foreach (int index in changeKeys)
             {
                 Change change = changes[index]; change.time -= dt;
-                if (change.time > 0) continue;
+                if (change.time > 0) {
+                    if(!change.gone){
+                        int cx=index%Data.width,cy=index/Data.width;var surface=Map(cx,change.original);var cell=WorldData.Cell(cx,cy);
+                        surface.SetTileFlags(cell,TileFlags.None);
+                        float urgency=1-Mathf.Clamp01(change.time/(change.original==15?1.5f:.45f));
+                        surface.SetTransformMatrix(cell,Matrix4x4.Translate(Vector3.right*(Mathf.Sin(change.time*70)*.012f*urgency))*((UnityEngine.Tilemaps.Tile)change.tile).transform);
+                        surface.SetColor(cell,new Color(1,1,1,1-.22f*urgency*(.5f+.5f*Mathf.Sin(change.time*32))));
+                    }
+                    continue;
+                }
                 int x = index % Data.width, y = index / Data.width;
                 if (!change.gone)
                 {
                     Motor.cells[index] = 0; Map(x, change.original).SetTile(WorldData.Cell(x, y), null);
                     RefreshTerrain(x, y);
+                    GameAudio.Emit(SoundCue.Crumble,new Vector2(x,-y));
                     change.gone = true; change.time = change.original == 15 ? 3 : 2.6f;
                 }
                 else if (!(Motor.x < (x + 1) * 16 && Motor.x + 12 > x * 16 && Motor.y < (y + 1) * 16 && Motor.y + 22 > y * 16))
                 {
-                    Motor.cells[index] = (byte)change.original; Map(x, change.original).SetTile(WorldData.Cell(x, y), change.tile); changes.Remove(index);
+                    Motor.cells[index] = (byte)change.original; Map(x, change.original).SetTile(WorldData.Cell(x, y), change.tile); changes.Remove(index);GameAudio.Emit(SoundCue.Restore,new Vector2(x,-y),.6f);
+                    Map(x,change.original).SetColor(WorldData.Cell(x,y),Color.white);Map(x,change.original).SetTransformMatrix(WorldData.Cell(x,y),((UnityEngine.Tilemaps.Tile)change.tile).transform);
                     RefreshTerrain(x, y);
                 }
             }
@@ -227,6 +309,7 @@ namespace Unfin
             {
                 int type = Motor.Get(x, y);
                 if (!Gate(type) || x < 0 || y < 0 || x >= Data.width || y >= Data.height) continue;
+                GameAudio.Emit(SoundCue.Gate,player.position);
                 var pending = new Queue<Vector2Int>(); pending.Enqueue(new Vector2Int(x, y));
                 while (pending.Count > 0)
                 {
@@ -255,9 +338,14 @@ namespace Unfin
         public void Respawn(int tx, int floor)
         {
             Motor.x = tx * 16 + 2; Motor.y = floor * 16 - 22; Motor.vx = Motor.vy = 0; Motor.grounded = false;
-            safe = new Vector2(Motor.x, Motor.y); dashTime = dashCooldown = jumpBuffer = coyote = wallLock = 0;
+            WallSide=0;wallReturnTime=0; safe = new Vector2(Motor.x, Motor.y); dashTime = dashCooldown = jumpBuffer = coyote = wallLock = 0;
+            drowning=recovering=0;releaseAfterHazard=false;
+            if(!SafeStanding(safe.x,safe.y))for(int offset=1;offset<=8;offset++){
+                bool found=false;foreach(int direction in new[]{-1,1})if(SafeStanding(Motor.x+offset*16*direction,Motor.y)){safe.x=Motor.x+offset*16*direction;found=true;break;}
+                if(found)break;
+            }
             airDashUsed=dashAirborne=false;ForceFall=JumpInProgress=false;previousJump=false;accumulator=0;MoveInput=0;ResetSerial++;
-            SyncView();
+            SyncView();if(ResetSerial>1)GameAudio.Emit(SoundCue.Respawn,player.position);
         }
         void RefreshTerrain(int cx, int cy)
         {
@@ -308,7 +396,7 @@ namespace Unfin
         {
             if (Data == null) return;
             GUI.Box(new Rect(12, 12, 700, 76), "WORLD 1 + 2  |  128 px / tile at 1920 x 1080\nA/D: move   Space: jump   S+Space: drop   Shift: dash   J / Click: attack\nF: free flight   E: open nearby gate (QA)   1/2: region   M: map   R: reset");
-            GUI.Label(new Rect(24, 91, 900, 28), $"{(Motor.x / 16 < Data.regionX ? "World 1" : "World 2")}   tile ({Motor.x / 16:F1}, {Motor.y / 16:F1})   {(flying ? "FLIGHT" : "WALK")}   Enemies / items: placement markers");
+            GUI.Label(new Rect(24, 91, 900, 28), $"{(Motor.x / 16 < Data.regionX ? "World 1" : "World 2")}   tile ({Motor.x / 16:F1}, {Motor.y / 16:F1})   {(flying ? "FLIGHT" : "WALK")}   Enemies: hit feedback / items: placement markers");
             if (!showMap) return;
             float width = Mathf.Min(Screen.width - 40, 1120), height = width * Data.height / Data.width;
             var rect = new Rect((Screen.width - width) / 2, (Screen.height - height) / 2, width, height);

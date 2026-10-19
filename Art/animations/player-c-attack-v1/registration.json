@@ -385,7 +385,7 @@
     },
     {
       "name": "Attack3",
-      "durationMs": 460,
+      "durationMs": 500,
       "frames": [
         {
           "frame": 1,
@@ -472,7 +472,7 @@
           "frame": 4,
           "globalFrame": 16,
           "phase": "thrust-impact",
-          "durationMs": 48,
+          "durationMs": 88,
           "startMs": 162,
           "sourceRect": [
             0,
@@ -500,7 +500,7 @@
           "globalFrame": 17,
           "phase": "retract",
           "durationMs": 60,
-          "startMs": 210,
+          "startMs": 250,
           "sourceRect": [
             540,
             512,
@@ -527,7 +527,7 @@
           "globalFrame": 18,
           "phase": "recovery",
           "durationMs": 190,
-          "startMs": 270,
+          "startMs": 310,
           "sourceRect": [
             1024,
             512,

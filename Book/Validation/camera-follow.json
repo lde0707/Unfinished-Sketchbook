@@ -1,1 +1,1 @@
-{"passed":true,"fullJumpCameraTravelTiles":3.92022,"checks":["rear tile opacity 0.52","first 100ms follows","four full-height jumps","immediate horizontal / reversal / dash","long fall framing","lower and upper landing","respawn reset","high ascent","30/60/120 fps","world bounds"]}
+{"passed":true,"fullJumpCameraTravelTiles":3.40065,"checks":["rear tile opacity 0.52","first 100ms follows","four full-height jumps","immediate horizontal / reversal / dash","long fall framing","lower and upper landing","respawn reset","high ascent","30/60/120 fps","world bounds"]}

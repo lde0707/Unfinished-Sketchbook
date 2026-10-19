@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "loadedUnity": true,
+  "keyboardActions": [
+    "click attack",
+    "J ground combo",
+    "left run",
+    "stationary jump",
+    "J rising attack",
+    "air dash cancels attack",
+    "fall attack",
+    "region2",
+    "region1",
+    "re-jump"
+  ],
+  "errors": []
+}

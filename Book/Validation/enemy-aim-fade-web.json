@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "errors": [],
+  "checks": "Actual WebGL flight captures and forced lethal-hit fade captures; numerical trajectory and fade assertions in EnemyAnimationValidation."
+}

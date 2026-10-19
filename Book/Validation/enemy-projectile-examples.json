@@ -1,0 +1,23 @@
+[
+  {
+    "id": "R102",
+    "name": "연필깎이 포탑",
+    "sourceIndex": 3,
+    "spawn": "210,128",
+    "motion": "수평 흑연탄"
+  },
+  {
+    "id": "COMMON03",
+    "name": "잉크 방울",
+    "sourceIndex": 40,
+    "spawn": "197,16",
+    "motion": "포물선 잉크탄 · 착탄 웅덩이"
+  },
+  {
+    "id": "D02",
+    "name": "씨주머니 보행자",
+    "sourceIndex": 42,
+    "spawn": "232,14",
+    "motion": "씨앗탄 · 한 번 튀기"
+  }
+]

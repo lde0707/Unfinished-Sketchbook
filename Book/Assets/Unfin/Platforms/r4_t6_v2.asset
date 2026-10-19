@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b481357b9833fbb4ca53b37dae337218, type: 3}
   m_Name: r4_t6_v2
   m_EditorClassIdentifier: Assembly-CSharp::Unfin.PrototypeTile
-  m_Sprite: {fileID: 21300000, guid: 0fd044dbd96a9c540b9fe30525d2224e, type: 3}
-  m_Color: {r: 0.86, g: 0.78, b: 0.7, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ff9ee462a89fca94a871fac2b8a1bb3f, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
-    e00: 1
+    e00: 0.25858587
     e01: 0
     e02: 0
     e03: 0
     e10: 0
-    e11: 1
+    e11: 0.42105263
     e12: 0
-    e13: 0
+    e13: 0.375
     e20: 0
     e21: 0
     e22: 1
@@ -32,7 +32,7 @@ MonoBehaviour:
     e32: 0
     e33: 1
   m_InstancedGameObject: {fileID: 0}
-  m_Flags: 3
+  m_Flags: 0
   m_ColliderType: 2
   htmlType: 6
   region: 4
