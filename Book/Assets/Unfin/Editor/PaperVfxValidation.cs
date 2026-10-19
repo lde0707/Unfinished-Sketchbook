@@ -20,7 +20,7 @@ namespace Unfin.Editor
    var go=new GameObject("VFX validation");var fx=go.AddComponent<PaperVfx>();
    // Edit-mode AddComponent does not invoke Awake.
    typeof(PaperVfx).GetMethod("Awake",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance).Invoke(fx,null);
-   for(int i=0;i<80;i++){fx.Hit(Vector2.zero,1);fx.Dust(Vector2.zero,1);fx.Dash(Vector2.zero,-1);fx.Swing(Vector2.zero,1);}
+   for(int i=0;i<80;i++){fx.Hit(Vector2.zero,1);fx.Dust(Vector2.zero,1);fx.Dust(Vector2.zero,.7f,1,true);fx.Dash(Vector2.zero,-1);fx.Swing(Vector2.zero,1);}
    if(fx.ActiveCount!=PaperVfx.Capacity)throw new Exception("VFX pool limit");
    foreach(var sr in go.GetComponentsInChildren<SpriteRenderer>())if(sr.sprite==null||sr.color.r>.65f||sr.color.a>.53f)throw new Exception("Missing texture or excessive brightness");
    fx.Tick(1);if(fx.ActiveCount!=0)throw new Exception("VFX expiry");

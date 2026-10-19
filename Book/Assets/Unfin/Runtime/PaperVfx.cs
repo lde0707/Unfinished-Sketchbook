@@ -41,11 +41,12 @@ namespace Unfin
             p.velocity=velocity;p.scale=scale;p.life=p.duration=duration;p.spin=Range(-60,60);p.growth=sprite<4?.8f:.1f;
             p.color=new Color(.64f,.60f,.52f,alpha);p.draw.color=p.color;p.draw.transform.localScale=new Vector3(scale.x,scale.y,1);
         }
-        public void Dust(Vector2 feet,float strength,int direction=0)
+        public void Dust(Vector2 feet,float strength,int direction=0,bool prominent=false)
         {
-            int count=strength<.5f?2:5;
-            for(int i=0;i<count;i++)Add(i%2+2,feet+new Vector2(Range(-.12f,.12f),.09f),new Vector2(Range(-1,1)*strength-direction*.5f,Range(.15f,.55f)),new Vector2(.4f,.23f)*Mathf.Lerp(.7f,1.7f,strength),Range(.22f,.4f),.28f);
-            Add(0,feet+Vector2.up*.12f,new Vector2(-direction*.3f,.25f),new Vector2(.55f,.35f)*Mathf.Max(.4f,strength),.24f,.38f);
+            int count=prominent?(strength<.5f?4:9):(strength<.5f?2:5);
+            float size=prominent?1.5f:1,linger=prominent?1.4f:1;
+            for(int i=0;i<count;i++)Add(i%2+2,feet+new Vector2(Range(-.16f,.16f),.12f),new Vector2(Range(-1,1)*strength-direction*.5f,Range(.15f,.55f)),new Vector2(.4f,.23f)*Mathf.Lerp(.7f,1.7f,strength)*size,Range(.22f,.4f)*linger,prominent?.46f:.28f);
+            Add(0,feet+Vector2.up*.12f,new Vector2(-direction*.3f,.25f),new Vector2(.55f,.35f)*Mathf.Max(.4f,strength)*size,.24f*linger,prominent?.5f:.38f);
         }
         public void Hit(Vector2 point,int facing)
         {
@@ -54,8 +55,8 @@ namespace Unfin
         }
         public void Swing(Vector2 point,int facing)
         {
-            Add(5,point,new Vector2(facing*1.5f,0),new Vector2(.85f,.35f),.12f,.38f,facing<0?90:-90);
-            Add(1,point,new Vector2(facing*.8f,.15f),new Vector2(.55f,.45f),.18f,.35f);
+            Add(5,point,new Vector2(facing*1.5f,0),new Vector2(1.15f,.5f),.18f,.48f,facing<0?90:-90);
+            for(int i=0;i<6;i++)Add(i%2==0?2:1,point+new Vector2(Range(-.25f,.25f),Range(-.2f,.2f)),new Vector2(facing*Range(.5f,1.6f),Range(-.3f,.6f)),new Vector2(.65f,.45f)*Range(.7f,1.2f),Range(.25f,.4f),.46f,Range(0,360));
         }
         public void Death(Bounds body)
         {

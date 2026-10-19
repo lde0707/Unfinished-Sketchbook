@@ -19,6 +19,9 @@ namespace Unfin
         Vector2 fallOffset;
         float fallBlend;
         float projectileContactFlash;
+        [Min(0)] public float thinPlatformLiftPixels=9;
+        Vector3 poseAnchor;
+        bool poseAnchorCached;
         public void ShowProjectileContact(Vector2 point)
         {
             projectileContactFlash=.18f;PaperVfx.Get()?.Hit(point,world.Facing);GameAudio.Emit(SoundCue.Hit,point,.65f);
@@ -97,6 +100,13 @@ namespace Unfin
         }
         public void Render(int facing)
         {
+            if(!poseAnchorCached){poseAnchor=transform.localPosition;poseAnchorCached=true;}
+            var motor=world.Motor;
+            int supportRow=Mathf.RoundToInt(motor.Bottom/16);
+            bool thinPlatform=motor.grounded&&!world.flying&&!world.OnWall&&motor.Row(supportRow,true)&&!motor.Row(supportRow,false);
+            // Move the entire drawing/effect group together; collision and camera
+            // anchors retain their existing coordinates. Pixels use the 128px tile scale.
+            transform.localPosition=poseAnchor+Vector3.up*(thinPlatform?thinPlatformLiftPixels/Mathf.Max(1,world.Data.tilePixels):0);
             var clip=library.Find(CurrentAnimation);
             // Intro once, then alternate the two falling drawings until actual contact.
             CurrentFrame=CurrentAnimation=="Fall"&&AnimationTime>=.155f?2-(Mathf.FloorToInt((AnimationTime-.155f)/.14f)%2):clip.FrameAt(AnimationTime);

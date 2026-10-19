@@ -28,7 +28,7 @@ namespace Unfin
         public bool OnWall => WallSide!=0;
         public bool WallMoving => OnWall && Mathf.Abs(Motor.vy)>1;
         float jumpStartBottom;
-        bool showMap, previousJump;
+        bool showMap;
         float jumpBuffer, coyote, wallLock, dashTime, dashCooldown, accumulator;
         int facing = 1, dashDirection=1, wallJumpSide;
         float wallReturnTime;
@@ -86,10 +86,9 @@ namespace Unfin
             if (k.f2Key.wasPressedThisFrame || k.digit2Key.wasPressedThisFrame)
                 foreach (var p in Data.pickups) if (p.type == "save" && p.tx >= Data.regionX) { Respawn(p.tx, p.floor); break; }
             if (k.eKey.wasPressedThisFrame) OpenNearbyGate();
+            // A single press completes the normal arc, including after key release.
+            // Short taps must still reach the map's three-tile platform steps.
             if (k.spaceKey.wasPressedThisFrame) RequestJump();
-            bool jump = k.spaceKey.isPressed;
-            if (!IsDashing && previousJump && !jump && Motor.vy < 0) Motor.vy *= .45f;
-            previousJump = jump;
             int ix = (k.dKey.isPressed || k.rightArrowKey.isPressed ? 1 : 0) - (k.aKey.isPressed || k.leftArrowKey.isPressed ? 1 : 0);
             int iy = (k.sKey.isPressed || k.downArrowKey.isPressed ? 1 : 0) - (k.wKey.isPressed || k.upArrowKey.isPressed ? 1 : 0);
             if (k.leftShiftKey.wasPressedThisFrame || k.rightShiftKey.wasPressedThisFrame) RequestDash(ix);
@@ -120,7 +119,7 @@ namespace Unfin
         void Launch(float speed,int ix)
         {
             GameAudio.Emit(SoundCue.Jump,EffectFeet);
-            PaperVfx.Get()?.Dust(EffectFeet,.7f,ix);
+            PaperVfx.Get()?.Dust(EffectFeet,.7f,ix,true);
             WallSide=0;wallReturnTime=0;Motor.vy=-speed;Motor.grounded=false;jumpBuffer=0;coyote=0;ForceFall=false;
             JumpInProgress=true;JumpSerial++;JumpMoving=ix!=0;JumpLaunchSpeed=speed;JumpElapsed=0;
             jumpStartBottom=Motor.y+GridMotor.Height;
@@ -193,12 +192,12 @@ namespace Unfin
                 }
                 bool wasAirborne=!Motor.grounded;float landingSpeed=Motor.vy;
                 Motor.Move(dt);
-                if(wasAirborne&&Motor.grounded&&landingSpeed>45){PaperVfx.Get()?.Dust(EffectFeet,Mathf.Clamp(landingSpeed/280,.4f,1.4f));GameAudio.Emit(SoundCue.Land,EffectFeet,Mathf.Clamp(landingSpeed/280,.4f,1.4f));}
+                if(wasAirborne&&Motor.grounded&&landingSpeed>45){PaperVfx.Get()?.Dust(EffectFeet,Mathf.Clamp(landingSpeed/280,.4f,1.4f),0,true);GameAudio.Emit(SoundCue.Land,EffectFeet,Mathf.Clamp(landingSpeed/280,.4f,1.4f));}
                 if(!showMap){
                     dustClock-=dt;dashDustClock-=dt;
                     if(IsDashing&&dashDustClock<=0){PaperVfx.Get()?.Dash(EffectFeet+Vector2.up*.55f,facing);dashDustClock=.065f;}
                     else if(!IsDashing&&dustClock<=0&&((Motor.grounded&&Mathf.Abs(Motor.vx)>40)||WallMoving)){
-                        PaperVfx.Get()?.Dust(OnWall?EffectFeet+new Vector2(WallSide*.35f,.5f):EffectFeet,.28f,facing);dustClock=.18f;
+                        PaperVfx.Get()?.Dust(OnWall?EffectFeet+new Vector2(WallSide*.35f,.5f):EffectFeet,.28f,facing,true);dustClock=.13f;
                     }
                 }
                 if(OnWall){
@@ -344,7 +343,7 @@ namespace Unfin
                 bool found=false;foreach(int direction in new[]{-1,1})if(SafeStanding(Motor.x+offset*16*direction,Motor.y)){safe.x=Motor.x+offset*16*direction;found=true;break;}
                 if(found)break;
             }
-            airDashUsed=dashAirborne=false;ForceFall=JumpInProgress=false;previousJump=false;accumulator=0;MoveInput=0;ResetSerial++;
+            airDashUsed=dashAirborne=false;ForceFall=JumpInProgress=false;accumulator=0;MoveInput=0;ResetSerial++;
             SyncView();if(ResetSerial>1)GameAudio.Emit(SoundCue.Respawn,player.position);
         }
         void RefreshTerrain(int cx, int cy)

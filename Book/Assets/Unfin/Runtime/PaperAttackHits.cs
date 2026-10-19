@@ -34,7 +34,11 @@ namespace Unfin
         {
             var polygon=ActiveHitPolygon;if(polygon==null)return;
             EnemyProjectileSystem.Get(world)?.Cut(polygon,world.player.position);
-            if(!attackVfxEmitted){attackVfxEmitted=true;GameAudio.Emit(!airAttack&&stage==2?SoundCue.Thrust:SoundCue.Swing,world.player.position);PaperVfx.Get()?.Swing((Vector2)world.player.position+Vector2.right*AttackFacing*.8f,AttackFacing);}
+            if(!attackVfxEmitted){
+                attackVfxEmitted=true;GameAudio.Emit(!airAttack&&stage==2?SoundCue.Thrust:SoundCue.Swing,world.player.position);
+                var fx=PaperVfx.Get();fx?.Swing((Vector2)world.player.position+Vector2.right*AttackFacing*.8f,AttackFacing);
+                if(world.Motor.grounded)fx?.Dust(new Vector2((world.Motor.x+GridMotor.Width*.5f)/16,-(world.Motor.y+GridMotor.Height)/16),.55f,AttackFacing,true);
+            }
             pendingHits.Clear();
             foreach(var target in PaperAttackTarget.Active)
             {
