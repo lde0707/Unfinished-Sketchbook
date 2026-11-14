@@ -282,7 +282,7 @@ namespace Unfin.Editor
                 go.transform.localScale = new Vector3(marker.w / 16, marker.h / 16, 1);
                 var renderer = go.AddComponent<SpriteRenderer>(); renderer.sprite = sprite;
                 renderer.color = enemy ? new Color(.7f,.26f,.3f,.8f) : marker.type == "save" ? new Color(.35f,.83f,.8f,.85f) : new Color(.85f,.68f,.28f,.8f);
-                renderer.sortingOrder = 5;
+                renderer.sortingOrder = enemy?5:PaperPickupVisual.BodySortingOrder;
                 var metadata = go.AddComponent<MapMarker>(); metadata.enemy = enemy; metadata.sourceIndex = i;
                 metadata.kind = marker.type; metadata.originalOptions = marker.optionsJson; metadata.htmlPosition = new Vector2(marker.x, marker.y);
             }

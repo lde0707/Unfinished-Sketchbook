@@ -1,0 +1,172 @@
+{
+    "entries": [
+        {
+            "name": "map-frame",
+            "sheet": "frames",
+            "x": 65,
+            "y": 372,
+            "w": 714,
+            "h": 481
+        },
+        {
+            "name": "ribbon",
+            "sheet": "frames",
+            "x": 824,
+            "y": 497,
+            "w": 934,
+            "h": 149
+        },
+        {
+            "name": "key",
+            "sheet": "frames",
+            "x": 195,
+            "y": 97,
+            "w": 485,
+            "h": 144
+        },
+        {
+            "name": "flourish",
+            "sheet": "frames",
+            "x": 1107,
+            "y": 36,
+            "w": 410,
+            "h": 290
+        },
+        {
+            "name": "leaf",
+            "sheet": "icons",
+            "x": 82,
+            "y": 497,
+            "w": 303,
+            "h": 294
+        },
+        {
+            "name": "leaf-empty",
+            "sheet": "icons",
+            "x": 515,
+            "y": 497,
+            "w": 303,
+            "h": 294
+        },
+        {
+            "name": "heal",
+            "sheet": "icons",
+            "x": 980,
+            "y": 487,
+            "w": 253,
+            "h": 323
+        },
+        {
+            "name": "shard",
+            "sheet": "icons",
+            "x": 1456,
+            "y": 497,
+            "w": 231,
+            "h": 279
+        },
+        {
+            "name": "shield",
+            "sheet": "icons",
+            "x": 82,
+            "y": 71,
+            "w": 285,
+            "h": 320
+        },
+        {
+            "name": "heart",
+            "sheet": "icons",
+            "x": 521,
+            "y": 92,
+            "w": 301,
+            "h": 257
+        },
+        {
+            "name": "healup",
+            "sheet": "icons",
+            "x": 951,
+            "y": 66,
+            "w": 329,
+            "h": 327
+        },
+        {
+            "name": "paint",
+            "sheet": "icons",
+            "x": 1406,
+            "y": 70,
+            "w": 330,
+            "h": 292
+        },
+        {
+            "name": "zone-0",
+            "sheet": "zone-titles",
+            "x": 106,
+            "y": 1545,
+            "w": 679,
+            "h": 168
+        },
+        {
+            "name": "zone-1",
+            "sheet": "zone-titles",
+            "x": 205,
+            "y": 1340,
+            "w": 486,
+            "h": 173
+        },
+        {
+            "name": "zone-2",
+            "sheet": "zone-titles",
+            "x": 93,
+            "y": 1127,
+            "w": 710,
+            "h": 173
+        },
+        {
+            "name": "zone-3",
+            "sheet": "zone-titles",
+            "x": 125,
+            "y": 911,
+            "w": 657,
+            "h": 171
+        },
+        {
+            "name": "zone-4",
+            "sheet": "zone-titles",
+            "x": 68,
+            "y": 693,
+            "w": 753,
+            "h": 164
+        },
+        {
+            "name": "zone-5",
+            "sheet": "zone-titles",
+            "x": 229,
+            "y": 474,
+            "w": 462,
+            "h": 175
+        },
+        {
+            "name": "zone-6",
+            "sheet": "zone-titles",
+            "x": 104,
+            "y": 258,
+            "w": 684,
+            "h": 170
+        },
+        {
+            "name": "zone-7",
+            "sheet": "zone-titles",
+            "x": 221,
+            "y": 41,
+            "w": 454,
+            "h": 173
+        },
+        {
+            "name": "cartographer-panel",
+            "sheet": "cartographer-panel",
+            "x": 0,
+            "y": 0,
+            "w": 1536,
+            "h": 1024
+        }
+    ]
+}

@@ -3,7 +3,7 @@
   "date": "2026-10-18",
   "source": "Tools/add_room_mezzanines.cjs",
   "baseGridSha256": "bca3e0e1cd97d055a037fc1027785e1d78213ed5d4a238e65ae1d37186cdf6c0",
-  "gridSha256": "330a8b6a41ff7620942812e3f703e2cb665e3fb09ff9604ced32ff766b469c73",
+  "gridSha256": "3a5071496832218fc7855eda9b7e61421ee07b32bcd48866da2d1cfead71b3cb",
   "rooms": [
     {
       "r": 1,

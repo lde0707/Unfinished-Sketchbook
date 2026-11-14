@@ -33,19 +33,22 @@ namespace Unfin
         void ResolveAttackHits()
         {
             var polygon=ActiveHitPolygon;if(polygon==null)return;
+            world.Progression.AttackGate(polygon);
             EnemyProjectileSystem.Get(world)?.Cut(polygon,world.player.position);
             if(!attackVfxEmitted){
-                attackVfxEmitted=true;GameAudio.Emit(!airAttack&&stage==2?SoundCue.Thrust:SoundCue.Swing,world.player.position);
+                attackVfxEmitted=true;GameAudio.Emit(ThrustAttack?SoundCue.Thrust:SoundCue.Swing,world.player.position);
                 var fx=PaperVfx.Get();fx?.Swing((Vector2)world.player.position+Vector2.right*AttackFacing*.8f,AttackFacing);
                 if(world.Motor.grounded)fx?.Dust(new Vector2((world.Motor.x+GridMotor.Width*.5f)/16,-(world.Motor.y+GridMotor.Height)/16),.55f,AttackFacing,true);
             }
             pendingHits.Clear();
             foreach(var target in PaperAttackTarget.Active)
             {
-                if(target==null||hitTargets.Contains(target)||!OverlapsAttack(polygon,target.HitBounds))continue;
+                if(target==null||hitTargets.Contains(target))continue;
+                var bounds=target.HitBounds;
+                if(!OverlapsAttack(polygon,bounds))continue;
                 // Test from the torso, not the floor anchor. Closed gates and solid terrain block attacks.
                 Vector2 origin=world.player.position;
-                Vector2 contact=target.HitBounds.ClosestPoint(origin);
+                Vector2 contact=bounds.ClosestPoint(origin);
                 if(AttackPathClear(world.Motor,origin,contact))pendingHits.Add(target);
             }
             // Invoke callbacks outside registry enumeration (a receiver may disable itself).
@@ -63,11 +66,15 @@ namespace Unfin
         }
         public static bool OverlapsAttack(Vector2[] polygon,Bounds bounds)
         {
+            if(polygon==null||polygon.Length<3)return false;
             var lo=(Vector2)bounds.min;var hi=(Vector2)bounds.max;
+            var min=polygon[0];var max=min;
+            for(int i=1;i<polygon.Length;i++){min=Vector2.Min(min,polygon[i]);max=Vector2.Max(max,polygon[i]);}
+            if(max.x<lo.x||min.x>hi.x||max.y<lo.y||min.y>hi.y)return false;
             foreach(var p in polygon)if(p.x>=lo.x&&p.x<=hi.x&&p.y>=lo.y&&p.y<=hi.y)return true;
-            var corners=new[]{lo,new Vector2(hi.x,lo.y),hi,new Vector2(lo.x,hi.y)};
-            foreach(var p in corners)
+            for(int corner=0;corner<4;corner++)
             {
+                var p=BoundsCorner(lo,hi,corner);
                 bool inside=false;
                 for(int i=0,j=polygon.Length-1;i<polygon.Length;j=i++)
                 {
@@ -77,9 +84,10 @@ namespace Unfin
                 if(inside)return true;
             }
             for(int i=0;i<polygon.Length;i++)for(int j=0;j<4;j++)
-                if(SegmentsCross(polygon[i],polygon[(i+1)%polygon.Length],corners[j],corners[(j+1)%4]))return true;
+                if(SegmentsCross(polygon[i],polygon[(i+1)%polygon.Length],BoundsCorner(lo,hi,j),BoundsCorner(lo,hi,(j+1)%4)))return true;
             return false;
         }
+        static Vector2 BoundsCorner(Vector2 lo,Vector2 hi,int i)=>i==0?lo:i==1?new Vector2(hi.x,lo.y):i==2?hi:new Vector2(lo.x,hi.y);
         static bool SegmentsCross(Vector2 a,Vector2 b,Vector2 c,Vector2 d)
         {
             float Cross(Vector2 u,Vector2 v)=>u.x*v.y-u.y*v.x;

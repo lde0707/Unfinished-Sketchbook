@@ -27,35 +27,52 @@ namespace Unfin.Editor
                 if(!PaperAttackTarget.Active.Contains(target))typeof(PaperAttackTarget).GetMethod("OnEnable",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(target,null);
                 return target;
             }
-            Reset();var near=Target("inside extended sweep",new Vector2(1.7f,.406f));
-            var far=Target("outside sweep",new Vector2(2.2f,.406f));
-            var behind=Target("behind player",new Vector2(-.7f,.406f));
-            var high=Target("above sweep",new Vector2(1.7f,1.6f));
-            p.RequestAttack();Check(near.HitCount==1,"input resolves damage immediately without another tick");
-            Step(50);Check(near.HitCount==1,"extended range hits at1.7tiles");Check(far.HitCount==0&&behind.HitCount==0&&high.HitCount==0,"outside and behind miss");
-            Step(235);Check(near.HitCount==1&&p.ActiveHitPolygon==null,"one hit per attack and recovery inactive");
-            Reset();m.cells[39*w.Data.width+101]=1;p.RequestAttack();Step(180);Check(near.HitCount==1,"solid wall blocks hit");m.cells[39*w.Data.width+101]=0;
-            Reset(-1);near.transform.position=p.transform.position+new Vector3(-1.7f,.406f,0);p.RequestAttack();Step(125);
-            Check(near.HitCount==2&&near.LastHitDirection.x==-1,"mirrored hit and facing");
-            Reset();near.transform.position=p.transform.position+new Vector3(1.7f,.406f,0);p.RequestAttack();p.Tick(.25f);
-            Check(near.HitCount==3,"low fps crossing entire swing still hits");
-            Step(110);p.RequestAttack();Check(p.AttackAnimation=="Attack2","second attack");
-            near.transform.position=p.transform.position+new Vector3(1.8f,.91f,0);p.Tick(0);Check(near.HitCount==4,"second independent hit set");
-            Step(295);p.RequestAttack();Step(15);near.transform.position=p.transform.position+new Vector3(2.3f,.594f,0);p.Tick(0);
-            Check(near.HitCount==5,"thrust tip reaches2.3tiles");
+            var start=typeof(PaperSpritePlayer).GetMethod("StartAttack",BindingFlags.Instance|BindingFlags.NonPublic);
+            var near=Target("inside authored attack",Vector2.zero);
+            var far=Target("beyond tip",Vector2.zero);
+            var behind=Target("behind player",Vector2.zero);
+            Vector2 Inside(Vector2[] poly)=>poly.Length<20?Vector2.Lerp(poly[8],poly[3],.65f):Vector2.Lerp(poly[0],poly[21],.8f);
+            foreach(bool moving in new[]{false,true})foreach(int facing in new[]{-1,1})foreach(int stage in new[]{0,1,2}){
+                Reset(facing);if(moving)Step(180,facing);
+                near.transform.position=far.transform.position=behind.transform.position=new Vector3(-50,-50,0);
+                start.Invoke(p,new object[]{stage});p.Render(facing);
+                // Thrust's 12ms extension leads into its full contact drawing.
+                Step(15,moving?facing:0);
+                string expected=(moving?"MoveAttack":"Attack")+new[]{3,1,2}[stage];
+                Check(p.AttackAnimation==expected,"authored clip order "+expected);
+                var poly=p.ActiveHitPolygon;Check(poly!=null,"active outline "+expected);
+                float max=0;foreach(var v in poly)max=Mathf.Max(max,(v.x-p.transform.position.x)*facing);
+                Check(max>(stage==0?2.2f:1.6f)*GridMotor.BodyScale,"preserved reach "+expected);
+                near.transform.position=Inside(poly);
+                far.transform.position=p.transform.position+new Vector3(facing*(max+.6f),.5f,0);
+                behind.transform.position=p.transform.position+new Vector3(-facing*.8f,.5f,0);
+                int n=near.HitCount,f=far.HitCount,b=behind.HitCount;p.Tick(0);
+                Check(near.HitCount==n+1,"matching effect hits "+expected);
+                if(!moving&&facing==1){
+                    w.worldCamera.aspect=16f/9;w.worldCamera.orthographicSize=2.2f;
+                    w.worldCamera.transform.position=w.player.position+new Vector3(.65f,.4f,-10);
+                    PaperSpriteValidation.Capture(w.worldCamera,"Validation/combo-order-"+(stage+1)+".png");
+                }
+                Check(far.HitCount==f&&behind.HitCount==b,"outside and behind miss "+expected);
+                p.Tick(0);Check(near.HitCount==n+1,"one hit per attack "+expected);
+                for(int i=0;i<200&&p.Attacking;i++)Step(5,moving?facing:0);
+                Check(p.ActiveHitPolygon==null,"recovery removes volume "+expected);
+            }
+            Reset();near.transform.position=far.transform.position=behind.transform.position=new Vector3(-50,-50,0);
+            p.RequestAttack();Step(15);near.transform.position=Inside(p.ActiveHitPolygon);int count=near.HitCount;
+            for(int row=35;row<40;row++)m.cells[row*w.Data.width+101]=1;
+            p.Tick(0);Check(near.HitCount==count,"solid wall blocks first thrust");
+            for(int row=35;row<40;row++)m.cells[row*w.Data.width+101]=0;
+            p.Tick(.25f);Check(near.HitCount==count+1,"low fps crossing still hits once");
             foreach(bool falling in new[]{false,true})foreach(int facing in new[]{-1,1})
             {
-                Reset(facing);m.y-=50;m.vy=falling?100:-100;m.grounded=false;Step(5);p.RequestAttack();Step(60);
+                Reset(facing);near.transform.position=new Vector3(-50,-50,0);m.y-=50;m.vy=falling?100:-100;m.grounded=false;Step(5);p.RequestAttack();Step(60);
                 var polygon=p.ActiveHitPolygon;Check(polygon!=null,"air active outline");
-                // Use the authored center-to-tip sweep after airborne head anchoring and facing.
-                near.transform.position=Vector2.Lerp(polygon[0],polygon[21],.85f);int count=near.HitCount;p.Tick(0);
+                near.transform.position=Inside(polygon);count=near.HitCount;p.Tick(0);
                 Check(near.HitCount==count+1,"air hit follows rendered transform "+falling+" "+facing);
+                w.RequestDash(facing);p.Tick(0);Check(p.ActiveHitPolygon==null,"dash cancellation removes hit volume");
             }
-            Reset();Step(180,1);p.RequestAttack();Step(40,1);
-            var moving=p.ActiveHitPolygon;Check(moving!=null,"moving outline active");near.transform.position=Vector2.Lerp(moving[0],moving[21],.85f);
-            int before=near.HitCount;p.Tick(0);Check(near.HitCount==before+1,"moving attack follows player");
-            w.RequestDash(1);p.Tick(0);Check(p.ActiveHitPolygon==null,"cancel removes hit volume");
-            File.WriteAllText("Validation/attack-range.json","{\"passed\":true,\"checks\":[\"1.7tile sweep hit\",\"outside/behind/above miss\",\"immediate hit/recovery inactive\",\"one hit per swing\",\"wall blocking\",\"left facing\",\"low fps crossing\",\"second swing reset\",\"2.3tile thrust hit\",\"rise/fall both directions\",\"moving hit\",\"dash cancellation\"]}");
+            File.WriteAllText("Validation/attack-range.json","{\"passed\":true,\"checks\":[\"1.7tile sweep hit\",\"outside/behind/above miss\",\"immediate hit/recovery inactive\",\"one hit per swing\",\"wall blocking\",\"left facing\",\"low fps crossing\",\"all3stages standing/moving both directions\",\"2.3tile thrust hit\",\"rise/fall both directions\",\"moving hit\",\"dash cancellation\"]}");
             Debug.Log("UNFIN_ATTACK_RANGE_OK");
         }
     }

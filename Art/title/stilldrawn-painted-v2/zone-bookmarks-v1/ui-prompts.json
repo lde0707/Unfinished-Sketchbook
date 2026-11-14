@@ -1,0 +1,17 @@
+{
+  "mode": "built-in imagegen edit",
+  "sampleZone": "F",
+  "note": "UI samples only; sample time/date not live save data",
+  "screens": [
+    {
+      "file": "continue-last-zone.png",
+      "reference": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/title/stilldrawn-painted-v2/submenus-v1/01-continue.png",
+      "prompt": "Edit reference image 1, the approved STILLDRAWN continue menu. Reference image 2 is the EXACT newly painted Wax Workshop landscape to place into its framed thumbnail. Create one full 16:9 UI screen. Preserve image 1's background, wordmark, elegant matte charcoal paper panel, bookbinding, torn edges, muted gold rules, fonts and button artwork. Main heading stays \"마지막 책갈피\". Replace left forest thumbnail with reference 2 wax workshop, preserving furnace landmark. Replace right content with clean readable hierarchy, plenty of space: small region header \"제2장 · 크레파스 언덕\"; small label \"마지막 접속 구역\"; large prominent zone name \"밀랍 공방\"; then rule, label \"머무른 시간\" with sample \"02:34:18\"; then label \"마지막 기록\" with sample \"2026.10.26\". Small secondary note below info \"마지막 책갈피에서 이어집니다.\" Keep bottom buttons \"뒤로\" and \"이야기 이어가기\". The zone name MUST be readable and more prominent than region header. Don't accidentally duplicate text or keep the old forest name. Avoid bright modern cards; this remains premium paper/ink game UI. No extra buttons, no external annotations."
+    },
+    {
+      "file": "new-story-last-zone.png",
+      "reference": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/title/stilldrawn-painted-v2/submenus-v1/02-new-story.png",
+      "prompt": "Edit reference image 1, the approved STILLDRAWN new story confirmation screen. Reference image 2 is the EXACT newly painted Wax Workshop landscape. Output one polished full 16:9 UI screen. Preserve the dark forest background, small logo, charcoal paper panel, torn edges, binding ornaments, muted gold, legible Korean serif typography, high-quality material. Main heading stays \"새 이야기를 펼칠까요?\". Replace the central closed-book illustration with a clear compact existing-save summary, framed workshop landscape on LEFT and text on RIGHT. Use reference 2 inside thumbnail with furnace visible. Right text hierarchy: small \"기존 이야기\"; \"제2장 · 크레파스 언덕\"; small label \"마지막 접속 구역\"; large \"밀랍 공방\"; \"머무른 시간  02:34:18\". Separate the summary from warning with fine muted gold rule. Under summary center warning in two lines: \"새 이야기를 시작하면\" / \"이전 책갈피와 탐험 기록이 사라집니다.\". Bottom buttons remain \"뒤로\" and \"새 이야기 시작\", generous clickable visual size. Clearly shows the prior save being replaced, NOT choosing which region to start in. Thumbnail and exact zone name are prominent. No extra UI, no illegible text, no modern web cards."
+    }
+  ]
+}

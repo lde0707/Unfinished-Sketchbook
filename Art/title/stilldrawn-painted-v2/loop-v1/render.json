@@ -1,0 +1,17 @@
+{
+  "source": "Art\\title\\stilldrawn-painted-v2\\title-concept.png",
+  "sourceSha256": "26f6045899ee9a9007e845a438818f020727fe37a20be76e0c7b0ca3f7d29ed3",
+  "method": "deterministic localized mesh motion, periodic light and dust; not generative AI video",
+  "durationSeconds": 10,
+  "fps": 60,
+  "size": [
+    1920,
+    1080
+  ],
+  "frames": 600,
+  "silent": true,
+  "loopClosureMaxPixelDifference": 0,
+  "lastToFirstMeanPixelDifference": 0.115517779063786,
+  "menuAndLogoFixedBeforeEncoding": true,
+  "unityInstalled": false
+}

@@ -8,6 +8,8 @@ namespace Unfin.Editor
         static void Check(bool ok, string message) { if (!ok) throw new Exception("Player contact: " + message); }
         public static void RunAndBuild()
         {
+            PlatformSurfaceValidation.RepairAndValidate();
+            MezzanineValidation.ValidateRoutes();
             var data = new WorldData { width = 20, height = 20 };
             var cells = new byte[400];
             var m = new GridMotor(data, cells);

@@ -1,0 +1,24 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in generation",
+  "prompt": "Use case: stylized-concept. Asset type: seamless diffuse paper material texture for an existing 2D illustrated game character; NOT a character illustration. Generate a square 1024x1024 tileable monochrome warm-gray pressed handmade parchment fiber texture. Matte softly mottled paper, medium broad organic cloudy fibers, delicate compressed pulp structure, restrained low contrast; no directional lighting, no vignette, no cast shadows, no paper sheet boundaries, no shapes, no objects, no letters, no cracks, no thin hatch scratches, no grunge dirt, no high-contrast speckles. Continuous smooth nonrepeating-looking surface across every edge. Gray mean about 50 percent. Intended to modulate an ivory paper spirit's existing whole-frame sprite, maintaining soft rounded shapes and layered paper cloak, harmonized with coarse layered paper cave tiles. Show only flat material filling the image edge to edge.",
+  "output": "Book/Assets/Unfin/Resources/PlayerSurface/paper-fibers.png",
+  "implementation": "Shared Unity sprite surface applied over unchanged whole-frame source artwork; no new frames, geometry, timings, alpha, pivots or collision edits.",
+  "integration": {
+    "registeredAnimationFrames": 91,
+    "uniqueBodyDrawings": 90,
+    "deathReviveDrawings": 12,
+    "totalUniqueDrawings": 102,
+    "sourceFilesUnchanged": 209,
+    "alphaMismatchPixels": 0,
+    "validation": [
+      "Book/Validation/player-surface.json",
+      "Book/Validation/player-surface-integrity.json",
+      "Book/Validation/player-surface-web.json"
+    ],
+    "screenshot": "Book/Validation/player-surface-web-idle.png",
+    "rendering": "Shared body and dash-trail material; original PNGs/alpha/pivots/timings/collision unchanged; enemy and separate attack effects preserved.",
+    "webBuild": "Builds/WebGLSite/dist",
+    "materialStrength": 1
+  }
+}

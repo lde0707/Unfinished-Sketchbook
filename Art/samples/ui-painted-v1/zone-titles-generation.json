@@ -1,0 +1,21 @@
+{
+  "generator": "built-in image_gen",
+  "asset": "Book/Assets/Unfin/Resources/PaintedUI/zone-titles.png",
+  "form": "transparent generated lettering artwork, not a TTF font",
+  "prompt": "Eight equal horizontal rows, exact Korean zone names, warm ivory paper-textured readable Korean display lettering, charcoal edge, tiny brass/ivory underline with diamond, no panel or background.",
+  "names": [
+    "구겨진 종이굴",
+    "흑연 광산",
+    "스케치 나무 속",
+    "엉킨 뿌리 심부",
+    "노을 크레파스 굴",
+    "밀랍 공방",
+    "색칠 지하 협곡",
+    "기사의 탑"
+  ],
+  "fadeIn": 0.7,
+  "hold": 2.3,
+  "fadeOut": 1,
+  "boundaryDebounce": 0.3,
+  "runtimeLetterBrightness": 0.85
+}

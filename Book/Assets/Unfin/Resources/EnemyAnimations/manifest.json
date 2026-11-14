@@ -390,7 +390,7 @@
             0.44000000000000006,
             0.36000000000000004,
             0.45,
-            1.0
+            1
           ]
         },
         {
@@ -624,13 +624,13 @@
             0.44000000000000006,
             0.36000000000000004,
             0.35,
-            1.0
+            1
           ],
           "motionDurations": [
             0.44000000000000006,
             0.36000000000000004,
             0.35,
-            1.0
+            1
           ]
         },
         {
@@ -895,6 +895,956 @@
       "bodyWidth": 1.7393750000000001,
       "columns": 4,
       "rows": 3
+    },
+    {
+      "id": "R201",
+      "name": "크레용 병정",
+      "group": "r2",
+      "pixelsPerUnit": 137.45454545454547,
+      "pivotY": 0.125,
+      "bodyHeight": 1.375,
+      "bodyWidth": 1.4477513227513226,
+      "stationary": false,
+      "flying": false,
+      "health": 4,
+      "meleeReach": 0.7,
+      "attackWindows": [
+        0.7,
+        0.78,
+        1.06,
+        1.16
+      ],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.175,
+            0.175,
+            0.175,
+            0.175,
+            0.08,
+            0.28,
+            0.1,
+            1.05
+          ],
+          "motionDurations": [
+            0.35,
+            0.35,
+            0.46,
+            1.05
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R202",
+      "name": "밀랍 투척꾼",
+      "group": "r2",
+      "pixelsPerUnit": 124.01913875598088,
+      "pivotY": 0.125,
+      "bodyHeight": 1.30625,
+      "bodyWidth": 1.6207175925925923,
+      "stationary": false,
+      "flying": false,
+      "health": 3,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.2125,
+            0.2125,
+            0.2125,
+            0.2125,
+            0.0675,
+            0.0825,
+            0.54,
+            0.66
+          ],
+          "motionDurations": [
+            0.425,
+            0.425,
+            0.15,
+            1.2
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R203",
+      "name": "색가루 박쥐",
+      "group": "r2",
+      "pixelsPerUnit": 162.42424242424244,
+      "pivotY": 0.5,
+      "bodyHeight": 0.825,
+      "bodyWidth": 1.32,
+      "stationary": true,
+      "flying": true,
+      "health": 3,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.12600000000000003,
+            0.15400000000000003,
+            0.45,
+            0.55
+          ],
+          "motionDurations": [
+            0.4,
+            0.4,
+            0.28,
+            1
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E01",
+      "name": "노을 등짐충",
+      "group": "e",
+      "pixelsPerUnit": 125.25252525252525,
+      "pivotY": 0.125,
+      "bodyHeight": 1.2375,
+      "bodyWidth": 1.6606451612903226,
+      "stationary": false,
+      "flying": false,
+      "health": 3,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.225,
+            0.225,
+            0.225,
+            0.225,
+            0.1575,
+            0.1925,
+            0.5175,
+            0.6325
+          ],
+          "motionDurations": [
+            0.45,
+            0.45,
+            0.35,
+            1.15
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "색띠 달팽이",
+      "group": "e",
+      "pixelsPerUnit": 114.42424242424242,
+      "pivotY": 0.125,
+      "bodyHeight": 1.03125,
+      "bodyWidth": 1.6500000000000001,
+      "stationary": false,
+      "flying": false,
+      "health": 3,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.225,
+            0.225,
+            0.225,
+            0.225,
+            0.09000000000000001,
+            0.11000000000000001,
+            0.5625,
+            0.6875
+          ],
+          "motionDurations": [
+            0.45,
+            0.45,
+            0.2,
+            1.25
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "바람개비 새",
+      "group": "e",
+      "pixelsPerUnit": 208.1118881118881,
+      "pivotY": 0.5,
+      "bodyHeight": 0.89375,
+      "bodyWidth": 0.946606182795699,
+      "stationary": false,
+      "flying": true,
+      "health": 3,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.2125,
+            0.2125,
+            0.2125,
+            0.2125,
+            0.18000000000000002,
+            0.22000000000000003,
+            0.49500000000000005,
+            0.6050000000000001
+          ],
+          "motionDurations": [
+            0.425,
+            0.425,
+            0.4,
+            1.1
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01",
+      "name": "심지 꼬마",
+      "group": "f",
+      "pixelsPerUnit": 182.3030303030303,
+      "pivotY": 0.125,
+      "bodyHeight": 1.03125,
+      "bodyWidth": 1.0038231382978724,
+      "stationary": false,
+      "flying": false,
+      "health": 3,
+      "meleeReach": 0.35,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.09000000000000001,
+            0.11000000000000001,
+            0.45,
+            0.55
+          ],
+          "motionDurations": [
+            0.4,
+            0.4,
+            0.2,
+            1
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F02",
+      "name": "주걱 밀랍게",
+      "group": "f",
+      "pixelsPerUnit": 87.27272727272727,
+      "pivotY": 0.125,
+      "bodyHeight": 1.1,
+      "bodyWidth": 1.7600000000000002,
+      "stationary": false,
+      "flying": false,
+      "health": 3,
+      "meleeReach": 0.35,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.225,
+            0.225,
+            0.225,
+            0.225,
+            0.1125,
+            0.1375,
+            0.5175,
+            0.6325
+          ],
+          "motionDurations": [
+            0.45,
+            0.45,
+            0.25,
+            1.15
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F03",
+      "name": "도가니 배불뚝이",
+      "group": "f",
+      "pixelsPerUnit": 89.91735537190081,
+      "pivotY": 0.125,
+      "bodyHeight": 1.5125000000000002,
+      "bodyWidth": 2.0352022058823533,
+      "stationary": true,
+      "flying": false,
+      "health": 4,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.25,
+            0.25,
+            0.25,
+            0.25,
+            0.09000000000000001,
+            0.11000000000000001,
+            0.63,
+            0.77
+          ],
+          "motionDurations": [
+            0.5,
+            0.5,
+            0.2,
+            1.4
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "G01",
+      "name": "지층 도약충",
+      "group": "g",
+      "pixelsPerUnit": 144.54545454545453,
+      "pivotY": 0.125,
+      "bodyHeight": 1.1,
+      "bodyWidth": 1.4251572327044026,
+      "stationary": false,
+      "flying": false,
+      "health": 3,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.18000000000000002,
+            0.22000000000000003,
+            0.49500000000000005,
+            0.6050000000000001
+          ],
+          "motionDurations": [
+            0.4,
+            0.4,
+            0.4,
+            1.1
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "name": "덧칠 방패벌레",
+      "group": "g",
+      "pixelsPerUnit": 109.47368421052633,
+      "pivotY": 0.125,
+      "bodyHeight": 1.30625,
+      "bodyWidth": 1.8269230769230766,
+      "stationary": false,
+      "flying": false,
+      "health": 4,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.2375,
+            0.2375,
+            0.2375,
+            0.2375,
+            0.1125,
+            0.1375,
+            0.5625,
+            0.6875
+          ],
+          "motionDurations": [
+            0.475,
+            0.475,
+            0.25,
+            1.25
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "name": "안료 사수",
+      "group": "g",
+      "pixelsPerUnit": 148.87700534759358,
+      "pivotY": 0.125,
+      "bodyHeight": 1.16875,
+      "bodyWidth": 1.4642959770114943,
+      "stationary": true,
+      "flying": false,
+      "health": 3,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.225,
+            0.225,
+            0.225,
+            0.225,
+            0.054,
+            0.066,
+            0.63,
+            0.77
+          ],
+          "motionDurations": [
+            0.45,
+            0.45,
+            0.12,
+            1.4
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "H01",
+      "name": "무딘 창 시종",
+      "group": "h",
+      "pixelsPerUnit": 116.36363636363636,
+      "pivotY": 0.125,
+      "bodyHeight": 1.44375,
+      "bodyWidth": 1.50390625,
+      "stationary": false,
+      "flying": false,
+      "health": 3,
+      "meleeReach": 0.7,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.2375,
+            0.2375,
+            0.2375,
+            0.2375,
+            0.081,
+            0.099,
+            0.54,
+            0.66
+          ],
+          "motionDurations": [
+            0.475,
+            0.475,
+            0.18,
+            1.2
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "H02",
+      "name": "밀랍 방패 인형",
+      "group": "h",
+      "pixelsPerUnit": 130.1010101010101,
+      "pivotY": 0.125,
+      "bodyHeight": 1.2375,
+      "bodyWidth": 1.445031055900621,
+      "stationary": false,
+      "flying": false,
+      "health": 4,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.099,
+            0.12100000000000001,
+            0.49500000000000005,
+            0.6050000000000001
+          ],
+          "motionDurations": [
+            0.4,
+            0.4,
+            0.22,
+            1.1
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "H03",
+      "name": "봉인 리본 망령",
+      "group": "h",
+      "pixelsPerUnit": 152.72727272727272,
+      "pivotY": 0.5,
+      "bodyHeight": 1.1,
+      "bodyWidth": 1.1458333333333335,
+      "stationary": true,
+      "flying": true,
+      "health": 3,
+      "meleeReach": 0,
+      "attackWindows": [],
+      "columns": 4,
+      "rows": 6,
+      "clips": [
+        {
+          "name": "Move",
+          "durations": [
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085,
+            0.085
+          ]
+        },
+        {
+          "name": "Attack",
+          "durations": [
+            0.2375,
+            0.2375,
+            0.2375,
+            0.2375,
+            0.18000000000000002,
+            0.22000000000000003,
+            0.54,
+            0.66
+          ],
+          "motionDurations": [
+            0.475,
+            0.475,
+            0.4,
+            1.2
+          ]
+        },
+        {
+          "name": "Death",
+          "durations": [
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.14,
+            0.16,
+            0.2
+          ]
+        }
+      ]
     }
   ],
   "placements": [
@@ -1233,6 +2183,177 @@
       "zone": "D",
       "room": 23,
       "kind": "blob"
+    },
+    {
+      "sourceIndex": 51,
+      "id": "R201"
+    },
+    {
+      "sourceIndex": 52,
+      "id": "R203"
+    },
+    {
+      "sourceIndex": 53,
+      "id": "E01"
+    },
+    {
+      "sourceIndex": 54,
+      "id": "COMMON01"
+    },
+    {
+      "sourceIndex": 55,
+      "id": "R202"
+    },
+    {
+      "sourceIndex": 56,
+      "id": "COMMON02"
+    },
+    {
+      "sourceIndex": 57,
+      "id": "E03"
+    },
+    {
+      "sourceIndex": 58,
+      "id": "E02"
+    },
+    {
+      "sourceIndex": 59,
+      "id": "COMMON02"
+    },
+    {
+      "sourceIndex": 60,
+      "id": "F01"
+    },
+    {
+      "sourceIndex": 61,
+      "id": "F03"
+    },
+    {
+      "sourceIndex": 62,
+      "id": "R202"
+    },
+    {
+      "sourceIndex": 63,
+      "id": "R203"
+    },
+    {
+      "sourceIndex": 64,
+      "id": "R201"
+    },
+    {
+      "sourceIndex": 65,
+      "id": "F02"
+    },
+    {
+      "sourceIndex": 66,
+      "id": "F01"
+    },
+    {
+      "sourceIndex": 67,
+      "id": "F02"
+    },
+    {
+      "sourceIndex": 68,
+      "id": "R203"
+    },
+    {
+      "sourceIndex": 70,
+      "id": "R203"
+    },
+    {
+      "sourceIndex": 71,
+      "id": "R203"
+    },
+    {
+      "sourceIndex": 72,
+      "id": "G01"
+    },
+    {
+      "sourceIndex": 73,
+      "id": "R202"
+    },
+    {
+      "sourceIndex": 74,
+      "id": "R202",
+      "overrideX": 470.5
+    },
+    {
+      "sourceIndex": 75,
+      "id": "G03",
+      "overrideX": 419.0
+    },
+    {
+      "sourceIndex": 76,
+      "id": "G02"
+    },
+    {
+      "sourceIndex": 77,
+      "id": "COMMON03"
+    },
+    {
+      "sourceIndex": 78,
+      "id": "R203"
+    },
+    {
+      "sourceIndex": 79,
+      "id": "R201"
+    },
+    {
+      "sourceIndex": 80,
+      "id": "R202",
+      "overrideX": 476.5
+    },
+    {
+      "sourceIndex": 81,
+      "id": "R201"
+    },
+    {
+      "sourceIndex": 82,
+      "id": "R203"
+    },
+    {
+      "sourceIndex": 83,
+      "id": "G02"
+    },
+    {
+      "sourceIndex": 84,
+      "id": "R203"
+    },
+    {
+      "sourceIndex": 85,
+      "id": "COMMON03"
+    },
+    {
+      "sourceIndex": 86,
+      "id": "R202"
+    },
+    {
+      "sourceIndex": 87,
+      "id": "G01"
+    },
+    {
+      "sourceIndex": 88,
+      "id": "R203"
+    },
+    {
+      "sourceIndex": 89,
+      "id": "R202"
+    },
+    {
+      "sourceIndex": 90,
+      "id": "COMMON03"
+    },
+    {
+      "sourceIndex": 92,
+      "id": "H03"
+    },
+    {
+      "sourceIndex": 93,
+      "id": "H02"
+    },
+    {
+      "sourceIndex": 94,
+      "id": "H01"
     }
   ]
 }

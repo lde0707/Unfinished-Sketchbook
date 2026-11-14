@@ -1,0 +1,1768 @@
+fileFormatVersion: 2
+guid: 1e228f9f48aa1f84298441d8f00c7d40
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6718047260308798814
+    second: revive_0
+  - first:
+      213: -8678752732565953269
+    second: revive_1
+  - first:
+      213: -7371103678436068150
+    second: revive_2
+  - first:
+      213: 5048055730043520380
+    second: revive_3
+  - first:
+      213: -3167296490339318827
+    second: revive_4
+  - first:
+      213: 6103441584690165138
+    second: revive_5
+  - first:
+      213: -3983661489884023382
+    second: revive_6
+  - first:
+      213: -522290669615857948
+    second: revive_7
+  - first:
+      213: -6243949638346091668
+    second: revive_8
+  - first:
+      213: 4298798067537789345
+    second: revive_9
+  - first:
+      213: 6710211802053024324
+    second: revive_10
+  - first:
+      213: -5779453864215368946
+    second: revive_11
+  - first:
+      213: -7484248761857636129
+    second: revive_12
+  - first:
+      213: -5308110866339281307
+    second: revive_13
+  - first:
+      213: -2414409756707802540
+    second: revive_14
+  - first:
+      213: -8281944301263666000
+    second: revive_15
+  - first:
+      213: 4586558832297538251
+    second: revive_16
+  - first:
+      213: -7560397611316655398
+    second: revive_17
+  - first:
+      213: 7509534499166843378
+    second: revive_18
+  - first:
+      213: 3327501190988121069
+    second: revive_19
+  - first:
+      213: -6636715255848088258
+    second: revive_20
+  - first:
+      213: 8147800480753022868
+    second: revive_21
+  - first:
+      213: -2395064499878548755
+    second: revive_22
+  - first:
+      213: 8480130326322105627
+    second: revive_23
+  - first:
+      213: -3116248658361632399
+    second: revive_24
+  - first:
+      213: 4913624254824362533
+    second: revive_25
+  - first:
+      213: 681702814405954522
+    second: revive_26
+  - first:
+      213: -3222612636979017766
+    second: revive_27
+  - first:
+      213: 3437369470327031186
+    second: revive_28
+  - first:
+      213: 2949684702508435773
+    second: revive_29
+  - first:
+      213: 6956111671826875601
+    second: revive_30
+  - first:
+      213: -4453179752360222340
+    second: revive_31
+  - first:
+      213: 9083249606794366496
+    second: revive_32
+  - first:
+      213: 8596796636579711503
+    second: revive_33
+  - first:
+      213: -5968010927473877877
+    second: revive_34
+  - first:
+      213: -2692037058169214124
+    second: revive_35
+  - first:
+      213: 4823462918490127539
+    second: revive_36
+  - first:
+      213: -648291797449762611
+    second: revive_37
+  - first:
+      213: -2812825075251466710
+    second: revive_38
+  - first:
+      213: -7337894645466480421
+    second: revive_39
+  - first:
+      213: 3055488034993672440
+    second: revive_40
+  - first:
+      213: 467229641690764600
+    second: revive_41
+  - first:
+      213: 5988429004470907718
+    second: revive_42
+  - first:
+      213: -8883369335719594461
+    second: revive_43
+  - first:
+      213: 8604475006139433529
+    second: revive_44
+  - first:
+      213: 8128469777983032159
+    second: revive_45
+  - first:
+      213: 3575864519194048128
+    second: revive_46
+  - first:
+      213: 6898215716804223885
+    second: revive_47
+  - first:
+      213: -6698780776372567960
+    second: revive_48
+  - first:
+      213: 419155424269095006
+    second: revive_49
+  - first:
+      213: -2188806094781742284
+    second: revive_50
+  - first:
+      213: 3584647154596645051
+    second: revive_51
+  - first:
+      213: -2903670800054816726
+    second: revive_52
+  - first:
+      213: 2569002635495699456
+    second: revive_53
+  - first:
+      213: -2052199681963512198
+    second: revive_54
+  - first:
+      213: -8733296356232734767
+    second: revive_55
+  - first:
+      213: -2395003511740055729
+    second: revive_56
+  - first:
+      213: -2619879813159119124
+    second: revive_57
+  - first:
+      213: -1071517044241634687
+    second: revive_58
+  - first:
+      213: 1120903781154641921
+    second: revive_59
+  - first:
+      213: -5123073940270896738
+    second: revive_60
+  - first:
+      213: -5145454370975914507
+    second: revive_61
+  - first:
+      213: 8461087005486742557
+    second: revive_62
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: revive_0
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 939
+        width: 67
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5dfdf6b36c4b3d50800000000000000
+      internalID: 6718047260308798814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 983
+        width: 49
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b05a4f92f50ee8780800000000000000
+      internalID: -8678752732565953269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 813
+        width: 55
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac43e3c124494b990800000000000000
+      internalID: -7371103678436068150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_3
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 471
+        width: 559
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c758e93d0fb4e0640800000000000000
+      internalID: 5048055730043520380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_4
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 915
+        width: 23
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d3cbf28f908b04d0800000000000000
+      internalID: -3167296490339318827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_5
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 913
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 295fdcaa8c7c3b450800000000000000
+      internalID: 6103441584690165138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_6
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 511
+        width: 471
+        height: 463
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa53f063bf037b8c0800000000000000
+      internalID: -3983661489884023382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_7
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 881
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eebb08376370c8f0800000000000000
+      internalID: -522290669615857948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_8
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 17
+        width: 517
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63d3f2c2e80959a0800000000000000
+      internalID: -6243949638346091668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_9
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 461
+        width: 475
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1c9b0011668ab30800000000000000
+      internalID: 4298798067537789345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_10
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 549
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44a110de4167f1d50800000000000000
+      internalID: 6710211802053024324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_11
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 551
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0b2fa3d4514bcfa0800000000000000
+      internalID: -5779453864215368946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_12
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 501
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd881d2876b922890800000000000000
+      internalID: -7484248761857636129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_13
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 447
+        width: 19
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 566c4776a4dc556b0800000000000000
+      internalID: -5308110866339281307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_14
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 511
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 452b13d4e1b4e7ed0800000000000000
+      internalID: -2414409756707802540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_15
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 471
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4cb91a98f901d80800000000000000
+      internalID: -8281944301263666000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_16
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 473
+        width: 10
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc2768415fab6af30800000000000000
+      internalID: 4586558832297538251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_17
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 453
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada42c0ed62141790800000000000000
+      internalID: -7560397611316655398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_18
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 453
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f1716bf6d9373860800000000000000
+      internalID: 7509534499166843378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_19
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 15
+        width: 431
+        height: 471
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de3498e04b8ad2e20800000000000000
+      internalID: 3327501190988121069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_20
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 513
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3d42cb33a6a5e3a0800000000000000
+      internalID: -6636715255848088258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_21
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 497
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4977a0c4e5dc21170800000000000000
+      internalID: 8147800480753022868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_22
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 517
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dea2796e68503ced0800000000000000
+      internalID: -2395064499878548755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_23
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 485
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d42752a997fa570800000000000000
+      internalID: 8480130326322105627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_24
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 559
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17931961b5cd0c4d0800000000000000
+      internalID: -3116248658361632399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_25
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 553
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 522bc8ce933b03440800000000000000
+      internalID: 4913624254824362533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_26
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 479
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb0d0f0915e57900800000000000000
+      internalID: 681702814405954522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_27
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 23
+        width: 495
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad74e2c71eaf643d0800000000000000
+      internalID: -3222612636979017766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_28
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 513
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2958d90425df3bf20800000000000000
+      internalID: 3437369470327031186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_29
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 517
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d394b6cdb926fe820800000000000000
+      internalID: 2949684702508435773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_30
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 541
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d48031e5b2198060800000000000000
+      internalID: 6956111671826875601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_31
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 433
+        width: 109
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c716b93fb902332c0800000000000000
+      internalID: -4453179752360222340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_32
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 487
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02e4f2b646f2e0e70800000000000000
+      internalID: 9083249606794366496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_33
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 433
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a4b914ef4fd4770800000000000000
+      internalID: 8596796636579711503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_34
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 289
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c154c6ead5d2da0800000000000000
+      internalID: -5968010927473877877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_35
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 293
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45be2a10f86f3aad0800000000000000
+      internalID: -2692037058169214124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_36
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 239
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc7fd3f7f160f240800000000000000
+      internalID: 4823462918490127539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_37
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 247
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc815368b0ec007f0800000000000000
+      internalID: -648291797449762611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_38
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 249
+        width: 29
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2e235e3f76d6f8d0800000000000000
+      internalID: -2812825075251466710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_39
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 239
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0cab1a2bf8a2a90800000000000000
+      internalID: -7337894645466480421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_40
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 199
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0114ddd26476a20800000000000000
+      internalID: 3055488034993672440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_41
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 119
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 835d28532eeeb7600800000000000000
+      internalID: 467229641690764600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_42
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 133
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6437226937c2b1350800000000000000
+      internalID: 5988429004470907718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_43
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 149
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 326f5dfb7aee7b480800000000000000
+      internalID: -8883369335719594461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_44
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 130
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9320babfd6c396770800000000000000
+      internalID: 8604475006139433529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_45
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 101
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5b4d2452302ec070800000000000000
+      internalID: 8128469777983032159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_46
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 119
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 086fb7f95d500a130800000000000000
+      internalID: 3575864519194048128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_47
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 113
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d83e12865a26bbf50800000000000000
+      internalID: 6898215716804223885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_48
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 21
+        width: 85
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 860091420662903a0800000000000000
+      internalID: -6698780776372567960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_49
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 77
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e50dc3933a321d500800000000000000
+      internalID: 419155424269095006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_50
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 71
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 433035e147ccf91e0800000000000000
+      internalID: -2188806094781742284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_51
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 69
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb809d648993fb130800000000000000
+      internalID: 3584647154596645051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_52
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 55
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20fe0aaac614b7d0800000000000000
+      internalID: -2903670800054816726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_53
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 37
+        width: 19
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00473cb294ee6a320800000000000000
+      internalID: 2569002635495699456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_54
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 47
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e2564234f1583e0800000000000000
+      internalID: -2052199681963512198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_55
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 53
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7d8882c391dc680800000000000000
+      internalID: -8733296356232734767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_56
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 34
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4fbbeecefc33ced0800000000000000
+      internalID: -2395003511740055729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_57
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 38
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce61f6ec03154abd0800000000000000
+      internalID: -2619879813159119124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_58
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 33
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a6337ece43121f0800000000000000
+      internalID: -1071517044241634687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_59
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 35
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1085d17dc004e8f00800000000000000
+      internalID: 1120903781154641921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_60
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 31
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e99a710056f27e8b0800000000000000
+      internalID: -5123073940270896738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_61
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 23
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f5eff9e28ca798b0800000000000000
+      internalID: -5145454370975914507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revive_62
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 17
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1cf5bf7dc1db6570800000000000000
+      internalID: 8461087005486742557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      revive_0: 6718047260308798814
+      revive_1: -8678752732565953269
+      revive_10: 6710211802053024324
+      revive_11: -5779453864215368946
+      revive_12: -7484248761857636129
+      revive_13: -5308110866339281307
+      revive_14: -2414409756707802540
+      revive_15: -8281944301263666000
+      revive_16: 4586558832297538251
+      revive_17: -7560397611316655398
+      revive_18: 7509534499166843378
+      revive_19: 3327501190988121069
+      revive_2: -7371103678436068150
+      revive_20: -6636715255848088258
+      revive_21: 8147800480753022868
+      revive_22: -2395064499878548755
+      revive_23: 8480130326322105627
+      revive_24: -3116248658361632399
+      revive_25: 4913624254824362533
+      revive_26: 681702814405954522
+      revive_27: -3222612636979017766
+      revive_28: 3437369470327031186
+      revive_29: 2949684702508435773
+      revive_3: 5048055730043520380
+      revive_30: 6956111671826875601
+      revive_31: -4453179752360222340
+      revive_32: 9083249606794366496
+      revive_33: 8596796636579711503
+      revive_34: -5968010927473877877
+      revive_35: -2692037058169214124
+      revive_36: 4823462918490127539
+      revive_37: -648291797449762611
+      revive_38: -2812825075251466710
+      revive_39: -7337894645466480421
+      revive_4: -3167296490339318827
+      revive_40: 3055488034993672440
+      revive_41: 467229641690764600
+      revive_42: 5988429004470907718
+      revive_43: -8883369335719594461
+      revive_44: 8604475006139433529
+      revive_45: 8128469777983032159
+      revive_46: 3575864519194048128
+      revive_47: 6898215716804223885
+      revive_48: -6698780776372567960
+      revive_49: 419155424269095006
+      revive_5: 6103441584690165138
+      revive_50: -2188806094781742284
+      revive_51: 3584647154596645051
+      revive_52: -2903670800054816726
+      revive_53: 2569002635495699456
+      revive_54: -2052199681963512198
+      revive_55: -8733296356232734767
+      revive_56: -2395003511740055729
+      revive_57: -2619879813159119124
+      revive_58: -1071517044241634687
+      revive_59: 1120903781154641921
+      revive_6: -3983661489884023382
+      revive_60: -5123073940270896738
+      revive_61: -5145454370975914507
+      revive_62: 8461087005486742557
+      revive_7: -522290669615857948
+      revive_8: -6243949638346091668
+      revive_9: 4298798067537789345
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

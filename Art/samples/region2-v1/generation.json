@@ -1,0 +1,525 @@
+{
+  "tool": "image_gen.imagegen",
+  "date": "2026-10-24",
+  "farCommon": "Use case: game-asset. A modular far-background texture for our 2D side-scrolling metroidvania. Reference 1 establishes our actual game's coarse tactile matte paper/graphite painterly rendering. Reference 2 shows current crayon region. Same broad restrained paper fibers, soft irregular silhouettes and hand-painted large material planes, NOT photographic, no tiny sharp hatching, no 3D glossy plastic. This is the distant BACK WALL behind gameplay: dark, low contrast, no floor, ceiling, platforms, UI, creatures, letters or light source. Fill canvas with a continuous material field, seamlessly tileable horizontally and vertically. Very large irregular forms cross edges naturally; no central focal symbol and no obvious repeating per-tile motif. Large enough to span many gameplay tiles. Desired square 1536x1536. ",
+  "zones": [
+    {
+      "id": "E",
+      "title": "노을 크레파스 굴",
+      "prompt": "Burnt terracotta and muted warm umber layered crayon-wax strata pressed into thick handmade paper. Huge sloping hills of wax, folded color ribbons half-buried in paper. Subtle distant dusk warmth in recesses. Keep shadow values predominantly dark brown/charcoal, softened muted orange planes."
+    },
+    {
+      "id": "F",
+      "title": "밀랍 공방",
+      "prompt": "Sooty ochre and olive-brown wax workshop cavern wall. Thick cooled wax flows over pressed paper strata, broad smooth drips interrupted by coarse paper fibers, hints of old charcoal stains. No actual machines in this far layer. Dark smoky golden ochre highlights with near-black warm gray recesses."
+    },
+    {
+      "id": "G",
+      "title": "색칠 지하 협곡",
+      "prompt": "Deep desaturated indigo-blue and slate-violet pigment canyon back wall, broad horizontal layers of thick crayon and pressed paper with a few deep vertical eroded gaps. Muted cool pigment ridges, very restrained teal seams, charcoal recesses. Large layered material, no sharp crystal patterns."
+    },
+    {
+      "id": "H",
+      "title": "기사의 탑",
+      "prompt": "Faded burgundy, dusty mauve and charcoal rose wax-coated paper masonry in a forgotten knight tower. Broad softly broken flattened architectural layers and erased heraldic traces, NO repeated emblem, no actual windows in this far layer. Restrained dark red-violet values; aged paper texture."
+    }
+  ],
+  "midCommon": "Use case: game-asset. Draw FOUR distinct modular mid-background architectural cutouts in an EXACT equal 2 columns x 2 rows grid, isolated on real transparent alpha. No floor tiles, no characters, no labels or borders. Entire object contained in each square cell with 7% clear margins. Same orthographic SIDE-SCROLLER view in all four cells. Match references' coarse hand-painted paper/wax textures and rounded broad irregular material planes, no photorealism, no glossy metal, no thin hatching. Structures must feel ancient, heavy, dark, background contrast below gameplay. Large asymmetric silhouettes with generous empty holes, no repeated central pattern. Intended to be recomposed irregularly for differently sized rooms. Desired2048x2048. ",
+  "midPrompts": [
+    {
+      "id": "E",
+      "ref": "e",
+      "prompt": "Zone: sunset crayon caves, burnt terracotta, dark warm umber with dusty pale wax edges. Top-left: huge broken crayon-and-layered-paper arch tilted left. Top-right: tall crooked melted crayon columns held by torn paper straps. Bottom-left: low asymmetrical pile of snapped crayon slabs and open wax jar fragments. Bottom-right: a ruined paper windmill ventilation frame with only three uneven broad vanes. Not cute toys."
+    },
+    {
+      "id": "F",
+      "ref": "f",
+      "prompt": "Zone: abandoned wax workshop, smoky ochre, olive-brown, soot black and parchment. Top-left: a large cold crucible furnace arch with empty dark mouth. Top-right: crooked tall chimney and sagging thick wax pipes. Bottom-left: low old workbench with oversize scraping paddle and wax molds. Bottom-right: irregular two-level storage rack containing wax jars, some empty shelves and thick drips. No active bright flame."
+    },
+    {
+      "id": "G",
+      "ref": "g",
+      "prompt": "Zone: pigment canyon, desaturated indigo, dusty blue-violet, charcoal and restrained cool teal. Top-left: huge torn paper pigment cliff arch with broad strata. Top-right: tall descending folded paper waterfall of thick blue wax with several dark gaps, no glowing water. Bottom-left: broken long crayon bridge fragments resting sideways. Bottom-right: broad asymmetric low accumulation of colored pigment slabs and erased paper layers."
+    },
+    {
+      "id": "H",
+      "ref": "h",
+      "prompt": "Zone: broken crayon knight tower, dusty burgundy, faded rose, soot plum and old parchment edges. Top-left: large broken gothic-like folded-paper arch with a split spear-shaped apex, not a real stone cathedral. Top-right: tall buttress and crooked arrow-slit window frame coated in matte wax. Bottom-left: low scattered broken crayon lances, battered wax shields and torn paper pennants. Bottom-right: an open empty heraldic niche with a single frayed hanging banner and no emblem repetition."
+    }
+  ],
+  "monsterCommon": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. ",
+  "monsters": [
+    {
+      "id": "R201",
+      "group": "r2",
+      "name": "크레용 병정",
+      "region": 2,
+      "scope": "지역 전용",
+      "zone": "크레파스 언덕 · 지역 전용",
+      "color": "#c59067",
+      "appearance": "Small heavy crayon soldier with blunt rounded orange wax helmet, short thick legs and one dark crayon-tipped short spear, worn paper collar",
+      "height": 1,
+      "role": "두 번 찌르기",
+      "first": "2지역 2번 첫 크레파스 비탈",
+      "timing": [
+        0.7,
+        0.46,
+        1.05
+      ],
+      "attack": "창을 당기고 2회 찌름. 두 타 사이 0.28초, 두 번째까지 방향 고정",
+      "response": "뒤로 거리를 벌리거나 등 뒤로 이동해 두 번째 뒤 공격",
+      "parry": "습득 후 두 타 모두 패링하면 1.2초 그로기; 한 번만 성공해도 해당 타격 방어",
+      "caution": "0.46초 공격 구간은 두 타와 사이 텀 포함; 첫 소개에 다른 원거리 금지",
+      "image": "r2.png",
+      "panel": 1,
+      "imagePosition": "왼쪽 창 병정"
+    },
+    {
+      "id": "R202",
+      "group": "r2",
+      "name": "밀랍 투척꾼",
+      "region": 2,
+      "scope": "지역 전용",
+      "zone": "크레파스 언덕 · 지역 전용",
+      "color": "#c59067",
+      "appearance": "Squat ochre wax creature with a broad ladle-like forearm and a rounded candle-pot belly carrying one large amber wax ball",
+      "height": 0.95,
+      "role": "곡사 반사",
+      "first": "2지역 3번 노을빛 큰 굴",
+      "timing": [
+        0.85,
+        0.15,
+        1.2
+      ],
+      "attack": "팔 위 밀랍을 크게 들고 한 덩이 투척; 착탄에 둔화 웅덩이",
+      "response": "몸을 이동해 착탄 회피; 근접 중 긴 회복 공격",
+      "parry": "탄 반사로 경직과 색 막대 장치 가동. 14번 장치용 개체 별도 관리",
+      "caution": "장치용은 다리 작동 전 처치 불가 표시+재공급 보장; 일반 개체는 정상 처치",
+      "image": "r2.png",
+      "panel": 2,
+      "imagePosition": "맨 오른쪽 투척꾼"
+    },
+    {
+      "id": "R203",
+      "group": "r2",
+      "name": "색가루 박쥐",
+      "region": 2,
+      "scope": "지역 전용",
+      "zone": "크레파스 언덕 · 지역 전용",
+      "color": "#c59067",
+      "appearance": "Low-saturation mauve bat with thick scalloped wax-paper wings and a small heavy crayon chip torso, two soft ear fins",
+      "height": 0.6,
+      "role": "대각 급강하",
+      "first": "2지역 3번 넓은 천장 공간",
+      "timing": [
+        0.8,
+        0.28,
+        1
+      ],
+      "attack": "가루가 모이고 목표 방향 고정 후 짧은 급강하, 낮게 복귀",
+      "response": "예고 후 옆으로 이동; 복귀 중 공격",
+      "parry": "습득 후 급강하 패링 시 바닥에 눕고 1초 노출",
+      "caution": "공통 나방보다 느린 대기·빠른 직선, 동시 배치 금지로 역할 중복 완화",
+      "image": "r2.png",
+      "panel": 3,
+      "imagePosition": "중앙 오른쪽 공중"
+    },
+    {
+      "id": "E01",
+      "group": "e",
+      "name": "노을 등짐충",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "노을 크레파스 굴",
+      "color": "#d59970",
+      "appearance": "Broad rust-orange wax beetle carrying three rounded sunset crayon slabs on its back with small charcoal feet and pale belly",
+      "height": 0.9,
+      "role": "무거운 돌진",
+      "first": "2지역 2번 비탈의 넓은 다음 구간",
+      "timing": [
+        0.9,
+        0.35,
+        1.15
+      ],
+      "attack": "등짐을 앞으로 기울이고 비탈 따라 짧게 돌진",
+      "response": "점프로 넘기고 멈춘 뒤 배 공격",
+      "parry": "획득 후 정면 돌진 패링으로 등짐 흔들림",
+      "caution": "종이공과 다른 평지에서 소개; 비탈 아래 안전 공간 확보",
+      "image": "e.png",
+      "panel": 1,
+      "imagePosition": "플레이어 오른쪽 등짐충"
+    },
+    {
+      "id": "E02",
+      "group": "e",
+      "name": "색띠 달팽이",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "노을 크레파스 굴",
+      "color": "#d59970",
+      "appearance": "Wide low snail with a rolled orange-peach crayon ribbon shell, matte layered color bands and a dark soft body",
+      "height": 0.75,
+      "role": "국소 바닥 봉쇄",
+      "first": "2지역 3번 큰 굴 가장자리",
+      "timing": [
+        0.9,
+        0.2,
+        1.25
+      ],
+      "attack": "몸을 들어 뒤쪽에 짧은 밀랍 띠 하나 흘림, 1.5초 후 소멸",
+      "response": "앞쪽으로 돌아 접근하거나 띠를 점프로 넘음",
+      "parry": "바닥 띠는 패링 불가; 전방 머리 밀기만 가능",
+      "caution": "길 전체 봉쇄 금지; 달팽이 사망 즉시 띠 제거",
+      "image": "e.png",
+      "panel": 2,
+      "imagePosition": "맨 오른쪽 위 달팽이"
+    },
+    {
+      "id": "E03",
+      "group": "e",
+      "name": "바람개비 새",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "노을 크레파스 굴",
+      "color": "#d59970",
+      "appearance": "Small asymmetric pinwheel bird with three broad rounded folded wax-paper wing vanes, muted terracotta and cream, tiny dark beak",
+      "height": 0.65,
+      "role": "통로 가로지르기",
+      "first": "2지역 11번 바람개비 환기굴의 출발 선반",
+      "timing": [
+        0.85,
+        0.4,
+        1.1
+      ],
+      "attack": "날개가 한 번 접힌 뒤 수평으로 고정 경로 횡단",
+      "response": "출발 선반에서 기다리거나 지나간 뒤 이동",
+      "parry": "패링 가능하지만 성공 없이 징검다리 통과 가능",
+      "caution": "녹는 발판 위에서 정지 대기를 강요하지 않음",
+      "image": "e.png",
+      "panel": 3,
+      "imagePosition": "왼쪽 공중"
+    },
+    {
+      "id": "F01",
+      "group": "f",
+      "name": "심지 꼬마",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "밀랍 공방",
+      "color": "#c3ad76",
+      "appearance": "Squat soot-dark wax worker creature with a rounded candle hood, one short unlit curled wick and broad oven-mitt hands, muted honey edges",
+      "height": 0.75,
+      "role": "근접 내려치기",
+      "first": "2지역 6번 공방 입구 전투 공간",
+      "timing": [
+        0.8,
+        0.2,
+        1
+      ],
+      "attack": "두 손을 들어 앞쪽 지면을 한 번 두드림",
+      "response": "한 걸음 빠진 뒤 손이 바닥에 붙은 동안 공격",
+      "parry": "습득 후 손 타격 패링 시 굳은 손 부서져 긴 경직",
+      "caution": "세이브 안전 구역 밖; 화염 지속 피해 없음",
+      "image": "f.png",
+      "panel": 1,
+      "imagePosition": "왼쪽 위 선반의 왼쪽"
+    },
+    {
+      "id": "F02",
+      "group": "f",
+      "name": "주걱 밀랍게",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "밀랍 공방",
+      "color": "#c3ad76",
+      "appearance": "Low sideways wax crab with two unequal broad spatula claws, flattened amber shell and four short curved legs",
+      "height": 0.8,
+      "role": "방향 읽기",
+      "first": "2지역 7번 밀랍 저장고",
+      "timing": [
+        0.9,
+        0.25,
+        1.15
+      ],
+      "attack": "큰 주걱을 들어 그쪽으로 한 번 쓸기, 반대 집게는 공격 안 함",
+      "response": "작은 집게 쪽으로 돌아가 공격",
+      "parry": "습득 후 큰 집게 패링으로 옆구리 노출",
+      "caution": "전방 영구 방패 없음; 패링 없을 때도 등 뒤 접근 가능",
+      "image": "f.png",
+      "panel": 2,
+      "imagePosition": "같은 선반 중앙"
+    },
+    {
+      "id": "F03",
+      "group": "f",
+      "name": "도가니 배불뚝이",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "밀랍 공방",
+      "color": "#c3ad76",
+      "appearance": "Round soot-stained wax crucible creature with a wide dark open rim, short sturdy feet and two broad cream drip lobes, no flame",
+      "height": 1.1,
+      "role": "안전지대 읽기",
+      "first": "2지역 8번 지워진 그림 창고 전투 입구",
+      "timing": [
+        1,
+        0.2,
+        1.4
+      ],
+      "attack": "몸이 부풀고 양옆 짧은 거리로 밀랍 두 덩이 분출, 바닥 표시",
+      "response": "몸 가까운 중앙 또는 바깥으로 이동 후 공격",
+      "parry": "습득 후 개별 탄 반사 가능; 폭발 자체 패링 불가",
+      "caution": "선택 방용. 패링 획득 전 전투, 좁은 보상 자리에는 배치하지 않음",
+      "image": "f.png",
+      "panel": 3,
+      "imagePosition": "같은 선반 오른쪽"
+    },
+    {
+      "id": "G01",
+      "group": "g",
+      "name": "지층 도약충",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "색칠 지하 협곡",
+      "color": "#9498bb",
+      "appearance": "Tall folded violet-gray layered crayon grasshopper with two broad bent legs and blunt layered head, slate blue edges",
+      "height": 0.8,
+      "role": "높낮이 도약",
+      "first": "2지역 12번 협곡 중턱 넓은 선반",
+      "timing": [
+        0.8,
+        0.4,
+        1.1
+      ],
+      "attack": "목표 선반을 보고 다리를 접어 한 번 건너뛰기",
+      "response": "목표 그림자 밖으로 이동; 착지 경직 공략",
+      "parry": "패링으로 착지 경직 연장 가능하지만 회피만으로 처치 가능",
+      "caution": "공방 전 진입 가능. 패링 보유 여부로 공격 속도 바꾸지 않음",
+      "image": "g.png",
+      "panel": 1,
+      "imagePosition": "왼쪽"
+    },
+    {
+      "id": "G02",
+      "group": "g",
+      "name": "덧칠 방패벌레",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "색칠 지하 협곡",
+      "color": "#9498bb",
+      "appearance": "Wide short wax beetle carrying two overlapping blue-violet paint slabs like an open clamshell shield, visible soft orange flank",
+      "height": 0.95,
+      "role": "가드 해제",
+      "first": "2지역 17번 광맥의 넓은 시작 바닥",
+      "timing": [
+        0.95,
+        0.25,
+        1.25
+      ],
+      "attack": "앞판을 닫고 짧게 밀친 뒤 과하게 벌어짐",
+      "response": "밀치기를 피하고 열린 옆구리 공격; 무리한 정면 연타 유도 안 함",
+      "parry": "패링 시 앞판 즉시 벌어져 1.4초 빈틈",
+      "caution": "늪 위 발판에는 배치하지 않음; 패링 필수 장갑 금지",
+      "image": "g.png",
+      "panel": 2,
+      "imagePosition": "중앙 오른쪽 방패벌레"
+    },
+    {
+      "id": "G03",
+      "group": "g",
+      "name": "안료 사수",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "색칠 지하 협곡",
+      "color": "#9498bb",
+      "appearance": "Stationary rounded blue-gray paint jar creature with a single horizontal rolled-paper nozzle and visible golden bead at muzzle, short wax feet",
+      "height": 0.85,
+      "role": "정밀 반사 탄",
+      "first": "2지역 15번 협곡 바닥 과녁 장치 앞",
+      "timing": [
+        0.9,
+        0.12,
+        1.4
+      ],
+      "attack": "총구 안에 큰 안료 구슬이 모여 수평 단발 발사",
+      "response": "점프로 넘기거나 탄을 베고 뒤에서 공격",
+      "parry": "15→16 과녁 문은 반사 필수. 일반 전투는 반사 없이 처치",
+      "caution": "기존 포탑/잉크 사수 명칭 충돌을 이 종으로 통일 제안. 장치 작동 전 보호 표식·탄 재공급",
+      "image": "g.png",
+      "panel": 3,
+      "imagePosition": "맨 오른쪽 사수"
+    },
+    {
+      "id": "H01",
+      "group": "h",
+      "name": "무딘 창 시종",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "기사의 탑",
+      "color": "#b78081",
+      "appearance": "Short rose-gray wax tower sentry with a rounded broken helmet and one broad stubby lance, small dark visor and heavy paper sash",
+      "height": 1.05,
+      "role": "지연 단발",
+      "first": "2지역 21번 탑 옆 틈새 접근 선반",
+      "timing": [
+        0.95,
+        0.18,
+        1.2
+      ],
+      "attack": "창을 비스듬히 들고 잠깐 멈춘 뒤 수평 단발 찌르기",
+      "response": "멈춤을 보고 거리 확보; 찌르기 뒤 긴 회복 공격",
+      "parry": "단발 패링으로 창이 바닥에 박혀 1.4초 노출",
+      "caution": "보스 뒤 추가 도전으로 도입. 안전 방 19·22와 보스 방 20에 일반 몬스터 추가 안 함",
+      "image": "h.png",
+      "panel": 1,
+      "imagePosition": "왼쪽 창 시종"
+    },
+    {
+      "id": "H02",
+      "group": "h",
+      "name": "밀랍 방패 인형",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "기사의 탑",
+      "color": "#b78081",
+      "appearance": "Compact burgundy-gray wax puppet with one large rounded rectangular paper shield and tiny feet, asymmetrical open right shoulder",
+      "height": 0.9,
+      "role": "방패 반격",
+      "first": "2지역 크레파스 탑 넓은 중간층",
+      "timing": [
+        0.8,
+        0.22,
+        1.1
+      ],
+      "attack": "방패를 두드려 예고 후 짧은 밀치기; 연타 자동 반격 없음",
+      "response": "등 뒤 이동하거나 밀치기 종료 노출 때 공격",
+      "parry": "패링 시 방패가 열려 큰 빈틈; 비패링도 같은 약점 공략 가능",
+      "caution": "벽타기 중인 플레이어를 밀랍 벽에서 떼는 매복 금지",
+      "image": "h.png",
+      "panel": 2,
+      "imagePosition": "플레이어 왼쪽 방패"
+    },
+    {
+      "id": "H03",
+      "group": "h",
+      "name": "봉인 리본 망령",
+      "region": 2,
+      "scope": "구역 전용",
+      "zone": "기사의 탑",
+      "color": "#b78081",
+      "appearance": "Floating folded rose-gray wax-paper seal with a broad oval stamped head and two short heavy curled ribbon tails, no humanoid skeleton",
+      "height": 0.8,
+      "role": "시간차 횡탄",
+      "first": "2지역 크레파스 탑 상단 넓은 선반",
+      "timing": [
+        0.95,
+        0.4,
+        1.2
+      ],
+      "attack": "리본을 벌리고 느린 봉인 탄 둘을 0.25초 차이로 같은 높이에 발사",
+      "response": "같은 점프로 두 탄을 넘기거나 한 발씩 베기",
+      "parry": "두 탄 반사 시 빠른 처치; 첫 반사만으로 경직해 두 번째 발사 취소",
+      "caution": "22번 세이브 내부 제외. 좁은 벽타기 통로에 탄막 금지",
+      "image": "h.png",
+      "panel": 3,
+      "imagePosition": "오른쪽 위 공중"
+    }
+  ],
+  "monsterPrompts": {
+    "R201": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Small heavy crayon soldier with blunt rounded orange wax helmet, short thick legs and one dark crayon-tipped short spear, worn paper collar. Attack action: 창을 당기고 2회 찌름. 두 타 사이 0.28초, 두 번째까지 방향 고정. Only this one species. For this soldier only, attack frames13 and15 are the two forward stabs;14 briefly draws the spear back,16 recovers.",
+    "R202": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Squat ochre wax creature with a broad ladle-like forearm and a rounded candle-pot belly carrying one large amber wax ball. Attack action: 팔 위 밀랍을 크게 들고 한 덩이 투척; 착탄에 둔화 웅덩이. Only this one species. ",
+    "R203": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Low-saturation mauve bat with thick scalloped wax-paper wings and a small heavy crayon chip torso, two soft ear fins. Attack action: 가루가 모이고 목표 방향 고정 후 짧은 급강하, 낮게 복귀. Only this one species. ",
+    "E01": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Broad rust-orange wax beetle carrying three rounded sunset crayon slabs on its back with small charcoal feet and pale belly. Attack action: 등짐을 앞으로 기울이고 비탈 따라 짧게 돌진. Only this one species. ",
+    "E02": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Wide low snail with a rolled orange-peach crayon ribbon shell, matte layered color bands and a dark soft body. Attack action: 몸을 들어 뒤쪽에 짧은 밀랍 띠 하나 흘림, 1.5초 후 소멸. Only this one species.",
+    "E03": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Small asymmetric pinwheel bird with three broad rounded folded wax-paper wing vanes, muted terracotta and cream, tiny dark beak. Attack action: 날개가 한 번 접힌 뒤 수평으로 고정 경로 횡단. Only this one species.",
+    "F01": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Squat soot-dark wax worker creature with a rounded candle hood, one short unlit curled wick and broad oven-mitt hands, muted honey edges. Attack action: 두 손을 들어 앞쪽 지면을 한 번 두드림. Only this one species.",
+    "F02": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Low sideways wax crab with two unequal broad spatula claws, flattened amber shell and four short curved legs. Attack action: 큰 주걱을 들어 그쪽으로 한 번 쓸기, 반대 집게는 공격 안 함. Only this one species.",
+    "F03": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Round soot-stained wax crucible creature with a wide dark open rim, short sturdy feet and two broad cream drip lobes, no flame. Attack action: 몸이 부풀고 양옆 짧은 거리로 밀랍 두 덩이 분출, 바닥 표시. Only this one species.",
+    "G01": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Tall folded violet-gray layered crayon grasshopper with two broad bent legs and blunt layered head, slate blue edges. Attack action: 목표 선반을 보고 다리를 접어 한 번 건너뛰기. Only this one species.",
+    "G02": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Wide short wax beetle carrying two overlapping blue-violet paint slabs like an open clamshell shield, visible soft orange flank. Attack action: 앞판을 닫고 짧게 밀친 뒤 과하게 벌어짐. Only this one species.",
+    "G03": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Stationary rounded blue-gray paint jar creature with a single horizontal rolled-paper nozzle and visible golden bead at muzzle, short wax feet. Attack action: 총구 안에 큰 안료 구슬이 모여 수평 단발 발사. Only this one species.",
+    "H01": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Short rose-gray wax tower sentry with a rounded broken helmet and one broad stubby lance, small dark visor and heavy paper sash. Attack action: 창을 비스듬히 들고 잠깐 멈춘 뒤 수평 단발 찌르기. Only this one species.",
+    "H02": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Compact burgundy-gray wax puppet with one large rounded rectangular paper shield and tiny feet, asymmetrical open right shoulder. Attack action: 방패를 두드려 예고 후 짧은 밀치기; 연타 자동 반격 없음. Only this one species.",
+    "H03": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: Floating folded rose-gray wax-paper seal with a broad oval stamped head and two short heavy curled ribbon tails, no humanoid skeleton. Attack action: 리본을 벌리고 느린 봉인 탄 둘을 0.25초 차이로 같은 높이에 발사. Only this one species."
+  },
+  "files": {
+    "FarE": "exec-6f0f11dc-ba43-422a-b962-40fc575a90be.png",
+    "MidE": "exec-ffa7f0d1-9ec3-4ce3-9bf8-ccd19bf8f3c4.png",
+    "FarF": "exec-dcce3570-0368-4d6a-a928-673ff3adc084.png",
+    "MidF": "exec-0103c2c2-ded1-4ea5-94a5-80f385bff9c5.png",
+    "FarG": "exec-3b192b59-bdd3-49bf-becf-fb794371cf12.png",
+    "MidG": "exec-ef6198c8-f9b6-4f18-a0ef-498a0a20a94e.png",
+    "FarH": "exec-5021539e-baf0-4bb5-9b6c-e1e1057e46b5.png",
+    "MidH": "exec-a981d465-2bfd-4e12-b345-8fa097fe62dd.png",
+    "R201": "exec-2fcbf49c-69d0-454f-abb3-99c2c8380dc1.png",
+    "R202": "exec-5073c3df-8670-479e-9324-09d80063a430.png",
+    "R203": "exec-0c3c1258-d420-4dd1-993b-0ec29610cc49.png",
+    "E01": "exec-b12c2404-88f5-4f83-b5e5-f7349b2f7614.png",
+    "E02": "exec-c0fb5969-ecd4-41f3-a319-6b388136a3a1.png",
+    "E03": "exec-736f7d11-2333-46e0-924b-3f2b095cc3d8.png",
+    "F01": "exec-f6ed412f-b7f8-492b-bb5b-373956bad1f6.png",
+    "F02": "exec-89a340f6-dfcf-4133-91c7-d8188974550f.png",
+    "F03": "exec-9c4894b8-0d01-41fb-8dd4-12abcfbb783f.png",
+    "G01": "exec-5e1130e2-85af-48df-8349-2940f879cc46.png",
+    "G02": "exec-bd76e47c-6fe5-47bd-947f-7d62be327ca8.png",
+    "G03": "exec-788f4b65-02d9-4800-952b-bbd8c173b5a4.png",
+    "H01": "exec-3ba0b873-66a0-4fc8-810a-0c182c3e643c.png",
+    "H02": "exec-f90c95dc-1102-4a0f-aec2-27f4bcc8e3ee.png",
+    "H03": "exec-22d52796-b6fd-46c2-8f03-c68bfa4f5a1b.png",
+    "KnightMaster": "exec-104f9970-b20a-4fab-b0e7-fd018ce2f2ca.png",
+    "Props": "exec-03350142-0646-4a21-aa08-5e1d112f1cad.png",
+    "Devices": "exec-844b731e-9f71-478a-91ac-a3ee9adfebba.png",
+    "NPC": "exec-8ef5dbd7-d10a-4582-a78f-3e7d46850e50.png",
+    "Effects": "exec-cd355d8c-565c-42f5-8bab-e5394da7ed47.png",
+    "Elite": "exec-d13a5dde-d91a-4d24-9ad7-9229def6526d.png",
+    "KnightA": "exec-170b42d0-8831-4713-95ce-538000002b2d.png",
+    "KnightB": "exec-0454ed92-db72-4748-8cd1-2bb32c98b95c.png",
+    "KnightC": "exec-f38ea73c-911a-4d14-ab4e-ec478e2315d8.png",
+    "KnightD": "exec-01f043bf-3719-46df-baee-702275a0495d.png"
+  },
+  "knightMasterPrompt": "Use case: game-asset. Design the second region boss of our 2D side-scrolling metroidvania, THE BROKEN CRAYON KNIGHT. One full-body master pose on real transparent background, side view facing RIGHT, wide clear margins. Reference1 is our actual game rendering; reference2 provides tower sentries, but make this boss much more imposing and distinctive. This is an old child's heroic drawing weighed down by too many layers of crayon wax: broad heavy rounded burgundy/mauve crayon armor over an ivory layered paper tabard, helmet snapped diagonally at the crown, two small warm ivory eye slots in a dark face, short powerful arms and planted thick boots. It carries one long BROKEN blunt crayon lance with a dark paper shaft, one fractured shield strapped to the back, and a broad torn paper pennant. Powerful silhouette about1.7times player height, NOT a tall skinny human, NOT a monster or demon, no horns/skull. Soft tactile matte paper fibers and broad rubbed wax patches, large chipped surfaces, low-saturation dusty burgundy and old parchment, substantial sculptural shading but clearly painted2D, no photorealism, no shiny metal, no thin hatching, no pixel art. A dignified damaged knight still trying to stand upright. No scene, no lettering, no effects that obscure the body.",
+  "extraPrompts": [
+    {
+      "id": "Props",
+      "prompt": "Use case: game-asset. Match our supplied actual 2D metroidvania game's high quality matte layered paper and rubbed crayon-wax rendering. Broad soft forms, coarse tactile fibers, substantial but painted shading, restrained dark colors, no photorealism or shiny metal, no pixel art or tiny line noise. Real transparent alpha; no scene, borders, labels, text or floor line. Exact grid, generous margins, same camera and scale for related frames. Exactly24 sprites, uniform4 columns x6 rows, equal square cells. Each ROW is a group. Row1 four breathing idle frames of an old OPEN BOOK save altar on a heavy ochre wax plinth, gentle small page lift and dim amber wick. Row2 four frames of a tall folded paper BOOKMARK PORTAL arch coated in dusty burgundy wax with a hanging ivory ribbon, subtle gathering warm motes, no bright portal disc. Row3 four frames of a RED pigment wax pot, from closed dull to filled soft red warmth. Row4 same four frames BLUE pigment pot with indigo wax. Row5 same four frames YELLOW pigment pot with muted old gold wax. Row6 four DIFFERENT collectible icons, one per cell: a small patched parchment HEART with warm wax core, one worn GRAPHITE shard tied in waxed paper, a HEALING pouch with glassless wax bottle and paper stopper, a small folded ability parchment badge with a wax seal. All recognizable silhouettes and subtle warm outlines. Desired1536x2304."
+    },
+    {
+      "id": "Devices",
+      "prompt": "Use case: game-asset. Match our supplied actual 2D metroidvania game's high quality matte layered paper and rubbed crayon-wax rendering. Broad soft forms, coarse tactile fibers, substantial but painted shading, restrained dark colors, no photorealism or shiny metal, no pixel art or tiny line noise. Real transparent alpha; no scene, borders, labels, text or floor line. Exact grid, generous margins, same camera and scale for related frames. Exactly24 sprites in uniform4 columns x6 rows equal square cells. Row1 four looping idle frames of a low wax workshop BRAZIER, thick broad soft flame barely amber, charcoal crucible, paper wraps. Row2 four animation frames of one long upright CRAYON BRIDGE BAR slowly tipping from upright to diagonal to horizontal then settling, identical bar length scale everycell, preservewholebar. Row3 four pulsing frames of a round paper-and-wax PARRY TARGET on a squat stand, a muted old-gold central bead and two broad concentric rings. Row4 four opening frames of one torn small DIARY PAGE held by an indigo wax clip, blank faint illegible crayon marks only. Row5 four unlocking frames of a tall TRICOLOR PIGMENT GATE made of layered wax ribbons and paper arch: initially dull dark three seams, then red/blue/gold veins fill, then three ribbons part, finalframe empty open arch. Row6 four looping frames of a low elliptical cool amber WAX PUDDLE with a few large soft bubbles, changing irregular surface. No neon. Desired1536x2304."
+    },
+    {
+      "id": "NPC",
+      "prompt": "Use case: game-asset. Match our supplied actual 2D metroidvania game's high quality matte layered paper and rubbed crayon-wax rendering. Broad soft forms, coarse tactile fibers, substantial but painted shading, restrained dark colors, no photorealism or shiny metal, no pixel art or tiny line noise. Real transparent alpha; no scene, borders, labels, text or floor line. Exact grid, generous margins, same camera and scale for related frames. Exactly12 complete whole-character frames in a uniform4columns x3rows grid, equal square cells. The SAME nonhuman OVERPAINTED RESIDENT from our pigment canyon, about player height, a gentle shy paper spirit immobilized under broad indigo/mauve and ochre crayon-wax coats. Rounded parchment face with two small black eyeholes, no mouth, hunched broad rounded wax shoulders, short feet and mitten hands partly trapped by layers, no grotesque anatomy. Slight3/4side facingLEFT toward the player. Row1 frames1-4: subtle tired breathing idle, wax coat heavy, feet planted. Row2 frames5-8: interaction, slow head turn and one hand barely lifts to the heart; slight paper flakes, fullbody. Row3 frames9-12: AFTER BOSS, some thick outer wax has cracked and fallen away showing warm ivory paper beneath, resident slowly takes a small hopeful step and settles upright, still SAME face and proportions. Keep size and groundbaseline fixed throughout12. Do not dissolve or disappear. Desired2048x1536."
+    },
+    {
+      "id": "Effects",
+      "prompt": "Use case: game-asset. Match our supplied actual 2D metroidvania game's high quality matte layered paper and rubbed crayon-wax rendering. Broad soft forms, coarse tactile fibers, substantial but painted shading, restrained dark colors, no photorealism or shiny metal, no pixel art or tiny line noise. Real transparent alpha; no scene, borders, labels, text or floor line. Exact grid, generous margins, same camera and scale for related frames. Exactly12 isolated effect sprites in a uniform4columns x3rows grid. Read left-to-right: 1 rounded amber WAX BALL projectile with thick paper rind; 2 small golden PIGMENT BEAD inside indigo wax shell; 3 small muted burgundy SEAL projectile with two short paper ribbons; 4 broad dusty mauve CRAYON SWEEP crescent; 5 low ochre WAX IMPACT splash; 6 warm restrained PARRY RING with four short paper sparks, not bright white; 7 scattered broad wax-and-paper DEATH fragments; 8 a few soft ember-and-paper motes; 9 low blue pigment ripple; 10 one horizontal BROKEN CRAYON LANCE flying projectile, long paper shaft and broad burgundy blunt point; 11 a little burst of triangular warm paper flecks for items; 12 subtle wavering dust curl. Effects have coarsepaper edges and muted readable cores, no glowing bloom and no tiny busy sparks. Desired2048x1536."
+    },
+    {
+      "id": "Elite",
+      "prompt": "Use case: identity-preserve game animation sprite sheet. Draw exactly TWENTY FOUR complete independent whole-character frames in an EXACT uniform 4 columns x 6 rows grid, real transparent alpha, no labels, no cell borders, no floor line, no text. Desired1536x2304, equal square cells. The SAME creature design, proportions, size, side view facing RIGHT and fixed camera in every cell. Body size about62% of cell width/height with generous clear margins. Grounded feet baseline y84% in each cell; flying creatures centered at52%, no translation across cells. Match the game's broad matte paper/wax fibers, thick tactile painted surfaces, soft edges and low-saturation colored wax from reference, detailed enough at game scale, no pixel art, no glossy 3D, no thin noisy hatching. Do not draw the reference player or background. Frames 1-8 (first two rows): MOVE, coherent alternating whole-body walking/fluttering loop that ends matching frame1. Frames9-16 (middle two rows): ATTACK: frames9-12 clear growing anticipation, frame13 decisive strike/release,14 followthrough,15-16 recovery. Frames17-24 (last two rows): DEATH: body buckles, breaks into large wax-paper scraps, then dissipates; final frame only a few faint scraps. No red blood, no light explosion. Never use joint rigs or detached limbs. No stretched wormlike anatomy. Keep the same character scale across all24 frames including death. Creature identity: the SHAVED CRAYON TURTLE elite. A broad low ochre and charcoal turtle made of thick crayon-wax armor plates layered over coarse parchment, large chipped rounded domed shell with a few broad rubbed pigment facets, four short thick folded-paper feet, small dark face with two warm ivory eyes. More imposing than normal monsters, not cute candy, no horns. SidefacingRIGHT. Moveframes1-8 slow heavy crawling. Attackframes9-12 pull head andfeet into shell anticipating a roll,13-14 fast shell roll with broad wax scrape,15-16 lands and uncurls. Deathframes17-24 shell buckles into large wax-paper fragments then dissipates, final few faint scraps. Samefixedscale andcamera across24 frames."
+    }
+  ],
+  "knightPrompts": [
+    {
+      "id": "KnightA",
+      "prompt": "Use case: identity-preserve whole-drawn 2D animation. Input is the BROKEN CRAYON KNIGHT master. Preserve EXACTLY this broad burgundy wax-paper armor, diagonally broken rounded helmet, ivory tabard and small pale eye slots, short powerful limbs, heavy boots, long blunt broken crayon lance and torn pennant. Real transparent alpha. Exactly12 complete whole-character frames in uniform4columns x3rows grid with equal square cells, desired2400x1800. Fixedsidecamera facingRIGHT and same absolute drawing scale, groundbaseline84%, bodycenterx45%, broadclear margins so no lanceclips. No labels, borders, letters or other characters. Highquality tactile matte paper fibers, broad rubbedwax planes, soft heavy shading, no 3Dmetal/gloss or fine noisyhatching. No joint rigs; complete independently drawn poses. External rangeVFX separately added. Frames1-6 IDLE: very subtle loaded breathing, pennant andpaperlag, boots planted. Frames7-12 MOVE: six sequential heavy alternating forward walking-in-place poses, kneebend and shoulderweight, consistentbodycenter andground, ends connectingframe7. Do not translate across cells."
+    },
+    {
+      "id": "KnightB",
+      "prompt": "Use case: identity-preserve whole-drawn 2D animation. Input is the BROKEN CRAYON KNIGHT master. Preserve EXACTLY this broad burgundy wax-paper armor, diagonally broken rounded helmet, ivory tabard and small pale eye slots, short powerful limbs, heavy boots, long blunt broken crayon lance and torn pennant. Real transparent alpha. Exactly12 complete whole-character frames in uniform4columns x3rows grid with equal square cells, desired2400x1800. Fixedsidecamera facingRIGHT and same absolute drawing scale, groundbaseline84%, bodycenterx45%, broadclear margins so no lanceclips. No labels, borders, letters or other characters. Highquality tactile matte paper fibers, broad rubbedwax planes, soft heavy shading, no 3Dmetal/gloss or fine noisyhatching. No joint rigs; complete independently drawn poses. External rangeVFX separately added. Frames1-6 TRIPLE THRUST keyposes: 1 lowerscenter anddrawslance, 2 deeperclearanticipation, 3 decisive forwardlancethrust fullyextended withbracedfeet, 4 drawsweaponback andresettles, 5 second sharp forwardthrust atmidheight, 6 third sharp forwardthrust slightlylower. Keep the lance hand grip and limb anatomy consistent. Frames7-12 THROW: 7 ready,8 drawsbrokenlanceback,9 loadsheavyshoulder,10 decisive releasegesture (lancewillflyasseparateprojectile, weapon absentfromhand),11 followthrough emptyhand,12 kneebracedrecovery. Sameknight body inall12."
+    },
+    {
+      "id": "KnightC",
+      "prompt": "Use case: identity-preserve whole-drawn 2D animation. Input is the BROKEN CRAYON KNIGHT master. Preserve EXACTLY this broad burgundy wax-paper armor, diagonally broken rounded helmet, ivory tabard and small pale eye slots, short powerful limbs, heavy boots, long blunt broken crayon lance and torn pennant. Real transparent alpha. Exactly12 complete whole-character frames in uniform4columns x3rows grid with equal square cells, desired2400x1800. Fixedsidecamera facingRIGHT and same absolute drawing scale, groundbaseline84%, bodycenterx45%, broadclear margins so no lanceclips. No labels, borders, letters or other characters. Highquality tactile matte paper fibers, broad rubbedwax planes, soft heavy shading, no 3Dmetal/gloss or fine noisyhatching. No joint rigs; complete independently drawn poses. External rangeVFX separately added. Frames1-6 SHOULDER CHARGE:1 neutralbrace,2 deepforwardloadedleanwithlance,3 sharp launch low,4 lowheavychargedcarry withbothkneesbent,5 lanceandshoulderstop hardasifmeetingwall,6 heavybrakingstance. Frames7-12 WAX SLAM:7 ready,8 deepcrouch,9 compactairbornepose,10 decisive downwardshoulderandlancebrace,11 stronggroundimpact compressedknees andbroadsmallwaxdust,12 recovery. Preservebodyanatomy andidentity. Rootjumpandcharge displacementwillbedoneingame."
+    },
+    {
+      "id": "KnightD",
+      "prompt": "Use case: identity-preserve whole-drawn 2D animation. Input is the BROKEN CRAYON KNIGHT master. Preserve EXACTLY this broad burgundy wax-paper armor, diagonally broken rounded helmet, ivory tabard and small pale eye slots, short powerful limbs, heavy boots, long blunt broken crayon lance and torn pennant. Real transparent alpha. Exactly12 complete whole-character frames in uniform4columns x3rows grid with equal square cells, desired2400x1800. Fixedsidecamera facingRIGHT and same absolute drawing scale, groundbaseline84%, bodycenterx45%, broadclear margins so no lanceclips. No labels, borders, letters or other characters. Highquality tactile matte paper fibers, broad rubbedwax planes, soft heavy shading, no 3Dmetal/gloss or fine noisyhatching. No joint rigs; complete independently drawn poses. External rangeVFX separately added. Frames1-6 PARRY STAGGER:1 joltedlance,2 bracedbootlosesbalance,3 dropsoneheavykneeandlancepoint,4 exposedchest andloosentabard,5 regainsfooting,6 returnsneutralstance. Frames7-12 DEATH AND RELEASE:7 armor buckles,8 kneels andbrokenwaxshellsplits,9 largepaper/waxplatesfall,10 heavyarmor dissolvesrevealinga SMALL simpleivory foldedpaperknight (about30%initialbodyheight),11 onlysmallfoldedpaperknightwithstubbybrokenpaperlance standsonground,12 samegentlepaperfigure calm. Do not enlarge finalsmallfigure; sameabsolutescale andgroundline throughout."
+    },
+    {
+      "id": "DevicesOff",
+      "prompt": "Edit the supplied sprite sheet. Preserve exact dimensions, 4-column x6-row layout, positions, colors, all other drawings and transparency. Only modify the TOP RIGHT cell (row1 column4): remove its flame and glowing ember motes so it becomes the SAME extinguished dark cold brazier with a little soft smoke above, still same pot andpaperwraps. Also in SECOND ROW four cells, recolor the wooden-looking bridge bar surface into matte rubbed terracotta/ochre CRAYON WAX coated in coarsepaper, keeping its ropewrappings, shape, length and poses unchanged. Do not modify any other cell. Real transparentalpha."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+using UnityEngine;
+namespace Unfin
+{
+    public sealed class Region2KeeperVisual : MonoBehaviour
+    {
+        WorldPrototype world;int index;SpriteRenderer seal;LineRenderer line;Material material;Texture2D dash;Vector2 target;
+        public void Initialize(WorldPrototype w,int source){world=w;index=source;var point=System.Array.Find(w.Data.pickups,p=>p.tx>=w.Data.regionX&&p.type==(source==74?"bar":"target"));var entry=WorldPropPlacement.Find(point.type,new Vector2(point.x,point.y));target=entry==null?(Vector2)w.Data.Center(point):(Vector2)entry.position;var go=new GameObject("Device supply seal");go.transform.SetParent(transform,false);seal=go.AddComponent<SpriteRenderer>();seal.sprite=Region2Presentation.Fx(5);seal.sortingOrder=25;seal.transform.localPosition=Vector3.up*(GetComponent<PaperEnemyAnimation>().BodyBounds.size.y+.2f);seal.transform.localScale=Vector3.one*(.32f/seal.sprite.bounds.size.x);line=go.AddComponent<LineRenderer>();line.useWorldSpace=true;line.positionCount=16;line.widthMultiplier=.012f;line.sortingOrder=23;line.textureMode=LineTextureMode.Tile;dash=new Texture2D(16,1,TextureFormat.RGBA32,false);for(int x=0;x<16;x++)dash.SetPixel(x,0,new Color(1,1,1,x<7?1:0));dash.Apply();dash.wrapMode=TextureWrapMode.Repeat;material=new Material(Shader.Find("Sprites/Default"));material.mainTexture=dash;line.sharedMaterial=material;line.startColor=line.endColor=new Color(.82f,.69f,.4f,.13f);line.enabled=false;}
+        void LateUpdate(){if(world==null||seal==null)return;bool locked=index==74?world.Motor.Get(459,88)!=4:false;if(index==75)for(int y=118;y<=123;y++)for(int x=404;x<=407;x++)locked|=world.Motor.Get(x,y)==13;seal.enabled=locked;seal.color=new Color(.88f,.74f,.46f,.35f+Mathf.Sin(Time.time*2)*.05f);var v=world.worldCamera.WorldToViewportPoint(transform.position);line.enabled=locked&&v.x>0&&v.x<1&&v.y>0&&v.y<1;if(!line.enabled)return;for(int i=0;i<16;i++){float t=i/15f;line.SetPosition(i,Vector2.Lerp((Vector2)transform.position+Vector2.up*.7f,target,t)+Vector2.up*Mathf.Sin(t*Mathf.PI)*.35f);}}
+        static void Dispose(Object o){if(o==null)return;if(Application.isPlaying)Destroy(o);else DestroyImmediate(o);}void OnDestroy(){Dispose(material);Dispose(dash);}
+    }
+}

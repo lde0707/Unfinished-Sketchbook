@@ -1,0 +1,266 @@
+{
+  "title": "Stilldrawn",
+  "date": "2026-10-24",
+  "method": "공개된 타이틀·메뉴 캡처, 캡처 목록, UI 해설과 메뉴 문서를 바탕으로 한 정성 비교. 게임 30개를 직접 설치하거나 사용자 실험을 한 결과가 아님. 버전별 메뉴 차이가 있으며 Dead Cells 자료는 초기 버전이다. 이미지와 음악은 참고만 하고 게임에서 추출하여 사용하지 않았다.",
+  "games": [
+    {
+      "number": 1,
+      "game": "Hollow Knight",
+      "source": "https://interfaceingame.com/screenshots/hollow-knight-main-menu/",
+      "observation": "어두운 공간과 밝은 로고, 절제된 선택 장식으로 분위기를 먼저 전달한다.",
+      "adopt": "짙은 흑연 배경과 상아색 문자, 작은 선택 표식",
+      "exclude": "다른 게임 고유의 문장과 장식 복제"
+    },
+    {
+      "number": 2,
+      "game": "Ori and the Blind Forest",
+      "source": "https://www.mobygames.com/game/72146/ori-and-the-blind-forest/screenshots/",
+      "observation": "숲과 빛으로 모험의 정서를 타이틀부터 만든다.",
+      "adopt": "숲 깊이와 책의 국소광",
+      "exclude": "고채도 발광과 배경 전역의 복잡한 움직임"
+    },
+    {
+      "number": 3,
+      "game": "Ori and the Will of the Wisps",
+      "source": "https://www.mobygames.com/game/142015/ori-and-the-will-of-the-wisps/screenshots/windows/1013872/",
+      "observation": "배경 풍경을 크게 보이고 메뉴를 풍경에 얹는다.",
+      "adopt": "배경을 가리지 않는 좁은 메뉴 열",
+      "exclude": "실사에 가까운 재질과 큰 광원"
+    },
+    {
+      "number": 4,
+      "game": "ENDER LILIES",
+      "source": "https://www.digitaltq.com/ender-lilies-all-endings",
+      "observation": "메뉴 배경에도 세계의 상태와 정서를 반영한다.",
+      "adopt": "첫 장의 어두운 종이 세계라는 정체성",
+      "exclude": "아직 구현하지 않은 엔딩별 타이틀 변화를 약속하기"
+    },
+    {
+      "number": 5,
+      "game": "Nine Sols",
+      "source": "https://ninesols.wiki.gg/wiki/Tips",
+      "observation": "진행 상태별 메뉴 배경과 저장 관리가 세계관의 일부가 된다.",
+      "adopt": "실제 기록이 있을 때만 이어하기 활성화",
+      "exclude": "최종 보스와 미래 지역을 타이틀에 노출하기"
+    },
+    {
+      "number": 6,
+      "game": "Blasphemous",
+      "source": "https://interfaceingame.com/screenshots/blasphemous-main-menu/",
+      "observation": "세계관의 상징과 타이포그래피가 강하게 결합된다.",
+      "adopt": "책과 미완의 선을 중심 상징으로 사용",
+      "exclude": "종교 문양과 금속 장식을 그대로 가져오기"
+    },
+    {
+      "number": 7,
+      "game": "Blasphemous 2",
+      "source": "https://www.spriters-resource.com/pc_computer/blasphemous2/asset/457361/",
+      "observation": "메인 메뉴 아트가 독립된 배경 자산으로 구성된다.",
+      "adopt": "UI 문자와 배경을 분리한 고해상도 원화",
+      "exclude": "메뉴 문자를 배경 이미지에 굽기"
+    },
+    {
+      "number": 8,
+      "game": "Dead Cells",
+      "source": "https://www.mobygames.com/game/89051/dead-cells/screenshots/",
+      "observation": "공개된 초기 버전 메뉴는 시작·안내·상태 정보를 구분한다.",
+      "adopt": "작은 버전 정보와 분명한 시작 경로",
+      "exclude": "뉴스·업데이트 홍보 패널과 로그라이크 모드 목록"
+    },
+    {
+      "number": 9,
+      "game": "Afterimage",
+      "source": "https://www.mobygames.com/game/202203/afterimage/screenshots/windows/",
+      "observation": "그려진 풍경과 타이틀로 탐험의 분위기를 잡는다.",
+      "adopt": "넓은 그림과 게임과 맞는 재질",
+      "exclude": "지금 지원하지 않는 난이도 선택"
+    },
+    {
+      "number": 10,
+      "game": "Celeste",
+      "source": "https://www.mobygames.com/game/101142/celeste/screenshots/",
+      "observation": "여정의 장소와 메뉴가 연결되고 옵션을 별도 화면으로 나눈다.",
+      "adopt": "장소 중심 배경과 읽기 쉬운 조작 안내",
+      "exclude": "메트로배니아 탐험을 스테이지 선택식으로 바꾸기"
+    },
+    {
+      "number": 11,
+      "game": "GRIS",
+      "source": "https://interfaceingame.com/games/gris/",
+      "observation": "그림과 여백을 살리고 메뉴를 시각적으로 절제한다.",
+      "adopt": "충분한 여백, 적은 항목, 낮은 정보 밀도",
+      "exclude": "진행에 맞지 않는 흰 화면 중심 팔레트"
+    },
+    {
+      "number": 12,
+      "game": "TUNIC",
+      "source": "https://www.mobygames.com/game/181370/tunic/screenshots/",
+      "observation": "세계의 기호와 간결한 메뉴를 결합한다.",
+      "adopt": "책갈피라는 저장 은유",
+      "exclude": "메뉴 기능까지 해독해야 하는 낯선 문자"
+    },
+    {
+      "number": 13,
+      "game": "Death’s Door",
+      "source": "https://www.mobygames.com/game/168005/deaths-door/screenshots/",
+      "observation": "타이틀과 메뉴가 게임의 상징과 분위기를 공유한다.",
+      "adopt": "하나의 강한 책 모티프",
+      "exclude": "상호작용 장치를 한 화면에 여러 개 쌓기"
+    },
+    {
+      "number": 14,
+      "game": "Hades",
+      "source": "https://interfaceingame.com/screenshots/hades-main-menu/",
+      "observation": "왼쪽 세로 메뉴와 오른쪽 아트가 기능과 시선을 분리한다.",
+      "adopt": "왼쪽 메뉴 / 오른쪽 주제 원화",
+      "exclude": "상점과 외부 커뮤니티 버튼"
+    },
+    {
+      "number": 15,
+      "game": "Hades II",
+      "source": "https://www.mobygames.com/game/223472/hades-ii/screenshots/windows/",
+      "observation": "타이틀·메인 메뉴를 구별하면서 고유한 미술을 유지한다.",
+      "adopt": "재진입 시 일관된 포커스와 정서",
+      "exclude": "반복 진입 때 반드시 거쳐야 하는 긴 시작 연출"
+    },
+    {
+      "number": 16,
+      "game": "Dark Souls III",
+      "source": "https://www.mobygames.com/game/77737/dark-souls-iii/screenshots/windows/837344/",
+      "observation": "배경과 메뉴를 절제하고 게임 이름과 시작 경로를 강조한다.",
+      "adopt": "불필요한 상자 없이 명확한 선택 상태",
+      "exclude": "과한 검정 여백으로 우리 책 소재까지 지우기"
+    },
+    {
+      "number": 17,
+      "game": "Elden Ring",
+      "source": "https://interfaceingame.com/screenshots/elden-ring-main-menu/",
+      "observation": "하나의 상징과 밝은 로고가 어두운 바탕에서 주목점을 만든다.",
+      "adopt": "책의 세로 빛과 따뜻한 제목",
+      "exclude": "온라인 로그인·서버 안내"
+    },
+    {
+      "number": 18,
+      "game": "Sekiro: Shadows Die Twice",
+      "source": "https://www.youtube.com/watch?v=Sv_ImlzQhAU",
+      "observation": "타이틀부터 세계관의 재료감과 음악을 이어 간다.",
+      "adopt": "종이 재질과 기존의 절제된 배경음",
+      "exclude": "전투의 긴장감을 타이틀에서 과한 타격 효과로 표현하기"
+    },
+    {
+      "number": 19,
+      "game": "Control",
+      "source": "https://www.mobygames.com/game/129106/control/screenshots/",
+      "observation": "크고 명료한 문자와 통일된 정렬이 인상을 만든다.",
+      "adopt": "로고·메뉴·보조 문구의 분명한 크기 차이",
+      "exclude": "차갑고 각진 사무적인 스타일 전체"
+    },
+    {
+      "number": 20,
+      "game": "Alan Wake II",
+      "source": "https://www.mobygames.com/game/210927/alan-wake-ii/screenshots/windows/1150080/",
+      "observation": "어두운 화면과 절제된 메뉴가 이야기의 분위기를 예고한다.",
+      "adopt": "불안을 주되 읽을 수 있는 밝기",
+      "exclude": "영상 왜곡과 화면 전체 깜박임"
+    },
+    {
+      "number": 21,
+      "game": "Outer Wilds",
+      "source": "https://medium.com/super-jump/outer-wilds-a-ux-critique-60c6fb8ac2e2",
+      "observation": "좌측 메뉴·우측 작은 세계와 느린 움직임으로 탐험을 예고한다.",
+      "adopt": "책 속 세계와 조용한 종이 입자",
+      "exclude": "선택을 막는 긴 강제 인트로"
+    },
+    {
+      "number": 22,
+      "game": "Little Nightmares II",
+      "source": "https://www.spriters-resource.com/pc_computer/littlenightmaresii/asset/483367/",
+      "observation": "배경·선택선·밝기·슬라이더가 일관된 메뉴 자산으로 나뉜다.",
+      "adopt": "같은 선과 작은 마름모를 메뉴와 설정에 반복",
+      "exclude": "너무 낮은 대비의 작은 문자"
+    },
+    {
+      "number": 23,
+      "game": "LIMBO",
+      "source": "https://umpir.ump.edu.my/id/eprint/40150/1/CD19071.pdf",
+      "observation": "흑백 배경과 간단한 세로 메뉴가 게임의 재료를 공유한다.",
+      "adopt": "저채도 배경과 밝기 조절",
+      "exclude": "탐험 세계의 따뜻한 종이색까지 없애기"
+    },
+    {
+      "number": 24,
+      "game": "INSIDE",
+      "source": "https://interfaceingame.com/games/inside/",
+      "observation": "게임 장면과 메뉴 사이의 이질감을 줄이고 정보량을 억제한다.",
+      "adopt": "게임과 같은 재질, 조용한 일시정지 화면",
+      "exclude": "옵션의 기능을 숨길 정도의 미니멀함"
+    },
+    {
+      "number": 25,
+      "game": "Prince of Persia: The Lost Crown",
+      "source": "https://interfaceingame.com/games/prince-of-persia-the-lost-crown/",
+      "observation": "주제 아트와 설정을 분리하고 조작 선택을 명확히 한다.",
+      "adopt": "기본 음량·밝기·조작 안내를 시작 전 제공",
+      "exclude": "지원하지 않는 접근성 기능을 빈 항목으로 나열하기"
+    },
+    {
+      "number": 26,
+      "game": "Disco Elysium",
+      "source": "https://www.transcript-verlag.de/media/pdf/84/2c/d4/oa9783839460771iW9jXgYdrI9aS.pdf",
+      "observation": "메뉴의 그림 자체가 이야기의 시점을 전달한다.",
+      "adopt": "장식 풍경 대신 미완성 스케치북을 핵심 서사 그림으로",
+      "exclude": "다른 게임 도시 풍경이나 유화 붓질을 복제하기"
+    },
+    {
+      "number": 27,
+      "game": "NieR:Automata",
+      "source": "https://www.platinumgames.co.jp/dev-nier-automata/article/183",
+      "observation": "개발자 UI 해설은 세계 설정과 기능의 시각적 통일을 설명한다.",
+      "adopt": "종이·먹·작은 기하 표식으로 UI 일관성 유지",
+      "exclude": "밀도 높은 장비·상태 화면을 타이틀에 가져오기"
+    },
+    {
+      "number": 28,
+      "game": "The Witcher 3: Wild Hunt",
+      "source": "https://www.mobygames.com/game/73001/the-witcher-3-wild-hunt/screenshots/windows/783198/",
+      "observation": "주요 인물·공간을 오른쪽에 두고 왼쪽에 시작 메뉴를 정렬한다.",
+      "adopt": "시각 초점과 메뉴의 분리, 이어하기의 우선순위",
+      "exclude": "추가 콘텐츠와 보상 홍보 메뉴"
+    },
+    {
+      "number": 29,
+      "game": "Cyberpunk 2077",
+      "source": "https://interfaceingame.com/games/cyberpunk-2077/",
+      "observation": "장르의 색과 일관된 UI 문법이 메뉴에도 이어진다.",
+      "adopt": "우리 세계에 맞춘 제한된 상아·흑연·황동 팔레트",
+      "exclude": "고채도 네온, 글리치와 뉴스 배너"
+    },
+    {
+      "number": 30,
+      "game": "Bastion",
+      "source": "https://www.mobygames.com/game/53411/bastion/screenshots/windows/529828/",
+      "observation": "고유한 그림을 타이틀에서도 유지해 게임의 첫인상을 만든다.",
+      "adopt": "기존 캐릭터와 맞는 별도 타이틀 원화",
+      "exclude": "게임과 질감이 다른 실사 배경"
+    }
+  ],
+  "implemented": [
+    "실제 기록에만 활성화되는 이어하기",
+    "새 게임 덮어쓰기 확인",
+    "전체/효과음/배경음/화면 밝기 저장",
+    "타이틀 움직임 줄이기",
+    "키보드·마우스·게임패드 메뉴 탐색",
+    "실제 조작 안내",
+    "제작진과 사용 음원/서체",
+    "Esc 일시정지·저장 후 타이틀 복귀",
+    "개발 버전 표시",
+    "네이티브 빌드 종료, 웹은 브라우저 전체화면 버튼"
+  ],
+  "art": {
+    "file": "Book/Assets/Unfin/Resources/Title/sketchbook.png",
+    "generator": "built-in image_gen",
+    "prompt": "Dark premium 16:9 2D metroidvania title background, no text or character. Empty charcoal-blue left 45% for title and vertical menu; monumental open aged sketchbook on right, graphite forest drawn on ivory pages, subtle silver-teal light in book crease and one unfinished brass line. Layered torn paper rock ledges and quiet forest silhouettes, tiny floating paper flecks, no photorealism, no UI, no watermark. Match existing warm ivory layered-paper protagonist and dark graphite cave materials.",
+    "titlePlayerOverlay": false,
+    "revision": "플레이어와 접지 그림자를 제거하고 책·흑연 숲·종이 입자 중심으로 정리."
+  }
+}

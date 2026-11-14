@@ -82,6 +82,9 @@ namespace Unfin.Editor
             var d=JsonUtility.FromJson<WorldData>(world.mapJson.text);var cells=d.Decode();int count=0;
             var material=AssetDatabase.LoadAssetAtPath<Material>(Tiles+"/RegionalTiles.mat");
             foreach(var map in new[]{world.maps[1],world.maps[3],world.maps[4],world.filletMaps[1]})map.GetComponent<TilemapRenderer>().sharedMaterial=material;
+            // Rebuild the visual one-way layers from the same authoritative collision grid.
+            // Otherwise a newly opened route can leave painted platforms with no support.
+            world.maps[1].ClearAllTiles();world.maps[4].ClearAllTiles();
             // Tile assets must permit cell colors after a scene reload as well as now.
             // A per-cell flag override alone is replaced by locked Tile.GetTileData on load.
             foreach(var tile in world.terrainTiles.Concat(world.filletTiles))if(tile.region==2){tile.flags&=~TileFlags.LockColor;EditorUtility.SetDirty(tile);}

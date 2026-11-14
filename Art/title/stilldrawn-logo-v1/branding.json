@@ -1,0 +1,21 @@
+{
+  "name": "Stilldrawn",
+  "logo": "Book/Assets/Unfin/Resources/Title/stilldrawn-logo-v1.png",
+  "generator": "built-in image_gen",
+  "transparent": true,
+  "prompt": "generation-prompt.txt",
+  "fonts": [
+    {
+      "name": "MaruBuri SemiBold",
+      "role": "Korean menu buttons, panel headings and subtitle",
+      "download": "https://hangeul.naver.com/hangeul_static/webfont/zips/maruburi.zip",
+      "license": "Book/Assets/Unfin/Resources/Title/MaruBuri-OFL.txt"
+    },
+    {
+      "name": "Marcellus Regular",
+      "role": "Latin menu labels and fallback wordmark",
+      "download": "https://raw.githubusercontent.com/google/fonts/main/ofl/marcellus/Marcellus-Regular.ttf",
+      "license": "Book/Assets/Unfin/Resources/Title/Marcellus-OFL.txt"
+    }
+  ]
+}

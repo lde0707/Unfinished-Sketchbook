@@ -1,0 +1,14 @@
+{
+  "mode": "built-in imagegen edit",
+  "reference": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/title/stilldrawn-painted-v2/title-concept.png",
+  "prompt": "Precisely edit this approved STILLDRAWN title screen, preserving the existing beautiful painting, composition, book, lighting, colors, textures, large STILLDRAWN logo and subtitle. Only make these requested UI changes: completely remove the fourth menu button labeled \"제작진\", including its paper ribbon and binding, and seamlessly restore the dark forest background there. Retain the other three menu buttons \"이어하기\", \"새 이야기\", \"설정\" exactly as they are, same size/position/style. Retain the small last-bookmark panel and version label. Add a single small understated creator credit at the bottom center, around y95%, reading EXACTLY \"기획 · 개발 · 제작  UNDO\". UNDO is the solo creator's name, use uppercase UNDO. Muted warm ivory-gray elegant serif lettering, roughly the size of the existing small last-bookmark label or a little smaller, clearly legible but subordinate to all menus, no ribbon or panel behind it, no bright glow. Do not add any other names, credits heading or credits button. No \"함께 그린 사람들\" anywhere. Preserve all remaining artwork and lettering, full 16:9 canvas, premium paper/ink fantasy aesthetic.",
+  "creator": "UNDO",
+  "footer": "기획 · 개발 · 제작  UNDO",
+  "menus": [
+    "이어하기",
+    "새 이야기",
+    "설정"
+  ],
+  "removedMenu": "제작진 / 함께 그린 사람들",
+  "status": "visual concept; not installed in Unity; previous video predates this revision"
+}

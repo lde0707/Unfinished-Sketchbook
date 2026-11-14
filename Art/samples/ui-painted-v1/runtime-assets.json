@@ -1,0 +1,18 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "gameplay-concept.png",
+  "frameAtlas": "Book/Assets/Unfin/Resources/PaintedUI/frames.png",
+  "iconAtlas": "Book/Assets/Unfin/Resources/PaintedUI/icons.png",
+  "sliceManifest": "Book/Assets/Unfin/Resources/PaintedUI/atlas.json",
+  "framePrompt": "Extract the approved graphite bookbinding minimap frame, notification ribbon, ivory keycap and leafy flourish as separate transparent production UI sprites. Match the approved screenshot, no text.",
+  "iconPrompt": "Generate matching transparent sprites: ivory health leaf, charcoal empty leaf, red heart-marked healing bottle, black graphite crystal, teal paper shield, red heart fragment, red healing bottle capacity upgrade with upward chevrons, three-color paint palette.",
+  "items": {
+    "item_heal": "red heart bottle",
+    "healup": "red bottle with upward chevrons",
+    "item_shield": "teal paper shield",
+    "heart": "red folded heart",
+    "shard": "black graphite crystal",
+    "item_paint": "three-color palette"
+  },
+  "scope": "both regions; preserve pickup placement, progression and collection animations"
+}

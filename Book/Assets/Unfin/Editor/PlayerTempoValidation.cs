@@ -29,7 +29,7 @@ namespace Unfin.Editor
             void Step(int n,int dir=0){for(int i=0;i<n;i++){w.Simulate(dt,dir);p.Tick(dt);}}
             void Reset(){w.Respawn(100,80);Step(60);}
             Reset();Step(240,1);Check(Mathf.Abs(m.vx-88)<.01f,"ground speed20% slower");
-            float frameTime=p.AnimationTime;Step(60,1);Check(Mathf.Abs(p.AnimationTime-frameTime-PlayerMotion.RunPlaybackRate*.5f)<.001f,"run cadence follows movement speed");
+            float frameTime=p.AnimationTime;Step(60,1);Check(Mathf.Abs(p.AnimationTime-frameTime-(88f/125*1.3f)*.5f)<.001f,"run animation30percent faster without changing movement");
             var jumps=new List<JumpResult>();
             foreach(int dir in new[]{-1,0,1})
             {

@@ -39,7 +39,7 @@ namespace Unfin.Editor
                 Require(sr.sprite!=null&&actor.StateName=="Move",spec.id+" movement");
                 for(int i=0;i<5;i++)actor.Tick(.05f);
                 Require(actor.FrameIndex>0&&actor.FrameIndex<spec.clips[0].durations.Length,spec.id+" movement advances");
-                typeof(PaperEnemyAnimation).GetMethod("SetState",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(actor,new object[]{1});
+                typeof(PaperEnemyAnimation).GetMethod("SetState",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(actor,new object[]{EnemyAnimationState.Attack});
                 for(int i=0;i<200;i++)actor.Tick(.05f);
                 Require(actor.StateName=="Move",spec.id+" attack returns");
                 int priorFrame=actor.FrameIndex;

@@ -1,0 +1,37 @@
+{
+    "isPrologue": true,
+    "schema": 1,
+    "width": 56,
+    "height": 22,
+    "htmlTileSize": 16,
+    "tilePixels": 128,
+    "pixelsPerUnit": 128,
+    "referenceWidth": 1920,
+    "referenceHeight": 1080,
+    "regionX": 56,
+    "startX": 5,
+    "startFloor": 16,
+    "orthographicSize": 4.21875,
+    "source": "STILLDRAWN playable opening page",
+    "sourceSha256": "",
+    "gridSha256": "6d4f4653736b9b8511972bf01be65ba6d8e8c410b4d7fd91ec2fe4f293380829",
+    "mapRle": "1.az,0.1e,1.6,0.1e,1.6,0.1e,1.6,0.1e,1.6,0.1e,1.6,0.1e,1.6,0.r,4.3,0.k,1.6,0.1e,1.6,0.f,1.3,0.w,1.9f",
+    "originalMetadataJson": "",
+    "rooms": [
+        {
+            "z": "A",
+            "name": "지워지는 첫 장",
+            "info": "",
+            "n": 0,
+            "r": 1,
+            "x": 3,
+            "y": 7,
+            "w": 50,
+            "h": 9
+        }
+    ],
+    "passages": [],
+    "shafts": [],
+    "enemies": [],
+    "pickups": []
+}

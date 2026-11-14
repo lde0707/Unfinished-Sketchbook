@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Unfin
 {
- public enum SoundCue {StepStone,StepSoft,StepWood,Jump,Land,Dash,Swing,Thrust,Hit,Death,Wall,EnemyMove,EnemyAttack,Gate,Crumble,Restore,Hazard,MapOpen,MapClose,Respawn}
+ public enum SoundCue {StepStone,StepSoft,StepWood,Jump,Land,Dash,Swing,Thrust,Hit,Death,Wall,EnemyMove,EnemyAttack,Gate,Crumble,Restore,Hazard,MapOpen,MapClose,Respawn,BreakGraphite,BreakVine,BreakWood,BreakSeal,BreakWax}
  public sealed class GameAudio : MonoBehaviour
  {
   public const int VoiceLimit=12;
@@ -13,7 +13,9 @@ namespace Unfin
   readonly Dictionary<SoundCue,int> variants=new Dictionary<SoundCue,int>();
   readonly AudioSource[] voices=new AudioSource[VoiceLimit],music=new AudioSource[2];
   readonly float[] gains=new float[VoiceLimit];
-  AudioClip[] themes;WorldPrototype world;int current,region=-1;float fade=1,stepDistance;Vector2 priorPosition;
+  AudioClip[] themes;WorldPrototype world;int current,region=-1;float stepDistance;Vector2 priorPosition;
+  public const float AmbienceCrossfadeSeconds=5;
+  readonly float[] ambienceLevel=new float[2];
   int resetSerial;bool focused=true;float master=.7f,sfx=.65f,bgm=.32f;
   public int PlayedCount {get;private set;}
   public int MusicRegion=>region;
@@ -25,8 +27,9 @@ namespace Unfin
   public void Initialize(){
    foreach(SoundCue cue in Enum.GetValues(typeof(SoundCue))){var found=new List<AudioClip>();for(int i=0;i<4;i++){var c=Resources.Load<AudioClip>("Audio/"+cue+"_"+i);if(c!=null)found.Add(c);}clips[cue]=found.ToArray();}
    for(int i=0;i<voices.Length;i++)voices[i]=Source("Effect "+i);
-   for(int i=0;i<2;i++)music[i]=Source("Music "+i);
-   themes=new[]{Resources.Load<AudioClip>("Audio/MusicGraphite_0"),Resources.Load<AudioClip>("Audio/MusicCrayon_0")};
+   for(int i=0;i<2;i++)music[i]=Source("Ambience "+i);
+   themes=new[]{Resources.Load<AudioClip>("Audio/AmbienceGraphite_0"),Resources.Load<AudioClip>("Audio/AmbienceCrayon_0")};
+   for(int i=0;i<2;i++){music[i].clip=themes[i];music[i].loop=true;}
    if(world!=null){resetSerial=world.ResetSerial;priorPosition=world.player.position;}
    master=PlayerPrefs.GetFloat("audio.master",.7f);sfx=PlayerPrefs.GetFloat("audio.sfx",.65f);bgm=PlayerPrefs.GetFloat("audio.music",.32f);
   }
@@ -60,18 +63,20 @@ namespace Unfin
    for(int i=0;i<voices.Length;i++)voices[i].volume=gains[i]*master*sfx;
   }
   public void TickMusic(float dt,int wanted){
-   if(region<0){region=wanted;current=0;music[0].clip=themes[wanted];music[0].Play();fade=0;}
-   else if(wanted!=region||(fade>=1&&music[current].clip!=null&&music[current].time>=music[current].clip.length-3.1f)){
-    region=wanted;int next=1-current;music[next].Stop();music[next].clip=themes[wanted];music[next].volume=0;music[next].Play();current=next;fade=0;
+   region=current=Mathf.Clamp(wanted,0,1);
+   float volume=master*bgm*.45f*(world!=null&&world.MapOpen?.65f:1);
+   for(int i=0;i<2;i++){
+    // Keep phase through region changes. The authored clips loop at their exact
+    // silent seam; changing regions does not restart or bunch up the rare cues.
+    if(music[i].clip!=null&&!music[i].isPlaying)music[i].Play();
+    ambienceLevel[i]=Mathf.MoveTowards(ambienceLevel[i],i==current?1:0,Mathf.Max(0,dt)/AmbienceCrossfadeSeconds);
+    music[i].volume=volume*ambienceLevel[i];
    }
-   fade=Mathf.Min(1,fade+dt/3);float volume=master*bgm*.6f*(world!=null&&world.MapOpen?.65f:1);
-   music[current].volume=volume*fade;music[1-current].volume=volume*(1-fade);
-   if(fade>=1)music[1-current].Stop();
   }
   public void SetMaster(float value){master=Mathf.Clamp01(value);PlayerPrefs.SetFloat("audio.master",master);}
   public void SetEffects(float value){sfx=Mathf.Clamp01(value);PlayerPrefs.SetFloat("audio.sfx",sfx);}
   public void SetMusic(float value){bgm=Mathf.Clamp01(value);PlayerPrefs.SetFloat("audio.music",bgm);}
-  public void ReportAudio(string unused){Debug.Log("UNFIN_AUDIO_RUNTIME played="+PlayedCount+" voices="+ActiveVoices+" region="+region+" music="+(music[current].isPlaying?"playing":"stopped"));}
+  public void ReportAudio(string unused){Debug.Log("UNFIN_AUDIO_RUNTIME played="+PlayedCount+" voices="+ActiveVoices+" region="+region+" music="+(music[current].isPlaying?"playing":"stopped")+" ambience="+(music[current].clip!=null?music[current].clip.name:"missing")+" loop="+music[current].loop+" level0="+ambienceLevel[0].ToString("F3")+" level1="+ambienceLevel[1].ToString("F3"));}
   void OnApplicationFocus(bool value){focused=value;foreach(var a in voices)if(a!=null)a.Stop();foreach(var a in music)if(a!=null){if(value)a.UnPause();else a.Pause();}}
   void OnDestroy(){if(instance==this)instance=null;}
  }

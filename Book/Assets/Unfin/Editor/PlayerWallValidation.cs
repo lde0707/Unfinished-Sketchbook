@@ -16,7 +16,23 @@ namespace Unfin.Editor {
    for(int y=10;y<50;y++)m.cells[y*w.Data.width+100]=1;
    for(int x=80;x<120;x++)m.cells[50*w.Data.width+x]=1;
    void Step(int ms,int ix=0,int iy=0){for(int i=0;i<ms;i+=5){w.Simulate(.005f,ix,iy);p.Tick(.005f);}}
-   void Attach(int side){w.Respawn(side==1?99:101,35);m.x=side==1?100*16-GridMotor.Width:101*16;m.y=30*16;m.grounded=false;m.vy=80;Step(20,side);Check(w.OnWall&&w.WallSide==side,"attach "+side);Check(p.CurrentAnimation=="WallHold","hold drawing");}
+   void Attach(int side){w.Respawn(side==1?99:101,35);m.x=side==1?100*16-GridMotor.Width+GridMotor.SideInset-.5f:101*16-GridMotor.SideInset+.5f;m.y=30*16;m.grounded=false;m.vy=80;Step(20,side);Check(w.OnWall&&w.WallSide==side,"attach "+side);Check(p.CurrentAnimation=="WallHold","hold drawing");}
+   foreach(int side in new[]{1,-1}){
+    // Walk into the wall from a full tile away with no jump or climb input.
+    w.Respawn(side==1?98:102,50);m.x=side==1?98*16:102*16;
+    m.y=50*16-GridMotor.CollisionHeight;m.grounded=true;
+    Step(700,side);Check(w.OnWall&&w.WallSide==side,"ground approach auto attach "+side);
+    Check(p.CurrentAnimation=="WallHold","ground contact wall drawing");
+    m.grounded=true;int groundSerial=w.JumpSerial;w.RequestJump();Step(5,-side);
+    Check(w.JumpSerial==groundSerial+1&&m.vy<0&&Mathf.Sign(m.vx)==-side,"ground wall away jump");
+    // Air contact also attaches in the same simulation step as the collision.
+    w.Respawn(side==1?98:102,35);m.x=side==1?100*16-GridMotor.Width-2:101*16+2;
+    m.y=30*16;m.grounded=false;m.vx=side*100;m.vy=30;
+    for(int i=0;i<100&&!w.OnWall;i++){
+     Step(5,side);if(m.hitWall==side)Check(w.OnWall,"attach on contact tick");
+    }
+    Check(w.OnWall,"air approach auto attach "+side);
+   }
    foreach(int side in new[]{1,-1}){
     Attach(side);float y=m.y;Step(100);Check(Mathf.Abs(m.y-y)<.01f,"hold stable without input");
     Step(200,0,-1);Check(m.y<y-8&&p.CurrentAnimation=="WallClimb","climb up");
@@ -24,6 +40,17 @@ namespace Unfin.Editor {
     w.RequestJump();Step(5);Check(!w.OnWall&&m.vy<0&&Mathf.Sign(m.vx)==-side,"wall jump launches away");Check(p.CurrentAnimation=="MovingJump","jump drawing");
     Step(20,side);Check(!w.OnWall,"no instant regrab");
     Attach(side);Step(20,-side);Check(!w.OnWall&&m.vy>0&&p.CurrentAnimation=="Fall","release falls");
+    Attach(side);int awaySerial=w.JumpSerial;
+    w.RequestJump();Step(5,-side);
+    Check(w.JumpSerial==awaySerial+1&&!w.OnWall&&m.vy<0&&Mathf.Sign(m.vx)==-side,"simultaneous away + jump "+side);
+    Step(20,-side);Check(w.JumpSerial==awaySerial+1,"away jump consumed once");
+    Attach(side);Step(80,-side);awaySerial=w.JumpSerial;
+    w.RequestJump();Step(5,-side);
+    Check(w.JumpSerial==awaySerial+1&&m.vy<0&&Mathf.Sign(m.vx)==-side,"away before jump grace "+side);
+    Attach(side);Step(200,-side);awaySerial=w.JumpSerial;
+    w.RequestJump();Step(5,-side);Check(w.JumpSerial==awaySerial,"expired wall grace cannot jump");
+    Attach(side);w.Respawn(90,35);m.grounded=false;awaySerial=w.JumpSerial;
+    w.RequestJump();Step(5);Check(w.JumpSerial==awaySerial,"respawn clears wall grace");
     Attach(side);Check(w.RequestDash(-side),"wall dash accepted");Step(20,-side);Check(!w.OnWall&&p.CurrentAnimation=="Dash","wall dash drawing");
    }
    foreach(int side in new[]{1,-1}){
@@ -52,7 +79,7 @@ namespace Unfin.Editor {
    PaperSpriteValidation.Capture(w.worldCamera,"Validation/player-wall-hold.png");
    Step(200,0,-1);PaperSpriteValidation.Capture(w.worldCamera,"Validation/player-wall-climb.png");
    Array.Copy(original,m.cells,original.Length);
-   Directory.CreateDirectory("Validation");File.WriteAllText("Validation/player-wall-runtime.json","{\"passed\":true,\"checks\":[\"left/right attach\",\"hold\",\"climb up/down\",\"wall jump\",\"regrab lock\",\"six same-wall tap jumps on both sides\",\"buffered regrab jump\",\"release to fall\",\"dash\",\"top release\",\"bottom landing\"]}");
+   Directory.CreateDirectory("Validation");File.WriteAllText("Validation/player-wall-runtime.json","{\"passed\":true,\"checks\":[\"ground approach auto attach both walls\",\"ground wall away jump\",\"air contact immediate attach\",\"left/right attach\",\"hold\",\"climb up/down\",\"wall jump\",\"regrab lock\",\"six same-wall tap jumps on both sides\",\"buffered regrab jump\",\"away + jump both walls\",\"80ms delayed away jump\",\"expired grace\",\"respawn clears grace\",\"release to fall\",\"dash\",\"top release\",\"bottom landing\"]}");
    Debug.Log("UNFIN_WALL_RUNTIME_OK");
   }
  }

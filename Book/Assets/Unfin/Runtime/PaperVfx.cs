@@ -12,7 +12,7 @@ namespace Unfin
         int cursor,serial;
         WorldPrototype world;
         public int ActiveCount {get {int n=0;foreach(var p in particles)if(p!=null&&p.life>0)n++;return n;}}
-        sealed class Particle {public SpriteRenderer draw;public Vector2 velocity,scale;public float life,duration,spin,growth;public Color color;}
+        sealed class Particle {public SpriteRenderer draw;public Vector2 velocity,scale;public float life,duration,spin,growth,gravity;public Color color;}
         static readonly string[] Names={"dirt_01","dirt_02","smoke_01","smoke_04","dirt_03","trace_01"};
         public static PaperVfx Get()
         {
@@ -38,8 +38,19 @@ namespace Unfin
         {
             var p=particles[cursor++%Capacity];p.draw.sprite=sprites[sprite];p.draw.enabled=true;
             p.draw.transform.position=position;p.draw.transform.rotation=Quaternion.Euler(0,0,rotation);
-            p.velocity=velocity;p.scale=scale;p.life=p.duration=duration;p.spin=Range(-60,60);p.growth=sprite<4?.8f:.1f;
+            p.velocity=velocity;p.gravity=0;p.scale=scale;p.life=p.duration=duration;p.spin=Range(-60,60);p.growth=sprite<4?.8f:.1f;
             p.color=new Color(.64f,.60f,.52f,alpha);p.draw.color=p.color;p.draw.transform.localScale=new Vector3(scale.x,scale.y,1);
+        }
+        public int BrokenTileBursts {get;private set;}
+        public void BreakTile(Vector2 center,int type,int pieces=5)
+        {
+            BrokenTileBursts++;
+            Color tint=type==2?new Color(.39f,.36f,.33f):type==5?new Color(.46f,.51f,.38f):type==13?new Color(.63f,.53f,.38f):type==15||type==18?new Color(.61f,.42f,.32f):new Color(.60f,.54f,.43f);
+            for(int i=0;i<pieces;i++){
+                bool smoke=i==0;int slot=cursor%Capacity;
+                Add(smoke?3:i%2,center+new Vector2(Range(-.35f,.35f),Range(-.22f,.22f)),new Vector2(Range(-1.8f,1.8f),Range(.5f,2.2f)),smoke?new Vector2(.8f,.55f):new Vector2(Range(.12f,.25f),Range(.09f,.18f)),Range(.35f,.68f),smoke?.38f:.75f,Range(0,360));
+                var p=particles[slot];p.color=new Color(tint.r,tint.g,tint.b,smoke?.38f:.75f);p.gravity=smoke?.2f:5;p.spin=Range(-210,210);p.growth=smoke?1.1f:-.2f;
+            }
         }
         public void Dust(Vector2 feet,float strength,int direction=0,bool prominent=false)
         {
@@ -50,8 +61,10 @@ namespace Unfin
         }
         public void Hit(Vector2 point,int facing)
         {
-            Add(4,point,Vector2.zero,new Vector2(.65f,.5f),.12f,.48f,Range(0,180));
-            for(int i=0;i<5;i++)Add(i%2,point,new Vector2(facing*Range(.4f,2),Range(-.8f,1.2f)),Vector2.one*Range(.24f,.48f),Range(.18f,.3f),.52f,Range(0,360));
+            Add(4,point,Vector2.zero,new Vector2(.95f,.75f),.16f,.52f,Range(0,180));
+            for(int i=0;i<2;i++)Add(5,point,new Vector2(facing*.3f,0),new Vector2(.8f,.28f),.13f,.48f,i==0?35:-55);
+            for(int i=0;i<2;i++)Add(3,point,new Vector2(facing*Range(.1f,.5f),Range(.15f,.5f)),Vector2.one*Range(.5f,.75f),.32f,.38f);
+            for(int i=0;i<8;i++)Add(i%2,point,new Vector2(facing*Range(.4f,2.3f),Range(-1,1.4f)),Vector2.one*Range(.28f,.5f),Range(.22f,.38f),.52f,Range(0,360));
         }
         public void Swing(Vector2 point,int facing)
         {
@@ -80,7 +93,7 @@ namespace Unfin
         public void Tick(float dt)
         {
             foreach(var p in particles){if(p.life<=0)continue;p.life-=dt;if(p.life<=0){p.draw.enabled=false;continue;}
-                float age=1-p.life/p.duration;var t=p.draw.transform;t.position+=(Vector3)(p.velocity*dt);t.Rotate(0,0,p.spin*dt);
+                float age=1-p.life/p.duration;var t=p.draw.transform;p.velocity+=Vector2.down*(p.gravity*dt);t.position+=(Vector3)(p.velocity*dt);t.Rotate(0,0,p.spin*dt);
                 t.localScale=new Vector3(p.scale.x*(1+age*p.growth),p.scale.y*(1+age*p.growth),1);
                 var color=p.color;color.a*=1-age*age;p.draw.color=color;
             }

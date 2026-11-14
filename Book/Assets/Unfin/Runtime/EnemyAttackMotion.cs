@@ -14,19 +14,29 @@ namespace Unfin
         {
             switch(id)
             {
-                case "COMMON01":return new Profile(3.3f);
-                case "COMMON02":return new Profile(2.6f,0,1.4f);
+                case "COMMON01":return new Profile(4.4f);
+                case "COMMON02":return new Profile(3.4f,0,2.2f);
                 case "R101":return new Profile(1.1f);
                 case "R103":return new Profile(1.3f);
                 case "A01":return new Profile(.65f);
-                case "A02":return new Profile(2.8f,.9f);
+                case "A02":return new Profile(3f,1.5f);
                 case "B01":return new Profile(.9f,.35f);
                 case "B02":return new Profile(2.1f);
-                case "B03":return new Profile(0,0,3.5f);
-                case "C01":return new Profile(0,0,2.2f);
-                case "C02":return new Profile(2.2f,.75f);
-                case "C03":return new Profile(3.4f);
+                case "B03":return new Profile(0,0,5f);
+                case "C01":return new Profile(0,0,3.2f);
+                case "C02":return new Profile(3.5f,1.2f);
+                case "C03":return new Profile(4.6f);
                 case "D01":return new Profile(.9f);
+                case "R201":return new Profile(.35f);
+                case "R203":return new Profile(6,0,6);
+                case "E01":return new Profile(3.8f);
+                case "E03":return new Profile(6);
+                case "F01":return new Profile(.3f);
+                case "F02":return new Profile(.5f);
+                case "G01":return new Profile(3,1.2f);
+                case "G02":return new Profile(1.1f);
+                case "H01":return new Profile(.5f);
+                case "H02":return new Profile(.8f);
                 default:return new Profile(0);
             }
         }
@@ -38,8 +48,14 @@ namespace Unfin
             float recovery=Mathf.Clamp01((time-start-durations[2])/durations[3]);
             return new Vector2(facing*p.distance*t,p.arc*4*t*(1-t)-p.drop*Mathf.SmoothStep(0,1,t)*(1-Mathf.SmoothStep(0,1,recovery)));
         }
-        // Lock the player's position during the telegraph; the charge stays
-        // dodgeable rather than steering after the player throughout the strike.
+        public static Bounds StrikeBounds(Bounds body,float reach,int facing)
+        {
+            reach=Mathf.Max(0,reach);
+            body.Expand(new Vector3(reach,0,0));
+            body.center+=Vector3.right*facing*reach*.5f;
+            return body;
+        }
+        // The caller locks this aim before the strike; no homing during the charge.
         public static Vector2 Aim(Profile p,Vector2 delta)
         {
             return Vector2.ClampMagnitude(delta,Mathf.Max(p.distance,p.drop));

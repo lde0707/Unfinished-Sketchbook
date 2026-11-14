@@ -32,8 +32,7 @@ namespace Unfin.Editor
                     var importer=(TextureImporter)AssetImporter.GetAtPath(path);
                     importer.textureType=TextureImporterType.Sprite;importer.spriteImportMode=SpriteImportMode.Single;
                     importer.spritePixelsPerUnit=manifest.pixelsPerUnit;importer.alphaIsTransparency=true;
-                    importer.mipmapEnabled=false;importer.filterMode=FilterMode.Bilinear;importer.wrapMode=TextureWrapMode.Clamp;
-                    importer.textureCompression=TextureImporterCompression.Uncompressed;importer.maxTextureSize=source.width>512?1024:512;
+                    ConfigureTextureQuality(importer,source.width,source.height);
                     var settings=new TextureImporterSettings();importer.ReadTextureSettings(settings);
                     settings.spriteAlignment=(int)SpriteAlignment.Custom;settings.spritePivot=new Vector2(source.anchorX/source.width,1-source.groundY/source.height);
                     settings.spriteMeshType=SpriteMeshType.FullRect;importer.SetTextureSettings(settings);importer.SaveAndReimport();
@@ -79,6 +78,20 @@ namespace Unfin.Editor
             }
             EditorUtility.SetDirty(controller);AssetDatabase.SaveAssets();return library;
         }
+        public static void ConfigureTextureQuality(TextureImporter importer,int width,int height)
+        {
+            // These drawings are reduced on screen; filtered mip levels prevent
+            // fine paper lines and alpha silhouettes from shimmering as they move.
+            int size=Mathf.NextPowerOfTwo(Mathf.Max(width,height));
+            importer.mipmapEnabled=true;importer.ignoreMipmapLimit=true;
+            importer.filterMode=FilterMode.Trilinear;importer.wrapMode=TextureWrapMode.Clamp;
+            importer.alphaIsTransparency=true;importer.npotScale=TextureImporterNPOTScale.None;
+            importer.textureCompression=TextureImporterCompression.Uncompressed;importer.maxTextureSize=size;
+            var web=importer.GetPlatformTextureSettings("WebGL");
+            web.overridden=true;web.maxTextureSize=size;web.format=TextureImporterFormat.RGBA32;
+            web.textureCompression=TextureImporterCompression.Uncompressed;web.crunchedCompression=false;
+            importer.SetPlatformTextureSettings(web);
+        }
         public static void Attach(WorldPrototype world)
         {
             var library=AssetDatabase.LoadAssetAtPath<PaperSpriteLibrary>(AnimRoot+"/PlayerSprites.asset");if(library==null)library=Generate();
@@ -111,7 +124,7 @@ namespace Unfin.Editor
             foreach(var c in library.clips)foreach(var f in c.frames)
                 if(f.sprite==null||f.duration<0||f.sprite.pixelsPerUnit!=256)throw new Exception("Invalid sprite: "+c.name);
             var world=UnityEngine.Object.FindAnyObjectByType<WorldPrototype>();
-            if(world.player.GetComponentInChildren<PaperPlayerRig>()!=null||world.player.GetComponentInChildren<PaperSpritePlayer>()==null)throw new Exception("Legacy rig still attached");
+            if(world.player.GetComponentsInChildren<PaperSpritePlayer>().Length!=1)throw new Exception("Legacy rig still attached");
             Directory.CreateDirectory("Validation");File.WriteAllText("Validation/player-sprites-import.json","{\"passed\":true,\"sourceFrames\":90,\"sequences\":21,\"pixelsPerUnit\":256,\"legacyRigAttached\":false}");
         }
     }

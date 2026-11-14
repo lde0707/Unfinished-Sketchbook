@@ -1,0 +1,12 @@
+const fs=require('fs'),path=require('path'),assert=require('assert/strict');
+const {chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
+(async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--enable-webgl','--use-angle=swiftshader','--enable-unsafe-swiftshader']});try{
+ const page=await browser.newPage({viewport:{width:1200,height:800}}),errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(/Exception|Shader.*error/i.test(m.text()))errors.push(m.text())});
+ await page.route(u=>u.pathname==='/',async r=>{const response=await r.fetch();await r.fulfill({response,body:(await response.text()).replace('function resizeGameBuffer(){','function resizeGameBuffer(){canvas.width=960;canvas.height=540;return;')})});
+ await page.goto('http://127.0.0.1:8080/?v=pickup-glimmer-20261023&spawn=187,132');await page.waitForFunction(()=>!!window.unityInstance,{},{timeout:240000});await page.locator('#unity-canvas').click();await page.waitForTimeout(6500);
+ const spawn=async pos=>{await page.evaluate(pos=>unityInstance.SendMessage('World Prototype','PreviewPosition',pos),pos);await page.waitForTimeout(2000)};
+ const capture=async name=>{const png=await page.evaluate(async()=>{await new Promise(requestAnimationFrame);return document.querySelector('#unity-canvas').toDataURL('image/png')});fs.writeFileSync('Book/Validation/pickup-'+name+'.png',Buffer.from(png.split(',')[1],'base64'))};
+ await spawn('187,132');await capture('item-idle');await page.keyboard.down('d');await page.waitForTimeout(3500);await page.keyboard.up('d');await page.waitForTimeout(1800);await capture('item-collected');
+ await spawn('40,128');await page.waitForTimeout(1000);await spawn('250,131');await capture('portal-idle');await page.keyboard.down('w');await page.waitForTimeout(5000);await page.keyboard.up('w');await page.waitForTimeout(1800);await capture('portal-arrived');
+ assert.deepEqual(errors,[]);fs.writeFileSync('Book/Validation/pickup-art-web.json',JSON.stringify({passed:true,errors,checks:['actual WebGL collectible and portal render','walk into healing pickup','visit and enter paired portal'],exactAnimationTimings:'Verified by native PickupArtIntegration validation'},null,2));console.log('PICKUP_ART_WEB_OK');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});

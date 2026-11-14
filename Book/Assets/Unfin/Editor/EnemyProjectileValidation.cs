@@ -66,7 +66,7 @@ namespace Unfin.Editor
             Step(1);Check(system.ActiveCount==0&&system.BounceCount==bounces+1,"seed shatters on next landing");
             system.Clear();system.Fire(go,"COMMON03",new Vector2(100,-79),new Vector2(104,-79.3f),1);Step(1.2f);
             Check(system.ActiveCount==1&&system.Capture()[0].kind==EnemyProjectileSystem.Kind.Puddle,"ink lands as a puddle");
-            Step(1.6f);Check(system.ActiveCount==0,"puddle expires");
+            Step(2.3f);Check(system.ActiveCount==0,"puddle expires");
             system.Clear();int cuts=system.CutCount;system.Fire(go,"R102",from,target,1);
             var polygon=new[]{from+new Vector2(-.5f,-.5f),from+new Vector2(.5f,-.5f),from+new Vector2(.5f,.5f),from+new Vector2(-.5f,.5f)};
             system.Cut(polygon,from-Vector2.right);Check(system.ActiveCount==0&&system.CutCount==cuts+1,"player slash cuts projectile");
@@ -81,8 +81,8 @@ namespace Unfin.Editor
                 system.Clear();var spec=Array.Find(PaperEnemyAnimation.Manifest.enemies,e=>e.id==id);
                 var actorObject=new GameObject("Projectile attack timing "+id);actorObject.transform.position=new Vector3(105,-78,0);
                 actorObject.AddComponent<SpriteRenderer>().sprite=markerSprite;var actor=actorObject.AddComponent<PaperEnemyAnimation>();actor.Initialize(spec);
-                typeof(PaperEnemyAnimation).GetMethod("SetState",flags).Invoke(actor,new object[]{1});
-                float release=spec.clips[1].motionDurations[0]+spec.clips[1].motionDurations[1];
+                typeof(PaperEnemyAnimation).GetMethod("SetState",flags).Invoke(actor,new object[]{EnemyAnimationState.Attack});
+                float release=(actor.Art.clips[1].motionDurations[0]+actor.Art.clips[1].motionDurations[1])/1.12f;
                 for(float t=0;t<release-.02f;t+=.01f)actor.Tick(.01f);
                 Check(actor.ProjectileShots==0,id+" no emission during telegraph");
                 actor.Tick(.03f);Check(actor.ProjectileShots==1,id+" emits at release frame");

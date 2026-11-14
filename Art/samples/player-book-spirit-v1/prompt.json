@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "references": [
+    "Art/samples/player-paper-wisp-v1/paper-wisp.png",
+    "Art/room-backdrops-v1/A-paper.png"
+  ]
+}

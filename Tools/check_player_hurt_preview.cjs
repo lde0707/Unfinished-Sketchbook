@@ -1,0 +1,26 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const {chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
+(async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});try{
+ const page=await browser.newPage({viewport:{width:1200,height:1000}}),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:8093/player-hurt-v1/preview.html');await page.waitForFunction(()=>window.previewReady);
+ await page.evaluate(()=>{auto=false;paused=true;time=0;frame=0;render()});
+ assert.equal(await page.evaluate(()=>previewState.locked),true);
+ await page.evaluate(()=>{time=.11;frame=2;render()});assert.equal(await page.evaluate(()=>previewState.locked),false);
+ await page.locator('#stage').screenshot({path:'Book/Validation/player-hurt-preview.png'});
+ const before=await page.evaluate(()=>x);
+ await page.evaluate(()=>{time=0;frame=0;paused=false;keys.add('d')});await page.waitForTimeout(45);
+ assert.equal(await page.evaluate(()=>x),before,'movement blocked during first impact');
+ await page.waitForTimeout(300);assert.ok(await page.evaluate(()=>x)>before,'movement resumes after brief lock');
+ await page.keyboard.down('h');await page.keyboard.up('h');await page.waitForTimeout(350);
+ assert.equal(await page.evaluate(()=>previewState.phase),'idle');
+ await page.evaluate(()=>{keys.clear();time=-1;hit();paused=true;time=.025;feedbackTime=.025;frame=0;render()});
+ const highlighted=await page.evaluate(()=>c.toDataURL());
+ await page.locator('#stage').screenshot({path:'Book/Validation/player-hurt-impact.png'});
+ await page.locator('#feedback').click();await page.evaluate(()=>render());
+ assert.notEqual(await page.evaluate(()=>c.toDataURL()),highlighted,'feedback adds visible pixels');
+ await page.locator('#feedback').click();
+ await page.evaluate(()=>{time=.15;feedbackTime=.15;frame=2;render()});
+ await page.locator('#stage').screenshot({path:'Book/Validation/player-hurt-recovery.png'});
+ assert.deepEqual(errors,[]);fs.writeFileSync('Book/Validation/player-hurt-preview.json',JSON.stringify({passed:true,actionLock:.1,duration:.22,frames:4,errors,scope:'Animation design preview only; Unity runtime unchanged.'},null,2));console.log('PLAYER_HURT_PREVIEW_OK');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});

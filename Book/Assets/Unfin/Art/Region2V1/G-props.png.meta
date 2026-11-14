@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 781ea71227e75a74ca263618634e4acb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3660181895211648140
+    second: G-props_0
+  - first:
+      213: 6904304468922429257
+    second: G-props_1
+  - first:
+      213: 4903158356410584916
+    second: G-props_2
+  - first:
+      213: -6077106005316037467
+    second: G-props_3
+  - first:
+      213: -1242440200822530784
+    second: G-props_4
+  - first:
+      213: -5006329879744789424
+    second: G-props_5
+  - first:
+      213: 7813156714417061387
+    second: G-props_6
+  - first:
+      213: -3929851687017813158
+    second: G-props_7
+  - first:
+      213: 8844227123063268827
+    second: G-props_8
+  - first:
+      213: -8355483456147952728
+    second: G-props_9
+  - first:
+      213: -4246486433768993700
+    second: G-props_10
+  - first:
+      213: -2306575394179172461
+    second: G-props_11
+  - first:
+      213: 4636812723797579749
+    second: G-props_12
+  - first:
+      213: -9059170936371316569
+    second: G-props_13
+  - first:
+      213: -8482933904447092357
+    second: G-props_14
+  - first:
+      213: 4887786421723483136
+    second: G-props_15
+  - first:
+      213: 6256670179556253816
+    second: G-props_16
+  - first:
+      213: 4124486817605451980
+    second: G-props_17
+  - first:
+      213: -8682280952267709916
+    second: G-props_18
+  - first:
+      213: 3249170553826065916
+    second: G-props_19
+  - first:
+      213: -4122352290505445963
+    second: G-props_20
+  - first:
+      213: -2802270013491973248
+    second: G-props_21
+  - first:
+      213: 3567193378827266501
+    second: G-props_22
+  - first:
+      213: -616822258513744873
+    second: G-props_23
+  - first:
+      213: -3270031324536712964
+    second: G-props_24
+  - first:
+      213: -4622307277800340898
+    second: G-props_25
+  - first:
+      213: -8428635165067711075
+    second: G-props_26
+  - first:
+      213: 1727108203483050913
+    second: G-props_27
+  - first:
+      213: -6761740155338947882
+    second: G-props_28
+  - first:
+      213: 7880488305489226220
+    second: G-props_29
+  - first:
+      213: 2547656746240082202
+    second: G-props_30
+  - first:
+      213: 80804992870244894
+    second: G-props_31
+  - first:
+      213: -4411023361712966649
+    second: G-props_32
+  - first:
+      213: -7750539584709706299
+    second: G-props_33
+  - first:
+      213: -6253304400224338178
+    second: G-props_34
+  - first:
+      213: -6600718121249360817
+    second: G-props_35
+  - first:
+      213: 9072720848534486180
+    second: G-props_36
+  - first:
+      213: -8252111938171221540
+    second: G-props_37
+  - first:
+      213: -6696522687989337516
+    second: G-props_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: G-props_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 673
+        width: 891
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47bf79275fb643dc0800000000000000
+      internalID: -3660181895211648140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_1
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 1508
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f634b755401df50800000000000000
+      internalID: 6904304468922429257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_2
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1525
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45f475f0c848b0440800000000000000
+      internalID: 4903158356410584916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1209
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a49eba3948c9aba0800000000000000
+      internalID: -6077106005316037467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_4
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 673
+        width: 732
+        height: 843
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02dde475837f1cee0800000000000000
+      internalID: -1242440200822530784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_5
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 688
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0544361cf71f58ab0800000000000000
+      internalID: -5006329879744789424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_6
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 693
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0e7949c2a8ed6c60800000000000000
+      internalID: 7813156714417061387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_7
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 683
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5b655f36bc5679c0800000000000000
+      internalID: -3929851687017813158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_8
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 691
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd5af0fa5b10dba70800000000000000
+      internalID: 8844227123063268827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_9
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 678
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8abe5add01c5b0c80800000000000000
+      internalID: -8355483456147952728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_10
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 683
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c0fab56137115c0800000000000000
+      internalID: -4246486433768993700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_11
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 675
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3973b4656e56dffd0800000000000000
+      internalID: -2306575394179172461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_12
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 669
+        width: 6
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e757fbfa94495040800000000000000
+      internalID: 4636812723797579749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_13
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 683
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a87b0ae70c574280800000000000000
+      internalID: -9059170936371316569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_14
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 676
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b794054fe80964a80800000000000000
+      internalID: -8482933904447092357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 782
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c4ecc9ad7e4d340800000000000000
+      internalID: 4887786421723483136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_16
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 671
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870ea39016824d650800000000000000
+      internalID: 6256670179556253816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 671
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0872c78ee1d3930800000000000000
+      internalID: 4124486817605451980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_18
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 0
+        width: 767
+        height: 677
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42261ff7977528780800000000000000
+      internalID: -8682280952267709916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_19
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 673
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfd3673676f571d20800000000000000
+      internalID: 3249170553826065916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_20
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 67
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bda765de667ac6c0800000000000000
+      internalID: -4122352290505445963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_21
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 65
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 083f41115465c19d0800000000000000
+      internalID: -2802270013491973248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_22
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 70
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9ef1e6a77318130800000000000000
+      internalID: 3567193378827266501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_23
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 70
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71cebb78c6b9077f0800000000000000
+      internalID: -616822258513744873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_24
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 60
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf0d690f5d38e92d0800000000000000
+      internalID: -3270031324536712964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_25
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 43
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e52020855044adfb0800000000000000
+      internalID: -4622307277800340898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_26
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 13
+        width: 51
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9de5c469f8770b80800000000000000
+      internalID: -8428635165067711075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_27
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 21
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a3354da2cbe7f710800000000000000
+      internalID: 1727108203483050913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_28
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 23
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d2078967297922a0800000000000000
+      internalID: -6761740155338947882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_29
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 40
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce92e497c5e1d5d60800000000000000
+      internalID: 7880488305489226220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_30
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 25
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11844900581b5320800000000000000
+      internalID: 2547656746240082202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_31
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 39
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e12eb1086b31f1100800000000000000
+      internalID: 80804992870244894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_32
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 17
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70436258f95e8c2c0800000000000000
+      internalID: -4411023361712966649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_33
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 28
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cd36c3df4d807490800000000000000
+      internalID: -7750539584709706299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_34
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 33
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efebd3887ccc739a0800000000000000
+      internalID: -6253304400224338178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_35
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 24
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f44b27047d98564a0800000000000000
+      internalID: -6600718121249360817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_36
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 23
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4acbd2bda87c8ed70800000000000000
+      internalID: 9072720848534486180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_37
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 23
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd94b8ee9eb9a7d80800000000000000
+      internalID: -8252111938171221540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G-props_38
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 25
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4523d00581c2113a0800000000000000
+      internalID: -6696522687989337516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      G-props_0: -3660181895211648140
+      G-props_1: 6904304468922429257
+      G-props_10: -4246486433768993700
+      G-props_11: -2306575394179172461
+      G-props_12: 4636812723797579749
+      G-props_13: -9059170936371316569
+      G-props_14: -8482933904447092357
+      G-props_15: 4887786421723483136
+      G-props_16: 6256670179556253816
+      G-props_17: 4124486817605451980
+      G-props_18: -8682280952267709916
+      G-props_19: 3249170553826065916
+      G-props_2: 4903158356410584916
+      G-props_20: -4122352290505445963
+      G-props_21: -2802270013491973248
+      G-props_22: 3567193378827266501
+      G-props_23: -616822258513744873
+      G-props_24: -3270031324536712964
+      G-props_25: -4622307277800340898
+      G-props_26: -8428635165067711075
+      G-props_27: 1727108203483050913
+      G-props_28: -6761740155338947882
+      G-props_29: 7880488305489226220
+      G-props_3: -6077106005316037467
+      G-props_30: 2547656746240082202
+      G-props_31: 80804992870244894
+      G-props_32: -4411023361712966649
+      G-props_33: -7750539584709706299
+      G-props_34: -6253304400224338178
+      G-props_35: -6600718121249360817
+      G-props_36: 9072720848534486180
+      G-props_37: -8252111938171221540
+      G-props_38: -6696522687989337516
+      G-props_4: -1242440200822530784
+      G-props_5: -5006329879744789424
+      G-props_6: 7813156714417061387
+      G-props_7: -3929851687017813158
+      G-props_8: 8844227123063268827
+      G-props_9: -8355483456147952728
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

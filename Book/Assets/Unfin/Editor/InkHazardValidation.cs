@@ -21,7 +21,7 @@ namespace Unfin.Editor {
    for(int i=0;i<12;i++)w.Simulate(1f/120,1,0);
    if(w.Motor.x<=position)throw new Exception("Movement failed after release");
    if(Resources.Load<Shader>("InkDepth")==null)throw new Exception("Missing ink depth shader");
-   Directory.CreateDirectory("Validation");File.WriteAllText("Validation/ink-hazard.json","{\"passed\":true,\"sinkSeconds\":0.55,\"respawnsWhileHoldingFor4Seconds\":1,\"safeBankReturn\":true,\"releaseToRearm\":true}");
+   Directory.CreateDirectory("Validation");File.WriteAllText("Validation/ink-hazard.json","{\"passed\":true,\"deathSeconds\":0.83,\"reviveSeconds\":0.71,\"respawnsWhileHoldingFor4Seconds\":1,\"safeInitialAnchor\":true,\"releaseToRearm\":true}");
    Debug.Log("UNFIN_INK_HAZARD_OK");EditorSceneManager.OpenScene(WorldPrototypeBuilder.ScenePath);
   }
  }

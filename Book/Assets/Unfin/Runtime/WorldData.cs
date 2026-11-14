@@ -17,6 +17,7 @@ namespace Unfin
     }
     [Serializable] public class WorldData
     {
+        public bool isPrologue;
         public int schema, width, height, htmlTileSize, tilePixels, pixelsPerUnit;
         public int referenceWidth, referenceHeight, regionX, startX, startFloor;
         public float orthographicSize;
@@ -67,8 +68,12 @@ namespace Unfin
         // Keep the sprite anchor unchanged. The smaller collision box lets the
         // painted feet/body overlap the 1.5–12px recessed terrain edge slightly.
         // One logical pixel is eight terrain pixels; never trace every small bump.
-        public const float SideInset = 1, FootInset = 1;
+        public const float BodyScale=.7f;
+        public const float SideInset = (Width-(Width-2)*BodyScale)*.5f, FootInset = 1;
         public const float CollisionHeight = Height - FootInset;
+        public const float TopInset=CollisionHeight*(1-BodyScale),BodyHeight=CollisionHeight*BodyScale;
+        public float Top=>y+TopInset;
+        public Bounds WorldBounds=>new Bounds(new Vector3((Left+Right)/32,-(Top+Bottom)/32,0),new Vector3((Right-Left)/16,BodyHeight/16,.1f));
         public float Left => x + SideInset;
         public float Right => x + Width - SideInset;
         public float Bottom => y + CollisionHeight;
@@ -100,8 +105,8 @@ namespace Unfin
         }
         public int TouchingWall()
         {
-            return Column(Mathf.FloorToInt((Right + 1) / 16), y + 3, 16) ? 1 :
-                Column(Mathf.FloorToInt((Left - 1) / 16), y + 3, 16) ? -1 : 0;
+            return Column(Mathf.FloorToInt((Right + 1) / 16), Top + 2, BodyHeight-4) ? 1 :
+                Column(Mathf.FloorToInt((Left - 1) / 16), Top + 2, BodyHeight-4) ? -1 : 0;
         }
         public void SnapToWall(int side)
         {
@@ -113,14 +118,14 @@ namespace Unfin
             hitWall = 0; grounded = false; dropTime -= dt;
             x += vx * dt;
             int tx = Mathf.FloorToInt((vx > 0 ? Right - .01f : Left) / 16);
-            if (vx != 0 && Column(tx, y, CollisionHeight))
+            if (vx != 0 && Column(tx, Top, BodyHeight))
             { hitWall = vx > 0 ? 1 : -1; x = vx > 0 ? tx * 16 - Width + SideInset : (tx + 1) * 16 - SideInset; vx = 0; }
             float previousBottom = Bottom;
             y += vy * dt;
-            int ty = Mathf.FloorToInt((vy > 0 ? Bottom - .01f : y) / 16);
+            int ty = Mathf.FloorToInt((vy > 0 ? Bottom - .01f : Top) / 16);
             if (vy > 0 && (Row(ty, false) || (dropTime <= 0 && Row(ty, true) && previousBottom <= ty * 16 + .5f)))
             { y = ty * 16 - CollisionHeight; vy = 0; grounded = true; }
-            else if (vy < 0 && Row(ty, false)) { y = (ty + 1) * 16; vy = 0; }
+            else if (vy < 0 && Row(ty, false)) { y = (ty + 1) * 16-TopInset; vy = 0; }
         }
     }
 }

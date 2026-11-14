@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101114">
   <link rel="icon" href="data:,">
-  <title>Unfinished Sketchbook · World 1 + 2</title>
+  <title>Stilldrawn</title>
   <style>
     *{box-sizing:border-box}body{margin:0;background:#101114;color:#dedbd3;font:14px/1.6 system-ui,sans-serif}
     main{max-width:min(1600px,calc((100dvh - 190px) * 16 / 9 + 48px));margin:auto;padding:20px 24px}header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
@@ -19,46 +19,64 @@
     #error{white-space:pre-wrap;color:#e4a9a5!important;max-width:600px}#hint{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);background:#101114d9;padding:7px 15px;border-radius:4px;pointer-events:none;white-space:nowrap;color:#c7c8bd}
     footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:#aaa99f;margin-top:12px}footer p{margin:0}kbd{color:#eee9df;font:inherit}small{display:block;color:#777c7c;margin-top:7px}
     @media(max-width:650px){main{padding:12px;max-width:100%}h1{font-size:15px}header p{font-size:11px}button{padding:7px 10px}footer{font-size:12px}}
+    body{height:100dvh;display:grid;place-items:center;overflow:hidden;background:#05090d}
+    main{width:100%;max-width:none;margin:0;padding:0}header,footer,details,main>small{display:none}
+    #stage{--render-aspect:1.777777778;width:min(100vw,calc(100dvh * var(--render-aspect)));height:min(100dvh,calc(100vw / var(--render-aspect)));margin:auto;border:0;display:grid;place-items:center}
+    #stage:fullscreen{width:100vw;height:100dvh}
+    #stage:fullscreen canvas{width:min(100vw,calc(100dvh * var(--render-aspect)));height:min(100dvh,calc(100vw / var(--render-aspect)))}
+    #fullscreen{position:absolute;right:12px;bottom:8px;z-index:5;background:#0b141a88;border:1px solid #ccd0ba33;color:#c8ccbd;border-radius:0;font-size:11px;padding:5px 10px;opacity:.55}
+    #fullscreen:hover,#fullscreen:focus-visible{opacity:1}
+    #loading{background:#081017 url('cover.png') center/cover no-repeat;color:#e2dcc9}
+    #loading:before{content:'';position:absolute;inset:0;background:#050d16a8;z-index:0}#loading>*{position:relative;z-index:1}
+    @font-face{font-family:StilldrawnLatin;src:url('Marcellus-Regular.ttf') format('truetype');font-display:swap}#loadingLogo{width:min(560px,68vw);height:auto;margin:auto}#loading strong{font:400 17px system-ui,sans-serif;letter-spacing:.06em}#loading progress{accent-color:#bcb08b}
+    #hint{display:none}
   </style>
 </head>
 <body>
 <main>
-  <header><div><h1>UNFINISHED SKETCHBOOK</h1><p>World 1 + 2 · Unity 맵 프로토타입</p></div><button id="fullscreen" disabled>전체 화면</button></header>
+  <header><div><h1>UNFINISHED SKETCHBOOK</h1><p>World 1 + 2 · 발견하고 돌아오는 탐험</p></div></header>
   <div id="stage">
+    <button id="fullscreen" disabled>전체 화면 ↗</button>
     <canvas id="unity-canvas" width="1920" height="1080" tabindex="0" aria-label="World 1과 World 2 게임 화면"></canvas>
-    <div id="loading" role="status" aria-live="polite"><strong id="status">월드를 불러오는 중</strong><progress id="progress" max="1" value="0"></progress><p id="percent">0%</p><p id="error" hidden></p></div>
+    <div id="loading" role="status" aria-live="polite"><img id="loadingLogo" src="stilldrawn-logo-v1.png" alt="Stilldrawn"><strong id="status">페이지를 펼치는 중</strong><progress id="progress" max="1" value="0"></progress><p id="percent">페이지를 펼치는 중 · 0%</p><p id="error" hidden></p></div>
     <div id="hint" hidden>화면을 클릭한 후 키보드로 플레이하세요</div>
   </div>
   <footer><p><kbd>A D / ← →</kbd> 이동 · <kbd>Space</kbd> 점프 · <kbd>Shift</kbd> 대시 · <kbd>J / 클릭</kbd> 공격 · <kbd>S + Space</kbd> 발판 내려가기</p><p><kbd>1 / 2</kbd> 지역 이동 · <kbd>M</kbd> 지도 · <kbd>F</kbd> 비행 · <kbd>E</kbd> 게이트 열기 · <kbd>R</kbd> 초기화</p></footer>
   <details><summary>소리 설정 · 음원 출처</summary><label>전체 <input id="audioMaster" type="range" min="0" max="1" step="0.01" value="0.7"></label> <label>효과음 <input id="audioEffects" type="range" min="0" max="1" step="0.01" value="0.65"></label> <label>배경음 <input id="audioMusic" type="range" min="0" max="1" step="0.01" value="0.32"></label><p>CC0: Kenney RPG Audio / Impact Sounds · Deep Humidity — TinyWorlds · Searching — yd</p></details>
-  <small>벽 방향으로 붙기 · W/S 또는 ↑/↓ 벽 이동 · Space 벽 점프 · 반대 방향으로 놓기<br>PC 키보드 조작 · 16:9 시야 유지 · 적 표식에 공격 판정·피격 표시 적용 · 적 AI·체력·저장 미구현</small>
+  <small>능력을 얻으면 처음에 지나쳤던 길을 다시 살펴보세요. M 지도 · K 패링 · L 회복 · W 길게 리본 이동<br>미니맵의 주황 표시는 막힌 길, 청록 표시는 다시 탐험할 수 있는 길입니다.</small>
 </main>
 <script>
   const canvas=document.querySelector('#unity-canvas'),stage=document.querySelector('#stage'),loading=document.querySelector('#loading'),hint=document.querySelector('#hint');
   const full=document.querySelector('#fullscreen'),bar=document.querySelector('#progress'),percent=document.querySelector('#percent');
+  // Keep logical gameplay at 16:9; selected buffer dimensions control GPU work.
+  function resizeGameBuffer(){
+    const r=window.stilldrawnResolution||{width:1920,height:1080};
+    // CSS fits the visible canvas immediately, even while a heavy WebGL frame
+    // delays the resize event. The selected render buffer stays independent.
+    stage.style.setProperty('--render-aspect',String(r.width/r.height));
+    if(canvas.width!==r.width||canvas.height!==r.height){canvas.width=r.width;canvas.height=r.height;}
+  }
+  window.resizeStilldrawn=resizeGameBuffer;
+  resizeGameBuffer();
+  window.addEventListener('resize',resizeGameBuffer);
   function fail(message){loading.hidden=false;document.querySelector('#status').textContent='게임을 불러오지 못했습니다';bar.hidden=true;percent.hidden=true;const e=document.querySelector('#error');e.hidden=false;e.textContent=message+'\n새로고침 후 다시 시도해 주세요.';}
   const config={
     dataUrl:'Build/{{{ DATA_FILENAME }}}',frameworkUrl:'Build/{{{ FRAMEWORK_FILENAME }}}',codeUrl:'Build/{{{ CODE_FILENAME }}}',
-    streamingAssetsUrl:'StreamingAssets',companyName:'Unfinished Sketchbook',productName:'Unfinished Sketchbook',productVersion:'{{{ PRODUCT_VERSION }}}',
+    streamingAssetsUrl:'StreamingAssets',companyName:'Unfinished Sketchbook',productName:'Stilldrawn',productVersion:'{{{ PRODUCT_VERSION }}}',
     matchWebGLToCanvasSize:false,
     showBanner:(message,type)=>{if(type==='error')fail(message);else console.warn(message);}
   };
   const loader=document.createElement('script');loader.src='Build/{{{ LOADER_FILENAME }}}';loader.onerror=()=>fail('실행 파일을 내려받지 못했습니다.');
-  loader.onload=()=>createUnityInstance(canvas,config,p=>{bar.value=p;percent.textContent=Math.round(p*100)+'%';}).then(instance=>{
+  loader.onload=()=>createUnityInstance(canvas,config,p=>{bar.value=p;percent.textContent='페이지를 펼치는 중 · '+Math.round(p*100)+'%';}).then(instance=>{
     window.unityInstance=instance;loading.hidden=true;full.disabled=false;hint.hidden=false;canvas.focus({preventScroll:true});
-    for(const [id,method,fallback] of [['audioMaster','SetMaster',.7],['audioEffects','SetEffects',.65],['audioMusic','SetMusic',.32]]){
-      const control=document.getElementById(id);let value=fallback;try{const saved=localStorage.getItem(id);if(saved!==null)value=Number(saved);}catch{}
-      if(!Number.isFinite(value))value=fallback;control.value=Math.max(0,Math.min(1,value));instance.SendMessage('Game Audio',method,Number(control.value));
-      control.addEventListener('input',()=>{instance.SendMessage('Game Audio',method,Number(control.value));try{localStorage.setItem(id,control.value);}catch{}});
-    }
     const previewSpawn=new URLSearchParams(location.search).get('spawn');
-    if(previewSpawn&&/^\d{1,3},\d{1,3}$/.test(previewSpawn))instance.SendMessage('World Prototype','PreviewPosition',previewSpawn);
+    if(previewSpawn&&/^\d{1,3},\d{1,3}$/.test(previewSpawn)){instance.SendMessage('Stilldrawn Title','SkipForPreview');instance.SendMessage('World Prototype','PreviewPosition',previewSpawn);}
     canvas.addEventListener('pointerdown',()=>{canvas.focus({preventScroll:true});hint.hidden=true;});
     full.onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await stage.requestFullscreen();canvas.focus({preventScroll:true});}catch(e){console.warn(e);}};
-    document.addEventListener('fullscreenchange',()=>{full.textContent=document.fullscreenElement?'전체 화면 종료':'전체 화면';});
+    document.addEventListener('fullscreenchange',()=>{full.textContent=document.fullscreenElement?'전체 화면 종료':'전체 화면';requestAnimationFrame(resizeGameBuffer);});
   }).catch(e=>fail(String(e)));
   document.body.appendChild(loader);
-  canvas.addEventListener('keydown',e=>{if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','F1','F2'].includes(e.code))e.preventDefault();});
+  canvas.addEventListener('keydown',e=>{if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','F1','F2','Tab'].includes(e.code))e.preventDefault();});
 </script>
 </body>
 </html>

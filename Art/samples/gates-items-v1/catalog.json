@@ -1,0 +1,33 @@
+{
+  "status": "디자인 시안 · 유니티 미적용",
+  "tool": "image_gen.imagegen",
+  "gateFinal": "01-gates-v2.png",
+  "gateCorrectionPrompt": "Edit this gate design sheet. Change ONLY numbered cell 05 (bottom middle): it must depict a horizontal one-way floor hatch, NOT an upright door. Show a low wide paper-and-slate trapdoor embedded horizontally in a short section of ground, top edge consistent with side-view platform, center lid partially tilted open upward just enough to reveal the downward shaft, hinge on left, large clear downward fold-chevron on lid. A small cream paper-cloak hero stands on the solid left edge for scale. Keep all six cells, all numbers, all other gate designs and material/style/textures/colors exactly unchanged. No extra labels or borders. Orthographic 2D game view.",
+  "gates": [
+    "지울 수 있는 낙서 벽 · 대시",
+    "자르는 흑연 덩굴 · 연필 깎기",
+    "레버 잠금문",
+    "과녁 잠금문 · 반사 패링",
+    "아래로 여는 일방통행 덮개",
+    "3색 안료문"
+  ],
+  "items": [
+    "체력 조각",
+    "흑연 조각",
+    "회복 물감",
+    "회복 물감 횟수 증가",
+    "종이 방패",
+    "물감 탄 · 현재 런타임은 미완성 물감 보상",
+    "3색 물감통 · 개별 수집물을 묶어 표시한 시안",
+    "귀환 리본 · 추가 제안, 기존 획득 아이템 아님"
+  ],
+  "abilitiesStations": [
+    "또렷해진 손 · 벽 점프",
+    "연필 깎기",
+    "지우개 대시",
+    "밀랍 튕기기 · 패링",
+    "크레파스 벽타기",
+    "세이브 석상",
+    "리본 이동 거점"
+  ]
+}

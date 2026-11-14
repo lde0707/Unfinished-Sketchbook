@@ -15,7 +15,7 @@ namespace Unfin.Editor
         [Serializable] public class Room {public string id,z,name,title,design,atlas;public int r,n,x,y,w,h;public Prop[] props;}
         [Serializable] public class Prop {public string atlas;public int part,layer;public float x,y,w,h;public bool flip,anchorFloor,anchorCeiling;}
         [Serializable] public class AtlasInfo {public Atlas[] atlases;}
-        [Serializable] public class Atlas {public string file;public int width,height;public Crop[] crops;}
+        [Serializable] public class Atlas {public string file,path;public int width,height;public Crop[] crops;}
         [Serializable] public class Crop {public float x,y,w,h;}
 
         public static void Apply(WorldData data)
@@ -28,13 +28,13 @@ namespace Unfin.Editor
             var materials=new System.Collections.Generic.Dictionary<string,Material>();
             foreach(var atlas in atlasInfo.atlases)
             {
-                string path=Root+"/"+atlas.file;
+                string path=string.IsNullOrEmpty(atlas.path)?Root+"/"+atlas.file:atlas.path;
                 var ti=(TextureImporter)AssetImporter.GetAtPath(path);if(ti==null)throw new Exception("Missing background "+path);
                 ti.textureType=TextureImporterType.Default;ti.sRGBTexture=true;ti.alphaIsTransparency=true;
                 ti.alphaSource=TextureImporterAlphaSource.FromInput;ti.npotScale=TextureImporterNPOTScale.None;
                 ti.wrapMode=TextureWrapMode.Clamp;ti.filterMode=FilterMode.Bilinear;ti.mipmapEnabled=true;
                 ti.maxTextureSize=2048;ti.textureCompression=TextureImporterCompression.CompressedHQ;ti.SaveAndReimport();
-                string matPath=Root+"/"+Path.GetFileNameWithoutExtension(atlas.file)+".mat";
+                string matPath=Path.ChangeExtension(path,".mat");
                 var mat=AssetDatabase.LoadAssetAtPath<Material>(matPath);
                 if(mat==null){mat=new Material(shader);AssetDatabase.CreateAsset(mat,matPath);}
                 mat.shader=shader;mat.mainTexture=AssetDatabase.LoadAssetAtPath<Texture2D>(path);EditorUtility.SetDirty(mat);materials.Add(atlas.file,mat);
@@ -66,6 +66,8 @@ namespace Unfin.Editor
             var rear=AssetDatabase.LoadAssetAtPath<Material>("Assets/Unfin/Art/Region1BackgroundV3/Background.mat");
             if(rear!=null){rear.SetFloat("_Opacity",.52f);EditorUtility.SetDirty(rear);}
             AssetDatabase.SaveAssets();
+            // Re-importing illustrations must preserve gameplay clearance once a placement plan exists.
+            if(File.Exists("Assets/Unfin/Resources/WorldPropPlacement.json"))WorldPropPlacementIntegration.Arrange();
         }
 
         [MenuItem("Unfin/Apply Room Backdrops and Render")]

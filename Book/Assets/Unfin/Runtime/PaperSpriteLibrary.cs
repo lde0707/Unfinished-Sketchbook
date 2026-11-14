@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Unfin
@@ -16,19 +17,43 @@ namespace Unfin
         public float anchorX;
         public float groundY=448;
         public PaperSpriteFrame[] frames;
-        public float Duration { get { float t=0; foreach(var f in frames)t+=f.duration; return t; } }
-        public int FrameAt(float time)
+        [NonSerialized] AnimationTimeline timeline;
+        [NonSerialized] PaperSpriteFrame[] cachedFrames;
+        AnimationTimeline Timeline
         {
-            time=loop?Mathf.Repeat(time,Duration):Mathf.Max(0,time);
-            for(int i=0;i<frames.Length;i++){if(time<frames[i].duration)return i;time-=frames[i].duration;}
-            return frames.Length-1;
+            get
+            {
+                if(timeline==null||!ReferenceEquals(cachedFrames,frames))
+                {
+                    cachedFrames=frames;
+                    timeline=new AnimationTimeline(frames.Length,i=>frames[i].duration);
+                }
+                return timeline;
+            }
         }
+        public float Duration=>Timeline.Duration;
+        public int FrameAt(float time)=>Timeline.FrameAt(time,loop);
+        public void InvalidateTiming(){timeline=null;cachedFrames=null;}
     }
     public sealed class PaperSpriteLibrary : ScriptableObject
     {
         public float pixelsPerUnit=256;
         public Sprite thrustEffect;
         public PaperSpriteClip[] clips;
-        public PaperSpriteClip Find(string name) => Array.Find(clips,c=>c.name==name);
+        readonly Dictionary<string,PaperSpriteClip> lookup=new Dictionary<string,PaperSpriteClip>(StringComparer.Ordinal);
+        PaperSpriteClip[] cachedClips;
+        public PaperSpriteClip Find(string name)
+        {
+            if(!ReferenceEquals(cachedClips,clips))RebuildLookup();
+            return name!=null&&lookup.TryGetValue(name,out var clip)?clip:null;
+        }
+        void RebuildLookup()
+        {
+            lookup.Clear();cachedClips=clips;
+            if(clips==null)return;
+            foreach(var clip in clips)if(clip!=null&&clip.name!=null){clip.InvalidateTiming();lookup[clip.name]=clip;}
+        }
+        void OnEnable(){RebuildLookup();}
+        void OnValidate(){RebuildLookup();}
     }
 }

@@ -1,0 +1,12 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in edit",
+  "status": "Concept map composite only; Unity player animation frames unchanged",
+  "prompt": "Use case: precise-object-edit.\nAsset type: higher-quality current player material study composited in our actual 2D metroidvania game map.\nImage 1 is the actual gameplay screenshot and EDIT TARGET. Image 2 is the approved existing player sprite, IDENTITY reference.\nCreate one wide presentation image: the actual map screenshot across the full canvas, with only the central tiny player upgraded, plus a clearly separated large close-up inset in the lower left showing the identical upgraded player against charcoal. The inset should let us judge the material, about one third of image height. Keep the true player at its original game scale, location, pose and feet touching ground. Preserve map composition and terrain/background/props/UI.\nUpgrade ONLY player material and shading to harmonize with the broad, matte, layered paper terrain: tactile pressed parchment fibers, softly uneven broad paper grain, subtle laminated paper edges and slight thickness on the overlapping cloak sheets, deep soft warm gray ambient occlusion between layers, restrained worn graphite shading. Quality is a polished 2D illustrated game sprite, not 3D or photoreal. Material variation needs to be visible yet remain soft and clean at game scale. Ivory body a little less bright, cloak and shorts 10% darker than body in warm greige parchment. Soft curved contours, no spikes, no thin scratchy hatching, no tiny noisy speckles. Head remains gently rounded smooth paper with subtle fibers, one pure black oval eye. No cracks, no new markings or facial features. Preserve exact silhouette, large round head/short limb proportions, long overlapping trailing paper cloak, hidden arms and visible shorts, original pose and facing right. No costume redesign, weapons, armor or ornaments. Inset and small player MUST depict same upgraded material. No new labels/text. Preserve all other game objects.",
+  "inputs": [
+    "Book/Validation/prop-placement-shrine-and-portal.png",
+    "Book/Assets/Unfin/Art/PlayerSprites/Idle/00.png"
+  ],
+  "output": "game-preview.png",
+  "validation": "Inspected generated image. Current hero identity and pose recognizable; paper material and overlapping sheet shading enhanced. Screenshot is generatively reframed with HUD omitted, not an exact runtime capture."
+}

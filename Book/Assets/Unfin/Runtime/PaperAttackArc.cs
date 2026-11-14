@@ -23,6 +23,7 @@ namespace Unfin
             gameObject.AddComponent<MeshFilter>().sharedMesh = mesh;
             draw = gameObject.AddComponent<MeshRenderer>();
             material = new Material(source.sharedMaterial) { name = "Paper attack arc" };
+            if(material.HasProperty("_PaperStrength"))material.SetFloat("_PaperStrength",0);
             material.mainTexture = Texture2D.whiteTexture; draw.sharedMaterial = material;
             draw.sortingLayerID = source.sortingLayerID; draw.sortingOrder = source.sortingOrder-1;
             draw.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; draw.receiveShadows = false;

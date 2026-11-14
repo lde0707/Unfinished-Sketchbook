@@ -1,0 +1,30 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-26",
+  "stage": "visual concept; not installed in Unity",
+  "image": "title-concept.png",
+  "prompt": "Use case: ui-mockup / logo-brand. Create ONE finished premium 16:9 title-screen design for the dark 2D metroidvania game STILLDRAWN. This is an actual full-screen game menu concept, not a presentation board, no device frame. Prefer 1920x1080 or larger 16:9 raster.\n\nReference 1: current title BACKGROUND, visual story reference of an abandoned sketchbook and graphite forest; redesign freely, do not just paste this background. Reference 2: actual GAMEPLAY, material/color reference only: large torn layered paper rock, rounded organic silhouettes, matte charcoal and warm ivory, hand-painted but polished, NOT photorealistic and NOT pixel art. Ignore gameplay HUD, enemies and character; do not copy them into title.\n\nStory: an artist abandoned this sketchbook. Ink stains are slowly erasing its drawn world; an unfinished story still survives. Quiet, mysterious, poignant, mature. Image needs atmosphere without clutter.\n\nComposition:\nLeft 44 percent deep charcoal washed paper, calmer and lower contrast than right, integrated naturally into environment (no dark rectangular overlay).\nUpper left around x10–45%, y17–37%: a genuinely custom typographic LOGO reading exactly \"STILLDRAWN\" (S T I L L D R A W N). Elegant slightly irregular sculpted serif letterforms made of aged ivory paper and graphite edge shading, broad confident readable strokes, a few delicately unfinished graphite tips. Distinctive but legible at thumbnail size. Small original open-page/bookmark emblem centered above the word, integrated into logo, not a crown or wings, no leaf health symbol, no weapons. Subtle muted bronze accent only. No beveled metallic fantasy lettering. Beneath logo, modest exact Korean tagline: \"아직 끝나지 않은, 당신의 이야기.\"\nRight 55 percent: an ancient open sketchbook on a low tiered paper-rock ledge. Its softly curved ivory pages merge into a small graphite forest and folded paper cavern; very subtle dark ink erosion at the outer edge. Restrained pale warm light from the seam. Large paper layers match gameplay. A single curling loose sheet at upper right, sparse tiny dust. Dark forest recedes behind it. Painterly and tangible, reduced intricate line noise. NO protagonist or any character on the title screen. No swords, monsters, photographic foliage, giant bright portal or luminous waterfalls.\n\nMenu (left, below logo, centered around x24%, y52–77%):\nFour readable Korean labels in this exact top-to-bottom order:\n\"이어하기\"\n\"새 이야기\"\n\"설정\"\n\"제작진\"\nAll four same subdued warm ivory tone, NONE highlighted or glowing, no cursor, no selected diamond. Each sits on a narrow dark charcoal-paper bookmark strip with softly irregular edges, faint graphite edging and only tiny muted brass stitching at the left. Generous consistent vertical spacing, comfortable click areas; no thick rectangular borders, no pills, no HUD leaf icons, no bright gold ornate frames. Korean typography graceful and fully legible, not Latin transliteration. These buttons should feel designed into the paper world, not HTML controls.\nBelow the menu at y85% a restrained small save-location treatment with exact text \"마지막 책갈피\" and on next line \"연필 숲\", fine paper bookmark mark, much less emphasis than menu. Leave room for optional fifth desktop quit row when needed; current concept is WEB version so no exit button.\nBottom right tiny subdued \"v0.1\".\nNo other lettering, no repeated English button translations, no fake currency or progression bars, no health HUD, no minimap. Keep all text inside 8% horizontal / 6% vertical safe margins. Soft textured shading, exceptional art direction, very clear visual hierarchy: logo first, storybook second, buttons third. Functional, calm, beautifully unified with the supplied gameplay material.",
+  "references": [
+    "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Book/Assets/Unfin/Resources/Title/sketchbook.png",
+    "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Book/Validation/enemy-specialties/ground-sweep.png"
+  ],
+  "ui": {
+    "buttons": [
+      "이어하기",
+      "새 이야기",
+      "설정",
+      "제작진"
+    ],
+    "continue": "저장 기록이 있을 때 활성화; 없으면 비활성화",
+    "newGame": "기존 저장 기록이 있을 때 덮어쓰기 확인",
+    "settings": [
+      "소리",
+      "화면/해상도",
+      "그래픽 품질",
+      "조작법"
+    ],
+    "quit": "PC 빌드에서만 메뉴 마지막에 추가",
+    "hover": "기본 상태는 강조 없음; 마우스 오버 또는 키보드 선택 때만 은은한 강조",
+    "saveCaption": "실제 저장 지역을 동적 표시; 이 시안의 연필 숲은 배치 예시"
+  }
+}

@@ -1,0 +1,37 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>1지역 보스 · 엉킨 낙서 덩어리</title><style>
+*{box-sizing:border-box}body{margin:0;background:#151816;color:#ded8c8;font:15px system-ui,sans-serif}main{max-width:1320px;margin:auto;padding:24px}h1{font-size:25px;margin:0 0 8px}p{color:#aaa994;line-height:1.7;margin:6px 0 14px}button,a{font:inherit;color:inherit;background:#292e27;border:1px solid #4a4d40;border-radius:6px;padding:9px 14px;text-decoration:none;cursor:pointer}button.on{background:#5a5140;border-color:#b0a080}nav{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}canvas{display:block;width:100%;background:#22261e;border:1px solid #42483b}footer{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0}#status{margin-left:auto;color:#c9b28d}.frames button{padding:7px 12px}.info{display:flex;gap:16px;flex-wrap:wrap;color:#a9aa99;font-size:13px}.dot{color:#c6aa79}</style>
+<main><h1>엉킨 낙서 덩어리</h1><p>1지역 보스 · 전신 원화 120장 / 공격 패턴 6종 / 흑연과 겹친 종이<br>예고 → 타격 → 짧은 회복. 은은한 테두리는 공격 위험 범위이며, 공격 중 몸통 윤곽도 드러납니다.</p><nav id="modes"></nav><canvas id="stage" width="1280" height="720"></canvas><footer><button id="pause">일시 정지</button><button id="slow">0.5배속</button><span id="status">불러오는 중…</span><a href="/?v=boss-region1-20261024&spawn=255,34">실제 유니티 전투</a></footer><nav class="frames" id="frames"></nav><p id="description"></p><div class="info"><span><span class="dot">○</span> 흐린 황토빛 선: 예고 · 피해 없음</span><span><span class="dot">●</span> 선명한 흑연 효과: 타격</span><span>보스 체력 30 · 후반 결정 간격 0.12초 · 대시·패링 없이 회피 가능하도록 구성</span></div></main>
+<script>
+const labels={Move:'이동',Stagger:'매듭 파괴 · 경직',Idle:'대기',Sweep:'1 · 가로 휘두르기',Slam:'2 · 점프 내려찍기',Rush:'3 · 낮은 돌진',Roots:'4 · 바닥 낙서',Fan:'5 · 흑연 탄',Cross:'6 · 교차 베기',Death:'사망 · 새 그림 해방'};
+const descriptions={Move:'무거운 발을 번갈아 딛으며 이동합니다.',Stagger:'연필 깎기로 매듭을 끊어 만들어내는 빈틈입니다.',Idle:'큰 어깨와 팔의 무게가 발로 내려오는 대기 동작입니다.',Sweep:'넓은 가로 베기. 점프나 뒤로 빠지는 이동으로 대응합니다.',Slam:'예고한 위치로 도약해 내려찍고, 착지 때 넓은 낮은 충격파를 만듭니다. 착지 위치는 발동 시 고정됩니다.',Rush:'몸을 낮춘 뒤 짧고 빠르게 실제 이동합니다. 예고 중 점프로 넘을 수 있습니다.',Roots:'예고 지점 세 곳에서 낙서가 차례로 솟습니다. 사이의 틈이나 점프로 피합니다.',Fan:'플레이어 쪽으로 부채꼴 흑연 탄 5발을 발사합니다. 탄 하나하나에 윤곽과 피해 범위가 있습니다.',Cross:'첫 베기 뒤 반대 대각선으로 한 번 더 벱니다. 첫 타격 뒤 곧바로 공격하면 두 번째 타격에 노출됩니다.',Death:'흑연 덩어리가 풀리고 안에 갇혀 있던 작은 새 그림이 드러납니다. 실제 전투에서는 기존 대시 보상을 유지합니다.'};
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d'),base='/boss-art/',U=80,ground=576,hero=350,bx=735;
+let manifest,images={},effects=[],background,player,selection='All',current='Sweep',clock=0,last=0,paused=false,speed=1,cycle=0,ready=false,forcedFrame=-1;
+const load=src=>new Promise((resolve,reject)=>{let i=new Image;i.onload=()=>resolve(i);i.onerror=()=>reject(Error(src));i.src=src;});
+(async()=>{manifest=await(await fetch(base+'manifest.json')).json();background=await load(base+'background.png');player=await load(base+'player.png');
+await Promise.all(manifest.clips.map(async c=>{images[c.name]=await Promise.all(c.durations.map((_,i)=>load(base+c.name+'/'+String(i).padStart(2,'0')+'.png')))}));effects=await Promise.all(Array.from({length:12},(_,i)=>load(base+'Effects/'+String(i).padStart(2,'0')+'.png')));ready=true;requestAnimationFrame(tick);})().catch(e=>{document.querySelector('#status').textContent='오류: '+e.message;});
+for(const name of ['All',...Object.keys(labels)]){let b=document.createElement('button');b.textContent=name==='All'?'6패턴 연속':labels[name];b.dataset.name=name;b.onclick=()=>{selection=name;current=name==='All'?'Sweep':name;clock=0;forcedFrame=-1;document.querySelectorAll('#modes button').forEach(x=>x.classList.toggle('on',x===b));};b.classList.toggle('on',name==='All');document.querySelector('#modes').append(b);}
+for(let i=0;i<12;i++){let b=document.createElement('button');b.textContent=i+1;b.onclick=()=>{paused=true;forcedFrame=i;const clip=manifest.clips.find(c=>c.name===current);clock=clip.durations.slice(0,i).reduce((a,b)=>a+b,0)+clip.durations[i]/2;document.querySelector('#pause').textContent='재생';};document.querySelector('#frames').append(b);}
+document.querySelector('#pause').onclick=()=>{paused=!paused;forcedFrame=-1;document.querySelector('#pause').textContent=paused?'재생':'일시 정지';};
+document.querySelector('#slow').onclick=()=>{speed=speed===1?.5:1;document.querySelector('#slow').classList.toggle('on',speed===.5);};
+function frameAt(clip,t){for(let i=0;i<12;i++){if(t<clip.durations[i])return i;t-=clip.durations[i];}return 11;}
+function sprite(img,x,y,ppu,ax,gy,flip=false){ctx.save();ctx.translate(x,y);ctx.scale(flip?-1:1,1);ctx.drawImage(img,-ax/ppu*U,-gy/ppu*U,img.width/ppu*U,img.height/ppu*U);ctx.restore();}
+function range(x,y,rx,ry,angle,active,art){ctx.save();ctx.translate(x,y);ctx.rotate(-angle*Math.PI/180);ctx.globalAlpha=active?.8:.17;ctx.drawImage(effects[art],-rx*U,-ry*U,rx*U*2,ry*U*2);ctx.globalAlpha=active?.85:.5;ctx.strokeStyle=active?'#dac499':'#b29a70';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(0,0,rx*U,ry*U,0,0,Math.PI*2);ctx.stroke();ctx.restore();}
+function draw(t){const clip=manifest.clips.find(c=>c.name===current),f=forcedFrame<0?frameAt(clip,Math.min(t,clip.durations.reduce((a,b)=>a+b,0))):forcedFrame;
+ctx.clearRect(0,0,1280,720);ctx.drawImage(background,0,0,1280,720);sprite(player,hero,ground,256,368,448);
+let x=bx,y=ground;if(current==='Slam'){const p=Math.max(0,Math.min(1,(t-.42)/.50));if(t>=.42&&t<.92)y-=Math.sin(p*Math.PI)*1.8*U;x-=p*3.8*U;}if(current==='Rush')x-=Math.max(0,Math.min(.45,t-.62))*8*U;
+if(current==='Sweep'&&t<.66)range(x-1.35*U,ground-.65*U,1.8,.7,0,t>=.54,0);
+if(current==='Slam'&&t<1.12)range(bx-3.8*U,ground-.28*U,2.55,.6,0,t>=.92,1);
+if(current==='Rush'&&t<1.07)range(x-.4*U,ground-.7*U,1.55,1.02,0,t>=.62,2);
+if(current==='Roots')for(let i=0;i<3;i++){let start=.65+i*.2;if(t<start+.16)range(hero+(i-1)*2*U,ground-.85*U,.48,1.05,0,t>=start,3);}
+if(current==='Fan'&&t>=.6&&t<1.91){const q=t-.6;for(let i=0;i<5;i++){const a=(180-33+66*i/4)*Math.PI/180;range(x-.8*U+Math.cos(a)*4.8*q*U,ground-.95*U-Math.sin(a)*4.8*q*U,.17,.17,0,true,4);}}
+if(current==='Cross'&&t<.91){const second=t>=.57;range(x-1.25*U,ground-U,1.5,.5,second?-32:32,second?t>=.84:t>=.5,5);}
+ctx.save();ctx.globalAlpha=current==='Idle'?.22:current==='Death'?.3*(1-t/1.83):.07;ctx.drawImage(effects[current==='Death'?7:6],x-100,ground-160,200,170);ctx.restore();
+sprite(images[current][f],x,y,manifest.pixelsPerUnit,manifest.anchorX,manifest.groundY,true);
+document.querySelector('#status').textContent=labels[current]+' · '+(f+1)+' / 12 프레임';
+document.querySelector('#description').textContent=descriptions[current];document.querySelectorAll('#frames button').forEach((b,i)=>b.classList.toggle('on',i===f));
+window.bossPreview={ready:true,state:current,frame:f,drawings:120,rangeFromSameEllipse:true};}
+function tick(now){if(!ready)return;let dt=Math.min(.05,(now-last)/1000)||0;last=now;if(!paused)clock+=dt*speed;
+const c=manifest.clips.find(c=>c.name===current),duration=c.durations.reduce((a,b)=>a+b,0),end=duration+(current==='Death'?1:.19);
+if(clock>end&&!paused){clock%=end;forcedFrame=-1;if(selection==='All'){cycle=(cycle+1)%6;current=['Sweep','Slam','Rush','Roots','Fan','Cross'][cycle];}}
+draw(clock);requestAnimationFrame(tick);}
+</script></html>

@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-23",
+  "tool": "image_gen.imagegen",
+  "prompt": "Create a single isolated production sprite of the SAVE SHRINE in reference cell06 ONLY, for Unfinished Sketchbook 2D sideview metroidvania. Preserve the design: small seated faceless rounded paper guardian, layered gray taupe folded-paper cloak, cradling an open warm ivory book in its lap, resting on a low broad plinth of dark layered torn paper, a few broad paper folds at its sides. True alpha TRANSPARENT background, nothing outside the single shrine. Remove the small player, terrain platform, cell numbering, labels, dark backing circle, other objects. Orthographic 2D front-side view, no perspective ground plane. Match matte coarse paper and rubbed graphite medium-detail textures in reference, broad irregular softly worn silhouettes, no photoreal stone or glossy 3D. Keep book pages softly warm ivory, no strong bloom or detached particles (animated in engine). A compact fully visible single centered shrine with 8 percent transparent padding. Plinth bottom flat in silhouette for sitting naturally on a floor; do not draw a floating chunk of earth or hanging roots. Suitable displayed at about1.5 times player height.",
+  "reference": "Art/samples/gates-items-v1/03-abilities-stations.png · 06",
+  "source": "source.png",
+  "unitySprite": "Book/Assets/Unfin/Resources/PickupArt/save.png",
+  "behavior": "10 existing checkpoints preserved; grounded stationary shrine, dim book light and three paper motes, warmer upon activation"
+}

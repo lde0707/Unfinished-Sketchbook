@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-23",
+  "tool": "image_gen.imagegen",
+  "status": "composited item outline design previews; Unity not modified",
+  "prompt": "Edit this actual-game-based design preview. Preserve the complete map composition, terrain, background, UI, gate or shrine, and existing player exactly. Change ONLY the SMALL COLLECTIBLE on the upper right platform: add a subtle magical pickup treatment following its irregular silhouette. A thin broken warm-ivory rim light hugging the papery outer contour, low opacity, slightly feathered 1-2 source pixels; faint tiny soft aura extending no more than about 3-5 pixels around the object, with just 3 or 4 small drifting ivory paper dust flecks very close to the object. Keep all object details and original colors intact; use a slight subdued color echo from its own pigment inside the rim. Keep the item at its existing size and position. Effect should make it naturally present and readable in this dark paper world, like a quiet collectible breathing light, not a pasted white sticker. NO thick stroke, no uniform cartoon outline, no neon, no bloom cloud, no circular aura or ground ring, no beam, no new particles elsewhere, no glow applied to player/gate/shrine or environment. Retain dark mood and matte coarse paper shading. No text changes.",
+  "files": [
+    "01-vines-heal.png",
+    "02-parry-shield.png",
+    "03-save-shard.png"
+  ],
+  "sourceFolder": "Art/samples/gates-items-map-v1"
+}

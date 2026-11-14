@@ -1,0 +1,12 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Create a production-ready transparent 2D game environmental decoration ATLAS, one square 2048x2048 image, exactly 2 by 2 equal cells, four isolated different hanging background props. Reference screenshot is STYLE REFERENCE ONLY; do not include its landscape, character, UI or text. Match its matte carved-paper / weathered graphite / layered torn parchment textures, restrained dark metroidvania, softly rounded irregular contours, medium broad texture detail, NOT pixel art, NOT photoreal, NOT cute cartoon. Upper-left cell: a cluster of 3 broad old torn parchment page strips hanging down from a small weathered binding knot, taupe-beige. Upper-right: a cluster of sinuous charcoal tree roots with a few dull olive paper leaves hanging down. Lower-left: a small broken wax-coated wooden bracket with long muted ochre wax drips and two curled ochre paper ribbons dangling below. Lower-right: a ruined burgundy-grey book-binding pennant with two long tattered paper tails and subtle worn seams, no symbols. Each object is tall, loosely asymmetrical, narrow at its upper attachment, widening irregularly below; all entirely within its own cell with at least 12% transparent padding on every side; nothing crosses cell boundaries. Side-on orthographic game view, full silhouettes, soft diffuse environmental shading, no cast shadow outside object. Large readable folded surfaces and fiber texture, subdued values for BACKGROUND decoration. No floor base, no lights, no glow, no frames, no grid lines, no words, no props suggesting pickups. Truly transparent background with alpha, NOT a checkerboard painting. Four isolated complete objects.",
+  "reference": "Book/Validation/ui-resolutions/1366x768-hud.png",
+  "asset": "Book/Assets/Unfin/Resources/Atmosphere/hanging-atlas-v1.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "alpha": true,
+  "usage": "Four ceiling-anchored background decorations; shader deforms free ends only. Original atlas is preserved."
+}

@@ -1,0 +1,16 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "new whole-frame drawings with boss identity reference",
+  "references": [
+    "Book/Validation/player-surface-web-idle.png",
+    "Art/samples/boss-region1-v1/boss-master.png"
+  ],
+  "research": [
+    "https://www.gamedeveloper.com/production/art-design-deep-dive-using-a-3d-pipeline-for-2d-animation-in-i-dead-cells-i-",
+    "https://media.gdcvault.com/gdc2019/presentations/Benard-Sebastian-DeepCells.pdf",
+    "https://www.teamcherry.com.au/blog/hollow-knights-mega-may-update",
+    "https://shop.redcandlegames.com/projects/ninesols",
+    "https://www.reddit.com/r/xbox/comments/1h2a6f1/hello_from_red_candle_games_welcome_to_our_ama/"
+  ],
+  "timing": "Our own seconds, tuned for current player physics. Source games' proprietary timings were not measured."
+}

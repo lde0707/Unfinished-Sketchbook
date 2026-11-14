@@ -1,0 +1,66 @@
+{
+  "origin": "Original deterministic synthesis, no third-party recordings",
+  "purpose": "Soft graphite, paper-fibre, wood, seal and wax break sounds",
+  "variants": [
+    {
+      "file": "Book\\Assets\\Unfin\\Resources\\Audio\\BreakGraphite_0.wav",
+      "seconds": 0.48,
+      "peak": 0.55,
+      "rms": 0.0733557601775072
+    },
+    {
+      "file": "Book\\Assets\\Unfin\\Resources\\Audio\\BreakGraphite_1.wav",
+      "seconds": 0.48,
+      "peak": 0.55,
+      "rms": 0.06717313973297677
+    },
+    {
+      "file": "Book\\Assets\\Unfin\\Resources\\Audio\\BreakVine_0.wav",
+      "seconds": 0.38,
+      "peak": 0.55,
+      "rms": 0.08060950625476997
+    },
+    {
+      "file": "Book\\Assets\\Unfin\\Resources\\Audio\\BreakVine_1.wav",
+      "seconds": 0.38,
+      "peak": 0.55,
+      "rms": 0.0746436351025995
+    },
+    {
+      "file": "Book\\Assets\\Unfin\\Resources\\Audio\\BreakWood_0.wav",
+      "seconds": 0.52,
+      "peak": 0.55,
+      "rms": 0.07543965557647068
+    },
+    {
+      "file": "Book\\Assets\\Unfin\\Resources\\Audio\\BreakWood_1.wav",
+      "seconds": 0.52,
+      "peak": 0.55,
+      "rms": 0.05810521558041206
+    },
+    {
+      "file": "Book\\Assets\\Unfin\\Resources\\Audio\\BreakSeal_0.wav",
+      "seconds": 0.62,
+      "peak": 0.55,
+      "rms": 0.0636579321974641
+    },
+    {
+      "file": "Book\\Assets\\Unfin\\Resources\\Audio\\BreakSeal_1.wav",
+      "seconds": 0.62,
+      "peak": 0.55,
+      "rms": 0.05305740385574003
+    },
+    {
+      "file": "Book\\Assets\\Unfin\\Resources\\Audio\\BreakWax_0.wav",
+      "seconds": 0.46,
+      "peak": 0.55,
+      "rms": 0.0712817074080947
+    },
+    {
+      "file": "Book\\Assets\\Unfin\\Resources\\Audio\\BreakWax_1.wav",
+      "seconds": 0.46,
+      "peak": 0.55,
+      "rms": 0.0745449116505299
+    }
+  ]
+}

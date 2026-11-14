@@ -1,0 +1,14 @@
+{
+  "status": "concept previews only; not imported into Unity",
+  "generator": "built-in image_gen",
+  "title": "title-concept.png",
+  "gameplay": "gameplay-concept.png",
+  "references": [
+    "Book/Validation/stilldrawn-title/01-title-new.png",
+    "Book/Validation/ingame-hud/01-gameplay.png"
+  ],
+  "promptSet": {
+    "title": "Preserve the actual Stilldrawn title forest and open-book painting. Repaint logo, subtitle, four neutral menu ribbons, dividers and navigation hints as bespoke graphite bookbinding, folded paper, ivory lettering and muted brass artwork. Static complete logo, no reveal streak, no active hover, no HTML cards. Exact menu: 이어하기 / 새 이야기 / 설정 / 제작진.",
+    "gameplay": "Preserve actual cave map, player proportions, moth and platforms. Replace flat HUD with image-painted paper-leaf health, graphite shard, healing ink vial, illustrated stitched minimap and tiny paper key tabs matching the title concept. No HTML cards, no neon. Healing and dash shown as unlocked design examples; real implementation must respect progression."
+  }
+}

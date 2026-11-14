@@ -1,1 +1,1 @@
-{"passed":true,"sinkSeconds":0.55,"respawnsWhileHoldingFor4Seconds":1,"safeBankReturn":true,"releaseToRearm":true}
+{"passed":true,"deathSeconds":0.83,"reviveSeconds":0.71,"respawnsWhileHoldingFor4Seconds":1,"safeInitialAnchor":true,"releaseToRearm":true}

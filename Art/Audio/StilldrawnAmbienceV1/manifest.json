@@ -1,0 +1,70 @@
+{
+  "type": "original procedural environmental soundscape",
+  "method": "NumPy spectral sound design, not an AI music service or stock music",
+  "sources": "Original synthesized distant water drops and brief cavern resonance. No external recordings or music samples.",
+  "creativeBrief": "Mostly silence, occasional very quiet cave or dungeon cues. No continuous wind, pad, music, loud impacts or horror stingers.",
+  "runtime": "Sparse stereo event loops with silent seams, five-second region crossfades, reduced runtime gain; existing environment volume preference retained.",
+  "tracks": [
+    {
+      "file": "AmbienceGraphite_0.wav",
+      "durationSeconds": 96,
+      "sampleRate": 32000,
+      "channels": 2,
+      "seed": 620251,
+      "peak": 0.025228042155504227,
+      "rms": 0.0008167843334376812,
+      "silentFraction": 0.8958333333333334,
+      "seamJump": 0.0,
+      "events": [
+        {
+          "time": 12.0,
+          "duration": 6.05,
+          "kind": "distant-water-drop"
+        },
+        {
+          "time": 40.95,
+          "duration": 4.96,
+          "kind": "distant-cavern-resonance"
+        },
+        {
+          "time": 65.53,
+          "duration": 6.11,
+          "kind": "distant-water-drop"
+        }
+      ]
+    },
+    {
+      "file": "AmbienceCrayon_0.wav",
+      "durationSeconds": 112,
+      "sampleRate": 32000,
+      "channels": 2,
+      "seed": 620252,
+      "peak": 0.020727023482322693,
+      "rms": 0.0010020254412665963,
+      "silentFraction": 0.8660714285714286,
+      "seamJump": 0.0,
+      "events": [
+        {
+          "time": 14.0,
+          "duration": 5.8,
+          "kind": "distant-water-drop"
+        },
+        {
+          "time": 39.96,
+          "duration": 4.77,
+          "kind": "distant-cavern-resonance"
+        },
+        {
+          "time": 66.08,
+          "duration": 4.83,
+          "kind": "distant-water-drop"
+        },
+        {
+          "time": 95.9,
+          "duration": 5.32,
+          "kind": "distant-cavern-resonance"
+        }
+      ]
+    }
+  ]
+}

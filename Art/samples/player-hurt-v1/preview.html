@@ -1,0 +1,35 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>플레이어 피격 동작</title>
+<style>body{margin:0;padding:28px;background:#181e25;color:#eee4d4;font:16px system-ui;max-width:1100px;margin:auto}h1{font-size:26px}p{color:#b9b6b0;line-height:1.6}canvas{width:min(100%,960px);background:radial-gradient(ellipse at 50% 75%,#343c42,#20262d);border:1px solid #51565b;border-radius:12px}button,select{padding:11px 16px;background:#323c45;border:1px solid #626b70;color:#eee4d4;border-radius:7px;margin:5px;cursor:pointer}#status{min-height:26px;margin:12px 0;font-variant-numeric:tabular-nums}img{width:100%;background:#252c33;border-radius:12px}.muted{font-size:14px;color:#aeb1b0}</style>
+<h1>플레이어 · 또렷한 피격 반응</h1><p>몸체의 짧은 색 변화와 먹 파편으로 맞는 순간을 강조합니다. 몸이 움찔하고 망토가 뒤따라 회복합니다. 첫 <b>0.10초</b>는 행동 정지, 이후 <b>0.12초</b>는 조작하면서 회복하는 시안입니다.</p>
+<canvas id="stage" width="960" height="500" tabindex="0"></canvas><div id="status"></div>
+<button id="hit">피격 재생 · H</button><button id="auto">자동 반복 켜짐</button><button id="pause">일시정지</button><button id="prev">이전 프레임</button><button id="next">다음 프레임</button><button id="flip">방향 전환</button><button id="feedback">피격 강조 켜짐</button>
+<select id="speed"><option value="1">정상 속도</option><option value=".5">0.5배속</option><option value=".25">0.25배속</option></select>
+<p class="muted">A / D로 이동하며 H를 눌러 행동 정지와 회복 구간을 비교할 수 있습니다. 따뜻한 색 변화 · 타격 지점의 먹 파편 · 미세한 화면 충격을 추가했습니다. 피격 강조 버튼으로 원화만 재생하며 비교할 수 있습니다. Unity 적용 전 동작 시안입니다.</p>
+<h2>피격 원화 · 4프레임</h2><img src="hurt-sheet.png" alt="짧은 경직, 반동, 회복, 정돈의 네 프레임">
+<script src="feedback.js"></script>
+<script>
+const c=document.querySelector('canvas'),ctx=c.getContext('2d'),status=document.querySelector('#status');let sheet,idle,r;
+let time=-1,clock=0,last=0,auto=true,paused=false,facing=1,x=480,frame=0,lock=false,keys=new Set();
+const durations=[.055,.045,.055,.065];
+const load=src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=src});
+function hit(){if(time>=0)return;time=0;frame=0;clock=0;startFeedback();paused=false;document.querySelector('#pause').textContent='일시정지'}
+function frameAt(t){let sum=0;for(let i=0;i<4;i++){sum+=durations[i];if(t<sum)return i}return 3}
+function render(){ctx.clearRect(0,0,960,500);ctx.strokeStyle='#626769';ctx.beginPath();ctx.moveTo(40,420);ctx.lineTo(920,420);ctx.stroke();
+ctx.save();
+const shake=feedbackEnabled&&feedbackTime<.07?Math.sin(feedbackTime*210)*2.2*(1-feedbackTime/.07):0;
+ctx.translate(shake,0);
+drawBody(b=>{b.save();b.translate(x,420);b.scale(facing,1);if(time<0){b.drawImage(idle,-r.idle.anchorX*.75,-r.idle.bottom*.75,384,384)}else{const f=r.frames[frame],s=f.sourceRect;b.drawImage(sheet,...s,-f.anchorX*r.scale,-f.bottom*r.scale,s[2]*r.scale,s[3]*r.scale)}b.restore()});
+drawFeedback();ctx.restore();
+lock=time>=0&&time<.1;status.textContent=time<0?'대기 · H를 눌러 피격':`${frame+1} / 4 · ${Math.round(time*1000)}ms · ${lock?'행동 정지':'조작 가능 · 회복 중'}`;
+ctx.fillStyle=lock?'#cf9a82':'#8aa998';ctx.fillRect(40,462,880*(time<0?0:Math.min(1,time/.22)),5);ctx.fillStyle='#bfc1bb';ctx.font='14px system-ui';ctx.fillText('0ms',40,491);ctx.fillText('행동 재개 100ms',390,491);ctx.fillText('220ms',863,491);
+window.previewState={phase:time<0?'idle':'hurt',frame,time,locked:lock,x,facing,paused,feedbackEnabled,feedbackTime};}
+function tick(now){const dt=Math.min(.05,(now-last)/1000);last=now;if(!paused){const scaled=dt*Number(document.querySelector('#speed').value);clock+=scaled;feedbackTime+=scaled;if(time>=0){time+=scaled;if(time>=.22){time=-1;clock=0}else frame=frameAt(time)}else if(auto&&clock>1.2)hit();if(!(time>=0&&time<.1)){const dir=(keys.has('d')?1:0)-(keys.has('a')?1:0);if(dir){facing=dir;x=Math.max(130,Math.min(830,x+dir*180*scaled))}}}render();requestAnimationFrame(tick)}
+document.querySelector('#feedback').onclick=e=>{feedbackEnabled=!feedbackEnabled;e.target.textContent='피격 강조 '+(feedbackEnabled?'켜짐':'꺼짐')};
+document.querySelector('#hit').onclick=hit;document.querySelector('#auto').onclick=e=>{auto=!auto;e.target.textContent='자동 반복 '+(auto?'켜짐':'꺼짐')};
+document.querySelector('#pause').onclick=e=>{paused=!paused;e.target.textContent=paused?'재생':'일시정지'};
+function step(dir){auto=false;paused=true;if(time<0)frame=dir>0?0:3;else frame=(frame+dir+4)%4;time=durations.slice(0,frame).reduce((a,b)=>a+b,0)+.001;render()}
+document.querySelector('#prev').onclick=()=>step(-1);document.querySelector('#next').onclick=()=>step(1);document.querySelector('#flip').onclick=()=>facing*=-1;
+window.addEventListener('keydown',e=>{keys.add(e.key.toLowerCase());if(e.key.toLowerCase()==='h'&&!e.repeat)hit()});window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));window.addEventListener('blur',()=>keys.clear());
+Promise.all([load('hurt-sheet.png'),load('idle.png'),fetch('registration.json').then(x=>x.json())]).then(v=>{[sheet,idle,r]=v;window.previewReady=true;requestAnimationFrame(tick)}).catch(e=>status.textContent='로딩 실패: '+e);
+</script></html>
+

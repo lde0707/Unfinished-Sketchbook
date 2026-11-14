@@ -1,0 +1,11 @@
+{
+  "tool": "built-in image_gen",
+  "asset": "Book/Assets/Unfin/Resources/PlayerLifeEffects/paper-ink-atlas-v1.png",
+  "prompt": "Use case: stylized-concept. Production game VFX sprite atlas for Stilldrawn, a dark paper-and-ink 2D metroidvania. Create a square 1024x1024 transparent RGBA atlas divided into EXACT 2 columns and 2 rows, each cell 512x512, NO visible grid. Four isolated effect elements, each centered in its cell and surrounded by generous transparent margins of at least 55 pixels, never overlapping cells. TOP LEFT: soft charcoal and muted violet ink dissolution wisp, a loose broken crescent of drifting ink and torn paper dust with a transparent central opening. TOP RIGHT: warm muted ivory and old parchment gold magical gathering spiral, two fine broken curved wisps and subtle scattered flecks, transparent center, not a solid glowing ball. BOTTOM LEFT: a single softly curled torn ivory parchment fragment with softly detailed paper fibers, no writing. BOTTOM RIGHT: a single small almond shaped warm ivory dust mote with a soft subtle halo. Match painterly torn-paper cave environments: soft rounded contours, medium-size paper grain, elegant restrained magic, matte ink, no pixel art, no plastic, no neon, no white explosion. These are standalone transparent effect textures, not characters, scenes or UI. No text, no border, no checkerboard. Do not draw a player or ground. The effect silhouettes must be readable at small game scale.",
+  "layout": {
+    "width": 1254,
+    "height": 1254,
+    "topRowHeight": 720
+  },
+  "notes": "Original generated RGBA kept intact. Sprite rectangles configured in PlayerLifeVfx. No external downloaded assets."
+}

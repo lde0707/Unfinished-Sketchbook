@@ -13,7 +13,7 @@ Shader "Unfin/Room Backdrop"
             #include "UnityCG.cginc"
             sampler2D _MainTex;
             float4 _UVRect, _Room;
-            float _Brightness, _Flip;
+            float _Brightness, _Flip, _StilldrawnAtmosphereTime, _StilldrawnAtmosphereStrength;
             struct v2f {float4 pos:SV_POSITION;float2 uv:TEXCOORD0;float2 world:TEXCOORD1;};
             v2f vert(appdata_base v){v2f o;o.pos=UnityObjectToClipPos(v.vertex);o.uv=v.texcoord.xy;o.world=mul(unity_ObjectToWorld,v.vertex).xy;return o;}
             fixed4 frag(v2f i):SV_Target
@@ -23,7 +23,9 @@ Shader "Unfin/Room Backdrop"
                 #ifndef UNITY_COLORSPACE_GAMMA
                 c.rgb=LinearToGammaSpace(c.rgb);
                 #endif
-                c.rgb*=_Brightness;
+                // Low-frequency light variation only; masonry and painted contours stay fixed.
+                float light=sin(i.world.x*.23+i.world.y*.17+_StilldrawnAtmosphereTime*.19)*sin(i.world.y*.31-_StilldrawnAtmosphereTime*.11);
+                c.rgb*=_Brightness*(1+light*.035*_StilldrawnAtmosphereStrength);
                 #ifndef UNITY_COLORSPACE_GAMMA
                 c.rgb=GammaToLinearSpace(c.rgb);
                 #endif

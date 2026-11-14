@@ -1,0 +1,15 @@
+{
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "file": "Book/Assets/Unfin/Resources/PaperMenuV2/pause-panel.png",
+      "prompt": "Use case: stylized-concept. Production transparent PNG pause-menu panel asset for STILLDRAWN, a subdued paper and graphite metroidvania. Reference image is ONLY for the game's brown-grey torn-paper cave materials and restrained painted texture, do not reproduce screenshot or character. Create ONE portrait 1024x1536 centered flat orthographic UI panel, isolated on genuine transparent background. A softly irregular layered charcoal paper sheet, worn book-binding corners, subtle ivory fibers and tiny muted bronze stitches, no ornate gold ribbons, no leaves, no glowing neon. Straight frontal view, no perspective or foreshortening. Panel occupies x=80..944,y=70..1466. Quiet dark interior. Top quarter reserved blank for a heading. Exactly FOUR evenly spaced wide blank horizontal recessed paper button areas centered x=512, centers y=600,790,980,1170; each width 660 height 120, with natural aspect ratio about 5.5:1, delicately torn horizontal edges, broad empty center for runtime Korean text. All four identical proportions. Small understated book-fold motif at top center, restrained engraved rule under heading. Bottom blank space for a short hint. High-quality stylized painted tactile paper texture that belongs in the reference game, matte, softly shaded. NO text, no letters, no numbers, no labels, no scene backdrop. Preserve real alpha outside panel. This image will be rendered as a single fixed-aspect asset with interactive labels over those four button positions.",
+      "revision": "Keep panel; add fourth matching button at y=1100, preserve first three; transparent alpha outside panel; no text."
+    },
+    {
+      "file": "Book/Assets/Unfin/Resources/PaperMenuV2/health-tray.png",
+      "prompt": "Use case: stylized-concept. Generate a production horizontal health HUD backing asset for the reference dark paper-cave metroidvania STILLDRAWN. Transparent PNG, 1536x512. One very restrained long charcoal paper trough with softly torn layered edges and a thin muted ivory stitched baseline. Centered, straight-on, flat UI, width about 1400 height 300. Interior nearly uniform dark warm graphite with subtle broad paper fibers, generous empty space: existing five pale leaf health icons will be laid on top in the game. No leaf motifs, no extra icons, no hearts, no text, no numbers, no gold filigree, no scroll curls. The left and right ends taper quietly to transparency, no hard rectangular backdrop. Preserve actual alpha outside the paper strip. Match the broad, matte paper textures and low contrast of the game reference; elegant, readable, unobtrusive HUD backing, not a large ornamental banner."
+    }
+  ],
+  "usage": "Native aspect ratio. Runtime Korean labels and live health values."
+}

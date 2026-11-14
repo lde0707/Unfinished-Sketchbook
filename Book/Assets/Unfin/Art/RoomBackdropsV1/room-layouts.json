@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "gridSha256": "330a8b6a41ff7620942812e3f703e2cb665e3fb09ff9604ced32ff766b469c73",
+  "version": 2,
+  "gridSha256": "3a5071496832218fc7855eda9b7e61421ee07b32bcd48866da2d1cfead71b3cb",
   "referenceTilePixels": 128,
   "referenceViewport": [
     1920,
@@ -361,8 +361,8 @@
       "shape": "wide",
       "screensX": 3.33,
       "screensY": 0.71,
-      "openCells": 300,
-      "platformCells": 0,
+      "openCells": 294,
+      "platformCells": 6,
       "mezzanines": 0,
       "atlas": "B-mine.png",
       "props": [
@@ -1973,8 +1973,8 @@
       "shape": "alcove",
       "screensX": 0.4,
       "screensY": 0.71,
-      "openCells": 36,
-      "platformCells": 0,
+      "openCells": 30,
+      "platformCells": 6,
       "mezzanines": 0,
       "atlas": "G-canyon.png",
       "props": [
@@ -2579,6 +2579,46 @@
         }
       ],
       "previewSpawn": "527,20"
+    },
+    {
+      "r": 1,
+      "n": 31,
+      "z": "B",
+      "name": "연필밥 수장고",
+      "x": 122,
+      "y": 111,
+      "w": 16,
+      "h": 9,
+      "info": "갈림굴 서쪽 승강로에서 먼저 보이는 낙서 봉인 · 지우개 대시 후 체력 조각 회수",
+      "id": "1-31",
+      "title": "연필밥 수장고의 낮은 선반",
+      "design": "대시 봉인 뒤의 낮은 보상 방. 작은 광석 선반과 작업 잔해를 양끝에 두고 중앙 보상을 비운다.",
+      "shape": "chamber",
+      "atlas": "B-mine.png",
+      "props": [
+        {
+          "part": 2,
+          "x": 125,
+          "y": 118,
+          "w": 5,
+          "h": 4,
+          "layer": 1,
+          "anchorFloor": true
+        },
+        {
+          "part": 3,
+          "x": 135,
+          "y": 118,
+          "w": 4,
+          "h": 5,
+          "layer": 0,
+          "anchorFloor": true
+        }
+      ],
+      "openCells": 144,
+      "platformCells": 0,
+      "screensX": 1.07,
+      "screensY": 1.07
     }
   ]
 }

@@ -115,3 +115,31 @@ Art/rejected/
 Art/_tmp_unify/
 __pycache__/
 Art/bg_preview/
+
+# Local caches and build packages (published separately as GitHub Releases)
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
+**/[Bb]uilds/
+**/node_modules/
+**/__pycache__/
+**/.venv/
+**/.vs/
+**/.DS_Store
+**/Thumbs.db
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+~$*
+
+/tmp/
+
+# Generated QA screenshots and intermediate renders remain available locally.
+/Book/Validation/
+/Art/Previews/

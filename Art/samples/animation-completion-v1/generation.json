@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-24",
+  "tool": "image_gen",
+  "prompts": [
+    {
+      "key": "Parry",
+      "refs": [
+        "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/samples/player-hurt-v1/idle.png"
+      ],
+      "prompt": "Create a production 2D side scrolling animation SPRITE SHEET with transparent background. Reference image is the EXACT existing player design; preserve the round ivory paper head, single black oval eye, short arms and legs, layered long cream paper cape, shorts, fine warm graphite contour and matte pressed parchment texture, precise proportions. NO new costume, NO sword, NO redesign, NO extra limbs. Draw eight full body frames all FACING RIGHT, 4 equal columns x 2 equal rows, each centered with ample transparent margin, common head size and baseline. First row 4 frames DEFLECTION: 1 immediate compact stance raising folded cape and short forearm forward at chest, 2 firm small forward guard with round mitten barely protruding, 3 same compact guard slightly braced, 4 relaxed transition to existing idle. Second row 4 frames SUCCESS: 5 sharp tiny forward paper-cape deflection and head recoil only subtly, 6 follow through of cape to the right with feet planted, 7 paper layers settle, 8 returns exact idle. Bodies fully drawn each frame, NO rigging, no blur, no particles baked onto character. Elegant gentle hero, short limbs, modest movements, face remains right profile. Legible poised silhouettes, no shields, no text or grid lines. Crisp paper illustration same detailed matte grain as reference. EXACT 4 columns 2 rows."
+    },
+    {
+      "key": "MineOverseer",
+      "refs": [
+        "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Book/Validation/camera-grade-after.png"
+      ],
+      "prompt": "Production enemy animation sprite sheet on TRUE transparent background, no scene. Reference is ONLY visual material/style guide of our actual dark paper cave game, do not include player or scenery. Design a stout elite mine overseer made of a broad old charcoal-stained ivory ERASER block, rounded chipped rubber corners, worn graphite miners collar, short broad paper boots, tiny dim amber eye slits under broad folded visor. No human skin. Broad heavy silhouette, about 1.5 times player height. Matte pressed paper/rubber material, graphite abrasion in broad patches, softly rounded contours, muted dark slate/umber/ivory, detailed but not photorealistic. 24 WHOLE BODY animation frames in EXACT 4 columns x 6 rows equal cells, facing RIGHT, fixed body scale, common grounded baseline, generous margin NO borders/text. Rows1-2: 8 patrol frames, deliberate alternating short steps and subtle body weight. Rows3-4: 8 ATTACK frames: 1 brace low,2 prepare,3 deep crouch leaning right,4 anticipation held,5 explosive shoulder dash right with both short legs bent,6 heavy forward rush,7 exhausted brake,8 upright recovery. Rows5-6:8 DEATH frames: stagger, tilt, crack into big paper/rubber shapes, buckle to knees, collapse, dissolve into graphite paper scraps, fewer scraps, last few faint scraps. No gore. Do not translate torso off center; movement handled by game. All frames complete, no clipped cape or feet, absolutely true transparent empty margins. No attack aura baked into sprites."
+    },
+    {
+      "key": "VineHunter",
+      "refs": [
+        "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Book/Validation/camera-grade-after.png"
+      ],
+      "prompt": "Production elite enemy animation sprite sheet on TRUE transparent background. Reference is ONLY visual texture guide for our dark matte paper cave game, don't include scene or player. Design a compact nimble VINE HUNTER: hunched folded dark olive paper creature wearing a smooth empty nutshell-like pale paper mask with two small warm dark eye slits, broad leaf cape, four big overlapping paper leaves not tiny needles, short articulated legs and one curved rounded hooked vine weapon held low. Mysterious readable elite monster, no humanoid skin, no scary teeth, no sharp spiky mess. Matte pressed paper layers and broad graphite grain, muted desaturated olive, warm gray, brown and ivory; no pixel art, no photorealism. 24 whole-body frames EXACT 4 equal columns x 6 equal rows, all facing RIGHT, fixed size, same ground baseline, centered generous transparent margins, NO text/grid. Rows1-2:8 agile patrol/idle frames alternating bent short legs, cape settling. Rows3-4:8 attack frames: compact crouch, rear leg load, weapon folds close, coils ready, long forward pouncing slash with hooked leaf arm, airborne tight follow through, bent-knee landing, recover poised stance. Rows5-6:8 death frames: hit-free defeat collapse, mask dips, leaves loosen, kneels, breaks into large dry paper leaves, leaves disperse, few leaves, last faint scraps. No gore. Keep displacement within cell and centered; game handles leap movement. Same character and scale every frame; no particles/big effects on attack frames, no clipped edges. True transparent background."
+    }
+  ],
+  "sourceFiles": {
+    "Parry": "exec-3748f8b6-007d-4eba-bc7a-552f06ef9d3c.png",
+    "MineOverseer": "exec-2c956691-df84-4892-a85f-33e51872aaf3.png",
+    "VineHunter": "exec-ca79dff1-b6ef-48ba-a798-3163c5275216.png"
+  },
+  "preserved": "All previously approved player locomotion and combat source drawings, timing and proportions"
+}

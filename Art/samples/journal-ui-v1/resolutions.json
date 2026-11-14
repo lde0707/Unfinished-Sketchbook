@@ -1,0 +1,41 @@
+{
+  "source": "https://store.steampowered.com/hwsurvey/T?platform=pc",
+  "survey": "September 2026",
+  "platform": "Windows",
+  "category": "Primary display resolution",
+  "exclude": "Other",
+  "selected": [
+    {
+      "size": "1920x1080",
+      "percent": 49.1
+    },
+    {
+      "size": "2560x1440",
+      "percent": 27.76
+    },
+    {
+      "size": "2560x1600",
+      "percent": 5.43
+    },
+    {
+      "size": "3840x2160",
+      "percent": 4.81
+    },
+    {
+      "size": "3440x1440",
+      "percent": 2.88
+    },
+    {
+      "size": "1920x1200",
+      "percent": 2.57
+    },
+    {
+      "size": "1366x768",
+      "percent": 1.91
+    },
+    {
+      "size": "2560x1080",
+      "percent": 0.61
+    }
+  ]
+}

@@ -183,5 +183,17 @@
     "event": "MusicCrayon",
     "runtime": "MusicCrayon_0.ogg",
     "original": "Art\\ThirdParty\\Audio\\Searching.ogg"
+  },
+  {
+    "event": "AmbienceGraphite",
+    "runtime": "AmbienceGraphite_0.wav",
+    "original": "Original procedural sound design: Tools/create_stilldrawn_ambience.py",
+    "manifest": "Art/Audio/StilldrawnAmbienceV1/manifest.json"
+  },
+  {
+    "event": "AmbienceCrayon",
+    "runtime": "AmbienceCrayon_0.wav",
+    "original": "Original procedural sound design: Tools/create_stilldrawn_ambience.py",
+    "manifest": "Art/Audio/StilldrawnAmbienceV1/manifest.json"
   }
 ]

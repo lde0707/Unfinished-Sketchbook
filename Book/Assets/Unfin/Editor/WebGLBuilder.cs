@@ -35,7 +35,7 @@ namespace Unfin.Editor
             AssetDatabase.SaveAssets();
             var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
             {
-                scenes = new[] { WorldPrototypeBuilder.ScenePath },
+                scenes = new[] { WorldPrototypeBuilder.ScenePath, PrologueMapBuilder.ScenePath },
                 locationPathName = output,
                 target = BuildTarget.WebGL,
                 options = BuildOptions.None

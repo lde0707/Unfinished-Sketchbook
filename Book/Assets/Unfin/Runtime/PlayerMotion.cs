@@ -14,7 +14,8 @@ namespace Unfin
         public const float DashSpeed=244.8f;
         public const float DashDuration=.2f;
         public const float DashCooldown=.42f; // Same220ms recovery after the dash.
-        public const float RunPlaybackRate=GroundSpeed/125;
+        // Animation-only boost: movement, jump and attack timings remain unchanged.
+        public const float RunPlaybackRate=GroundSpeed/125*1.3f;
         public const float WallJumpSpeed=420*(JumpSpeed/425);
         public const float WallJumpHorizontal=154;
         public const float WallRegrabDelay=.045f;

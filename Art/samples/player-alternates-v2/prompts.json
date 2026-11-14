@@ -1,0 +1,5 @@
+{
+  "tool": "built-in image_gen",
+  "referenceBackground": "Art/samples/room-backdrops-v1/rooms/1-01.png",
+  "referenceStyle": "Art/samples/player-death-revive-v1/idle.png"
+}

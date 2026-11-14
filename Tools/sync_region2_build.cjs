@@ -1,0 +1,8 @@
+const fs=require('fs'),path=require('path');const root=path.resolve(__dirname,'..'),from=path.join(root,'Builds/UnityWebGLProject'),to=path.join(root,'Book');
+function copy(relative){const src=path.resolve(from,relative),dst=path.resolve(to,relative);if(!src.startsWith(from+path.sep)||!dst.startsWith(to+path.sep))throw Error('Outside workspace');if(!fs.existsSync(src))return;const data=fs.readFileSync(src);if(fs.existsSync(dst)&&fs.readFileSync(dst).equals(data))return;fs.mkdirSync(path.dirname(dst),{recursive:true});fs.writeFileSync(dst+'.tmp',data);fs.renameSync(dst+'.tmp',dst);}
+function walk(relative,filter=()=>true){const dir=path.join(from,relative);if(!fs.existsSync(dir))return;for(const item of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(relative,item.name);if(item.isDirectory())walk(p,filter);else if(filter(p))copy(p);}}
+for(const p of ['Assets/Unfin/Art/Region2V1','Assets/Unfin/Resources/Region2','Assets/Unfin/Resources/BossRegion1'])walk(p,x=>x.endsWith('.meta')||x.endsWith('.mat')||x.endsWith('ZoneWeights.png'));
+for(const p of ['Assets/Unfin/Runtime','Assets/Unfin/Editor','Assets/Unfin/Resources/EnemyAnimations','Assets/Unfin/Art/RoomBackdropsV1'])walk(p,x=>x.endsWith('.meta')||x.endsWith('.mat'));
+for(const p of ['Assets/Scenes/World12Prototype.unity','Assets/Unfin/Art/Region2V1.meta','Assets/Unfin/Resources/Region2.meta','Assets/Unfin/Resources/WorldPropPlacement.json','Assets/Unfin/Art/Region1BackgroundV3/Background.mat','Validation/boss-region1.json','Validation/region2-v1.json'])copy(p);
+copy('Validation/region2-puzzles.json');
+if(process.argv.includes('--validation'))walk('Validation/region2-rooms');console.log('REGION2_BUILD_ASSETS_SYNCED');

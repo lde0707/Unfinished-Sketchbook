@@ -1,0 +1,92 @@
+{
+  "Idle": {
+    "scale": 0.82,
+    "neutral": {
+      "top": 69,
+      "bottom": 479,
+      "height": 411
+    },
+    "ground": 592
+  },
+  "Sweep": {
+    "scale": 0.7986255924170615,
+    "neutral": {
+      "top": 66,
+      "bottom": 487,
+      "height": 422
+    },
+    "ground": 592
+  },
+  "Slam": {
+    "scale": 0.8467839195979899,
+    "neutral": {
+      "top": 108,
+      "bottom": 505,
+      "height": 398
+    },
+    "ground": 592
+  },
+  "Rush": {
+    "scale": 0.783767441860465,
+    "neutral": {
+      "top": 75,
+      "bottom": 504,
+      "height": 430
+    },
+    "ground": 592
+  },
+  "Roots": {
+    "scale": 0.7694520547945205,
+    "neutral": {
+      "top": 50,
+      "bottom": 487,
+      "height": 438
+    },
+    "ground": 592
+  },
+  "Fan": {
+    "scale": 0.8140579710144927,
+    "neutral": {
+      "top": 96,
+      "bottom": 509,
+      "height": 414
+    },
+    "ground": 592
+  },
+  "Cross": {
+    "scale": 0.8686082474226804,
+    "neutral": {
+      "top": 103,
+      "bottom": 490,
+      "height": 388
+    },
+    "ground": 592
+  },
+  "Death": {
+    "scale": 0.7747586206896552,
+    "neutral": {
+      "top": 77,
+      "bottom": 511,
+      "height": 435
+    },
+    "ground": 592
+  },
+  "Move": {
+    "scale": 0.7489333333333333,
+    "neutral": {
+      "top": 38,
+      "bottom": 487,
+      "height": 450
+    },
+    "ground": 592
+  },
+  "Stagger": {
+    "scale": 0.7948584905660376,
+    "neutral": {
+      "top": 59,
+      "bottom": 482,
+      "height": 424
+    },
+    "ground": 592
+  }
+}

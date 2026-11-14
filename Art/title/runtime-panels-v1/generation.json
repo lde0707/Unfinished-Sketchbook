@@ -1,0 +1,38 @@
+{
+  "mode": "built-in imagegen",
+  "jobs": [
+    {
+      "key": "background",
+      "ref": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/title/stilldrawn-painted-v3-undo/title-concept.png",
+      "alpha": false,
+      "prompt": "Precisely edit this approved STILLDRAWN title painting to prepare a runtime background layer. Preserve ALL background artwork, the exact large STILLDRAWN wordmark and small Korean subtitle at upper left, the exact small bottom-center '기획 · 개발 · 제작 UNDO' credit and tiny version at bottom right. Remove ALL three paper menu buttons and their lettering/binding from the left middle, and remove the last-bookmark section at bottom left including rule, icon and text. Seamlessly paint the matching dark forest underneath those removed UI elements. No other changes. Keep the open book and flying pages in exactly the same position, full 16:9. This image is a background only with logo and credit baked in; runtime buttons will be drawn over its empty left portion."
+    },
+    {
+      "key": "panel",
+      "ref": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/title/stilldrawn-painted-v2/submenus-v1/03-settings.png",
+      "alpha": true,
+      "prompt": "Extract and clean ONLY the main charcoal parchment panel from this approved game settings screen as a reusable UI panel layer on TRUE transparent background. Preserve the panel's EXACT position, shape and size in the same full 16:9 canvas: from roughly x8% to92%, y19% to91%. Keep rough torn paper border, fine faded gold edging, dark paper fill, and the narrow right-hand forest illustration strip. Remove everything outside the panel (background, STILLDRAWN wordmark, all three tabs) to transparent alpha. INSIDE the panel remove ALL text, sun icon, buttons, option selectors, sliders, row separators, heading rule and footer rule, replacing with continuous matching dark parchment texture. Keep only the right vertical art strip and delicate perimeter frame. No letters or controls anywhere. The center must be completely blank richly textured dark paper. The panel is opaque, outside truly transparent. Do not crop or zoom the canvas; maintain same layout so it overlays the original background."
+    },
+    {
+      "key": "button",
+      "ref": "C:/Users/doun0/OneDrive/바탕 화면/File/GitHub/Unfinished-Sketchbook/Art/title/stilldrawn-painted-v2/submenus-v1/03-settings.png",
+      "alpha": true,
+      "prompt": "Create a standalone reusable EMPTY horizontal paper button matching the dark torn-paper buttons along the bottom of this reference. Only ONE button, large and centered on transparent background, silhouette ratio about 5:1 width to height. Dark brown charcoal paper with fine muted ochre edging, ragged slightly pointed right edge, tiny old gold binding thread loop at left. Premium painterly paper/ink aesthetic exactly matching reference. Absolutely NO text, symbols, arrows, lettering or background. No other objects or sheet. Tight but safe transparent padding all around, true alpha. This is the unlabelled button skin for Unity."
+    }
+  ],
+  "outputs": {
+    "background": "background.png",
+    "panel": "panel.png",
+    "button": "button.png"
+  },
+  "runtime": {
+    "directory": "Book/Assets/Unfin/Resources/Title/Panels",
+    "buttonAlphaCrop": [
+      45,
+      175,
+      2132,
+      525
+    ],
+    "aspectPreserved": true
+  }
+}

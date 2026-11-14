@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/World12Prototype.unity
     guid: 66c4732c94817dc479dea846b4dd6249
+  - enabled: 1
+    path: Assets/Scenes/StilldrawnPrologue.unity
+    guid: 74ce7f691910f0d4d861ef0e91e04ee4
   m_configObjects: {}

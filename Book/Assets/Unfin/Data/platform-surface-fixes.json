@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-23",
+  "beforeGridSha256": "b90c587dbdfd3258dc6673a2f94a98e20f707c65d816bf6c595180b4d5880756",
+  "gridSha256": "3a5071496832218fc7855eda9b7e61421ee07b32bcd48866da2d1cfead71b3cb",
+  "cells": [
+    {
+      "x": 142,
+      "y": 105,
+      "before": 0,
+      "after": 4
+    },
+    {
+      "x": 143,
+      "y": 105,
+      "before": 0,
+      "after": 4
+    },
+    {
+      "x": 144,
+      "y": 105,
+      "before": 0,
+      "after": 4
+    },
+    {
+      "x": 253,
+      "y": 113,
+      "before": 0,
+      "after": 4
+    },
+    {
+      "x": 254,
+      "y": 113,
+      "before": 0,
+      "after": 4
+    }
+  ],
+  "reason": "Restore collision beneath painted one-way platforms; preserve passage traversal from below."
+}

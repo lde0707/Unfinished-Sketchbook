@@ -1,0 +1,9 @@
+{
+  "generator": "built-in image_gen",
+  "asset": "Book/Assets/Unfin/Resources/PaintedUI/cartographer-panel.png",
+  "prompt": "One front-facing parchment cartographer journal panel for Stilldrawn. Tactile layered torn paper, muted warm grey aged paper, charcoal worn edges, understated antique brass binding. Empty uninterrupted dark charcoal paper center for exact live game map; blank upper label strip; narrow stitched spine and tiny rust bookmark. Transparent background. No leaves, no text, no fictional routes or map symbols. Painterly papery cavern aesthetic.",
+  "integration": "Generated panel and sampled paper grain, composited with actual terrain contours. Room-wide discovery; never invent map geometry. Health flourish removed.",
+  "rooms": 57,
+  "discovery": "Reveal owned cells of entered room or connector; preserve visited cells in existing save data; unknown rooms remain hidden.",
+  "minimap": "Fits the complete current room, fixed view within each room; player marker moves independently."
+}

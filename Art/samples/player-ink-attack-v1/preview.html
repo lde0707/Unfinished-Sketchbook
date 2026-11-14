@@ -1,0 +1,8 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>종이 여행자 · 먹물 공격</title>
+<style>body{margin:0;padding:26px;background:#171c22;color:#eee3d0;font:16px system-ui;max-width:1200px;margin:auto}h1{font-size:27px}p{color:#b9b8b4;line-height:1.7}canvas{width:100%;border:1px solid #50565b;border-radius:12px;background:#303b43}button,select{padding:11px 17px;border:1px solid #606b70;background:#303d47;color:#eee3d0;border-radius:7px;margin:5px;cursor:pointer}.small{font-size:14px;color:#abb0b1}#status{min-height:25px;margin:14px 0}</style>
+<h1>공격 이펙트 · 먹이 터지는 붓자국</h1><p>먹색 붓자국에 종이색 가장자리, 날카로운 먹줄기와 작은 방울을 겹쳤습니다. 공격 순서는 찌르기 → 내려베기 → 올려베기입니다. 기존 원화를 유지한 시안입니다.</p>
+<canvas id="stage" width="1200" height="640"></canvas><div id="status"></div>
+<button data-hit="0">1타 · 찌르기</button><button data-hit="1">2타 · 내려베기</button><button data-hit="2">3타 · 올려베기</button><button id="auto">3단 자동 시연 켜짐</button><button id="flip">좌우 반전</button><button id="pause">일시정지</button><button id="toggle">먹 이펙트 켜짐</button>
+<select id="speed"><option value="1">정상 속도</option><option value=".5">0.5배속</option><option value=".25">0.25배속</option></select>
+<p class="small">클릭 / J : 다음 타격 · 큰 붓자국은 약 0.12초, 먹방울은 최대 0.42초 안에 사라집니다. 추가 이펙트는 비교용 시안이며 Unity에는 아직 적용하지 않았습니다.</p>
+<script src="ink.js"></script></html>
