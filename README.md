@@ -3,7 +3,7 @@
 <!-- WINDOWS-RELEASE-START -->
 ## Windows에서 바로 플레이
 
-**[StillDrawn · Windows 실행 파일 다운로드](https://github.com/lde0707/Unfinished-Sketchbook/releases/tag/portfolio-windows-2026-11-14)**
+**[StillDrawn · Windows 실행 파일 다운로드](https://github.com/lde0707/portfolio-game-builds/releases/tag/stilldrawn-2026-11-14)**
 
 스케치북 세계를 탐험하는 개발 중 2D 액션 프로젝트.
 
